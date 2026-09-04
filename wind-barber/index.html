@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Wind Barber shop – barbershop, Vršovická 89, Praha 10</title>
+<meta name="description" content="Barbershop na Vršovické 89 v Praze 10. Pánský střih, vousy, dětský střih. Ceník, otevírací doba, rezervace přes Reservio.">
+<meta name="theme-color" content="#FBFAF7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Mr+Dafoe&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "The Wind Barber shop",
+  "image": "img/front.jpg",
+  "telephone": "+420607337907",
+  "url": "https://the-wind-barber.reservio.com/booking",
+  "priceRange": "280–700 Kč",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Vršovická 89",
+    "addressLocality": "Praha 10 – Vršovice",
+    "postalCode": "100 00",
+    "addressCountry": "CZ"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.0704561, "longitude": 14.4744748 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Saturday"], "opens": "09:30", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday","Friday"], "opens": "09:30", "closes": "19:30" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "275" }
+}
+</script>
+<style>
+:root{
+  --paper:#FBFAF7; --plaster:#EFECE5; --brick:#2A1F1A; --mortar:#6E635B; --neon:#FF4A17; --ember:#B8330C;
+  --line:rgba(42,31,26,.14);
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --script:"Mr Dafoe","Brush Script MT","Segoe Script",cursive;
+  --wrap:1180px; --gutter:clamp(20px,5vw,72px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--brick);font-family:var(--sans);font-size:17px;line-height:1.55;font-weight:400}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--ember);text-underline-offset:3px}
+a:hover{color:var(--brick)}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-weight:700;letter-spacing:-.02em;line-height:1.08;margin:0}
+h2{font-size:clamp(30px,4vw,44px)}
+h3{font-size:19px;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:6px;font-weight:500;font-size:16px;text-decoration:none;border:2px solid var(--brick);transition:background .15s,color .15s}
+.btn-solid{background:var(--brick);color:var(--paper)}
+.btn-solid:hover{background:#000;border-color:#000;color:#fff}
+.btn-ghost{background:transparent;color:var(--brick)}
+.btn-ghost:hover{background:var(--plaster);color:var(--brick)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(251,250,247,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:28px;min-height:68px}
+.brand{font-weight:700;letter-spacing:-.01em;color:var(--brick);text-decoration:none;font-size:17px;white-space:nowrap}
+.nav ul{list-style:none;margin:0 0 0 auto;padding:0;display:flex;gap:26px}
+.nav ul a{color:var(--brick);text-decoration:none;font-weight:500;font-size:15px}
+.nav ul a:hover{color:var(--ember)}
+.lang{display:flex;border:1.5px solid var(--line);border-radius:6px;overflow:hidden}
+.lang button{appearance:none;background:transparent;border:0;font:inherit;font-size:13px;font-weight:500;padding:6px 10px;color:var(--mortar);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--brick);color:var(--paper)}
+.nav .btn{min-height:42px;padding:0 18px;font-size:15px}
+@media (max-width:820px){ .nav ul{display:none} .nav .wrap{gap:14px} .nav .btn{display:none} .brand{margin-right:auto} }
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center;padding-top:clamp(28px,6vw,80px);padding-bottom:clamp(40px,6vw,80px)}
+.neon{font-family:var(--script);font-weight:400;font-size:clamp(64px,8vw,116px);line-height:.95;color:var(--neon);letter-spacing:.01em;margin:0 0 18px -4px;
+  text-shadow:0 0 2px rgba(255,74,23,.9),0 0 12px rgba(255,74,23,.55),0 0 34px rgba(255,74,23,.35),0 0 80px rgba(255,74,23,.18)}
+.neon span{display:block;white-space:nowrap}
+.neon span + span{margin-left:.9em}
+.hero h1{font-size:clamp(28px,3.2vw,40px);max-width:22ch;margin-bottom:16px}
+.hero-sub{color:var(--mortar);max-width:44ch;font-size:18px;margin-bottom:28px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.rating{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--mortar)}
+.rating b{color:var(--brick);font-weight:700;font-size:17px}
+.stars{color:var(--neon);letter-spacing:2px;font-size:15px}
+.hero-img{position:relative}
+.hero-img img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 12%;border-radius:8px}
+.hero-img figcaption{font-size:13px;color:var(--mortar);margin-top:10px}
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-img{margin:8px calc(-1 * var(--gutter)) 0}
+  .hero-img img{aspect-ratio:4/5;border-radius:0;object-position:50% 0}
+  .hero-img figcaption{padding:0 var(--gutter)}
+  .neon{font-size:clamp(60px,17vw,84px);margin-top:10px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .neon.lit{animation:flick 1.6s steps(1,end) 1}
+  @keyframes flick{0%{opacity:.08;text-shadow:none}12%{opacity:1}18%{opacity:.15;text-shadow:none}26%{opacity:1}32%{opacity:.4;text-shadow:none}40%{opacity:1}100%{opacity:1}}
+}
+
+/* sections */
+.sec{padding:clamp(56px,8vw,104px) 0}
+.sec.tint{background:var(--plaster)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px clamp(28px,5vw,72px);align-items:end;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head p{color:var(--mortar);max-width:52ch;font-size:17px}
+@media (max-width:820px){ .sec-head{grid-template-columns:1fr} }
+
+/* prices */
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px)}
+.pg h3{padding-bottom:12px;border-bottom:2px solid var(--brick);margin-bottom:6px}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.pg li .n{flex:1}
+.pg li .n small{display:block;color:var(--mortar);font-size:14px;margin-top:2px}
+.pg li .p{font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pg + .pg{margin-top:36px}
+.pnote{margin-top:36px;color:var(--mortar);max-width:60ch;font-size:15px}
+.pnote span{display:block}
+.pnote span + span{margin-top:6px}
+@media (max-width:820px){ .prices{grid-template-columns:1fr;gap:8px} .pg + .pg{margin-top:24px} }
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.about img{border-radius:8px;width:100%;aspect-ratio:4/5;object-fit:cover}
+.about-text h2{margin-bottom:16px}
+.about-text p{margin-bottom:14px;max-width:48ch}
+.about-text p:last-of-type{margin-bottom:0}
+.steps{list-style:none;margin:32px 0 0;padding:24px 0 0;border-top:2px solid var(--brick)}
+.steps li{padding:10px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
+.steps li b{font-weight:700;white-space:nowrap}
+@media (max-width:820px){ .about{grid-template-columns:1fr} .about img{aspect-ratio:4/3} }
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.rev{padding:26px 0 0;border-top:2px solid var(--brick)}
+.rev .stars{display:block;margin-bottom:10px}
+.rev blockquote{margin:0 0 14px;font-size:18px;line-height:1.5;letter-spacing:-.005em}
+.rev cite{font-style:normal;color:var(--mortar);font-size:14px}
+.rev-all{margin-top:36px;font-size:15px}
+@media (max-width:820px){ .reviews{grid-template-columns:1fr} }
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.gallery figure{margin:0;overflow:hidden;border-radius:6px}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.gallery .wide{grid-column:span 2}
+.gallery .wide img{aspect-ratio:auto;height:100%}
+@media (max-width:820px){ .gallery{grid-template-columns:repeat(2,minmax(0,1fr))} .gallery .wide{grid-column:span 2} .gallery .wide img{aspect-ratio:3/2} }
+
+/* find us */
+.find{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px)}
+.find figure{margin:0 0 28px}
+.find figure img{border-radius:8px;width:100%;aspect-ratio:16/9;object-fit:cover}
+.status{display:inline-flex;align-items:center;gap:10px;font-weight:500;margin-bottom:18px}
+.status .dot{width:10px;height:10px;border-radius:50%;background:#1E8A4C;box-shadow:0 0 0 4px rgba(30,138,76,.15)}
+.status.closed .dot{background:var(--ember);box-shadow:0 0 0 4px rgba(184,51,12,.15)}
+.hours table{border-collapse:collapse;width:100%;max-width:380px;font-variant-numeric:tabular-nums}
+.hours td{padding:7px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;white-space:nowrap}
+.hours tr.today td{font-weight:700}
+.addr{margin-top:28px;display:grid;gap:4px}
+.addr .street{font-weight:700;font-size:19px}
+.addr a{width:fit-content}
+.map{border-radius:8px;overflow:hidden;background:var(--paper);border:1px solid var(--line);min-height:360px}
+.map iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+@media (max-width:820px){ .find{grid-template-columns:1fr} .map{min-height:300px} }
+
+/* footer */
+footer.site{border-top:1px solid var(--line);padding:32px 0 40px;font-size:14px;color:var(--mortar)}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center}
+footer.site .brand{font-size:15px}
+footer.site .r{margin-left:auto}
+@media (max-width:820px){ footer.site{padding-bottom:110px} footer.site .r{margin-left:0} }
+
+/* mobile bar */
+.bar{display:none}
+@media (max-width:820px){
+  .bar{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));background:rgba(251,250,247,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .bar .btn{min-height:48px;padding:0 14px}
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body id="top">
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">The Wind Barber shop</a>
+    <nav aria-label="Sekce">
+      <ul>
+        <li><a href="#cenik" data-i18n="nav.prices">Ceník</a></li>
+        <li><a href="#recenze" data-i18n="nav.reviews">Recenze</a></li>
+        <li><a href="#strihy" data-i18n="nav.gallery">Střihy</a></li>
+        <li><a href="#kontakt" data-i18n="nav.find">Kde nás najdete</a></li>
+      </ul>
+    </nav>
+    <div class="lang" role="group" aria-label="Jazyk / Language">
+      <button type="button" data-lang="cs" aria-pressed="true">CZ</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-solid" href="https://the-wind-barber.reservio.com/booking" target="_blank" rel="noopener" data-i18n="cta.book">Rezervovat</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="neon" id="neon" aria-label="Always be a man"><span aria-hidden="true">Always</span><span aria-hidden="true">be a man</span></p>
+        <h1 data-i18n="hero.h">Barbershop na Vršovické 89, Praha 10.</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Dva barbeři, tři křesla. Střih, vousy nebo obojí. Termín si zaklikneš na Reserviu, často i na tentýž den.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="https://the-wind-barber.reservio.com/booking" target="_blank" rel="noopener" data-i18n="cta.bookLong">Rezervovat termín</a>
+          <a class="btn btn-ghost" href="tel:+420607337907" data-i18n="cta.call">Zavolat</a>
+        </div>
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><b data-i18n="hero.rating">4,9</b><span data-i18n="hero.reviews">z 275 recenzí na Google</span></p>
+      </div>
+      <figure class="hero-img">
+        <img src="img/hero.jpg" alt="Zákazník po střihu před výlohou s oranžovým neonem Always be a man" width="1200" height="1600" fetchpriority="high">
+        <figcaption data-i18n="hero.cap">Neon ve výloze na Vršovické 89.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec tint" id="cenik">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="prices.h">Ceník</h2>
+        <p data-i18n="prices.p">Stejné ceny jako na Reserviu. Mytí, vysoušení a styling jsou v ceně střihu.</p>
+      </div>
+      <div class="prices">
+        <div>
+          <div class="pg">
+            <h3 data-i18n="g.hair">Vlasy</h3>
+            <ul>
+              <li><span class="n" data-i18n="i.short">Pánský střih, krátké vlasy</span><span class="p">470 Kč</span></li>
+              <li><span class="n"><span data-i18n="i.long">Pánský střih, dlouhé vlasy</span><small data-i18n="i.longNote">8 až 9 cm a víc</small></span><span class="p">520 Kč</span></li>
+              <li><span class="n" data-i18n="i.shave">Střih do hola</span><span class="p">280 Kč</span></li>
+              <li><span class="n"><span data-i18n="i.kids">Dětský střih</span><small data-i18n="i.kidsNote">do 12 let</small></span><span class="p">350 Kč</span></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="pg">
+            <h3 data-i18n="g.beard">Vousy</h3>
+            <ul>
+              <li><span class="n"><span data-i18n="i.beard">Úprava vousů</span><small data-i18n="i.beardNote">zkrácení, koutky, po holení, vůně a styling</small></span><span class="p">330 Kč</span></li>
+            </ul>
+          </div>
+          <div class="pg">
+            <h3 data-i18n="g.combo">Vlasy a vousy</h3>
+            <ul>
+              <li><span class="n" data-i18n="i.comboShort">Krátké vlasy a vousy</span><span class="p">650 Kč</span></li>
+              <li><span class="n" data-i18n="i.comboLong">Dlouhé vlasy a vousy</span><span class="p">700 Kč</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="pnote">
+        <span data-i18n="prices.n1">Platí se hotově nebo QR kódem, kartou ne.</span>
+        <span data-i18n="prices.n2">Bez rezervace to nejde, kluci stříhají jen na objednání.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sec" id="onas">
+    <div class="wrap about">
+      <img src="img/inside.jpg" alt="Interiér barbershopu, pohled ode dveří na křesla a čekací pohovku" width="900" height="1200" loading="lazy">
+      <div class="about-text">
+        <h2 data-i18n="about.h">Stříhají Nico a Raven</h2>
+        <p data-i18n="about.p1">Malý barbershop v přízemí na Vršovické. Tři křesla, dva barbeři. Přijdeš na svůj čas a sedneš si rovnou.</p>
+        <p data-i18n="about.p2">Fady, linky, klasika i dětské střihy. Přines fotku nebo řekni, co nosíš, a kluci poradí, co ti sedne.</p>
+        <ul class="steps">
+          <li><b data-i18n="s1.b">Rezervace</b><span data-i18n="s1.t">Na Reserviu si vybereš službu, barbera a čas. Bez registrace, za minutu.</span></li>
+          <li><b data-i18n="s2.b">Adresa</b><span data-i18n="s2.t">Vršovická 89, přízemí, vchod z ulice pod červenobílou markýzou.</span></li>
+          <li><b data-i18n="s3.b">Platba</b><span data-i18n="s3.t">Hotově nebo QR kódem na místě.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="recenze">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="rev.h">Co píšou lidi</h2>
+        <p data-i18n="rev.p">4,9 z 275 hodnocení na Google. Tady jsou čtyři, jak je lidi napsali.</p>
+      </div>
+      <div class="reviews">
+        <article class="rev">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <blockquote data-i18n="rev.1">Chodím sem už pár měsíců pravidelně, kluci jsou moc milí a vždy odvedou precizní až perfektní práci. Také je velmi příjemné nově zrekonstruované prostředí. Velkým pozitivem je rychlá a jednoduchá komunikace.</blockquote>
+          <cite>Lukáš, Google</cite>
+        </article>
+        <article class="rev">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <blockquote data-i18n="rev.2">Skvělý Barber Shop. Poměr cena kvalita nedostižný. Domluva fantastická. Účes na výbornou.</blockquote>
+          <cite>Vladan, Google</cite>
+        </article>
+        <article class="rev">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <blockquote data-i18n="rev.3">Byla jsem se synem, kterému jsou 3 roky. Pan byl velmi milý a přátelsky k mému synovy ze se ani nebál. Moc doporucuji</blockquote>
+          <cite>Nikol, Google</cite>
+        </article>
+        <article class="rev">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <blockquote data-i18n="rev.4">Příjemní mladí kluci, při stříhání je vidět, že je práce baví a výsledek super.</blockquote>
+          <cite>Marcel, Google</cite>
+        </article>
+      </div>
+      <p class="rev-all"><a href="https://www.google.com/maps/place/The+Wind+Barber+shop/data=!4m7!3m6!1s0x470b93124852a201:0xb31273a6e974c578!8m2!3d50.0704561!4d14.4744748!16s%2Fg%2F11s7sfwkvn!19sChIJAaJSSBKTC0cReMV06aZzErM" target="_blank" rel="noopener" data-i18n="rev.all">Všechny recenze na Google</a></p>
+    </div>
+  </section>
+
+  <section class="sec" id="strihy">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="gal.h">Střihy</h2>
+        <p data-i18n="gal.p">Fotky z křesla a před výlohou na Vršovické.</p>
+      </div>
+      <div class="gallery">
+        <figure><img src="img/cut-fade.jpg" alt="Skin fade s vyholenou linkou na rozčesávání, pohled z boku" width="787" height="1200" loading="lazy"></figure>
+        <figure><img src="img/cut-line.jpg" alt="Kluk s ostrou linkou vyholenou ve fadu" width="877" height="1200" loading="lazy"></figure>
+        <figure><img src="img/cut-neck.jpg" alt="Nízký fade a plnovous, tetování na krku, v zrcadle barber" width="986" height="1200" loading="lazy"></figure>
+        <figure><img src="img/cut-neon.jpg" alt="Fade zezadu před výlohou s neonem" width="847" height="1200" loading="lazy"></figure>
+        <figure><img src="img/cut-kid.jpg" alt="Dětský střih s krátkým fadem" width="978" height="1200" loading="lazy"></figure>
+        <figure><img src="img/cut-side.jpg" alt="Krátký střih s fadem, profil" width="667" height="1200" loading="lazy"></figure>
+        <figure><img src="img/cut-jacket.jpg" alt="Zákazník v červené bundě před výlohou s neonem" width="675" height="1200" loading="lazy"></figure>
+        <figure><img src="img/window.jpg" alt="Výloha s rámečky fotek střihů a otevírací dobou" width="1200" height="675" loading="lazy" style="object-position:50% 60%"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="kontakt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="find.h">Kde nás najdete</h2>
+        <p data-i18n="find.p">Vršovická 89, přízemí. Cihlová fasáda, červenobílá markýza a oranžový neon ve výloze.</p>
+      </div>
+      <div class="find">
+        <div>
+          <figure><img src="img/front.jpg" alt="Průčelí The Wind Barber shop na Vršovické: cihly, červenobílá markýza a neon ve výloze" width="1600" height="900" loading="lazy"></figure>
+          <div class="hours">
+            <div class="status" id="status"><span class="dot" aria-hidden="true"></span><span id="statusText">…</span></div>
+            <table aria-label="Otevírací doba">
+              <tbody id="hoursBody">
+                <tr data-day="1"><td data-i18n="d.mon">Pondělí</td><td>9:30 – 19:00</td></tr>
+                <tr data-day="2"><td data-i18n="d.tue">Úterý</td><td>9:30 – 19:00</td></tr>
+                <tr data-day="3"><td data-i18n="d.wed">Středa</td><td>9:30 – 19:00</td></tr>
+                <tr data-day="4"><td data-i18n="d.thu">Čtvrtek</td><td>9:30 – 19:30</td></tr>
+                <tr data-day="5"><td data-i18n="d.fri">Pátek</td><td>9:30 – 19:30</td></tr>
+                <tr data-day="6"><td data-i18n="d.sat">Sobota</td><td>9:30 – 19:00</td></tr>
+                <tr data-day="0"><td data-i18n="d.sun">Neděle</td><td data-i18n="d.closed">zavřeno</td></tr>
+              </tbody>
+            </table>
+            <div class="addr">
+              <span class="street">Vršovická 89</span>
+              <span>100 00 Praha 10 – Vršovice</span>
+              <a href="tel:+420607337907">607 337 907</a>
+              <a href="https://www.google.com/maps/place/The+Wind+Barber+shop/data=!4m7!3m6!1s0x470b93124852a201:0xb31273a6e974c578!8m2!3d50.0704561!4d14.4744748!16s%2Fg%2F11s7sfwkvn!19sChIJAaJSSBKTC0cReMV06aZzErM" target="_blank" rel="noopener" data-i18n="find.nav">Navigovat v Google Maps</a>
+            </div>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Vr%C5%A1ovick%C3%A1%2089%2C%20100%2000%20Praha%2010&z=16&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">The Wind Barber shop</a>
+    <span>Vršovická 89, Praha 10 – Vršovice</span>
+    <a href="tel:+420607337907">607 337 907</a>
+    <span class="r"><span data-i18n="foot.book">Rezervace přes</span> <a href="https://the-wind-barber.reservio.com/booking" target="_blank" rel="noopener">Reservio</a></span>
+    <span>© 2026 The Wind Barber shop</span>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn btn-ghost" href="tel:+420607337907" data-i18n="cta.call">Zavolat</a>
+  <a class="btn btn-solid" href="https://the-wind-barber.reservio.com/booking" target="_blank" rel="noopener" data-i18n="cta.bookLong">Rezervovat termín</a>
+</div>
+
+<script>
+(function(){
+  var T = {
+    cs: {
+      "nav.prices":"Ceník","nav.reviews":"Recenze","nav.gallery":"Střihy","nav.find":"Kde nás najdete",
+      "cta.book":"Rezervovat","cta.bookLong":"Rezervovat termín","cta.call":"Zavolat",
+      "hero.h":"Barbershop na Vršovické 89, Praha 10.",
+      "hero.sub":"Dva barbeři, tři křesla. Střih, vousy nebo obojí. Termín si zaklikneš na Reserviu, často i na tentýž den.",
+      "hero.rating":"4,9","hero.reviews":"z 275 recenzí na Google",
+      "hero.cap":"Neon ve výloze na Vršovické 89.",
+      "prices.h":"Ceník","prices.p":"Stejné ceny jako na Reserviu. Mytí, vysoušení a styling jsou v ceně střihu.",
+      "g.hair":"Vlasy","g.beard":"Vousy","g.combo":"Vlasy a vousy",
+      "i.short":"Pánský střih, krátké vlasy","i.long":"Pánský střih, dlouhé vlasy","i.longNote":"8 až 9 cm a víc","i.shave":"Střih do hola","i.kids":"Dětský střih","i.kidsNote":"do 12 let",
+      "i.beard":"Úprava vousů","i.beardNote":"zkrácení, koutky, po holení, vůně a styling","i.comboShort":"Krátké vlasy a vousy","i.comboLong":"Dlouhé vlasy a vousy",
+      "prices.n1":"Platí se hotově nebo QR kódem, kartou ne.","prices.n2":"Bez rezervace to nejde, kluci stříhají jen na objednání.",
+      "about.h":"Stříhají Nico a Raven",
+      "about.p1":"Malý barbershop v přízemí na Vršovické. Tři křesla, dva barbeři. Přijdeš na svůj čas a sedneš si rovnou.",
+      "about.p2":"Fady, linky, klasika i dětské střihy. Přines fotku nebo řekni, co nosíš, a kluci poradí, co ti sedne.",
+      "s1.b":"Rezervace","s1.t":"Na Reserviu si vybereš službu, barbera a čas. Bez registrace, za minutu.",
+      "s2.b":"Adresa","s2.t":"Vršovická 89, přízemí, vchod z ulice pod červenobílou markýzou.",
+      "s3.b":"Platba","s3.t":"Hotově nebo QR kódem na místě.",
+      "rev.h":"Co píšou lidi","rev.p":"4,9 z 275 hodnocení na Google. Tady jsou čtyři, jak je lidi napsali.",
+      "rev.1":"Chodím sem už pár měsíců pravidelně, kluci jsou moc milí a vždy odvedou precizní až perfektní práci. Také je velmi příjemné nově zrekonstruované prostředí. Velkým pozitivem je rychlá a jednoduchá komunikace.",
+      "rev.2":"Skvělý Barber Shop. Poměr cena kvalita nedostižný. Domluva fantastická. Účes na výbornou.",
+      "rev.3":"Byla jsem se synem, kterému jsou 3 roky. Pan byl velmi milý a přátelsky k mému synovy ze se ani nebál. Moc doporucuji",
+      "rev.4":"Příjemní mladí kluci, při stříhání je vidět, že je práce baví a výsledek super.",
+      "rev.all":"Všechny recenze na Google",
+      "gal.h":"Střihy","gal.p":"Fotky z křesla a před výlohou na Vršovické.",
+      "find.h":"Kde nás najdete","find.p":"Vršovická 89, přízemí. Cihlová fasáda, červenobílá markýza a oranžový neon ve výloze.",
+      "find.nav":"Navigovat v Google Maps",
+      "d.mon":"Pondělí","d.tue":"Úterý","d.wed":"Středa","d.thu":"Čtvrtek","d.fri":"Pátek","d.sat":"Sobota","d.sun":"Neděle","d.closed":"zavřeno",
+      "foot.book":"Rezervace přes",
+      "st.open":"Otevřeno, zavíráme v {t}","st.closed":"Zavřeno, otevíráme {d} v {t}","st.today":"dnes","st.tomorrow":"zítra",
+      "days":["v neděli","v pondělí","v úterý","ve středu","ve čtvrtek","v pátek","v sobotu"]
+    },
+    en: {
+      "nav.prices":"Prices","nav.reviews":"Reviews","nav.gallery":"Cuts","nav.find":"Find us",
+      "cta.book":"Book now","cta.bookLong":"Book an appointment","cta.call":"Call",
+      "hero.h":"Barbershop at Vršovická 89, Prague 10.",
+      "hero.sub":"Two barbers, three chairs. Haircut, beard or both. Book a slot on Reservio, often for the same day.",
+      "hero.rating":"4.9","hero.reviews":"from 275 Google reviews",
+      "hero.cap":"The neon in the window at Vršovická 89.",
+      "prices.h":"Prices","prices.p":"Same prices as on Reservio. Wash, blow-dry and styling are part of the cut.",
+      "g.hair":"Hair","g.beard":"Beard","g.combo":"Hair and beard",
+      "i.short":"Men's cut, short hair","i.long":"Men's cut, long hair","i.longNote":"8 to 9 cm and longer","i.shave":"Head shave","i.kids":"Kids' cut","i.kidsNote":"under 12",
+      "i.beard":"Beard trim","i.beardNote":"trim, edges, aftershave, scent and styling","i.comboShort":"Short hair and beard","i.comboLong":"Long hair and beard",
+      "prices.n1":"Pay in cash or by QR code, no cards.","prices.n2":"Appointments only, the guys don't take walk-ins.",
+      "about.h":"Nico and Raven cut here",
+      "about.p1":"A small ground-floor barbershop on Vršovická. Three chairs, two barbers. Come at your time and sit straight down.",
+      "about.p2":"Fades, lines, classic cuts and kids' cuts. Bring a photo or say what you wear and the guys will tell you what suits you.",
+      "s1.b":"Booking","s1.t":"Pick a service, a barber and a time on Reservio. No account needed, takes a minute.",
+      "s2.b":"Address","s2.t":"Vršovická 89, ground floor, street entrance under the red and white awning.",
+      "s3.b":"Payment","s3.t":"Cash or QR code on the spot.",
+      "rev.h":"What people say","rev.p":"4.9 from 275 Google ratings. Here are four, translated from Czech.",
+      "rev.1":"I've been coming here regularly for a few months, the guys are really friendly and always do precise, near-perfect work. The newly renovated space is very pleasant too. A big plus is the quick and simple communication.",
+      "rev.2":"Great barber shop. Unbeatable value for money. Easy to deal with. Haircut top marks.",
+      "rev.3":"I came with my son, who is 3. The barber was very kind and friendly to him, so he wasn't scared at all. Highly recommend.",
+      "rev.4":"Friendly young guys, you can see they enjoy the work while cutting, and the result is great.",
+      "rev.all":"All reviews on Google",
+      "gal.h":"Cuts","gal.p":"Photos from the chair and outside the window on Vršovická.",
+      "find.h":"Find us","find.p":"Vršovická 89, ground floor. Brick front, red and white awning, orange neon in the window.",
+      "find.nav":"Open in Google Maps",
+      "d.mon":"Monday","d.tue":"Tuesday","d.wed":"Wednesday","d.thu":"Thursday","d.fri":"Friday","d.sat":"Saturday","d.sun":"Sunday","d.closed":"closed",
+      "foot.book":"Bookings via",
+      "st.open":"Open now, closes at {t}","st.closed":"Closed, opens {d} at {t}","st.today":"today","st.tomorrow":"tomorrow",
+      "days":["on Sunday","on Monday","on Tuesday","on Wednesday","on Thursday","on Friday","on Saturday"]
+    }
+  };
+  var lang = "cs";
+  try { var s = localStorage.getItem("twb-lang"); if (s === "en" || s === "cs") lang = s; } catch(e){}
+  function apply(l){
+    lang = l;
+    var d = T[l];
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      if (d[k] != null) el.textContent = d[k];
+    });
+    document.querySelectorAll(".lang button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false");
+    });
+    try { localStorage.setItem("twb-lang", l); } catch(e){}
+    hours();
+  }
+  document.querySelectorAll(".lang button").forEach(function(b){
+    b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); });
+  });
+  // opening hours, Europe/Prague. null = closed
+  var H = { 0:null, 1:[570,1140], 2:[570,1140], 3:[570,1140], 4:[570,1170], 5:[570,1170], 6:[570,1140] };
+  function fmt(m){ return Math.floor(m/60) + ":" + (m%60 < 10 ? "0" : "") + (m%60); }
+  function pragueNow(){
+    try {
+      var p = new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Prague",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+      var o = {}; p.forEach(function(x){ o[x.type] = x.value; });
+      var wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+      return { day: wd, min: (parseInt(o.hour,10)%24)*60 + parseInt(o.minute,10) };
+    } catch(e){ var n = new Date(); return { day:n.getDay(), min:n.getHours()*60+n.getMinutes() }; }
+  }
+  function hours(){
+    var d = T[lang], now = pragueNow(), h = H[now.day];
+    document.querySelectorAll("#hoursBody tr").forEach(function(tr){
+      tr.classList.toggle("today", parseInt(tr.getAttribute("data-day"),10) === now.day);
+    });
+    var st = document.getElementById("status"), tx = document.getElementById("statusText");
+    if (h && now.min >= h[0] && now.min < h[1]) {
+      st.classList.remove("closed");
+      tx.textContent = d["st.open"].replace("{t}", fmt(h[1]));
+      return;
+    }
+    st.classList.add("closed");
+    var when, opens;
+    if (h && now.min < h[0]) { when = d["st.today"]; opens = h[0]; }
+    else {
+      var nd = (now.day + 1) % 7, ahead = 1;
+      while (!H[nd]) { nd = (nd + 1) % 7; ahead++; }
+      when = ahead === 1 ? d["st.tomorrow"] : d["days"][nd]; opens = H[nd][0];
+    }
+    tx.textContent = d["st.closed"].replace("{d}", when).replace("{t}", fmt(opens));
+  }
+  var nav = document.getElementById("nav");
+  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 24); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+  apply(lang);
+  setInterval(hours, 60000);
+  // light the neon once
+  var neon = document.getElementById("neon");
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function(){ neon.classList.add("lit"); }); } else { neon.classList.add("lit"); }
+})();
+</script>
+</body>
+</html>

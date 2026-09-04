@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Needle Tattoo – tetovací studio Žižkov, Praha 3</title>
+<meta name="description" content="Tetovací studio na Žižkově, Hartigova 60. Blackwork, linework, lettering, barevné i drobné motivy. 4,9 hvězdiček z 274 recenzí na Google. Jen na objednání, zavolejte.">
+<meta name="theme-color" content="#FBFAF7">
+<meta property="og:title" content="Needle Tattoo – tetovací studio Žižkov">
+<meta property="og:description" content="Tetovací studio na Žižkově. 4,9 z 274 recenzí na Google. Jen na objednání.">
+<meta property="og:image" content="img/work-sleeve-linework.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cpath d='M9 24 23 8M20 8h3v3' stroke='%23FBFAF7' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700&family=Familjen+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TattooParlor",
+  "name": "Needle Tattoo",
+  "alternateName": "needletattoo",
+  "image": "img/work-sleeve-linework.jpg",
+  "telephone": "+420725734400",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Hartigova 60",
+    "addressLocality": "Praha 3 – Žižkov",
+    "postalCode": "130 00",
+    "addressCountry": "CZ"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.0886392, "longitude": 14.4607038 },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "274" },
+  "hasMap": "https://www.google.com/maps/place/needletattoo/data=!4m7!3m6!1s0x470b935f86bc3061:0x4a503043eef5a42f!8m2!3d50.0886392!4d14.4607038!16s%2Fg%2F11hczxmh_y",
+  "paymentAccepted": "Cash, Credit Card"
+}
+</script>
+<style>
+:root{
+  --paper:#FBFAF7;
+  --ink:#000;
+  --grey:#66625C;
+  --line:#E4E1DA;
+  --stencil:#4A3F9C;
+  --stencil-dark:#382E80;
+  --skin:#EAD7C5;
+  --display:"Grenze Gotisch","Old English Text MT",Georgia,serif;
+  --body:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(20px,6vw,96px);
+  --max:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:0;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:700}
+h2{font-family:var(--display);font-size:clamp(2.6rem,5vw,4.2rem);line-height:.95;letter-spacing:.01em}
+h3{font-size:1.15rem;font-weight:600;line-height:1.3}
+:focus-visible{outline:3px solid var(--stencil);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:52px;padding:0 22px;border-radius:999px;
+  font:500 1rem/1 var(--body);text-decoration:none;white-space:nowrap;
+  border:1.5px solid var(--ink);color:var(--ink);background:transparent;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:var(--stencil);border-color:var(--stencil)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* nav */
+.nav{
+  position:sticky;top:0;z-index:40;background:var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand{font-family:var(--display);font-size:1.7rem;line-height:1;text-decoration:none;letter-spacing:.01em;padding-top:2px}
+.nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-weight:500;color:var(--ink)}
+.nav-links a:hover{color:var(--stencil)}
+.nav .btn{min-height:42px;padding:0 18px;font-size:.95rem}
+@media (max-width:760px){.nav-links,.nav .btn{display:none}}
+
+/* hero */
+.hero{padding:clamp(28px,5vw,64px) 0 0}
+.hero h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(4.2rem,15.4vw,15.5rem);
+  line-height:.86;letter-spacing:.005em;
+  margin:0 0 clamp(20px,3vw,36px) -.03em;
+}
+.hero-lede{display:grid;gap:22px;margin-bottom:clamp(24px,4vw,40px)}
+.hero-lede p{font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.4;max-width:40ch}
+.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.rating{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--grey);font-size:1rem}
+.rating b{font-family:var(--body);font-weight:600;color:var(--ink);font-size:1.25rem}
+.rating .star{color:var(--ink)}
+.rating:hover{color:var(--stencil)}
+.strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:4px;
+  margin-top:clamp(28px,4vw,56px);
+}
+.strip img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+@media (max-width:760px){
+  .strip{grid-template-columns:1fr 1fr;margin-left:calc(-1 * var(--gutter));margin-right:calc(-1 * var(--gutter))}
+  .strip img:nth-child(n+3){display:none}
+}
+/* the one load moment */
+.hero h1,.strip{opacity:0;animation:appear .8s ease-out forwards}
+.strip{animation-delay:.25s}
+@keyframes appear{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.hero h1,.strip{animation:none;opacity:1}}
+
+/* sections */
+.sec{padding:clamp(64px,9vw,120px) 0}
+.sec-head{margin-bottom:clamp(28px,4vw,48px);display:grid;gap:14px;max-width:60ch}
+.sec-head p{color:var(--grey);font-size:1.1rem;max-width:50ch}
+
+/* styles list */
+.styles{display:grid;gap:0;border-top:1px solid var(--line)}
+@media (min-width:760px){.styles{grid-template-columns:1fr 1fr;column-gap:72px}}
+.style{display:grid;gap:4px;padding:20px 0;border-bottom:1px solid var(--line)}
+.style p{color:var(--grey);max-width:44ch}
+.note{margin-top:32px;font-size:1.05rem;max-width:56ch}
+.note a{color:var(--stencil);font-weight:500}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr;margin-left:calc(-1 * var(--gutter));margin-right:calc(-1 * var(--gutter))}}
+
+/* studio */
+.studio-grid{display:grid;gap:4px}
+@media (min-width:760px){.studio-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.studio-grid{margin-left:calc(-1 * var(--gutter));margin-right:calc(-1 * var(--gutter))}}
+.studio-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
+.facts{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:10px;max-width:56ch}
+.facts li{padding-left:22px;position:relative}
+.facts li::before{content:"";position:absolute;left:0;top:.65em;width:10px;height:2px;background:var(--ink)}
+
+/* reviews */
+.reviews{display:grid;gap:clamp(36px,5vw,56px)}
+@media (min-width:900px){.reviews{grid-template-columns:1fr 1fr;column-gap:80px}}
+.review{display:grid;gap:14px;max-width:52ch}
+.review blockquote{margin:0;font-size:clamp(1.2rem,1.9vw,1.55rem);line-height:1.35;font-weight:400}
+.review figcaption{color:var(--grey);font-size:.98rem}
+.review figcaption b{color:var(--ink);font-weight:600}
+.all-reviews{margin-top:40px}
+.all-reviews a{color:var(--stencil);font-weight:500}
+
+/* contact */
+.contact{background:var(--skin);padding:clamp(64px,9vw,120px) 0}
+.contact-grid{display:grid;gap:40px}
+@media (min-width:900px){.contact-grid{grid-template-columns:5fr 7fr;column-gap:64px;align-items:start}}
+.contact h2{margin-bottom:24px}
+.contact-list{display:grid;gap:22px;margin:0}
+.contact-list div{display:grid;gap:4px}
+.contact-list dt{color:var(--grey);font-size:.95rem}
+.contact-list dd{margin:0;font-size:1.2rem;line-height:1.35}
+.contact-list dd a{text-decoration:none;color:var(--ink);border-bottom:1.5px solid rgba(0,0,0,.35)}
+.contact-list dd a:hover{color:var(--stencil);border-color:var(--stencil)}
+.contact-list dd.big{font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:600;letter-spacing:.01em}
+.contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.map{aspect-ratio:4/3;background:#DCC8B5}
+.map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(1) contrast(1.05)}
+
+/* footer */
+.foot{padding:36px 0 120px;font-size:.95rem;color:var(--grey)}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
+.foot a{color:var(--grey)}
+@media (min-width:760px){.foot{padding-bottom:48px}}
+
+/* mobile bottom bar */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background:var(--paper);border-top:1px solid var(--line);
+}
+.bar .btn{min-height:50px;width:100%}
+@media (min-width:760px){.bar{display:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Needle Tattoo</a>
+    <nav aria-label="Sekce">
+      <ul class="nav-links">
+        <li><a href="#prace">Práce</a></li>
+        <li><a href="#studio">Studio</a></li>
+        <li><a href="#recenze">Recenze</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-ink" href="tel:+420725734400">Zavolat</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Needle Tattoo</h1>
+    <div class="hero-lede">
+      <p>Tetovací studio na Žižkově.<br>Hartigova 60, Praha 3. Jen na objednání.</p>
+      <div class="hero-row">
+        <div class="hero-actions">
+          <a class="btn btn-ink" href="tel:+420725734400">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></svg>
+            Zavolat 725 734 400
+          </a>
+          <a class="btn btn-line" href="#kontakt">Kde nás najdete</a>
+        </div>
+        <a class="rating" href="https://www.google.com/maps/place/needletattoo/data=!4m7!3m6!1s0x470b935f86bc3061:0x4a503043eef5a42f!8m2!3d50.0886392!4d14.4607038!16s%2Fg%2F11hczxmh_y" target="_blank" rel="noopener">
+          <b>4,9</b><span class="star" aria-hidden="true">★</span><span>274 recenzí na Google</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="strip">
+      <img src="img/work-sleeve-linework.jpg" width="816" height="1088" alt="Celý rukáv z organických černých linek, od lokte přes hřbet ruky až na prsty" fetchpriority="high">
+      <img src="img/work-chest-lettering.jpg" width="960" height="1280" alt="Lettering přes celou hruď a orel pod ním, blackwork">
+      <img src="img/work-calf-figure.jpg" width="960" height="1280" alt="Ženská postava v linkách na lýtku, čerstvě vytetovaná" loading="lazy">
+      <img src="img/work-lantern-color.jpg" width="810" height="1080" alt="Barevná lucerna s plamenem v neotradičním stylu na paži" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="co">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Co děláme</h2>
+      <p>Od drobných motivů po celé rukávy. Přijďte s nápadem nebo s hotovým návrhem, zbytek doladíme spolu.</p>
+    </div>
+    <div class="styles">
+      <div class="style"><h3>Blackwork a linework</h3><p>Sytá černá, čisté linky, větší plochy i celé rukávy.</p></div>
+      <div class="style"><h3>Fine line</h3><p>Tenké jemné linky pro menší a detailní motivy.</p></div>
+      <div class="style"><h3>Lettering</h3><p>Script, gotické písmo, nápisy přes hruď i na předloktí.</p></div>
+      <div class="style"><h3>Barevné a neotradiční</h3><p>Lucerny, lokomotivy, zvířata. Výrazné barvy s pevnou kresbou.</p></div>
+      <div class="style"><h3>Anime a ilustrace</h3><p>Postavy a ilustrační motivy podle vaší předlohy.</p></div>
+      <div class="style"><h3>Malé motivy</h3><p>Drobné kérky, symboly, datum, srdíčko. I na první.</p></div>
+    </div>
+    <p class="note">Návrh domluvíme předem. <a href="tel:+420725734400">Zavolejte</a> a řekněte, co máte v hlavě.</p>
+  </div>
+</section>
+
+<section class="sec" id="prace">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Práce</h2>
+      <p>Výběr z toho, co ze studia odchází.</p>
+    </div>
+    <div class="gallery">
+      <img src="img/work-resilience-script.jpg" width="960" height="1280" alt="Nápis Resilience ve scriptu přes celé předloktí" loading="lazy">
+      <img src="img/work-cat-color.jpg" width="960" height="1280" alt="Barevná abstraktní kočka na rameni, oranžová a zelená" loading="lazy">
+      <img src="img/work-patchwork-arm.jpg" width="960" height="1280" alt="Paže s několika drobnými motivy: přesýpací hodiny, plameny, nudle, srdce, letopočet 2004" loading="lazy">
+      <img src="img/work-locomotive.jpg" width="1079" height="1079" alt="Parní lokomotiva v černé a šedé na lýtku" loading="lazy">
+      <img src="img/work-anime-calf.jpg" width="960" height="1280" alt="Anime postava s růžovými vlasy a nápisem Yandere na lýtku" loading="lazy">
+      <img src="img/work-guillotine-fineline.jpg" width="960" height="1280" alt="Gilotina v tenkých linkách na vnitřní straně předloktí" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="studio">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Studio</h2>
+      <p>Hartigova 60 na Žižkově. Černý mramor, kožená křesla u vchodu. Čisto, jak píší recenze.</p>
+    </div>
+    <div class="studio-grid">
+      <img src="img/studio-lounge.jpg" width="1280" height="853" alt="Vstup do studia s hnědými koženými křesly, nápisem Needle Tattoo a černou mramorovou podlahou" loading="lazy">
+      <img src="img/studio-room.jpg" width="1280" height="853" alt="Tetovací místnost s lehátkem, dřevěnými lamelami na stěně a černou mramorovou podlahou" loading="lazy">
+    </div>
+    <ul class="facts">
+      <li>Jen na objednání. Zavolejte a domluvíme termín.</li>
+      <li>Platba kartou i hotově.</li>
+      <li>Bezbariérový vstup, Wi-Fi zdarma.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="recenze">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Recenze</h2>
+      <p>4,9 hvězdiček z 274 recenzí na Google. Citujeme doslova.</p>
+    </div>
+    <div class="reviews">
+      <figure class="review">
+        <blockquote>„Lidičky musíte sem. Strašně příjemný kluci co rozumí tomu co dělají. Čistý prostředí, poradí vám, udělá to přesně tak jak chcete.“</blockquote>
+        <figcaption><b>Adam</b>, Google, před 5 měsíci</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>„Byl jsem tu na tetování už po druhé a můžu říct ze je to na vysoké úrovni. Pan Adam je velmi komunikativní, profesionální a hlavně vyjde vstříc všemu. Uz bych neměnil!“</blockquote>
+        <figcaption><b>Tomas</b>, Google, před 2 měsíci</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>„Svartsut je českou špičkou v Blackwork tetování. Byl jsem u něj už několikrát, i v různých studiích, ale musím říct, že v Needle Tattoo je to opravdu TOP!“</blockquote>
+        <figcaption><b>Maris</b>, Google, před rokem</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>„Rozhodně doporučuji i těm, co se chystají na své první, protože se v atmosféře, kterou kluci udělají budete chtít vždy vrátit.“</blockquote>
+        <figcaption><b>Radek</b>, Google</figcaption>
+      </figure>
+    </div>
+    <p class="all-reviews"><a href="https://www.google.com/maps/place/needletattoo/data=!4m7!3m6!1s0x470b935f86bc3061:0x4a503043eef5a42f!8m2!3d50.0886392!4d14.4607038!16s%2Fg%2F11hczxmh_y" target="_blank" rel="noopener">Všechny recenze na Google</a></p>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Kontakt</h2>
+      <dl class="contact-list">
+        <div>
+          <dt>Adresa</dt>
+          <dd>Hartigova 60<br>130 00 Praha 3, Žižkov</dd>
+        </div>
+        <div>
+          <dt>Telefon</dt>
+          <dd class="big"><a href="tel:+420725734400">725 734 400</a></dd>
+        </div>
+        <div>
+          <dt>Kdy</dt>
+          <dd>Jen na objednání. Termín domluvíme po telefonu.</dd>
+        </div>
+      </dl>
+      <div class="contact-actions">
+        <a class="btn btn-ink" href="tel:+420725734400">Zavolat</a>
+        <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=Hartigova+60,+130+00+Praha+3" target="_blank" rel="noopener">Trasa v Mapách</a>
+      </div>
+    </div>
+    <div class="map">
+      <iframe src="https://www.google.com/maps?q=Hartigova+60,+130+00+Praha+3-%C5%BDi%C5%BEkov&z=16&output=embed" title="Mapa: Hartigova 60, Praha 3" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>Needle Tattoo, Hartigova 60, Praha 3</span>
+    <span><a href="tel:+420725734400">725 734 400</a></span>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Rychlé akce">
+  <a class="btn btn-ink" href="tel:+420725734400">Zavolat</a>
+  <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=Hartigova+60,+130+00+Praha+3" target="_blank" rel="noopener">Trasa</a>
+</div>
+
+</body>
+</html>

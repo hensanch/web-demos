@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Barbershop & Studio – Malešice, Praha 10</title>
+<meta name="description" content="Barbershop v Malešicích, Praha 10. Pánské střihy, moderní fady, úprava vousů. Čtyři barbeři, ceník bez překvapení, rezervace online. Počernická 518/55.">
+<meta name="theme-color" content="#111214">
+<meta property="og:title" content="Design Barbershop & Studio – Malešice, Praha 10">
+<meta property="og:description" content="Pánské střihy, fady a úprava vousů. 4,9 hvězdiček z 1 143 recenzí na Google. Rezervuj si termín online.">
+<meta property="og:image" content="img/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Design Barbershop & Studio",
+  "image": "img/hero.jpg",
+  "telephone": "+420777591353",
+  "url": "https://noona.app/cs/designbarbershop",
+  "priceRange": "280–750 Kč",
+  "foundingDate": "2022",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Počernická 518/55",
+    "addressLocality": "Praha 10 – Malešice",
+    "postalCode": "108 00",
+    "addressCountry": "CZ"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.0822247, "longitude": 14.5009875 },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "1143" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:30", "closes": "19:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "17:00" }
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#111214;
+  --ink-2:#1b1c1f;
+  --ink-3:#26272b;
+  --paper:#f2efe9;
+  --muted:#9b978f;
+  --line:rgba(242,239,233,.14);
+  --red:#b8202e;
+  --red-hi:#d42a3a;
+  --blue:#23407a;
+  --display:"Big Shoulders Display","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(20px,5vw,72px);
+  --pole:repeating-linear-gradient(135deg,var(--red) 0 14px,var(--paper) 14px 28px,var(--blue) 28px 42px,var(--paper) 42px 56px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:var(--body);font-size:17px;line-height:1.55;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.92;margin:0;letter-spacing:.005em}
+h2{font-size:clamp(2.6rem,6vw,5rem)}
+h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:800}
+p{margin:0}
+:focus-visible{outline:2px solid var(--paper);outline-offset:3px}
+.wrap{padding-left:var(--gutter);padding-right:var(--gutter);max-width:1360px;margin:0 auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:52px;padding:0 24px;border-radius:4px;
+  font:600 1rem/1 var(--body);text-decoration:none;cursor:pointer;
+  border:1px solid transparent;transition:background .2s,border-color .2s,color .2s;
+  white-space:nowrap;
+}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-hi)}
+.btn-ghost{background:transparent;color:var(--paper);border-color:rgba(242,239,233,.35)}
+.btn-ghost:hover{border-color:var(--paper)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* nav */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px var(--gutter);
+  transition:background .3s,border-color .3s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:rgba(17,18,20,.92);backdrop-filter:blur(10px);border-color:var(--line)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:40px;height:40px;object-fit:contain}
+.brand span{font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:.02em;line-height:1}
+.nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-weight:500;color:var(--paper);opacity:.85}
+.nav-links a:hover{opacity:1}
+.nav-right{display:flex;align-items:center;gap:14px}
+.lang{
+  display:inline-flex;border:1px solid rgba(242,239,233,.3);border-radius:4px;overflow:hidden;
+}
+.lang button{
+  appearance:none;background:transparent;border:0;color:var(--paper);
+  font:600 .85rem/1 var(--body);padding:10px 12px;cursor:pointer;min-width:44px;
+  opacity:.6;transition:opacity .2s,background .2s;
+}
+.lang button[aria-pressed="true"]{opacity:1;background:rgba(242,239,233,.12)}
+.nav .btn{min-height:44px;padding:0 18px}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .brand span{display:none}
+  .nav .btn-red{display:none}
+}
+
+/* hero */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  padding:120px var(--gutter) clamp(48px,8vh,96px);
+  padding-left:calc(var(--gutter) + 24px);
+  overflow:hidden;isolation:isolate;
+}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(180deg,rgba(17,18,20,.55) 0%,rgba(17,18,20,.15) 35%,rgba(17,18,20,.92) 100%),
+    linear-gradient(90deg,rgba(17,18,20,.55) 0%,rgba(17,18,20,0) 60%);
+}
+.pole{
+  position:absolute;left:0;top:0;bottom:0;width:12px;z-index:1;
+  background:var(--pole);background-size:100% 79.2px;
+  animation:pole 1.4s linear infinite;
+}
+@keyframes pole{to{background-position:0 79.2px}}
+@media (prefers-reduced-motion:reduce){.pole{animation:none}}
+.hero-inner{position:relative;z-index:2;max-width:1360px;width:100%;margin:0 auto}
+.hero-kicker{font-weight:500;color:var(--paper);opacity:.85;margin-bottom:18px;font-size:1.05rem}
+.hero h1{
+  font-size:clamp(2.9rem,10.5vw,9.5rem);
+  max-width:14ch;
+}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l span{display:block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.7,.1,1) forwards}
+.hero h1 .l:nth-child(2) span{animation-delay:.08s}
+.hero h1 .l:nth-child(3) span{animation-delay:.16s}
+@keyframes rise{to{transform:none}}
+.hero-sub{max-width:52ch;font-size:clamp(1.05rem,1.4vw,1.25rem);margin-top:26px;color:var(--paper);opacity:.9}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;align-items:center}
+.rating{
+  display:inline-flex;align-items:center;gap:12px;
+  margin-top:34px;padding:10px 14px 10px 12px;border-radius:4px;
+  background:rgba(17,18,20,.55);border:1px solid var(--line);backdrop-filter:blur(6px);
+  text-decoration:none;
+  opacity:0;animation:fade .8s .5s forwards;
+}
+@keyframes fade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .hero h1 .l span{animation:none;transform:none}
+  .rating{animation:none;opacity:1}
+}
+.rating .num{font-family:var(--display);font-weight:900;font-size:2rem;line-height:1}
+.rating .stars{color:#f5b301;letter-spacing:1px;font-size:.95rem}
+.rating small{display:block;color:var(--muted);font-size:.85rem;line-height:1.2}
+.rating .g{width:22px;height:22px;flex:none}
+
+/* sections */
+section{position:relative}
+.divider{height:5px;background:var(--pole);background-size:auto 100%}
+.sec{padding:clamp(72px,10vw,140px) 0}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px);max-width:60ch}
+.sec-head p{color:var(--muted);font-size:1.1rem;max-width:48ch}
+
+/* prices */
+.price-groups{display:grid;gap:56px}
+@media (min-width:900px){.price-groups{grid-template-columns:1fr 1fr;column-gap:72px}}
+.group h3{margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.group h3 small{font-family:var(--body);font-weight:500;font-size:.95rem;color:var(--muted);margin-left:10px;letter-spacing:0}
+.item{
+  display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:baseline;
+  padding:16px 0;border-bottom:1px solid var(--line);
+}
+.item:last-child{border-bottom:0}
+.item .n{font-weight:600;font-size:1.1rem}
+.item .d{color:var(--muted);font-size:.95rem;grid-column:1;max-width:44ch}
+.item .t{color:var(--muted);font-size:.95rem;grid-column:1}
+.item .p{grid-column:2;font-family:var(--display);font-weight:800;font-size:1.75rem;line-height:1;grid-row:1 / span 3;align-self:start;white-space:nowrap}
+.addons{
+  margin-top:56px;padding:28px clamp(20px,3vw,36px);
+  background:var(--ink-2);border-left:4px solid var(--red);border-radius:0 4px 4px 0;
+  display:grid;gap:12px;
+}
+.addons h3{font-size:1.4rem}
+.addons ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px}
+.addons li{display:flex;gap:10px;align-items:baseline}
+.addons li b{font-family:var(--display);font-weight:800;font-size:1.3rem}
+.addons p{color:var(--muted)}
+
+/* team */
+.team{display:grid;gap:22px;grid-template-columns:repeat(2,1fr)}
+@media (min-width:900px){.team{grid-template-columns:repeat(4,1fr)}}
+.member img{aspect-ratio:4/5;width:100%;object-fit:cover;object-position:50% 20%;border-radius:4px;background:var(--ink-2)}
+.member h3{margin-top:16px;font-size:1.9rem}
+.member p{color:var(--muted);margin-top:4px}
+.member q{quotes:"„" "“"}
+
+/* reviews */
+.reviews-band{background:var(--ink-2)}
+.rev-grid{display:grid;gap:48px}
+@media (min-width:900px){.rev-grid{grid-template-columns:minmax(260px,.9fr) 2fr;gap:72px;align-items:start}}
+.rev-score .big{font-family:var(--display);font-weight:900;font-size:clamp(6rem,14vw,11rem);line-height:.85;letter-spacing:-.01em}
+.rev-score .stars{color:#f5b301;font-size:1.6rem;letter-spacing:3px;margin:10px 0 8px}
+.rev-score p{color:var(--muted)}
+.rev-score a{display:inline-block;margin-top:22px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--paper);padding-bottom:2px}
+.rev-list{display:grid;gap:12px}
+.rev{padding:28px;border:1px solid var(--line);border-radius:4px;background:var(--ink)}
+.rev blockquote{margin:0;font-size:1.15rem;line-height:1.5}
+.rev blockquote::before{content:"„"}
+.rev blockquote::after{content:"“"}
+.rev footer{margin-top:16px;color:var(--muted);font-size:.95rem;display:flex;gap:14px;align-items:center}
+.rev footer .stars{color:#f5b301;letter-spacing:1px}
+
+/* gallery */
+.gallery{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media (min-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+.gallery figure{margin:0;overflow:hidden;border-radius:4px;background:var(--ink-2)}
+.gallery img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover}
+@media (min-width:900px){.gallery .wide{grid-column:span 2}.gallery .wide img{aspect-ratio:8/5}}
+
+/* find us */
+.find{display:grid;gap:28px}
+@media (min-width:1000px){.find{grid-template-columns:1.1fr 1fr 1.2fr}}
+.find figure{margin:0;border-radius:4px;overflow:hidden;background:var(--ink-2)}
+.find figure img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.hours{padding:28px;background:var(--ink-2);border-radius:4px;display:grid;gap:18px;align-content:start}
+.status{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.05rem}
+.status .dot{width:10px;height:10px;border-radius:50%;background:#3ec97a;flex:none;box-shadow:0 0 0 4px rgba(62,201,122,.18)}
+.status.closed .dot{background:var(--red-hi);box-shadow:0 0 0 4px rgba(212,42,58,.18)}
+.hours table{width:100%;border-collapse:collapse;font-size:1rem}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line)}
+.hours tr:last-child td{border-bottom:0}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.hours tr.today td{color:var(--paper);font-weight:600}
+.hours tr:not(.today) td{color:var(--muted)}
+.addr{display:grid;gap:8px;padding-top:6px}
+.addr a{text-decoration:none;font-weight:600}
+.addr a:hover{text-decoration:underline}
+.addr .street{font-size:1.15rem;font-weight:600}
+.map{border-radius:4px;overflow:hidden;background:var(--ink-2);min-height:320px}
+.map iframe{width:100%;height:100%;min-height:320px;border:0;display:block;filter:grayscale(1) invert(.92) contrast(.95) hue-rotate(180deg)}
+
+/* footer */
+footer.site{padding:56px 0 calc(40px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+footer.site .row{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:center}
+footer.site .brand span{color:var(--paper)}
+footer.site a{text-decoration:none}
+footer.site a:hover{text-decoration:underline}
+@media (max-width:900px){footer.site{padding-bottom:calc(110px + env(safe-area-inset-bottom))}.hero{padding-bottom:calc(90px + env(safe-area-inset-bottom))}}
+
+/* mobile action bar */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:10px;
+  padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background:rgba(17,18,20,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+}
+.bar .btn{flex:1;min-height:50px}
+@media (max-width:900px){.bar{display:flex}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Design Barbershop & Studio">
+    <img src="img/logo.png" alt="" width="40" height="40">
+    <span>Design Barbershop & Studio</span>
+  </a>
+  <nav aria-label="Sekce">
+    <ul class="nav-links">
+      <li><a href="#cenik" data-i18n="nav.prices">Ceník</a></li>
+      <li><a href="#tym" data-i18n="nav.team">Tým</a></li>
+      <li><a href="#recenze" data-i18n="nav.reviews">Recenze</a></li>
+      <li><a href="#kontakt" data-i18n="nav.find">Kde nás najdete</a></li>
+    </ul>
+  </nav>
+  <div class="nav-right">
+    <div class="lang" role="group" aria-label="Jazyk / Language">
+      <button type="button" data-lang="cs" aria-pressed="true">CZ</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-red" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener" data-i18n="cta.book">Rezervovat</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-bg"><img src="img/hero.jpg" alt="Interiér Design Barbershop & Studio se šestiúhelníkovým osvětlením" fetchpriority="high"></div>
+    <div class="pole" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-kicker" data-i18n="hero.kicker">Barbershop v Malešicích, Praha 10. Od roku 2022.</p>
+      <h1>
+        <span class="l"><span data-i18n="hero.l1">Odejdeš</span></span>
+        <span class="l"><span data-i18n="hero.l2">sebevědomější,</span></span>
+        <span class="l"><span data-i18n="hero.l3">než jsi přišel.</span></span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero.sub">Čtyři barbeři, klasika i moderní fady, úprava vousů. Ceník, ve kterém nic nechybí. Termín si zarezervuješ online za minutu.</p>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener" data-i18n="cta.bookLong">Rezervovat termín</a>
+        <a class="btn btn-ghost" href="tel:+420777591353">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          777 591 353
+        </a>
+      </div>
+      <a class="rating" href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener">
+        <svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.7 1.2 9.2 3.6l6.9-6.9C35.9 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l8 6.2C12.5 13.7 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.5c-.6 3-2.3 5.5-4.8 7.2l7.7 6c4.5-4.2 6.7-10.3 6.7-17.7z"/><path fill="#FBBC05" d="M10.6 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.1.8-4.6l-8-6.2A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8-6.2z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.1 1.4-4.9 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-8 6.2C6.5 42.6 14.6 48 24 48z"/></svg>
+        <span class="num">4,9</span>
+        <span><span class="stars" aria-hidden="true">★★★★★</span><small data-i18n="hero.reviews">1 143 recenzí na Google</small></span>
+      </a>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <section class="sec" id="cenik">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="prices.h">Ceník</h2>
+        <p data-i18n="prices.p">Každý střih trvá 30 minut, vousy 15. Co je navíc, vidíš tady předem, ne až u pokladny.</p>
+      </div>
+
+      <div class="price-groups">
+        <div class="group">
+          <h3 data-i18n="g.men">Pánský střih</h3>
+          <div class="item">
+            <span class="n" data-i18n="i.classic">Klasický střih</span>
+            <span class="p">420 Kč</span>
+            <span class="t" data-i18n="t.30">30 min</span>
+          </div>
+          <div class="item">
+            <span class="n" data-i18n="i.trendy">Dlouhé vlasy a trendy účesy</span>
+            <span class="p">520 Kč</span>
+            <span class="d">Mullet, messy fringe, fade s texturou, Edgar, warrior cut</span>
+            <span class="t" data-i18n="t.30">30 min</span>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3 data-i18n="g.beard">Vousy</h3>
+          <div class="item">
+            <span class="n" data-i18n="i.beard">Úprava vousů</span>
+            <span class="p">280 Kč</span>
+            <span class="t" data-i18n="t.15">15 min</span>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3><span data-i18n="g.combo">Vlasy a vousy</span><small data-i18n="g.comboNote">sleva 10 %</small></h3>
+          <div class="item">
+            <span class="n" data-i18n="i.short">Krátké vlasy</span>
+            <span class="p">650 Kč</span>
+            <span class="t" data-i18n="t.30">30 min</span>
+          </div>
+          <div class="item">
+            <span class="n" data-i18n="i.long">Dlouhé vlasy a trendy účesy</span>
+            <span class="p">750 Kč</span>
+            <span class="t" data-i18n="t.30">30 min</span>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3><span data-i18n="g.kids">Dětský střih</span><small data-i18n="g.kidsNote">do 10 let</small></h3>
+          <div class="item">
+            <span class="n" data-i18n="i.short">Krátké vlasy</span>
+            <span class="p">350 Kč</span>
+            <span class="t" data-i18n="t.30">30 min</span>
+          </div>
+          <div class="item">
+            <span class="n" data-i18n="i.long">Dlouhé vlasy a trendy účesy</span>
+            <span class="p">450 Kč</span>
+            <span class="t" data-i18n="t.30">30 min</span>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3><span data-i18n="g.students">Studenti</span><small data-i18n="g.studentsNote">s kartou ISIC</small></h3>
+          <div class="item">
+            <span class="n" data-i18n="i.sShort">Střih, krátké vlasy</span>
+            <span class="p">380 Kč</span>
+          </div>
+          <div class="item">
+            <span class="n" data-i18n="i.sLong">Střih, dlouhé vlasy a trendy účesy</span>
+            <span class="p">480 Kč</span>
+          </div>
+          <div class="item">
+            <span class="n" data-i18n="i.sComboShort">Vlasy a vousy, krátké</span>
+            <span class="p">620 Kč</span>
+          </div>
+          <div class="item">
+            <span class="n" data-i18n="i.sComboLong">Vlasy a vousy, dlouhé</span>
+            <span class="p">720 Kč</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="addons">
+        <h3 data-i18n="add.h">Příplatky, když je chceš</h3>
+        <ul>
+          <li><b>+100 Kč</b><span data-i18n="add.wash">mytí vlasů</span></li>
+          <li><b>+50 Kč</b><span data-i18n="add.brows">úprava obočí</span></li>
+          <li><b><span data-i18n="add.from">od</span> +50 Kč</b><span data-i18n="add.tattoo">hair tattoo</span></li>
+        </ul>
+        <p data-i18n="add.p">Barber se vždy zeptá, než něco přidá. Konečnou cenu znáš dřív, než si sedneš do křesla.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <section class="sec" id="tym">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="team.h">Čtyři barbeři</h2>
+        <p data-i18n="team.p">Každý má svůj rukopis. Při rezervaci si vybereš, ke komu si sedneš.</p>
+      </div>
+      <div class="team">
+        <div class="member">
+          <img src="img/david.jpg" alt="David, barber" loading="lazy" width="800" height="1000">
+          <h3>David</h3>
+          <p><q data-i18n="team.david">úžasný low taper</q></p>
+        </div>
+        <div class="member">
+          <img src="img/tony.jpg" alt="Tony, barber" loading="lazy" width="800" height="1000">
+          <h3>Tony</h3>
+          <p data-i18n="team.tony">Barber</p>
+        </div>
+        <div class="member">
+          <img src="img/filip.jpg" alt="Filip, barber" loading="lazy" width="800" height="1000">
+          <h3>Filip</h3>
+          <p><q data-i18n="team.filip">na všem si dá záležet</q></p>
+        </div>
+        <div class="member">
+          <img src="img/marek.jpg" alt="Marek, barber" loading="lazy" width="800" height="1000">
+          <h3>Marek</h3>
+          <p><q data-i18n="team.marek">skvělý přístup</q></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec reviews-band" id="recenze">
+    <div class="wrap rev-grid">
+      <div class="rev-score">
+        <div class="big">4,9</div>
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p data-i18n="rev.count">z 1 143 hodnocení na Google</p>
+        <a href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener" data-i18n="rev.all">Všechny recenze na Google</a>
+      </div>
+      <div class="rev-list">
+        <article class="rev">
+          <blockquote data-i18n="rev.1">Absolutní spokojenost s účesem, vyhoví nebo poradí. Velký výběr pití a produktů do vlasů. David mi udělal úžasný low taper. Rozhodně doporučuji a přijdu znovu.</blockquote>
+          <footer><span class="stars" aria-hidden="true">★★★★★</span><span>Martin K.</span></footer>
+        </article>
+        <article class="rev">
+          <blockquote data-i18n="rev.2">Filip je hodný, pečlivý barber. Na všem si dá záležet a nenechá nic náhodě. Za mě pět hvězd.</blockquote>
+          <footer><span class="stars" aria-hidden="true">★★★★★</span><span data-i18n="rev.anon">Recenze na Google</span></footer>
+        </article>
+        <article class="rev">
+          <blockquote data-i18n="rev.3">Krásné prostředí a moc milý barber Marek. Určitě přijdu znovu a mohu velmi doporučit.</blockquote>
+          <footer><span class="stars" aria-hidden="true">★★★★★</span><span data-i18n="rev.anon">Recenze na Google</span></footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="galerie">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="gal.h">Z křesla</h2>
+        <p data-i18n="gal.p">Fady, textury, mullety i klasika. Přines fotku, nebo se nech poradit.</p>
+      </div>
+      <div class="gallery">
+        <figure class="wide"><img src="img/cut-3.jpg" alt="Kudrnatý střih s fadem, v pozadí šestiúhelníková světla" loading="lazy" width="1200" height="1600" style="object-position:50% 35%"></figure>
+        <figure><img src="img/cut-1.jpg" alt="Střih s texturou a nízkým fadem" loading="lazy" width="900" height="1600"></figure>
+        <figure><img src="img/cut-2.jpg" alt="Krátký fade s texturou nahoře" loading="lazy" width="896" height="1600"></figure>
+        <figure class="wide"><img src="img/work-1.jpg" alt="Barber při práci v křesle" loading="lazy" width="1200" height="1600" style="object-position:50% 30%"></figure>
+        <figure class="wide"><img src="img/cut-4.jpg" alt="Střih s taperem a delší korunkou" loading="lazy" width="1194" height="1575" style="object-position:50% 40%"></figure>
+        <figure><img src="img/client-1.jpg" alt="Spokojený zákazník po střihu" loading="lazy" width="1200" height="1600"></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <section class="sec" id="kontakt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="find.h">Kde nás najdete</h2>
+        <p data-i18n="find.p">Počernická 55 v Malešicích, hned u zastávky. Bez rezervace to vyjde jen se štěstím, radši si zaklikni termín.</p>
+      </div>
+      <div class="find">
+        <figure><img src="img/storefront.jpg" alt="Výloha Design Barbershop & Studio na Počernické ulici" loading="lazy" width="1400" height="788"></figure>
+        <div class="hours">
+          <div class="status" id="status"><span class="dot" aria-hidden="true"></span><span id="statusText">…</span></div>
+          <table aria-label="Otevírací doba">
+            <tbody id="hoursBody">
+              <tr data-day="1"><td data-i18n="d.mon">Pondělí</td><td>9:30 – 19:30</td></tr>
+              <tr data-day="2"><td data-i18n="d.tue">Úterý</td><td>9:30 – 19:30</td></tr>
+              <tr data-day="3"><td data-i18n="d.wed">Středa</td><td>9:30 – 19:30</td></tr>
+              <tr data-day="4"><td data-i18n="d.thu">Čtvrtek</td><td>9:30 – 19:30</td></tr>
+              <tr data-day="5"><td data-i18n="d.fri">Pátek</td><td>9:30 – 19:30</td></tr>
+              <tr data-day="6"><td data-i18n="d.sat">Sobota</td><td>10:00 – 17:00</td></tr>
+              <tr data-day="0"><td data-i18n="d.sun">Neděle</td><td>10:00 – 17:00</td></tr>
+            </tbody>
+          </table>
+          <div class="addr">
+            <span class="street">Počernická 518/55</span>
+            <span>108 00 Praha 10 – Malešice</span>
+            <a href="tel:+420777591353">777 591 353</a>
+            <a href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener" data-i18n="find.nav">Navigovat v Google Maps</a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Po%C4%8Dernick%C3%A1%20518%2F55%2C%20108%2000%20Praha%2010&z=16&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap row">
+    <a class="brand" href="#top"><img src="img/logo.png" alt="" width="40" height="40"><span>Design Barbershop & Studio</span></a>
+    <div>
+      <span>Počernická 518/55, Praha 10 – Malešice</span>
+      &nbsp;&nbsp;<a href="tel:+420777591353">777 591 353</a>
+    </div>
+    <div><span data-i18n="foot.book">Rezervace přes</span> <a href="https://noona.app/cs/designbarbershop" target="_blank" rel="noopener">Noona</a> · © 2026 Design Barbershop & Studio</div>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn btn-ghost" href="tel:+420777591353" data-i18n="cta.call">Zavolat</a>
+  <a class="btn btn-red" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener" data-i18n="cta.bookLong">Rezervovat termín</a>
+</div>
+
+<script>
+(function(){
+  var T = {
+    cs: {
+      "nav.prices":"Ceník","nav.team":"Tým","nav.reviews":"Recenze","nav.find":"Kde nás najdete",
+      "cta.book":"Rezervovat","cta.bookLong":"Rezervovat termín","cta.call":"Zavolat",
+      "hero.kicker":"Barbershop v Malešicích, Praha 10. Od roku 2022.",
+      "hero.l1":"Odejdeš","hero.l2":"sebevědomější,","hero.l3":"než jsi přišel.",
+      "hero.sub":"Čtyři barbeři, klasika i moderní fady, úprava vousů. Ceník, ve kterém nic nechybí. Termín si zarezervuješ online za minutu.",
+      "hero.reviews":"1 143 recenzí na Google",
+      "prices.h":"Ceník","prices.p":"Každý střih trvá 30 minut, vousy 15. Co je navíc, vidíš tady předem, ne až u pokladny.",
+      "g.men":"Pánský střih","g.beard":"Vousy","g.combo":"Vlasy a vousy","g.comboNote":"sleva 10 %","g.kids":"Dětský střih","g.kidsNote":"do 10 let","g.students":"Studenti","g.studentsNote":"s kartou ISIC",
+      "i.classic":"Klasický střih","i.trendy":"Dlouhé vlasy a trendy účesy","i.beard":"Úprava vousů","i.short":"Krátké vlasy","i.long":"Dlouhé vlasy a trendy účesy",
+      "i.sShort":"Střih, krátké vlasy","i.sLong":"Střih, dlouhé vlasy a trendy účesy","i.sComboShort":"Vlasy a vousy, krátké","i.sComboLong":"Vlasy a vousy, dlouhé",
+      "t.30":"30 min","t.15":"15 min",
+      "add.h":"Příplatky, když je chceš","add.wash":"mytí vlasů","add.brows":"úprava obočí","add.from":"od","add.tattoo":"hair tattoo",
+      "add.p":"Barber se vždy zeptá, než něco přidá. Konečnou cenu znáš dřív, než si sedneš do křesla.",
+      "team.h":"Čtyři barbeři","team.p":"Každý má svůj rukopis. Při rezervaci si vybereš, ke komu si sedneš.",
+      "team.david":"úžasný low taper","team.tony":"Barber","team.filip":"na všem si dá záležet","team.marek":"skvělý přístup",
+      "rev.count":"z 1 143 hodnocení na Google","rev.all":"Všechny recenze na Google","rev.anon":"Recenze na Google",
+      "rev.1":"Absolutní spokojenost s účesem, vyhoví nebo poradí. Velký výběr pití a produktů do vlasů. David mi udělal úžasný low taper. Rozhodně doporučuji a přijdu znovu.",
+      "rev.2":"Filip je hodný, pečlivý barber. Na všem si dá záležet a nenechá nic náhodě. Za mě pět hvězd.",
+      "rev.3":"Krásné prostředí a moc milý barber Marek. Určitě přijdu znovu a mohu velmi doporučit.",
+      "gal.h":"Z křesla","gal.p":"Fady, textury, mullety i klasika. Přines fotku, nebo se nech poradit.",
+      "find.h":"Kde nás najdete","find.p":"Počernická 55 v Malešicích, hned u zastávky. Bez rezervace to vyjde jen se štěstím, radši si zaklikni termín.",
+      "find.nav":"Navigovat v Google Maps",
+      "d.mon":"Pondělí","d.tue":"Úterý","d.wed":"Středa","d.thu":"Čtvrtek","d.fri":"Pátek","d.sat":"Sobota","d.sun":"Neděle",
+      "foot.book":"Rezervace přes",
+      "st.open":"Otevřeno, zavíráme v {t}","st.closed":"Zavřeno, otevíráme {d} v {t}","st.today":"dnes","st.tomorrow":"zítra",
+      "days":["v neděli","v pondělí","v úterý","ve středu","ve čtvrtek","v pátek","v sobotu"]
+    },
+    en: {
+      "nav.prices":"Prices","nav.team":"Team","nav.reviews":"Reviews","nav.find":"Find us",
+      "cta.book":"Book now","cta.bookLong":"Book an appointment","cta.call":"Call",
+      "hero.kicker":"Barbershop in Malešice, Prague 10. Since 2022.",
+      "hero.l1":"Leave more","hero.l2":"confident than","hero.l3":"you walked in.",
+      "hero.sub":"Four barbers, classic cuts and modern fades, beard trims. A price list with nothing missing. Book online in under a minute.",
+      "hero.reviews":"1,143 Google reviews",
+      "prices.h":"Prices","prices.p":"Every cut takes 30 minutes, beards 15. Anything extra is listed here, up front, not at the till.",
+      "g.men":"Men's cut","g.beard":"Beard","g.combo":"Hair and beard","g.comboNote":"10 % off","g.kids":"Kids' cut","g.kidsNote":"under 10","g.students":"Students","g.studentsNote":"with ISIC card",
+      "i.classic":"Classic cut","i.trendy":"Long hair and trend cuts","i.beard":"Beard trim","i.short":"Short hair","i.long":"Long hair and trend cuts",
+      "i.sShort":"Cut, short hair","i.sLong":"Cut, long hair and trend cuts","i.sComboShort":"Hair and beard, short","i.sComboLong":"Hair and beard, long",
+      "t.30":"30 min","t.15":"15 min",
+      "add.h":"Extras, if you want them","add.wash":"hair wash","add.brows":"eyebrow trim","add.from":"from","add.tattoo":"hair tattoo",
+      "add.p":"Your barber always asks before adding anything. You know the final price before you sit down.",
+      "team.h":"Four barbers","team.p":"Each has his own style. Pick whose chair you sit in when you book.",
+      "team.david":"an amazing low taper","team.tony":"Barber","team.filip":"cares about every detail","team.marek":"great attitude",
+      "rev.count":"from 1,143 Google ratings","rev.all":"All reviews on Google","rev.anon":"Google review",
+      "rev.1":"Absolutely happy with the cut, they listen or they advise. Big choice of drinks and hair products. David gave me an amazing low taper. Highly recommend, I'll be back.",
+      "rev.2":"Filip is a kind, careful barber. He cares about every detail and leaves nothing to chance. Five stars from me.",
+      "rev.3":"Beautiful space and a really friendly barber, Marek. I'll definitely come back and can highly recommend.",
+      "gal.h":"From the chair","gal.p":"Fades, texture, mullets and classics. Bring a photo or ask for advice.",
+      "find.h":"Find us","find.p":"Počernická 55 in Malešice, right by the stop. Walk-ins are luck of the draw, better to book a slot.",
+      "find.nav":"Open in Google Maps",
+      "d.mon":"Monday","d.tue":"Tuesday","d.wed":"Wednesday","d.thu":"Thursday","d.fri":"Friday","d.sat":"Saturday","d.sun":"Sunday",
+      "foot.book":"Bookings via",
+      "st.open":"Open now, closes at {t}","st.closed":"Closed, opens {d} at {t}","st.today":"today","st.tomorrow":"tomorrow",
+      "days":["on Sunday","on Monday","on Tuesday","on Wednesday","on Thursday","on Friday","on Saturday"]
+    }
+  };
+  var lang = "cs";
+  try { var s = localStorage.getItem("dbs-lang"); if (s === "en" || s === "cs") lang = s; } catch(e){}
+
+  function apply(l){
+    lang = l;
+    var d = T[l];
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      if (d[k] != null) el.textContent = d[k];
+    });
+    document.querySelectorAll(".lang button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false");
+    });
+    document.querySelectorAll('a[href^="https://noona.app/"]').forEach(function(a){
+      a.href = a.href.replace(/noona\.app\/(cs|en)\//, "noona.app/" + l + "/");
+    });
+    try { localStorage.setItem("dbs-lang", l); } catch(e){}
+    hours();
+  }
+  document.querySelectorAll(".lang button").forEach(function(b){
+    b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); });
+  });
+
+  // opening hours, Europe/Prague
+  var H = { 0:[600,1020], 1:[570,1170], 2:[570,1170], 3:[570,1170], 4:[570,1170], 5:[570,1170], 6:[600,1020] };
+  function fmt(m){ return Math.floor(m/60) + ":" + (m%60 < 10 ? "0" : "") + (m%60); }
+  function pragueNow(){
+    try {
+      var p = new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Prague",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+      var o = {}; p.forEach(function(x){ o[x.type] = x.value; });
+      var wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+      return { day: wd, min: (parseInt(o.hour,10)%24)*60 + parseInt(o.minute,10) };
+    } catch(e){ var n = new Date(); return { day:n.getDay(), min:n.getHours()*60+n.getMinutes() }; }
+  }
+  function hours(){
+    var d = T[lang], now = pragueNow(), h = H[now.day];
+    document.querySelectorAll("#hoursBody tr").forEach(function(tr){
+      tr.classList.toggle("today", parseInt(tr.getAttribute("data-day"),10) === now.day);
+    });
+    var st = document.getElementById("status"), tx = document.getElementById("statusText");
+    if (now.min >= h[0] && now.min < h[1]) {
+      st.classList.remove("closed");
+      tx.textContent = d["st.open"].replace("{t}", fmt(h[1]));
+    } else {
+      st.classList.add("closed");
+      var when, opens;
+      if (now.min < h[0]) { when = d["st.today"]; opens = h[0]; }
+      else { var nd = (now.day+1)%7; when = d["st.tomorrow"]; opens = H[nd][0]; }
+      tx.textContent = d["st.closed"].replace("{d}", when).replace("{t}", fmt(opens));
+    }
+  }
+
+  // nav background on scroll
+  var nav = document.getElementById("nav");
+  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 24); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  apply(lang);
+  setInterval(hours, 60000);
+})();
+</script>
+</body>
+</html>

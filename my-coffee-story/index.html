@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Coffee Story – kavárna na Žižkově, J. Želivského 22</title>
+<meta name="description" content="Malá kavárna na Žižkově se zahrádkou ve vnitrobloku. Káva, domácí koláče, snídaně. J. Želivského 1801/22, Praha 3, naproti Žižkovskému divadlu Járy Cimrmana. Otevřeno denně.">
+<meta name="theme-color" content="#FBF9F5">
+<meta property="og:title" content="My Coffee Story – kavárna na Žižkově">
+<meta property="og:description" content="Káva, domácí koláče, snídaně a zahrádka ve vnitrobloku. 4,7 hvězdiček ze 785 recenzí na Google.">
+<meta property="og:image" content="img/hero-interier.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "My Coffee Story",
+  "image": "img/hero-interier.jpg",
+  "telephone": "+420725791271",
+  "priceRange": "100–200 Kč",
+  "servesCuisine": "Café",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "J. Želivského 1801/22",
+    "addressLocality": "Praha 3 – Žižkov",
+    "postalCode": "130 00",
+    "addressCountry": "CZ"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.0896211, "longitude": 14.4685599 },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "785" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "09:00", "closes": "15:00" }
+  ]
+}
+</script>
+<style>
+:root{
+  --chalk:#1e1b17;
+  --wall:#fbf9f5;
+  --wood:#e6d2b4;
+  --wood-soft:#f3e9da;
+  --bark:#5c3a1e;
+  --bark-hi:#74492a;
+  --court:#2e5a3a;
+  --moss:#6b665e;
+  --line:rgba(30,27,23,.14);
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(20px,5.5vw,88px);
+  --max:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--wall);color:var(--chalk);
+  font-family:var(--body);font-size:18px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;margin:0;letter-spacing:-.015em;font-variation-settings:"opsz" 96}
+h2{font-size:clamp(2rem,4.2vw,3.2rem)}
+h3{font-size:1.25rem;line-height:1.25;letter-spacing:0;font-variation-settings:"opsz" 24}
+:focus-visible{outline:3px solid var(--court);outline-offset:3px}
+.wrap{padding-left:var(--gutter);padding-right:var(--gutter);max-width:var(--max);margin:0 auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:52px;padding:0 22px;border-radius:999px;
+  font:600 1.05rem/1 var(--body);text-decoration:none;cursor:pointer;
+  border:1.5px solid transparent;white-space:nowrap;
+  transition:background .15s,border-color .15s;
+}
+.btn-bark{background:var(--bark);color:#fff;border-color:var(--bark)}
+.btn-bark:hover{background:var(--bark-hi);border-color:var(--bark-hi)}
+.btn-line{background:transparent;color:var(--chalk);border-color:rgba(30,27,23,.35)}
+.btn-line:hover{border-color:var(--chalk)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* nav */
+.nav{
+  position:sticky;top:0;z-index:50;background:rgba(251,249,245,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid transparent;transition:border-color .2s;
+}
+.nav.scrolled{border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:66px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.2rem;text-decoration:none;letter-spacing:-.01em;font-variation-settings:"opsz" 24;display:inline-flex;align-items:center;gap:10px}
+.brand i{width:12px;height:12px;border-radius:50%;background:var(--court);display:inline-block}
+.nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-weight:600;color:var(--chalk);opacity:.8}
+.nav-links a:hover{opacity:1}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav .btn{min-height:42px;padding:0 18px;font-size:1rem}
+.lang{display:inline-flex;border:1.5px solid rgba(30,27,23,.25);border-radius:999px;overflow:hidden}
+.lang button{
+  appearance:none;background:transparent;border:0;color:var(--chalk);
+  font:600 .9rem/1 var(--body);padding:10px 12px;cursor:pointer;min-width:44px;
+  opacity:.55;transition:opacity .15s,background .15s;
+}
+.lang button[aria-pressed="true"]{opacity:1;background:var(--wood-soft)}
+@media (max-width:900px){.nav-links{display:none}.nav .btn{display:none}}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1fr;gap:28px;padding-top:28px;padding-bottom:56px}
+.hero-copy{display:grid;gap:22px;align-content:end}
+.hero h1{font-size:clamp(2.35rem,5.4vw,4.2rem);max-width:17ch}
+.hero-sub{font-size:1.15rem;max-width:40ch;color:var(--moss)}
+.status{display:inline-flex;align-items:center;gap:10px;font-weight:600}
+.status::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--court);flex:none}
+.status.closed::before{background:#b5573a}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.rating{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--moss);font-size:1rem}
+.rating b{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--chalk);font-variation-settings:"opsz" 24}
+.stars{color:var(--bark);letter-spacing:.05em}
+.hero-img{border-radius:10px;overflow:hidden;aspect-ratio:4/3}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+@media (min-width:901px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;padding-top:36px;padding-bottom:72px;align-items:end}
+  .hero-img{aspect-ratio:auto;height:min(72vh,680px)}
+}
+/* one load moment */
+.hero-copy > *,.hero-img{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy > :nth-child(2){animation-delay:.08s}
+.hero-copy > :nth-child(3){animation-delay:.16s}
+.hero-copy > :nth-child(4){animation-delay:.24s}
+.hero-copy > :nth-child(5){animation-delay:.32s}
+.hero-img{animation-delay:.1s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-copy > *,.hero-img{animation:none}
+}
+
+/* the garden band */
+.court{background:var(--court);color:#fff;padding:clamp(56px,9vw,120px) 0}
+.court .wrap{display:grid;gap:28px}
+.court h2{font-size:clamp(3rem,11vw,9.5rem);line-height:.92;letter-spacing:-.03em;max-width:9ch}
+.court-text{display:grid;gap:18px;max-width:52ch;font-size:1.2rem}
+.court-text p{color:rgba(255,255,255,.88)}
+.court blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.3;font-variation-settings:"opsz" 48;max-width:26ch}
+.court blockquote footer{font-family:var(--body);font-weight:400;font-size:1rem;margin-top:10px;color:rgba(255,255,255,.72)}
+.court blockquote footer .stars{color:var(--wood)}
+@media (min-width:901px){
+  .court .wrap{grid-template-columns:1.3fr 1fr;align-items:end;gap:64px}
+}
+
+/* sections */
+.sec{padding:clamp(56px,8vw,104px) 0}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(30px,4vw,48px);max-width:56ch}
+.sec-head p{color:var(--moss);font-size:1.1rem}
+
+/* menu */
+.menu .wrap{display:grid;gap:40px}
+.menu-groups{display:grid;gap:34px}
+.group h3{margin-bottom:10px}
+.group ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.group li{padding:6px 0;border-bottom:1px solid var(--line)}
+.group li:last-child{border-bottom:0}
+.group small{display:block;color:var(--moss);font-size:.95rem}
+.menu-note{color:var(--moss);max-width:44ch;margin-top:28px}
+.menu-pics{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+.menu-pics figure{margin:0;border-radius:8px;overflow:hidden;aspect-ratio:1}
+.menu-pics figure:first-child{grid-column:1/-1;aspect-ratio:16/10}
+.menu-pics img{width:100%;height:100%;object-fit:cover}
+@media (min-width:901px){
+  .menu .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start}
+  .menu-groups{grid-template-columns:1fr 1fr;gap:34px 40px}
+  .menu-pics{position:sticky;top:90px}
+}
+
+/* gallery */
+.gal{background:var(--wood-soft)}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;grid-template-areas:"a a" "b c" "b e" "d d"}
+.gal-grid figure{margin:0;border-radius:8px;overflow:hidden;aspect-ratio:1}
+.gal-grid img{width:100%;height:100%;object-fit:cover}
+.gal-grid .g-a{grid-area:a;aspect-ratio:16/10}
+.gal-grid .g-b{grid-area:b;aspect-ratio:auto}
+.gal-grid .g-c{grid-area:c}
+.gal-grid .g-d{grid-area:d;aspect-ratio:16/9}
+.gal-grid .g-e{grid-area:e}
+@media (min-width:901px){
+  .gal-grid{grid-template-columns:repeat(4,1fr);gap:16px;grid-template-areas:"a a b c" "d d b e"}
+  .gal-grid .g-a,.gal-grid .g-d{aspect-ratio:auto}
+}
+
+/* reviews */
+.rev .wrap{display:grid;gap:36px}
+.rev-score{display:grid;gap:6px;align-content:start}
+.rev-score b{font-family:var(--display);font-size:4rem;font-weight:700;line-height:1;font-variation-settings:"opsz" 96;letter-spacing:-.03em}
+.rev-score p{color:var(--moss)}
+.rev-score a{display:inline-block;margin-top:14px;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--chalk);padding-bottom:1px}
+.rev-list{display:grid;gap:26px}
+.rev-list blockquote{margin:0;padding-left:20px;border-left:3px solid var(--wood);font-size:1.15rem;line-height:1.5}
+.rev-list footer{margin-top:10px;font-size:1rem;color:var(--moss);display:flex;gap:10px;align-items:center}
+@media (min-width:901px){
+  .rev .wrap{grid-template-columns:minmax(0,.7fr) minmax(0,2fr);gap:72px}
+  .rev-list{grid-template-columns:1fr 1fr;gap:32px 40px}
+  .rev-list blockquote:first-child{grid-column:1/-1;max-width:60ch}
+}
+
+/* find us */
+.find .wrap{display:grid;gap:32px}
+.find-info{display:grid;gap:26px;align-content:start}
+.find-info .sec-head{margin-bottom:0}
+.addr{font-size:1.15rem;line-height:1.45}
+.addr a{text-decoration:none;font-weight:600;border-bottom:1.5px solid var(--chalk)}
+.hours table{width:100%;border-collapse:collapse;max-width:380px}
+.hours td{padding:8px 0;border-bottom:1px solid var(--line)}
+.hours tr:last-child td{border-bottom:0}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.hours tr.today td{font-weight:600}
+.hours tr:not(.today) td{color:var(--moss)}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--moss)}
+.find-actions{display:flex;flex-wrap:wrap;gap:12px}
+.map{border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--wood-soft)}
+.map iframe{display:block;width:100%;height:340px;border:0}
+.find-photo{border-radius:10px;overflow:hidden}
+.find-photo img{width:100%;height:100%;object-fit:cover}
+@media (min-width:901px){
+  .find .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:64px;align-items:start}
+  .find-side{display:grid;gap:16px}
+  .map iframe{height:380px}
+}
+
+/* footer */
+footer.site{padding:36px 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--moss);font-size:.95rem}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+footer.site a{text-decoration:none}
+footer.site .social a{margin-right:16px;border-bottom:1px solid currentColor}
+@media (max-width:900px){footer.site{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
+
+/* mobile action bar */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:10px;
+  padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background:rgba(251,249,245,.96);border-top:1px solid var(--line);backdrop-filter:blur(8px);
+}
+.bar .btn{flex:1;min-height:50px}
+@media (max-width:900px){.bar{display:flex}}
+</style>
+</head>
+<body id="top">
+
+<nav class="nav" id="nav" aria-label="Hlavní navigace">
+  <div class="wrap">
+    <a class="brand" href="#top"><i aria-hidden="true"></i>My Coffee Story</a>
+    <ul class="nav-links">
+      <li><a href="#zahradka" data-i18n="nav.garden">Zahrádka</a></li>
+      <li><a href="#menu" data-i18n="nav.menu">Co si dát</a></li>
+      <li><a href="#recenze" data-i18n="nav.reviews">Recenze</a></li>
+      <li><a href="#kontakt" data-i18n="nav.find">Kde nás najdete</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Jazyk / Language">
+        <button type="button" data-lang="cs" aria-pressed="true">CZ</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-bark" href="tel:+420725791271" data-i18n="cta.call">Zavolat</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 data-i18n="hero.h">Malá kavárna na Žižkově. Káva, koláče a snídaně.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Na Želivského, naproti Žižkovskému divadlu Járy Cimrmana. Rychlé espresso s sebou, nebo koláč a hodina klidu u stolu.</p>
+      <p class="status" id="status"><span id="statusText">Otevřeno</span></p>
+      <div class="hero-cta">
+        <a class="btn btn-bark" href="https://www.google.com/maps/dir/?api=1&destination=My+Coffee+Story,+J.+%C5%BDelivsk%C3%A9ho+1801/22,+130+00+Praha+3" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span data-i18n="cta.dir">Trasa</span>
+        </a>
+        <a class="btn btn-line" href="tel:+420725791271">725 791 271</a>
+      </div>
+      <a class="rating" href="https://www.google.com/maps/place/My+Coffee+Story/data=!4m7!3m6!1s0x470b9498e22f0dab:0xb67a047e686869f0!8m2!3d50.0896211!4d14.4685599!16s%2Fg%2F11c6q586kn!19sChIJqw0v4piUC0cR8GloaH4EerY" target="_blank" rel="noopener">
+        <b>4,7</b><span><span class="stars" aria-hidden="true">★★★★★</span><br><span data-i18n="hero.reviews">785 recenzí na Google</span></span>
+      </a>
+    </div>
+    <div class="hero-img">
+      <img src="img/hero-interier.jpg" alt="Interiér kavárny My Coffee Story: bílé stěny, klenutý oblouk, dřevěné stoly a visící žárovky" width="1600" height="1200" fetchpriority="high">
+    </div>
+  </div>
+</header>
+
+<section class="court" id="zahradka">
+  <div class="wrap">
+    <h2 data-i18n="court.h">Zahrádka ve vnitrobloku.</h2>
+    <div class="court-text">
+      <p data-i18n="court.p">Z ulice není vidět. Projdete kavárnou, pár schodů, a jste v klidu, ve stínu a v zeleni. Kávu a koláč si vezmete s sebou od pultu.</p>
+      <blockquote>
+        <span data-i18n="court.q">„Úchvatná stinná zahrádka. 33 schodů. Výborná káva. Milá obsluha.“</span>
+        <footer><span class="stars" aria-hidden="true">★★★★★</span> <span data-i18n="court.qby">Staso, recenze na Google</span></footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu" id="menu">
+  <div class="wrap">
+    <div>
+      <div class="sec-head">
+        <h2 data-i18n="menu.h">Co si dát</h2>
+        <p data-i18n="menu.p">To, co lidé v recenzích chválí nejčastěji. Na osobu počítejte zhruba 100 až 200 Kč.</p>
+      </div>
+      <div class="menu-groups">
+        <div class="group">
+          <h3 data-i18n="menu.coffee">Káva</h3>
+          <ul>
+            <li>Espresso</li>
+            <li>Cappuccino</li>
+            <li>Cortado</li>
+            <li>Flat white</li>
+            <li>Batch brew <small data-i18n="menu.batchNote">dopoledne</small></li>
+            <li data-i18n="i.iced">Ledová káva</li>
+            <li>Matcha</li>
+          </ul>
+        </div>
+        <div class="group">
+          <h3 data-i18n="menu.breakfast">Snídaně a brunch</h3>
+          <ul>
+            <li data-i18n="i.eggs">Míchaná vejce</li>
+            <li data-i18n="i.omelette">Omeleta</li>
+            <li data-i18n="i.avotoast">Avokádový toust s vejcem</li>
+            <li data-i18n="i.tortilla">Tortilla s avokádem a vajíčkem</li>
+            <li data-i18n="i.waffles">Vafle</li>
+          </ul>
+        </div>
+        <div class="group">
+          <h3 data-i18n="menu.day">Přes den</h3>
+          <ul>
+            <li data-i18n="i.soup">Polévka dne</li>
+            <li data-i18n="i.mushroom">Žampionový krém s chlebem</li>
+            <li data-i18n="i.sandwich">Obložené chleby</li>
+            <li data-i18n="i.winebeer">Víno a pivo</li>
+          </ul>
+        </div>
+        <div class="group">
+          <h3 data-i18n="menu.sweet">Sladké, pečené u nás</h3>
+          <ul>
+            <li data-i18n="i.blueberry">Borůvkový koláč</li>
+            <li data-i18n="i.raspberry">Malinový křehký koláč</li>
+            <li data-i18n="i.strudel">Štrůdl</li>
+            <li data-i18n="i.coconut">Kokosová buchta</li>
+            <li data-i18n="i.cakes">Dorty a dezerty</li>
+          </ul>
+        </div>
+      </div>
+      <p class="menu-note" data-i18n="menu.note">Máme i veganské a vegetariánské možnosti. Všechno jde vzít s sebou.</p>
+    </div>
+    <div class="menu-pics">
+      <figure><img src="img/kolace-a-cappuccino.jpg" alt="Koláče a quiche na dřevěných prkénkách ve výloze, vpředu cappuccino" loading="lazy" width="1125" height="1200"></figure>
+      <figure><img src="img/avokadovy-toust.jpg" alt="Avokádový toust se sázeným vejcem a koriandrem, vedle sklenice džusu" loading="lazy" width="1200" height="720"></figure>
+      <figure><img src="img/cappuccino.jpg" alt="Cappuccino s latte artem na dřevěném stole" loading="lazy" width="1200" height="844"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec gal" id="galerie">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="gal.h">Pult, tabule a talíře</h2>
+      <p data-i18n="gal.p">Malý prostor, za rohem ještě jedna místnost pro větší partu. Psi vítáni.</p>
+    </div>
+    <div class="gal-grid">
+      <figure class="g-a"><img src="img/tabule-kaficka.jpg" alt="Zadní místnost kavárny s dlouhým stolem, dřevěnými stoličkami a tabulí Špatně přeložená kafíčka" loading="lazy" width="1400" height="1050"></figure>
+      <figure class="g-b"><img src="img/pult-s-kolaci.jpg" alt="Pult plný koláčů, croissantů a baget na dřevěných prkénkách" loading="lazy" width="900" height="1200"></figure>
+      <figure class="g-c"><img src="img/cortado.jpg" alt="Cortado ve skleničce na podšálku" loading="lazy" width="1125" height="1200"></figure>
+      <figure class="g-d"><img src="img/barista.jpg" alt="Barista za pultem u kávovaru, oknem je vidět ulice Želivského" loading="lazy" width="1400" height="788"></figure>
+      <figure class="g-e"><img src="img/lievance.jpg" alt="Lívance se šlehačkou, ovocem a mátou" loading="lazy" width="1125" height="1200"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec rev" id="recenze">
+  <div class="wrap">
+    <div class="rev-score">
+      <b>4,7</b>
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <p data-i18n="rev.count">ze 785 hodnocení na Google</p>
+      <a href="https://www.google.com/maps/place/My+Coffee+Story/data=!4m7!3m6!1s0x470b9498e22f0dab:0xb67a047e686869f0!8m2!3d50.0896211!4d14.4685599!16s%2Fg%2F11c6q586kn!19sChIJqw0v4piUC0cR8GloaH4EerY" target="_blank" rel="noopener" data-i18n="rev.all">Všechny recenze na Google</a>
+    </div>
+    <div class="rev-list">
+      <blockquote>
+        <span data-i18n="rev.1">Skvělá atmosféra, zde platí, co je malé, to je milé. Kavárnička s retro atmosférou vás vtáhne dovnitř a je konec 21. století. K tomu výborná káva a něco z domácích koláčů. Pohoda.</span>
+        <footer><span class="stars" aria-hidden="true">★★★★★</span>Eva</footer>
+      </blockquote>
+      <blockquote>
+        <span data-i18n="rev.2">Útulná kavárna na rychlé kafe nebo s sebou. Výborná káva jak espresso, tak batch. Velký výběr sladkého. Malinový křehký koláč byl výborný. Skvělý přírůstek na tuhle stranu Žižkova.</span>
+        <footer><span class="stars" aria-hidden="true">★★★★★</span>Markéta</footer>
+      </blockquote>
+      <blockquote>
+        <span data-i18n="rev.3">Oáza klidu nebo rychlá záchrana při uspěchaném dni přímo u zastávky Biskupcova. Výborná káva i matcha a luxusní čerstvé koláče a dezerty, jako od babičky :) moc doporučuji</span>
+        <footer><span class="stars" aria-hidden="true">★★★★★</span>Markéta</footer>
+      </blockquote>
+      <blockquote>
+        <span data-i18n="rev.4">Několik let chodím kolem, ale konečně nastal čas se zastavit na brunch. Obě varianty, jak vajíčka, tak avokádový chleb, skvělý.</span>
+        <footer><span class="stars" aria-hidden="true">★★★★★</span>Lucie</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="sec find" id="kontakt">
+  <div class="wrap">
+    <div class="find-info">
+      <div class="sec-head">
+        <h2 data-i18n="find.h">Kde nás najdete</h2>
+      </div>
+      <p class="addr">
+        <a href="https://www.google.com/maps/place/My+Coffee+Story/data=!4m7!3m6!1s0x470b9498e22f0dab:0xb67a047e686869f0!8m2!3d50.0896211!4d14.4685599!16s%2Fg%2F11c6q586kn!19sChIJqw0v4piUC0cR8GloaH4EerY" target="_blank" rel="noopener">J. Želivského 1801/22, Praha 3</a><br>
+        <span data-i18n="find.p">naproti Žižkovskému divadlu Járy Cimrmana, u zastávky Biskupcova</span>
+      </p>
+      <div class="hours">
+        <p class="status" id="status2"><span id="statusText2">Otevřeno</span></p>
+        <table>
+          <caption class="sr" data-i18n="find.hours">Otevírací doba</caption>
+          <tbody id="hoursBody">
+            <tr data-day="1"><td data-i18n="d.mon">Pondělí</td><td>8:00 – 18:00</td></tr>
+            <tr data-day="2"><td data-i18n="d.tue">Úterý</td><td>8:00 – 18:00</td></tr>
+            <tr data-day="3"><td data-i18n="d.wed">Středa</td><td>8:00 – 18:00</td></tr>
+            <tr data-day="4"><td data-i18n="d.thu">Čtvrtek</td><td>8:00 – 18:00</td></tr>
+            <tr data-day="5"><td data-i18n="d.fri">Pátek</td><td>8:00 – 18:00</td></tr>
+            <tr data-day="6"><td data-i18n="d.sat">Sobota</td><td>9:00 – 15:00</td></tr>
+            <tr data-day="0"><td data-i18n="d.sun">Neděle</td><td>9:00 – 15:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="facts">
+        <li data-i18n="f.counter">Objednává se u pultu</li>
+        <li data-i18n="f.cards">Platba kartou</li>
+        <li>Wi-Fi</li>
+        <li data-i18n="f.access">Bezbariérový vstup</li>
+        <li data-i18n="f.dogs">Psi vítáni</li>
+      </ul>
+      <div class="find-actions">
+        <a class="btn btn-bark" href="https://www.google.com/maps/dir/?api=1&destination=My+Coffee+Story,+J.+%C5%BDelivsk%C3%A9ho+1801/22,+130+00+Praha+3" target="_blank" rel="noopener" data-i18n="cta.dir">Trasa</a>
+        <a class="btn btn-line" href="tel:+420725791271"><span data-i18n="cta.call">Zavolat</span>&nbsp;725 791 271</a>
+      </div>
+    </div>
+    <div class="find-side">
+      <div class="map">
+        <iframe title="Mapa: My Coffee Story, J. Želivského 1801/22, Praha 3" src="https://www.google.com/maps?q=J.+%C5%BDelivsk%C3%A9ho+1801/22,+130+00+Praha+3-%C5%BDi%C5%BEkov&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div class="find-photo">
+        <img src="img/vyloha-cedule.jpg" alt="Hnědá dřevěná výloha kavárny s kulatou cedulí My Coffee Story a závěsným květináčem" loading="lazy" width="1400" height="1050">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>My Coffee Story, J. Želivského 1801/22, 130 00 Praha 3</span>
+    <span class="social"><a href="https://instagram.com/mypraguecoffeestory" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/mypraguecoffeestory" target="_blank" rel="noopener">Facebook</a></span>
+    <span>© 2026 My Coffee Story</span>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn btn-line" href="tel:+420725791271" data-i18n="cta.call">Zavolat</a>
+  <a class="btn btn-bark" href="https://www.google.com/maps/dir/?api=1&destination=My+Coffee+Story,+J.+%C5%BDelivsk%C3%A9ho+1801/22,+130+00+Praha+3" target="_blank" rel="noopener" data-i18n="cta.dir">Trasa</a>
+</div>
+
+<script>
+(function(){
+  var T = {
+    cs: {
+      "nav.garden":"Zahrádka","nav.menu":"Co si dát","nav.reviews":"Recenze","nav.find":"Kde nás najdete",
+      "cta.call":"Zavolat","cta.dir":"Trasa",
+      "hero.h":"Malá kavárna na Žižkově. Káva, koláče a snídaně.",
+      "hero.sub":"Na Želivského, naproti Žižkovskému divadlu Járy Cimrmana. Rychlé espresso s sebou, nebo koláč a hodina klidu u stolu.",
+      "hero.reviews":"785 recenzí na Google",
+      "court.h":"Zahrádka ve vnitrobloku.",
+      "court.p":"Z ulice není vidět. Projdete kavárnou, pár schodů, a jste v klidu, ve stínu a v zeleni. Kávu a koláč si vezmete s sebou od pultu.",
+      "court.q":"„Úchvatná stinná zahrádka. 33 schodů. Výborná káva. Milá obsluha.“","court.qby":"Staso, recenze na Google",
+      "menu.h":"Co si dát","menu.p":"To, co lidé v recenzích chválí nejčastěji. Na osobu počítejte zhruba 100 až 200 Kč.",
+      "menu.coffee":"Káva","menu.batchNote":"dopoledne","i.iced":"Ledová káva",
+      "menu.breakfast":"Snídaně a brunch","i.eggs":"Míchaná vejce","i.omelette":"Omeleta","i.avotoast":"Avokádový toust s vejcem","i.tortilla":"Tortilla s avokádem a vajíčkem","i.waffles":"Vafle",
+      "menu.day":"Přes den","i.soup":"Polévka dne","i.mushroom":"Žampionový krém s chlebem","i.sandwich":"Obložené chleby","i.winebeer":"Víno a pivo",
+      "menu.sweet":"Sladké, pečené u nás","i.blueberry":"Borůvkový koláč","i.raspberry":"Malinový křehký koláč","i.strudel":"Štrůdl","i.coconut":"Kokosová buchta","i.cakes":"Dorty a dezerty",
+      "menu.note":"Máme i veganské a vegetariánské možnosti. Všechno jde vzít s sebou.",
+      "gal.h":"Pult, tabule a talíře","gal.p":"Malý prostor, za rohem ještě jedna místnost pro větší partu. Psi vítáni.",
+      "rev.count":"ze 785 hodnocení na Google","rev.all":"Všechny recenze na Google",
+      "rev.1":"Skvělá atmosféra, zde platí, co je malé, to je milé. Kavárnička s retro atmosférou vás vtáhne dovnitř a je konec 21. století. K tomu výborná káva a něco z domácích koláčů. Pohoda.",
+      "rev.2":"Útulná kavárna na rychlé kafe nebo s sebou. Výborná káva jak espresso, tak batch. Velký výběr sladkého. Malinový křehký koláč byl výborný. Skvělý přírůstek na tuhle stranu Žižkova.",
+      "rev.3":"Oáza klidu nebo rychlá záchrana při uspěchaném dni přímo u zastávky Biskupcova. Výborná káva i matcha a luxusní čerstvé koláče a dezerty, jako od babičky :) moc doporučuji",
+      "rev.4":"Několik let chodím kolem, ale konečně nastal čas se zastavit na brunch. Obě varianty, jak vajíčka, tak avokádový chleb, skvělý.",
+      "find.h":"Kde nás najdete","find.p":"naproti Žižkovskému divadlu Járy Cimrmana, u zastávky Biskupcova","find.hours":"Otevírací doba",
+      "f.counter":"Objednává se u pultu","f.cards":"Platba kartou","f.access":"Bezbariérový vstup","f.dogs":"Psi vítáni",
+      "d.mon":"Pondělí","d.tue":"Úterý","d.wed":"Středa","d.thu":"Čtvrtek","d.fri":"Pátek","d.sat":"Sobota","d.sun":"Neděle",
+      "st.open":"Otevřeno, zavíráme v {t}","st.today":"Zavřeno, otevíráme dnes v {t}","st.tomorrow":"Zavřeno, otevíráme zítra v {t}"
+    },
+    en: {
+      "nav.garden":"Garden","nav.menu":"What to order","nav.reviews":"Reviews","nav.find":"Find us",
+      "cta.call":"Call","cta.dir":"Directions",
+      "hero.h":"A small café in Žižkov. Coffee, cakes and breakfast.",
+      "hero.sub":"On Želivského street, opposite the Jára Cimrman theatre. A quick espresso to go, or a slice of cake and a quiet hour at a table.",
+      "hero.reviews":"785 Google reviews",
+      "court.h":"A garden in the courtyard.",
+      "court.p":"You can't see it from the street. Walk through the café, a few steps, and you're in the quiet, in the shade, among the green. Order at the counter and carry your coffee and cake out.",
+      "court.q":"“A stunning shady garden. 33 steps. Excellent coffee. Friendly staff.”","court.qby":"Staso, Google review",
+      "menu.h":"What to order","menu.p":"What people praise most often in their reviews. Expect to spend around 100 to 200 CZK per person.",
+      "menu.coffee":"Coffee","menu.batchNote":"mornings","i.iced":"Iced coffee",
+      "menu.breakfast":"Breakfast and brunch","i.eggs":"Scrambled eggs","i.omelette":"Omelette","i.avotoast":"Avocado toast with egg","i.tortilla":"Tortilla with avocado and egg","i.waffles":"Waffles",
+      "menu.day":"Through the day","i.soup":"Soup of the day","i.mushroom":"Cream of mushroom soup with bread","i.sandwich":"Open sandwiches","i.winebeer":"Wine and beer",
+      "menu.sweet":"Sweet, baked here","i.blueberry":"Blueberry pie","i.raspberry":"Raspberry shortcrust pie","i.strudel":"Strudel","i.coconut":"Coconut buchta","i.cakes":"Cakes and desserts",
+      "menu.note":"Vegan and vegetarian options too. Everything is available to take away.",
+      "gal.h":"Counter, chalkboard, plates","gal.p":"A small room, with a second one around the corner for bigger groups. Dogs welcome.",
+      "rev.count":"from 785 Google ratings","rev.all":"All reviews on Google",
+      "rev.1":"Great atmosphere. Small is beautiful here. A little café with a retro feel pulls you in and it's the end of the 21st century. Excellent coffee and something from the home-baked pies. Bliss.",
+      "rev.2":"A cosy café for a quick coffee or one to go. Excellent coffee, both espresso and batch brew. Big choice of sweets. The raspberry shortcrust pie was excellent. A great addition to this side of Žižkov.",
+      "rev.3":"An oasis of calm, or a quick rescue on a rushed day, right by the Biskupcova stop. Excellent coffee and matcha, and wonderful fresh pies and desserts, like grandma used to make :) highly recommended",
+      "rev.4":"I've walked past for years, and finally it was time to stop for brunch. Both options, the eggs and the avocado toast, were great.",
+      "find.h":"Find us","find.p":"opposite the Jára Cimrman theatre, by the Biskupcova tram stop","find.hours":"Opening hours",
+      "f.counter":"Order at the counter","f.cards":"Cards accepted","f.access":"Step-free entrance","f.dogs":"Dogs welcome",
+      "d.mon":"Monday","d.tue":"Tuesday","d.wed":"Wednesday","d.thu":"Thursday","d.fri":"Friday","d.sat":"Saturday","d.sun":"Sunday",
+      "st.open":"Open now, closes at {t}","st.today":"Closed, opens today at {t}","st.tomorrow":"Closed, opens tomorrow at {t}"
+    }
+  };
+  var lang = "cs";
+  try { var s = localStorage.getItem("mcs-lang"); if (s === "en" || s === "cs") lang = s; } catch(e){}
+
+  function apply(l){
+    lang = l;
+    var d = T[l];
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      if (d[k] != null) el.textContent = d[k];
+    });
+    document.querySelectorAll(".lang button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false");
+    });
+    try { localStorage.setItem("mcs-lang", l); } catch(e){}
+    hours();
+  }
+  document.querySelectorAll(".lang button").forEach(function(b){
+    b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); });
+  });
+
+  // opening hours, Europe/Prague. Minutes from midnight: [opens, closes]
+  var H = { 0:[540,900], 1:[480,1080], 2:[480,1080], 3:[480,1080], 4:[480,1080], 5:[480,1080], 6:[540,900] };
+  function fmt(m){ return Math.floor(m/60) + ":" + (m%60 < 10 ? "0" : "") + (m%60); }
+  function pragueNow(){
+    try {
+      var p = new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Prague",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+      var o = {}; p.forEach(function(x){ o[x.type] = x.value; });
+      var wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+      return { day: wd, min: (parseInt(o.hour,10)%24)*60 + parseInt(o.minute,10) };
+    } catch(e){ var n = new Date(); return { day:n.getDay(), min:n.getHours()*60+n.getMinutes() }; }
+  }
+  function hours(){
+    var d = T[lang], now = pragueNow(), h = H[now.day], text, open;
+    document.querySelectorAll("#hoursBody tr").forEach(function(tr){
+      tr.classList.toggle("today", parseInt(tr.getAttribute("data-day"),10) === now.day);
+    });
+    if (now.min >= h[0] && now.min < h[1]) {
+      open = true; text = d["st.open"].replace("{t}", fmt(h[1]));
+    } else if (now.min < h[0]) {
+      open = false; text = d["st.today"].replace("{t}", fmt(h[0]));
+    } else {
+      open = false; text = d["st.tomorrow"].replace("{t}", fmt(H[(now.day+1)%7][0]));
+    }
+    ["status","status2"].forEach(function(id){
+      var el = document.getElementById(id); if (!el) return;
+      el.classList.toggle("closed", !open);
+      el.querySelector("span").textContent = text;
+    });
+  }
+
+  var nav = document.getElementById("nav");
+  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  apply(lang);
+  setInterval(hours, 60000);
+})();
+</script>
+</body>
+</html>

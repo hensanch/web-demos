@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kobido Way – japonská masáž obličeje, Praha 3</title>
+<meta name="description" content="Kobido, japonská liftingová masáž obličeje, hlavy, krku a ramen. Malé domácí studio u parku Rajská zahrada na Praze 3. 90 minut nebo 2 hodiny, jen na objednání.">
+<meta name="theme-color" content="#E9E6E1">
+<meta property="og:title" content="Kobido Way – japonská masáž obličeje, Praha 3">
+<meta property="og:description" content="Kobido, japonská liftingová masáž obličeje, hlavy, krku a ramen. Malé domácí studio u parku Rajská zahrada na Praze 3. 90 minut nebo 2 hodiny, jen na objednání.">
+<meta property="og:image" content="img/door.jpg">
+<meta property="og:type" content="website">
+<script>
+(function(){var r=document.documentElement;r.className+=' js';try{if(localStorage.getItem('kw-lang')==='en'){r.className+=' en';r.lang='en';}}catch(e){}})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Kobido Way",
+  "description": "Kobido, japonská masáž obličeje, hlavy, krku a ramen. Malé domácí studio u parku Rajská zahrada, Praha 3. Jen na objednání.",
+  "image": "img/door.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "U Rajské zahrady",
+    "addressLocality": "Praha 3 – Žižkov",
+    "postalCode": "130 00",
+    "addressCountry": "CZ"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.0815915, "longitude": 14.4448336 },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "114" },
+  "sameAs": "https://www.google.com/maps/place/Kobido+Way/@50.0815915,14.4448336,17z/data=!3m1!4b1!4m6!3m5!1s0x470b956105f2332d:0xf6f7d54c7daadc5b!8m2!3d50.0815915!4d14.4448336!16s%2Fg%2F11v0k3yyc2"
+}
+</script>
+<style>
+:root{
+  --dvere:#E9E6E1;
+  --tus:#2B2926;
+  --mosaz:#855A24;
+  --stin:#6B6660;
+  --okno:#D6DDE1;
+  --mincho:"Shippori Mincho","Zen Old Mincho",Georgia,serif;
+  --literata:"Literata",Georgia,"Times New Roman",serif;
+  --edge:20px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--dvere)}
+body{
+  margin:0;background:var(--dvere);color:var(--tus);
+  font-family:var(--literata);font-size:17px;line-height:1.65;font-weight:400;
+  font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,figure{margin:0}
+h1,h2,h3{font-family:var(--mincho);font-weight:500;letter-spacing:0;text-transform:none}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--mosaz);outline-offset:3px}
+
+/* language: both texts are in the page; the html class picks one */
+html:not(.en) [data-l="en"]{display:none!important}
+html.en [data-l="cs"]{display:none!important}
+
+/* the language toggle: two letters, no flags */
+.lang{display:flex;align-items:center;font-family:var(--literata);font-size:13px;line-height:1;color:var(--stin)}
+.lang button{
+  appearance:none;background:none;border:0;padding:0;margin:0;cursor:pointer;
+  font:inherit;color:inherit;min-width:44px;min-height:44px;
+}
+.lang button[aria-pressed="true"]{color:var(--tus);font-weight:500}
+.lang .dot{padding:0 2px}
+.lang button:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- 0  PRÁH: the door ---------- */
+.hero{position:relative;height:min(100svh,820px);min-height:560px;overflow:hidden;isolation:isolate}
+.hero-photo{position:absolute;inset:0;z-index:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.hero-top{
+  position:absolute;top:0;left:0;right:0;z-index:2;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px var(--edge) 0;
+  padding-top:calc(12px + env(safe-area-inset-top));
+}
+.mark{font-family:var(--mincho);font-size:18px;line-height:44px;text-decoration:none;color:var(--tus)}
+.hero-line{
+  position:absolute;left:var(--edge);right:var(--edge);z-index:2;
+  bottom:calc(40px + env(safe-area-inset-bottom));
+  font-size:34px;line-height:1.25;max-width:12ch;color:var(--tus);
+}
+.hero-line span{display:block}
+/* one moment, on load, once */
+.js .hero-photo img,.js .hero-line{opacity:0}
+.js .hero.in .hero-photo img{opacity:1;transition:opacity 1.6s ease-out}
+.js .hero.in .hero-line{opacity:1;transition:opacity .6s ease-out .4s}
+@media (prefers-reduced-motion:reduce){
+  .js .hero-photo img,.js .hero-line,.js .hero.in .hero-photo img,.js .hero.in .hero-line{opacity:1;transition:none}
+}
+
+/* ---------- the walk ---------- */
+main{padding:0 var(--edge)}
+.stop{padding-top:160px;max-width:1100px;margin:0 auto}
+.stop:first-child{padding-top:200px}
+.stop h2{font-size:26px;line-height:1.3}
+.text{max-width:34ch}
+.text p{margin-top:24px}
+.text p:first-of-type{margin-top:24px}
+.stop h2 + .text p:first-child{margin-top:24px}
+.figure{margin-top:40px;width:100%;max-width:420px}
+.figure img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--dvere)}
+.figure figcaption{margin-top:16px}
+.q{font-family:var(--mincho);font-size:17px;line-height:1.5;color:var(--stin)}
+.who{font-family:var(--literata);font-size:14px;line-height:1.5;color:var(--stin);margin-top:8px}
+
+/* 2  DVĚ HODINY: durations and the one note */
+.lengths{margin-top:40px;font-family:var(--mincho);font-size:22px;line-height:1.5}
+.lengths p{margin:0}
+.price{font-size:15px;color:var(--stin);margin-top:8px}
+.note{
+  margin-top:40px;background:var(--okno);color:var(--tus);
+  padding:24px;
+}
+.note h3{font-size:20px;line-height:1.3}
+.note p{margin-top:12px;font-size:16px;line-height:1.6}
+
+/* 4  TERMÍN: the one action */
+.cta{
+  display:inline-block;margin-top:40px;
+  font-family:var(--mincho);font-size:26px;line-height:1;
+  color:var(--mosaz);text-decoration:none;
+  padding:15px 0;border-bottom:1px solid var(--mosaz);min-height:56px;
+  transition:box-shadow .15s;
+}
+.cta:hover{box-shadow:inset 0 -1px 0 var(--mosaz)}
+.number{margin-top:16px;font-size:13px;line-height:1.5;color:var(--stin)}
+
+/* 5  ULICE: where */
+.small{font-size:13px;color:var(--stin)}
+.maplink{display:inline-block;margin-top:24px;padding:10px 0;color:var(--tus);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:var(--stin);transition:text-decoration-color .15s}
+.maplink:hover{text-decoration-color:var(--tus)}
+
+/* 6  TIRÁŽ */
+.colophon{
+  max-width:1100px;margin:0 auto;padding:120px 0 calc(48px + env(safe-area-inset-bottom));
+  font-size:13px;line-height:1.7;color:var(--stin);
+}
+.colophon p{margin:0}
+.colophon a{color:var(--stin);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .15s}
+.colophon a:hover{color:var(--tus)}
+.colophon .lang{margin-top:4px}
+
+/* ---------- desktop: the book held open ---------- */
+@media (min-width:900px){
+  :root{--edge:40px}
+  body{font-size:18px}
+  .hero{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;
+    height:min(100vh,900px);min-height:600px;
+  }
+  .hero-photo{position:relative;grid-column:2;grid-row:1;width:calc(min(100vh,900px) * .75);height:100%}
+  .hero-photo img{object-position:50% 50%}
+  .hero-top{right:auto;width:calc(100% - min(100vh,900px) * .75);padding-top:24px}
+  .hero-line{
+    grid-column:1;grid-row:1;position:static;align-self:end;
+    font-size:44px;max-width:60ch;padding:0 80px calc(80px + env(safe-area-inset-bottom)) 0;
+    margin-left:var(--edge);
+  }
+  .stop{
+    padding-top:240px;
+    display:grid;grid-template-columns:minmax(0,1fr) 420px;column-gap:120px;
+    grid-template-areas:"head figure" "text figure";grid-template-rows:auto 1fr;
+    align-items:start;
+  }
+  .stop:first-child{padding-top:240px}
+  .stop.no-photo{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "text";grid-template-rows:auto auto}
+  .stop h2{grid-area:head;font-size:34px;max-width:60ch}
+  .text{grid-area:text}
+  .figure{grid-area:figure;margin-top:0;max-width:420px;width:420px}
+  .q{font-size:19px}
+  .note{padding:28px 32px}
+  .colophon{padding-top:160px}
+}
+@media (max-width:899px){
+  .hero-line{max-width:none;padding-right:12%}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="prah">
+  <div class="hero-top">
+    <a class="mark" href="#prah">Kobido Way</a>
+    <div class="lang" role="group" aria-label="Jazyk / Language">
+      <button type="button" data-lang="cs" aria-pressed="true" lang="cs">CZ</button><span class="dot" aria-hidden="true">·</span><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
+  </div>
+  <picture class="hero-photo">
+    <source media="(max-width:899px)" type="image/webp" srcset="img/door-m.webp">
+    <source media="(max-width:899px)" type="image/jpeg" srcset="img/door-m.jpg">
+    <source type="image/webp" srcset="img/door.webp">
+    <img src="img/door.jpg" width="1200" height="1600" fetchpriority="high" decoding="async"
+         alt="Bílé dvoukřídlé dveře s mosaznou klikou v bytě na Praze 3"
+         data-alt-cs="Bílé dvoukřídlé dveře s mosaznou klikou v bytě na Praze 3"
+         data-alt-en="White double door with a brass handle in a Prague 3 flat">
+  </picture>
+  <h1 class="hero-line">
+    <span data-l="cs" lang="cs">Za těmito dveřmi nikdo nespěchá.</span>
+    <span data-l="en" lang="en">Behind this door, nobody hurries.</span>
+  </h1>
+</header>
+
+<main>
+
+  <!-- 1  MÍSTNOST -->
+  <section class="stop" id="kobido">
+    <h2>Kobido</h2>
+    <figure class="figure">
+      <picture>
+        <source type="image/webp" srcset="img/room.webp">
+        <img src="img/room.jpg" width="840" height="1120" loading="lazy" decoding="async"
+             alt="Masážní lehátko pod velkým oknem, bambusový stolek se svíčkou a nefritovým válečkem"
+             data-alt-cs="Masážní lehátko pod velkým oknem, bambusový stolek se svíčkou a nefritovým válečkem"
+             data-alt-en="Massage table under a large window, a bamboo side table with a candle and a jade roller">
+      </picture>
+      <figcaption>
+        <p class="q" data-l="cs" lang="cs">„Není to jen masáž obličeje ale i hlavy, krku a ramen. 2 hodiny je ideální čas na to, nikdo nikam nespěchá a všecko probíhá postupně.“</p>
+        <p class="q" data-l="en" lang="en">“It isn't just a facial massage but the head, neck and shoulders too. Two hours is the right length for it — nobody is in a hurry and everything happens in its own time.”</p>
+        <p class="who" data-l="cs" lang="cs">Elizaveta</p>
+        <p class="who" data-l="en" lang="en">Elizaveta, translated from Czech</p>
+      </figcaption>
+    </figure>
+    <div class="text">
+      <p data-l="cs" lang="cs">Japonská masáž obličeje Kobido v tichém bytě u parku Rajská zahrada. Jeden masér, jedno lehátko, jen na objednání.</p>
+      <p data-l="cs" lang="cs">Kobido je stará japonská masáž obličeje: pracuje s pletí, svaly i lymfou a nekončí u tváří – patří k ní i hlava, krk, ramena a dekolt.</p>
+      <p data-l="en" lang="en">Kobido, the Japanese facial massage, in a quiet flat by Rajská zahrada park. One practitioner, one table, by appointment only.</p>
+      <p data-l="en" lang="en">Kobido is an old Japanese facial massage: it works the skin, the muscles and the lymph, and it doesn't stop at the cheeks — the scalp, neck, shoulders and décolleté are part of it.</p>
+    </div>
+  </section>
+
+  <!-- 2  DVĚ HODINY -->
+  <section class="stop" id="dve-hodiny">
+    <h2><span data-l="cs" lang="cs">Dvě hodiny</span><span data-l="en" lang="en">Two hours</span></h2>
+    <figure class="figure">
+      <picture>
+        <source type="image/webp" srcset="img/candle.webp">
+        <img src="img/candle.jpg" width="840" height="1120" loading="lazy" decoding="async"
+             alt="Zapálená svíčka a nefritový váleček na složeném šedém ručníku"
+             data-alt-cs="Zapálená svíčka a nefritový váleček na složeném šedém ručníku"
+             data-alt-en="A lit candle and a jade roller on a folded grey towel">
+      </picture>
+      <figcaption>
+        <p class="q" data-l="cs" lang="cs">„Za tuhle hodinu a půl blaha jsem náramně vděčná. Nechtěla jsem, aby procedura skončila.“</p>
+        <p class="q" data-l="en" lang="en">“For that hour and a half of bliss I'm enormously grateful. I didn't want it to end.”</p>
+        <p class="who" data-l="cs" lang="cs">Dana</p>
+        <p class="who" data-l="en" lang="en">Dana, translated from Czech</p>
+      </figcaption>
+    </figure>
+    <div class="text">
+      <p data-l="cs" lang="cs">Začínáme klidně. Pleť očistím, pak střídám pomalejší tahy s rychlejšími – Kobido je půl uvolnění, půl práce.</p>
+      <p data-l="cs" lang="cs">Postupně dojde na obličej, hlavu, krk, ramena i dekolt.</p>
+      <p data-l="cs" lang="cs">Odcházíte s prokrvenou, pevnější pletí a hlavou, která má na chvíli klid.</p>
+      <p data-l="en" lang="en">We start slowly. I cleanse the skin, then alternate slow strokes with quicker ones — Kobido is half rest, half work.</p>
+      <p data-l="en" lang="en">In turn the face, scalp, neck, shoulders and décolleté all get their time.</p>
+      <p data-l="en" lang="en">You leave with skin that is flushed and firmer, and a head that is quiet for a while.</p>
+
+      <div class="lengths">
+        <p data-l="cs" lang="cs">Kobido 90 minut</p>
+        <p data-l="cs" lang="cs">Kobido 2 hodiny</p>
+        <p data-l="en" lang="en">Kobido, 90 minutes</p>
+        <p data-l="en" lang="en">Kobido, 2 hours</p>
+        <p class="price" data-l="cs" lang="cs">Cenu vám řeknu při objednání.</p>
+        <p class="price" data-l="en" lang="en">I'll confirm the price when you book.</p>
+      </div>
+
+      <aside class="note">
+        <h3><span data-l="cs" lang="cs">Před první návštěvou</span><span data-l="en" lang="en">Before your first visit</span></h3>
+        <p data-l="cs" lang="cs">Masáž obličeje není vhodná při aktivním akné, sklonu k alergiím nebo podrážděné pleti. Pokud si nejste jistí, napište mi ještě před objednáním – lepší se domluvit předem než na lehátku.</p>
+        <p data-l="en" lang="en">Facial massage isn't right for active acne, allergy-prone or irritated skin. If you're not sure, message me before you book — better to settle it in advance than on the table.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 3  RUCE -->
+  <section class="stop" id="maser">
+    <h2><span data-l="cs" lang="cs">Jeden masér</span><span data-l="en" lang="en">One practitioner</span></h2>
+    <figure class="figure">
+      <picture>
+        <source type="image/webp" srcset="img/ceramics.webp">
+        <img src="img/ceramics.jpg" width="840" height="1120" loading="lazy" decoding="async"
+             alt="Bílá keramika s květem pivoňky a dva oblázky se zlatým dnem na polici"
+             data-alt-cs="Bílá keramika s květem pivoňky a dva oblázky se zlatým dnem na polici"
+             data-alt-en="White ceramics with a peony and two gold-bottomed pebbles on a shelf">
+      </picture>
+      <figcaption>
+        <p class="q" data-l="cs" lang="cs">„Intenzita masírování je přesně taková, jaká chcete aby byla, tohle musí být opravdu dar a talent, protože takovou masérskou empatii nemá každý.“</p>
+        <p class="q" data-l="en" lang="en">“The pressure is exactly what you want it to be — that has to be a gift, because not every masseur has that kind of empathy.”</p>
+        <p class="who" data-l="cs" lang="cs">Baris</p>
+        <p class="who" data-l="en" lang="en">Baris, translated from Czech</p>
+      </figcaption>
+    </figure>
+    <div class="text">
+      <p data-l="cs" lang="cs">Masíruji sám, na jednom lehátku, vždy jednoho hosta. Tlak si řídíte vy, nikdy nebolí.</p>
+      <p data-l="en" lang="en">I work alone, at one table, with one guest at a time. You set the pressure; it never hurts.</p>
+    </div>
+  </section>
+
+  <!-- 4  TERMÍN -->
+  <section class="stop no-photo" id="objednat">
+    <h2><span data-l="cs" lang="cs">Objednat se</span><span data-l="en" lang="en">Book a session</span></h2>
+    <div class="text">
+      <p data-l="cs" lang="cs">Napište mi, který den a čas by se vám hodil a jestli chcete 90 minut, nebo dvě hodiny. Odpovím a domluvíme se. Domluvíte se i anglicky.</p>
+      <p data-l="en" lang="en">Message me with a day and time that suits you and whether you'd like 90 minutes or two hours. I'll reply and we'll sort it out. English is fine.</p>
+      <a class="cta" href="PLACEHOLDER_CONTACT"><span data-l="cs" lang="cs">Napsat zprávu</span><span data-l="en" lang="en">Send a message</span></a>
+      <p class="number">PLACEHOLDER +420 ··· ··· ···</p>
+    </div>
+  </section>
+
+  <!-- 5  ULICE -->
+  <section class="stop" id="kde">
+    <h2><span data-l="cs" lang="cs">Kde mě najdete</span><span data-l="en" lang="en">Where to find me</span></h2>
+    <figure class="figure">
+      <picture>
+        <source type="image/webp" srcset="img/street.webp">
+        <img src="img/street.jpg" width="840" height="1120" loading="lazy" decoding="async"
+             alt="Ulice U Rajské zahrady: secesní fasády, dlážděný přechod, slunečný den"
+             data-alt-cs="Ulice U Rajské zahrady: secesní fasády, dlážděný přechod, slunečný den"
+             data-alt-en="U Rajské zahrady street: Art Nouveau facades, a cobbled crossing, a sunny day">
+      </picture>
+      <figcaption>
+        <p class="q" data-l="cs" lang="cs">„Po rituálu je pleť rozzářená, prokrvená a odpočatá.“</p>
+        <p class="q" data-l="en" lang="en">“It is not just relaxing, but you can really see changes in the contour of the face and lifting action afterwards.”</p>
+        <p class="who" data-l="cs" lang="cs">Juliána</p>
+        <p class="who" data-l="en" lang="en">Natasza</p>
+      </figcaption>
+    </figure>
+    <div class="text">
+      <p data-l="cs" lang="cs">U Rajské zahrady, Praha 3 – na hranici Žižkova a Vinohrad, hned u parku. Studio je v bytě; číslo domu, patro a zvonek vám pošlu při objednání.</p>
+      <p data-l="en" lang="en">U Rajské zahrady, Prague 3 — where Žižkov meets Vinohrady, right by the park. The studio is in a flat; I'll send the house number, floor and bell when you book.</p>
+      <p class="small" data-l="cs" lang="cs">Jen na objednání.</p>
+      <p class="small" data-l="en" lang="en">By appointment only.</p>
+      <a class="maplink" href="https://www.google.com/maps/place/Kobido+Way/@50.0815915,14.4448336,17z/data=!3m1!4b1!4m6!3m5!1s0x470b956105f2332d:0xf6f7d54c7daadc5b!8m2!3d50.0815915!4d14.4448336!16s%2Fg%2F11v0k3yyc2" target="_blank" rel="noopener"><span data-l="cs" lang="cs">Otevřít v Mapách</span><span data-l="en" lang="en">Open in Maps</span></a>
+    </div>
+  </section>
+
+</main>
+
+<!-- 6  TIRÁŽ -->
+<footer class="colophon">
+  <p><a href="https://www.google.com/maps/place/Kobido+Way/@50.0815915,14.4448336,17z/data=!3m1!4b1!4m6!3m5!1s0x470b956105f2332d:0xf6f7d54c7daadc5b!8m2!3d50.0815915!4d14.4448336!16s%2Fg%2F11v0k3yyc2" target="_blank" rel="noopener"><span data-l="cs" lang="cs">5,0 z 114 recenzí na Google</span><span data-l="en" lang="en">5.0 from 114 reviews on Google</span></a></p>
+  <p data-l="cs" lang="cs">Kobido Way · U Rajské zahrady, Praha 3 · jen na objednání</p>
+  <p data-l="en" lang="en">Kobido Way · U Rajské zahrady, Prague 3 · by appointment only</p>
+  <div class="lang" role="group" aria-label="Jazyk / Language">
+    <button type="button" data-lang="cs" aria-pressed="true" lang="cs">CZ</button><span class="dot" aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+  </div>
+  <p>© 2026 Kobido Way</p>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var T = {
+    cs: { title: "Kobido Way – japonská masáž obličeje, Praha 3",
+          desc: "Kobido, japonská liftingová masáž obličeje, hlavy, krku a ramen. Malé domácí studio u parku Rajská zahrada na Praze 3. 90 minut nebo 2 hodiny, jen na objednání." },
+    en: { title: "Kobido Way – Japanese facial massage, Prague 3",
+          desc: "Kobido, the Japanese lifting massage of the face, scalp, neck and shoulders. A small home studio by Rajská zahrada park in Prague 3. 90 minutes or 2 hours, by appointment only." }
+  };
+  var buttons = document.querySelectorAll(".lang button");
+  function apply(l){
+    root.classList.toggle("en", l === "en");
+    root.lang = l;
+    document.title = T[l].title;
+    var m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", T[l].desc);
+    document.querySelectorAll("img[data-alt-" + l + "]").forEach(function(i){ i.alt = i.getAttribute("data-alt-" + l); });
+    buttons.forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false"); });
+    try { localStorage.setItem("kw-lang", l); } catch(e){}
+  }
+  buttons.forEach(function(b){ b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); }); });
+  apply(root.classList.contains("en") ? "en" : "cs");
+
+  /* the door: fades in once, when its photo is ready */
+  var hero = document.getElementById("prah"), img = hero.querySelector("img"), done = false;
+  function inn(){ if (done) return; done = true; requestAnimationFrame(function(){ requestAnimationFrame(function(){ hero.classList.add("in"); }); }); }
+  if (img.complete) inn(); else { img.addEventListener("load", inn); img.addEventListener("error", inn); }
+  setTimeout(inn, 2500);
+})();
+</script>
+</body>
+</html>
