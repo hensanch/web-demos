@@ -6,6 +6,7 @@
 <title>The Wind Barber shop – barbershop, Vršovická 89, Praha 10</title>
 <meta name="description" content="Barbershop na Vršovické 89 v Praze 10. Pánský střih, vousy, dětský střih. Ceník, otevírací doba, rezervace přes Reservio.">
 <meta name="theme-color" content="#FBFAF7">
+<script>document.documentElement.className+=" fp";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Mr+Dafoe&display=swap" rel="stylesheet">
@@ -80,6 +81,8 @@ p{margin:0}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center;padding-top:clamp(28px,6vw,80px);padding-bottom:clamp(40px,6vw,80px)}
 .neon{font-family:var(--script);font-weight:400;font-size:clamp(64px,8vw,116px);line-height:.95;color:var(--neon);letter-spacing:.01em;margin:0 0 18px -4px;
   text-shadow:0 0 2px rgba(255,74,23,.9),0 0 12px rgba(255,74,23,.55),0 0 34px rgba(255,74,23,.35),0 0 80px rgba(255,74,23,.18)}
+html.fp .neon{opacity:0}
+html.fp .neon.lit{opacity:1}
 .neon span{display:block;white-space:nowrap}
 .neon span + span{margin-left:.9em}
 .hero h1{font-size:clamp(28px,3.2vw,40px);max-width:22ch;margin-bottom:16px}
@@ -515,7 +518,12 @@ footer.site .r{margin-left:auto}
   setInterval(hours, 60000);
   // light the neon once
   var neon = document.getElementById("neon");
-  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function(){ neon.classList.add("lit"); }); } else { neon.classList.add("lit"); }
+  var litDone = false;
+  function light(){ if (litDone) return; litDone = true; neon.classList.add("lit"); }
+  if (document.fonts && document.fonts.load) {
+    document.fonts.load('400 80px "Mr Dafoe"').then(function(){ return document.fonts.ready; }).then(light, light);
+  } else { light(); }
+  setTimeout(light, 3000);
 })();
 </script>
 </body>
