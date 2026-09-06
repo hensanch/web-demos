@@ -66,6 +66,7 @@ body{
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.92;margin:0;letter-spacing:.005em}
+h1{line-height:.98}
 h2{font-size:clamp(2.6rem,6vw,5rem)}
 h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:800}
 p{margin:0}
@@ -127,11 +128,11 @@ p{margin:0}
   overflow:hidden;isolation:isolate;
 }
 .hero-bg{position:absolute;inset:0;z-index:-2}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:75% 50%}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background:
-    linear-gradient(180deg,rgba(17,18,20,.55) 0%,rgba(17,18,20,.15) 35%,rgba(17,18,20,.92) 100%),
+    linear-gradient(180deg,rgba(17,18,20,.55) 0%,rgba(17,18,20,.34) 35%,rgba(17,18,20,.93) 100%),
     linear-gradient(90deg,rgba(17,18,20,.55) 0%,rgba(17,18,20,0) 60%);
 }
 .pole{
@@ -193,9 +194,9 @@ section{position:relative}
 .item .t{color:var(--muted);font-size:.95rem;grid-column:1}
 .item .p{grid-column:2;font-family:var(--display);font-weight:800;font-size:1.75rem;line-height:1;grid-row:1 / span 3;align-self:start;white-space:nowrap}
 .addons{
-  margin-top:56px;padding:28px clamp(20px,3vw,36px);
+  padding:28px clamp(20px,3vw,36px);
   background:var(--ink-2);border-left:4px solid var(--red);border-radius:0 4px 4px 0;
-  display:grid;gap:12px;
+  display:grid;gap:12px;align-content:start;
 }
 .addons h3{font-size:1.4rem}
 .addons ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px}
@@ -235,10 +236,10 @@ section{position:relative}
 @media (min-width:900px){.gallery .wide{grid-column:span 2}.gallery .wide img{aspect-ratio:8/5}}
 
 /* find us */
-.find{display:grid;gap:28px}
+.find{display:grid;gap:28px;align-items:stretch}
 @media (min-width:1000px){.find{grid-template-columns:1.1fr 1fr 1.2fr}}
-.find figure{margin:0;border-radius:4px;overflow:hidden;background:var(--ink-2)}
-.find figure img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.find figure{margin:0;border-radius:4px;overflow:hidden;background:var(--ink-2);height:100%}
+.find figure img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block}
 .hours{padding:28px;background:var(--ink-2);border-radius:4px;display:grid;gap:18px;align-content:start}
 .status{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.05rem}
 .status .dot{width:10px;height:10px;border-radius:50%;background:#3ec97a;flex:none;box-shadow:0 0 0 4px rgba(62,201,122,.18)}
@@ -406,16 +407,16 @@ footer.site a:hover{text-decoration:underline}
             <span class="p">720 Kč</span>
           </div>
         </div>
-      </div>
 
-      <div class="addons">
-        <h3 data-i18n="add.h">Příplatky, když je chceš</h3>
-        <ul>
-          <li><b>+100 Kč</b><span data-i18n="add.wash">mytí vlasů</span></li>
-          <li><b>+50 Kč</b><span data-i18n="add.brows">úprava obočí</span></li>
-          <li><b><span data-i18n="add.from">od</span> +50 Kč</b><span data-i18n="add.tattoo">hair tattoo</span></li>
-        </ul>
-        <p data-i18n="add.p">Barber se vždy zeptá, než něco přidá. Konečnou cenu znáš dřív, než si sedneš do křesla.</p>
+        <div class="addons">
+          <h3 data-i18n="add.h">Příplatky, když je chceš</h3>
+          <ul>
+            <li><b>+100 Kč</b><span data-i18n="add.wash">mytí vlasů</span></li>
+            <li><b>+50 Kč</b><span data-i18n="add.brows">úprava obočí</span></li>
+            <li><b><span data-i18n="add.from">od</span> +50 Kč</b><span data-i18n="add.tattoo">hair tattoo</span></li>
+          </ul>
+          <p data-i18n="add.p">Barber se vždy zeptá, než něco přidá. Konečnou cenu znáš dřív, než si sedneš do křesla.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -432,22 +433,22 @@ footer.site a:hover{text-decoration:underline}
         <div class="member">
           <img src="img/david.jpg" alt="David, barber" loading="lazy" width="800" height="1000">
           <h3>David</h3>
-          <p><q data-i18n="team.david">úžasný low taper</q></p>
+          <p data-i18n="team.role">Barber</p>
         </div>
         <div class="member">
           <img src="img/tony.jpg" alt="Tony, barber" loading="lazy" width="800" height="1000">
           <h3>Tony</h3>
-          <p data-i18n="team.tony">Barber</p>
+          <p data-i18n="team.role">Barber</p>
         </div>
         <div class="member">
           <img src="img/filip.jpg" alt="Filip, barber" loading="lazy" width="800" height="1000">
           <h3>Filip</h3>
-          <p><q data-i18n="team.filip">na všem si dá záležet</q></p>
+          <p data-i18n="team.role">Barber</p>
         </div>
         <div class="member">
           <img src="img/marek.jpg" alt="Marek, barber" loading="lazy" width="800" height="1000">
           <h3>Marek</h3>
-          <p><q data-i18n="team.marek">skvělý přístup</q></p>
+          <p data-i18n="team.role">Barber</p>
         </div>
       </div>
     </div>
@@ -472,6 +473,10 @@ footer.site a:hover{text-decoration:underline}
         </article>
         <article class="rev">
           <blockquote data-i18n="rev.3">Krásné prostředí a moc milý barber Marek. Určitě přijdu znovu a mohu velmi doporučit.</blockquote>
+          <footer><span class="stars" aria-hidden="true">★★★★★</span><span data-i18n="rev.anon">Recenze na Google</span></footer>
+        </article>
+        <article class="rev">
+          <blockquote data-i18n="rev.4">S Markem jsem byl velmi spokojený, skvělý přístup. Určitě doporučuji.</blockquote>
           <footer><span class="stars" aria-hidden="true">★★★★★</span><span data-i18n="rev.anon">Recenze na Google</span></footer>
         </article>
       </div>
@@ -568,11 +573,12 @@ footer.site a:hover{text-decoration:underline}
       "add.h":"Příplatky, když je chceš","add.wash":"mytí vlasů","add.brows":"úprava obočí","add.from":"od","add.tattoo":"hair tattoo",
       "add.p":"Barber se vždy zeptá, než něco přidá. Konečnou cenu znáš dřív, než si sedneš do křesla.",
       "team.h":"Čtyři barbeři","team.p":"Každý má svůj rukopis. Při rezervaci si vybereš, ke komu si sedneš.",
-      "team.david":"úžasný low taper","team.tony":"Barber","team.filip":"na všem si dá záležet","team.marek":"skvělý přístup",
+      "team.role":"Barber",
       "rev.count":"z 1 143 hodnocení na Google","rev.all":"Všechny recenze na Google","rev.anon":"Recenze na Google",
       "rev.1":"Absolutní spokojenost s účesem, vyhoví nebo poradí. Velký výběr pití a produktů do vlasů. David mi udělal úžasný low taper. Rozhodně doporučuji a přijdu znovu.",
       "rev.2":"Filip je hodný, pečlivý barber. Na všem si dá záležet a nenechá nic náhodě. Za mě pět hvězd.",
       "rev.3":"Krásné prostředí a moc milý barber Marek. Určitě přijdu znovu a mohu velmi doporučit.",
+      "rev.4":"S Markem jsem byl velmi spokojený, skvělý přístup. Určitě doporučuji.",
       "gal.h":"Z křesla","gal.p":"Fady, textury, mullety i klasika. Přines fotku, nebo se nech poradit.",
       "find.h":"Kde nás najdete","find.p":"Počernická 55 v Malešicích, hned u zastávky. Bez rezervace to vyjde jen se štěstím, radši si zaklikni termín.",
       "find.nav":"Navigovat v Google Maps",
@@ -596,11 +602,12 @@ footer.site a:hover{text-decoration:underline}
       "add.h":"Extras, if you want them","add.wash":"hair wash","add.brows":"eyebrow trim","add.from":"from","add.tattoo":"hair tattoo",
       "add.p":"Your barber always asks before adding anything. You know the final price before you sit down.",
       "team.h":"Four barbers","team.p":"Each has his own style. Pick whose chair you sit in when you book.",
-      "team.david":"an amazing low taper","team.tony":"Barber","team.filip":"cares about every detail","team.marek":"great attitude",
+      "team.role":"Barber",
       "rev.count":"from 1,143 Google ratings","rev.all":"All reviews on Google","rev.anon":"Google review",
       "rev.1":"Absolutely happy with the cut, they listen or they advise. Big choice of drinks and hair products. David gave me an amazing low taper. Highly recommend, I'll be back.",
       "rev.2":"Filip is a kind, careful barber. He cares about every detail and leaves nothing to chance. Five stars from me.",
       "rev.3":"Beautiful space and a really friendly barber, Marek. I'll definitely come back and can highly recommend.",
+      "rev.4":"I was very happy with Marek, great attitude. Definitely recommend.",
       "gal.h":"From the chair","gal.p":"Fades, texture, mullets and classics. Bring a photo or ask for advice.",
       "find.h":"Find us","find.p":"Počernická 55 in Malešice, right by the stop. Walk-ins are luck of the draw, better to book a slot.",
       "find.nav":"Open in Google Maps",

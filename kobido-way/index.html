@@ -195,6 +195,7 @@ section{padding:64px 0}
 .book .text{color:var(--papir);opacity:.9}
 .book .acts{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .book .number{margin-top:14px;font-size:15px;opacity:.7}
+.book .number a{text-decoration:underline;text-underline-offset:3px}
 
 footer{padding:28px 0 20px;font-size:14px;color:var(--kamen)}
 footer .row{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between}
@@ -222,7 +223,7 @@ footer a{color:var(--kamen)}
   .hero-top{right:auto;width:54%;padding-top:20px;padding-left:var(--edge);padding-right:var(--edge)}
   .hero-photo{grid-column:2;grid-row:1;height:100%;min-height:600px}
   .hero-photo::after{background:linear-gradient(to right,var(--noc) 0,rgba(34,29,25,0) 30%)}
-  .hero-body{grid-column:1;grid-row:1;margin-top:0;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--edge) 64px}
+  .hero-body{grid-column:1;grid-row:1;margin-top:0;display:flex;flex-direction:column;justify-content:center;padding:120px var(--edge) 64px}
   .hero-body>*{max-width:560px}
   .hero h1{font-size:64px;max-width:12ch}
   .hero .lead{font-size:20px}
@@ -242,6 +243,9 @@ footer a{color:var(--kamen)}
   .where .map iframe{height:380px}
   .book .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:80px;align-items:end}
   footer{padding:36px 0 28px}
+}
+@media (max-width:899px){
+  main>section:first-child{padding-top:28px}
 }
 @media (min-width:600px) and (max-width:899px){
   .grid{grid-template-columns:repeat(4,1fr)}
@@ -280,7 +284,7 @@ footer a{color:var(--kamen)}
     </p>
     <div class="acts">
       <a class="btn" href="#objednat"><span data-l="cs" lang="cs">Objednat se</span><span data-l="en" lang="en">Book a session</span></a>
-      <a class="btn btn-ghost" href="#delka"><span data-l="cs" lang="cs">Délka a cena</span><span data-l="en" lang="en">Length and price</span></a>
+      <a class="btn btn-ghost" href="#delka"><span data-l="cs" lang="cs">Dvě délky</span><span data-l="en" lang="en">Two lengths</span></a>
     </div>
   </div>
 </header>
@@ -332,8 +336,6 @@ footer a{color:var(--kamen)}
           <span class="desc" data-l="en" lang="en">The full ritual: face, scalp, neck, shoulders and décolleté. Nobody is in a hurry.</span>
         </li>
       </ul>
-      <p class="menu-note" data-l="cs" lang="cs">Cenu vám řeknu při objednání.</p>
-      <p class="menu-note" data-l="en" lang="en">I'll confirm the price when you book.</p>
     </div>
   </section>
 
@@ -366,8 +368,8 @@ footer a{color:var(--kamen)}
       </ol>
       <div class="note">
         <h3><span data-l="cs" lang="cs">Před první návštěvou</span><span data-l="en" lang="en">Before your first visit</span></h3>
-        <p data-l="cs" lang="cs">Masáž obličeje není vhodná při aktivním akné, sklonu k alergiím nebo podrážděné pleti. Pokud si nejste jistí, <a href="#objednat">napište mi</a> ještě před objednáním – lepší se domluvit předem než na lehátku.</p>
-        <p data-l="en" lang="en">Facial massage isn't right for active acne, allergy-prone or irritated skin. If you're not sure, <a href="#objednat">message me</a> before you book. Better to settle it in advance than on the table.</p>
+        <p data-l="cs" lang="cs">Masáž obličeje není vhodná při aktivním akné, sklonu k alergiím nebo podrážděné pleti. Pokud si nejste jistí, <a href="https://wa.me/4792503333" target="_blank" rel="noopener">napište mi</a> ještě před objednáním – lepší se domluvit předem než na lehátku.</p>
+        <p data-l="en" lang="en">Facial massage isn't right for active acne, allergy-prone or irritated skin. If you're not sure, <a href="https://wa.me/4792503333" target="_blank" rel="noopener">message me</a> before you book. Better to settle it in advance than on the table.</p>
       </div>
     </div>
   </section>
@@ -387,7 +389,7 @@ footer a{color:var(--kamen)}
           <span class="stars" aria-hidden="true">★★★★★</span>
           <blockquote>
             <p data-l="cs" lang="cs">„Intenzita masírování je přesně taková, jaká chcete aby byla, tohle musí být opravdu dar a talent, protože takovou masérskou empatii nemá každý.“</p>
-            <p data-l="en" lang="en">„Intenzita masírování je přesně taková, jaká chcete aby byla, tohle musí být opravdu dar a talent.“</p>
+            <p data-l="en" lang="en">„Intenzita masírování je přesně taková, jaká chcete aby byla, tohle musí být opravdu dar a talent, protože takovou masérskou empatii nemá každý.“</p>
             <p class="q-en" data-l="en" lang="en">“The pressure is exactly what you want it to be. That has to be a gift, because not every masseur has that kind of empathy.” (translated)</p>
           </blockquote>
           <p class="who"><span data-l="cs" lang="cs">Baris, recenze na Google</span><span data-l="en" lang="en">Baris, Google review</span></p>
@@ -470,9 +472,9 @@ footer a{color:var(--kamen)}
       </div>
       <div>
         <div class="acts">
-          <a class="btn" href="PLACEHOLDER_CONTACT"><span data-l="cs" lang="cs">Napsat zprávu</span><span data-l="en" lang="en">Send a message</span></a>
+          <a class="btn" href="https://wa.me/4792503333" target="_blank" rel="noopener"><span data-l="cs" lang="cs">Napsat zprávu</span><span data-l="en" lang="en">Send a message</span></a>
         </div>
-        <p class="number">PLACEHOLDER +420 ··· ··· ···</p>
+        <p class="number"><a href="https://wa.me/4792503333" target="_blank" rel="noopener">+47 92 50 33 33 · WhatsApp</a></p>
       </div>
     </div>
   </section>
@@ -492,7 +494,7 @@ footer a{color:var(--kamen)}
 
 <div class="bar" aria-label="Rychlé akce">
   <p class="rate"><b>5,0</b> <span class="stars" aria-hidden="true">★★★★★</span><br><span data-l="cs" lang="cs">114 recenzí na Google</span><span data-l="en" lang="en">114 reviews on Google</span></p>
-  <a class="btn" href="#objednat"><span data-l="cs" lang="cs">Objednat se</span><span data-l="en" lang="en">Book</span></a>
+  <a class="btn" href="https://wa.me/4792503333" target="_blank" rel="noopener"><span data-l="cs" lang="cs">Objednat se</span><span data-l="en" lang="en">Book</span></a>
 </div>
 
 <script>

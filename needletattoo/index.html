@@ -117,7 +117,6 @@ h3{font-size:1.15rem;font-weight:600;line-height:1.3}
 .strip img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
 @media (max-width:760px){
   .strip{grid-template-columns:1fr 1fr;margin-left:calc(-1 * var(--gutter));margin-right:calc(-1 * var(--gutter))}
-  .strip img:nth-child(n+3){display:none}
 }
 /* the one load moment */
 .hero h1,.strip{opacity:0;animation:appear .8s ease-out forwards}
@@ -175,7 +174,7 @@ h3{font-size:1.15rem;font-weight:600;line-height:1.3}
 .contact-list dd a:hover{color:var(--stencil);border-color:var(--stencil)}
 .contact-list dd.big{font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:600;letter-spacing:.01em}
 .contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.map{aspect-ratio:4/3;background:#DCC8B5}
+.map{aspect-ratio:4/3;background:#DCC8B5 url("img/studio-lounge.jpg") center/cover no-repeat}
 .map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(1) contrast(1.05)}
 
 /* footer */
@@ -194,7 +193,7 @@ h3{font-size:1.15rem;font-weight:600;line-height:1.3}
 .bar .btn{min-height:50px;width:100%}
 @media (min-width:760px){.bar{display:none}}
 /* phone: a photo in the first screen (2026-09-05) */
-@media (max-width:760px){.hero{padding-top:14px}.hero h1{font-size:clamp(2.3rem,10.5vw,3.1rem)}.hero-lede{margin-bottom:14px;gap:14px}.strip img{aspect-ratio:1/1}}
+@media (max-width:760px){.hero{padding-top:14px}.hero h1{font-size:clamp(2.3rem,10.5vw,3.1rem)}h2{font-size:clamp(2rem,7.5vw,4.2rem)}.hero-lede{margin-bottom:14px;gap:14px}.strip img{aspect-ratio:1/1}}
 </style>
 </head>
 <body>
@@ -302,7 +301,7 @@ h3{font-size:1.15rem;font-weight:600;line-height:1.3}
   <div class="wrap">
     <div class="sec-head">
       <h2>Recenze</h2>
-      <p>4,9 hvězdiček z 274 recenzí na Google. Citujeme doslova.</p>
+      <p>4,9 z 274 recenzí na Google. Citujeme doslova.</p>
     </div>
     <div class="reviews">
       <figure class="review">
@@ -319,7 +318,7 @@ h3{font-size:1.15rem;font-weight:600;line-height:1.3}
       </figure>
       <figure class="review">
         <blockquote>„Rozhodně doporučuji i těm, co se chystají na své první, protože se v atmosféře, kterou kluci udělají budete chtít vždy vrátit.“</blockquote>
-        <figcaption><b>Radek</b>, Google</figcaption>
+        <figcaption><b>Radek</b>, Google, před 4 lety</figcaption>
       </figure>
     </div>
     <p class="all-reviews"><a href="https://www.google.com/maps/place/needletattoo/data=!4m7!3m6!1s0x470b935f86bc3061:0x4a503043eef5a42f!8m2!3d50.0886392!4d14.4607038!16s%2Fg%2F11hczxmh_y" target="_blank" rel="noopener">Všechny recenze na Google</a></p>

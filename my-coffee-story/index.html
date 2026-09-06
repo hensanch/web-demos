@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Coffee Story – kavárna na Žižkově, J. Želivského 22</title>
-<meta name="description" content="Malá kavárna na Žižkově se zahrádkou ve vnitrobloku. Káva, domácí koláče, snídaně. J. Želivského 1801/22, Praha 3, naproti Žižkovskému divadlu Járy Cimrmana. Otevřeno denně.">
+<meta name="description" content="Malá kavárna na Žižkově. Káva, domácí koláče, snídaně. J. Želivského 1801/22, Praha 3, naproti Žižkovskému divadlu Járy Cimrmana. Otevřeno denně.">
 <meta name="theme-color" content="#FBF9F5">
 <meta property="og:title" content="My Coffee Story – kavárna na Žižkově">
-<meta property="og:description" content="Káva, domácí koláče, snídaně a zahrádka ve vnitrobloku. 4,7 hvězdiček ze 785 recenzí na Google.">
+<meta property="og:description" content="Káva, domácí koláče a snídaně. 4,7 hvězdiček ze 785 recenzí na Google.">
 <meta property="og:image" content="img/hero-interier.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -141,12 +141,11 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:0;font-variation-settings:"
 /* the garden band */
 .court{background:var(--court);color:#fff;padding:clamp(56px,9vw,120px) 0}
 .court .wrap{display:grid;gap:28px}
-.court h2{font-size:clamp(3rem,11vw,9.5rem);line-height:.92;letter-spacing:-.03em;max-width:9ch}
+.court h2{font-size:clamp(2.1rem,4.8vw,3.9rem);line-height:1.08;letter-spacing:-.02em;max-width:16ch}
 .court-text{display:grid;gap:18px;max-width:52ch;font-size:1.2rem}
 .court-text p{color:rgba(255,255,255,.88)}
-.court blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.3;font-variation-settings:"opsz" 48;max-width:26ch}
-.court blockquote footer{font-family:var(--body);font-weight:400;font-size:1rem;margin-top:10px;color:rgba(255,255,255,.72)}
-.court blockquote footer .stars{color:var(--wood)}
+.court-by{display:flex;align-items:center;gap:10px;font-size:1rem;color:rgba(255,255,255,.72)}
+.court-by .stars{color:var(--wood)}
 @media (min-width:901px){
   .court .wrap{grid-template-columns:1.3fr 1fr;align-items:end;gap:64px}
 }
@@ -170,9 +169,10 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:0;font-variation-settings:"
 .menu-pics figure:first-child{grid-column:1/-1;aspect-ratio:16/10}
 .menu-pics img{width:100%;height:100%;object-fit:cover}
 @media (min-width:901px){
-  .menu .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start}
-  .menu-groups{grid-template-columns:1fr 1fr;gap:34px 40px}
-  .menu-pics{position:sticky;top:90px}
+  .menu .wrap{gap:56px}
+  .menu-groups{grid-template-columns:repeat(4,1fr);gap:34px 40px}
+  .menu-pics{grid-template-columns:repeat(3,1fr);gap:16px}
+  .menu-pics figure,.menu-pics figure:first-child{grid-column:auto;aspect-ratio:4/3}
 }
 
 /* gallery */
@@ -202,7 +202,6 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:0;font-variation-settings:"
 @media (min-width:901px){
   .rev .wrap{grid-template-columns:minmax(0,.7fr) minmax(0,2fr);gap:72px}
   .rev-list{grid-template-columns:1fr 1fr;gap:32px 40px}
-  .rev-list blockquote:first-child{grid-column:1/-1;max-width:60ch}
 }
 
 /* find us */
@@ -219,7 +218,7 @@ h3{font-size:1.25rem;line-height:1.25;letter-spacing:0;font-variation-settings:"
 .hours tr:not(.today) td{color:var(--moss)}
 .facts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--moss)}
 .find-actions{display:flex;flex-wrap:wrap;gap:12px}
-.map{border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--wood-soft)}
+.map{border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--wood-soft) url("img/vyloha-cedule.jpg") center/cover no-repeat}
 .map iframe{display:block;width:100%;height:340px;border:0}
 .find-photo{border-radius:10px;overflow:hidden}
 .find-photo img{width:100%;height:100%;object-fit:cover}
@@ -294,13 +293,10 @@ footer.site .social a{margin-right:16px;border-bottom:1px solid currentColor}
 
 <section class="court" id="zahradka">
   <div class="wrap">
-    <h2 data-i18n="court.h">Zahrádka ve vnitrobloku.</h2>
+    <h2 data-i18n="court.h">„Úchvatná stinná zahrádka. 33 schodů.“</h2>
     <div class="court-text">
-      <p data-i18n="court.p">Z ulice není vidět. Projdete kavárnou, pár schodů, a jste v klidu, ve stínu a v zeleni. Kávu a koláč si vezmete s sebou od pultu.</p>
-      <blockquote>
-        <span data-i18n="court.q">„Úchvatná stinná zahrádka. 33 schodů. Výborná káva. Milá obsluha.“</span>
-        <footer><span class="stars" aria-hidden="true">★★★★★</span> <span data-i18n="court.qby">Staso, recenze na Google</span></footer>
-      </blockquote>
+      <p class="court-by"><span class="stars" aria-hidden="true">★★★★★</span> <span data-i18n="court.qby">— Staso, recenze na Google</span></p>
+      <p data-i18n="court.p">Hosté v recenzích chválí zahrádku ve vnitrobloku.</p>
     </div>
   </div>
 </section>
@@ -391,19 +387,19 @@ footer.site .social a{margin-right:16px;border-bottom:1px solid currentColor}
     </div>
     <div class="rev-list">
       <blockquote>
-        <span data-i18n="rev.1">Skvělá atmosféra, zde platí, co je malé, to je milé. Kavárnička s retro atmosférou vás vtáhne dovnitř a je konec 21. století. K tomu výborná káva a něco z domácích koláčů. Pohoda.</span>
+        <span data-i18n="rev.1">„Skvělá atmosféra, zde platí, co je malé, to je milé. Kavárnička s retro atmosférou vás vtáhne dovnitř a je konec 21. století. K tomu výborná káva a něco z domácích koláčů. Pohoda.“</span>
         <footer><span class="stars" aria-hidden="true">★★★★★</span>Eva</footer>
       </blockquote>
       <blockquote>
-        <span data-i18n="rev.2">Útulná kavárna na rychlé kafe nebo s sebou. Výborná káva jak espresso, tak batch. Velký výběr sladkého. Malinový křehký koláč byl výborný. Skvělý přírůstek na tuhle stranu Žižkova.</span>
+        <span data-i18n="rev.2">„Útulná kavárna na rychlé kafe nebo s sebou. Výborná káva jak espresso, tak batch. Velký výběr sladkého. Malinový křehký koláč byl výborný. Skvělý přírůstek na tuhle stranu Žižkova.“</span>
         <footer><span class="stars" aria-hidden="true">★★★★★</span>Markéta</footer>
       </blockquote>
       <blockquote>
-        <span data-i18n="rev.3">Oáza klidu nebo rychlá záchrana při uspěchaném dni přímo u zastávky Biskupcova. Výborná káva i matcha a luxusní čerstvé koláče a dezerty, jako od babičky :) moc doporučuji</span>
+        <span data-i18n="rev.3">„Oáza klidu nebo rychlá záchrana při uspěchaném dni přímo u zastávky Biskupcova. Výborná káva i matcha a luxusní čerstvé koláče a dezerty, jako od babičky :) moc doporučuji“</span>
         <footer><span class="stars" aria-hidden="true">★★★★★</span>Markéta</footer>
       </blockquote>
       <blockquote>
-        <span data-i18n="rev.4">Několik let chodím kolem, ale konečně nastal čas se zastavit na brunch. Obě varianty, jak vajíčka, tak avokádový chleb, skvělý.</span>
+        <span data-i18n="rev.4">„Několik let chodím kolem, ale konečně nastal čas se zastavit na brunch. Obě varianty, jak vajíčka, tak avokádový chleb, skvělý.“</span>
         <footer><span class="stars" aria-hidden="true">★★★★★</span>Lucie</footer>
       </blockquote>
     </div>
@@ -436,7 +432,6 @@ footer.site .social a{margin-right:16px;border-bottom:1px solid currentColor}
         </table>
       </div>
       <ul class="facts">
-        <li data-i18n="f.counter">Objednává se u pultu</li>
         <li data-i18n="f.cards">Platba kartou</li>
         <li>Wi-Fi</li>
         <li data-i18n="f.access">Bezbariérový vstup</li>
@@ -475,14 +470,16 @@ footer.site .social a{margin-right:16px;border-bottom:1px solid currentColor}
 (function(){
   var T = {
     cs: {
+      "doc.title":"My Coffee Story – kavárna na Žižkově, J. Želivského 22",
+      "doc.desc":"Malá kavárna na Žižkově. Káva, domácí koláče, snídaně. J. Želivského 1801/22, Praha 3, naproti Žižkovskému divadlu Járy Cimrmana. Otevřeno denně.",
       "nav.garden":"Zahrádka","nav.menu":"Co si dát","nav.reviews":"Recenze","nav.find":"Kde nás najdete",
       "cta.call":"Zavolat","cta.dir":"Trasa",
       "hero.h":"Malá kavárna na Žižkově. Káva, koláče a snídaně.",
       "hero.sub":"Na Želivského, naproti Žižkovskému divadlu Járy Cimrmana. Rychlé espresso s sebou, nebo koláč a hodina klidu u stolu.",
       "hero.reviews":"785 recenzí na Google",
-      "court.h":"Zahrádka ve vnitrobloku.",
-      "court.p":"Z ulice není vidět. Projdete kavárnou, pár schodů, a jste v klidu, ve stínu a v zeleni. Kávu a koláč si vezmete s sebou od pultu.",
-      "court.q":"„Úchvatná stinná zahrádka. 33 schodů. Výborná káva. Milá obsluha.“","court.qby":"Staso, recenze na Google",
+      "court.h":"„Úchvatná stinná zahrádka. 33 schodů.“",
+      "court.p":"Hosté v recenzích chválí zahrádku ve vnitrobloku.",
+      "court.qby":"— Staso, recenze na Google",
       "menu.h":"Co si dát","menu.p":"To, co lidé v recenzích chválí nejčastěji. Na osobu počítejte zhruba 100 až 200 Kč.",
       "menu.coffee":"Káva","menu.batchNote":"dopoledne","i.iced":"Ledová káva",
       "menu.breakfast":"Snídaně a brunch","i.eggs":"Míchaná vejce","i.omelette":"Omeleta","i.avotoast":"Avokádový toust s vejcem","i.tortilla":"Tortilla s avokádem a vajíčkem","i.waffles":"Vafle",
@@ -491,24 +488,26 @@ footer.site .social a{margin-right:16px;border-bottom:1px solid currentColor}
       "menu.note":"Máme i veganské a vegetariánské možnosti. Všechno jde vzít s sebou.",
       "gal.h":"Pult, tabule a talíře","gal.p":"Malý prostor, za rohem ještě jedna místnost pro větší partu. Psi vítáni.",
       "rev.count":"ze 785 hodnocení na Google","rev.all":"Všechny recenze na Google",
-      "rev.1":"Skvělá atmosféra, zde platí, co je malé, to je milé. Kavárnička s retro atmosférou vás vtáhne dovnitř a je konec 21. století. K tomu výborná káva a něco z domácích koláčů. Pohoda.",
-      "rev.2":"Útulná kavárna na rychlé kafe nebo s sebou. Výborná káva jak espresso, tak batch. Velký výběr sladkého. Malinový křehký koláč byl výborný. Skvělý přírůstek na tuhle stranu Žižkova.",
-      "rev.3":"Oáza klidu nebo rychlá záchrana při uspěchaném dni přímo u zastávky Biskupcova. Výborná káva i matcha a luxusní čerstvé koláče a dezerty, jako od babičky :) moc doporučuji",
-      "rev.4":"Několik let chodím kolem, ale konečně nastal čas se zastavit na brunch. Obě varianty, jak vajíčka, tak avokádový chleb, skvělý.",
+      "rev.1":"„Skvělá atmosféra, zde platí, co je malé, to je milé. Kavárnička s retro atmosférou vás vtáhne dovnitř a je konec 21. století. K tomu výborná káva a něco z domácích koláčů. Pohoda.“",
+      "rev.2":"„Útulná kavárna na rychlé kafe nebo s sebou. Výborná káva jak espresso, tak batch. Velký výběr sladkého. Malinový křehký koláč byl výborný. Skvělý přírůstek na tuhle stranu Žižkova.“",
+      "rev.3":"„Oáza klidu nebo rychlá záchrana při uspěchaném dni přímo u zastávky Biskupcova. Výborná káva i matcha a luxusní čerstvé koláče a dezerty, jako od babičky :) moc doporučuji“",
+      "rev.4":"„Několik let chodím kolem, ale konečně nastal čas se zastavit na brunch. Obě varianty, jak vajíčka, tak avokádový chleb, skvělý.“",
       "find.h":"Kde nás najdete","find.p":"naproti Žižkovskému divadlu Járy Cimrmana, u zastávky Biskupcova","find.hours":"Otevírací doba",
-      "f.counter":"Objednává se u pultu","f.cards":"Platba kartou","f.access":"Bezbariérový vstup","f.dogs":"Psi vítáni",
+      "f.cards":"Platba kartou","f.access":"Bezbariérový vstup","f.dogs":"Psi vítáni",
       "d.mon":"Pondělí","d.tue":"Úterý","d.wed":"Středa","d.thu":"Čtvrtek","d.fri":"Pátek","d.sat":"Sobota","d.sun":"Neděle",
       "st.open":"Otevřeno, zavíráme v {t}","st.today":"Zavřeno, otevíráme dnes v {t}","st.tomorrow":"Zavřeno, otevíráme zítra v {t}"
     },
     en: {
+      "doc.title":"My Coffee Story – a café in Žižkov, J. Želivského 22",
+      "doc.desc":"A small café in Žižkov. Coffee, home-baked cakes, breakfast. J. Želivského 1801/22, Prague 3, opposite the Jára Cimrman theatre. Open daily.",
       "nav.garden":"Garden","nav.menu":"What to order","nav.reviews":"Reviews","nav.find":"Find us",
       "cta.call":"Call","cta.dir":"Directions",
       "hero.h":"A small café in Žižkov. Coffee, cakes and breakfast.",
       "hero.sub":"On Želivského street, opposite the Jára Cimrman theatre. A quick espresso to go, or a slice of cake and a quiet hour at a table.",
       "hero.reviews":"785 Google reviews",
-      "court.h":"A garden in the courtyard.",
-      "court.p":"You can't see it from the street. Walk through the café, a few steps, and you're in the quiet, in the shade, among the green. Order at the counter and carry your coffee and cake out.",
-      "court.q":"“A stunning shady garden. 33 steps. Excellent coffee. Friendly staff.”","court.qby":"Staso, Google review",
+      "court.h":"“A stunning shady garden. 33 steps.”",
+      "court.p":"Guests praise the courtyard garden in their reviews.",
+      "court.qby":"— Staso, Google review",
       "menu.h":"What to order","menu.p":"What people praise most often in their reviews. Expect to spend around 100 to 200 CZK per person.",
       "menu.coffee":"Coffee","menu.batchNote":"mornings","i.iced":"Iced coffee",
       "menu.breakfast":"Breakfast and brunch","i.eggs":"Scrambled eggs","i.omelette":"Omelette","i.avotoast":"Avocado toast with egg","i.tortilla":"Tortilla with avocado and egg","i.waffles":"Waffles",
@@ -517,12 +516,12 @@ footer.site .social a{margin-right:16px;border-bottom:1px solid currentColor}
       "menu.note":"Vegan and vegetarian options too. Everything is available to take away.",
       "gal.h":"Counter, chalkboard, plates","gal.p":"A small room, with a second one around the corner for bigger groups. Dogs welcome.",
       "rev.count":"from 785 Google ratings","rev.all":"All reviews on Google",
-      "rev.1":"Great atmosphere. Small is beautiful here. A little café with a retro feel pulls you in and it's the end of the 21st century. Excellent coffee and something from the home-baked pies. Bliss.",
-      "rev.2":"A cosy café for a quick coffee or one to go. Excellent coffee, both espresso and batch brew. Big choice of sweets. The raspberry shortcrust pie was excellent. A great addition to this side of Žižkov.",
-      "rev.3":"An oasis of calm, or a quick rescue on a rushed day, right by the Biskupcova stop. Excellent coffee and matcha, and wonderful fresh pies and desserts, like grandma used to make :) highly recommended",
-      "rev.4":"I've walked past for years, and finally it was time to stop for brunch. Both options, the eggs and the avocado toast, were great.",
+      "rev.1":"“Great atmosphere. Small is beautiful here. A little café with a retro feel pulls you in and it's the end of the 21st century. Excellent coffee and something from the home-baked pies. Bliss.”",
+      "rev.2":"“A cosy café for a quick coffee or one to go. Excellent coffee, both espresso and batch brew. Big choice of sweets. The raspberry shortcrust pie was excellent. A great addition to this side of Žižkov.”",
+      "rev.3":"“An oasis of calm, or a quick rescue on a rushed day, right by the Biskupcova stop. Excellent coffee and matcha, and wonderful fresh pies and desserts, like grandma used to make :) highly recommended”",
+      "rev.4":"“I've walked past for years, and finally it was time to stop for brunch. Both options, the eggs and the avocado toast, were great.”",
       "find.h":"Find us","find.p":"opposite the Jára Cimrman theatre, by the Biskupcova tram stop","find.hours":"Opening hours",
-      "f.counter":"Order at the counter","f.cards":"Cards accepted","f.access":"Step-free entrance","f.dogs":"Dogs welcome",
+      "f.cards":"Cards accepted","f.access":"Step-free entrance","f.dogs":"Dogs welcome",
       "d.mon":"Monday","d.tue":"Tuesday","d.wed":"Wednesday","d.thu":"Thursday","d.fri":"Friday","d.sat":"Saturday","d.sun":"Sunday",
       "st.open":"Open now, closes at {t}","st.today":"Closed, opens today at {t}","st.tomorrow":"Closed, opens tomorrow at {t}"
     }
@@ -534,6 +533,9 @@ footer.site .social a{margin-right:16px;border-bottom:1px solid currentColor}
     lang = l;
     var d = T[l];
     document.documentElement.lang = l;
+    if (d["doc.title"]) document.title = d["doc.title"];
+    var md = document.querySelector('meta[name="description"]');
+    if (md && d["doc.desc"]) md.setAttribute("content", d["doc.desc"]);
     document.querySelectorAll("[data-i18n]").forEach(function(el){
       var k = el.getAttribute("data-i18n");
       if (d[k] != null) el.textContent = d[k];

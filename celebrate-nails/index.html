@@ -62,7 +62,7 @@ a{color:inherit}
 p{margin:0}
 ul{margin:0;padding:0;list-style:none}
 h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;line-height:1.05;letter-spacing:-.005em}
-h1{font-size:clamp(2.6rem,7.2vw,5.4rem);line-height:1;max-width:14ch}
+h1{font-size:clamp(2.6rem,7.2vw,5.4rem);line-height:1.08;max-width:14ch}
 h2{font-size:clamp(2rem,3.6vw,2.9rem)}
 h3{font-family:var(--sans);font-weight:600;font-size:1.05rem;line-height:1.3}
 em{font-family:var(--serif);font-style:italic;font-weight:400}
@@ -121,14 +121,15 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
 @media (max-width:860px){.sec .wrap{grid-template-columns:1fr;gap:24px}.sec h2{position:static}}
 .lead{font-size:1.15rem;max-width:56ch}
 
-/* services */
+/* services — full-width, heading above, three equal columns */
+#sluzby .wrap{display:block}
+#sluzby h2{position:static;margin-bottom:clamp(28px,3.5vw,44px)}
 .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 40px}
 .service h3{margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--plum)}
 .service li{padding:5px 0;color:var(--plum)}
 .service li + li{border-top:1px solid var(--line)}
 .services-note{grid-column:1/-1;color:var(--dust);max-width:60ch;margin-top:4px}
-@media (max-width:1000px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.services{grid-template-columns:1fr;gap:28px}}
+@media (max-width:760px){.services{grid-template-columns:1fr;gap:28px}}
 
 /* about */
 .about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:40px;align-items:start}
@@ -142,7 +143,12 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
 /* reviews */
 .rating{display:flex;align-items:baseline;gap:14px;margin-bottom:34px;flex-wrap:wrap}
 .rating strong{font-family:var(--serif);font-weight:400;font-size:3.2rem;line-height:1}
+.rating .stars{color:var(--lacquer);letter-spacing:.1em;font-size:1rem;line-height:1}
 .rating .textlink{color:var(--dust)}
+/* same treatment, hero scale */
+.rating-hero{gap:6px 10px;margin-bottom:0;font-size:.95rem}
+.rating-hero strong{font-size:1.5rem}
+.rating-hero .stars{font-size:.9rem}
 .quotes{display:grid;gap:28px}
 .quote{margin:0;padding-left:22px;border-left:2px solid var(--lacquer);max-width:62ch}
 .quote p{font-size:1.1rem}
@@ -153,9 +159,16 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .gallery figure{margin:0;overflow:hidden}
 .gallery img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover}
-.g1{grid-row:span 2}
-.g1 img{aspect-ratio:auto}
-@media (max-width:760px){.gallery{grid-template-columns:repeat(2,1fr)}.g1{grid-row:span 1;grid-column:span 2}.g1 img{aspect-ratio:4/3}}
+.g1{grid-column:1;grid-row:1/span 2}
+.g2{grid-column:2;grid-row:1}
+.g3{grid-column:2;grid-row:2}
+.g4{grid-column:3;grid-row:1/span 2}
+.g1 img,.g4 img{aspect-ratio:auto}
+@media (max-width:760px){
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .g1,.g2,.g3,.g4{grid-column:auto;grid-row:auto}
+  .g1 img,.g4 img{aspect-ratio:1/1}
+}
 
 /* find us */
 .find{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
@@ -183,7 +196,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   .bar .btn{min-height:48px;padding:0 10px;font-size:.95rem}
 }
 /* phone: a photo in the first screen (2026-09-05) */
-@media (max-width:860px){.hero{padding-top:18px;padding-bottom:20px}.hero-grid{gap:16px}.shades{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.hero{padding-top:36px;padding-bottom:20px}.hero-grid{gap:16px}.shades{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -212,6 +225,11 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
         <div class="actions">
           <a class="btn btn-fill" href="tel:+420777159873">Zavolat 777 159 873</a>
           <a class="textlink" href="https://www.instagram.com/celebrate.cz" target="_blank" rel="noopener">Napište nám na Instagramu</a>
+        </div>
+        <div class="rating rating-hero">
+          <strong>4,9</strong>
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <a class="textlink" href="https://www.google.com/maps/place/CELEBRATE+nehtov%C3%A9+studio/data=!4m7!3m6!1s0x470b93b31ed77da5:0x67d886a8d3075b16!8m2!3d50.0679662!4d14.4580102!16s%2Fg%2F11vyyd00dk" target="_blank" rel="noopener">ze 102 recenzí na Google</a>
         </div>
       </div>
     </div>
@@ -270,7 +288,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
           <ul class="facts">
             <li><span></span><p>Každý nástroj sterilizujeme nebo používáme jednorázový.</p></li>
             <li><span></span><p>Před začátkem si řekneme, co s nehty uděláme.</p></li>
-            <li><span></span><p>Parkování přímo naproti studiu.</p></li>
+            <li><span></span><p>Parkování v okolí.</p></li>
             <li><span></span><p>Otevřeno každý den včetně víkendu, od 9 do 21.</p></li>
           </ul>
         </div>
@@ -305,11 +323,10 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
     <div class="wrap">
       <h2>Z našeho křesla</h2>
       <div class="gallery">
-        <figure class="g1"><img src="img/pedikura.jpg" alt="Pedikúra a manikúra ve světle růžové" width="1050" height="1400" loading="lazy"></figure>
-        <figure class="g2"><img src="img/cervene-trpytky.jpg" alt="Krátké nehty v červené s třpytkami" width="960" height="1280" loading="lazy"></figure>
-        <figure class="g3"><img src="img/rasy.jpg" alt="Detail oka po laminaci řas" width="621" height="500" loading="lazy"></figure>
-        <figure class="g4"><img src="img/holo.jpg" alt="Nehty s holografickým efektem" width="1052" height="1400" loading="lazy"></figure>
-        <figure class="g5"><img src="img/kava.jpg" alt="Káva a voda na tácku, v pozadí stojan s laky" width="1024" height="1400" loading="lazy"></figure>
+        <figure class="g1"><img src="img/cervene-trpytky.jpg" alt="Krátké nehty v červené s třpytkami" width="960" height="1280" loading="lazy"></figure>
+        <figure class="g2"><img src="img/holo.jpg" alt="Nehty s holografickým efektem" width="1052" height="1400" loading="lazy"></figure>
+        <figure class="g3"><img src="img/pedikura.jpg" alt="Pedikúra a manikúra ve světle růžové" width="1050" height="1400" loading="lazy"></figure>
+        <figure class="g4"><img src="img/kava.jpg" alt="Káva a voda na tácku, v pozadí stojan s laky" width="1024" height="1400" loading="lazy"></figure>
       </div>
     </div>
   </section>
@@ -352,7 +369,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
 
 <div class="bar">
   <a class="btn btn-fill" href="tel:+420777159873">Zavolat</a>
-  <a class="btn" href="https://www.instagram.com/celebrate.cz" target="_blank" rel="noopener">Instagram</a>
+  <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Minsk%C3%A1+17,+101+00+Praha+10" target="_blank" rel="noopener">Trasa</a>
 </div>
 
 <script>
