@@ -50,7 +50,26 @@ a{color:inherit}
 
 /* ---------------- masthead ---------------- */
 .rule-top{border-top:3px solid var(--ink)}
-.mast{border-bottom:1px solid var(--ink)}
+.mast{border-bottom:1px solid var(--ink);position:sticky;top:0;z-index:30;background:var(--paper)}
+.mast-right{display:flex;align-items:center;gap:10px}
+.burger{font:inherit;font-stretch:62%;font-weight:800;font-size:12px;letter-spacing:.09em;text-transform:uppercase;background:none;border:1px solid var(--ink);color:var(--ink);padding:3px 8px 3px 30px;cursor:pointer;line-height:1.3;position:relative;min-height:26px}
+.burger::before,.burger::after,.burger i{content:"";position:absolute;left:8px;width:14px;height:2px;background:var(--ink)}
+.burger::before{top:7px}.burger i{top:12px;display:block}.burger::after{top:17px}
+.burger[aria-expanded="true"]::before{top:12px;transform:rotate(45deg)}
+.burger[aria-expanded="true"]::after{top:12px;transform:rotate(-45deg)}
+.burger[aria-expanded="true"] i{opacity:0}
+.mnav{display:none;position:fixed;inset:0;z-index:40;background:var(--paper);padding:0 var(--pad);overflow:auto}
+.mnav.open{display:block}
+.mnav-top{display:flex;justify-content:space-between;align-items:center;padding:8px 0 7px;border-bottom:1px solid var(--ink)}
+.mnav ol{list-style:none;margin:0;padding:0}
+.mnav li{border-bottom:1px solid var(--hair)}
+.mnav a{display:block;padding:18px 0;text-decoration:none;font-stretch:62%;font-weight:800;font-size:34px;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.mnav a small{display:block;font-stretch:100%;font-weight:400;font-size:13px;text-transform:none;letter-spacing:0;margin-top:6px;color:var(--ink-2)}
+.mnav .mnav-book{margin-top:22px;display:flex;align-items:center;justify-content:center;height:52px;background:var(--ink);color:var(--paper);text-decoration:none;font-stretch:62%;font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.dnav{display:none}
+body.menu-open{overflow:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:52px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .mast-in{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:7px}
 .mast-place{font-stretch:62%;font-weight:700;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2)}
 .lang{display:flex;gap:0;border:1px solid var(--ink)}
@@ -196,6 +215,11 @@ footer.page .fl a{text-decoration:none;border-bottom:1px solid var(--hair)}
   .shell{max-width:1120px;margin-left:auto;margin-right:auto}
 
   .mast-in{padding-top:11px;padding-bottom:10px}
+  .burger{display:none}
+  .dnav{display:flex;gap:22px;margin-left:auto;margin-right:22px}
+  .dnav a{text-decoration:none;font-stretch:62%;font-weight:700;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink)}
+  .dnav a:hover{border-bottom:2px solid var(--ink)}
+  html{scroll-padding-top:60px}
   .mast-place{font-size:13px}
   .lang button{font-size:12.5px;padding:4px 10px}
 
@@ -271,12 +295,29 @@ footer.page .fl a{text-decoration:none;border-bottom:1px solid var(--hair)}
 <header class="mast">
   <div class="mast-in wrap shell">
     <span class="mast-place" data-i18n="mast.place">Malešice, Praha 10</span>
-    <div class="lang" role="group" aria-label="Jazyk / Language">
-      <button type="button" data-lang="cs" aria-pressed="true">CZ</button>
-      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <nav class="dnav" aria-label="Sekce">
+      <a href="#cenik" data-i18n="nav.cenik">Ceník</a><a href="#prace" data-i18n="nav.prace">Práce</a><a href="#tym" data-i18n="nav.tym">Barbeři</a><a href="#recenze" data-i18n="nav.recenze">Recenze</a><a href="#kontakt" data-i18n="nav.kontakt">Kde nás najdeš</a>
+    </nav>
+    <div class="mast-right">
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mnav"><i></i><span data-i18n="nav.menu">Menu</span></button>
+      <div class="lang" role="group" aria-label="Jazyk / Language">
+        <button type="button" data-lang="cs" aria-pressed="true">CZ</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </div>
 </header>
+<nav class="mnav" id="mnav" aria-label="Menu">
+  <div class="mnav-top"><span class="mast-place">Design Barbershop &amp; Studio</span><button type="button" class="burger" id="burgerClose" aria-expanded="true" aria-controls="mnav"><i></i><span data-i18n="nav.close">Zavřít</span></button></div>
+  <ol>
+    <li><a href="#cenik"><span data-i18n="nav.cenik">Ceník</span><small data-i18n="nav.cenik.s">Střihy, vousy, příplatky</small></a></li>
+    <li><a href="#prace"><span data-i18n="nav.prace">Práce</span><small data-i18n="nav.prace.s">Fotky z křesla</small></a></li>
+    <li><a href="#tym"><span data-i18n="nav.tym">Barbeři</span><small data-i18n="nav.tym.s">Čtyři, vybíráš si při rezervaci</small></a></li>
+    <li><a href="#recenze"><span data-i18n="nav.recenze">Recenze</span><small data-i18n="nav.recenze.s">4,9 z 1 143 na Googlu</small></a></li>
+    <li><a href="#kontakt"><span data-i18n="nav.kontakt">Kde nás najdeš</span><small data-i18n="nav.kontakt.s">Počernická 518/55, otevírací doba, mapa</small></a></li>
+  </ol>
+  <a class="mnav-book" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener" data-i18n="cta.book">Rezervovat na Nooně</a>
+</nav>
 
 <div class="top wrap shell">
 
@@ -492,6 +533,8 @@ footer.page .fl a{text-decoration:none;border-bottom:1px solid var(--hair)}
   var T = {
     cs: {
       "mast.place":"Malešice, Praha 10",
+      "nav.menu":"Menu","nav.close":"Zavřít","nav.cenik":"Ceník","nav.prace":"Práce","nav.tym":"Barbeři","nav.recenze":"Recenze","nav.kontakt":"Kde nás najdeš",
+      "nav.cenik.s":"Střihy, vousy, příplatky","nav.prace.s":"Fotky z křesla","nav.tym.s":"Čtyři, vybíráš si při rezervaci","nav.recenze.s":"4,9 z 1 143 na Googlu","nav.kontakt.s":"Počernická 518/55, otevírací doba, mapa",
       "id.fact":"Holičství na Počernické. Čtyři barbeři, stříháme od roku 2022.",
       "rate.n":"4,9","rate.of":"z 1 143 recenzí na Googlu",
       "cta.book":"Rezervovat na Nooně","cta.call":"Zavolat 777 591 353",
@@ -526,6 +569,8 @@ footer.page .fl a{text-decoration:none;border-bottom:1px solid var(--hair)}
     },
     en: {
       "mast.place":"Malešice, Prague 10",
+      "nav.menu":"Menu","nav.close":"Close","nav.cenik":"Prices","nav.prace":"Work","nav.tym":"Barbers","nav.recenze":"Reviews","nav.kontakt":"Find us",
+      "nav.cenik.s":"Cuts, beards, add-ons","nav.prace.s":"Photos from the chair","nav.tym.s":"Four, you pick when booking","nav.recenze.s":"4.9 from 1,143 on Google","nav.kontakt.s":"Počernická 518/55, hours, map",
       "id.fact":"A barbershop on Počernická. Four barbers, cutting since 2022.",
       "rate.n":"4.9","rate.of":"from 1,143 Google reviews",
       "cta.book":"Book on Noona","cta.call":"Call 777 591 353",
@@ -613,6 +658,12 @@ footer.page .fl a{text-decoration:none;border-bottom:1px solid var(--hair)}
   }
 
   apply(lang);
+  var mnav = document.getElementById("mnav"), burger = document.getElementById("burger"), burgerClose = document.getElementById("burgerClose");
+  function setMenu(open){ mnav.classList.toggle("open", open); document.body.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", open ? "true" : "false"); if (open) { burgerClose.focus(); } else { burger.focus(); } }
+  burger.addEventListener("click", function(){ setMenu(!mnav.classList.contains("open")); });
+  burgerClose.addEventListener("click", function(){ setMenu(false); });
+  mnav.querySelectorAll("a[href^='#']").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && mnav.classList.contains("open")) setMenu(false); });
   setInterval(hours, 60000);
 })();
 </script>
