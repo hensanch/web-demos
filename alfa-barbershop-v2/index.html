@@ -57,9 +57,12 @@ figure{margin:0}
 .mcall{margin-top:auto;display:flex;align-items:center;justify-content:center;height:56px;flex:0 0 56px;background:var(--ink);color:#1d1f21;text-decoration:none;font-weight:600;font-size:17px}
 
 /* first screen: photo, one sentence, two facts, two buttons */
-.hero{overflow:hidden;aspect-ratio:5/4;background:var(--bg2)}
+.hero{position:relative;overflow:hidden;aspect-ratio:5/4;background:var(--bg2)}
 .hero img{width:100%;height:100%;object-fit:cover;object-position:60% 45%}
-.lede{padding-top:16px;font:400 19px/1.4 var(--body);letter-spacing:0;max-width:34ch}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,49,52,0) 50%,rgba(46,49,52,.9) 100%)}
+.hero h1{position:absolute;left:var(--pad);right:var(--pad);bottom:18px;z-index:1;color:var(--gold);font-size:clamp(64px,19vw,88px);text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.hero h1 small{display:block;color:var(--ink);font-size:.42em;font-weight:700;letter-spacing:.08em;margin-top:2px}
+.lede{padding-top:16px;font-size:19px;line-height:1.4;max-width:34ch}
 .facts{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .facts>div{padding:12px 0}
 .facts>div+div{padding-left:16px;border-left:1px solid var(--line)}
@@ -142,6 +145,7 @@ footer a{color:var(--ink);display:inline-block;padding:10px 0}
   .burger{display:none}
   .top{display:grid;grid-template-columns:7fr 5fr;gap:40px;align-items:center;padding-top:28px}
   .hero{aspect-ratio:4/3}
+  .hero h1{font-size:96px;left:28px;right:28px;bottom:24px}
   .lede{padding-top:0;font-size:21px}
   .facts b{font-size:48px}
   section{padding-top:76px}
@@ -189,9 +193,10 @@ footer a{color:var(--ink);display:inline-block;padding:10px 0}
   <div class="top wrap">
     <figure class="hero bleed">
       <img src="img/hero.jpg" width="1500" height="844" fetchpriority="high" alt="Salon ALFA Barber Shop: černá holičská křesla, šedé stěny a strop z šestiúhelníkových LED světel">
+      <h1>ALFA<small>BARBER SHOP</small></h1>
     </figure>
     <div class="intro">
-      <h1 class="lede">Barbershop v OC Cíl na Zahradním Městě. Pánské a dětské střihy, bez objednání, každý den do půl osmé večer.</h1>
+      <p class="lede">Barbershop v OC Cíl na Zahradním Městě. Pánské a dětské střihy, bez objednání, každý den do půl osmé večer.</p>
       <div class="facts">
         <div><b>5,0</b><small>ze 152 recenzí na Googlu</small></div>
         <div><b id="openBig">9:00–19:30</b><small id="openSmall">dnes</small></div>
