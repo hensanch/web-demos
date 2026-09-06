@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALFA Barber Shop — Praha 10, Zahradní Město, bez objednání</title>
+<meta name="description" content="Holičství v OC Cíl na Zahradním Městě. Bez objednání, hodnocení 5,0 z 5 na Googlu ze 152 recenzí. Topolová 2915/16, Praha 10. Telefon 773 137 979.">
+<meta name="theme-color" content="#141419">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="ALFA Barber Shop — Praha 10, Zahradní Město">
+<meta property="og:description" content="Bez objednání, v OC Cíl. 5,0 z 5 na Googlu ze 152 recenzí.">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/alfa-barbershop-v3/img/sal-siroky.jpg">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="788">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kuze:#141419;
+  --panel:#1C1C22;
+  --svetlo:#F1F1F5;
+  --zed:#9A98A2;
+  --zlato:#E2C08D;
+  --linka:rgba(241,241,245,.22);
+  --sirka:1120px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--kuze);color:var(--svetlo);
+  font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:17px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,figure,ul,ol{margin:0}
+button{font:inherit;color:inherit}
+
+/* --- světelná linka: jediná ozdoba na stránce (LED trubice kolem jejich zrcadel) --- */
+.al-cara{height:2px;background:var(--svetlo);box-shadow:0 0 14px rgba(241,241,245,.55),0 0 46px rgba(241,241,245,.22)}
+.al-svetlo{position:relative}
+.al-svetlo::after{
+  content:"";position:absolute;inset:10px;pointer-events:none;
+  border:1px solid rgba(241,241,245,.55);
+  box-shadow:0 0 20px rgba(241,241,245,.16), inset 0 0 20px rgba(241,241,245,.07);
+}
+
+.al-skip{
+  position:absolute;left:-9999px;top:0;z-index:60;
+  background:var(--svetlo);color:var(--kuze);padding:12px 16px;font-weight:700;
+}
+.al-skip:focus{left:12px;top:12px}
+
+.al-obal{max-width:var(--sirka);margin:0 auto;padding:0 20px}
+
+/* ---------- 1. první obrazovka ---------- */
+.al-uvod{position:relative;isolation:isolate}
+.al-uvod-foto{width:100%;height:clamp(400px,62vh,560px);object-fit:cover;object-position:50% 42%}
+.al-uvod::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(20,20,25,.97) 0%,rgba(20,20,25,.94) 30%,rgba(20,20,25,.78) 46%,rgba(20,20,25,.32) 62%,rgba(20,20,25,0) 82%);
+}
+.al-uvod-text{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 26px 26px}
+.al-znak{
+  font-family:Marcellus,"Times New Roman",serif;color:var(--zlato);
+  font-size:min(25vw,116px);line-height:.86;letter-spacing:.05em;margin:0 0 10px;
+  text-shadow:0 2px 26px rgba(0,0,0,.5);
+}
+.al-znak span{
+  display:block;font-family:"Space Grotesk",sans-serif;color:rgba(241,241,245,.7);
+  font-size:11px;line-height:1;letter-spacing:.42em;margin-top:12px;
+  text-shadow:none;
+}
+.al-kde{color:rgba(241,241,245,.86);font-size:14px;margin-bottom:10px;text-shadow:0 1px 10px rgba(20,20,25,.8)}
+.al-hodnoceni{font-size:15px;margin-bottom:4px}
+.al-hodnoceni::before{content:"\2605";margin-right:7px}
+.al-stav{font-size:15px;font-weight:500;min-height:1.5em}
+.al-stav b{font-weight:700}
+.al-stav.je-zavreno{color:var(--zed)}
+.al-akce{display:flex;gap:10px;margin-top:16px}
+.al-btn{
+  flex:1 1 0;min-height:52px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-weight:700;font-size:16px;letter-spacing:.01em;padding:0 10px;
+}
+.al-btn-plny{background:var(--svetlo);color:var(--kuze)}
+.al-btn-prazd{border:1px solid rgba(241,241,245,.6);color:var(--svetlo)}
+@media (hover:hover){
+  .al-btn-plny:hover{background:#fff}
+  .al-btn-prazd:hover{border-color:var(--svetlo);background:rgba(241,241,245,.08)}
+}
+
+/* menu */
+.al-menu-btn{
+  position:absolute;top:16px;right:16px;z-index:5;
+  min-width:52px;min-height:48px;padding:0 14px;
+  background:rgba(20,20,25,.55);border:1px solid rgba(241,241,245,.45);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  font-size:13px;font-weight:700;letter-spacing:.18em;cursor:pointer;
+}
+.al-modal{position:fixed;inset:0;z-index:70;background:var(--kuze);display:flex;flex-direction:column}
+.al-modal[hidden]{display:none}
+.al-modal-hlava{display:flex;align-items:center;justify-content:space-between;padding:18px 20px}
+.al-modal-znak{font-family:Marcellus,serif;color:var(--zlato);font-size:30px;letter-spacing:.06em}
+.al-zavrit{min-width:52px;min-height:48px;background:none;border:1px solid rgba(241,241,245,.45);font-size:13px;font-weight:700;letter-spacing:.16em;cursor:pointer}
+.al-modal nav{padding:6px 20px 20px;display:flex;flex-direction:column}
+.al-modal nav a{
+  display:block;padding:16px 0;text-decoration:none;font-size:23px;font-weight:500;
+  border-bottom:1px solid var(--linka);
+}
+.al-modal nav a:last-child{border-bottom:0}
+
+/* ---------- 2. bez objednání ---------- */
+.al-bez{padding:54px 0 0}
+.al-nadpis{font-size:clamp(31px,8.4vw,58px);line-height:1.02;font-weight:700;letter-spacing:-.02em}
+.al-bez p{font-size:clamp(18px,4.6vw,22px);line-height:1.42;max-width:22em;margin-top:20px}
+.al-bez p+p{margin-top:12px;color:var(--zed)}
+.al-pas{margin:28px 0 0}
+.al-pas img{width:100%;height:clamp(240px,52vw,430px);object-fit:cover;object-position:50% 62%}
+.al-pas picture{display:block}
+.al-popisek{color:var(--zed);font-size:15px;line-height:1.45;padding:12px 20px 0;max-width:var(--sirka);margin:0 auto}
+
+/* ---------- 3. střihy ---------- */
+.al-strihy{padding:54px 0 0}
+.al-nadpis-veta{font-size:clamp(27px,7vw,46px);line-height:1.08}
+.al-mrizka{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:26px}
+.al-mrizka img{width:100%;height:100%;object-fit:cover;object-position:50% 26%}
+.al-mrizka figure{margin:0;position:relative}
+.al-m1{grid-column:1/3;aspect-ratio:4/5}
+.al-m2,.al-m3,.al-m4,.al-m5{aspect-ratio:1/1}
+
+/* ---------- 4. recenze ---------- */
+.al-recenze{padding:54px 0 0}
+.al-citace{max-width:34em;margin-top:26px}
+.al-citace li{list-style:none;padding:22px 0;border-top:1px solid var(--linka)}
+.al-citace li:first-child{border-top:0;padding-top:8px}
+.al-citace blockquote{margin:0;font-size:clamp(18px,4.4vw,21px);line-height:1.44}
+.al-citace figcaption,.al-jmeno{color:var(--zed);font-size:14px;margin-top:10px}
+.al-odkaz{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font-weight:500;text-underline-offset:5px}
+
+/* ---------- 5. kde nás najdete ---------- */
+.al-kde-sekce{padding:54px 0 0}
+.al-vyloha{margin-top:28px}
+.al-vyloha img{width:100%;height:clamp(230px,50vw,360px);object-fit:cover;object-position:50% 6%}
+.al-dvojice{display:grid;gap:26px;margin-top:32px}
+.al-hodiny{background:var(--panel);padding:26px 22px}
+.al-hodiny dl{margin:0;font-size:16px}
+.al-hodiny dl>div{display:flex;justify-content:space-between;gap:18px;padding:5px 0}
+.al-hodiny dt{color:var(--zed)}
+.al-hodiny dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.al-hodiny .dnes dt,.al-hodiny .dnes dd{color:var(--svetlo);font-weight:700}
+.al-hodiny .al-stav{margin-top:18px;padding-top:16px;border-top:1px solid var(--linka)}
+.al-kontakt p{margin-bottom:16px}
+.al-kontakt a{display:inline-flex;align-items:center;min-height:44px;font-weight:500;text-underline-offset:5px}
+.al-tel{font-size:clamp(24px,6.4vw,34px);font-weight:700;text-decoration:none;letter-spacing:-.01em}
+.al-mapy{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.al-mapy a{
+  flex:1 1 180px;justify-content:center;min-height:52px;display:flex;align-items:center;
+  border:1px solid rgba(241,241,245,.6);text-decoration:none;font-weight:700;font-size:16px;
+}
+
+footer{padding:44px 0 34px;color:var(--zed);font-size:14px;line-height:1.6}
+footer b{color:var(--svetlo);font-weight:700}
+
+/* spodní lišta */
+.al-lista{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:1px;
+  background:rgba(241,241,245,.22);
+  transform:translateY(105%);transition:transform .22s ease;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.al-lista.je-videt{transform:none}
+.al-lista a{
+  flex:1;min-height:58px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-weight:700;font-size:16px;background:var(--kuze);
+}
+.al-lista a:first-child{background:var(--svetlo);color:var(--kuze)}
+.al-konec{height:70px}
+
+:focus-visible{outline:2px solid var(--svetlo);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+section{scroll-margin-top:22px}
+
+@media (min-width:760px){
+  body{font-size:18px}
+  .al-uvod-foto{height:min(72vh,620px)}
+  .al-uvod-text{padding:0 40px 44px;max-width:var(--sirka);left:50%;right:auto;width:100%;transform:translateX(-50%)}
+  .al-znak{font-size:clamp(96px,11vw,150px)}
+  .al-znak span{font-size:13px;letter-spacing:.5em}
+  .al-akce{max-width:440px}
+  .al-menu-btn{top:26px;right:26px}
+  .al-bez,.al-strihy,.al-recenze,.al-kde-sekce{padding-top:96px}
+  .al-bez .al-obal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:12px 56px;align-items:start}
+  .al-bez .al-nadpis{grid-column:1;font-size:clamp(46px,4.6vw,62px)}
+  .al-bez p{grid-column:2;font-size:23px;max-width:24em;margin-top:6px}
+  .al-bez p+p{margin-top:14px}
+  .al-citace{max-width:none;display:grid;grid-template-columns:1fr 1fr;gap:0 56px;margin-top:30px}
+  .al-citace li{padding:26px 0}
+  .al-citace li:nth-child(2){border-top:0;padding-top:8px}
+  .al-mrizka{grid-template-columns:1.35fr 1fr 1fr;gap:10px}
+  .al-m1{grid-column:1;grid-row:1/3;aspect-ratio:auto;min-height:100%}
+  .al-m2{grid-column:2;grid-row:1}
+  .al-m3{grid-column:3;grid-row:1}
+  .al-m4{grid-column:2;grid-row:2}
+  .al-m5{grid-column:3;grid-row:2}
+  .al-dvojice{grid-template-columns:minmax(300px,1fr) minmax(300px,1fr);gap:40px;align-items:start}
+  .al-popisek{padding-left:40px;padding-right:40px}
+  .al-lista{display:none}
+  .al-konec{display:none}
+  .al-modal nav a{font-size:26px}
+}
+@media (min-width:1080px){
+  .al-obal{padding:0 40px}
+}
+</style>
+</head>
+<body>
+<a class="al-skip" href="#bez-objednani">Přeskočit na obsah</a>
+
+<main id="obsah">
+
+  <header class="al-uvod">
+    <picture>
+      <source media="(min-width:760px)" srcset="img/sal-siroky.jpg">
+      <img class="al-uvod-foto" src="img/sal-vysoky.jpg" width="1050" height="900" fetchpriority="high" decoding="async"
+           alt="Sál ALFA Barber Shopu: světle šedé stěny, dvě černá holičská křesla a podsvícený nápis ALFA na stěně">
+    </picture>
+    <button class="al-menu-btn" id="alMenu" type="button" aria-haspopup="dialog" aria-expanded="false">MENU</button>
+    <div class="al-uvod-text">
+      <h1 class="al-znak">ALFA<span>BARBER SHOP</span></h1>
+      <p class="al-kde">Topolová 2915/16, OC Cíl, Praha 10, Zahradní Město</p>
+      <p class="al-hodnoceni">5,0 z 5 na Googlu, 152 hodnocení</p>
+      <p class="al-stav" id="alStav" data-stav>Po–Pá 9:00–19:30, So–Ne 10:00–19:30</p>
+      <div class="al-akce" id="alAkce">
+        <a class="al-btn al-btn-plny" href="https://www.google.com/maps/dir/?api=1&amp;destination=Topolov%C3%A1%202915%2F16%2C%20106%2000%20Praha%2010&amp;destination_place_id=ChIJ37BcMZh-poIRYM9aQUxZSGQ">Trasa</a>
+        <a class="al-btn al-btn-prazd" href="tel:+420773137979">Zavolat</a>
+      </div>
+    </div>
+  </header>
+  <div class="al-cara" aria-hidden="true"></div>
+
+  <section class="al-bez" id="bez-objednani">
+    <div class="al-obal">
+      <h2 class="al-nadpis">Bez objednání</h2>
+      <p>Přijďte, kdy se vám to hodí. Sednete si a počkáte, až na vás přijde řada.</p>
+      <p>Střih trvá většinou 30 až 45 minut. Na stolku u křesel je PlayStation a miska bonbonů, pití máte zdarma.</p>
+    </div>
+  </section>
+
+  <section class="al-strihy" id="strihy">
+    <div class="al-obal">
+      <h2 class="al-nadpis al-nadpis-veta">Fade, buzzcut,<br>pánský i dětský střih.</h2>
+      <div class="al-mrizka">
+        <figure class="al-m1"><img src="img/strih-1.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Mladý zákazník po střihu, delší vlasy na vrchu a krátké boky"></figure>
+        <figure class="al-m2"><img src="img/strih-2.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Zákazník po střihu pod stropními světly salonu"></figure>
+        <figure class="al-m3"><img src="img/strih-3.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Chlapec po střihu, pohled zezadu, v pozadí pracovní pult salonu"></figure>
+        <figure class="al-m4"><img src="img/strih-4.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Zákazník s brýlemi po střihu, pohled zezadu, na stěně svítí nápis ALFA"></figure>
+        <figure class="al-m5"><img src="img/strih-5.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Starší zákazník s krátkým střihem sedící v holičském křesle"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="al-recenze" id="recenze">
+    <div class="al-obal">
+      <h2 class="al-nadpis">Co píšou na Googlu</h2>
+      <ul class="al-citace">
+        <li>
+          <blockquote>„Nový barbershop na Zahradním Městě. Vřele doporučuji. Po dlouhé době mě někdo ostříhal podle mých představ. Bez objednání. Milý personál.“</blockquote>
+          <p class="al-jmeno">Jiří</p>
+        </li>
+        <li>
+          <blockquote>„Stříhal mě David, pečlivá práce, má dobrý cit, hned pochopil, jaký účes mám na mysli.“</blockquote>
+          <p class="al-jmeno">Dawe</p>
+        </li>
+        <li>
+          <blockquote>„Syn 6 let dává 10/10, barber moc milý a profesionální. Super cut. Určitě se vrátíme.“</blockquote>
+          <p class="al-jmeno">Kája</p>
+        </li>
+        <li>
+          <blockquote>„Mega skvělá atmosféra. Při čekání na kamaráda jsem zkrátil čas u Playstationa. A střih byl přesně tak, jak jsem si řekl.“</blockquote>
+          <p class="al-jmeno">Jan</p>
+        </li>
+      </ul>
+      <a class="al-odkaz" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ">Všech 152 hodnocení na Googlu</a>
+    </div>
+  </section>
+
+  <section class="al-kde-sekce" id="kde">
+    <div class="al-obal">
+      <h2 class="al-nadpis">Topolová 2915/16,<br>Praha 10</h2>
+      <p>Jsme v OC Cíl na Zahradním Městě. Poznáte nás podle prosklené výlohy s kruhovým logem.</p>
+    </div>
+    <div class="al-obal">
+      <div class="al-dvojice">
+        <div class="al-hodiny al-svetlo">
+          <dl id="alHodiny">
+            <div data-den="1"><dt>Pondělí</dt><dd>9:00–19:30</dd></div>
+            <div data-den="2"><dt>Úterý</dt><dd>9:00–19:30</dd></div>
+            <div data-den="3"><dt>Středa</dt><dd>9:00–19:30</dd></div>
+            <div data-den="4"><dt>Čtvrtek</dt><dd>9:00–19:30</dd></div>
+            <div data-den="5"><dt>Pátek</dt><dd>9:00–19:30</dd></div>
+            <div data-den="6"><dt>Sobota</dt><dd>10:00–19:30</dd></div>
+            <div data-den="0"><dt>Neděle</dt><dd>10:00–19:30</dd></div>
+          </dl>
+          <p class="al-stav" data-stav>Po–Pá 9:00–19:30, So–Ne 10:00–19:30</p>
+        </div>
+        <div class="al-kontakt">
+          <p><a class="al-tel" href="tel:+420773137979">773 137 979</a></p>
+          <div class="al-mapy">
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Topolov%C3%A1%202915%2F16%2C%20106%2000%20Praha%2010&amp;destination_place_id=ChIJ37BcMZh-poIRYM9aQUxZSGQ">Trasa v Google Maps</a>
+            <a href="https://mapy.cz/zakladni?q=Topolov%C3%A1%202915%2F16%2C%20Praha%2010">Otevřít v Mapy.cz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="al-obal">
+      <p><b>ALFA Barber Shop</b></p>
+      <p>Topolová 2915/16, 106 00 Praha 10, Zahradní Město, OC Cíl</p>
+      <p>773 137 979</p>
+      <p>Po–Pá 9:00–19:30, So–Ne 10:00–19:30</p>
+    </div>
+  </footer>
+  <div class="al-konec" aria-hidden="true"></div>
+</main>
+
+<div class="al-modal" id="alModal" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="al-modal-hlava">
+    <p class="al-modal-znak">ALFA</p>
+    <button class="al-zavrit" id="alZavrit" type="button">ZAVŘÍT</button>
+  </div>
+  <nav>
+    <a href="#bez-objednani">Bez objednání</a>
+    <a href="#strihy">Střihy</a>
+    <a href="#recenze">Recenze</a>
+    <a href="#kde">Kde nás najdete</a>
+    <a href="tel:+420773137979">Zavolat 773 137 979</a>
+  </nav>
+</div>
+
+<div class="al-lista" id="alLista">
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Topolov%C3%A1%202915%2F16%2C%20106%2000%20Praha%2010&amp;destination_place_id=ChIJ37BcMZh-poIRYM9aQUxZSGQ">Trasa</a>
+  <a href="tel:+420773137979">Zavolat</a>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BarberShop",
+  "name":"ALFA Barber Shop",
+  "image":["https://hensanch.github.io/web-demos/alfa-barbershop-v3/img/sal-siroky.jpg","https://hensanch.github.io/web-demos/alfa-barbershop-v3/img/vyloha.jpg"],
+  "telephone":"+420773137979",
+  "url":"https://hensanch.github.io/web-demos/alfa-barbershop-v3/",
+  "address":{"@type":"PostalAddress","streetAddress":"Topolová 2915/16","addressLocality":"Praha 10","postalCode":"106 00","addressCountry":"CZ"},
+  "geo":{"@type":"GeoCoordinates","latitude":50.0571409,"longitude":14.5077053},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"152","bestRating":"5"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"10:00","closes":"19:30"}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var DNY = ["Neděle","Pondělí","Úterý","Středa","Čtvrtek","Pátek","Sobota"];
+  var DOBA = [[600,1170],[540,1170],[540,1170],[540,1170],[540,1170],[540,1170],[600,1170]]; // v minutách, index = den (0 = neděle)
+
+  function ted(){
+    try{
+      var p = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Prague",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+      var o = {};
+      p.forEach(function(x){ o[x.type] = x.value; });
+      var m = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+      var h = parseInt(o.hour,10); if(h === 24){ h = 0; }
+      return { den:m[o.weekday], min:h*60 + parseInt(o.minute,10) };
+    }catch(e){
+      var d = new Date();
+      return { den:d.getDay(), min:d.getHours()*60 + d.getMinutes() };
+    }
+  }
+  function cas(m){ return Math.floor(m/60) + ":" + ("0" + (m%60)).slice(-2); }
+
+  function text(){
+    var t = ted(), dnes = DOBA[t.den];
+    if(t.min >= dnes[0] && t.min < dnes[1]){
+      return { html:"<b>Otevřeno</b>, dnes do " + cas(dnes[1]), otevreno:true };
+    }
+    if(t.min < dnes[0]){
+      return { html:"<b>Zavřeno</b>, otevíráme dnes v " + cas(dnes[0]), otevreno:false };
+    }
+    var z = (t.den + 1) % 7;
+    return { html:"<b>Zavřeno</b>, otevíráme zítra v " + cas(DOBA[z][0]), otevreno:false };
+  }
+
+  function obnov(){
+    var s = text();
+    Array.prototype.forEach.call(document.querySelectorAll("[data-stav]"), function(el){
+      el.innerHTML = s.html;
+      el.classList.toggle("je-zavreno", !s.otevreno);
+    });
+    var t = ted();
+    Array.prototype.forEach.call(document.querySelectorAll("#alHodiny [data-den]"), function(el){
+      var je = Number(el.getAttribute("data-den")) === t.den;
+      el.classList.toggle("dnes", je);
+      var dt = el.querySelector("dt");
+      dt.textContent = je ? DNY[t.den] + " (dnes)" : DNY[Number(el.getAttribute("data-den"))];
+    });
+  }
+  obnov();
+  setInterval(obnov, 60000);
+
+  /* --- menu jako modální okno --- */
+  var btn = document.getElementById("alMenu");
+  var modal = document.getElementById("alModal");
+  var zavrit = document.getElementById("alZavrit");
+  var main = document.getElementById("obsah");
+  var lista = document.getElementById("alLista");
+  var kdoOtevrel = null;
+
+  function otevri(){
+    kdoOtevrel = document.activeElement;
+    modal.hidden = false;
+    btn.setAttribute("aria-expanded","true");
+    main.inert = true; lista.inert = true;
+    main.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "hidden";
+    zavrit.focus();
+    document.addEventListener("keydown", klavesa);
+  }
+  function zavri(){
+    modal.hidden = true;
+    btn.setAttribute("aria-expanded","false");
+    main.inert = false; lista.inert = false;
+    main.removeAttribute("aria-hidden");
+    document.body.style.overflow = "";
+    document.removeEventListener("keydown", klavesa);
+    if(kdoOtevrel && kdoOtevrel.focus){ kdoOtevrel.focus(); }
+  }
+  function klavesa(e){
+    if(e.key === "Escape"){ zavri(); return; }
+    if(e.key !== "Tab"){ return; }
+    var f = modal.querySelectorAll("a[href], button");
+    if(!f.length){ return; }
+    var prvni = f[0], posledni = f[f.length-1];
+    if(e.shiftKey && document.activeElement === prvni){ e.preventDefault(); posledni.focus(); }
+    else if(!e.shiftKey && document.activeElement === posledni){ e.preventDefault(); prvni.focus(); }
+  }
+  btn.addEventListener("click", otevri);
+  zavrit.addEventListener("click", zavri);
+  Array.prototype.forEach.call(modal.querySelectorAll("nav a"), function(a){
+    a.addEventListener("click", zavri);
+  });
+
+  /* --- spodní lišta až ve chvíli, kdy tlačítka z úvodu zmizí --- */
+  var akce = document.getElementById("alAkce");
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(z){
+      lista.classList.toggle("je-videt", !z[0].isIntersecting);
+    },{threshold:0}).observe(akce);
+  }
+})();
+</script>
+</body>
+</html>
