@@ -82,12 +82,12 @@ p{margin:0}
 /* ---------- window band (the bold element) ---------- */
 .okno{background:var(--tus);margin-top:24px}
 .okno-in{
-  display:grid;grid-template-columns:1fr 1fr;
-  column-gap:16px;row-gap:0;padding-top:10px;padding-bottom:12px;
+  display:flex;justify-content:space-between;align-items:baseline;
+  column-gap:12px;padding-top:10px;padding-bottom:12px;
 }
 .okno a{
   font-family:var(--serif);color:var(--saten);text-decoration:none;
-  font-size:clamp(23px,6.6vw,34px);line-height:1;padding:11px 0;
+  font-size:clamp(17px,4.8vw,34px);line-height:1;padding:11px 0;white-space:nowrap;
   border-bottom:1px solid transparent;
 }
 .okno a:hover{border-bottom-color:var(--bronz)}
@@ -128,6 +128,7 @@ p{margin:0}
 .skupina summary .od{font-family:var(--sans);font-size:13.5px;font-weight:700;color:var(--bronz);white-space:nowrap;text-align:right}
 .skupina[open] summary{border-bottom:1px solid var(--linka);margin-bottom:4px;padding-bottom:12px}
 .skupina[open] summary .od{visibility:hidden}
+.pod{font-weight:800;font-size:14px;letter-spacing:0;margin:8px 0 2px}
 .polozka{
   display:grid;grid-template-columns:1fr auto;column-gap:14px;align-items:baseline;
   border-top:1px solid var(--linka);padding:10px 0;
@@ -138,7 +139,7 @@ p{margin:0}
 .kc{font-size:15.5px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
 .pozn{border-top:1px solid var(--linka);padding:12px 0 14px;font-size:14px;color:var(--bronz);line-height:1.55}
 .rasy-hlavicka,.rasy-radek{display:grid;grid-template-columns:1fr 66px 76px;column-gap:10px;align-items:baseline}
-.rasy-hlavicka{padding:4px 0 7px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--bronz)}
+.rasy-hlavicka{padding:4px 0 7px;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--bronz)}
 .rasy-radek{border-top:1px solid var(--linka);padding:11px 0}
 .rasy-hlavicka span:not(:first-child),.rasy-radek .kc{text-align:right}
 
@@ -159,7 +160,7 @@ p{margin:0}
 .mapy a{color:var(--vino);text-decoration:underline;text-underline-offset:4px;padding:12px 0;display:inline-block;font-weight:600}
 
 /* ---------- pata ---------- */
-.pata{background:var(--tus);color:var(--saten);padding-top:26px;padding-bottom:calc(26px + env(safe-area-inset-bottom))}
+.pata{background:var(--tus);color:var(--saten);padding-top:26px;padding-bottom:calc(100px + env(safe-area-inset-bottom))}
 .pata .jmeno{font-family:var(--serif);font-size:24px;letter-spacing:.05em}
 .pata p{font-size:14.5px;color:#C9BDB6;margin-top:9px;line-height:1.6}
 .pata a{color:var(--saten);display:inline-block;padding:12px 0;margin:-8px 0}
@@ -216,11 +217,12 @@ p{margin:0}
   .tlacitka{flex-direction:row;margin-top:24px}
   .tl{min-width:220px}
   .okno{margin-top:0}
-  .okno-in{display:flex;justify-content:flex-start;column-gap:clamp(34px,6.4vw,92px);padding-top:18px;padding-bottom:20px}
+  .okno-in{display:flex;justify-content:space-between;padding-top:18px;padding-bottom:20px}
   .prace{max-width:1180px;margin:0 auto;padding:44px var(--okraj) 0;display:grid;grid-template-columns:1fr 1fr;column-gap:26px;align-items:start}
   .prace>.jen-ctecky{grid-column:1/-1}
   .velky{grid-column:1;grid-row:1/span 2}
-  .velky img{aspect-ratio:4/5}
+  .velky img{aspect-ratio:3/4}
+  .dvojice img{aspect-ratio:4/5}
   .prace .hlas{align-self:stretch;display:flex;flex-direction:column;justify-content:center}
   .prace .hlas:nth-of-type(1){grid-column:2;grid-row:1}
   .dvojice{grid-column:2;grid-row:2;margin-top:0}
@@ -293,8 +295,8 @@ p{margin:0}
   </blockquote>
 
   <div class="dvojice">
-    <img class="f-charms" src="img/charms.jpg" width="875" height="1400" loading="lazy" alt="Průhledný stojánek s nápisem Charms a desítkami drobných ozdob — mašličky, růžičky, srdíčka a měsíčky.">
-    <img src="img/rasy.jpg" width="1400" height="961" loading="lazy" alt="Detail oka s prodlouženými řasami a upraveným obočím.">
+    <img class="f-charms" src="img/charms.jpg" width="875" height="1400" loading="lazy" alt="Průhledný stojánek s nápisem Charms a desítkami drobných ozdob: mašličky, růžičky, srdíčka a měsíčky.">
+    <img src="img/rasy2.jpg" width="1400" height="1400" loading="lazy" alt="Oči s prodlouženými řasami a laminovaným obočím, před a po.">
   </div>
 
   <blockquote class="hlas">
@@ -307,8 +309,8 @@ p{margin:0}
   </figure>
 
   <blockquote class="hlas">
-    <p>„Viděla jsem, že mají úložný prostor na dezinfekci jejich manikúrových nůžek, což se moc často nevidí.“</p>
-    <footer>Minh Uyen, Google</footer>
+    <p>„Když si nejsem jistá, jaký styl nebo barvu zvolit, vždy mi poradí.“</p>
+    <footer>Lucie, Google</footer>
   </blockquote>
 
   <p class="vic"><a href="https://www.google.com/maps/place/BELLA+MY+nails+%26+beauty/data=!4m7!3m6!1s0x470b930015e640f3:0xd66b3c96d979b31d!8m2!3d50.0742754!4d14.4903591!16s%2Fg%2F11ltg6tdn4!19sChIJ80DmFQCTC0cRHbN52ZY8a9Y" target="_blank" rel="noopener">Přečíst všech 101 hodnocení na Googlu</a></p>
@@ -316,19 +318,20 @@ p{margin:0}
 
 <section class="ceny obal" id="ceny">
   <h2>Ceník</h2>
-  <p class="pravidlo">Ceny v ceníku jsou základní. K modelaci nehtů se připlácí za délku a za zdobení — u zdobení se cena určuje podle designu. Na cenu konkrétního designu se prosím zeptejte při objednání.</p>
+  <p class="pravidlo">Uvedené ceny jsou základní. U modelace nehtů se připlácí za délku a za zdobení, cena zdobení záleží na designu. Na cenu konkrétního designu se prosím zeptejte při objednání.</p>
 
-  <details class="skupina" id="ceny-ruce">
-    <summary><span>Manikúra</span><span class="od">gelové nehty od 640 Kč</span></summary>
+  <details class="skupina" id="ceny-ruce" open>
+    <summary><span>Manikúra</span><span class="od">od 350 Kč</span></summary>
     <div class="skupina-mriz">
       <div>
+        <p class="pod">Modelace nehtů</p>
         <div class="polozka"><span class="co">Gelové nehty nové, krátké, bez zdobení<span class="cas">60 min</span></span><span class="kc">640 Kč</span></div>
         <div class="polozka"><span class="co">Gelové nehty nové, krátké, francie nebo ombré<span class="cas">75 min</span></span><span class="kc">750 Kč</span></div>
         <div class="polozka"><span class="co">Doplnění, krátké, bez zdobení<span class="cas">60 min</span></span><span class="kc">590 Kč</span></div>
         <div class="polozka"><span class="co">Doplnění, krátké, francie nebo ombré<span class="cas">75 min</span></span><span class="kc">690 Kč</span></div>
-        <p class="pozn">Střední a dlouhé nehty (L a XL) i designy se zdobením mají stejný základ a k němu příplatek za délku a za zdobení.</p>
       </div>
       <div>
+        <p class="pod">Manikúra</p>
         <div class="polozka"><span class="co">Manikúra classic a calcium<span class="cas">30 min</span></span><span class="kc">350 Kč</span></div>
         <div class="polozka"><span class="co">Manikúra a klasický lak<span class="cas">45 min</span></span><span class="kc">550 Kč</span></div>
         <div class="polozka"><span class="co">Manikúra Gellac<span class="cas">45 min</span></span><span class="kc">550 Kč</span></div>
@@ -336,6 +339,7 @@ p{margin:0}
         <p class="pozn">Oprava jednoho nehtu 50 Kč, změna barvy u umělých nehtů 400 Kč, odstranění umělých nehtů 200 Kč. Když rovnou děláme nové, je odstranění 100 Kč u gelu a 150 Kč u akrylu.</p>
       </div>
     </div>
+      <p class="pozn">Střední a dlouhé nehty (M, L a XL) i designy se zdobením mají stejný základ a k němu příplatek za délku a za zdobení.</p>
   </details>
 
   <details class="skupina" id="ceny-nohy">
@@ -351,7 +355,7 @@ p{margin:0}
         <div class="polozka"><span class="co">Footlogix pedikúra<span class="cas">45 min</span></span><span class="kc">700 Kč</span></div>
         <div class="polozka"><span class="co">Footlogix pedikúra a klasický lak<span class="cas">75 min</span></span><span class="kc">800 Kč</span></div>
         <div class="polozka"><span class="co">Footlogix pedikúra Gellac<span class="cas">60 min</span></span><span class="kc">800 Kč</span></div>
-        <p class="pozn">U Shellacu se k ceně Gellacu připlácí 50 Kč. Manikúru a pedikúru si můžete objednat i v kombinaci — v rezervačním systému je deset variant.</p>
+        <p class="pozn">U Shellacu se připlácí 50 Kč. Manikúru a pedikúru jde objednat i najednou, v rezervačním systému je deset kombinací.</p>
       </div>
     </div>
   </details>
@@ -368,9 +372,9 @@ p{margin:0}
     <div class="rasy-radek"><span class="co">Hybrid 3D–4D</span><span class="kc">1 150 Kč</span><span class="kc">950 Kč</span></div>
       </div>
       <div>
-        <div class="polozka"><span class="co">Mokrý efekt<span class="cas">150 min</span></span><span class="kc">1 200 Kč</span></div>
-        <div class="polozka"><span class="co">Lash lifting a lash botox<span class="cas">75 min</span></span><span class="kc">900 Kč</span></div>
-        <div class="polozka"><span class="co">Odstranění prodloužených řas<span class="cas">30 min</span></span><span class="kc">200 Kč</span></div>
+        <div class="rasy-radek"><span class="co">Mokrý efekt<span class="cas">150 min</span></span><span class="kc">1 200 Kč</span><span class="kc"></span></div>
+        <div class="rasy-radek"><span class="co">Lash lifting a lash botox<span class="cas">75 min</span></span><span class="kc">900 Kč</span><span class="kc"></span></div>
+        <div class="rasy-radek"><span class="co">Odstranění prodloužených řas<span class="cas">30 min</span></span><span class="kc">200 Kč</span><span class="kc"></span></div>
         <p class="pozn">Doplnit můžeme řasy, které jsme dělali my, a když jich zbývá aspoň 40 %.</p>
       </div>
     </div>
@@ -407,7 +411,7 @@ p{margin:0}
     Telefon <a href="tel:+420728563222">728&nbsp;563&nbsp;222</a><br>
     Rezervace <a href="https://bella-my-nails-beauty.reservio.com/booking" target="_blank" rel="noopener">bella-my-nails-beauty.reservio.com</a>
   </p>
-  <p class="rezervace-pozn">Termín jde zrušit nejpozději 12 hodin předem. Objednat se můžete nejdříve hodinu dopředu a nejdále 90 dní dopředu. Do studia je bezbariérový vstup a je tu wi-fi zdarma.</p>
+  <p class="rezervace-pozn">Termín jde zrušit do 12 hodin předem. Objednat se dá nejdřív hodinu předem, nejvýš 90 dní. V rezervačním systému studio prosí o platbu v hotovosti. Bezbariérový vstup, wi-fi zdarma.</p>
 
   <figure class="dum">
     <img src="img/dum.jpg" width="1300" height="1100" loading="lazy" alt="Výloha studia BELLA MY na Starostrašnické s černo-bronzovou cedulí a nápisy Manikúra, Pedikúra, Řasy, Obočí na skle.">
@@ -497,7 +501,7 @@ p{margin:0}
       while (i < 7){ d = (d + 1) % 7; i++; if (PLAN[d]){ dalsi = d; break; } }
       text = dalsi === null ? "Zavřeno" : "Zavřeno, otevíráme " + DNY[dalsi] + " v " + hhmm(PLAN[dalsi][0]);
     }
-    radek.innerHTML = text;
+    radek.innerHTML = "Starostrašnická 43, Strašnice. " + text;
 
     var rady = document.querySelectorAll("#hodiny .hodina");
     for (var k = 0; k < rady.length; k++){
@@ -530,7 +534,7 @@ p{margin:0}
 
   function prepni(zap){
     okno.hidden = !zap;
-    [stranka, listaEl].forEach(function(el){
+    [stranka, listaEl, document.querySelector(".preskoc")].forEach(function(el){
       if (!el) return;
       if (zap){ el.setAttribute("inert",""); } else { el.removeAttribute("inert"); }
     });
