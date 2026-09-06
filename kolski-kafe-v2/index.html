@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kolski Kafe — Vršovická 866/3, Praha 10 Vršovice</title>
+<meta name="description" content="Kavárna a cukrárna na Vršovické, kousek od nádraží. Chlebíčky, domácí zákusky, dorty na objednávku, káva. Otevírací doba, mapa, telefon.">
+<meta name="theme-color" content="#FCFCFA">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kolski Kafe">
+<meta property="og:description" content="Kavárna a cukrárna na Vršovické, kousek od nádraží. 4,8 ze 181 recenzí.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23131211'/%3E%3Cpath d='M9 7h3.6v8.1L19.6 7h4.3l-6.9 8.2L24.4 25h-4.4l-5.6-7.4-1.8 2V25H9z' fill='%23FCFCFA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wdth,wght@75..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFCFA;
+  --ink:#131211;
+  --ink-2:#5C5A55;
+  --hair:#C7C5C0;
+  --pad:16px;
+  --bar:60px;
+}
+*{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:60px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Encode Sans','Helvetica Neue',Arial,sans-serif;
+  font-stretch:100%;
+  font-weight:400;
+  font-size:15px;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums lining-nums;
+  padding-bottom:calc(var(--bar) + env(safe-area-inset-bottom));
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+a,button{touch-action:manipulation}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.band :focus-visible{outline-color:var(--paper)}
+
+.wrap{padding-left:var(--pad);padding-right:var(--pad)}
+.shell{width:100%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------------- masthead ---------------- */
+.rule-top{border-top:3px solid var(--ink)}
+.mast{border-bottom:1px solid var(--ink);position:sticky;top:0;z-index:30;background:var(--paper)}
+.mast-in{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:50px}
+.mast-place{font-stretch:75%;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.burger{font:inherit;font-stretch:75%;font-weight:800;font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+  background:none;border:1px solid var(--ink);color:var(--ink);padding:0 11px 0 31px;cursor:pointer;line-height:1;
+  position:relative;min-height:44px;display:inline-flex;align-items:center}
+.burger::before,.burger::after,.burger i{content:"";position:absolute;left:9px;width:14px;height:2px;background:var(--ink)}
+.burger::before{top:16px}.burger i{top:21px;display:block}.burger::after{top:26px}
+.burger[aria-expanded="true"]::before{top:21px;transform:rotate(45deg)}
+.burger[aria-expanded="true"]::after{top:21px;transform:rotate(-45deg)}
+.burger[aria-expanded="true"] i{opacity:0}
+.mnav{display:none;position:fixed;inset:0;z-index:40;background:var(--paper);padding:0 var(--pad);overflow:auto}
+.mnav.open{display:block}
+.mnav-top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:50px;border-bottom:1px solid var(--ink)}
+.mnav ol{list-style:none}
+.mnav li{border-bottom:1px solid var(--hair)}
+.mnav a{display:block;padding:14px 0;text-decoration:none;font-stretch:75%;font-weight:800;font-size:29px;
+  line-height:1;text-transform:uppercase;letter-spacing:.005em}
+.mnav a small{display:block;font-stretch:100%;font-weight:400;font-size:13px;text-transform:none;
+  letter-spacing:0;margin-top:6px;color:var(--ink-2)}
+.mnav .mnav-go{margin-top:14px;display:flex;align-items:center;justify-content:center;height:52px;
+  background:var(--ink);color:var(--paper);text-decoration:none;font-stretch:75%;font-weight:800;
+  font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.dnav{display:none}
+body.menu-open{overflow:hidden}
+
+/* ---------------- top: photo + identity ---------------- */
+.hero-photo{width:100%;aspect-ratio:5/4;overflow:hidden;background:#e6e5e2}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:48% 52%}
+
+.id{padding-top:13px}
+h1{font-stretch:75%;font-weight:800;font-size:clamp(38px,14.4vw,58px);line-height:.92;
+  letter-spacing:-.012em;text-transform:uppercase}
+.id-fact{font-size:14.5px;line-height:1.42;padding:11px 0 12px;max-width:36ch}
+
+.rating{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);padding:7px 0 8px}
+.rating b{font-stretch:75%;font-weight:800;font-size:30px;line-height:.95;letter-spacing:-.01em}
+.rating .star{font-size:15px;line-height:1;letter-spacing:.03em}
+.rating .of{flex:1 1 auto;text-align:right;font-size:13px;font-weight:500;color:var(--ink-2)}
+
+.act{display:flex;flex-direction:column;gap:8px;padding-top:12px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:50px;padding:0 14px;
+  font-stretch:75%;font-weight:800;font-size:16px;letter-spacing:.055em;text-transform:uppercase;
+  text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:var(--paper)}
+.btn.ghost{background:none;color:var(--ink)}
+.status{font-size:13.5px;font-weight:600;padding:12px 0 0}
+.status.closed{color:var(--ink-2);font-weight:500}
+
+/* ---------------- sections ---------------- */
+section{margin-top:50px}
+.sec-head{border-top:3px solid var(--ink);padding-top:17px}
+.sec-head h2{font-stretch:75%;font-weight:800;font-size:clamp(26px,8.2vw,34px);line-height:.98;
+  text-transform:uppercase;letter-spacing:-.008em}
+.sec-lead{font-size:14.5px;line-height:1.42;padding-top:8px;max-width:42ch}
+.sec-note{font-size:12.5px;font-weight:600;color:var(--ink-2);padding-top:6px}
+
+/* ---------------- nabídka: ruled rows ---------------- */
+.groups{margin-top:22px}
+.grp{margin-top:18px}
+.grp:first-child{margin-top:0}
+.grp-h{display:flex;align-items:baseline;gap:10px;border-top:2px solid var(--ink);
+  border-bottom:1px solid var(--ink);padding:5px 0}
+.grp-h h3{font-stretch:75%;font-weight:800;font-size:18px;line-height:1.05;text-transform:uppercase;letter-spacing:.01em}
+.grp-h small{margin-left:auto;font-size:12px;font-weight:600;color:var(--ink-2);white-space:nowrap;text-align:right}
+
+.row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;padding:8px 0 7px;border-bottom:1px solid var(--hair)}
+.row:last-child{border-bottom:0}
+.row .n{font-size:15.5px;font-weight:500;line-height:1.28;flex:1 1 auto}
+.row .n em{font-style:normal;font-weight:400;font-size:12.5px;color:var(--ink-2);padding-left:7px}
+.row .lead-dots{flex:1 1 auto;min-width:14px;align-self:flex-end;border-bottom:2px dotted #A4A29D;transform:translateY(-4px)}
+.row .p{font-stretch:75%;font-weight:800;font-size:19px;line-height:1;white-space:nowrap;margin-left:auto}
+@media (max-width:359px){.row .n em{display:block;padding-left:0;margin-top:2px}}
+
+/* the price line the shop actually publishes */
+.pricenote{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-top:24px;border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);padding:8px 0}
+.pricenote span{font-size:13px;font-weight:500;color:var(--ink-2);line-height:1.3;flex:1 1 60%}
+.pricenote .lead-dots{flex:1 1 auto;min-width:14px;align-self:flex-end;border-bottom:2px dotted #A4A29D;transform:translateY(-4px)}
+.pricenote b{margin-left:auto;font-stretch:75%;font-weight:800;font-size:19px;white-space:nowrap;line-height:1}
+
+/* ---------------- photo grid ---------------- */
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:22px}
+.shots figure{overflow:hidden;background:#e6e5e2;aspect-ratio:4/5}
+.shots figure.wide{grid-column:span 2;aspect-ratio:3/2}
+.shots img{width:100%;height:100%;object-fit:cover}
+
+/* ---------------- the one reversed band ---------------- */
+.band{background:var(--ink);color:var(--paper);margin-top:44px;padding:28px 0 30px}
+.band blockquote p{font-stretch:75%;font-weight:800;font-size:clamp(23px,7vw,30px);line-height:1.04;
+  text-transform:uppercase;letter-spacing:-.006em;max-width:19ch}
+.band blockquote footer{font-size:12.5px;font-weight:500;letter-spacing:.02em;padding-top:12px;opacity:.82}
+.band a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:20px;
+  padding:0 22px;border:1px solid var(--paper);color:var(--paper);text-decoration:none;
+  font-stretch:75%;font-weight:800;font-size:15px;letter-spacing:.055em;text-transform:uppercase}
+
+/* ---------------- reviews ---------------- */
+.quotes{margin-top:18px;border-top:2px solid var(--ink)}
+.quotes blockquote{border-bottom:1px solid var(--hair);padding:13px 0}
+.quotes blockquote:last-child{border-bottom:1px solid var(--ink)}
+.quotes p{font-size:16px;line-height:1.42}
+.quotes footer{font-size:12px;font-weight:600;color:var(--ink-2);padding-top:8px;display:flex;gap:8px;align-items:baseline}
+.quotes footer .nm{font-stretch:75%;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.quotes footer .when{margin-left:auto}
+.more,.maplink{display:inline-flex;align-items:center;min-height:44px;font-size:13.5px;font-weight:600;text-decoration:none}
+.more span,.maplink span{border-bottom:1.5px solid var(--ink);padding-bottom:1px}
+.more{margin-top:4px}
+
+/* ---------------- find us ---------------- */
+.addr{margin-top:18px;border-top:2px solid var(--ink);padding-top:9px}
+.addr .street{font-stretch:75%;font-weight:800;font-size:24px;line-height:1.06;text-transform:uppercase}
+.addr .city{font-size:14px;font-weight:500;color:var(--ink-2);padding-top:3px}
+.addr .tel{display:inline-block;font-stretch:75%;font-weight:800;font-size:24px;letter-spacing:.02em;
+  text-decoration:none;border-bottom:2px solid var(--ink);padding:14px 0 4px;line-height:1.1}
+
+table.hrs{width:100%;border-collapse:collapse;margin-top:18px;border-top:2px solid var(--ink)}
+table.hrs th,table.hrs td{border-bottom:1px solid var(--hair);padding:6px 0;font-size:14px;font-weight:500;text-align:left;line-height:1.3}
+table.hrs td{text-align:right;white-space:nowrap}
+table.hrs tr:last-child th,table.hrs tr:last-child td{border-bottom:1px solid var(--ink)}
+table.hrs tr.today th,table.hrs tr.today td{font-weight:800;background:var(--ink);color:var(--paper);border-bottom-color:var(--ink)}
+table.hrs tr.today th{padding-left:7px}
+table.hrs tr.today td{padding-right:7px}
+
+.good{margin-top:22px}
+.good .grp-h{border-top-width:2px}
+.good li{list-style:none;display:flex;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--hair);font-size:14.5px;font-weight:500}
+.good li:last-child{border-bottom:1px solid var(--ink)}
+
+.map{display:block;margin-top:18px;aspect-ratio:4/3;background:#ddd center/cover no-repeat;position:relative;border:1px solid var(--ink)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none}
+.maplink{margin-top:2px}
+
+/* ---------------- footer ---------------- */
+footer.page{border-top:3px solid var(--ink);margin-top:50px;padding:14px 0 30px}
+footer.page .fn{font-stretch:75%;font-weight:800;font-size:14px;letter-spacing:.055em;text-transform:uppercase}
+footer.page .fl{font-size:12.5px;color:var(--ink-2);line-height:1.6;padding-top:5px}
+footer.page .fl a{display:inline-block;padding:11px 0;text-decoration:none;border-bottom:1px solid var(--hair)}
+
+/* ---------------- fixed bar ---------------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;
+  background:var(--paper);border-top:1px solid var(--ink);padding-bottom:env(safe-area-inset-bottom);
+  transform:translateY(100%);visibility:hidden;
+  transition:transform .24s ease, visibility 0s linear .24s}
+.bar.show{transform:none;visibility:visible;transition:transform .24s ease}
+@media (prefers-reduced-motion:reduce){.bar,.bar.show{transition:none}}
+.bar a{display:flex;align-items:center;justify-content:center;height:var(--bar);text-decoration:none;
+  font-stretch:75%;font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.bar a.go{background:var(--ink);color:var(--paper)}
+.bar a.call{border-left:1px solid var(--ink)}
+
+/* ================= WIDE ================= */
+@media (min-width:860px){
+  :root{--pad:44px}
+  body{padding-bottom:0}
+  .bar{display:none}
+  .shell{max-width:1120px;margin-left:auto;margin-right:auto}
+  .wrap.shell{padding-left:var(--pad);padding-right:var(--pad)}
+
+  .mast-in{min-height:52px}
+  .burger{display:none}
+  .dnav{display:flex;gap:24px;margin-left:auto}
+  .dnav a{text-decoration:none;font-stretch:75%;font-weight:700;font-size:13px;letter-spacing:.09em;text-transform:uppercase}
+  .dnav a:hover{border-bottom:2px solid var(--ink)}
+  .mast-place{font-size:13px}
+
+  .top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);column-gap:44px;align-items:start;padding-top:32px}
+  .hero-photo{grid-column:2;grid-row:1;aspect-ratio:4/3}
+  .id{grid-column:1;grid-row:1;padding-top:0}
+  h1{font-size:clamp(54px,5.6vw,76px);line-height:.9;letter-spacing:-.018em}
+  .id-fact{font-size:16.5px;padding:16px 0 20px}
+  .rating{padding:10px 0 11px}
+  .rating b{font-size:42px}
+  .rating .star{font-size:17px}
+  .rating .of{font-size:14.5px}
+  .act{flex-direction:row;gap:10px;padding-top:20px}
+  .act .btn{flex:1 1 0}
+  .status{padding-top:16px;font-size:14.5px}
+
+  section{margin-top:56px}
+  .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);column-gap:44px;align-items:end;padding-bottom:2px}
+  .sec-head h2{font-size:clamp(38px,4.6vw,58px);line-height:.92;margin-bottom:-2px}
+  .sec-lead{font-size:16px;padding-top:0;padding-bottom:5px;max-width:none}
+  .sec-note{padding-top:0;padding-bottom:6px}
+
+  .groups{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;align-content:start;margin-top:26px}
+  .grp{margin-top:0}
+  .grp:nth-child(1){grid-column:1;grid-row:1}
+  .grp:nth-child(2){grid-column:2;grid-row:1}
+  .grp:nth-child(3){grid-column:1;grid-row:2;margin-top:26px}
+  .grp:nth-child(4){grid-column:2;grid-row:2;margin-top:26px}
+  .grp-h h3{font-size:20px}
+  .row{padding:9px 0 8px}
+  .row .n{font-size:16.5px}
+  .pricenote{margin-top:28px}
+  .pricenote span{font-size:14.5px}
+  .pricenote b{font-size:22px}
+
+  .shots{grid-template-columns:repeat(4,1fr);margin-top:26px}
+  .shots figure.wide{aspect-ratio:8/5}
+
+  .band{margin-top:56px;padding:36px 0 38px}
+  .band .shell{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr);column-gap:44px;align-items:end}
+  .band blockquote p{font-size:clamp(34px,3.6vw,46px);max-width:none}
+  .band blockquote footer{font-size:13.5px;padding-top:16px}
+  .band a{margin-top:0;justify-self:stretch;min-height:56px;font-size:17px}
+
+  .quotes{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;border-top:2px solid var(--ink);margin-top:22px}
+  .quotes blockquote{border-bottom:1px solid var(--hair)}
+  .quotes blockquote:nth-last-child(-n+2){border-bottom:1px solid var(--ink)}
+  .quotes p{font-size:17px}
+  .more{margin-top:6px}
+
+  .find{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);column-gap:44px;align-items:start;margin-top:26px}
+  .addr{margin-top:0}
+  .addr .street{font-size:29px}
+  .addr .tel{font-size:29px}
+  .map{margin-top:0;aspect-ratio:1/1}
+
+  footer.page{margin-top:60px;padding:16px 0 36px}
+  footer.page .fl{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<div class="rule-top"></div>
+
+<header class="mast">
+  <div class="mast-in wrap shell">
+    <span class="mast-place">Kolski Kafe · Vršovice</span>
+    <nav class="dnav" aria-label="Sekce">
+      <a href="#nabidka">Nabídka</a><a href="#u-nas">U nás</a><a href="#recenze">Recenze</a><a href="#kontakt">Kde nás najdete</a>
+    </nav>
+    <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mnav"><i></i><span>Menu</span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mnav" aria-label="Menu">
+  <div class="mnav-top">
+    <span class="mast-place">Kolski Kafe · Vršovice</span>
+    <button type="button" class="burger" id="burgerClose" aria-expanded="true" aria-controls="mnav"><i></i><span>Zavřít</span></button>
+  </div>
+  <ol>
+    <li><a href="#nabidka"><span>Nabídka</span><small>Chlebíčky, zákusky, dorty, káva</small></a></li>
+    <li><a href="#u-nas"><span>U nás</span><small>Vitrína, stoly z kmenů, chodník</small></a></li>
+    <li><a href="#recenze"><span>Recenze</span><small>4,8 ze 181 na Googlu</small></a></li>
+    <li><a href="#kontakt"><span>Kde nás najdete</span><small>Vršovická 866/3, otevírací doba, mapa</small></a></li>
+  </ol>
+  <a class="mnav-go" href="https://www.google.com/maps/dir/?api=1&amp;destination=Vr%C5%A1ovick%C3%A1+866%2F3%2C+101+00+Praha+10-Vr%C5%A1ovice&amp;destination_place_id=ChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener">Trasa</a>
+</nav>
+
+<div class="top wrap shell">
+
+  <figure class="hero-photo">
+    <img src="img/hero.jpg" width="1500" height="1125" alt="Vnitřek kavárny: stolky z dřevěných kmenů, barevné židle a velké okno do Vršovické">
+  </figure>
+
+  <div class="id">
+    <h1>Kolski Kafe</h1>
+    <p class="id-fact">Kavárna a cukrárna na Vršovické, kousek od nádraží. Chlebíčky, domácí zákusky a káva.</p>
+
+    <div class="rating">
+      <b>4,8</b>
+      <span class="star" aria-hidden="true">★★★★★</span>
+      <span class="of">ze 181 recenzí na Googlu</span>
+    </div>
+
+    <div class="act">
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Vr%C5%A1ovick%C3%A1+866%2F3%2C+101+00+Praha+10-Vr%C5%A1ovice&amp;destination_place_id=ChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener">Trasa</a>
+      <a class="btn ghost" href="tel:+420773516560">Zavolat 773 516 560</a>
+    </div>
+
+    <p class="status" id="status"><span id="statusText"></span></p>
+  </div>
+
+</div>
+
+<section id="nabidka" class="wrap shell">
+  <div class="sec-head">
+    <h2>Nabídka</h2>
+    <p class="sec-lead">Ceny píšeme křídou na tabulky ve vitríně.</p>
+  </div>
+
+  <div class="groups">
+
+    <div class="grp">
+      <div class="grp-h"><h3>Chlebíčky a slané</h3></div>
+      <div class="row"><span class="n">Krabí chlebíček</span></div>
+      <div class="row"><span class="n">Hermelínový chlebíček</span></div>
+      <div class="row"><span class="n">Obložené chleby</span></div>
+      <div class="row"><span class="n">Polévky</span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Zákusky</h3><small>z vitríny</small></div>
+      <div class="row"><span class="n">Medovník</span></div>
+      <div class="row"><span class="n">Větrník</span></div>
+      <div class="row"><span class="n">Francouzský řez</span></div>
+      <div class="row"><span class="n">Lotus cheesecake</span></div>
+      <div class="row"><span class="n">Koláče</span></div>
+      <div class="row"><span class="n">Povidlové buchty</span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Dorty na objednávku</h3></div>
+      <div class="row"><span class="n">Dort s jahodami</span></div>
+      <div class="row"><span class="n">Narozeninový dort</span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Káva a čaj</h3></div>
+      <div class="row"><span class="n">Káva<em>flat white, cappuccino</em></span></div>
+      <div class="row"><span class="n">Horká čokoláda</span></div>
+      <div class="row"><span class="n">Čaje</span></div>
+    </div>
+
+  </div>
+
+  <p class="pricenote"><span>Odhad útraty na jednoho, jak ho na Googlu uvádějí návštěvníci</span><i class="lead-dots"></i><b>100–200 Kč</b></p>
+</section>
+
+<section id="u-nas">
+  <div class="sec-head wrap shell">
+    <h2>U nás</h2>
+    <p class="sec-lead">Vitrína, stolky z kmenů, barevné židle a v létě posezení na chodníku.</p>
+  </div>
+  <div class="shots">
+    <figure class="wide"><img src="img/p01.jpg" width="1400" height="1050" loading="lazy" alt="Talíř s chlebíčky se šunkou, sýrem a vejcem na dřevěném stolku"></figure>
+    <figure><img src="img/p02.jpg" width="750" height="1000" loading="lazy" alt="Velký chlebíček se šunkou, rajčetem a salátem"></figure>
+    <figure><img src="img/p03.jpg" width="750" height="1000" loading="lazy" alt="Krajíčky tmavého chleba se šlehačkou a jahodami na dřevěném prkénku"></figure>
+    <figure class="wide"><img src="img/p04.jpg" width="1400" height="1050" loading="lazy" alt="Vitrína se zákusky a křídovými cedulkami s cenami"></figure>
+    <figure><img src="img/p05.jpg" width="750" height="1000" loading="lazy" alt="Otevřené chlebíčky s růžovou pomazánkou, výhonky a ořechy na prkénku"></figure>
+    <figure><img src="img/p06.jpg" width="750" height="1000" loading="lazy" alt="Zákusky z odpalovaného těsta na prkénku u okenního sezení s polštáři"></figure>
+    <figure class="wide"><img src="img/p07.jpg" width="1400" height="1050" loading="lazy" alt="Miska polévky s výhonky na stolku z dřevěného kmene"></figure>
+    <figure><img src="img/p08.jpg" width="750" height="1000" loading="lazy" alt="Prkénko s několika druhy zákusků, mezi nimi malinový a ořechový řez"></figure>
+    <figure><img src="img/p09.jpg" width="750" height="1000" loading="lazy" alt="Šálek kávy s mléčnou pěnou na podšálku"></figure>
+    <figure class="wide"><img src="img/p10.jpg" width="1400" height="933" loading="lazy" alt="Narozeninový dort na objednávku s čerstvým ovocem a hasičským autem z marcipánu"></figure>
+    <figure><img src="img/p11.jpg" width="449" height="1000" loading="lazy" alt="Pult s vitrínou a křídovými tabulemi na stěně"></figure>
+    <figure><img src="img/p12.jpg" width="750" height="1000" loading="lazy" alt="Káva a kousek koláče na venkovním stolku na chodníku"></figure>
+  </div>
+</section>
+
+<div class="band">
+  <div class="shell wrap">
+    <blockquote>
+      <p>„Chlebíčky jsou opravdu velké, jeden vydá za dva běžné.“</p>
+      <footer>Eva · recenze na Googlu, před rokem</footer>
+    </blockquote>
+    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Vr%C5%A1ovick%C3%A1+866%2F3%2C+101+00+Praha+10-Vr%C5%A1ovice&amp;destination_place_id=ChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener">Trasa</a>
+  </div>
+</div>
+
+<section id="recenze" class="wrap shell">
+  <div class="sec-head">
+    <h2>Recenze</h2>
+    <p class="sec-lead">4,8 ze 181 recenzí na Googlu.</p>
+  </div>
+  <div class="quotes">
+    <blockquote>
+      <p>„Malá, příjemná kavárna u Vršovického nádraží. Vždy se těším, když mám cestu kolem nejen kvůli výborné kávě, ale vždy milé a přátelské obsluze – hlavně příjemného pána, který vždy popřeje hezký den. Chválím také obložené chleby a polévky. Stojí za to se zastavit.“</p>
+      <footer><span class="nm">Magda</span><span class="when">před rokem</span></footer>
+    </blockquote>
+    <blockquote>
+      <p>„Velmi příjemné a útulné místo. K dispozici je posezení uvnitř i venku. … Dala jsem si Flat White – káva byla jemná, vyvážená a bez přepražené chuti. Ráda se sem zase vrátím!“</p>
+      <footer><span class="nm">Maryna</span><span class="when">před 2 měsíci</span></footer>
+    </blockquote>
+    <blockquote>
+      <p>„Moje návštěvy do této kavárny se staly pravidelností, každou sobotu se zastavím pro něco nově upečeného a nikdy nejsem zklamaná. Určitě doporučuji všem.“</p>
+      <footer><span class="nm">Petra</span><span class="when">před rokem</span></footer>
+    </blockquote>
+    <blockquote>
+      <p>„Tahle kavárna je nejlepší na světě (Majda, 6 let).“</p>
+      <footer><span class="nm">Eliska</span><span class="when">před rokem</span></footer>
+    </blockquote>
+  </div>
+  <a class="more" href="https://www.google.com/maps/place/?q=place_id:ChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener"><span>Všechny recenze na Googlu</span></a>
+</section>
+
+<section id="kontakt" class="wrap shell">
+  <div class="sec-head">
+    <h2>Kde nás najdete</h2>
+    <p class="sec-lead">Vršovická 866/3, pár set metrů od Vršovického nádraží.</p>
+  </div>
+
+  <div class="find">
+    <div>
+      <div class="addr">
+        <div class="street">Vršovická 866/3</div>
+        <div class="city">101 00 Praha 10 – Vršovice</div>
+        <a class="tel" href="tel:+420773516560">773 516 560</a>
+      </div>
+
+      <table class="hrs">
+        <tbody id="hoursBody">
+          <tr data-day="1"><th>Pondělí</th><td>8:00 – 18:00</td></tr>
+          <tr data-day="2"><th>Úterý</th><td>8:00 – 18:00</td></tr>
+          <tr data-day="3"><th>Středa</th><td>8:00 – 18:00</td></tr>
+          <tr data-day="4"><th>Čtvrtek</th><td>8:00 – 18:00</td></tr>
+          <tr data-day="5"><th>Pátek</th><td>8:00 – 18:00</td></tr>
+          <tr data-day="6"><th>Sobota</th><td>9:00 – 15:30</td></tr>
+          <tr data-day="0"><th>Neděle</th><td>Zavřeno</td></tr>
+        </tbody>
+      </table>
+
+      <div class="good">
+        <div class="grp-h"><h3>Dobré vědět</h3></div>
+        <ul>
+          <li>Wi-Fi zdarma</li>
+          <li>Posezení uvnitř i na chodníku</li>
+          <li>Obsluha u stolu</li>
+          <li>Jídlo s sebou</li>
+          <li>Platba kartou i bezkontaktně</li>
+          <li>Vhodné pro děti</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <a class="map" id="mapLink" href="https://www.google.com/maps/place/?q=place_id:ChIJb0H2D4CTC0cRv6u1ZzrjXb4"
+         target="_blank" rel="noopener" aria-label="Otevřít Kolski Kafe v Mapách Google"
+         style="background-image:url('img/street.jpg')">
+        <iframe title="Mapa: Vršovická 866/3, Praha 10 Vršovice" tabindex="-1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Vr%C5%A1ovick%C3%A1%20866%2F3%2C%20101%2000%20Praha%2010&amp;z=16&amp;output=embed"></iframe>
+      </a>
+      <a class="maplink" href="https://www.google.com/maps/place/?q=place_id:ChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener"><span>Otevřít v Mapách Google</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="page">
+  <div class="wrap shell">
+    <div class="fn">Kolski Kafe</div>
+    <div class="fl">
+      Vršovická 866/3, 101 00 Praha 10 – Vršovice · <a href="tel:+420773516560">773 516 560</a><br>
+      Po–Pá 8:00–18:00 · So 9:00–15:30 · Ne zavřeno
+    </div>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Akce">
+  <a class="go" href="https://www.google.com/maps/dir/?api=1&amp;destination=Vr%C5%A1ovick%C3%A1+866%2F3%2C+101+00+Praha+10-Vr%C5%A1ovice&amp;destination_place_id=ChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener">Trasa</a>
+  <a class="call" href="tel:+420773516560">Zavolat</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CafeOrCoffeeShop",
+  "name":"Kolski Kafe",
+  "image":"img/hero.jpg",
+  "telephone":"+420773516560",
+  "priceRange":"100–200 Kč",
+  "servesCuisine":"Kavárna a cukrárna",
+  "address":{"@type":"PostalAddress","streetAddress":"Vršovická 866/3","addressLocality":"Praha 10 – Vršovice","postalCode":"10100","addressCountry":"CZ"},
+  "geo":{"@type":"GeoCoordinates","latitude":50.0661853,"longitude":14.4493461},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"181","bestRating":"5"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"09:00","closes":"15:30"}
+  ],
+  "hasMap":"https://www.google.com/maps/place/?q=place_id:ChIJb0H2D4CTC0cRv6u1ZzrjXb4"
+}
+</script>
+
+<script>
+(function(){
+  // Single-language site (Czech). The i18n mechanism from the reference build is not
+  // wired up because the research shows no English-speaking audience; the only strings
+  // that JS writes are below, so adding an EN dictionary later is a local change.
+  var S = {
+    open:"Otevřeno, zavíráme v {t}",
+    closed:"Zavřeno, otevíráme {d} od {t}",
+    today:"dnes", tomorrow:"zítra",
+    on:["v neděli","v pondělí","v úterý","ve středu","ve čtvrtek","v pátek","v sobotu"]
+  };
+
+  // Po–Pá 8:00–18:00 · So 9:00–15:30 · Ne zavřeno
+  var H = { 0:null, 1:[480,1080], 2:[480,1080], 3:[480,1080], 4:[480,1080], 5:[480,1080], 6:[540,930] };
+
+  function fmt(m){ return Math.floor(m/60) + ":" + (m%60 < 10 ? "0" : "") + (m%60); }
+
+  function pragueNow(){
+    try {
+      var p = new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Prague",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+      var o = {}; p.forEach(function(x){ o[x.type] = x.value; });
+      var wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+      return { day: wd, min: (parseInt(o.hour,10)%24)*60 + parseInt(o.minute,10) };
+    } catch(e){ var n = new Date(); return { day:n.getDay(), min:n.getHours()*60+n.getMinutes() }; }
+  }
+
+  function hours(){
+    var now = pragueNow(), h = H[now.day];
+    document.querySelectorAll("#hoursBody tr").forEach(function(tr){
+      tr.classList.toggle("today", parseInt(tr.getAttribute("data-day"),10) === now.day);
+    });
+    var st = document.getElementById("status"), tx = document.getElementById("statusText");
+
+    if (h && now.min >= h[0] && now.min < h[1]) {
+      st.classList.remove("closed");
+      tx.textContent = S.open.replace("{t}", fmt(h[1]));
+      return;
+    }
+    st.classList.add("closed");
+    if (h && now.min < h[0]) {
+      tx.textContent = S.closed.replace("{d}", S.today).replace("{t}", fmt(h[0]));
+      return;
+    }
+    for (var i = 1; i <= 7; i++) {
+      var d = (now.day + i) % 7;
+      if (H[d]) {
+        tx.textContent = S.closed.replace("{d}", i === 1 ? S.tomorrow : S.on[d]).replace("{t}", fmt(H[d][0]));
+        return;
+      }
+    }
+  }
+
+  var mnav = document.getElementById("mnav"), burger = document.getElementById("burger"), burgerClose = document.getElementById("burgerClose");
+  function setMenu(open){
+    mnav.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) { burgerClose.focus(); } else { burger.focus(); }
+  }
+  burger.addEventListener("click", function(){ setMenu(!mnav.classList.contains("open")); });
+  burgerClose.addEventListener("click", function(){ setMenu(false); });
+  mnav.querySelectorAll("a[href^='#']").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && mnav.classList.contains("open")) setMenu(false); });
+
+  // The fixed bar stays out of the way while the hero's own two buttons are on screen.
+  var bar = document.querySelector(".bar"), act = document.querySelector(".act");
+  if (bar && act && "IntersectionObserver" in window) {
+    new IntersectionObserver(function(entries){
+      bar.classList.toggle("show", !entries[0].isIntersecting);
+    }, { threshold: 0 }).observe(act);
+  } else if (bar) {
+    bar.classList.add("show");
+  }
+
+  hours();
+  setInterval(hours, 60000);
+})();
+</script>
+</body>
+</html>

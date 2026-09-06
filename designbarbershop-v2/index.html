@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Design Barbershop &amp; Studio">
 <meta property="og:description" content="Barbershop v Malešicích. Kompletní ceník včetně příplatků. 4,9 z 1 143 recenzí.">
-<meta property="og:image" content="img/hero.jpg">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/designbarbershop-v2/img/hero.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121212'/%3E%3Cpath d='M8 7h7c5 0 8 3.6 8 9s-3 9-8 9H8z' fill='%23FCFCFB'/%3E%3Cpath d='M13 12h2c2.2 0 3.4 1.5 3.4 4s-1.2 4-3.4 4h-2z' fill='%23121212'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,14 +81,14 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 
 /* ---------------- top: photo + identity ---------------- */
-.hero-photo{width:100%;aspect-ratio:39/34;overflow:hidden;background:#e7e7e4}
+.hero-photo{width:100%;aspect-ratio:16/11;overflow:hidden;background:#e7e7e4}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:38% 26%}
 
-.id{padding-top:13px}
+.id{padding-top:10px}
 h1{font-stretch:62%;font-weight:800;font-size:clamp(31px,9.2vw,40px);line-height:.92;
   letter-spacing:-.008em;word-spacing:.06em;text-transform:uppercase}
 h1 span{display:block}
-.id-fact{font-size:14.5px;line-height:1.4;color:var(--ink);padding:10px 0 12px;max-width:34ch}
+.id-fact{font-size:14.5px;line-height:1.4;color:var(--ink);padding:9px 0 10px;max-width:34ch}
 
 .rating{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--ink);
   border-bottom:1px solid var(--ink);padding:7px 0 8px}
@@ -96,13 +96,15 @@ h1 span{display:block}
 .rating .star{font-size:15px;line-height:1;letter-spacing:.02em}
 .rating .of{flex:1 1 auto;text-align:right;font-size:13px;font-weight:500;color:var(--ink-2)}
 
-.act{display:flex;flex-direction:column;gap:8px;padding-top:12px}
+.act{display:flex;flex-direction:column;gap:8px;padding-top:10px}
 .btn{display:flex;align-items:center;justify-content:center;min-height:50px;padding:0 16px;
   font-stretch:62%;font-weight:800;font-size:16.5px;letter-spacing:.055em;text-transform:uppercase;
   text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:var(--paper)}
 .btn.ghost{background:none;color:var(--ink)}
-@media (max-width:859px){.act .btn.ghost{display:none}}
-.status{font-size:13.5px;font-weight:600;padding:12px 0 0}
+@media (max-width:859px){.act .btn.ghost{display:none}
+  /* the ceník head has to clear Safari's ~739px viewport */
+  #cenik{margin-top:44px}}
+.status{font-size:13.5px;font-weight:600;padding:10px 0 0}
 .status.closed{color:var(--ink-2);font-weight:500}
 
 /* ---------------- sections ---------------- */
@@ -134,13 +136,15 @@ section{margin-top:52px}
 .grp.extras .row .p{font-size:21px}
 .grp.extras .row .n{font-weight:600}
 @media (max-width:359px){.row .n em{display:block;padding-left:0;margin-top:2px}}
+/* the add-ons are reversed out at every width - they are the pitch */
+.grp.extras{background:var(--ink);color:var(--paper)}
+.grp.extras .grp-h{border-top-color:var(--paper);border-bottom-color:var(--paper);padding-top:14px}
+.grp.extras .row{border-bottom-color:rgba(252,252,251,.34)}
+.grp.extras .row:last-child{border-bottom:0}
+.grp.extras .lead-dots{border-bottom-color:rgba(252,252,251,.5)}
 @media (max-width:859px){
-  .grp.extras{background:var(--ink);color:var(--paper);margin-top:26px;
+  .grp.extras{margin-top:26px;
     margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 14px}
-  .grp.extras .grp-h{border-top-color:var(--paper);border-bottom-color:var(--paper);padding-top:14px}
-  .grp.extras .row{border-bottom-color:rgba(252,252,251,.34)}
-  .grp.extras .row:last-child{border-bottom:0}
-  .grp.extras .lead-dots{border-bottom-color:rgba(252,252,251,.5)}
 }
 
 /* ---------------- the one reversed band ---------------- */
@@ -158,6 +162,7 @@ section{margin-top:52px}
 .shots figure.full{grid-column:1/-1;aspect-ratio:2/1}
 .shots img{width:100%;height:100%;object-fit:cover}
 .shots img.up{object-position:50% 22%}
+.shots img.down{object-position:50% 62%}
 
 /* ---------------- barbers ---------------- */
 .people{margin-top:18px;border-top:2px solid var(--ink)}
@@ -200,7 +205,9 @@ table.hrs tr.today th,table.hrs tr.today td{font-weight:800;background:var(--ink
 table.hrs tr.today th{padding-left:7px}
 table.hrs tr.today td{padding-right:7px}
 
-.map{display:block;margin-top:16px;aspect-ratio:4/3;background:#ddd center/cover no-repeat;position:relative;
+.shopfront{margin-top:18px;aspect-ratio:3/2;overflow:hidden;background:#e7e7e4}
+.shopfront img{width:100%;height:100%;object-fit:cover;object-position:50% 46%}
+.map{display:block;margin-top:16px;aspect-ratio:4/3;background:#e7e7e4;position:relative;
   border:1px solid var(--ink)}
 .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none}
 .maplink{margin-top:2px}
@@ -209,7 +216,8 @@ table.hrs tr.today td{padding-right:7px}
 footer.page{border-top:3px solid var(--ink);margin-top:52px;padding:14px 0 30px}
 footer.page .fn{font-stretch:62%;font-weight:800;font-size:14px;letter-spacing:.055em;text-transform:uppercase}
 footer.page .fl{font-size:12.5px;color:var(--ink-2);line-height:1.6;padding-top:5px}
-footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;border-bottom:1px solid var(--hair)}
+footer.page .fl a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+footer.page .fl a span{border-bottom:1px solid var(--hair);padding-bottom:2px}
 
 /* ---------------- fixed bar ---------------- */
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;
@@ -265,11 +273,11 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
   .groups{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;align-content:start;margin-top:26px}
   .grp{margin-top:0}
   .grp:nth-child(1){grid-column:1;grid-row:1}   /* Pánský střih */
-  .grp:nth-child(3){grid-column:2;grid-row:1}   /* Vousy */
+  .grp.extras{grid-column:2;grid-row:1;padding:0 18px 16px}    /* Příplatky */
+  .grp:nth-child(3){grid-column:2;grid-row:2;margin-top:22px}  /* Vousy */
   .grp:nth-child(4){grid-column:1;grid-row:2;margin-top:22px}  /* Vlasy a vousy */
-  .grp:nth-child(5){grid-column:2;grid-row:2;margin-top:22px}  /* Dětský střih */
+  .grp:nth-child(5){grid-column:2;grid-row:3;margin-top:22px}  /* Dětský střih */
   .grp:nth-child(6){grid-column:1;grid-row:3;margin-top:22px}  /* Studenti */
-  .grp.extras{grid-column:2;grid-row:3;margin-top:22px}        /* Příplatky */
   .grp-h h3{font-size:21px}
   .row .p{font-size:21px}
   .grp.extras .row .p{font-size:23px}
@@ -291,6 +299,7 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
   .people .nm{font-size:26px}
   .quotes p{font-size:17.5px}
 
+  .shopfront{margin-top:24px;aspect-ratio:2/1}
   .find{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);column-gap:44px;align-items:start;margin-top:24px}
   .addr{margin-top:0}
   .addr .street{font-size:30px}
@@ -435,12 +444,12 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
   </div>
   <div class="shots">
     <figure><img src="img/w1.jpg" width="900" height="1125" loading="lazy" alt="Textured crop s nízkým fadem, profil"></figure>
-    <figure><img src="img/w2.jpg" width="1194" height="1493" loading="lazy" alt="Kudrnatý střih s vyholeným krkem"></figure>
+    <figure><img src="img/w2.jpg" width="900" height="1125" loading="lazy" alt="Kudrnatý střih s vyholeným krkem"></figure>
     <figure class="wide"><img src="img/w7.jpg" width="900" height="600" loading="lazy" alt="Zákazník s čerstvým střihem a upravenými vousy v křesle"></figure>
     <figure><img src="img/w6.jpg" width="680" height="850" loading="lazy" alt="Kudrnatý střih s vyholenými boky, profil"></figure>
     <figure><img src="img/w3.jpg" width="660" height="825" loading="lazy" alt="Pohled zezadu na fade s vyholenou linkou"></figure>
-    <figure class="wide"><img src="img/w4.jpg" width="1281" height="860" loading="lazy" style="object-position:50% 100%" alt="Detail vyčesaného střihu s krátkými boky"></figure>
-    <figure class="full"><img src="img/interior.jpg" width="1167" height="413" loading="lazy" alt="Interiér salonu: řada křesel, zrcadel a pracovních pultů u okna"></figure>
+    <figure class="wide"><img src="img/w4.jpg" width="900" height="604" loading="lazy" class="down" style="object-position:50% 100%" alt="Detail vyčesaného střihu s krátkými boky"></figure>
+    <figure class="full"><img src="img/interior.jpg" width="900" height="319" loading="lazy" alt="Interiér salonu: řada křesel, zrcadel a pracovních pultů u okna"></figure>
   </div>
 </section>
 
@@ -451,9 +460,10 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
       <h2 data-i18n="team.h">Barbeři</h2>
       <p class="sec-lead" data-i18n="team.lead">Čtyři. Vybíráš si při rezervaci na Nooně.</p>
     </div>
+    <p class="sec-note" data-i18n="team.note">Popisky jsou citace z recenzí na Googlu.</p>
     <ul class="people">
       <li><a href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener"><span class="nm">David</span><span class="rl" data-i18n="p.david">„David mi udělal úžasný low taper“</span></a></li>
-      <li><a href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener"><span class="nm">Tony</span><span class="rl" data-i18n="p.tony">barber</span></a></li>
+      <li><a href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener"><span class="nm">Tony</span><span class="rl" data-i18n="p.tony"></span></a></li>
       <li><a href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener"><span class="nm">Filip</span><span class="rl" data-i18n="p.filip">„hodný pečlivý barber“</span></a></li>
       <li><a href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener"><span class="nm">Marek</span><span class="rl" data-i18n="p.marek">„moc milý barber“</span></a></li>
     </ul>
@@ -486,8 +496,11 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
 <section id="kontakt" class="wrap shell">
   <div class="sec-head">
     <h2 data-i18n="find.h">Kde nás najdeš</h2>
-    <p class="sec-lead" data-i18n="find.lead">Otevřeno sedm dní v týdnu.</p>
   </div>
+
+  <figure class="shopfront">
+    <img src="img/street.jpg" width="1200" height="675" loading="lazy" alt="Vchod do Design Barbershopu na Počernické 518/55">
+  </figure>
 
   <div class="find">
     <div>
@@ -510,7 +523,7 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
     </div>
     <div>
       <a class="map" id="mapLink" href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener"
-         aria-label="Otevřít v Mapách Google" style="background-image:url('img/street.jpg')">
+         aria-label="Otevřít v Mapách Google">
         <iframe title="Mapa: Počernická 518/55, Praha 10 Malešice" tabindex="-1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Po%C4%8Dernick%C3%A1%20518%2F55%2C%20108%2000%20Praha%2010&amp;z=16&amp;output=embed"></iframe>
       </a>
@@ -523,8 +536,8 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
   <div class="wrap shell">
     <div class="fn">Design Barbershop &amp; Studio</div>
     <div class="fl">
-      Počernická 518/55, 108 00 Praha 10 – Malešice · <a href="tel:+420777591353">777 591 353</a><br>
-      <span data-i18n="foot.book">Rezervace přes</span> <a href="https://noona.app/cs/designbarbershop" target="_blank" rel="noopener">Noonu</a>
+      Počernická 518/55, 108 00 Praha 10 – Malešice · <a href="tel:+420777591353"><span>777 591 353</span></a><br>
+      <span data-i18n="foot.book">Rezervace přes</span> <a href="https://noona.app/cs/designbarbershop" target="_blank" rel="noopener"><span data-i18n="foot.noona">Noonu</span></a>
     </div>
   </div>
 </footer>
@@ -539,7 +552,7 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
   "@context":"https://schema.org",
   "@type":"HairSalon",
   "name":"Design Barbershop & Studio",
-  "image":"img/hero.jpg",
+  "image":"https://hensanch.github.io/web-demos/designbarbershop-v2/img/hero.jpg",
   "telephone":"+420777591353",
   "priceRange":"280–750 Kč",
   "address":{"@type":"PostalAddress","streetAddress":"Počernická 518/55","addressLocality":"Praha 10 – Malešice","postalCode":"10800","addressCountry":"CZ"},
@@ -578,8 +591,8 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
       "x.wash":"Mytí vlasů","x.brows":"Úprava obočí","x.tattoo":"Hair tattoo","x.tattooP":"od +50 Kč",
       "band.p":"Cenu znáš dřív, než si sedneš do křesla.",
       "work.h":"Naše práce","work.lead":"Fady, textury, mullety, klasika.",
-      "p.david":"„David mi udělal úžasný low taper“","p.tony":"barber","p.filip":"„hodný pečlivý barber“","p.marek":"„moc milý barber“",
-      "team.h":"Barbeři","team.lead":"Čtyři. Vybíráš si při rezervaci na Nooně.",
+      "p.david":"„David mi udělal úžasný low taper“","p.tony":"","p.filip":"„hodný pečlivý barber“","p.marek":"„moc milý barber“",
+      "team.h":"Barbeři","team.lead":"Čtyři. Vybíráš si při rezervaci na Nooně.","team.note":"Popisky jsou citace z recenzí na Googlu.",
       "rev.h":"Recenze","rev.anon":"Recenze na Googlu",
       "rev.1":"„David mi udělal úžasný low taper… Rozhodně doporučuji a přijdu znovu.“",
       "rev.1w":"před měsícem",
@@ -587,26 +600,26 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
       "rev.2w":"před 5 měsíci",
       "rev.3":"„Krásné prostředí a moc milý barber Marek, určitě přijdu znovu a mohu velmi doporučit“",
       "rev.all":"Všechny recenze na Googlu",
-      "find.h":"Kde nás najdeš","find.lead":"Otevřeno sedm dní v týdnu.",
+      "find.h":"Kde nás najdeš",
       "find.nav":"Otevřít v Mapách Google",
       "d.mon":"Pondělí","d.tue":"Úterý","d.wed":"Středa","d.thu":"Čtvrtek","d.fri":"Pátek","d.sat":"Sobota","d.sun":"Neděle",
-      "foot.book":"Rezervace přes",
+      "foot.book":"Rezervace přes","foot.noona":"Noonu",
       "st.open":"Otevřeno, zavíráme v {t}","st.closed":"Zavřeno, otevíráme {d} v {t}",
       "st.today":"dnes","st.tomorrow":"zítra"
     },
     en: {
       "mast.place":"Design Barbershop & Studio",
       "nav.menu":"Menu","nav.close":"Close","nav.cenik":"Prices","nav.prace":"Our work","nav.tym":"Barbers","nav.recenze":"Reviews","nav.kontakt":"Find us",
-      "nav.cenik.s":"Cuts, beards, add-ons","nav.prace.s":"Photos from the chair","nav.tym.s":"Four, you pick when booking","nav.recenze.s":"4.9 from 1,143 on Google","nav.kontakt.s":"Počernická 518/55, hours, map",
+      "nav.cenik.s":"Cuts, beards, add-ons","nav.prace.s":"Photos from the chair","nav.tym.s":"Four barbers, you pick when you book","nav.recenze.s":"4.9 from 1,143 on Google","nav.kontakt.s":"Počernická 518/55, hours, map",
       "id.fact":"A barbershop on Počernická. Four barbers, cutting since 2022.",
       "rate.n":"4.9","rate.of":"from 1,143 Google reviews",
       "cta.book":"Book on Noona","cta.call":"Call 777 591 353",
       "bar.book":"Book","bar.call":"Call",
       "cenik.h":"Prices","cenik.lead":"The extras are on the list too. Nothing is a surprise at the till.",
-      "g.men":"Men's cut","g.beard":"Beard","g.combo":"Hair and beard","g.comboNote":"10 % off",
+      "g.men":"Men's cut","g.beard":"Beard","g.combo":"Hair and beard","g.comboNote":"10% off",
       "g.kids":"Kids' cut","g.kidsNote":"under 10","g.students":"Students","g.studentsNote":"with ISIC card",
       "g.extras":"Extras",
-      "i.classic":"Classic cut","i.trendy":"Long hair and trend cuts",
+      "i.classic":"Classic cut","i.trendy":"Long hair and trend styles",
       "i.trendyNote":"Mullet, messy fringe, textured fade, Edgar, warrior cut",
       "i.beard":"Beard trim","i.short":"Short hair","i.long":"Long hair",
       "i.sShort":"Cut, short hair","i.sLong":"Cut, long hair",
@@ -615,8 +628,8 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
       "x.wash":"Hair wash","x.brows":"Eyebrow trim","x.tattoo":"Hair tattoo","x.tattooP":"from +50 Kč",
       "band.p":"You know what you'll pay before you sit down.",
       "work.h":"Our work","work.lead":"Fades, texture, mullets, classics.",
-      "p.david":"“David gave me an amazing low taper”","p.tony":"barber","p.filip":"“a kind, careful barber”","p.marek":"“a really friendly barber”",
-      "team.h":"Barbers","team.lead":"Four of them. You pick yours when you book on Noona.",
+      "p.david":"“David gave me an amazing low taper”","p.tony":"","p.filip":"“a kind, careful barber”","p.marek":"“a really friendly barber”",
+      "team.h":"Barbers","team.lead":"Four of them. You pick yours when you book on Noona.","team.note":"Lines are quotes from Google reviews.",
       "rev.h":"Reviews","rev.anon":"Google review",
       "rev.1":"“David gave me an amazing low taper… I definitely recommend it and I'll come again.”",
       "rev.1w":"a month ago",
@@ -624,10 +637,10 @@ footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:none;borde
       "rev.2w":"5 months ago",
       "rev.3":"“Beautiful place and a really friendly barber, Marek. I'll definitely come again and can highly recommend it.”",
       "rev.all":"All reviews on Google",
-      "find.h":"Where to find us","find.lead":"Open seven days a week.",
+      "find.h":"Where to find us",
       "find.nav":"Open in Google Maps",
       "d.mon":"Monday","d.tue":"Tuesday","d.wed":"Wednesday","d.thu":"Thursday","d.fri":"Friday","d.sat":"Saturday","d.sun":"Sunday",
-      "foot.book":"Bookings via",
+      "foot.book":"Bookings via","foot.noona":"Noona",
       "st.open":"Open now, closes at {t}","st.closed":"Closed, opens {d} at {t}",
       "st.today":"today","st.tomorrow":"tomorrow"
     }

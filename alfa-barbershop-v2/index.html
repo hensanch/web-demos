@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ALFA Barber Shop — Topolová 2915/16, Praha 10 Zahradní Město</title>
+<meta name="description" content="Holičství v OC Cíl na Zahradním Městě. 5,0 ze 152 recenzí na Googlu. Bez objednání, nebo zavolejte 773 137 979. Otevřeno každý den do 19:30.">
+<meta name="theme-color" content="#FCFCFB">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ALFA Barber Shop">
+<meta property="og:description" content="Holičství v OC Cíl na Zahradním Městě. 5,0 ze 152 recenzí na Googlu.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121212'/%3E%3Cpath d='M6 25 14.2 7h3.6L26 25h-4.3l-1.7-4H12l-1.7 4z' fill='%23FCFCFB'/%3E%3Cpath d='M13.4 17.6h5.2L16 11.4z' fill='%23121212'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62,400;62,500;62,600;62,700;62,800;100,400;100,500;100,600;100,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFCFB;
+  --ink:#121212;
+  --ink-2:#5B5B57;
+  --hair:#C9C9C4;
+  --pad:16px;
+  --bar:60px;
+}
+*{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:60px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Archivo','Helvetica Neue',Arial,sans-serif;
+  font-stretch:100%;
+  font-weight:400;
+  font-size:15px;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums lining-nums;
+  padding-bottom:calc(var(--bar) + env(safe-area-inset-bottom));
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+a,button{touch-action:manipulation}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.band :focus-visible{outline-color:var(--paper)}
+
+.wrap{padding-left:var(--pad);padding-right:var(--pad)}
+.shell{width:100%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------------- masthead ---------------- */
+.rule-top{border-top:3px solid var(--ink)}
+.mast{border-bottom:1px solid var(--ink);position:sticky;top:0;z-index:30;background:var(--paper)}
+.mast-in{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:50px}
+.mast-place{font-stretch:62%;font-weight:700;font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.mast-right{display:flex;align-items:center;gap:10px}
+.burger{font:inherit;font-stretch:62%;font-weight:800;font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+  background:none;border:1px solid var(--ink);color:var(--ink);padding:0 10px 0 30px;cursor:pointer;line-height:1;
+  position:relative;min-height:44px;display:inline-flex;align-items:center}
+.burger::before,.burger::after,.burger i{content:"";position:absolute;left:8px;width:14px;height:2px;background:var(--ink)}
+.burger::before{top:16px}.burger i{top:21px;display:block}.burger::after{top:26px}
+.burger[aria-expanded="true"]::before{top:21px;transform:rotate(45deg)}
+.burger[aria-expanded="true"]::after{top:21px;transform:rotate(-45deg)}
+.burger[aria-expanded="true"] i{opacity:0}
+.mnav{display:none;position:fixed;inset:0;z-index:40;background:var(--paper);padding:0 var(--pad);overflow:auto}
+.mnav.open{display:block}
+.mnav-top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:50px;border-bottom:1px solid var(--ink)}
+.mnav ol{list-style:none;margin:0;padding:0}
+.mnav li{border-bottom:1px solid var(--hair)}
+.mnav a{display:block;padding:14px 0;text-decoration:none;font-stretch:62%;font-weight:800;font-size:32px;
+  line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.mnav a small{display:block;font-stretch:100%;font-weight:400;font-size:13px;text-transform:none;
+  letter-spacing:0;margin-top:6px;color:var(--ink-2)}
+.mnav .mnav-call{margin-top:14px;display:flex;align-items:center;justify-content:center;height:52px;
+  background:var(--ink);color:var(--paper);text-decoration:none;font-stretch:62%;font-weight:800;
+  font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.dnav{display:none}
+body.menu-open{overflow:hidden}
+
+/* ---------------- top: photo + identity ---------------- */
+.hero-photo{width:auto;aspect-ratio:1500/844;overflow:hidden;background:#e7e7e4;
+  margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad))}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+
+.id-a{padding-top:14px}
+h1{font-stretch:62%;font-weight:800;font-size:clamp(40px,13.4vw,56px);line-height:.9;
+  letter-spacing:-.008em;word-spacing:.05em;text-transform:uppercase}
+h1 span{display:block}
+.id-fact{font-size:14.5px;line-height:1.4;padding:10px 0 12px;max-width:34ch}
+
+.rating{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);padding:6px 0 8px}
+.rating b{font-stretch:62%;font-weight:800;font-size:38px;line-height:.92;letter-spacing:-.012em}
+.rating .star{font-size:15px;line-height:1;letter-spacing:.02em}
+.rating .of{flex:1 1 auto;text-align:right;font-size:13px;font-weight:500;color:var(--ink-2)}
+
+.act{display:flex;flex-direction:column;gap:8px;padding-top:12px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:50px;padding:0 16px;
+  font-stretch:62%;font-weight:800;font-size:16.5px;letter-spacing:.055em;text-transform:uppercase;
+  text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:var(--paper)}
+.btn.ghost{background:none;color:var(--ink)}
+@media (max-width:859px){.act .btn.ghost{display:none}}
+.status{font-size:13.5px;font-weight:600;padding:11px 0 0}
+.status.closed{color:var(--ink-2);font-weight:500}
+
+/* ---------------- sections ---------------- */
+section{margin-top:52px}
+.sec-head{border-top:3px solid var(--ink);padding-top:18px}
+.sec-head h2{font-stretch:62%;font-weight:800;font-size:clamp(30px,9vw,38px);line-height:.96;
+  text-transform:uppercase;letter-spacing:-.006em;word-spacing:.05em}
+.sec-lead{font-size:14.5px;line-height:1.42;padding-top:8px;max-width:40ch}
+
+/* ---------------- ruled lists (střihy, čekárna) ---------------- */
+.list{margin-top:20px;border-top:2px solid var(--ink)}
+.list .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;padding:11px 0 10px;
+  border-bottom:1px solid var(--hair)}
+.list .row:last-child{border-bottom:1px solid var(--ink)}
+.list .n{font-stretch:62%;font-weight:800;font-size:27px;line-height:1;text-transform:uppercase;
+  letter-spacing:.015em;flex:0 1 auto}
+.list .q{margin-left:auto;font-size:12.5px;font-weight:500;color:var(--ink-2);white-space:nowrap}
+
+/* ---------------- the one reversed band ---------------- */
+.band{background:var(--ink);color:var(--paper);margin-top:40px;padding:28px 0 30px}
+.band p{font-stretch:62%;font-weight:800;font-size:clamp(24px,7.2vw,30px);line-height:1.02;
+  text-transform:uppercase;letter-spacing:-.004em;max-width:18ch}
+.band a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:16px;
+  padding:0 20px;border:1px solid var(--paper);color:var(--paper);text-decoration:none;
+  font-stretch:62%;font-weight:800;font-size:15px;letter-spacing:.055em;text-transform:uppercase}
+
+/* ---------------- photos ---------------- */
+.plate{margin-top:22px;aspect-ratio:5/4;overflow:hidden;background:#e7e7e4}
+.plate img{width:100%;height:100%;object-fit:cover;object-position:50% 48%}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:22px}
+.shots figure{overflow:hidden;background:#e7e7e4;aspect-ratio:4/5}
+.shots img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+
+/* ---------------- reviews ---------------- */
+.quotes{margin-top:18px;border-top:2px solid var(--ink)}
+.quotes blockquote{border-bottom:1px solid var(--hair);padding:12px 0}
+.quotes blockquote:last-child{border-bottom:1px solid var(--ink)}
+.quotes p{font-size:16px;line-height:1.4}
+.quotes footer{font-size:12px;font-weight:600;color:var(--ink-2);padding-top:7px;
+  display:flex;gap:8px;align-items:baseline}
+.quotes footer .nm{font-stretch:62%;font-weight:800;font-size:13px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink)}
+.quotes footer .src{margin-left:auto}
+.more,.maplink{display:inline-flex;align-items:center;min-height:44px;font-size:13.5px;font-weight:600;text-decoration:none}
+.more span,.maplink span{border-bottom:1.5px solid var(--ink);padding-bottom:1px}
+.more{margin-top:4px}
+
+/* ---------------- find us ---------------- */
+.addr{margin-top:18px;border-top:2px solid var(--ink);padding-top:9px}
+.addr .street{font-stretch:62%;font-weight:800;font-size:24px;line-height:1.05;text-transform:uppercase}
+.addr .city{font-size:14px;font-weight:500;color:var(--ink-2);padding-top:3px}
+.addr .tel{display:inline-block;font-stretch:62%;font-weight:800;font-size:24px;letter-spacing:.02em;
+  text-decoration:none;border-bottom:2px solid var(--ink);padding:14px 0 4px;line-height:1.1}
+
+table.hrs{width:100%;border-collapse:collapse;margin-top:16px;border-top:2px solid var(--ink)}
+table.hrs th,table.hrs td{border-bottom:1px solid var(--hair);padding:6px 0;font-size:14px;
+  font-weight:500;text-align:left;line-height:1.3}
+table.hrs td{text-align:right;white-space:nowrap}
+table.hrs tr:last-child th,table.hrs tr:last-child td{border-bottom:1px solid var(--ink)}
+table.hrs tr.today th,table.hrs tr.today td{font-weight:800;background:var(--ink);color:var(--paper);
+  border-bottom-color:var(--ink)}
+table.hrs tr.today th{padding-left:7px}
+table.hrs tr.today td{padding-right:7px}
+
+.map{display:block;margin-top:16px;aspect-ratio:4/3;background:#ddd center/cover no-repeat;position:relative;
+  border:1px solid var(--ink)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none}
+.maplink{margin-top:2px}
+
+/* ---------------- footer ---------------- */
+footer.page{border-top:3px solid var(--ink);margin-top:52px;padding:14px 0 30px}
+footer.page .fn{font-stretch:62%;font-weight:800;font-size:14px;letter-spacing:.055em;text-transform:uppercase}
+footer.page .fl{font-size:12.5px;color:var(--ink-2);line-height:1.6;padding-top:5px}
+footer.page .fl a{display:inline-block;padding:15px 0 10px;text-decoration:none;
+  border-bottom:1.5px solid var(--ink);color:var(--ink);font-weight:600}
+
+/* ---------------- fixed bar ---------------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;
+  background:var(--paper);border-top:1px solid var(--ink);
+  padding-bottom:env(safe-area-inset-bottom);
+  transform:translateY(100%);visibility:hidden;
+  transition:transform .24s ease, visibility 0s linear .24s}
+.bar.show{transform:none;visibility:visible;transition:transform .24s ease}
+@media (prefers-reduced-motion:reduce){.bar,.bar.show{transition:none}}
+.bar a{display:flex;align-items:center;justify-content:center;height:var(--bar);text-decoration:none;
+  font-stretch:62%;font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.bar a.call{background:var(--ink);color:var(--paper)}
+.bar a.way{border-left:1px solid var(--ink)}
+
+/* ================= WIDE ================= */
+@media (min-width:860px){
+  :root{--pad:44px}
+  body{font-size:15px;padding-bottom:0}
+  .bar{display:none}
+  .shell{max-width:1120px;margin-left:auto;margin-right:auto}
+  .wrap.shell{padding-left:var(--pad);padding-right:var(--pad)}
+
+  .mast-in{min-height:52px}
+  .burger{display:none}
+  .dnav{display:flex;gap:22px;margin-left:auto}
+  .dnav a{text-decoration:none;font-stretch:62%;font-weight:700;font-size:13px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--ink)}
+  .dnav a:hover{border-bottom:2px solid var(--ink)}
+  .mast-place{font-size:13px}
+
+  .top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);
+    column-gap:44px;align-items:start;padding-top:32px}
+  .hero-photo{grid-column:2;grid-row:1/span 2;aspect-ratio:4/3;margin:0}
+  .hero-photo img{object-position:53% 46%}
+  .id-a{grid-column:1;grid-row:1;padding-top:0}
+  .id-b{grid-column:1;grid-row:2}
+  h1{font-size:clamp(58px,6.2vw,82px);line-height:.87}
+  .id-fact{font-size:16.5px;padding:18px 0 22px;max-width:32ch}
+  .rating{padding:9px 0 11px}
+  .rating b{font-size:60px}
+  .rating .star{font-size:19px}
+  .rating .of{font-size:14.5px}
+  .act{flex-direction:row;gap:10px;padding-top:20px}
+  .act .btn{flex:1 1 auto}
+  .status{padding-top:16px;font-size:14.5px}
+
+  section{margin-top:56px}
+  .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);
+    column-gap:44px;align-items:end;padding-top:18px;padding-bottom:2px}
+  .sec-head h2{font-size:clamp(52px,5.6vw,74px);line-height:.9;margin-bottom:-2px}
+  .sec-lead{font-size:16px;padding-top:0;padding-bottom:5px;max-width:none}
+
+  /* two ruled columns, read down then across, like a printed sheet */
+  .two{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;border-top:0}
+  .two > *{align-self:start}
+  .n4 > :nth-child(1){grid-area:1/1}.n4 > :nth-child(2){grid-area:2/1}
+  .n4 > :nth-child(3){grid-area:1/2}.n4 > :nth-child(4){grid-area:2/2}
+  .n3 > :nth-child(1){grid-area:1/1}.n3 > :nth-child(2){grid-area:2/1}
+  .n3 > :nth-child(3){grid-area:1/2}
+
+  .list{margin-top:26px}
+  .list.two .row{border-top:0;border-bottom:1px solid var(--hair)}
+  .list.n4 .row:nth-child(1),.list.n4 .row:nth-child(3){border-top:2px solid var(--ink)}
+  .list.n4 .row:nth-child(2),.list.n4 .row:nth-child(4){border-bottom:1px solid var(--ink)}
+  .list .n{font-size:31px}
+
+  /* čekárna: the three facts beside the photo of the waiting area */
+  .wait{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);column-gap:44px;
+    align-items:start;margin-top:26px}
+  .wait .list{margin-top:0}
+
+  .band{margin-top:56px;padding:34px 0 36px}
+  .band .shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);column-gap:44px;align-items:end}
+  .band p{font-size:clamp(34px,3.4vw,44px);max-width:none}
+  .band a{margin-top:0;justify-self:start;min-height:52px;font-size:16px}
+
+  .plate{aspect-ratio:1/1;margin-top:0}
+  .plate img{object-position:50% 50%}
+  .shots{grid-template-columns:repeat(4,1fr);margin-top:26px}
+
+  .quotes{margin-top:24px;border-top:0}
+  .quotes blockquote{border-bottom:1px solid var(--hair);padding:14px 0}
+  .quotes.n4 blockquote:nth-child(1),.quotes.n4 blockquote:nth-child(3){border-top:2px solid var(--ink)}
+  .quotes.n4 blockquote:nth-child(2),.quotes.n4 blockquote:nth-child(4){border-bottom:1px solid var(--ink)}
+  .quotes p{font-size:17.5px}
+
+  .find{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);column-gap:44px;
+    align-items:start;margin-top:26px}
+  .addr{margin-top:0}
+  .addr .street{font-size:30px}
+  .addr .tel{font-size:30px}
+  .map{margin-top:0;aspect-ratio:1/1}
+
+  footer.page{margin-top:60px;padding:14px 0 34px}
+  footer.page .fl{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<div class="rule-top"></div>
+
+<header class="mast">
+  <div class="mast-in wrap shell">
+    <span class="mast-place" data-i18n="mast.place">ALFA Barber Shop · Praha 10</span>
+    <nav class="dnav" aria-label="Sekce">
+      <a href="#strihy" data-i18n="nav.strihy">Střihy</a><a href="#cekarna" data-i18n="nav.cekarna">V čekárně</a><a href="#fotky" data-i18n="nav.fotky">Ze salonu</a><a href="#recenze" data-i18n="nav.recenze">Recenze</a><a href="#kontakt" data-i18n="nav.kontakt">Kde nás najdete</a>
+    </nav>
+    <div class="mast-right">
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mnav"><i></i><span data-i18n="nav.menu">Menu</span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mnav" id="mnav" aria-label="Menu">
+  <div class="mnav-top">
+    <span class="mast-place">ALFA Barber Shop</span>
+    <div class="mast-right">
+      <button type="button" class="burger" id="burgerClose" aria-expanded="true" aria-controls="mnav"><i></i><span data-i18n="nav.close">Zavřít</span></button>
+    </div>
+  </div>
+  <ol>
+    <li><a href="#strihy"><span data-i18n="nav.strihy">Střihy</span><small data-i18n="nav.strihy.s">Pánské i dětské</small></a></li>
+    <li><a href="#cekarna"><span data-i18n="nav.cekarna">V čekárně</span><small data-i18n="nav.cekarna.s">PlayStation, pití, sladké</small></a></li>
+    <li><a href="#fotky"><span data-i18n="nav.fotky">Ze salonu</span><small data-i18n="nav.fotky.s">Fady, buzzcuty, dětské střihy</small></a></li>
+    <li><a href="#recenze"><span data-i18n="nav.recenze">Recenze</span><small data-i18n="nav.recenze.s">5,0 ze 152 na Googlu</small></a></li>
+    <li><a href="#kontakt"><span data-i18n="nav.kontakt">Kde nás najdete</span><small data-i18n="nav.kontakt.s">Topolová 2915/16, otevírací doba, mapa</small></a></li>
+  </ol>
+  <a class="mnav-call" href="tel:+420773137979" data-i18n="cta.call">Zavolat 773 137 979</a>
+</nav>
+
+<div class="top wrap shell">
+
+  <figure class="hero-photo">
+    <img src="img/hero.jpg" width="1500" height="844" alt="Salon ALFA Barber Shop: černá holičská křesla, šedé stěny a strop se šestiúhelníkovými LED světly">
+  </figure>
+
+  <div class="id-a">
+    <h1><span>ALFA</span><span>Barber Shop</span></h1>
+    <p class="id-fact" data-i18n="id.fact">Holičství v OC Cíl na Zahradním Městě. Otevřeno sedm dní v týdnu.</p>
+  </div>
+
+  <div class="id-b">
+    <div class="rating">
+      <b data-i18n="rate.n">5,0</b>
+      <span class="star" aria-hidden="true">★★★★★</span>
+      <span class="of" data-i18n="rate.of">ze 152 recenzí na Googlu</span>
+    </div>
+
+    <div class="act">
+      <a class="btn" href="tel:+420773137979" data-i18n="cta.call">Zavolat 773 137 979</a>
+      <a class="btn ghost" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener" data-i18n="cta.way">Trasa do OC Cíl</a>
+    </div>
+
+    <p class="status" id="status"><span id="statusText"></span></p>
+  </div>
+
+</div>
+
+<section id="strihy" class="wrap shell">
+  <div class="sec-head">
+    <h2 data-i18n="svc.h">Střihy</h2>
+    <p class="sec-lead" data-i18n="svc.lead">Muži i děti.</p>
+  </div>
+  <div class="list two n4">
+    <div class="row"><span class="n" data-i18n="svc.1">Pánský střih</span></div>
+    <div class="row"><span class="n" data-i18n="svc.2">Fade</span></div>
+    <div class="row"><span class="n" data-i18n="svc.3">Buzzcut</span></div>
+    <div class="row"><span class="n" data-i18n="svc.4">Dětský střih</span></div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="shell wrap">
+    <p data-i18n="band.p">Přijďte bez objednání. Nebo zavolejte.</p>
+    <a href="tel:+420773137979" data-i18n="cta.call">Zavolat 773 137 979</a>
+  </div>
+</div>
+
+<section id="cekarna" class="wrap shell">
+  <div class="sec-head">
+    <h2 data-i18n="wait.h">V čekárně</h2>
+    <p class="sec-lead" data-i18n="wait.lead">Zdarma, než na vás dojde řada.</p>
+  </div>
+  <div class="wait">
+    <div class="list">
+      <div class="row"><span class="n" data-i18n="wait.1">PlayStation</span><span class="q" data-i18n="wait.1q">hry si vyberete sami</span></div>
+      <div class="row"><span class="n" data-i18n="wait.2">Pití a sladké</span><span class="q" data-i18n="wait.2q">na stole v čekárně</span></div>
+      <div class="row"><span class="n" data-i18n="wait.3">Děti</span><span class="q" data-i18n="wait.3q">vítány</span></div>
+    </div>
+    <figure class="plate">
+      <img src="img/lounge.jpg" width="1200" height="1160" loading="lazy" alt="Stůl v čekárně s ovladačem k PlayStationu, miskou bonbonů a vodou, v pozadí barber při práci">
+    </figure>
+  </div>
+</section>
+
+<section id="fotky">
+  <div class="wrap shell">
+    <div class="sec-head">
+      <h2 data-i18n="shots.h">Ze salonu</h2>
+      <p class="sec-lead" data-i18n="shots.lead">Fady, buzzcuty, dětské střihy.</p>
+    </div>
+  </div>
+  <div class="shots">
+    <figure><img src="img/c1.jpg" width="1000" height="1333" loading="lazy" alt="Krátký fade z profilu, nad hlavou šestiúhelníková LED světla"></figure>
+    <figure><img src="img/c2.jpg" width="900" height="1600" loading="lazy" style="object-position:50% 34%" alt="Mladý zákazník s texturovaným střihem a krátkými boky"></figure>
+    <figure><img src="img/c4.jpg" width="1000" height="1333" loading="lazy" alt="Pohled zezadu na světlý fade s přesnou linkou"></figure>
+    <figure><img src="img/c5.jpg" width="1000" height="1333" loading="lazy" alt="Dětský střih zezadu s vyholenou linkou nad uchem"></figure>
+    <figure><img src="img/c3.jpg" width="1000" height="1333" loading="lazy" style="object-position:50% 36%" alt="Rozcuchaný střih s vyholenými boky, pohled z profilu"></figure>
+    <figure><img src="img/c8.jpg" width="1000" height="1333" loading="lazy" style="object-position:50% 38%" alt="Šedivý krátký sestřih, zákazník sedící v křesle"></figure>
+    <figure><img src="img/c6.jpg" width="1000" height="1333" loading="lazy" alt="Světlý fade zezadu, v pozadí prosklený vchod s nápisem ALFA Barber Shop"></figure>
+    <figure><img src="img/c7.jpg" width="1000" height="1333" loading="lazy" style="object-position:50% 38%" alt="Krátký střih s pěšinkou a upravenými vousy"></figure>
+  </div>
+</section>
+
+<section id="recenze" class="wrap shell">
+    <div class="sec-head">
+      <h2 data-i18n="rev.h">Recenze</h2>
+      <p class="sec-lead" data-i18n="rev.lead">5,0 ze 152 recenzí na Googlu. Padají v nich jména Martin, David a Alan.</p>
+    </div>
+    <div class="quotes two n4">
+      <blockquote>
+        <p data-i18n="rev.1">„Krásný nový Barber shop… Střih byl rychlý a přesně jak jsem chtěl.“</p>
+        <footer><span class="nm">Petr</span></footer>
+      </blockquote>
+      <blockquote>
+        <p data-i18n="rev.2">„Stříhal mě David, pečlivá práce, má dobrý cit, hned pochopil, jaký účes mám na mysli.“</p>
+        <footer><span class="nm">Dawe</span></footer>
+      </blockquote>
+      <blockquote>
+        <p data-i18n="rev.3">„Syn 6 let dává 10/10, barber moc milý a profesionální. Super cut. Určitě se vrátíme.“</p>
+        <footer><span class="nm">Kája</span></footer>
+      </blockquote>
+      <blockquote>
+        <p data-i18n="rev.4">„…máte tam Playstation můžete si vybrat hry … střih trvá třeba 30-45min je to rychlý a hezký“</p>
+        <footer><span class="nm">Lukáš</span></footer>
+      </blockquote>
+    </div>
+    <a class="more" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener"><span data-i18n="rev.all">Všech 152 recenzí na Googlu</span></a>
+</section>
+
+<section id="kontakt" class="wrap shell">
+    <div class="sec-head">
+      <h2 data-i18n="find.h">Kde nás najdete</h2>
+      <p class="sec-lead" data-i18n="find.lead">Po–Pá od 9:00, o víkendu od 10:00. Zavíráme v 19:30.</p>
+    </div>
+
+    <div class="find">
+      <div>
+        <div class="addr">
+          <div class="street">Topolová 2915/16</div>
+          <div class="city">106 00 Praha 10 – Zahradní Město, OC Cíl</div>
+          <a class="tel" href="tel:+420773137979">773 137 979</a>
+        </div>
+        <table class="hrs">
+          <tbody id="hoursBody">
+            <tr data-day="1"><th data-i18n="d.mon">Pondělí</th><td>9:00 – 19:30</td></tr>
+            <tr data-day="2"><th data-i18n="d.tue">Úterý</th><td>9:00 – 19:30</td></tr>
+            <tr data-day="3"><th data-i18n="d.wed">Středa</th><td>9:00 – 19:30</td></tr>
+            <tr data-day="4"><th data-i18n="d.thu">Čtvrtek</th><td>9:00 – 19:30</td></tr>
+            <tr data-day="5"><th data-i18n="d.fri">Pátek</th><td>9:00 – 19:30</td></tr>
+            <tr data-day="6"><th data-i18n="d.sat">Sobota</th><td>10:00 – 19:30</td></tr>
+            <tr data-day="0"><th data-i18n="d.sun">Neděle</th><td>10:00 – 19:30</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <a class="map" id="mapLink" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ"
+           target="_blank" rel="noopener" aria-label="Otevřít v Mapách Google"
+           style="background-image:url('img/street.jpg')">
+          <iframe title="Mapa: Topolová 2915/16, Praha 10 Zahradní Město" tabindex="-1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Topolov%C3%A1%202915%2F16%2C%20106%2000%20Praha%2010&amp;z=16&amp;output=embed"></iframe>
+        </a>
+        <a class="maplink" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener"><span data-i18n="find.nav">Otevřít v Mapách Google</span></a>
+      </div>
+    </div>
+</section>
+
+<footer class="page">
+  <div class="wrap shell">
+    <div class="fn">ALFA Barber Shop</div>
+    <div class="fl">
+      Topolová 2915/16, 106 00 Praha 10 – Zahradní Město<br>
+      <a href="tel:+420773137979">773 137 979</a><br>
+      <span data-i18n="foot.walk">Bez objednání, nebo zavolejte.</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Akce">
+  <a class="call" href="tel:+420773137979" data-i18n="bar.call">Zavolat</a>
+  <a class="way" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener" data-i18n="bar.way">Trasa</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HairSalon",
+  "name":"ALFA Barber Shop",
+  "image":"img/hero.jpg",
+  "telephone":"+420773137979",
+  "address":{"@type":"PostalAddress","streetAddress":"Topolová 2915/16","addressLocality":"Praha 10 – Zahradní Město","postalCode":"10600","addressCountry":"CZ"},
+  "geo":{"@type":"GeoCoordinates","latitude":50.0571409,"longitude":14.5077053},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"152","bestRating":"5"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"10:00","closes":"19:30"}
+  ],
+  "hasMap":"https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ"
+}
+</script>
+
+<script>
+(function(){
+  // One dictionary, same mechanism as the Design Barbershop build. Only Czech is
+  // served: nothing in the research points at English-speaking customers.
+  var T = {
+    cs: {
+      "mast.place":"ALFA Barber Shop · Praha 10",
+      "nav.menu":"Menu","nav.close":"Zavřít",
+      "nav.strihy":"Střihy","nav.cekarna":"V čekárně","nav.fotky":"Ze salonu","nav.recenze":"Recenze","nav.kontakt":"Kde nás najdete",
+      "nav.strihy.s":"Pánské i dětské","nav.cekarna.s":"PlayStation, pití, sladké","nav.fotky.s":"Fady, buzzcuty, dětské střihy",
+      "nav.recenze.s":"5,0 ze 152 na Googlu","nav.kontakt.s":"Topolová 2915/16, otevírací doba, mapa",
+      "id.fact":"Holičství v OC Cíl na Zahradním Městě. Otevřeno sedm dní v týdnu.",
+      "rate.n":"5,0","rate.of":"ze 152 recenzí na Googlu",
+      "cta.call":"Zavolat 773 137 979","cta.way":"Trasa do OC Cíl",
+      "bar.call":"Zavolat","bar.way":"Trasa",
+      "svc.h":"Střihy","svc.lead":"Muži i děti.",
+      "svc.1":"Pánský střih","svc.2":"Fade","svc.3":"Buzzcut","svc.4":"Dětský střih",
+      "band.p":"Přijďte bez objednání. Nebo zavolejte.",
+      "wait.h":"V čekárně","wait.lead":"Zdarma, než na vás dojde řada.",
+      "wait.1":"PlayStation","wait.1q":"hry si vyberete sami",
+      "wait.2":"Pití a sladké","wait.2q":"na stole v čekárně",
+      "wait.3":"Děti","wait.3q":"vítány",
+      "shots.h":"Ze salonu","shots.lead":"Fady, buzzcuty, dětské střihy.",
+      "rev.h":"Recenze","rev.lead":"5,0 ze 152 recenzí na Googlu. Padají v nich jména Martin, David a Alan.",
+      "rev.1":"„Krásný nový Barber shop… Střih byl rychlý a přesně jak jsem chtěl.“",
+      "rev.2":"„Stříhal mě David, pečlivá práce, má dobrý cit, hned pochopil, jaký účes mám na mysli.“",
+      "rev.3":"„Syn 6 let dává 10/10, barber moc milý a profesionální. Super cut. Určitě se vrátíme.“",
+      "rev.4":"„…máte tam Playstation můžete si vybrat hry … střih trvá třeba 30-45min je to rychlý a hezký“",
+      "rev.all":"Všech 152 recenzí na Googlu",
+      "find.h":"Kde nás najdete","find.lead":"Po–Pá od 9:00, o víkendu od 10:00. Zavíráme v 19:30.","find.nav":"Otevřít v Mapách Google",
+      "d.mon":"Pondělí","d.tue":"Úterý","d.wed":"Středa","d.thu":"Čtvrtek","d.fri":"Pátek","d.sat":"Sobota","d.sun":"Neděle",
+      "foot.walk":"Bez objednání, nebo zavolejte.",
+      "st.open":"Otevřeno, zavíráme v {t}","st.closed":"Zavřeno, otevíráme {d} v {t}",
+      "st.today":"dnes","st.tomorrow":"zítra"
+    }
+  };
+
+  var lang = "cs";
+  try { var s = localStorage.getItem("alfa2-lang"); if (T[s]) lang = s; } catch(e){}
+
+  function apply(l){
+    lang = l;
+    var d = T[l];
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      if (d[k] != null) el.textContent = d[k];
+    });
+    document.querySelectorAll(".lang button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false");
+    });
+    var ml = document.getElementById("mapLink");
+    if (ml) ml.setAttribute("aria-label", d["find.nav"]);
+    try { localStorage.setItem("alfa2-lang", l); } catch(e){}
+    hours();
+  }
+  document.querySelectorAll(".lang button").forEach(function(b){
+    b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); });
+  });
+
+  var H = { 0:[600,1170], 1:[540,1170], 2:[540,1170], 3:[540,1170], 4:[540,1170], 5:[540,1170], 6:[600,1170] };
+  function fmt(m){ return Math.floor(m/60) + ":" + (m%60 < 10 ? "0" : "") + (m%60); }
+  function pragueNow(){
+    try {
+      var p = new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Prague",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+      var o = {}; p.forEach(function(x){ o[x.type] = x.value; });
+      var wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+      return { day: wd, min: (parseInt(o.hour,10)%24)*60 + parseInt(o.minute,10) };
+    } catch(e){ var n = new Date(); return { day:n.getDay(), min:n.getHours()*60+n.getMinutes() }; }
+  }
+  function hours(){
+    var d = T[lang], now = pragueNow(), h = H[now.day];
+    document.querySelectorAll("#hoursBody tr").forEach(function(tr){
+      tr.classList.toggle("today", parseInt(tr.getAttribute("data-day"),10) === now.day);
+    });
+    var st = document.getElementById("status"), tx = document.getElementById("statusText");
+    if (now.min >= h[0] && now.min < h[1]) {
+      st.classList.remove("closed");
+      tx.textContent = d["st.open"].replace("{t}", fmt(h[1]));
+    } else {
+      st.classList.add("closed");
+      var when, opens;
+      if (now.min < h[0]) { when = d["st.today"]; opens = h[0]; }
+      else { var nd = (now.day+1)%7; when = d["st.tomorrow"]; opens = H[nd][0]; }
+      tx.textContent = d["st.closed"].replace("{d}", when).replace("{t}", fmt(opens));
+    }
+  }
+
+  apply(lang);
+
+  var mnav = document.getElementById("mnav"), burger = document.getElementById("burger"), burgerClose = document.getElementById("burgerClose");
+  function setMenu(open){
+    mnav.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) { burgerClose.focus(); } else { burger.focus(); }
+  }
+  burger.addEventListener("click", function(){ setMenu(!mnav.classList.contains("open")); });
+  burgerClose.addEventListener("click", function(){ setMenu(false); });
+  mnav.querySelectorAll("a[href^='#']").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && mnav.classList.contains("open")) setMenu(false); });
+
+  // The fixed bar stays off-screen while the hero's own Zavolat button is visible,
+  // so the two never stack.
+  var bar = document.querySelector(".bar"), act = document.querySelector(".act");
+  if (bar && act && "IntersectionObserver" in window) {
+    new IntersectionObserver(function(entries){
+      bar.classList.toggle("show", !entries[0].isIntersecting);
+    }, { threshold: 0 }).observe(act);
+  } else if (bar) {
+    bar.classList.add("show");
+  }
+
+  setInterval(hours, 60000);
+})();
+</script>
+</body>
+</html>

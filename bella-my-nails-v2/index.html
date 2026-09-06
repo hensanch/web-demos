@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BELLA MY nails &amp; beauty — Starostrašnická 591/43, Praha 10 Strašnice</title>
+<meta name="description" content="Nehtové studio ve Strašnicích. Celý ceník s cenami i minutami, otevírací doba, mapa. Rezervace přes Reservio.">
+<meta name="theme-color" content="#FCFCFB">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BELLA MY nails &amp; beauty">
+<meta property="og:description" content="Nehtové studio ve Strašnicích. Manikúra, pedikúra, řasy, obočí. 4,8 ze 101 recenzí.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FCFCFB'/%3E%3Crect x='1' y='1' width='30' height='30' fill='none' stroke='%23141414' stroke-width='2'/%3E%3Cpath d='M9 8h6.6c3.1 0 4.9 1.4 4.9 3.8 0 1.7-.9 2.9-2.5 3.4 2 .4 3.2 1.8 3.2 3.9 0 2.6-2 4.1-5.4 4.1H9zm3.4 2.6v3.4h2.7c1.3 0 2-.6 2-1.7s-.7-1.7-2-1.7zm0 5.8v4h3.1c1.5 0 2.3-.7 2.3-2s-.8-2-2.3-2z' fill='%23141414'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wdth,wght@75..125,300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFCFB;
+  --ink:#141414;
+  --ink-2:#5E5E5A;
+  --hair:#CBCBC6;
+  --dot:#A8A8A2;
+  --pad:16px;
+  --bar:60px;
+}
+*{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:58px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Encode Sans','Helvetica Neue',Arial,sans-serif;
+  font-stretch:100%;
+  font-weight:400;
+  font-size:15px;
+  line-height:1.46;
+  -webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums lining-nums;
+  padding-bottom:calc(var(--bar) + env(safe-area-inset-bottom));
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+a,button{touch-action:manipulation}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+.wrap{padding-left:var(--pad);padding-right:var(--pad)}
+.shell{width:100%}
+.wide{font-stretch:125%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------------- masthead ---------------- */
+.rule-top{border-top:3px solid var(--ink)}
+.mast{border-bottom:1px solid var(--ink);position:sticky;top:0;z-index:30;background:var(--paper)}
+.mast-in{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:50px}
+.mast-place{font-stretch:125%;font-weight:600;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.burger{font:inherit;font-stretch:125%;font-weight:600;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  background:none;border:1px solid var(--ink);color:var(--ink);padding:0 12px 0 32px;cursor:pointer;line-height:1;
+  position:relative;min-height:44px;display:inline-flex;align-items:center;flex:0 0 auto}
+.burger::before,.burger::after,.burger i{content:"";position:absolute;left:10px;width:14px;height:2px;background:var(--ink)}
+.burger::before{top:16px}.burger i{top:21px;display:block}.burger::after{top:26px}
+.burger[aria-expanded="true"]::before{top:21px;transform:rotate(45deg)}
+.burger[aria-expanded="true"]::after{top:21px;transform:rotate(-45deg)}
+.burger[aria-expanded="true"] i{opacity:0}
+
+.mnav{display:none;position:fixed;inset:0;z-index:40;background:var(--paper);padding:0 var(--pad);overflow:auto;
+  padding-bottom:calc(30px + env(safe-area-inset-bottom))}
+.mnav.open{display:block}
+.mnav-top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:50px;border-bottom:1px solid var(--ink)}
+.mnav ol{list-style:none}
+.mnav li{border-bottom:1px solid var(--hair)}
+.mnav a{display:block;padding:15px 0;text-decoration:none;font-stretch:125%;font-weight:600;font-size:27px;line-height:1.02;letter-spacing:-.005em}
+.mnav a small{display:block;font-stretch:100%;font-weight:400;font-size:13px;letter-spacing:0;margin-top:6px;color:var(--ink-2)}
+.mnav-foot{font-size:13px;color:var(--ink-2);line-height:1.6;padding-top:18px;border-top:1px solid var(--hair);margin-top:22px}
+.mnav-foot a{display:inline-block;min-height:44px;padding-top:8px;font-stretch:125%;font-weight:600;font-size:20px;color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.mnav .mnav-book{margin-top:18px;display:flex;align-items:center;justify-content:center;height:52px;
+  background:var(--ink);color:var(--paper);text-decoration:none;font-stretch:125%;font-weight:600;font-size:14px;
+  letter-spacing:.07em;text-transform:uppercase}
+.dnav{display:none}
+body.menu-open{overflow:hidden}
+
+/* ---------------- top: photo + identity ---------------- */
+.hero-photo{width:100%;aspect-ratio:5/4;overflow:hidden;background:#e8e8e5}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 46%}
+
+.id{padding-top:14px}
+h1{font-stretch:125%;font-weight:600;font-size:clamp(33px,9.4vw,40px);line-height:1;letter-spacing:-.012em;text-transform:uppercase}
+h1 span{display:block;font-weight:300;font-size:.72em;letter-spacing:.005em;text-transform:none;padding-top:3px}
+.id-fact{font-size:14.5px;line-height:1.42;padding:11px 0 13px;max-width:35ch}
+
+.rating{display:flex;align-items:baseline;gap:9px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:7px 0 8px}
+.rating b{font-stretch:125%;font-weight:600;font-size:29px;line-height:.95;letter-spacing:-.01em}
+.rating .star{font-size:13px;line-height:1;letter-spacing:.01em;flex:0 0 auto}
+.rating .of{flex:1 1 auto;min-width:0;text-align:right;font-size:12.5px;font-weight:500;color:var(--ink-2)}
+
+.act{display:flex;flex-direction:column;gap:8px;padding-top:12px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:50px;padding:0 16px;
+  font-stretch:125%;font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:var(--paper)}
+.btn.ghost{background:none;color:var(--ink)}
+@media (max-width:859px){.act .btn.ghost{display:none}}
+.status{font-size:13.5px;font-weight:500;padding:12px 0 0}
+.status.closed{color:var(--ink-2)}
+
+/* ---------------- sections ---------------- */
+section{margin-top:56px}
+.sec-head{border-top:3px solid var(--ink);padding-top:17px}
+.sec-head h2{font-stretch:125%;font-weight:600;font-size:clamp(27px,7.6vw,33px);line-height:1.02;
+  text-transform:uppercase;letter-spacing:-.008em}
+.sec-lead{font-size:14.5px;line-height:1.45;padding-top:9px;max-width:44ch}
+.sec-note{font-size:12.5px;line-height:1.45;color:var(--ink-2);padding-top:10px;max-width:46ch}
+
+/* ---------------- the one bold element: five opening prices ---------------- */
+.from{margin-top:22px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.from-row{display:flex;align-items:baseline;gap:12px;padding:11px 0 12px;border-bottom:1px solid var(--hair)}
+.from-row:last-child{border-bottom:0}
+.from-row .k{font-stretch:125%;font-weight:500;font-size:13px;letter-spacing:.075em;text-transform:uppercase;
+  line-height:1.15;flex:1 1 auto;min-width:0}
+.from-row .v{font-stretch:125%;font-weight:600;font-size:clamp(30px,8.6vw,38px);line-height:.92;
+  white-space:nowrap;letter-spacing:-.015em;margin-left:auto}
+.from-row .v small{font-stretch:100%;font-weight:500;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-2);padding-right:7px;vertical-align:.16em}
+.from-note{font-size:14px;line-height:1.45;padding-top:13px;max-width:44ch;font-weight:500}
+
+/* ---------------- ceník ---------------- */
+.groups{margin-top:26px}
+.grp{margin-top:24px}
+.grp:first-child{margin-top:0}
+.grp-h{display:flex;align-items:baseline;gap:10px;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);padding:5px 0 6px}
+.grp-h h3{font-stretch:125%;font-weight:600;font-size:16px;line-height:1.1;text-transform:uppercase;letter-spacing:.025em}
+.grp-h small{margin-left:auto;font-size:11.5px;font-weight:500;color:var(--ink-2);white-space:nowrap;text-align:right}
+
+.row{display:flex;flex-wrap:nowrap;align-items:baseline;gap:6px;padding:8px 0 7px;border-bottom:1px solid var(--hair)}
+.row:last-child,.row.noline{border-bottom:0}
+.row .n{font-size:14.5px;font-weight:400;line-height:1.3;flex:0 1 auto;min-width:0}
+.row .n em{font-style:normal;font-weight:400;font-size:12px;color:var(--ink-2);white-space:nowrap;padding-left:7px}
+.row .lead-dots{flex:1 1 auto;min-width:16px;align-self:flex-end;border-bottom:2px dotted var(--dot);transform:translateY(-4px)}
+.row .p{font-stretch:125%;font-weight:600;font-size:17px;line-height:1.1;white-space:nowrap;margin-left:auto;flex:0 0 auto}
+.row .p.q{font-stretch:100%;font-weight:500;font-size:12.5px;color:var(--ink-2);letter-spacing:.01em}
+.row-sub{font-size:12.5px;line-height:1.42;color:var(--ink-2);padding:1px 0 9px;border-bottom:1px solid var(--hair)}
+.grp .row-sub:last-child{border-bottom:0}
+@media (max-width:389px){.row .n em{display:block;padding-left:0;margin-top:2px}}
+
+/* two price columns: new set / refill */
+.grp.two .row{gap:8px}
+.grp.two .row .p{width:80px;text-align:right;margin-left:0}
+.grp.two .row.hdr{border-bottom:1px solid var(--hair);padding:5px 0 4px}
+.grp.two .row.hdr span{font-stretch:100%;font-weight:500;font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-2);width:80px;text-align:right;flex:0 0 auto}
+.grp.two .row.hdr .n{flex:1 1 auto;width:auto;text-align:left}
+
+.cenik-foot{font-size:12.5px;line-height:1.5;color:var(--ink-2);border-top:2px solid var(--ink);margin-top:26px;padding-top:10px;max-width:48ch}
+
+/* ---------------- photo grid ---------------- */
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:22px}
+.shots figure{overflow:hidden;background:#e8e8e5;aspect-ratio:4/5}
+.shots figure.w{grid-column:1/-1;aspect-ratio:3/2}
+.shots img{width:100%;height:100%;object-fit:cover}
+
+/* ---------------- reviews ---------------- */
+.quotes{margin-top:20px;border-top:2px solid var(--ink)}
+.quotes blockquote{border-bottom:1px solid var(--hair);padding:13px 0}
+.quotes blockquote:last-child{border-bottom:1px solid var(--ink)}
+.quotes p{font-size:15.5px;line-height:1.45}
+.quotes footer{font-size:12px;color:var(--ink-2);padding-top:8px;display:flex;gap:8px;align-items:baseline}
+.quotes footer .nm{font-stretch:125%;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.more,.maplink{display:inline-flex;align-items:center;min-height:44px;font-size:13.5px;font-weight:500;text-decoration:none}
+.more span,.maplink span{border-bottom:1.5px solid var(--ink);padding-bottom:1px}
+
+/* ---------------- find us ---------------- */
+.shopshot{margin-top:22px;aspect-ratio:2/1;overflow:hidden;background:#e8e8e5}
+.shopshot img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.addr{margin-top:20px;border-top:2px solid var(--ink);padding-top:10px}
+.addr .street{font-stretch:125%;font-weight:600;font-size:21px;line-height:1.1;text-transform:uppercase;letter-spacing:-.005em}
+.addr .city{font-size:13.5px;font-weight:400;color:var(--ink-2);padding-top:4px}
+.addr .tel{display:inline-block;font-stretch:125%;font-weight:600;font-size:23px;letter-spacing:.01em;
+  text-decoration:none;border-bottom:2px solid var(--ink);margin-top:0;padding:14px 0 4px;line-height:1.1}
+.addr .extra{font-size:12.5px;color:var(--ink-2);padding-top:14px;line-height:1.5}
+
+table.hrs{width:100%;border-collapse:collapse;margin-top:18px;border-top:2px solid var(--ink)}
+table.hrs th,table.hrs td{border-bottom:1px solid var(--hair);padding:7px 0;font-size:14px;font-weight:400;text-align:left;line-height:1.3}
+table.hrs td{text-align:right;white-space:nowrap}
+table.hrs tr:last-child th,table.hrs tr:last-child td{border-bottom:1px solid var(--ink)}
+table.hrs tr.today th,table.hrs tr.today td{font-weight:600;background:var(--ink);color:var(--paper);border-bottom-color:var(--ink)}
+table.hrs tr.today th{padding-left:8px}
+table.hrs tr.today td{padding-right:8px}
+
+.map{display:block;margin-top:18px;aspect-ratio:4/3;background:#ddd center/cover no-repeat;position:relative;border:1px solid var(--ink)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none}
+.maplink{margin-top:2px}
+
+/* ---------------- footer ---------------- */
+footer.page{border-top:3px solid var(--ink);margin-top:56px;padding:15px 0 30px}
+footer.page .fn{font-stretch:125%;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+footer.page .fl{font-size:12.5px;color:var(--ink-2);line-height:1.65;padding-top:6px}
+footer.page .fl a{display:inline-block;padding:12px 0;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+
+/* ---------------- fixed bar ---------------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;
+  background:var(--paper);border-top:1px solid var(--ink);padding-bottom:env(safe-area-inset-bottom);
+  transform:translateY(100%);visibility:hidden;transition:transform .24s ease, visibility 0s linear .24s}
+.bar.show{transform:none;visibility:visible;transition:transform .24s ease}
+@media (prefers-reduced-motion:reduce){.bar,.bar.show{transition:none}}
+.bar a{display:flex;align-items:center;justify-content:center;height:var(--bar);text-decoration:none;
+  font-stretch:125%;font-weight:600;font-size:14px;letter-spacing:.07em;text-transform:uppercase}
+.bar a.book{background:var(--ink);color:var(--paper)}
+.bar a.call{border-left:1px solid var(--ink)}
+
+/* ================= WIDE ================= */
+@media (min-width:860px){
+  :root{--pad:44px}
+  body{font-size:15.5px;padding-bottom:0}
+  .bar{display:none}
+  .shell{max-width:1120px;margin-left:auto;margin-right:auto}
+  html{scroll-padding-top:60px}
+
+  .mast-in{min-height:54px}
+  .burger{display:none}
+  .mast-place{font-size:12.5px}
+  .dnav{display:flex;gap:24px;margin-left:auto}
+  .dnav a{text-decoration:none;font-stretch:125%;font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:4px 0}
+  .dnav a:hover{border-bottom:2px solid var(--ink)}
+
+  .top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);column-gap:44px;align-items:start;padding-top:32px}
+  .hero-photo{grid-column:2;grid-row:1;aspect-ratio:6/5}
+  .hero-photo img{object-position:50% 48%}
+  .id{grid-column:1;grid-row:1;padding-top:0}
+  h1{font-size:clamp(48px,5vw,62px)}
+  .id-fact{font-size:16.5px;padding:18px 0 22px}
+  .rating{padding:10px 0 12px}
+  .rating b{font-size:42px}
+  .rating .star{font-size:17px}
+  .rating .of{font-size:14px}
+  .act{flex-direction:row;gap:10px;padding-top:22px}
+  .act .btn{flex:0 1 auto;white-space:nowrap;font-size:13.5px;letter-spacing:.05em;padding:0 15px}
+  .status{padding-top:18px;font-size:14.5px}
+
+  section{margin-top:64px}
+  .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);column-gap:44px;align-items:end;padding-bottom:3px}
+  .sec-head h2{font-size:clamp(38px,4vw,48px);line-height:.98;margin-bottom:-3px}
+  .sec-lead{font-size:16px;padding-top:0;padding-bottom:6px;max-width:none}
+  .sec-note{padding-top:0;padding-bottom:6px;max-width:none}
+
+  .from{display:grid;grid-template-columns:repeat(5,1fr);margin-top:26px}
+  .from-row{display:block;padding:14px 18px 15px;border-bottom:0;border-left:1px solid var(--hair)}
+  .from-row:first-child{border-left:0;padding-left:0}
+  .from-row:last-child{padding-right:0}
+  .from-row .k{font-size:12px}
+  .from-row .v{font-size:clamp(32px,3.1vw,40px);margin-left:0;display:block;padding-top:9px}
+  .from-row .v small{display:block;padding:0 0 3px;vertical-align:baseline}
+  .from-note{font-size:16px;padding-top:16px;max-width:56ch}
+
+  .groups{column-count:2;column-gap:48px;margin-top:30px}
+  .grp{break-inside:avoid;margin-top:0;margin-bottom:26px}
+  .grp-h h3{font-size:17px}
+  .row .p{font-size:18px}
+  .grp.two .row .p{width:88px}
+  .grp.two .row.hdr span{width:88px}
+  .cenik-foot{font-size:13px;max-width:60ch}
+
+  .shots{grid-template-columns:repeat(4,1fr);margin-top:26px}
+  .shots figure.w{grid-column:span 2;aspect-ratio:8/5}
+
+  .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);column-gap:44px;align-items:start}
+  .shopshot{aspect-ratio:16/7;margin-top:26px}
+  .find{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);column-gap:44px;align-items:start;margin-top:26px}
+  .addr{margin-top:0}
+  .addr .street{font-size:28px}
+  .addr .tel{font-size:28px}
+  .map{margin-top:0;aspect-ratio:1/1}
+  .quotes p{font-size:17px}
+
+  footer.page{margin-top:64px;padding:16px 0 34px}
+  footer.page .fl{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<div class="rule-top"></div>
+
+<header class="mast">
+  <div class="mast-in wrap shell">
+    <span class="mast-place">BELLA MY nails &amp; beauty</span>
+    <nav class="dnav" aria-label="Sekce">
+      <a href="#cenik">Ceník</a><a href="#prace">Naše práce</a><a href="#recenze">Recenze</a><a href="#kontakt">Kde nás najdete</a>
+    </nav>
+    <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mnav"><i></i><span>Menu</span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mnav" aria-label="Menu">
+  <div class="mnav-top">
+    <span class="mast-place">BELLA MY nails &amp; beauty</span>
+    <button type="button" class="burger" id="burgerClose" aria-expanded="true" aria-controls="mnav"><i></i><span>Zavřít</span></button>
+  </div>
+  <ol>
+    <li><a href="#cenik">Ceník<small>Nehty, pedikúra, řasy, obočí — ceny i minuty</small></a></li>
+    <li><a href="#prace">Naše práce<small>Fotky nehtů a obočí</small></a></li>
+    <li><a href="#recenze">Recenze<small>4,8 ze 101 recenzí na Googlu</small></a></li>
+    <li><a href="#kontakt">Kde nás najdete<small>Starostrašnická 591/43, otevírací doba, mapa</small></a></li>
+  </ol>
+  <a class="mnav-book" href="https://bella-my-nails-beauty.reservio.com/booking" target="_blank" rel="noopener">Rezervovat na Reserviu</a>
+  <p class="mnav-foot">Starostrašnická 591/43, Praha 10 – Strašnice<br><a href="tel:+420728563222">728 563 222</a></p>
+</nav>
+
+<div class="top wrap shell">
+
+  <figure class="hero-photo">
+    <img src="img/hero.jpg" width="1200" height="1200" alt="Gelové nehty s ombré a květinovým zdobením, práce studia BELLA MY">
+  </figure>
+
+  <div class="id">
+    <h1>Bella My<span>nails &amp; beauty</span></h1>
+    <p class="id-fact">Nehtové a kosmetické studio ve Strašnicích. Manikúra, pedikúra, prodlužování řas a obočí.</p>
+
+    <div class="rating">
+      <b>4,8</b>
+      <span class="star" aria-hidden="true">★★★★★</span>
+      <span class="of">ze 101 recenzí na Googlu</span>
+    </div>
+
+    <div class="act">
+      <a class="btn" href="https://bella-my-nails-beauty.reservio.com/booking" target="_blank" rel="noopener">Rezervovat na Reserviu</a>
+      <a class="btn ghost" href="tel:+420728563222">Zavolat 728 563 222</a>
+    </div>
+
+    <p class="status" id="status"><span id="statusText"></span></p>
+  </div>
+
+</div>
+
+<section id="cenik" class="wrap shell">
+  <div class="sec-head">
+    <h2>Ceník</h2>
+    <p class="sec-lead">Základní cena i délka termínu u každé služby.</p>
+  </div>
+
+  <div class="from">
+    <div class="from-row"><span class="k">Modelace nehtů</span><span class="v"><small>od</small>640 Kč</span></div>
+    <div class="from-row"><span class="k">Manikúra</span><span class="v"><small>od</small>350 Kč</span></div>
+    <div class="from-row"><span class="k">Pedikúra</span><span class="v"><small>od</small>500 Kč</span></div>
+    <div class="from-row"><span class="k">Prodlužování řas</span><span class="v"><small>od</small>900 Kč</span></div>
+    <div class="from-row"><span class="k">Obočí</span><span class="v"><small>od</small>200 Kč</span></div>
+  </div>
+  <p class="from-note">Ceny modelace platí za krátkou délku bez zdobení. Za delší nehty a za zdobení se připlácí podle délky a designu.</p>
+
+  <div class="groups">
+
+    <div class="grp">
+      <div class="grp-h"><h3>Modelace nehtů — nové</h3><small>gel</small></div>
+      <div class="row"><span class="n">Krátké, bez zdobení<em>60 min</em></span><i class="lead-dots"></i><span class="p">640 Kč</span></div>
+      <div class="row"><span class="n">Krátké, francie nebo ombré<em>75 min</em></span><i class="lead-dots"></i><span class="p">750 Kč</span></div>
+      <div class="row"><span class="n">Krátké, se zdobením<em>75 min</em></span><i class="lead-dots"></i><span class="p q">podle designu</span></div>
+      <div class="row"><span class="n">Střední délka<em>60–75 min</em></span><i class="lead-dots"></i><span class="p q">podle délky</span></div>
+      <div class="row"><span class="n">Dlouhé a extra dlouhé<em>90–105 min</em></span><i class="lead-dots"></i><span class="p q">podle délky</span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Modelace nehtů — doplnění</h3><small>gel</small></div>
+      <div class="row"><span class="n">Krátké, bez zdobení<em>60 min</em></span><i class="lead-dots"></i><span class="p">590 Kč</span></div>
+      <div class="row"><span class="n">Krátké, francie nebo ombré<em>75 min</em></span><i class="lead-dots"></i><span class="p">690 Kč</span></div>
+      <div class="row"><span class="n">Krátké, se zdobením<em>75 min</em></span><i class="lead-dots"></i><span class="p q">podle designu</span></div>
+      <div class="row"><span class="n">Střední délka<em>60–75 min</em></span><i class="lead-dots"></i><span class="p q">podle délky</span></div>
+      <div class="row"><span class="n">Dlouhé a extra dlouhé<em>90–120 min</em></span><i class="lead-dots"></i><span class="p q">podle délky</span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Manikúra</h3></div>
+      <div class="row"><span class="n">Classic s calciem<em>30 min</em></span><i class="lead-dots"></i><span class="p">350 Kč</span></div>
+      <div class="row"><span class="n">S klasickým lakem<em>45 min</em></span><i class="lead-dots"></i><span class="p">550 Kč</span></div>
+      <div class="row"><span class="n">Gellac<em>45 min</em></span><i class="lead-dots"></i><span class="p">550 Kč</span></div>
+      <div class="row"><span class="n">CND Shellac<em>60 min</em></span><i class="lead-dots"></i><span class="p">600 Kč</span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Pedikúra</h3><small>dámská i pánská</small></div>
+      <div class="row"><span class="n">Classic<em>30 min</em></span><i class="lead-dots"></i><span class="p">500 Kč</span></div>
+      <div class="row"><span class="n">S klasickým lakem<em>60 min</em></span><i class="lead-dots"></i><span class="p">600 Kč</span></div>
+      <div class="row"><span class="n">Gellac<em>45 min</em></span><i class="lead-dots"></i><span class="p">600 Kč</span></div>
+      <div class="row"><span class="n">Footlogix<em>45 min</em></span><i class="lead-dots"></i><span class="p">700 Kč</span></div>
+      <div class="row"><span class="n">Footlogix s klasickým lakem<em>75 min</em></span><i class="lead-dots"></i><span class="p">800 Kč</span></div>
+      <div class="row"><span class="n">Footlogix s Gellacem<em>60 min</em></span><i class="lead-dots"></i><span class="p">800 Kč</span></div>
+      <div class="row noline"><span class="n">Samotné lakování Gellac<em>30 min</em></span><i class="lead-dots"></i><span class="p">400 Kč</span></div>
+      <p class="row-sub">Se Shellacem místo Gellacu je to o 50 Kč víc.</p>
+    </div>
+
+    <div class="grp two">
+      <div class="grp-h"><h3>Prodlužování řas</h3></div>
+      <div class="row hdr"><span class="n">&nbsp;</span><span>nové</span><span>doplnění</span></div>
+      <div class="row"><span class="n">Classic</span><i class="lead-dots"></i><span class="p">900 Kč</span><span class="p">700 Kč</span></div>
+      <div class="row"><span class="n">3D Volume</span><i class="lead-dots"></i><span class="p">1 050 Kč</span><span class="p">850 Kč</span></div>
+      <div class="row"><span class="n">4D–6D Volume</span><i class="lead-dots"></i><span class="p">1 150 Kč</span><span class="p">950 Kč</span></div>
+      <div class="row"><span class="n">7D–8D Volume</span><i class="lead-dots"></i><span class="p">1 250 Kč</span><span class="p">1 050 Kč</span></div>
+      <div class="row noline"><span class="n">Hybrid 3D–4D</span><i class="lead-dots"></i><span class="p">1 150 Kč</span><span class="p">950 Kč</span></div>
+      <p class="row-sub">Classic trvá 120 minut, doplnění 105. Doplnění děláme jen na řasy, které jsme dělali my, a musí jich zbývat aspoň 40 %.</p>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Řasy — úprava a odstranění</h3></div>
+      <div class="row"><span class="n">Mokrý efekt<em>150 min</em></span><i class="lead-dots"></i><span class="p">1 200 Kč</span></div>
+      <div class="row"><span class="n">Lash lifting a lash botox<em>75 min</em></span><i class="lead-dots"></i><span class="p">900 Kč</span></div>
+      <div class="row"><span class="n">Odstranění prodloužených řas<em>30 min</em></span><i class="lead-dots"></i><span class="p">200 Kč</span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Obočí a depilace</h3></div>
+      <div class="row"><span class="n">Úprava obočí<em>30 min</em></span><i class="lead-dots"></i><span class="p">200 Kč</span></div>
+      <div class="row"><span class="n">Barvení obočí<em>30 min</em></span><i class="lead-dots"></i><span class="p">300 Kč</span></div>
+      <div class="row"><span class="n">Úprava a barvení<em>45 min</em></span><i class="lead-dots"></i><span class="p">500 Kč</span></div>
+      <div class="row"><span class="n">Laminace obočí<em>60 min</em></span><i class="lead-dots"></i><span class="p">650 Kč</span></div>
+      <div class="row"><span class="n">Laminace s úpravou a barvením<em>75 min</em></span><i class="lead-dots"></i><span class="p">900 Kč</span></div>
+      <div class="row"><span class="n">Epilace horního rtu voskem<em>30 min</em></span><i class="lead-dots"></i><span class="p">200 Kč</span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Opravy a odstranění</h3></div>
+      <div class="row"><span class="n">Oprava jednoho nehtu<em>15 min</em></span><i class="lead-dots"></i><span class="p">50 Kč</span></div>
+      <div class="row"><span class="n">Odstranění umělých nehtů<em>20 min</em></span><i class="lead-dots"></i><span class="p">200 Kč</span></div>
+      <div class="row"><span class="n">Odstranění při nové aplikaci, gel</span><i class="lead-dots"></i><span class="p">100 Kč</span></div>
+      <div class="row"><span class="n">Odstranění při nové aplikaci, akryl</span><i class="lead-dots"></i><span class="p">150 Kč</span></div>
+      <div class="row"><span class="n">Změna barvy u umělých nehtů<em>30 min</em></span><i class="lead-dots"></i><span class="p">400 Kč</span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-h"><h3>Manikúra a pedikúra najednou</h3><small>75–135 min</small></div>
+      <div class="row"><span class="n">Gelové nehty a pedikúra</span><i class="lead-dots"></i><span class="p q">podle služeb</span></div>
+      <div class="row"><span class="n">Manikúra Gellac nebo Shellac a pedikúra</span><i class="lead-dots"></i><span class="p q">podle služeb</span></div>
+      <div class="row noline"><span class="n">Klasická manikúra s calciem a pedikúra</span><i class="lead-dots"></i><span class="p q">podle služeb</span></div>
+      <p class="row-sub">Deset kombinací, s lakováním i bez. Cenu spočítáme podle toho, co si vyberete.</p>
+    </div>
+
+  </div>
+
+  <p class="cenik-foot">Ceny podle Reservia, platné od 11. 5. 2026. U rezervace Reservio uvádí platbu v hotovosti. Termín jde zrušit nejpozději 12 hodin předem.</p>
+</section>
+
+<section id="prace">
+  <div class="sec-head wrap shell">
+    <h2>Naše práce</h2>
+    <p class="sec-lead">Ombré, francie, zdobení, laminace obočí.</p>
+  </div>
+  <div class="shots">
+    <figure class="w"><img src="img/w-bag.jpg" width="1200" height="800" loading="lazy" alt="Perleťově bílé mandlové nehty na ruce položené na černé kabelce"></figure>
+    <figure><img src="img/w-charms.jpg" width="800" height="1000" loading="lazy" alt="Tmavě červená francie s ozdobami a písmenem na prsteníčku"></figure>
+    <figure><img src="img/w-mono.jpg" width="800" height="1000" loading="lazy" alt="Nude nehty se zlatými prstýnky, v pozadí zlatý monogram studia"></figure>
+    <figure><img src="img/w-cross.jpg" width="800" height="1000" loading="lazy" alt="Dlouhé černé nehty s křížky a kamínky na bílém hedvábí"></figure>
+    <figure><img src="img/w-jewels.jpg" width="800" height="1000" loading="lazy" alt="Světlá francie s kamínkovým zdobením na dvou prstech"></figure>
+    <figure><img src="img/w-skull.jpg" width="800" height="1000" loading="lazy" alt="Černé nehty s malovanými lebkami a stříbrným efektem"></figure>
+    <figure><img src="img/w-bows.jpg" width="800" height="1000" loading="lazy" alt="Vínové nehty s bílými mašlemi"></figure>
+    <figure><img src="img/w-tray.jpg" width="800" height="1000" loading="lazy" alt="Stojan s ozdobami na nehty: mašle, květiny, kamínky"></figure>
+    <figure><img src="img/w-purple.jpg" width="800" height="1000" loading="lazy" alt="Dlouhé matné fialové nehty s mramorovým zdobením"></figure>
+    <figure class="w"><img src="img/w-brows.jpg" width="1200" height="800" loading="lazy" alt="Obočí před laminací a po ní, srovnání na jedné fotce"></figure>
+  </div>
+</section>
+
+<section id="recenze" class="wrap shell">
+  <div class="sec-head">
+    <h2>Recenze</h2>
+    <p class="sec-lead">4,8 ze 101 recenzí na Googlu. Nejčastěji se v nich opakuje čistota a dezinfekce nástrojů, velký výběr barev, že nehty vydrží déle, a že se jde na čas.</p>
+  </div>
+  <div class="quotes">
+    <blockquote>
+      <p>„Co se nehtů týče, vydrží mi déle než v jiných salonech… Nechávám si tu prodlužovat i řasy a vždy vypadají přirozeně…“</p>
+      <footer><span class="nm">Věra</span></footer>
+    </blockquote>
+    <blockquote>
+      <p>„Milý personál, zejména slečna, která mi dělala nehty za pouhých 1,5 h i přes složitý design – eye cat s kombinací ombre a kamínků. Viděla jsem, že mají úložný prostor na dezinfekci jejich manikúrových nůžek, což se moc často nevidí.“</p>
+      <footer><span class="nm">Minh Uyen</span></footer>
+    </blockquote>
+    <blockquote>
+      <p>„Nehty mi rostou deformované, ale tady si se vším skvěle poradili. Krásné nehty podle předlohy.“</p>
+      <footer><span class="nm">Kateřina</span></footer>
+    </blockquote>
+    <blockquote>
+      <p>„Čisté a voňavé prostředí a skvělý přístup a naprostá preciznost. Obrovský plus i velice přívětivá cena.“</p>
+      <footer><span class="nm">Kamila</span></footer>
+    </blockquote>
+  </div>
+  <a class="more" href="https://www.google.com/maps/place/?q=place_id:ChIJ80DmFQCTC0cRHbN52ZY8a9Y" target="_blank" rel="noopener"><span>Všechny recenze na Googlu</span></a>
+</section>
+
+<section id="kontakt">
+  <div class="wrap shell">
+    <div class="sec-head">
+      <h2>Kde nás najdete</h2>
+      <p class="sec-lead">Otevřeno od pondělí do soboty.</p>
+    </div>
+  </div>
+  <div class="shopshot">
+    <img src="img/shop.jpg" width="1400" height="613" loading="lazy" alt="Výloha studia BELLA MY ve Starostrašnické s nápisem Manikúra, Pedikúra, Řasy, Obočí">
+  </div>
+  <div class="wrap shell">
+    <div class="find">
+      <div>
+        <div class="addr">
+          <div class="street">Starostrašnická 591/43</div>
+          <div class="city">100 00 Praha 10 – Strašnice</div>
+          <a class="tel" href="tel:+420728563222">728 563 222</a>
+          <p class="extra">Bezbariérový vstup i parkování, wi-fi zdarma. Rezervace přes Reservio, objednat se lze nejpozději hodinu předem.</p>
+        </div>
+        <table class="hrs">
+          <tbody id="hoursBody">
+            <tr data-day="1"><th>Pondělí</th><td>9:00 – 19:00</td></tr>
+            <tr data-day="2"><th>Úterý</th><td>9:00 – 19:00</td></tr>
+            <tr data-day="3"><th>Středa</th><td>9:00 – 19:00</td></tr>
+            <tr data-day="4"><th>Čtvrtek</th><td>9:00 – 19:00</td></tr>
+            <tr data-day="5"><th>Pátek</th><td>9:00 – 19:00</td></tr>
+            <tr data-day="6"><th>Sobota</th><td>10:00 – 18:00</td></tr>
+            <tr data-day="0"><th>Neděle</th><td>zavřeno</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <a class="map" href="https://www.google.com/maps/place/?q=place_id:ChIJ80DmFQCTC0cRHbN52ZY8a9Y" target="_blank" rel="noopener"
+           aria-label="Otevřít v Mapách Google" style="background-image:url('img/interior.jpg')">
+          <iframe title="Mapa: Starostrašnická 591/43, Praha 10 Strašnice" tabindex="-1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Starostra%C5%A1nick%C3%A1%20591%2F43%2C%20100%2000%20Praha%2010&amp;z=16&amp;output=embed"></iframe>
+        </a>
+        <a class="maplink" href="https://www.google.com/maps/place/?q=place_id:ChIJ80DmFQCTC0cRHbN52ZY8a9Y" target="_blank" rel="noopener"><span>Otevřít v Mapách Google</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="page">
+  <div class="wrap shell">
+    <div class="fn">BELLA MY nails &amp; beauty</div>
+    <div class="fl">
+      Starostrašnická 591/43, 100 00 Praha 10 – Strašnice · <a href="tel:+420728563222">728 563 222</a><br>
+      Rezervace přes <a href="https://bella-my-nails-beauty.reservio.com/booking" target="_blank" rel="noopener">Reservio</a>
+    </div>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Akce">
+  <a class="book" href="https://bella-my-nails-beauty.reservio.com/booking" target="_blank" rel="noopener">Rezervovat</a>
+  <a class="call" href="tel:+420728563222">Zavolat</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"NailSalon",
+  "name":"BELLA MY nails & beauty",
+  "image":"img/hero.jpg",
+  "telephone":"+420728563222",
+  "priceRange":"50–1 250 Kč",
+  "address":{"@type":"PostalAddress","streetAddress":"Starostrašnická 591/43","addressLocality":"Praha 10 – Strašnice","postalCode":"10000","addressCountry":"CZ"},
+  "geo":{"@type":"GeoCoordinates","latitude":50.0742754,"longitude":14.4903591},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"101","bestRating":"5"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"10:00","closes":"18:00"}
+  ],
+  "hasMap":"https://www.google.com/maps/place/?q=place_id:ChIJ80DmFQCTC0cRHbN52ZY8a9Y",
+  "potentialAction":{"@type":"ReserveAction","target":"https://bella-my-nails-beauty.reservio.com/booking"}
+}
+</script>
+
+<script>
+(function(){
+  // Opening hours, Europe/Prague. null = closed all day.
+  var H = { 0:null, 1:[540,1140], 2:[540,1140], 3:[540,1140], 4:[540,1140], 5:[540,1140], 6:[600,1080] };
+  var DAY_IN = ["v neděli","v pondělí","v úterý","ve středu","ve čtvrtek","v pátek","v sobotu"];
+
+  function fmt(m){ return Math.floor(m/60) + ":" + (m%60 < 10 ? "0" : "") + (m%60); }
+  function pragueNow(){
+    try {
+      var p = new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Prague",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+      var o = {}; p.forEach(function(x){ o[x.type] = x.value; });
+      var wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+      return { day: wd, min: (parseInt(o.hour,10)%24)*60 + parseInt(o.minute,10) };
+    } catch(e){ var n = new Date(); return { day:n.getDay(), min:n.getHours()*60+n.getMinutes() }; }
+  }
+  function hours(){
+    var now = pragueNow(), h = H[now.day];
+    document.querySelectorAll("#hoursBody tr").forEach(function(tr){
+      tr.classList.toggle("today", parseInt(tr.getAttribute("data-day"),10) === now.day);
+    });
+    var st = document.getElementById("status"), tx = document.getElementById("statusText");
+    if (h && now.min >= h[0] && now.min < h[1]) {
+      st.classList.remove("closed");
+      tx.textContent = "Otevřeno, zavíráme v " + fmt(h[1]);
+      return;
+    }
+    st.classList.add("closed");
+    if (h && now.min < h[0]) { tx.textContent = "Zavřeno, otevíráme dnes v " + fmt(h[0]); return; }
+    for (var i = 1; i <= 7; i++) {
+      var d = (now.day + i) % 7;
+      if (H[d]) {
+        tx.textContent = "Zavřeno, otevíráme " + (i === 1 ? "zítra" : DAY_IN[d]) + " v " + fmt(H[d][0]);
+        return;
+      }
+    }
+  }
+  hours();
+  setInterval(hours, 60000);
+
+  var mnav = document.getElementById("mnav"), burger = document.getElementById("burger"), burgerClose = document.getElementById("burgerClose");
+  function setMenu(open){
+    mnav.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) { burgerClose.focus(); } else { burger.focus(); }
+  }
+  burger.addEventListener("click", function(){ setMenu(!mnav.classList.contains("open")); });
+  burgerClose.addEventListener("click", function(){ setMenu(false); });
+  mnav.querySelectorAll("a[href^='#']").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && mnav.classList.contains("open")) setMenu(false); });
+
+  // The fixed bar stays off-screen while the hero's own buttons are visible.
+  var bar = document.querySelector(".bar"), act = document.querySelector(".act");
+  if (bar && act && "IntersectionObserver" in window) {
+    new IntersectionObserver(function(entries){
+      bar.classList.toggle("show", !entries[0].isIntersecting);
+    }, { threshold: 0 }).observe(act);
+  } else if (bar) {
+    bar.classList.add("show");
+  }
+})();
+</script>
+</body>
+</html>
