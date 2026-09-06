@@ -20,7 +20,7 @@
   --pad:20px; --disp:"Big Shoulders Display","Arial Narrow",Impact,sans-serif; --body:Barlow,"Helvetica Neue",Arial,sans-serif;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:64px;background:var(--bg)}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--bg)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 var(--body);overflow-x:hidden}
 body.menu-open{overflow:hidden}
@@ -77,7 +77,7 @@ figure{margin:0}
 .status.closed::before{background:#c96c6c}
 
 /* sections */
-section{padding-top:56px}
+section{padding-top:56px;scroll-margin-top:57px}
 h2{font-size:52px;color:var(--ink)}
 .sub{margin-top:8px;font-size:17px;color:var(--ink2);max-width:40ch}
 
