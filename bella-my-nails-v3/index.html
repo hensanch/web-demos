@@ -10,7 +10,9 @@
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:title" content="BELLA MY nails &amp; beauty — Praha 10, Strašnice">
 <meta property="og:description" content="Manikúra, pedikúra, řasy a obočí na Starostrašnické 43. Ceník i otevírací doba na jedné stránce.">
-<meta property="og:image" content="https://hensanch.github.io/web-demos/bella-my-nails-v3/img/hero.jpg">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/bella-my-nails-v3/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Mulish:wght@400;600;800&display=swap" rel="stylesheet">
@@ -21,7 +23,7 @@
   --saten:#F2EDEA;
   --tus:#241D1D;
   --vino:#7A2B33;
-  --bronz:#6E564C;
+  --bronz:#655049;
   --linka:rgba(110,86,76,.30);
   --serif:'Gilda Display',Georgia,'Times New Roman',serif;
   --sans:Mulish,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
@@ -43,6 +45,7 @@ p{margin:0}
 .preskoc{position:absolute;left:-999px;top:0;z-index:60;background:var(--tus);color:var(--saten);padding:12px 18px}
 .preskoc:focus{left:8px;top:8px}
 :focus-visible{outline:3px solid var(--vino);outline-offset:3px}
+.tl-plne:focus-visible,.b-rez:focus-visible{outline-color:var(--tus)}
 .obal{padding-left:var(--okraj);padding-right:var(--okraj);max-width:1180px;margin:0 auto}
 
 /* ---------- vitrína (first screen) ---------- */
@@ -120,6 +123,7 @@ p{margin:0}
 }
 .skupina{margin-top:14px;background:var(--saten);padding:16px 18px 6px}
 .skupina>summary{font-family:var(--serif);font-size:26px}
+.skupina>summary h3{display:flex;justify-content:space-between;align-items:baseline;gap:12px;width:100%;margin:0;font:inherit;font-weight:400}
 .skupina summary{
   list-style:none;cursor:pointer;display:flex;align-items:baseline;
   justify-content:space-between;gap:12px;padding:4px 0 6px;min-height:44px;
@@ -190,7 +194,7 @@ p{margin:0}
 .nabidka[hidden]{display:none}
 .nabidka-vrch{display:flex;justify-content:flex-end}
 .zavrit{
-  min-height:44px;min-width:88px;padding:0 18px;border:1px solid #6A5A52;background:none;color:var(--saten);
+  min-height:44px;min-width:88px;padding:0 18px;border:1px solid #7E6C63;background:none;color:var(--saten);
   font-family:var(--sans);font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;
 }
 .nabidka nav{display:flex;flex-direction:column;margin-top:26px}
@@ -234,7 +238,7 @@ p{margin:0}
   .ceny{max-width:1180px;margin:0 auto;padding:60px var(--okraj) 10px}
   .pravidlo{max-width:640px;font-size:17px}
   .skupina{padding:28px 32px 14px}
-  .skupina>h3,.skupina>summary{font-size:30px}
+  .skupina>summary,.skupina>summary h3{font-size:30px}
   .skupina-mriz{display:grid;grid-template-columns:1fr 1fr;column-gap:46px}
   .adresa{max-width:1180px;margin:0 auto;padding:64px var(--okraj) 46px;display:grid;grid-template-columns:1fr 1fr;column-gap:56px;align-items:start}
   .adresa h2,.ctvrt{grid-column:1}
@@ -259,13 +263,13 @@ p{margin:0}
 <section class="vitrina">
   <figure class="vitrina-foto">
     <img src="img/hero.jpg" width="1290" height="1200" alt="Gelové nehty v odstínech červené a růžové s ručně malovanou květinou, položené na saténu.">
-    <button class="klika" id="klika" type="button" aria-haspopup="dialog">Menu</button>
+    <button class="klika" id="klika" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nabidka">Menu</button>
   </figure>
   <div class="deska">
     <h1>BELLA MY<span class="druhy">Nails &amp; Beauty</span></h1>
     <div class="cara"></div>
     <p class="znamka"><b>4,8</b><span>ze 101 hodnocení na Googlu</span></p>
-    <p class="dnes" id="dnes">Starostrašnická 43, Praha 10</p>
+    <p class="dnes">Starostrašnická 43, Strašnice. <span id="dnes"></span></p>
     <div class="tlacitka" id="tlacitka">
       <a class="tl tl-plne" href="https://bella-my-nails-beauty.reservio.com/booking" target="_blank" rel="noopener">Rezervovat termín</a>
       <a class="tl tl-obrys" href="tel:+420728563222">Zavolat 728 563 222</a>
@@ -321,17 +325,17 @@ p{margin:0}
   <p class="pravidlo">Uvedené ceny jsou základní. U modelace nehtů se připlácí za délku a za zdobení, cena zdobení záleží na designu. Na cenu konkrétního designu se prosím zeptejte při objednání.</p>
 
   <details class="skupina" id="ceny-ruce" open>
-    <summary><span>Manikúra</span><span class="od">od 350 Kč</span></summary>
+    <summary><h3><span>Manikúra</span><span class="od">od 350 Kč</span></h3></summary>
     <div class="skupina-mriz">
       <div>
-        <p class="pod">Modelace nehtů</p>
+        <h4 class="pod">Modelace nehtů</h4>
         <div class="polozka"><span class="co">Gelové nehty nové, krátké, bez zdobení<span class="cas">60 min</span></span><span class="kc">640 Kč</span></div>
         <div class="polozka"><span class="co">Gelové nehty nové, krátké, francie nebo ombré<span class="cas">75 min</span></span><span class="kc">750 Kč</span></div>
         <div class="polozka"><span class="co">Doplnění, krátké, bez zdobení<span class="cas">60 min</span></span><span class="kc">590 Kč</span></div>
         <div class="polozka"><span class="co">Doplnění, krátké, francie nebo ombré<span class="cas">75 min</span></span><span class="kc">690 Kč</span></div>
       </div>
       <div>
-        <p class="pod">Manikúra</p>
+        <h4 class="pod">Manikúra</h4>
         <div class="polozka"><span class="co">Manikúra classic a calcium<span class="cas">30 min</span></span><span class="kc">350 Kč</span></div>
         <div class="polozka"><span class="co">Manikúra a klasický lak<span class="cas">45 min</span></span><span class="kc">550 Kč</span></div>
         <div class="polozka"><span class="co">Manikúra Gellac<span class="cas">45 min</span></span><span class="kc">550 Kč</span></div>
@@ -343,7 +347,7 @@ p{margin:0}
   </details>
 
   <details class="skupina" id="ceny-nohy">
-    <summary><span>Pedikúra</span><span class="od">pedikúra od 500 Kč</span></summary>
+    <summary><h3><span>Pedikúra</span><span class="od">pedikúra od 500 Kč</span></h3></summary>
     <div class="skupina-mriz">
       <div>
         <div class="polozka"><span class="co">Pedikúra classic, dámská i pánská<span class="cas">30 min</span></span><span class="kc">500 Kč</span></div>
@@ -361,7 +365,7 @@ p{margin:0}
   </details>
 
   <details class="skupina" id="ceny-rasy">
-    <summary><span>Řasy</span><span class="od">prodloužení od 900 Kč</span></summary>
+    <summary><h3><span>Řasy</span><span class="od">prodloužení od 900 Kč</span></h3></summary>
     <div class="skupina-mriz">
       <div>
       <div class="rasy-hlavicka"><span>Prodlužování</span><span>nové</span><span>doplnění</span></div>
@@ -381,7 +385,7 @@ p{margin:0}
   </details>
 
   <details class="skupina" id="ceny-oboci">
-    <summary><span>Obočí</span><span class="od">úprava od 200 Kč</span></summary>
+    <summary><h3><span>Obočí</span><span class="od">úprava od 200 Kč</span></h3></summary>
     <div class="skupina-mriz">
       <div>
         <div class="polozka"><span class="co">Úprava obočí<span class="cas">30 min</span></span><span class="kc">200 Kč</span></div>
@@ -454,14 +458,15 @@ p{margin:0}
   "@context":"https://schema.org",
   "@type":"NailSalon",
   "name":"BELLA MY nails & beauty",
-  "image":"https://hensanch.github.io/web-demos/bella-my-nails-v3/img/hero.jpg",
+  "image":"https://hensanch.github.io/web-demos/bella-my-nails-v3/img/og.jpg",
   "telephone":"+420728563222",
-  "url":"https://bella-my-nails-beauty.reservio.com/booking",
+  "url":"https://hensanch.github.io/web-demos/bella-my-nails-v3/","sameAs":"https://bella-my-nails-beauty.reservio.com/booking",
   "address":{"@type":"PostalAddress","streetAddress":"Starostrašnická 591/43","addressLocality":"Praha 10 – Strašnice","postalCode":"100 00","addressCountry":"CZ"},
   "geo":{"@type":"GeoCoordinates","latitude":50.0742754,"longitude":14.4903591},
   "openingHoursSpecification":[
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"18:00"}
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"00:00","closes":"00:00"}
   ],
   "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"101"}
 }
@@ -501,7 +506,7 @@ p{margin:0}
       while (i < 7){ d = (d + 1) % 7; i++; if (PLAN[d]){ dalsi = d; break; } }
       text = dalsi === null ? "Zavřeno" : "Zavřeno, otevíráme " + DNY[dalsi] + " v " + hhmm(PLAN[dalsi][0]);
     }
-    radek.innerHTML = "Starostrašnická 43, Strašnice. " + text;
+    radek.innerHTML = text;
 
     var rady = document.querySelectorAll("#hodiny .hodina");
     for (var k = 0; k < rady.length; k++){
@@ -539,6 +544,7 @@ p{margin:0}
       if (zap){ el.setAttribute("inert",""); } else { el.removeAttribute("inert"); }
     });
     document.documentElement.style.overflow = zap ? "hidden" : "";
+    if (tlacitkoMenu) tlacitkoMenu.setAttribute("aria-expanded", zap ? "true" : "false");
     if (zap){ (okno.querySelector("nav a") || tlacitkoZavrit).focus(); }
     else if (tlacitkoMenu){ tlacitkoMenu.focus(); }
   }
@@ -553,9 +559,9 @@ p{margin:0}
 
   /* --- na širokém displeji je na ceník místo, otevřeme ho celý ----------- */
   try{
-    if (window.matchMedia("(min-width:900px)").matches){
-      document.querySelectorAll(".ceny details").forEach(function(d){ d.open = true; });
-    }
+    var mq = window.matchMedia("(min-width:900px)");
+    var sync = function(){ if (mq.matches){ document.querySelectorAll(".ceny details").forEach(function(d){ d.open = true; }); } };
+    sync(); if (mq.addEventListener) mq.addEventListener("change", sync);
   }catch(e){}
 
   /* --- odkazy z výlohy otevřou svou skupinu ceníku ------------------------ */
@@ -569,6 +575,7 @@ p{margin:0}
   });
   window.addEventListener("hashchange", function(){ rozbal(location.hash); });
   rozbal(location.hash);
+  if (location.hash && document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ var c = document.querySelector(location.hash); if (c) c.scrollIntoView(); });
 })();
 </script>
 </body>
