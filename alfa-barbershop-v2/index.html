@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#2e3134; --bg2:#393c40; --ink:#f1efe9; --ink2:#b4b6b9; --gold:#d8b76a; --line:rgba(255,255,255,.14);
+  --bg:#2e3134; --bg2:#393c40; --ink:#f1efe9; --ink2:#b9bbbe; --gold:#d8b76a; --line:rgba(255,255,255,.14);
   --pad:20px; --disp:"Big Shoulders Display","Arial Narrow",Impact,sans-serif; --body:Barlow,"Helvetica Neue",Arial,sans-serif;
 }
 *{box-sizing:border-box}
@@ -33,11 +33,11 @@ figure{margin:0}
 .wrap{padding-left:var(--pad);padding-right:var(--pad)}
 .bleed{margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad))}
 
-/* masthead */
+/* masthead: the wordmark is the only gold on the page, like the sign on their wall */
 .mast{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
 .mast-in{display:flex;align-items:center;justify-content:space-between;height:60px}
-.wm{display:flex;align-items:baseline;gap:8px;text-decoration:none}
-.wm b{font-family:var(--disp);font-weight:900;font-size:32px;color:var(--gold);letter-spacing:.02em;line-height:1}
+.wm{display:flex;align-items:baseline;gap:9px;text-decoration:none;min-height:44px;padding:4px 0}
+.wm b{font-family:var(--disp);font-weight:900;font-size:34px;color:var(--gold);letter-spacing:.02em;line-height:1}
 .wm span{font-size:13px;color:var(--ink2)}
 .dnav{display:none}
 .burger{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:44px;padding:0 14px;border:1px solid var(--line);background:transparent;color:var(--ink);font:600 15px var(--body);cursor:pointer}
@@ -49,102 +49,88 @@ figure{margin:0}
 .mnav{position:fixed;inset:0;z-index:30;background:var(--bg);color:var(--ink);padding:0 var(--pad) 28px;display:none;flex-direction:column;overflow:auto}
 .mnav.open{display:flex}
 .mnav-top{display:flex;align-items:center;justify-content:space-between;height:60px;border-bottom:1px solid var(--line)}
-.mnav-top b{font-family:var(--disp);font-weight:900;font-size:32px;color:var(--gold);letter-spacing:.02em}
+.mnav-top b{font-family:var(--disp);font-weight:900;font-size:34px;color:var(--gold);letter-spacing:.02em}
 .mnav .close{height:44px;padding:0 14px;border:1px solid var(--line);background:transparent;color:var(--ink);font:600 15px var(--body);cursor:pointer}
 .mnav ol{margin-top:12px;margin-bottom:24px}
-.mnav li a{display:block;padding:16px 0;text-decoration:none;border-bottom:1px solid var(--line);font-family:var(--disp);font-weight:700;font-size:40px;line-height:1;color:var(--ink)}
+.mnav li a{display:block;padding:18px 0;text-decoration:none;border-bottom:1px solid var(--line);font-family:var(--disp);font-weight:700;font-size:44px;line-height:1;color:var(--ink)}
 .mnav li a small{display:block;margin-top:6px;font-family:var(--body);font-weight:400;font-size:14px;color:var(--ink2)}
-.mcall{margin-top:auto;display:flex;align-items:center;justify-content:center;height:56px;flex:0 0 56px;background:var(--gold);color:#1d1f21;text-decoration:none;font-weight:600;font-size:17px}
+.mcall{margin-top:auto;display:flex;align-items:center;justify-content:center;height:56px;flex:0 0 56px;background:var(--ink);color:#1d1f21;text-decoration:none;font-weight:600;font-size:17px}
 
-/* hero */
-.hero{position:relative;overflow:hidden;aspect-ratio:1/1;background:var(--bg2)}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,49,52,0) 45%,rgba(46,49,52,.92) 100%)}
-.hero h1{position:absolute;left:var(--pad);right:var(--pad);bottom:22px;z-index:1;color:var(--gold);font-size:clamp(64px,19vw,88px);text-shadow:0 1px 0 rgba(0,0,0,.25)}
-.hero h1 small{display:block;color:var(--ink);font-size:.42em;font-weight:700;letter-spacing:.08em;margin-top:2px}
-.lede{padding-top:18px;font-size:19px;line-height:1.45;max-width:34ch}
-.facts{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.facts>div{padding:14px 0}
+/* first screen: photo, one sentence, two facts, two buttons */
+.hero{overflow:hidden;aspect-ratio:5/4;background:var(--bg2)}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:60% 45%}
+.lede{padding-top:16px;font:400 19px/1.4 var(--body);letter-spacing:0;max-width:34ch}
+.facts{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts>div{padding:12px 0}
 .facts>div+div{padding-left:16px;border-left:1px solid var(--line)}
-.facts b{display:block;font-family:var(--disp);font-weight:900;font-size:40px;line-height:1;letter-spacing:.01em;white-space:nowrap}
-.facts .stars{color:var(--gold);font-size:14px;letter-spacing:.12em}
+.facts b{display:block;font-family:var(--disp);font-weight:900;font-size:38px;line-height:1;letter-spacing:.01em;white-space:nowrap}
 .facts small{display:block;font-size:14px;color:var(--ink2);margin-top:4px}
-.acts{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.acts{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .btn{display:flex;align-items:center;justify-content:center;height:54px;text-decoration:none;font-weight:600;font-size:17px;border:1px solid var(--ink);color:var(--ink)}
-.btn.fill{background:var(--gold);border-color:var(--gold);color:#1d1f21}
+.btn.fill{background:var(--ink);border-color:var(--ink);color:#1d1f21}
 .status{margin-top:12px;font-size:15px;color:var(--ink2)}
 .status::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:#7fc97f;margin-right:8px;vertical-align:1px}
 .status.closed::before{background:#c96c6c}
 
-/* sections */
-section{padding-top:56px;scroll-margin-top:57px}
+section{padding-top:52px;scroll-margin-top:57px}
 h2{font-size:52px;color:var(--ink)}
-.sub{margin-top:8px;font-size:17px;color:var(--ink2);max-width:40ch}
 
-/* cuts: full-bleed photos with overlaid label */
-.cuts{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:3px}
-.cut{position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--bg2)}
+/* haircuts: one big, three small, then more photos with no labels */
+.cuts{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.cut{position:relative;overflow:hidden;background:var(--bg2);aspect-ratio:3/4}
+.cut.big{grid-column:1 / -1;aspect-ratio:4/3}
 .cut img{width:100%;height:100%;object-fit:cover}
-.cut::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,32,34,0) 55%,rgba(30,32,34,.85) 100%)}
-.cut figcaption{position:absolute;left:12px;right:12px;bottom:10px;z-index:1}
-.cut b{display:block;font-family:var(--disp);font-weight:900;font-size:27px;line-height:1;color:#fff}
-.cut span{display:block;font-size:13px;color:rgba(255,255,255,.8);margin-top:3px}
-.cuts-note{margin-top:14px;font-size:15px;color:var(--ink2)}
-
-/* waiting room */
-.lounge-text{margin-top:16px;font-size:20px;line-height:1.45;max-width:34ch}
-
-/* filmstrip */
-.strip{margin-top:22px;display:flex;gap:4px;overflow-x:auto;scroll-snap-type:none;-webkit-overflow-scrolling:touch;padding-left:var(--pad);padding-right:var(--pad)}
-.strip figure{flex:0 0 58%;aspect-ratio:4/5;overflow:hidden;background:var(--bg2)}
+.cut.big img{object-position:50% 35%}
+.cut figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:28px 10px 8px;background:linear-gradient(180deg,rgba(30,32,34,0),rgba(30,32,34,.8))}
+.cut.big figcaption{padding:40px 14px 12px}
+.cut b{display:block;font-family:var(--disp);font-weight:900;font-size:22px;line-height:1;color:#fff}
+.cut.big b{font-size:34px}
+.cut-note{margin-top:14px;font-size:16px;line-height:1.5;color:var(--ink2);max-width:40ch}
+.strip{margin-top:20px;display:flex;gap:3px;overflow-x:auto;scroll-snap-type:none;-webkit-overflow-scrolling:touch;padding-left:var(--pad);padding-right:var(--pad)}
+.strip figure{flex:0 0 46%;aspect-ratio:3/4;overflow:hidden;background:var(--bg2)}
 .strip img{width:100%;height:100%;object-fit:cover}
 .strip::-webkit-scrollbar{height:0}
 
 /* reviews */
-.score{margin-top:18px;display:flex;align-items:flex-end;gap:16px}
-.score b{font-family:var(--disp);font-weight:900;font-size:120px;line-height:.8;color:var(--gold)}
-.score div{padding-bottom:8px}
-.score .stars{display:block;color:var(--gold);font-size:18px;letter-spacing:.12em}
+.score{margin-top:16px;display:flex;align-items:flex-end;gap:14px}
+.score b{font-family:var(--disp);font-weight:900;font-size:108px;line-height:.8}
+.score div{padding-bottom:6px}
+.score .stars{display:block;font-size:17px;letter-spacing:.12em}
 .score small{display:block;font-size:15px;color:var(--ink2);margin-top:4px}
-.quotes{margin-top:26px;display:grid;gap:22px}
-.quotes blockquote{margin:0;font-size:20px;line-height:1.4;font-weight:500}
-.quotes .by{margin-top:8px;font-family:var(--disp);font-weight:700;font-size:22px;color:var(--gold);letter-spacing:.02em}
-.quotes .by small{font-family:var(--body);font-weight:400;font-size:14px;color:var(--ink2);margin-left:8px;letter-spacing:0}
-.people{margin-top:26px;border-top:1px solid var(--line)}
-.people li{padding:12px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:baseline}
-.people b{font-family:var(--disp);font-weight:700;font-size:24px;line-height:1}
-.people q{font-size:15px;color:var(--ink2);quotes:"„" "“"}
-.people-note{margin-top:10px;font-size:14px;color:var(--ink2)}
-.more{display:inline-block;margin-top:16px;font-weight:600;color:var(--gold);text-decoration:underline;text-underline-offset:4px}
+.quotes{margin-top:24px;border-top:1px solid var(--line)}
+.quotes li{padding:18px 0;border-bottom:1px solid var(--line)}
+.quotes blockquote{margin:0;font-size:19px;line-height:1.4;font-weight:500}
+.quotes .by{margin-top:8px;font-size:15px;color:var(--ink2)}
+.more{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
 
 /* where */
-.addr{margin-top:16px}
+.addr{margin-top:14px}
 .addr b{display:block;font-family:var(--disp);font-weight:900;font-size:40px;line-height:1}
 .addr span{display:block;margin-top:6px;color:var(--ink2)}
-.addr .tel{display:inline-block;margin-top:12px;font-family:var(--disp);font-weight:700;font-size:34px;line-height:1;text-decoration:none;color:var(--ink);letter-spacing:.03em}
-.hours{margin-top:22px;border-top:1px solid var(--line)}
-.hours li{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);font-weight:500}
-.hours li span{font-variant-numeric:tabular-nums;color:var(--ink2)}
-.hours li.today{color:var(--gold)}
-.hours li.today span{color:var(--gold)}
+.addr .tel{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;font-family:var(--disp);font-weight:700;font-size:34px;line-height:1;text-decoration:none;color:var(--ink);letter-spacing:.03em}
+.hours{margin-top:18px;border-top:1px solid var(--line)}
+.hours li{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
 .hours li b{font-weight:500}
+.hours li span{font-variant-numeric:tabular-nums}
+.hours li.today{color:var(--ink)}
+.hours li.today b{font-weight:700}
 .hours li.today b::after{content:"dnes";font-size:12px;color:var(--ink2);margin-left:8px;font-weight:400}
-.map{margin-top:22px;display:block;position:relative;background:var(--bg2);aspect-ratio:1/1;overflow:hidden}
-.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;filter:grayscale(1) contrast(1.05)}
-.map-note{display:inline-block;margin-top:12px;font-weight:600;color:var(--gold);text-decoration:underline;text-underline-offset:4px}
+.map{margin-top:20px;display:block;position:relative;background:var(--bg2);aspect-ratio:1/1;overflow:hidden}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+.map-note{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
 
-footer{margin-top:64px;padding-top:22px;padding-bottom:110px;border-top:1px solid var(--line);font-size:14px;color:var(--ink2)}
+footer{margin-top:56px;padding-top:20px;padding-bottom:110px;border-top:1px solid var(--line);font-size:14px;color:var(--ink2)}
 footer b{color:var(--ink)}
-footer a{color:var(--ink)}
+footer a{color:var(--ink);display:inline-block;padding:10px 0}
 
 /* bottom bar */
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:15;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .2s ease}
 .bar.show{transform:none}
 .bar a{display:flex;align-items:center;justify-content:center;height:50px;text-decoration:none;font-weight:600;font-size:16px;border:1px solid var(--ink);color:var(--ink)}
-.bar a.fill{background:var(--gold);border-color:var(--gold);color:#1d1f21}
+.bar a.fill{background:var(--ink);border-color:var(--ink);color:#1d1f21}
 @media (prefers-reduced-motion:reduce){.bar{transition:none}}
 
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
 /* wide */
 @media (min-width:900px){
@@ -156,19 +142,21 @@ footer a{color:var(--ink)}
   .burger{display:none}
   .top{display:grid;grid-template-columns:7fr 5fr;gap:40px;align-items:center;padding-top:28px}
   .hero{aspect-ratio:4/3}
-  .hero h1{font-size:96px;left:28px;right:28px;bottom:26px}
   .lede{padding-top:0;font-size:21px}
-  .facts b{font-size:52px}
-  section{padding-top:80px}
+  .facts b{font-size:48px}
+  section{padding-top:76px}
   h2{font-size:72px}
-  .cuts{grid-template-columns:repeat(4,1fr);gap:8px}
-  .cut b{font-size:34px}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-  .lounge-text{margin-top:0;font-size:22px}
-  .strip{overflow:visible;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:1160px;margin-left:auto;margin-right:auto}
-  .strip figure{flex:none}
-  .quotes{grid-template-columns:repeat(3,1fr);gap:40px}
-  .score b{font-size:160px}
+  .cuts{grid-template-columns:2fr 1fr 1fr 1fr;gap:6px}
+  .cut{aspect-ratio:auto;height:440px}
+  .cut.big{grid-column:auto;aspect-ratio:auto}
+  .cut b{font-size:26px}
+  .cut.big b{font-size:34px}
+  .strip{overflow:visible;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;max-width:1160px;margin-left:auto;margin-right:auto}
+  .strip figure{flex:none;aspect-ratio:4/5}
+  .rev{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:start}
+  .score{margin-top:20px}
+  .score b{font-size:150px}
+  .quotes{margin-top:20px;max-width:56ch}
   .where{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
   .map{margin-top:0;aspect-ratio:4/3}
   footer{padding-bottom:28px}
@@ -182,7 +170,7 @@ footer a{color:var(--ink)}
   <div class="mast-in wrap">
     <a class="wm" href="#top"><b>ALFA</b><span>Barber Shop, OC Cíl</span></a>
     <nav class="dnav" aria-label="Sekce">
-      <a href="#strihy">Střihy</a><a href="#cekarna">Čekárna</a><a href="#fotky">Fotky</a><a href="#recenze">Recenze</a><a href="#kde">Kde nás najdete</a>
+      <a href="#strihy">Střihy</a><a href="#recenze">Recenze</a><a href="#kde">Kde nás najdete</a>
     </nav>
     <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mnav"><i></i>Menu</button>
   </div>
@@ -190,9 +178,7 @@ footer a{color:var(--ink)}
 <nav class="mnav" id="mnav" aria-label="Menu">
   <div class="mnav-top"><b>ALFA</b><button type="button" class="close" id="burgerClose">Zavřít</button></div>
   <ol>
-    <li><a href="#strihy">Střihy<small>Pánské, fade, buzzcut, dětské</small></a></li>
-    <li><a href="#cekarna">Čekárna<small>PlayStation, pití, sladké</small></a></li>
-    <li><a href="#fotky">Fotky<small>Z křesla</small></a></li>
+    <li><a href="#strihy">Střihy<small>Pánské, fade, buzzcut, dětské. Fotky z křesla.</small></a></li>
     <li><a href="#recenze">Recenze<small>5,0 ze 152 na Googlu</small></a></li>
     <li><a href="#kde">Kde nás najdete<small>OC Cíl, Topolová 2915/16, otevírací doba</small></a></li>
   </ol>
@@ -203,12 +189,11 @@ footer a{color:var(--ink)}
   <div class="top wrap">
     <figure class="hero bleed">
       <img src="img/hero.jpg" width="1500" height="844" fetchpriority="high" alt="Salon ALFA Barber Shop: černá holičská křesla, šedé stěny a strop z šestiúhelníkových LED světel">
-      <h1>ALFA<small>BARBER SHOP</small></h1>
     </figure>
     <div class="intro">
-      <p class="lede">Pánské a dětské střihy v OC Cíl na Zahradním Městě. Přijít můžete bez objednání, každý den do půl osmé večer.</p>
+      <h1 class="lede">Barbershop v OC Cíl na Zahradním Městě. Pánské a dětské střihy, bez objednání, každý den do půl osmé večer.</h1>
       <div class="facts">
-        <div><b>5,0</b><span class="stars" aria-hidden="true">★★★★★</span><small>ze 152 recenzí na Googlu</small></div>
+        <div><b>5,0</b><small>ze 152 recenzí na Googlu</small></div>
         <div><b id="openBig">9:00–19:30</b><small id="openSmall">dnes</small></div>
       </div>
       <div class="acts" id="acts">
@@ -221,48 +206,34 @@ footer a{color:var(--ink)}
 
   <section id="strihy" class="wrap">
     <h2>Střihy</h2>
-    <p class="sub">Muži i děti. Střih trvá zhruba půl hodiny až tři čtvrtě, ceník je v salonu.</p>
     <div class="cuts bleed">
-      <figure class="cut"><img src="img/c1.jpg" width="1000" height="1333" loading="lazy" alt="Pánský střih s texturou nahoře a krátkými boky"><figcaption><b>Pánský střih</b><span>klasika i trendy</span></figcaption></figure>
-      <figure class="cut"><img src="img/c3.jpg" width="1000" height="1333" loading="lazy" alt="Fade s hladkým přechodem od kůže"><figcaption><b>Fade</b><span>do ztracena od kůže</span></figcaption></figure>
-      <figure class="cut"><img src="img/c6.jpg" width="1000" height="1333" loading="lazy" alt="Buzzcut strojkem"><figcaption><b>Buzzcut</b><span>strojkem, rychle</span></figcaption></figure>
-      <figure class="cut"><img src="img/c8.jpg" width="1000" height="1333" loading="lazy" alt="Dětský střih"><figcaption><b>Dětský střih</b><span>vhodné pro děti</span></figcaption></figure>
+      <figure class="cut big"><img src="img/c1.jpg" width="1000" height="1333" loading="lazy" alt="Pánský střih s texturou nahoře a krátkými boky"><figcaption><b>Pánský střih</b></figcaption></figure>
+      <figure class="cut"><img src="img/c3.jpg" width="1000" height="1333" loading="lazy" alt="Fade s hladkým přechodem od kůže"><figcaption><b>Fade</b></figcaption></figure>
+      <figure class="cut"><img src="img/c6.jpg" width="1000" height="1333" loading="lazy" alt="Buzzcut strojkem"><figcaption><b>Buzzcut</b></figcaption></figure>
+      <figure class="cut"><img src="img/c5.jpg" width="1000" height="1333" loading="lazy" alt="Dětský střih, chlapec v křesle"><figcaption><b>Dětský střih</b></figcaption></figure>
     </div>
-  </section>
-
-  <section id="cekarna" class="wrap">
-    <h2>Čekárna</h2>
-    <p class="sub">Když je plno, počkáte na gauči.</p>
-    <div class="two">
-      <p class="lounge-text">Na stole je PlayStation, pití a něco sladkého, všechno zdarma. Děti vítány, klidně i s rodiči.</p>
-    </div>
-  </section>
-
-  <section id="fotky">
-    <div class="wrap"><h2>Fotky</h2><p class="sub">Z křesla, tak jak odcházeli.</p></div>
-    <div class="strip">
-      <figure><img src="img/c2.jpg" width="900" height="1600" loading="lazy" alt="Hotový střih, pohled ze strany"></figure>
+    <p class="cut-note">Střih trvá zhruba půl hodiny až tři čtvrtě. Když je plno, počkáte na gauči, na stole je PlayStation, pití a něco sladkého. Děti stříháme i s rodiči u křesla.</p>
+    <div class="strip bleed">
+      <figure><img src="img/c2.jpg" width="900" height="1600" loading="lazy" alt="Hotový střih, pohled zepředu"></figure>
       <figure><img src="img/c4.jpg" width="1000" height="1333" loading="lazy" alt="Hotový střih s ostrým přechodem"></figure>
-      <figure><img src="img/c5.jpg" width="1000" height="1333" loading="lazy" alt="Hotový střih, zákazník v křesle"></figure>
-      <figure><img src="img/c7.jpg" width="1000" height="1333" loading="lazy" alt="Hotový střih, pohled zezadu"></figure>
+      <figure><img src="img/c7.jpg" width="1000" height="1333" loading="lazy" alt="Hotový střih, zákazník v křesle"></figure>
+      <figure><img src="img/c8.jpg" width="1000" height="1333" loading="lazy" alt="Hotový střih, šedivé vlasy nakrátko"></figure>
     </div>
   </section>
 
   <section id="recenze" class="wrap">
     <h2>Recenze</h2>
-    <div class="score"><b>5,0</b><div><span class="stars" aria-hidden="true">★★★★★</span><small>152 recenzí na Googlu</small></div></div>
-    <ul class="quotes">
-      <li><blockquote>„Po dlouhé době mě někdo ostříhal podle mích představ. Bez objednání. Milí personál.“</blockquote><p class="by">Jiří<small>Google</small></p></li>
-      <li><blockquote>„Syn 6 let dává 10/10, barber moc milý a profesionální. Super cut. Určitě se vrátíme.“</blockquote><p class="by">Kája<small>Google</small></p></li>
-      <li><blockquote>„Stříhal mě David, pečlivá práce, má dobrý cit, hned pochopil, jaký účes mám na mysli.“</blockquote><p class="by">Dawe<small>Google</small></p></li>
-    </ul>
-    <ul class="people">
-      <li><b>Martin</b> <q>Byl jsem konkrétně u Martina a dávám 👍🏻 za mě super</q></li>
-      <li><b>David</b> <q>pečlivá práce, má dobrý cit</q></li>
-      <li><b>Alan</b> <q>Perfektní stříhání od Alana</q></li>
-    </ul>
-    <p class="people-note">Jména a věty jsou z recenzí na Googlu.</p>
-    <a class="more" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener">Všech 152 recenzí</a>
+    <div class="rev">
+      <div class="score"><b>5,0</b><div><span class="stars" aria-hidden="true">★★★★★</span><small>152 recenzí na Googlu</small></div></div>
+      <div>
+        <ul class="quotes">
+          <li><blockquote>„Po dlouhé době mě někdo ostříhal podle mých představ. Bez objednání. Milý personál.“</blockquote><p class="by">Jiří, Google</p></li>
+          <li><blockquote>„Syn 6 let dává 10/10, barber moc milý a profesionální. Super cut. Určitě se vrátíme.“</blockquote><p class="by">Kája, Google</p></li>
+          <li><blockquote>„Pečlivá práce, má dobrý cit, hned pochopil, jaký účes mám na mysli.“</blockquote><p class="by">Dawe, Google</p></li>
+        </ul>
+        <a class="more" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener">Všech 152 recenzí na Googlu</a>
+      </div>
+    </div>
   </section>
 
   <section id="kde" class="wrap">
@@ -286,7 +257,7 @@ footer a{color:var(--ink)}
       </div>
       <div>
         <a class="map" id="mapLink" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener" aria-label="Otevřít v Mapách Google">
-          <iframe title="Mapa: ALFA Barber Shop, Topolová 2915/16, Praha 10" src="https://www.google.com/maps?q=Topolov%C3%A1+2915%2F16%2C+106+00+Praha+10&z=16&output=embed" loading="lazy" tabindex="-1"></iframe>
+          <iframe title="Mapa: ALFA Barber Shop, Topolová 2915/16, Praha 10" src="https://www.google.com/maps?q=ALFA+Barbershop+Topolov%C3%A1+2915%2F16%2C+106+00+Praha+10&z=16&output=embed" loading="lazy" tabindex="-1"></iframe>
         </a>
         <a class="map-note" href="https://www.google.com/maps/dir/?api=1&destination=Topolov%C3%A1+2915%2F16%2C+106+00+Praha+10" target="_blank" rel="noopener">Trasa v Mapách Google</a>
       </div>
@@ -296,7 +267,7 @@ footer a{color:var(--ink)}
 
 <footer class="wrap">
   <p><b>ALFA Barber Shop</b>, Topolová 2915/16, 106 00 Praha 10 – Zahradní Město, OC Cíl</p>
-  <p><a href="tel:+420773137979">773 137 979</a>. Bez objednání, nebo zavolejte.</p>
+  <p><a href="tel:+420773137979">773 137 979</a></p>
 </footer>
 
 <nav class="bar" id="bar" aria-label="Akce">
