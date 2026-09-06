@@ -49,15 +49,6 @@ ul{list-style:none}
   background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,0) 300px);
 }
 .dlazdice>*{position:relative}
-/* the glossy floor itself, once, at the foot of the price list, with nothing on it */
-.podlaha{
-  height:64px;margin-top:26px;border-top:1px solid rgba(255,255,255,.17);
-  background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
-    linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,0) 74%);
-  background-size:72px 72px,72px 72px,100% 100%;
-}
 
 /* ---------- floating menu button + modal ---------- */
 .menu-btn{
@@ -102,11 +93,11 @@ h1{
   font-size:clamp(26px,7.4vw,42px);line-height:1.04;
 }
 h1 .amp{display:block;font-size:.6em;margin-top:.14em}
-.fakta{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:12px;font-size:15px}
+.fakta{display:flex;align-items:baseline;gap:9px;margin-top:12px;font-size:15px}
 .hvezda{font-weight:800;font-size:19px}
 .hvezda i{font-style:normal}
 .pocet{color:var(--beton)}
-.stav{padding-left:11px;border-left:2px solid var(--tus);font-weight:700}
+.stav{margin-top:7px;padding-left:11px;border-left:2px solid var(--tus);font-weight:700;font-size:15px}
 .stav.zavreno{border-left-color:var(--beton);color:var(--beton);font-weight:500}
 .akce{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .btn{
@@ -120,7 +111,7 @@ h1 .amp{display:block;font-size:.6em;margin-top:.14em}
 
 /* ---------- 2. ceník, printed ---------- */
 #cenik,#prace,#adresa{scroll-margin-top:calc(-1 * env(safe-area-inset-top,0px))}
-.cenik{padding:calc(34px + env(safe-area-inset-top,0px)) 0 0}
+.cenik{padding:calc(34px + env(safe-area-inset-top,0px)) 0 44px}
 .nadpis{
   font-family:Sancreek,serif;font-weight:400;text-transform:uppercase;
   font-size:clamp(25px,6.4vw,38px);line-height:1.08;
@@ -138,31 +129,35 @@ h1 .amp{display:block;font-size:.6em;margin-top:.14em}
 .polozka dd{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
 
 /* the one bright panel in the dark section is the surcharge list */
-.pripl-panel{margin-top:24px;background:var(--omitka);color:var(--tus);padding:18px 18px 20px}
-.pripl-panel .skupina-nadpis{color:var(--beton);font-size:15px}
+.pripl-panel{margin-top:26px;background:var(--omitka);color:var(--tus);padding:18px 18px 20px;
+  display:flex;flex-direction:column}
+.pripl-panel .skupina-nadpis{color:var(--beton)}
 .pripl-panel .polozka{border-top-color:#CFD3D0;padding:14px 0}
 .pripl-panel .polozka dt{font-size:18px;font-weight:700}
 .pripl-panel .polozka dd{font-size:18px;font-weight:800}
-.isic-staticky{margin-top:20px;font-size:15px;color:#B9C0BE;max-width:48ch}
-.pripl-foto{margin-top:22px}
-.pripl-foto img{width:100%;height:160px;object-fit:cover;object-position:50% 40%}
-.pripl-foto figcaption{margin-top:8px;font-size:13.5px;color:var(--seda)}
+.pripl-foto{margin-top:18px;display:flex;flex-direction:column;min-height:0}
+.pripl-foto img{width:100%;height:230px;object-fit:cover;object-position:50% 50%}
+.pripl-foto figcaption{margin-top:8px;font-size:13.5px;color:var(--beton)}
+.isic-blok{margin-top:26px}
+.isic-pozn{margin-top:14px;font-size:15px;color:var(--seda);max-width:48ch}
 
 /* ---------- 3. práce ---------- */
 .prace{padding:calc(30px + env(safe-area-inset-top,0px)) 0 34px}
 .prace-hlava{max-width:var(--sirka);margin:0 auto 18px;padding:0 20px}
-.prace-tok{max-width:var(--sirka);margin:0 auto;padding:0 20px;display:grid;gap:16px}
-.prace-tok img{width:100%;height:auto}
-.prace-tok>img:first-child{max-height:340px;object-fit:cover;object-position:50% 34%}
-.dvojice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.dvojice img{height:100%;object-fit:cover;aspect-ratio:4/5}
-.hlasy{display:grid;gap:16px;align-content:start}
-blockquote{margin:0}
-blockquote p{font-size:17.5px;line-height:1.42;font-weight:500;max-width:40ch}
+.prace-tok{max-width:var(--sirka);margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.prace-tok>*{grid-column:1/-1}
+.prace-tok img{width:100%;height:auto;object-fit:cover}
+.prace-tok .foto1{height:330px;object-position:50% 42%}
+.prace-tok .foto2,.prace-tok .foto3{grid-column:auto;aspect-ratio:4/5}
+blockquote{margin:0;background:var(--omitka);padding:20px}
+blockquote p{font-size:20px;line-height:1.4;font-weight:500;text-indent:-.42em}
 blockquote p::before{content:"„"}
 blockquote p::after{content:"“"}
-blockquote footer{margin-top:8px;font-size:14px;color:var(--beton);font-weight:700;padding:0}
-.vsechny{display:inline-flex;align-items:center;min-height:44px;font-weight:700;font-size:16px}
+blockquote footer{
+  margin-top:12px;padding:0;font-size:12.5px;font-weight:800;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--beton);
+}
+.vsechny{display:inline-flex;align-items:center;min-height:44px;font-weight:700;font-size:16px;justify-self:start}
 
 /* ---------- 4. adresa ---------- */
 .adresa{padding:calc(32px + env(safe-area-inset-top,0px)) 0 36px;border-top:2px solid var(--tus)}
@@ -225,26 +220,31 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
   h1{font-size:clamp(36px,4vw,54px)}
   .co{font-size:17px}
 
-  .cenik{padding:calc(56px + env(safe-area-inset-top,0px)) 0 0}
-  .cenik-vnitrek{display:grid;grid-template-columns:1.08fr .92fr;gap:0 56px;align-items:stretch;margin-top:32px}
-  .cenik-prava{display:flex;flex-direction:column;height:100%}
-  .pripl-panel{margin-top:0;padding:22px 24px 24px}
+  .cenik{padding:calc(56px + env(safe-area-inset-top,0px)) 0 72px}
+  .cenik-vnitrek{display:grid;grid-template-columns:1.08fr .92fr;gap:34px 56px;align-items:stretch;margin-top:32px}
+  .blok{grid-column:1;grid-row:1}
   .blok .polozka{padding:17px 0}
-  /* the photo takes exactly the space left over, so both columns end on one baseline */
-  .pripl-foto{margin-top:22px;flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
-  .pripl-foto img{flex:1 1 0;height:0;min-height:190px;object-fit:cover;object-position:50% 40%}
-  .podlaha{height:104px;margin-top:40px}
+  /* the panel starts level with the price list's first rule; its photo takes the slack,
+     so the two columns end on one line */
+  .pripl-panel{grid-column:2;grid-row:1;margin-top:24px;padding:22px 24px 24px}
+  .pripl-foto{margin-top:20px;flex:1 1 auto;min-height:0}
+  .pripl-foto img{flex:1 1 0;height:0;min-height:180px}
+  .isic-blok{grid-column:1/-1;grid-row:2;margin-top:0}
+  .isic-blok dl{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+  .isic-pozn{margin-top:16px}
 
   /* one strip of their work, then the three voices as a newspaper row */
   .prace{padding:calc(52px + env(safe-area-inset-top,0px)) 0 56px}
-  .prace-tok{grid-template-columns:1fr 2fr;gap:26px;align-items:start}
-  .prace-tok>img:first-child{grid-column:1;grid-row:1;height:380px;max-height:none;object-fit:cover;object-position:50% 24%}
-  .dvojice{grid-column:2;grid-row:1;gap:26px}
-  .dvojice img{aspect-ratio:auto;height:380px;object-fit:cover}
-  .prace-tok>blockquote{grid-column:1;grid-row:2}
-  .hlasy{grid-column:2;grid-row:2;grid-template-columns:1fr 1fr;gap:10px 26px;align-content:start}
-  .hlasy .vsechny{grid-column:1/-1}
-  blockquote p{font-size:18.5px;max-width:34ch}
+  /* three finished cuts at one size, then the three voices under them */
+  .prace-tok{grid-template-columns:1fr 1fr 1fr;gap:26px}
+  .prace-tok .foto1{grid-column:1;grid-row:1;height:400px;object-position:50% 42%}
+  .prace-tok .foto2{grid-column:2;grid-row:1;height:400px;aspect-ratio:auto}
+  .prace-tok .foto3{grid-column:3;grid-row:1;height:400px;aspect-ratio:auto}
+  .prace-tok>blockquote:nth-of-type(1){grid-column:1;grid-row:2}
+  .prace-tok>blockquote:nth-of-type(2){grid-column:2;grid-row:2}
+  .prace-tok>blockquote:nth-of-type(3){grid-column:3;grid-row:2}
+  .prace-tok>blockquote{padding:24px}
+  .vsechny{grid-column:1;grid-row:3}
 
   .adresa{padding:calc(52px + env(safe-area-inset-top,0px)) 0 56px}
   .adresa-mrizka{grid-template-columns:1fr 1fr;gap:26px 48px;align-items:start}
@@ -296,8 +296,8 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
     <p class="fakta">
       <span class="hvezda">4,9 <i aria-hidden="true">&#9733;</i></span>
       <span class="pocet">více než 1 100 hodnocení na Googlu</span>
-      <span class="stav" id="stav">Otevírací doba</span>
     </p>
+    <p class="stav" id="stav">Otevírací doba</p>
     <div class="akce" id="akceHero">
       <a class="btn btn-hlavni" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener">Rezervovat termín</a>
       <a class="btn btn-vedlejsi" href="tel:+420777591353">777 591 353</a>
@@ -310,7 +310,7 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
 <section class="cenik dlazdice" id="cenik" aria-labelledby="cenikNadpis">
   <div class="wrap">
     <h2 class="nadpis" id="cenikNadpis">Ceník</h2>
-    <p class="cenik-uvod">Stříháme v Malešicích od roku 2022, jsme tu čtyři a ke střihu u nás dostaneš něco k pití.</p>
+    <p class="cenik-uvod">Tohle je celý ceník. Příplatky nejsou v ceně střihu, počítají se k ní navíc.</p>
 
     <div class="cenik-vnitrek">
       <div class="blok">
@@ -326,26 +326,31 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
         </dl>
       </div>
 
-      <div class="cenik-prava">
-        <div class="pripl-panel">
-          <h3 class="skupina-nadpis">Příplatky ke střihu</h3>
-          <dl>
-            <div class="polozka"><dt>Mytí vlasů</dt><dd>+100 Kč</dd></div>
-            <div class="polozka"><dt>Obočí</dt><dd>+50 Kč</dd></div>
-            <div class="polozka"><dt>Hair tattoo</dt><dd>od +50 Kč</dd></div>
-          </dl>
-        </div>
-
-        <p class="isic-staticky">Se studentskou kartou stojí střih 380 Kč na krátké vlasy a 480 Kč na dlouhé, vlasy a vousy dohromady 620 Kč a 720 Kč. Na samotné vousy a na dětské střihy studentská cena není.</p>
-
+      <div class="pripl-panel">
+        <h3 class="skupina-nadpis">Příplatky ke střihu</h3>
+        <dl>
+          <div class="polozka"><dt>Mytí vlasů</dt><dd>+100 Kč</dd></div>
+          <div class="polozka"><dt>Obočí</dt><dd>+50 Kč</dd></div>
+          <div class="polozka"><dt>Hair tattoo</dt><dd>od +50 Kč</dd></div>
+        </dl>
         <figure class="pripl-foto">
-          <img src="img/hair-tattoo.jpg" width="1200" height="1200" loading="lazy" alt="Vyholená linka nad uchem, hair tattoo, a police s vlasovými produkty za ní">
-          <figcaption>Hair tattoo, vyholená linka nad uchem.</figcaption>
+          <img src="img/hair-tattoo.jpg" width="660" height="370" loading="lazy" alt="Vyholená linka v zátylku, hair tattoo, v pozadí police s vlasovými produkty">
+          <figcaption>Hair tattoo, vyholená linka v zátylku.</figcaption>
         </figure>
+      </div>
+
+      <div class="blok isic-blok">
+        <h3 class="skupina-nadpis">Se studentskou kartou (ISIC)</h3>
+        <dl>
+          <div class="polozka"><dt>Střih, krátké vlasy</dt><dd>380 Kč</dd></div>
+          <div class="polozka"><dt>Střih, dlouhé vlasy</dt><dd>480 Kč</dd></div>
+          <div class="polozka"><dt>Vlasy a vousy, krátké vlasy</dt><dd>620 Kč</dd></div>
+          <div class="polozka"><dt>Vlasy a vousy, dlouhé vlasy</dt><dd>720 Kč</dd></div>
+        </dl>
+        <p class="isic-pozn">Na samotné vousy a na dětské střihy studentská cena neplatí.</p>
       </div>
     </div>
   </div>
-  <div class="podlaha" aria-hidden="true"></div>
 </section>
 
 <!-- 3. práce -->
@@ -354,26 +359,22 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
     <h2 class="nadpis" id="praceNadpis">Práce</h2>
   </div>
   <div class="prace-tok">
-    <img src="img/strih-kudrny.jpg" width="1050" height="1400" loading="lazy" alt="Kudrnatý střih s burst fade, v pozadí šestiúhelníková stropní světla barbershopu">
+    <img class="foto1" src="img/strih-kudrny.jpg" width="900" height="900" loading="lazy" alt="Kudrnatý střih s burst fade z profilu">
     <blockquote>
       <p>Absolutní spokojenost s účesem vyhoví, či poradí, velký výběr pití a produktů do vlasů. David mi udělal úžasný low taper za což mu moc děkuji. Rozhodně doporučuji a přijdu znovu.</p>
       <footer>Martin, 5 hvězd na Googlu</footer>
     </blockquote>
-    <div class="dvojice">
-      <img src="img/strih-vousy.jpg" width="720" height="1280" loading="lazy" alt="Krátká ofina a zastřižené vousy, vedle zrcadlo s teplým podsvícením">
-      <img src="img/detsky-strih.jpg" width="720" height="960" loading="lazy" alt="Barber stříhá kluka v chromovém křesle nad černou lesklou dlažbou">
-    </div>
-    <div class="hlasy">
-      <blockquote>
-        <p>Krásné prostředí a moc milý barber Marek, určitě přijdu znovu a mohu velmi doporučit</p>
-        <footer>5 hvězd na Googlu</footer>
-      </blockquote>
-      <blockquote>
-        <p>Filip je hodný pečlivý barber, na všem si dá záležet a nenechá nic náhodě, za mě 5 hvězd</p>
-        <footer>5 hvězd na Googlu</footer>
-      </blockquote>
-      <a class="vsechny" href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener">Přečíst všechna hodnocení</a>
-    </div>
+    <img class="foto2" src="img/strih-vousy.jpg" width="900" height="900" loading="lazy" alt="Krátká ofina a zastřižené vousy, vedle zrcadlo s teplým podsvícením">
+    <img class="foto3" src="img/strih-fade.jpg" width="950" height="950" loading="lazy" alt="Střih s taper fade a delším vrškem z profilu">
+    <blockquote>
+      <p>Krásné prostředí a moc milý barber Marek, určitě přijdu znovu a mohu velmi doporučit</p>
+      <footer>5 hvězd na Googlu</footer>
+    </blockquote>
+    <blockquote>
+      <p>Filip je hodný pečlivý barber, na všem si dá záležet a nenechá nic náhodě, za mě 5 hvězd</p>
+      <footer>5 hvězd na Googlu</footer>
+    </blockquote>
+    <a class="vsechny" href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener">Přečíst všechna hodnocení</a>
   </div>
 </section>
 
@@ -430,7 +431,7 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
   "url":"https://hensanch.github.io/web-demos/designbarbershop-v4/",
   "image":"https://hensanch.github.io/web-demos/designbarbershop-v4/img/salon.jpg",
   "telephone":"+420777591353",
-  "priceRange":"280–900 Kč",
+  "priceRange":"280–750 Kč",
   "address":{"@type":"PostalAddress","streetAddress":"Počernická 518/55","addressLocality":"Praha 10 – Malešice","postalCode":"108 00","addressCountry":"CZ"},
   "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"1143"},
   "openingHoursSpecification":[
