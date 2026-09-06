@@ -15,14 +15,15 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111213'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,Times New Roman,serif' font-weight='700' font-size='36' fill='%23fff'%3ED%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..900&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Hanken+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BarberShop","name":"Design Barbershop & Studio","telephone":"+420777591353","url":"https://hensanch.github.io/web-demos/designbarbershop-v3/","image":"https://hensanch.github.io/web-demos/designbarbershop-v3/img/hero.jpg","address":{"@type":"PostalAddress","streetAddress":"Počernická 518/55","addressLocality":"Praha 10 – Malešice","postalCode":"108 00","addressCountry":"CZ"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"1143"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:30","closes":"19:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"10:00","closes":"17:00"}],"priceRange":"280–750 Kč"}
 </script>
 <style>
 :root{
-  --white:#ffffff; --black:#111213; --grey:#63645f; --grey2:#b9bab6; --rule:#e3e3e0; --rule2:rgba(255,255,255,.18); --pad:calc(20px + env(safe-area-inset-left));
-  --serif:"Source Serif 4",Georgia,"Times New Roman",serif; --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --white:#fff; --black:#111213; --grey:#63645f; --grey2:#b9bab6; --rule:#e3e3e0; --rule2:rgba(255,255,255,.18);
+  --pad:calc(20px + env(safe-area-inset-left));
+  --sign:Rye,"Times New Roman",serif; --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--white)}
@@ -36,32 +37,42 @@ ul,ol{margin:0;padding:0;list-style:none}
 figure{margin:0}
 .wrap{padding-left:var(--pad);padding-right:var(--pad)}
 .bleed{margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad))}
-.sign-type{font-family:var(--serif);font-weight:800;font-variation-settings:"opsz" 60;text-transform:uppercase;letter-spacing:.08em}
-
-/* the sign over the door */
-.top-bar{position:sticky;top:0;z-index:20;background:var(--black);color:var(--white)}
-.top-in{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
-.top-in .name{text-decoration:none;font-size:12.5px;line-height:1.25;min-height:44px;display:flex;align-items:center;max-width:64%}
 .menu-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:44px;padding:0 14px;border:1px solid var(--rule2);background:transparent;color:var(--white);font:600 15px var(--sans);cursor:pointer;flex:none}
 .menu-btn i{display:block;width:20px;height:2px;background:currentColor;position:relative}
 .menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;width:20px;height:2px;background:currentColor}
 .menu-btn i::before{top:-6px}.menu-btn i::after{top:6px}
+
+/* the sign board, exactly as over the door: black, the name in spurred lettering, the address in bold sans under it */
+.board-sign{background:var(--black);color:var(--white);padding-top:18px;padding-bottom:18px}
+.board-sign .in{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+@media (max-width:360px){.board-sign h1{font-size:25px}.board-sign .addr-line{font-size:12px}}
+.board-sign h1{font:400 30px/1.05 var(--sign);text-transform:uppercase;letter-spacing:.01em;max-width:9ch}
+.board-sign .addr-line{margin-top:10px;font-size:13px;font-weight:700;letter-spacing:.01em;color:var(--white)}
+.board-sign .addr-line span{font-weight:400;color:var(--grey2)}
+
+/* compact bar, appears only once the sign board has scrolled away */
+.top-bar{position:fixed;top:0;left:0;right:0;z-index:20;background:var(--black);color:var(--white);transform:translateY(-100%);transition:transform .2s ease}
+.top-bar.show{transform:none}
+.top-in{display:flex;align-items:center;justify-content:space-between;height:52px;gap:12px}
+.top-in .name{font:400 15px/1.1 var(--sign);text-transform:uppercase;text-decoration:none;min-height:44px;display:flex;align-items:center}
+.top-in .menu-btn{height:40px}
 .top-links{display:none}
+@media (prefers-reduced-motion:reduce){.top-bar{transition:none}}
 
 .sheet{position:fixed;inset:0;z-index:30;background:var(--black);color:var(--white);padding:0 var(--pad) 28px;display:none;flex-direction:column;overflow:auto}
 .sheet.open{display:flex}
 .sheet-top{display:flex;align-items:center;justify-content:space-between;height:60px;border-bottom:1px solid var(--rule2)}
-.sheet-top b{font-size:12.5px}
+.sheet-top b{font:400 15px/1.1 var(--sign);text-transform:uppercase}
 .sheet .close{height:44px;padding:0 14px;border:1px solid var(--rule2);background:transparent;color:var(--white);font:600 15px var(--sans);cursor:pointer}
 .sheet ol{margin-top:8px;margin-bottom:24px}
-.sheet li a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:20px 0;text-decoration:none;border-bottom:1px solid var(--rule2);font-family:var(--serif);font-weight:700;font-size:32px;line-height:1.05}
-.sheet li a small{font-family:var(--sans);font-weight:400;font-size:14px;color:var(--grey2);text-align:right}
+.sheet li a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:20px 0;text-decoration:none;border-bottom:1px solid var(--rule2);font-weight:700;font-size:30px;line-height:1.05}
+.sheet li a small{font-weight:400;font-size:14px;color:var(--grey2);text-align:right}
 .sheet-book{margin-top:auto;display:flex;align-items:center;justify-content:center;height:56px;flex:0 0 56px;background:var(--white);color:var(--black);text-decoration:none;font-weight:700;font-size:17px}
 
-/* first screen: the room, the price, the two buttons */
-.room{overflow:hidden;aspect-ratio:4/3;background:#e8e8e5}
+/* under the sign: the window, then the price, then the buttons */
+.room{overflow:hidden;aspect-ratio:3/2;background:#e8e8e5}
 .room img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.claim{padding-top:18px;font-family:var(--serif);font-weight:500;font-variation-settings:"opsz" 30;font-size:25px;line-height:1.25;letter-spacing:-.005em;max-width:24ch}
+.claim{padding-top:18px;font-size:24px;line-height:1.25;font-weight:600;letter-spacing:-.01em;max-width:26ch}
 .claim b{font-weight:800}
 .go{margin-top:18px;display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
 .go a{display:flex;align-items:center;justify-content:center;height:54px;text-decoration:none;font-weight:700;font-size:17px;border:1px solid var(--black);color:var(--black)}
@@ -70,22 +81,21 @@ figure{margin:0}
 .now b{color:var(--black);font-weight:700}
 .now .state{visibility:hidden}.now .state.on{visibility:visible}
 
-/* the price board, the one black block */
-.board{background:var(--black);color:var(--white);margin-top:44px;padding-top:40px;padding-bottom:48px;scroll-margin-top:60px}
-.board h2{font-size:26px;line-height:1.1}
-.board .lead{margin-top:10px;font-size:16px;color:var(--grey2);max-width:44ch}
-.groups{margin-top:26px}
-.grp+.grp{margin-top:26px}
-.grp h3{font:700 15px/1.3 var(--sans);color:var(--grey2);padding-bottom:6px;border-bottom:1px solid var(--white)}
-.grp h3 span{font-weight:400}
+/* the price list: black, like the board behind their register */
+.cenik{background:var(--black);color:var(--white);margin-top:40px;padding-top:36px;padding-bottom:44px;scroll-margin-top:52px}
+.cenik h2{font-size:22px;font-weight:800;line-height:1.1}
+.groups{margin-top:18px}
+.grp+.grp{margin-top:22px}
+.grp h3{font-size:16px;font-weight:700;padding:8px 0;border-bottom:1px solid var(--white)}
 .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule2)}
 .row span{font-size:17px;line-height:1.3}
 .row small{display:block;font-size:13px;color:var(--grey2);margin-top:2px}
-.row b{font-family:var(--serif);font-weight:700;font-variation-settings:"opsz" 40;font-size:25px;line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
-.board-foot{margin-top:22px;font-size:14px;color:var(--grey2);max-width:44ch}
+.row b{font-weight:800;font-size:22px;line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
+.grp .why{padding-top:10px;font-size:15px;color:var(--grey2)}
+.cenik-foot{margin-top:22px;font-size:14px;color:var(--grey2);max-width:44ch}
 
-/* the work: one big, three small, no heading */
-.work{margin-top:4px;scroll-margin-top:60px}
+/* photos, no heading */
+.work{margin-top:4px;scroll-margin-top:52px}
 .work .big{aspect-ratio:4/3;overflow:hidden;background:#e8e8e5}
 .work .big img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 .work .three{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:4px}
@@ -93,42 +103,41 @@ figure{margin:0}
 .work .three img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
 
 /* reviews: the number, two voices */
-.reviews{padding-top:40px;scroll-margin-top:60px}
+.reviews{padding-top:40px;scroll-margin-top:52px}
 .score{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.score .num{font-family:var(--serif);font-weight:800;font-variation-settings:"opsz" 60;font-size:88px;line-height:.9;letter-spacing:-.03em}
-.score .num i{font-style:normal;font-size:.6em;letter-spacing:-.08em;margin:0 -.04em}
+.score .num{font-weight:800;font-size:84px;line-height:.9;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
 .score .of{font-size:16px;color:var(--grey);max-width:16ch;line-height:1.35}
 .score .of b{display:block;color:var(--black);font-size:17px}
 .quotes{margin-top:22px}
 .quotes li{padding:16px 0;border-top:1px solid var(--rule)}
-.quotes blockquote{margin:0;font-family:var(--serif);font-weight:500;font-variation-settings:"opsz" 30;font-size:21px;line-height:1.35}
+.quotes blockquote{margin:0;font-size:20px;line-height:1.35;font-weight:500}
 .quotes .by{margin-top:8px;font-size:15px;color:var(--grey)}
 .all{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
 
 /* where: the address is the heading */
-.where{padding-top:40px;scroll-margin-top:60px}
-.where h2{font-size:24px;line-height:1.15}
-.where .town{margin-top:6px;color:var(--grey)}
-.where .tel{display:inline-flex;align-items:center;min-height:44px;font-family:var(--serif);font-weight:700;font-variation-settings:"opsz" 40;font-size:28px;text-decoration:none;color:var(--black);font-variant-numeric:tabular-nums}
-.hours{margin-top:8px;border-top:1px solid var(--black)}
+.where{padding-top:40px;scroll-margin-top:52px}
+.where h2{font-size:22px;font-weight:800;line-height:1.15}
+.where .town{margin-top:4px;color:var(--grey)}
+.where .tel{display:inline-flex;align-items:center;min-height:44px;font-weight:800;font-size:26px;text-decoration:none;color:var(--black);font-variant-numeric:tabular-nums}
+.hours{margin-top:6px;border-top:1px solid var(--black)}
 .hours li{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule);color:var(--grey)}
 .hours li span{font-variant-numeric:tabular-nums}
-.hours li.today{color:var(--black);font-weight:700}
-.hours li.today b::after{content:"dnes";font-size:12px;color:var(--grey);margin-left:8px;font-weight:400}
 .hours li b{font-weight:500}
+.hours li.today{color:var(--black)}
 .hours li.today b{font-weight:700}
+.hours li.today b::after{content:"dnes";font-size:12px;color:var(--grey);margin-left:8px;font-weight:400}
 .front{margin-top:22px}
-.front .ph{aspect-ratio:16/9;overflow:hidden;background:#e8e8e5}
-.front img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.front .ph{aspect-ratio:1/1;overflow:hidden;background:#e8e8e5}
+.front img{width:100%;height:100%;object-fit:cover;object-position:0% 50%}
 .front p{margin-top:8px;font-size:14px;color:var(--grey)}
-.map{margin-top:18px;position:relative;background:#e8e8e5;aspect-ratio:16/9;overflow:hidden}
+.map{margin-top:22px;position:relative;background:#e8e8e5;aspect-ratio:16/9;overflow:hidden}
 .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
 .map a{position:absolute;inset:0;z-index:1}
 .maplinks{display:flex;gap:22px;flex-wrap:wrap;margin-top:6px}
 .maplinks a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
 
 footer{margin-top:44px;background:var(--black);color:var(--grey2);padding-top:22px;padding-bottom:110px;font-size:14px}
-footer .name{color:var(--white);font-size:12px;display:block;margin-bottom:8px}
+footer .name{color:var(--white);font:400 14px/1.2 var(--sign);text-transform:uppercase;display:block;margin-bottom:8px}
 footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44px}
 
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:15;display:grid;grid-template-columns:1.4fr 1fr;gap:8px;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:var(--white);border-top:1px solid var(--rule);transform:translateY(110%);transition:transform .2s ease}
@@ -136,8 +145,9 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
 .bar a{display:flex;align-items:center;justify-content:center;height:50px;text-decoration:none;font-weight:700;font-size:16px;border:1px solid var(--black);color:var(--black)}
 .bar a.book{background:var(--black);color:var(--white)}
 @media (prefers-reduced-motion:reduce){.bar{transition:none}}
+
 :focus-visible{outline:3px solid var(--black);outline-offset:2px}
-.board :focus-visible,.sheet :focus-visible,footer :focus-visible,.top-bar :focus-visible{outline-color:var(--white)}
+.cenik :focus-visible,.sheet :focus-visible,footer :focus-visible,.top-bar :focus-visible,.board-sign :focus-visible{outline-color:var(--white)}
 .go a.book:focus-visible,.bar a.book:focus-visible{outline-color:var(--white);outline-offset:-5px}
 .sheet-book:focus-visible{outline-color:var(--black);outline-offset:-5px}
 
@@ -145,18 +155,23 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   :root{--pad:calc(40px + env(safe-area-inset-left))}
   .wrap{max-width:1240px;margin-left:auto;margin-right:auto}
   .bleed{margin-left:0;margin-right:0}
-  .top-in .name{font-size:14px;letter-spacing:.12em}
-  .menu-btn{display:none}
-  .top-links{display:flex;gap:26px}
+  .board-sign{padding-top:26px;padding-bottom:26px}
+  .board-sign h1{font-size:44px;max-width:none}
+  .board-sign .addr-line{font-size:15px}
+  .board-sign .menu-btn{display:none}
+  .board-sign .top-links{display:flex;gap:26px;align-self:center}
   .top-links a{text-decoration:none;font-weight:600;font-size:15px}
+  .top-bar .menu-btn{display:none}
+  .top-bar .top-links{display:flex;gap:26px}
   .open{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:center;padding-top:32px}
-  .claim{padding-top:0;font-size:30px;max-width:22ch}
-  .board{margin-top:72px;padding-top:56px;padding-bottom:64px}
-  .board h2{font-size:34px}
+  .room{aspect-ratio:4/3}
+  .claim{padding-top:0;font-size:28px;max-width:24ch}
+  .cenik{margin-top:72px;padding-top:52px;padding-bottom:64px}
+  .cenik h2{font-size:28px}
   .groups{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
   .grp+.grp{margin-top:0}
   .grp:nth-child(n+3){margin-top:32px}
-  .row b{font-size:28px}
+  .row b{font-size:24px}
   .work{margin-top:8px}
   .work .big{aspect-ratio:2/1}
   .work .big img{object-position:50% 35%}
@@ -164,14 +179,14 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   .work .three figure{aspect-ratio:4/3}
   .reviews{padding-top:72px;display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
   .score{display:block}
-  .score .num{font-size:150px}
+  .score .num{font-size:140px}
   .score .of{margin-top:14px;max-width:none}
   .quotes{margin-top:0;max-width:58ch}
   .where{padding-top:72px;display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
-  .where h2{font-size:30px}
-  .front{margin-top:0}
-  .front .ph{aspect-ratio:3/2}
-  .map{aspect-ratio:4/3}
+  .where h2{font-size:28px}
+  .front .ph{aspect-ratio:4/3}
+  .front img{object-position:0% 50%}
+  .map{margin-top:0;aspect-ratio:4/3}
   footer{padding-bottom:28px}
   .bar{display:none}
 }
@@ -179,17 +194,31 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
 </head>
 <body>
 
-<header class="top-bar">
-  <div class="top-in wrap">
-    <a class="name sign-type" href="#top">Design Barbershop &amp; Studio</a>
+<header class="board-sign wrap" id="sign">
+  <div class="in">
+    <div>
+      <h1>Design Barbershop &amp; Studio</h1>
+      <p class="addr-line">Počernická 518/55, Praha 10 – Malešice <span>&nbsp; 777 591 353</span></p>
+    </div>
     <nav class="top-links" aria-label="Sekce">
       <a href="#cenik">Ceník</a><a href="#fotky">Fotky</a><a href="#recenze">Recenze</a><a href="#kde">Kde nás najdeš</a>
     </nav>
     <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sheet"><i></i>Menu</button>
   </div>
 </header>
+
+<div class="top-bar" id="topBar" aria-hidden="true">
+  <div class="top-in wrap">
+    <a class="name" href="#sign" tabindex="-1">Design Barbershop</a>
+    <nav class="top-links" aria-label="Sekce">
+      <a href="#cenik" tabindex="-1">Ceník</a><a href="#fotky" tabindex="-1">Fotky</a><a href="#recenze" tabindex="-1">Recenze</a><a href="#kde" tabindex="-1">Kde nás najdeš</a>
+    </nav>
+    <button type="button" class="menu-btn" id="menuBtn2" tabindex="-1" aria-hidden="true"><i></i>Menu</button>
+  </div>
+</div>
+
 <nav class="sheet" id="sheet" aria-label="Menu" role="dialog" aria-modal="true">
-  <div class="sheet-top"><b class="sign-type">Design Barbershop &amp; Studio</b><button type="button" class="close" id="menuClose">Zavřít</button></div>
+  <div class="sheet-top"><b>Design Barbershop</b><button type="button" class="close" id="menuClose">Zavřít</button></div>
   <ol>
     <li><a href="#cenik">Ceník<small>i s příplatky</small></a></li>
     <li><a href="#fotky">Fotky<small>z křesla</small></a></li>
@@ -199,11 +228,11 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   <a class="sheet-book" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener">Objednat na Nooně</a>
 </nav>
 
-<main id="top">
+<main>
   <div class="open wrap">
     <figure class="room bleed"><img src="img/hero.jpg" width="1167" height="723" fetchpriority="high" alt="Uvnitř Design Barbershopu: černá křesla, bílé stěny, šestiúhelníková LED světla a popínavé rostliny na stropě"></figure>
     <div>
-      <h1 class="claim">Klasický střih <b>420 Kč</b>, delší vlasy 520. Mytí, obočí a hair tattoo jsou příplatky a máš je tady v ceníku.</h1>
+      <p class="claim">Klasický střih <b>420 Kč</b>, delší vlasy 520. Mytí, obočí a hair tattoo se připlácí.</p>
       <div class="go" id="go">
         <a class="book" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener">Objednat na Nooně</a>
         <a href="tel:+420777591353">Zavolat</a>
@@ -212,15 +241,14 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
     </div>
   </div>
 
-  <section id="cenik" class="board">
+  <section id="cenik" class="cenik">
     <div class="wrap">
-      <h2 class="sign-type">Ceník</h2>
-      <p class="lead">Ceny podle Noony k 3. 9. 2026. Příplatky nejsou v ceně střihu, tady je máš vypsané, ať tě u pokladny nic nepřekvapí.</p>
+      <h2>Ceník</h2>
       <div class="groups">
         <div class="grp">
-          <h3>Pánský střih <span>30 minut</span></h3>
-          <div class="row"><span>Klasický střih</span><b>420 Kč</b></div>
-          <div class="row"><span>Mullet, messy fringe, edgar, warrior cut, fade s texturou<small>delší vlasy a trendy účesy</small></span><b>520 Kč</b></div>
+          <h3>Pánský střih</h3>
+          <div class="row"><span>Klasický střih<small>30 minut</small></span><b>420 Kč</b></div>
+          <div class="row"><span>Mullet, messy fringe, edgar, warrior cut, fade s texturou<small>delší vlasy a trendy účesy, 30 minut</small></span><b>520 Kč</b></div>
         </div>
         <div class="grp">
           <h3>Vousy</h3>
@@ -229,18 +257,19 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
           <div class="row"><span>Vlasy a vousy, dlouhé</span><b>750 Kč</b></div>
         </div>
         <div class="grp">
-          <h3>Dětský střih <span>do 10 let</span></h3>
+          <h3>Dětský střih do 10 let</h3>
           <div class="row"><span>Krátké vlasy</span><b>350 Kč</b></div>
           <div class="row"><span>Dlouhé vlasy, trendy účesy</span><b>450 Kč</b></div>
         </div>
         <div class="grp">
-          <h3>Příplatky <span>jen když je chceš</span></h3>
+          <h3>Příplatky</h3>
           <div class="row"><span>Mytí vlasů</span><b>+100 Kč</b></div>
           <div class="row"><span>Obočí</span><b>+50 Kč</b></div>
           <div class="row"><span>Hair tattoo</span><b>od +50 Kč</b></div>
+          <p class="why">Ať tě u pokladny nic nepřekvapí.</p>
         </div>
       </div>
-      <p class="board-foot">Studenti s ISIC: střih 380 / 480 Kč, vlasy a vousy 620 / 720 Kč.</p>
+      <p class="cenik-foot">Studenti s ISIC: střih 380 / 480 Kč, vlasy a vousy 620 / 720 Kč.</p>
     </div>
   </section>
 
@@ -255,7 +284,7 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
 
   <section id="recenze" class="reviews wrap" aria-label="Recenze">
     <div class="score">
-      <div class="num" aria-label="4,9 z 5">4<i>,</i>9</div>
+      <div class="num" aria-label="4,9 z 5">4,9</div>
       <p class="of"><b>z více než 1 100 recenzí</b>na Googlu</p>
     </div>
     <div>
@@ -269,26 +298,26 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
 
   <section id="kde" class="where wrap">
     <div>
-      <h2 class="sign-type">Počernická 518/55</h2>
+      <h2>Počernická 518/55</h2>
       <p class="town">108 00 Praha 10 – Malešice</p>
       <a class="tel" href="tel:+420777591353">777 591 353</a>
       <ul class="hours" id="hoursBody">
         <li data-days="1,2,3,4,5"><b>Pondělí až pátek</b><span>9:30 – 19:30</span></li>
         <li data-days="6,0"><b>Sobota a neděle</b><span>10:00 – 17:00</span></li>
       </ul>
-      <div class="maplinks">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Po%C4%8Dernick%C3%A1+518%2F55%2C+108+00+Praha+10" target="_blank" rel="noopener">Trasa v Mapách Google</a>
-        <a href="https://mapy.cz/?q=Po%C4%8Dernick%C3%A1%20518%2F55%2C%20Praha%2010" target="_blank" rel="noopener">Mapy.cz</a>
-      </div>
-    </div>
-    <div>
       <div class="front">
         <div class="ph bleed"><img src="img/street.jpg" width="1400" height="788" loading="lazy" alt="Černá fasáda Design Barbershopu s bílým nápisem nad výlohou"></div>
         <p>Černá fasáda a bílý nápis nad výlohou, u dveří sloupek.</p>
       </div>
+    </div>
+    <div>
       <div class="map bleed">
         <iframe title="Mapa: Design Barbershop, Počernická 518/55, Praha 10" src="https://www.google.com/maps?q=Design+Barbershop+Po%C4%8Dernick%C3%A1+518%2F55%2C+108+00+Praha+10&z=16&output=embed" loading="lazy" tabindex="-1"></iframe>
         <a href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener" aria-label="Otevřít v Mapách Google"></a>
+      </div>
+      <div class="maplinks">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Po%C4%8Dernick%C3%A1+518%2F55%2C+108+00+Praha+10" target="_blank" rel="noopener">Trasa v Mapách Google</a>
+        <a href="https://mapy.cz/?q=Po%C4%8Dernick%C3%A1%20518%2F55%2C%20Praha%2010" target="_blank" rel="noopener">Mapy.cz</a>
       </div>
     </div>
   </section>
@@ -296,7 +325,7 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
 
 <footer>
   <div class="wrap">
-    <span class="name sign-type">Design Barbershop &amp; Studio</span>
+    <span class="name">Design Barbershop &amp; Studio</span>
     <p>Počernická 518/55, 108 00 Praha 10 – Malešice</p>
     <p><a href="tel:+420777591353">777 591 353</a></p>
   </div>
@@ -329,17 +358,27 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   }
   hours(); setInterval(hours, 60000);
 
-  var sheet = document.getElementById("sheet"), btn = document.getElementById("menuBtn"), cls = document.getElementById("menuClose");
-  function setMenu(open){ sheet.classList.toggle("open", open); document.body.classList.toggle("menu-open", open); btn.setAttribute("aria-expanded", open ? "true" : "false"); ["main","header","footer",".bar"].forEach(function(q){ var el = document.querySelector(q); if (el) { if (open) el.setAttribute("inert",""); else el.removeAttribute("inert"); } }); (open ? cls : btn).focus(); }
+  var sheet = document.getElementById("sheet"), btn = document.getElementById("menuBtn"), btn2 = document.getElementById("menuBtn2"), cls = document.getElementById("menuClose");
+  function setMenu(open){
+    sheet.classList.toggle("open", open); document.body.classList.toggle("menu-open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    ["main","header","footer",".bar",".top-bar"].forEach(function(q){ var el = document.querySelector(q); if (el) { if (open) el.setAttribute("inert",""); else el.removeAttribute("inert"); } });
+    (open ? cls : btn).focus();
+  }
   btn.addEventListener("click", function(){ setMenu(!sheet.classList.contains("open")); });
+  btn2.addEventListener("click", function(){ setMenu(true); });
   cls.addEventListener("click", function(){ setMenu(false); });
   sheet.querySelectorAll("a[href^='#']").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
   document.addEventListener("keydown", function(e){ if (e.key === "Escape" && sheet.classList.contains("open")) setMenu(false); });
 
-  var bar = document.getElementById("bar"), go = document.getElementById("go");
-  function barCheck(){ bar.classList.toggle("show", go.getBoundingClientRect().bottom < 0); }
-  if ("IntersectionObserver" in window) { new IntersectionObserver(function(){ barCheck(); }, { threshold: 0 }).observe(go); }
-  window.addEventListener("scroll", barCheck, { passive: true }); barCheck();
+  var bar = document.getElementById("bar"), go = document.getElementById("go"), topBar = document.getElementById("topBar"), sign = document.getElementById("sign");
+  function onScroll(){
+    bar.classList.toggle("show", go.getBoundingClientRect().bottom < 0);
+    var up = sign.getBoundingClientRect().bottom < 0;
+    topBar.classList.toggle("show", up); topBar.setAttribute("aria-hidden", up ? "false" : "true");
+    topBar.querySelectorAll("a,button").forEach(function(el){ if (up) el.removeAttribute("tabindex"); else el.setAttribute("tabindex","-1"); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true }); window.addEventListener("resize", onScroll); onScroll();
 })();
 </script>
 </body>
