@@ -48,13 +48,13 @@ figure{margin:0}
 @media (max-width:360px){.board-sign h1{font-size:25px}.board-sign .addr-line{font-size:12px}}
 .board-sign h1{font:400 30px/1.05 var(--sign);text-transform:uppercase;letter-spacing:.01em;max-width:9ch}
 .board-sign .addr-line{margin-top:10px;font-size:13px;font-weight:700;letter-spacing:.01em;color:var(--white)}
-.board-sign .addr-line span{font-weight:400;color:var(--grey2)}
+.board-sign .addr-line span{font-weight:400;color:var(--grey2);display:block;margin-top:2px}
 
 /* compact bar, appears only once the sign board has scrolled away */
 .top-bar{position:fixed;top:0;left:0;right:0;z-index:20;background:var(--black);color:var(--white);transform:translateY(-100%);transition:transform .2s ease}
 .top-bar.show{transform:none}
 .top-in{display:flex;align-items:center;justify-content:space-between;height:52px;gap:12px}
-.top-in .name{font:400 15px/1.1 var(--sign);text-transform:uppercase;text-decoration:none;min-height:44px;display:flex;align-items:center}
+.top-in .name{font:700 14px/1.1 var(--sans);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;min-height:44px;display:flex;align-items:center}
 .top-in .menu-btn{height:40px}
 .top-links{display:none}
 @media (prefers-reduced-motion:reduce){.top-bar{transition:none}}
@@ -62,7 +62,7 @@ figure{margin:0}
 .sheet{position:fixed;inset:0;z-index:30;background:var(--black);color:var(--white);padding:0 var(--pad) 28px;display:none;flex-direction:column;overflow:auto}
 .sheet.open{display:flex}
 .sheet-top{display:flex;align-items:center;justify-content:space-between;height:60px;border-bottom:1px solid var(--rule2)}
-.sheet-top b{font:400 15px/1.1 var(--sign);text-transform:uppercase}
+.sheet-top b{font:700 14px/1.1 var(--sans);letter-spacing:.06em;text-transform:uppercase}
 .sheet .close{height:44px;padding:0 14px;border:1px solid var(--rule2);background:transparent;color:var(--white);font:600 15px var(--sans);cursor:pointer}
 .sheet ol{margin-top:8px;margin-bottom:24px}
 .sheet li a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:20px 0;text-decoration:none;border-bottom:1px solid var(--rule2);font-weight:700;font-size:30px;line-height:1.05}
@@ -78,8 +78,7 @@ figure{margin:0}
 .go a{display:flex;align-items:center;justify-content:center;height:54px;text-decoration:none;font-weight:700;font-size:17px;border:1px solid var(--black);color:var(--black)}
 .go a.book{background:var(--black);color:var(--white)}
 .now{margin-top:14px;font-size:15px;color:var(--grey);line-height:1.5}
-.now b{color:var(--black);font-weight:700}
-.now .state{visibility:hidden}.now .state.on{visibility:visible}
+.now .state{color:var(--black);font-weight:700;visibility:hidden}.now .state.on{visibility:visible}
 
 /* the price list: black, like the board behind their register */
 .cenik{background:var(--black);color:var(--white);margin-top:40px;padding-top:36px;padding-bottom:44px;scroll-margin-top:52px}
@@ -91,13 +90,12 @@ figure{margin:0}
 .row span{font-size:17px;line-height:1.3}
 .row small{display:block;font-size:13px;color:var(--grey2);margin-top:2px}
 .row b{font-weight:800;font-size:22px;line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
-.grp .why{padding-top:10px;font-size:15px;color:var(--grey2)}
 .cenik-foot{margin-top:22px;font-size:14px;color:var(--grey2);max-width:44ch}
 
 /* photos, no heading */
 .work{margin-top:4px;scroll-margin-top:52px}
 .work .big{aspect-ratio:4/3;overflow:hidden;background:#e8e8e5}
-.work .big img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.work .big img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
 .work .three{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:4px}
 .work .three figure{aspect-ratio:1/1;overflow:hidden;background:#e8e8e5}
 .work .three img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
@@ -128,7 +126,7 @@ figure{margin:0}
 .hours li.today b::after{content:"dnes";font-size:12px;color:var(--grey);margin-left:8px;font-weight:400}
 .front{margin-top:22px}
 .front .ph{aspect-ratio:1/1;overflow:hidden;background:#e8e8e5}
-.front img{width:100%;height:100%;object-fit:cover;object-position:0% 50%}
+.front img{width:100%;height:100%;object-fit:cover;object-position:88% 50%}
 .front p{margin-top:8px;font-size:14px;color:var(--grey)}
 .map{margin-top:22px;position:relative;background:#e8e8e5;aspect-ratio:16/9;overflow:hidden}
 .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
@@ -137,7 +135,7 @@ figure{margin:0}
 .maplinks a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
 
 footer{margin-top:44px;background:var(--black);color:var(--grey2);padding-top:22px;padding-bottom:110px;font-size:14px}
-footer .name{color:var(--white);font:400 14px/1.2 var(--sign);text-transform:uppercase;display:block;margin-bottom:8px}
+footer .name{color:var(--white);font:700 13px/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:8px}
 footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44px}
 
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:15;display:grid;grid-template-columns:1.4fr 1fr;gap:8px;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:var(--white);border-top:1px solid var(--rule);transform:translateY(110%);transition:transform .2s ease}
@@ -158,14 +156,18 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   .board-sign{padding-top:26px;padding-bottom:26px}
   .board-sign h1{font-size:44px;max-width:none}
   .board-sign .addr-line{font-size:15px}
+  .board-sign .addr-line span{display:inline;margin-left:10px}
   .board-sign .menu-btn{display:none}
   .board-sign .top-links{display:flex;gap:26px;align-self:center}
   .top-links a{text-decoration:none;font-weight:600;font-size:15px}
   .top-bar .menu-btn{display:none}
   .top-bar .top-links{display:flex;gap:26px}
-  .open{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:center;padding-top:32px}
-  .room{aspect-ratio:4/3}
-  .claim{padding-top:0;font-size:28px;max-width:24ch}
+  .room{aspect-ratio:21/9}
+  .room img{object-position:50% 45%}
+  .first .under{display:flex;flex-wrap:wrap;align-items:center;gap:16px 48px;padding-top:26px}
+  .first .under .claim{padding-top:0;font-size:30px;max-width:22ch;flex:1 1 420px}
+  .first .under .go{margin-top:0;flex:0 0 420px}
+  .first .under .now{margin-top:0;flex-basis:100%}
   .cenik{margin-top:72px;padding-top:52px;padding-bottom:64px}
   .cenik h2{font-size:28px}
   .groups{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
@@ -174,7 +176,7 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   .row b{font-size:24px}
   .work{margin-top:8px}
   .work .big{aspect-ratio:2/1}
-  .work .big img{object-position:50% 35%}
+  .work .big img{object-position:50% 62%}
   .work .three{margin-top:8px;gap:8px}
   .work .three figure{aspect-ratio:4/3}
   .reviews{padding-top:72px;display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
@@ -185,7 +187,7 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   .where{padding-top:72px;display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
   .where h2{font-size:28px}
   .front .ph{aspect-ratio:4/3}
-  .front img{object-position:0% 50%}
+  .front img{object-position:88% 50%}
   .map{margin-top:0;aspect-ratio:4/3}
   footer{padding-bottom:28px}
   .bar{display:none}
@@ -198,7 +200,7 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   <div class="in">
     <div>
       <h1>Design Barbershop &amp; Studio</h1>
-      <p class="addr-line">Počernická 518/55, Praha 10 – Malešice <span>&nbsp; 777 591 353</span></p>
+      <p class="addr-line">Počernická 518/55, Praha 10 – Malešice <span>777 591 353</span></p>
     </div>
     <nav class="top-links" aria-label="Sekce">
       <a href="#cenik">Ceník</a><a href="#fotky">Fotky</a><a href="#recenze">Recenze</a><a href="#kde">Kde nás najdeš</a>
@@ -229,15 +231,15 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
 </nav>
 
 <main>
-  <div class="open wrap">
+  <div class="first wrap">
     <figure class="room bleed"><img src="img/hero.jpg" width="1167" height="723" fetchpriority="high" alt="Uvnitř Design Barbershopu: černá křesla, bílé stěny, šestiúhelníková LED světla a popínavé rostliny na stropě"></figure>
-    <div>
+    <div class="under">
       <p class="claim">Pánské a dětské střihy, vousy. Klasický střih <b>420 Kč</b>.</p>
       <div class="go" id="go">
         <a class="book" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener">Objednat na Nooně</a>
         <a href="tel:+420777591353">Zavolat</a>
       </div>
-      <p class="now"><span>4,9 z více než 1 100 recenzí na Googlu.</span> <b id="todayHours">Dnes 9:30–19:30.</b> <span class="state" id="state" aria-live="polite"></span></p>
+      <p class="now"><span>4,9 z více než 1 100 recenzí na Googlu.</span> <b class="state" id="state" aria-live="polite"></b></p>
     </div>
   </div>
 
@@ -266,7 +268,6 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
           <div class="row"><span>Mytí vlasů</span><b>+100 Kč</b></div>
           <div class="row"><span>Obočí</span><b>+50 Kč</b></div>
           <div class="row"><span>Hair tattoo</span><b>od +50 Kč</b></div>
-          <p class="why">Mytí, obočí a hair tattoo se připlácí. Ať tě u pokladny nic nepřekvapí.</p>
         </div>
       </div>
       <p class="cenik-foot">Studenti s ISIC: střih 380 / 480 Kč, vlasy a vousy 620 / 720 Kč.</p>
@@ -274,7 +275,7 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   </section>
 
   <section id="fotky" class="work wrap" aria-label="Fotky z křesla">
-    <figure class="big bleed"><img src="img/w3.jpg" width="750" height="1000" loading="lazy" alt="Odbarvený textured crop, zákazník v křesle pod šestiúhelníkovými světly se zeleným LED pásem"></figure>
+    <figure class="big bleed"><img src="img/w3.jpg" width="750" height="1000" loading="lazy" alt="Zákazník s kudrnatým střihem u okna, nad ním šestiúhelníková světla a zelený LED pás"></figure>
     <div class="three bleed">
       <figure><img src="img/w1.jpg" width="562" height="1000" loading="lazy" alt="Textured crop s taperem, pohled ze strany"></figure>
       <figure><img src="img/w2.jpg" width="560" height="1000" loading="lazy" alt="Messy fringe s nízkým přechodem"></figure>
@@ -351,9 +352,8 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
   function hours(){
     var now = pragueNow(), h = H[now.day];
     document.querySelectorAll("#hoursBody li").forEach(function(li){ li.classList.toggle("today", li.getAttribute("data-days").split(",").indexOf(String(now.day)) >= 0); });
-    document.getElementById("todayHours").textContent = "Dnes " + fmt(h[0]) + "–" + fmt(h[1]) + ".";
     var st = document.getElementById("state"); st.classList.add("on");
-    if (now.min >= h[0] && now.min < h[1]) { st.textContent = "Teď je otevřeno."; }
+    if (now.min >= h[0] && now.min < h[1]) { st.textContent = "Teď je otevřeno, do " + fmt(h[1]) + "."; }
     else { var nd = now.min < h[0] ? now.day : (now.day + 1) % 7; st.textContent = "Teď je zavřeno, otevíráme " + (nd === now.day ? "dnes" : "zítra") + " v " + fmt(H[nd][0]) + "."; }
   }
   hours(); setInterval(hours, 60000);
