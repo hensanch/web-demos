@@ -42,7 +42,7 @@ figure{margin:0}
 .mast{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
 .mast-in{display:flex;align-items:center;justify-content:space-between;height:60px}
 .wm{display:flex;align-items:baseline;gap:9px;text-decoration:none;min-height:44px;padding:4px 0}
-.wm b{font-family:var(--disp);font-weight:900;font-size:34px;color:var(--gold);letter-spacing:.02em;line-height:1}
+.wm b{font-family:var(--disp);font-weight:900;font-size:34px;color:var(--ink);letter-spacing:.02em;line-height:1}
 .wm span{font-size:13px;color:var(--ink2)}
 .dnav{display:none}
 .burger{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:44px;padding:0 14px;border:1px solid var(--line);background:transparent;color:var(--ink);font:600 15px var(--body);cursor:pointer}
@@ -62,7 +62,7 @@ figure{margin:0}
 .mcall{margin-top:auto;display:flex;align-items:center;justify-content:center;height:56px;flex:0 0 56px;background:var(--ink);color:#1d1f21;text-decoration:none;font-weight:600;font-size:17px}
 
 /* first screen: photo, one sentence, two facts, two buttons */
-.hero{position:relative;overflow:hidden;aspect-ratio:5/4;background:var(--bg2)}
+.hero{position:relative;overflow:hidden;aspect-ratio:16/11;background:var(--bg2)}
 .hero img{width:100%;height:100%;object-fit:cover;object-position:60% 45%}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,49,52,0) 50%,rgba(46,49,52,.9) 100%)}
 .hero h1{position:absolute;left:var(--pad);right:var(--pad);bottom:18px;z-index:1;color:var(--gold);font-size:clamp(64px,19vw,88px);text-shadow:0 1px 0 rgba(0,0,0,.25)}
@@ -88,13 +88,14 @@ h2{font-size:52px;color:var(--ink)}
 .cuts{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
 .cut{position:relative;overflow:hidden;background:var(--bg2);aspect-ratio:3/4}
 .cut.big{grid-column:1 / -1;aspect-ratio:4/3}
-.cut img{width:100%;height:100%;object-fit:cover}
+.cut img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cut.big img{object-position:50% 35%}
 .cut figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:28px 10px 8px;background:linear-gradient(180deg,rgba(30,32,34,0),rgba(30,32,34,.8))}
 .cut.big figcaption{padding:40px 14px 12px}
 .cut b{display:block;font-family:var(--disp);font-weight:900;font-size:22px;line-height:1;color:#fff}
 .cut.big b{font-size:34px}
-.cut-note{margin-top:14px;font-size:16px;line-height:1.5;color:var(--ink2);max-width:40ch}
+.cut-note{margin-top:10px;font-size:16px;line-height:1.5;color:var(--ink2);max-width:40ch}
+.cut.extra{display:none}
 .strip{margin-top:20px;display:flex;gap:3px;overflow-x:auto;scroll-snap-type:none;-webkit-overflow-scrolling:touch;padding-left:var(--pad);padding-right:var(--pad)}
 .strip figure{flex:0 0 46%;aspect-ratio:3/4;overflow:hidden;background:var(--bg2)}
 .strip img{width:100%;height:100%;object-fit:cover}
@@ -110,7 +111,7 @@ h2{font-size:52px;color:var(--ink)}
 .quotes li{padding:18px 0;border-bottom:1px solid var(--line)}
 .quotes blockquote{margin:0;font-size:19px;line-height:1.4;font-weight:500}
 .quotes .by{margin-top:8px;font-size:15px;color:var(--ink2)}
-.more{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.more{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
 
 /* where */
 .addr{margin-top:14px}
@@ -124,7 +125,7 @@ h2{font-size:52px;color:var(--ink)}
 .hours li.today{color:var(--ink)}
 .hours li.today b{font-weight:700}
 .hours li.today b::after{content:"dnes";font-size:12px;color:var(--ink2);margin-left:8px;font-weight:400}
-.map{margin-top:20px;position:relative;background:var(--bg2);aspect-ratio:1/1;overflow:hidden}
+.map{margin-top:20px;position:relative;background:var(--bg2);aspect-ratio:4/3;overflow:hidden}
 .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
 .map a{position:absolute;inset:0;z-index:1}
 .map-note{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
@@ -157,14 +158,15 @@ footer a{color:var(--ink);display:inline-flex;align-items:center;min-height:44px
   .facts b{font-size:48px}
   section{padding-top:76px}
   h2{font-size:72px}
-  .cuts{grid-template-columns:2fr 1fr 1fr 1fr;gap:6px}
-  .cut{aspect-ratio:auto;height:440px}
-  .cut.big{grid-column:auto;aspect-ratio:auto}
+  .cuts{grid-template-columns:repeat(4,1fr);gap:6px}
+  .cut{aspect-ratio:1/1}
+  .cut.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;min-height:0}
+  .cut.extra{display:block}
   .cut b{font-size:26px}
   .cut.big b{font-size:34px}
   .strip{overflow:visible;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;max-width:1160px;margin-left:auto;margin-right:auto}
   .strip figure{flex:none;aspect-ratio:4/5}
-  .rev{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:start}
+  .rev{display:grid;grid-template-columns:4fr 8fr;gap:40px;align-items:start}
   .score{margin-top:20px}
   .score b{font-size:150px}
   .quotes{margin-top:20px;max-width:56ch}
@@ -200,7 +202,7 @@ footer a{color:var(--ink);display:inline-flex;align-items:center;min-height:44px
   <div class="top wrap">
     <figure class="hero bleed">
       <img src="img/hero.jpg" width="1500" height="844" fetchpriority="high" alt="Salon ALFA Barber Shop: černá holičská křesla, šedé stěny a strop z šestiúhelníkových LED světel">
-      <h1>ALFA<small>BARBER SHOP</small></h1>
+      <h1>ALFA <small>BARBER SHOP</small></h1>
     </figure>
     <div class="intro">
       <p class="lede">Barbershop v OC Cíl na Zahradním Městě. Pánské a dětské střihy, bez objednání, každý den do půl osmé večer.</p>
@@ -218,13 +220,14 @@ footer a{color:var(--ink);display:inline-flex;align-items:center;min-height:44px
 
   <section id="strihy" class="wrap">
     <h2>Střihy</h2>
+    <p class="cut-note">Střih trvá zhruba půl hodiny až tři čtvrtě. Když je plno, počkáte u stolku s PlayStationem, pití a bonbony jsou zdarma. Děti vítány.</p>
     <div class="cuts bleed">
       <figure class="cut big"><img src="img/c1.jpg" width="1000" height="1333" loading="lazy" alt="Pánský střih s texturou nahoře a krátkými boky"><figcaption><b>Pánský střih</b></figcaption></figure>
-      <figure class="cut"><img src="img/c3.jpg" width="1000" height="1333" loading="lazy" alt="Fade s hladkým přechodem od kůže"><figcaption><b>Fade</b></figcaption></figure>
-      <figure class="cut"><img src="img/c6.jpg" width="1000" height="1333" loading="lazy" alt="Buzzcut strojkem"><figcaption><b>Buzzcut</b></figcaption></figure>
+      <figure class="cut"><img src="img/c3.jpg" width="1000" height="1333" loading="lazy" alt="Delší střih s ofinou a nízkým přechodem"><figcaption><b>Delší vlasy</b></figcaption></figure>
+      <figure class="cut"><img src="img/c6.jpg" width="1000" height="1333" loading="lazy" alt="Fade: přechod od kůže, nahoře nakrátko"><figcaption><b>Fade</b></figcaption></figure>
       <figure class="cut"><img src="img/c5.jpg" width="1000" height="1333" loading="lazy" alt="Dětský střih, chlapec v křesle"><figcaption><b>Dětský střih</b></figcaption></figure>
+      <figure class="cut extra"><img src="img/c4.jpg" width="1000" height="1333" loading="lazy" alt="Krátký střih s přechodem, zákazník s brýlemi"><figcaption><b>Krátký střih</b></figcaption></figure>
     </div>
-    <p class="cut-note">Střih trvá zhruba půl hodiny až tři čtvrtě. Když je plno, počkáte na gauči, na stole je PlayStation, pití a něco sladkého. Děti stříháme i s rodiči u křesla.</p>
     <div class="strip bleed">
       <figure><img src="img/c2.jpg" width="900" height="1600" loading="lazy" alt="Hotový střih, pohled zepředu"></figure>
       <figure><img src="img/c4.jpg" width="1000" height="1333" loading="lazy" alt="Hotový střih s ostrým přechodem"></figure>
@@ -236,14 +239,14 @@ footer a{color:var(--ink);display:inline-flex;align-items:center;min-height:44px
   <section id="recenze" class="wrap">
     <h2>Recenze</h2>
     <div class="rev">
-      <div class="score"><b>5,0</b><div><span class="stars" aria-hidden="true">★★★★★</span><small>152 recenzí na Googlu</small></div></div>
+      <div><div class="score"><b>5,0</b><div><span class="stars" aria-hidden="true">★★★★★</span><small>152 recenzí na Googlu</small></div></div>
+      <a class="more" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener">Všech 152 recenzí na Googlu</a></div>
       <div>
         <ul class="quotes">
           <li><blockquote>„Po dlouhé době mě někdo ostříhal podle mých představ. Bez objednání. Milý personál.“</blockquote><p class="by">Jiří, Google</p></li>
           <li><blockquote>„Syn 6 let dává 10/10, barber moc milý a profesionální. Super cut. Určitě se vrátíme.“</blockquote><p class="by">Kája, Google</p></li>
           <li><blockquote>„Pečlivá práce, má dobrý cit, hned pochopil, jaký účes mám na mysli.“</blockquote><p class="by">Dawe, Google</p></li>
         </ul>
-        <a class="more" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener">Všech 152 recenzí na Googlu</a>
       </div>
     </div>
   </section>
@@ -258,13 +261,8 @@ footer a{color:var(--ink);display:inline-flex;align-items:center;min-height:44px
           <a class="tel" href="tel:+420773137979">773 137 979</a>
         </div>
         <ul class="hours" id="hoursBody">
-          <li data-day="1"><b>Pondělí</b><span>9:00 – 19:30</span></li>
-          <li data-day="2"><b>Úterý</b><span>9:00 – 19:30</span></li>
-          <li data-day="3"><b>Středa</b><span>9:00 – 19:30</span></li>
-          <li data-day="4"><b>Čtvrtek</b><span>9:00 – 19:30</span></li>
-          <li data-day="5"><b>Pátek</b><span>9:00 – 19:30</span></li>
-          <li data-day="6"><b>Sobota</b><span>10:00 – 19:30</span></li>
-          <li data-day="0"><b>Neděle</b><span>10:00 – 19:30</span></li>
+          <li data-days="1,2,3,4,5"><b>Pondělí až pátek</b><span>9:00 – 19:30</span></li>
+          <li data-days="6,0"><b>Sobota a neděle</b><span>10:00 – 19:30</span></li>
         </ul>
       </div>
       <div>
@@ -302,14 +300,15 @@ footer a{color:var(--ink);display:inline-flex;align-items:center;min-height:44px
   }
   function hours(){
     var now = pragueNow(), h = H[now.day];
-    document.querySelectorAll("#hoursBody li").forEach(function(li){ li.classList.toggle("today", parseInt(li.getAttribute("data-day"),10) === now.day); });
+    document.querySelectorAll("#hoursBody li").forEach(function(li){ li.classList.toggle("today", li.getAttribute("data-days").split(",").indexOf(String(now.day)) >= 0); });
     var st = document.getElementById("status"), tx = document.getElementById("statusText");
     var big = document.getElementById("openBig"), small = document.getElementById("openSmall");
-    big.textContent = fmt(h[0]) + "–" + fmt(h[1]); small.textContent = "dnes"; st.classList.add("on");
-    if (now.min >= h[0] && now.min < h[1]) { st.classList.remove("closed"); tx.textContent = "Otevřeno, zavíráme v " + fmt(h[1]); }
+    st.classList.add("on");
+    if (now.min >= h[0] && now.min < h[1]) { big.textContent = fmt(h[0]) + "–" + fmt(h[1]); small.textContent = "dnes"; st.classList.remove("closed"); tx.textContent = "Otevřeno, zavíráme v " + fmt(h[1]); }
     else {
       st.classList.add("closed");
       var nd = now.min < h[0] ? now.day : (now.day + 1) % 7; var nh = H[nd];
+      big.textContent = fmt(nh[0]) + "–" + fmt(nh[1]); small.textContent = nd === now.day ? "dnes" : "zítra";
       tx.textContent = "Zavřeno, otevíráme " + (nd === now.day ? "dnes" : "zítra") + " v " + fmt(nh[0]);
     }
   }
