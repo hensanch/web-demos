@@ -9,7 +9,12 @@
 <meta property="og:title" content="ALFA Barber Shop – OC Cíl, Zahradní Město">
 <meta property="og:description" content="Pánské a dětské střihy, fade, buzzcut. Bez objednání, sedm dní v týdnu do 19:30.">
 <meta property="og:image" content="https://hensanch.github.io/web-demos/alfa-barbershop-v2/img/hero.jpg">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="844">
 <meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BarberShop","name":"ALFA Barber Shop","telephone":"+420773137979","address":{"@type":"PostalAddress","streetAddress":"Topolová 2915/16","addressLocality":"Praha 10","postalCode":"106 00","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.0571409,"longitude":14.5077053},"image":"https://hensanch.github.io/web-demos/alfa-barbershop-v2/img/hero.jpg","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"152"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"10:00","closes":"19:30"}]}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232e3134'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='38' fill='%23d8b76a'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,7 +76,8 @@ figure{margin:0}
 .acts{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .btn{display:flex;align-items:center;justify-content:center;height:54px;text-decoration:none;font-weight:600;font-size:17px;border:1px solid var(--ink);color:var(--ink)}
 .btn.fill{background:var(--ink);border-color:var(--ink);color:#1d1f21}
-.status{margin-top:12px;font-size:15px;color:var(--ink2)}
+.status{margin-top:12px;font-size:15px;color:var(--ink2);visibility:hidden}
+.status.on{visibility:visible}
 .status::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:#7fc97f;margin-right:8px;vertical-align:1px}
 .status.closed::before{background:#c96c6c}
 
@@ -118,13 +124,14 @@ h2{font-size:52px;color:var(--ink)}
 .hours li.today{color:var(--ink)}
 .hours li.today b{font-weight:700}
 .hours li.today b::after{content:"dnes";font-size:12px;color:var(--ink2);margin-left:8px;font-weight:400}
-.map{margin-top:20px;display:block;position:relative;background:var(--bg2);aspect-ratio:1/1;overflow:hidden}
+.map{margin-top:20px;position:relative;background:var(--bg2);aspect-ratio:1/1;overflow:hidden}
 .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+.map a{position:absolute;inset:0;z-index:1}
 .map-note{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
 
 footer{margin-top:56px;padding-top:20px;padding-bottom:110px;border-top:1px solid var(--line);font-size:14px;color:var(--ink2)}
 footer b{color:var(--ink)}
-footer a{color:var(--ink);display:inline-block;padding:10px 0}
+footer a{color:var(--ink);display:inline-flex;align-items:center;min-height:44px}
 
 /* bottom bar */
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:15;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .2s ease}
@@ -179,7 +186,7 @@ footer a{color:var(--ink);display:inline-block;padding:10px 0}
     <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mnav"><i></i>Menu</button>
   </div>
 </header>
-<nav class="mnav" id="mnav" aria-label="Menu">
+<nav class="mnav" id="mnav" aria-label="Menu" role="dialog" aria-modal="true">
   <div class="mnav-top"><b>ALFA</b><button type="button" class="close" id="burgerClose">Zavřít</button></div>
   <ol>
     <li><a href="#strihy">Střihy<small>Pánské, fade, buzzcut, dětské. Fotky z křesla.</small></a></li>
@@ -199,13 +206,13 @@ footer a{color:var(--ink);display:inline-block;padding:10px 0}
       <p class="lede">Barbershop v OC Cíl na Zahradním Městě. Pánské a dětské střihy, bez objednání, každý den do půl osmé večer.</p>
       <div class="facts">
         <div><b>5,0</b><small>ze 152 recenzí na Googlu</small></div>
-        <div><b id="openBig">9:00–19:30</b><small id="openSmall">dnes</small></div>
+        <div><b id="openBig">9:00–19:30</b><small id="openSmall">Po–Pá, víkend od 10:00</small></div>
       </div>
       <div class="acts" id="acts">
         <a class="btn fill" href="https://www.google.com/maps/dir/?api=1&destination=Topolov%C3%A1+2915%2F16%2C+106+00+Praha+10" target="_blank" rel="noopener">Trasa do OC Cíl</a>
         <a class="btn" href="tel:+420773137979">Zavolat</a>
       </div>
-      <p class="status" id="status"><span id="statusText"></span></p>
+      <p class="status" id="status" aria-live="polite"><span id="statusText"></span></p>
     </div>
   </div>
 
@@ -261,9 +268,10 @@ footer a{color:var(--ink);display:inline-block;padding:10px 0}
         </ul>
       </div>
       <div>
-        <a class="map" id="mapLink" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener" aria-label="Otevřít v Mapách Google">
+        <div class="map">
           <iframe title="Mapa: ALFA Barber Shop, Topolová 2915/16, Praha 10" src="https://www.google.com/maps?q=ALFA+Barbershop+Topolov%C3%A1+2915%2F16%2C+106+00+Praha+10&z=16&output=embed" loading="lazy" tabindex="-1"></iframe>
-        </a>
+          <a href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ" target="_blank" rel="noopener" aria-label="Otevřít v Mapách Google"></a>
+        </div>
         <a class="map-note" href="https://www.google.com/maps/dir/?api=1&destination=Topolov%C3%A1+2915%2F16%2C+106+00+Praha+10" target="_blank" rel="noopener">Trasa v Mapách Google</a>
       </div>
     </div>
@@ -297,7 +305,7 @@ footer a{color:var(--ink);display:inline-block;padding:10px 0}
     document.querySelectorAll("#hoursBody li").forEach(function(li){ li.classList.toggle("today", parseInt(li.getAttribute("data-day"),10) === now.day); });
     var st = document.getElementById("status"), tx = document.getElementById("statusText");
     var big = document.getElementById("openBig"), small = document.getElementById("openSmall");
-    big.textContent = fmt(h[0]) + "–" + fmt(h[1]); small.textContent = "dnes, " + (now.day === 0 || now.day === 6 ? "o víkendu od 10:00" : "ve všední den od 9:00");
+    big.textContent = fmt(h[0]) + "–" + fmt(h[1]); small.textContent = "dnes"; st.classList.add("on");
     if (now.min >= h[0] && now.min < h[1]) { st.classList.remove("closed"); tx.textContent = "Otevřeno, zavíráme v " + fmt(h[1]); }
     else {
       st.classList.add("closed");
@@ -308,16 +316,18 @@ footer a{color:var(--ink);display:inline-block;padding:10px 0}
   hours(); setInterval(hours, 60000);
 
   var mnav = document.getElementById("mnav"), burger = document.getElementById("burger"), burgerClose = document.getElementById("burgerClose");
-  function setMenu(open){ mnav.classList.toggle("open", open); document.body.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", open ? "true" : "false"); (open ? burgerClose : burger).focus(); }
+  function setMenu(open){ mnav.classList.toggle("open", open); document.body.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", open ? "true" : "false"); ["main","header","footer",".bar"].forEach(function(q){ var el = document.querySelector(q); if (el) { if (open) el.setAttribute("inert",""); else el.removeAttribute("inert"); } }); (open ? burgerClose : burger).focus(); }
   burger.addEventListener("click", function(){ setMenu(!mnav.classList.contains("open")); });
   burgerClose.addEventListener("click", function(){ setMenu(false); });
   mnav.querySelectorAll("a[href^='#']").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
   document.addEventListener("keydown", function(e){ if (e.key === "Escape" && mnav.classList.contains("open")) setMenu(false); });
 
   var bar = document.getElementById("bar"), acts = document.getElementById("acts");
+  function barCheck(){ var r = acts.getBoundingClientRect(); bar.classList.toggle("show", r.bottom < 0); }
   if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function(es){ es.forEach(function(en){ bar.classList.toggle("show", !en.isIntersecting && en.boundingClientRect.top < 0); }); }, { threshold: 0 }).observe(acts);
-  } else { bar.classList.add("show"); }
+    new IntersectionObserver(function(){ barCheck(); }, { threshold: 0 }).observe(acts);
+  }
+  window.addEventListener("scroll", barCheck, { passive: true }); barCheck();
 })();
 </script>
 </body>

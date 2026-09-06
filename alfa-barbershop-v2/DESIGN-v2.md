@@ -1,15 +1,27 @@
-# ALFA Barber Shop – v2 (2026-09-06, večer, druhý přepis)
+# ALFA Barber Shop – v2 (2026-09-06 večer, po trojité revizi)
 
-Henry: první přepis "looks too similar" a dvouřádkový slogan "screams AI". Tohle je úplně jiný recept, ne varianta tiskového.
+Henry: "This is a product someone will pay 12k for." Tři agenti (AI tells / mobil+prodej / WebKit+správnost), nálezy zapracované.
 
-- Barvy: grafitová šedá #2e3134 jako stěny salonu, světlé písmo, zlatá #d8b76a jen tam, kde je i v salonu (nápis na stěně): wordmark, dnešní hodiny, 5,0, plné tlačítko.
-- Písmo: Big Shoulders Display 700/900 (kondenzované, nápisové) + Barlow na text. Obojí latin-ext ověřeno.
-- Hero: fotka salonu 1:1 s přechodem dole, přes ni jen název ALFA / BARBER SHOP. Žádný slogan. Pod tím jedna věta, co dělají a kde.
-- Fakta: 5,0 ★★★★★ ze 152 recenzí | dnešní hodiny (Europe/Prague). Tlačítka Trasa do OC Cíl (zlaté) + Zavolat. Stav otevřeno/zavřeno s tečkou.
-- Střihy: čtyři fotky od kraje ke kraji 4:5, název střihu přímo ve fotce. Desktop 4 sloupce.
-- Čekárna: fotka 1:1 + čtyři zlaté položky (PlayStation, Pití, Sladké, Děti).
-- Fotky: filmstrip 72 % šířky, bez snapping. Desktop mřížka 4 (max 1160 px, zarovnáno s obsahem).
-- Recenze: obří zlaté 5,0, tři citace, jména barberů z recenzí, odkaz na všech 152.
-- Kde: adresa a telefon kondenzovaně, hodiny s dnešním dnem zlatě + "dnes", mapa černobíle (iframe pointer-events:none v odkazu).
-- Burger menu celoobrazovkové, sticky masthead, skrytá spodní lišta.
-- Záloha předchozího (Familjen Grotesk, bílý papír) je v gitu: commit 9401c9b.
+## Co je na stránce
+- Barvy: grafitová #2e3134 jako stěny salonu. Zlatá #d8b76a **jen** na wordmarku ALFA (masthead, hero, menu), jako nápis na stěně. Tlačítka, hodnocení, dnešní den = světlé písmo.
+- Písmo: Big Shoulders Display 700/900 + Barlow. Latin-ext ověřeno v reálném WebKitu (simulátor iPhone 17).
+- První obrazovka: fotka salonu 5:4 s velkým ALFA / BARBER SHOP (Henry chtěl zpět), jedna věta, 5,0 ze 152 | dnešní hodiny, Trasa + Zavolat, stav otevřeno/zavřeno. Vejde se do 664 px (Safari s lištou).
+- Tři sekce, ne pět: Střihy (1 velká + 3 malé fotky s názvem ve fotce, poznámka o čekárně, pás dalších fotek), Recenze (velké 5,0, tři citace, odkaz), Kde nás najdete (adresa, hodiny s "dnes", mapa).
+- Žádné podtitulky pod nadpisy, žádné slovní dlaždice, žádný slogan, žádné středové tečky.
+- Dětský střih = skutečné dítě (c5), ne prošedivělý pán (c8 šel do pásu).
+- Citace: překlepy recenzentů opraveny (mých, milý), duplicitní fragment a seznam jmen barberů vyhozen (fluktuace).
+- Bez fotky čekárny (jediná je špatná: noha, načatá Mattonka). Henry: raději žádná.
+
+## Technika
+- JSON-LD BarberShop (hodiny, telefon, adresa, hodnocení). og:image + rozměry.
+- Menu = role dialog, aria-modal, `inert` na zbytek stránky; Escape zavírá.
+- Stav otevřeno je skrytý, dokud ho JS nenaplní (bez JS žádná osamělá tečka). aria-live.
+- Mapa: div + iframe (pointer-events none) + odkaz jako overlay (validní HTML).
+- Spodní lišta: IntersectionObserver + pasivní scroll listener (simulátor jednou lištu neukázal).
+- scroll-margin-top 57 px při hlavičce 61 px, předchozí sekce se schová.
+- Všechny klikací prvky ≥ 44 px.
+
+## Otevřené
+- Ceny: nikde. Oba recenzenti: největší díra pro walk-in zákazníka. Jen majitel (otázka na pondělí).
+- Hero fotka 1500×844 se na telefonu mírně zvětšuje (1,1×). Lepší zdroj od majitele.
+- Pro ostrý provoz změnit og:image a JSON-LD image na finální doménu.
