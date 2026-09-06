@@ -21,7 +21,7 @@
 </script>
 <style>
 :root{
-  --white:#ffffff; --black:#111213; --grey:#63645f; --grey2:#b9bab6; --rule:#e3e3e0; --rule2:rgba(255,255,255,.18); --pad:20px;
+  --white:#ffffff; --black:#111213; --grey:#63645f; --grey2:#b9bab6; --rule:#e3e3e0; --rule2:rgba(255,255,255,.18); --pad:calc(20px + env(safe-area-inset-left));
   --serif:"Source Serif 4",Georgia,"Times New Roman",serif; --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
 }
 *{box-sizing:border-box}
@@ -136,10 +136,13 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
 .bar a{display:flex;align-items:center;justify-content:center;height:50px;text-decoration:none;font-weight:700;font-size:16px;border:1px solid var(--black);color:var(--black)}
 .bar a.book{background:var(--black);color:var(--white)}
 @media (prefers-reduced-motion:reduce){.bar{transition:none}}
-:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+:focus-visible{outline:3px solid var(--black);outline-offset:2px}
+.board :focus-visible,.sheet :focus-visible,footer :focus-visible,.top-bar :focus-visible{outline-color:var(--white)}
+.go a.book:focus-visible,.bar a.book:focus-visible{outline-color:var(--white);outline-offset:-5px}
+.sheet-book:focus-visible{outline-color:var(--black);outline-offset:-5px}
 
 @media (min-width:900px){
-  :root{--pad:40px}
+  :root{--pad:calc(40px + env(safe-area-inset-left))}
   .wrap{max-width:1240px;margin-left:auto;margin-right:auto}
   .bleed{margin-left:0;margin-right:0}
   .top-in .name{font-size:14px;letter-spacing:.12em}
@@ -250,7 +253,7 @@ footer a{color:var(--white);display:inline-flex;align-items:center;min-height:44
     </div>
   </section>
 
-  <section id="recenze" class="reviews wrap">
+  <section id="recenze" class="reviews wrap" aria-label="Recenze">
     <div class="score">
       <div class="num" aria-label="4,9 z 5">4<i>,</i>9</div>
       <p class="of"><b>z více než 1 100 recenzí</b>na Googlu</p>
