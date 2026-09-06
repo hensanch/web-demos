@@ -7,9 +7,11 @@
 <meta name="description" content="Malá kavárna a cukrárna na Vršovické kousek od vršovického nádraží. Domácí zákusky, velké chlebíčky, káva. Po–Pá 8:00–18:00, So 9:00–15:30.">
 <meta property="og:title" content="Kolski Kafe — kavárna a cukrárna ve Vršovicích">
 <meta property="og:description" content="Domácí zákusky, velké chlebíčky a káva na Vršovické 866/3. 4,8 z 181 recenzí na Googlu.">
+<meta name="theme-color" content="#F6EFE2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F6EFE2'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='36' fill='%23221F1C'%3EK%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
-<meta property="og:image" content="https://hensanch.github.io/web-demos/kolski-kafe-v3/img/stul.jpg">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/kolski-kafe-v3/img/mistnost.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -19,6 +21,7 @@
   --sazi:#221F1C;
   --tlum:#61574A;
   --drevo:#A9722F;
+  --zidle-cervena:#A6402A;
   --zidle:#E8B317;
 }
 *{box-sizing:border-box}
@@ -54,7 +57,7 @@ ul{padding:0;list-style:none}
 .co-to-je{font-size:17px;margin-top:14px;max-width:30em}
 .znamka{font-size:15.5px;font-weight:600;margin-top:14px}
 .stav{font-size:15.5px;color:var(--tlum);margin-top:2px}
-.foto-stul{margin-top:16px;border-bottom:3px solid var(--drevo)}
+.foto-stul{margin-top:16px;border-bottom:3px solid var(--zidle-cervena)}
 .akce{display:flex;gap:10px;margin-top:16px}
 .tl{
   display:flex;align-items:center;justify-content:center;text-align:center;
@@ -79,17 +82,18 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
 }
 .cedulka .co{display:block;font-size:19px}
 .cedulka .kc{display:block;font-size:25px;margin-top:1px}
-.cedulky li:nth-child(1){transform:rotate(-1.4deg)}
-.cedulky li:nth-child(2){transform:rotate(1.1deg)}
-.cedulky li:nth-child(3){transform:rotate(-.6deg)}
-.cedulky li:nth-child(4){transform:rotate(1.8deg)}
+.cedulky li{flex:1 1 42%}
+.cedulky li:nth-child(1){transform:rotate(-3deg)}
+.cedulky li:nth-child(2){transform:rotate(2.5deg)}
+.cedulky li:nth-child(3){transform:rotate(3.5deg)}
+.cedulky li:nth-child(4){transform:rotate(-2.5deg)}
 .poznamka{font-size:15px;color:var(--tlum);margin-top:18px;max-width:34em}
 .dal{margin-top:12px;max-width:34em}
 
 /* ---------- 3. chlebíčky + 4. kavárna ---------- */
 .veta{margin-top:16px;max-width:32em}
 .hlas{
-  margin-top:16px;padding-left:16px;border-left:3px solid var(--drevo);
+  margin-top:16px;padding-left:16px;border-left:3px solid var(--zidle-cervena);
   max-width:33em;
 }
 .hlas p{font-size:17px}
@@ -98,6 +102,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
 .radky li{padding:9px 0;border-bottom:1px solid rgba(169,114,47,.35);font-size:16.5px}
 .radky li:first-child{border-top:1px solid rgba(169,114,47,.35)}
 .foto-chodnik{display:none}
+.kavarna-fotky .siroka{aspect-ratio:4/3;object-fit:cover;object-position:50% 40%}
 
 /* ---------- 5. kde ---------- */
 .adresa{font-size:clamp(22px,5.8vw,31px);font-weight:700;line-height:1.2}
@@ -113,11 +118,13 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   border:1.5px solid var(--sazi);border-radius:2px;text-decoration:none;font-weight:600;font-size:15.5px;
 }
 .foto-cedule{margin-top:18px;aspect-ratio:16/10;object-fit:cover}
-.mapa{margin-top:18px;width:100%;height:140px;border:0;display:block;background:#e5ded1}
+.mapa-obal{position:relative;margin-top:18px;height:240px;background:#e5ded1}
+.mapa-obal a{position:absolute;inset:0;z-index:1}
+.mapa{width:100%;height:100%;border:0;display:block;pointer-events:none;margin:0}
 .popiska{font-size:14px;color:var(--tlum);margin-top:6px}
 
 /* ---------- pata ---------- */
-.pata{margin-top:26px;padding:8px 0 14px;border-top:1.5px solid var(--sazi);font-size:15px;color:var(--tlum)}
+.pata{margin-top:26px;padding:8px 0 calc(90px + env(safe-area-inset-bottom));border-top:1.5px solid var(--sazi);font-size:15px;color:var(--tlum)}
 .pata b{color:var(--sazi);font-weight:700}
 .pata a{display:inline-block;padding:11px 0;font-weight:700;color:var(--sazi);text-decoration:underline;text-underline-offset:3px}
 
@@ -166,14 +173,16 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   .znamka{font-size:16.5px;margin-top:16px}
   .stav{font-size:16.5px}
   .blok{padding-top:62px}
-  .vitrina-mriz{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:start;margin-top:22px}
-  .vitrina-mriz .siroka{margin:0;aspect-ratio:4/3;object-fit:cover}
-  .cedulky{margin-top:0;gap:12px}
+  .vitrina-mriz{margin-top:22px}
+  .vitrina-mriz .siroka{margin:0;aspect-ratio:21/9;object-fit:cover;object-position:50% 60%}
+  .cedulky{margin-top:26px;gap:16px;flex-wrap:nowrap}
+  .cedulky li{flex:1 1 0}
   .cedulka{padding:12px 19px 14px}
   .cedulka .co{font-size:22px}
   .cedulka .kc{font-size:30px}
   .poznamka{margin-top:22px}
-  .chleb-mriz{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;margin-top:22px}
+  .chleb-mriz{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:start;margin-top:22px}
+  .chleb-mriz .siroka{order:2}
   .chleb-mriz .siroka{margin:0;aspect-ratio:16/10;object-fit:cover}
   .chleb-mriz .veta{font-size:20px}
   .chleb-mriz .hlas p{font-size:19.5px}
@@ -181,12 +190,13 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   .kavarna-fotky img{margin:0;width:100%;height:100%;object-fit:cover}
   .foto-chodnik{display:block}
   .kavarna-dole{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:26px}
-  .radky,.veta,.hlas{margin-top:0}
+  .kavarna-dole .radky,.kavarna-dole .veta,.kavarna-dole .hlas{margin-top:0}
   .odkazy a:first-child{flex:0 1 auto}
   .kde-mriz{display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:start;margin-top:22px}
-  .mapa{height:100%;min-height:420px;margin-top:0}
+  .mapa-obal{height:100%;min-height:420px;margin-top:0}
   .foto-cedule{margin-top:22px}
   .spodek{display:none}
+  .pata{padding-bottom:18px}
   .menu-odkazy{columns:2;column-gap:40px}
 }
 @media (min-width:820px) and (max-width:1000px){
@@ -212,11 +222,11 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
       <div class="hlavicka-text">
         <h1 class="jmeno">Kolski Kafe</h1>
         <p class="co-to-je">Kavárna a cukrárna na Vršovické, pár minut od vršovického nádraží.</p>
-        <p class="znamka">4,8 z 181 recenzí na Googlu</p>
-        <p class="stav" id="stav">Po–Pá 8:00–18:00, So 9:00–15:30</p>
+        <p class="znamka"><a href="https://www.google.com/maps/place/KOLSKI+KAFE/data=!4m7!3m6!1s0x470b93800ff6416f:0xbe5de33a67b5abbf!8m2!3d50.0661853!4d14.4493461!16s%2Fg%2F1tmpcn89!19sChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener">4,8 z 181 recenzí na Googlu</a></p>
+        <p class="stav" id="stav" aria-live="polite">Po–Pá 8:00–18:00, So 9:00–15:30</p>
       </div>
-      <img class="foto-stul" src="img/stul.jpg" width="1400" height="1050"
-           alt="Tři chlebíčky a cappuccino na stolku z kotouče kmene, kolem zelená a modrá židle">
+      <img class="foto-stul" src="img/mistnost.jpg" width="1400" height="1050"
+           alt="Vnitřek kavárny: stolky z kotoučů kmene, červená, žlutá a zelená židle, velké okno do Vršovické">
       <div class="akce" id="hero-akce">
         <a class="tl tl-hlavni" href="https://www.google.com/maps/dir/?api=1&amp;destination=Vr%C5%A1ovick%C3%A1%20866%2F3%2C%20101%2000%20Praha%2010&amp;destination_place_id=ChIJb0H2D4CTC0cRv6u1ZzrjXb4">Ukázat cestu</a>
         <a class="tl tl-vedlejsi" href="tel:+420773516560">Zavolat</a>
@@ -232,12 +242,12 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
            alt="Prosklená vitrína s řezy, medovníkem a cheesecakem, u každého kousku křídou psaná cedulka s cenou">
       <div>
         <ul class="cedulky">
-          <li class="cedulka"><span class="co">Lotus cheesecake</span><span class="kc">90 Kč</span></li>
-          <li class="cedulka"><span class="co">Francouzský řez</span><span class="kc">85 Kč</span></li>
-          <li class="cedulka"><span class="co">Větrník</span><span class="kc">75 Kč</span></li>
-          <li class="cedulka"><span class="co">Medovník</span><span class="kc">59 Kč</span></li>
+          <li class="cedulka"><span class="co">Lotus cheesecake</span><span class="kc">90,–</span></li>
+          <li class="cedulka"><span class="co">Francouzský řez</span><span class="kc">85,–</span></li>
+          <li class="cedulka"><span class="co">Větrník</span><span class="kc">75,–</span></li>
+          <li class="cedulka"><span class="co">Medovník</span><span class="kc">59,–</span></li>
         </ul>
-        <p class="poznamka">Ceny opsané z cedulek na fotce. Vitrína se plní každý den znovu, nabídka se mění.</p>
+        <p class="poznamka">Nabídka se mění podle toho, co se zrovna peče.</p>
         <p class="dal">Kromě zákusků chlebíčky krabí a hermelínový, obložené chleby, polévky a dort na objednávku. Z baru flat white, cappuccino, horká čokoláda a čaje.</p>
       </div>
     </div>
@@ -247,10 +257,11 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   <section class="blok" id="chlebicky">
     <div class="pas"><h2>Chlebíčky</h2></div>
     <div class="pas chleb-mriz">
-      <img class="siroka" src="img/chlebicek.jpg" width="1200" height="900" loading="lazy"
-           alt="Velký chlebíček se šunkou, rajčetem a salátem na talířku">
+      <img class="siroka" src="img/chlebicky.jpg" width="1400" height="1050" loading="lazy"
+           alt="Tři chlebíčky a cappuccino na stolku z kotouče kmene">
       <div>
-        <p class="veta">Krabí a hermelínový. Z celého sortimentu se o nich v recenzích píše nejčastěji.</p>
+        <p class="veta">Šunkový, krabí, hermelínový. Velké, jeden vydá za dva běžné.</p>
+        <p class="veta">Dort na objednávku, třeba k narozeninám, se domlouvá telefonem.</p>
         <blockquote class="hlas">
           <p>„Výborná kavárnička, velmi milá a pohotová obsluha, výborné zákusky i chlebíčky. Chlebíčky jsou opravdu velké, jeden vydá za dva běžné.“</p>
           <cite>Eva, Google</cite>
@@ -263,8 +274,8 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   <section class="blok" id="kavarna">
     <div class="pas"><h2>V kavárně</h2></div>
     <div class="pas kavarna-fotky">
-      <img class="siroka" src="img/mistnost.jpg" width="1400" height="1050" loading="lazy"
-           alt="Vnitřek kavárny: stolky z kotoučů kmene, červená, žlutá a zelená židle, velké okno do Vršovické">
+      <img class="siroka" src="img/tram.jpg" width="675" height="1200" loading="lazy"
+           alt="Dřevěný trám uprostřed kavárny, holé žárovky na lankách, obrázky na stěně">
       <img class="foto-chodnik" src="img/chodnik.jpg" width="1200" height="900" loading="lazy"
            alt="Cappuccino a kus koláče na dřevěném stole venku na chodníku">
     </div>
@@ -273,7 +284,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
         <li>Wi-Fi zdarma, dá se tu pracovat na notebooku</li>
         <li>Obsluha u stolu, vhodné pro děti</li>
         <li>Posezení venku na chodníku</li>
-        <li>Platba kartou, podle Googlu 100–200 Kč za osobu</li>
+        <li>Platba kartou</li>
       </ul>
       <blockquote class="hlas">
         <p>„Příjemná, malebná kavárna. Vynikající horká čokoláda i dortík. Příjemný personál, přijatelné ceny. Prostory jsou menší, ale na posezení stačí.“</p>
@@ -302,9 +313,12 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
              alt="Nápis Kolski Kafe s kresleným hrnkem nad výlohou, večer">
         <p class="popiska">Poznáte to podle hrnku nad výlohou.</p>
       </div>
-      <iframe class="mapa" title="Mapa: Vršovická 866/3, Praha 10"
-              src="https://www.google.com/maps?q=Vr%C5%A1ovick%C3%A1%20866/3,%20101%2000%20Praha%2010&amp;z=16&amp;output=embed"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="mapa-obal">
+        <iframe class="mapa" title="Mapa: Kolski Kafe, Vršovická 866/3, Praha 10"
+                src="https://www.google.com/maps?q=KOLSKI+KAFE+Vr%C5%A1ovick%C3%A1+866%2F3%2C+101+00+Praha+10&amp;z=16&amp;output=embed"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1"></iframe>
+        <a href="https://www.google.com/maps/place/KOLSKI+KAFE/data=!4m7!3m6!1s0x470b93800ff6416f:0xbe5de33a67b5abbf!8m2!3d50.0661853!4d14.4493461!16s%2Fg%2F1tmpcn89!19sChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener" aria-label="Otevřít mapu v Mapách Google"></a>
+      </div>
     </div>
   </section>
 
