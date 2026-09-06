@@ -94,9 +94,7 @@ h2{font-size:52px;color:var(--ink)}
 /* waiting room */
 .lounge{margin-top:22px;position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--bg2)}
 .lounge img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.perks{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px 20px}
-.perks b{display:block;font-family:var(--disp);font-weight:700;font-size:28px;line-height:1;color:var(--gold)}
-.perks span{display:block;font-size:15px;color:var(--ink2);margin-top:4px}
+.lounge-text{margin-top:16px;font-size:19px;line-height:1.45;max-width:34ch}
 
 /* filmstrip */
 .strip{margin-top:22px;display:flex;gap:4px;overflow-x:auto;scroll-snap-type:none;-webkit-overflow-scrolling:touch;padding-left:var(--pad);padding-right:var(--pad)}
@@ -169,7 +167,7 @@ footer a{color:var(--ink)}
   .cut b{font-size:34px}
   .two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
   .lounge{margin-top:0;aspect-ratio:4/3}
-  .perks{grid-template-columns:1fr 1fr}
+  .lounge-text{margin-top:0;font-size:22px}
   .strip{overflow:visible;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:1160px;margin-left:auto;margin-right:auto}
   .strip figure{flex:none}
   .quotes{grid-template-columns:repeat(3,1fr);gap:40px}
@@ -237,15 +235,10 @@ footer a{color:var(--ink)}
 
   <section id="cekarna" class="wrap">
     <h2>Čekárna</h2>
-    <p class="sub">Když je plno, počkáte na gauči. Zdarma.</p>
+    <p class="sub">Když je plno, počkáte na gauči.</p>
     <div class="two">
       <figure class="lounge bleed"><img src="img/lounge.jpg" width="1200" height="1160" loading="lazy" alt="Čekárna s ovladačem od PlayStationu na stole, vzadu barber při práci"></figure>
-      <ul class="perks">
-        <li><b>PlayStation</b><span>hry si vyberete sami</span></li>
-        <li><b>Pití</b><span>na stole v čekárně</span></li>
-        <li><b>Sladké</b><span>taky na stole</span></li>
-        <li><b>Děti</b><span>vítány, i s rodiči</span></li>
-      </ul>
+      <p class="lounge-text">Na stole je PlayStation, pití a něco sladkého, všechno zdarma. Děti vítány, klidně i s rodiči.</p>
     </div>
   </section>
 
