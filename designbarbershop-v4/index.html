@@ -13,6 +13,7 @@
 <meta property="og:image" content="https://hensanch.github.io/web-demos/designbarbershop-v4/img/salon.jpg">
 <meta property="og:url" content="https://hensanch.github.io/web-demos/designbarbershop-v4/">
 <meta name="theme-color" content="#121417">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='8'%20fill='%23121417'/%3E%3Crect%20x='10'%20y='19'%20width='44'%20height='12'%20fill='%23F4F5F3'/%3E%3Crect%20x='10'%20y='38'%20width='28'%20height='6'%20fill='%23A9B1AF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sancreek&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -142,7 +143,9 @@ h1 .amp{display:block;font-size:.6em;margin-top:.14em}
 .pripl-foto img{width:100%;height:230px;object-fit:cover;object-position:50% 50%}
 .pripl-foto figcaption{margin-top:8px;font-size:13.5px;color:var(--beton)}
 .isic-blok{margin-top:26px}
-.isic-pozn{margin-top:14px;font-size:15px;color:var(--seda);max-width:48ch}
+.isic-dvojice{display:grid;gap:22px;margin-top:4px}
+.podskupina{font-size:13.5px;font-weight:700;letter-spacing:.02em;color:var(--seda);padding-bottom:2px}
+.zdroj{margin-top:8px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--beton)}
 
 /* ---------- 3. práce ---------- */
 .prace{padding:calc(30px + env(safe-area-inset-top,0px)) 0 34px}
@@ -167,7 +170,7 @@ blockquote footer{
 .adresa-mrizka{max-width:var(--sirka);margin:0 auto;padding:0 20px;display:grid;gap:22px}
 .adresa h2{
   font-family:Sancreek,serif;font-weight:400;text-transform:uppercase;
-  font-size:clamp(22px,5.8vw,32px);line-height:1.14;
+  font-size:clamp(25px,6.4vw,38px);line-height:1.08;
 }
 .adresa .ulice{margin-top:8px;font-size:clamp(21px,5.4vw,28px);font-weight:800;line-height:1.2}
 .kontakt{margin-top:14px;display:flex;flex-direction:column;gap:2px}
@@ -178,18 +181,11 @@ blockquote footer{
 .hodiny li:first-child{border-top:0}
 .hodiny li.dnes{font-weight:800}
 .hodiny li.dnes .den::after{content:" (dnes)";font-weight:500;color:var(--beton)}
-/* the one thing that crosses a section edge: the shopfront runs the full width of the
-   window and its bottom 48 px sit on the footer's black board */
-.stitek-foto{
-  width:100vw;margin-left:calc(50% - 50vw);margin-bottom:-48px;
-  position:relative;z-index:2;
-}
-.stitek-foto img{width:100%;height:250px;object-fit:cover;object-position:50% 14%}
-.stitek-popis{
-  margin:0 0 12px;font-size:14px;color:var(--beton);
-  padding-left:max(20px, calc((100vw - var(--sirka))/2 + 20px));
-  padding-right:20px;
-}
+/* the one thing that crosses a section edge: the shopfront sits in the content column and
+   its bottom 48 px rest on the footer's black board, which shows down both of its sides */
+.stitek-foto{margin-bottom:-48px;position:relative;z-index:2}
+.stitek-foto img{width:100%;height:auto}
+.stitek-popis{margin:0 0 12px;font-size:14px;color:var(--beton)}
 
 /* ---------- footer ---------- */
 body>footer{position:relative;z-index:1;padding:76px 0 86px}
@@ -236,7 +232,7 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
 
   .cenik{padding:calc(56px + env(safe-area-inset-top,0px)) 0 72px}
   .cenik-vnitrek{display:grid;grid-template-columns:1.08fr .92fr;gap:34px 56px;align-items:stretch;margin-top:32px}
-  .blok{grid-column:1;grid-row:1}
+  .cenik-vnitrek>.blok{grid-column:1;grid-row:1}
   .blok .polozka{padding:17px 0}
   /* the panel starts level with the price list's first rule; its photo takes the slack,
      so the two columns end on one line */
@@ -244,24 +240,23 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
   .pripl-foto{margin-top:20px;flex:1 1 auto;min-height:0}
   .pripl-foto img{flex:1 1 0;height:0;min-height:180px}
   .isic-blok{grid-column:1/-1;grid-row:2;margin-top:0}
-  .isic-blok dl{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
-  .isic-pozn{margin-top:16px}
+  .isic-dvojice{grid-template-columns:1fr 1fr;gap:0 56px;margin-top:10px}
 
   /* one strip of their work, then the three voices as a newspaper row */
   .prace{padding:calc(52px + env(safe-area-inset-top,0px)) 0 56px}
   /* one tall portrait holding the left, two unequal photos and three unequal voices to its right */
   .prace-tok{grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
   .prace-tok .foto-hlavni{grid-column:1/6;grid-row:1/5;aspect-ratio:auto;height:100%;min-height:440px;object-position:44% 22%}
-  .prace-tok .foto-a{grid-column:6/10;grid-row:1;aspect-ratio:auto;height:296px}
-  .prace-tok .foto-b{grid-column:10/13;grid-row:1;aspect-ratio:auto;height:296px}
+  .prace-tok .foto-a{grid-column:6/9;grid-row:1;aspect-ratio:auto;height:296px}
+  .prace-tok .foto-b{grid-column:9/13;grid-row:1;aspect-ratio:auto;height:296px}
   .q-dlouha{grid-column:6/13;grid-row:2}
   .q-a{grid-column:6/10;grid-row:3}
-  .q-b{grid-column:10/13;grid-row:3}
+  .q-b{grid-column:10/13;grid-row:3/5}
   .prace-tok>blockquote{padding:24px}
-  .vsechny{grid-column:6/13;grid-row:4}
+  .vsechny{grid-column:6/10;grid-row:4;align-self:start}
 
   .adresa{padding:calc(52px + env(safe-area-inset-top,0px)) 0 0}
-  .stitek-foto img{height:430px;object-position:50% 10%}
+  .stitek-foto img{height:500px;object-fit:cover;object-position:50% 18%}
   .adresa-mrizka{grid-template-columns:1fr 1fr;gap:26px 48px;align-items:start}
   .adr-hlava{grid-column:1;grid-row:1}
   .hodiny{grid-column:1;grid-row:2}
@@ -304,7 +299,7 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
 <!-- 1. vstup -->
 <section class="vstup">
   <div class="vstup-foto">
-    <img src="img/salon.jpg" width="1167" height="723" alt="Interiér barbershopu: bílé stěny, zrcadla s teplým podsvícením, šestiúhelníková stropní světla a psí víno na trámech">
+    <img src="img/salon.jpg" width="1167" height="723" alt="Interiér barbershopu: bílé stěny, zrcadla s teplým podsvícením, šestiúhelníková stropní světla a popínavá zeleň na trámech">
   </div>
   <div class="vstup-text">
     <h1>Design Barbershop<span class="amp">&amp; Studio</span></h1>
@@ -355,15 +350,24 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
         </figure>
       </div>
 
-      <div class="blok isic-blok">
+      <div class="isic-blok">
         <h3 class="skupina-nadpis">Se studentskou kartou (ISIC)</h3>
-        <dl>
-          <div class="polozka"><dt>Střih, krátké vlasy</dt><dd>380 Kč</dd></div>
-          <div class="polozka"><dt>Střih, dlouhé vlasy</dt><dd>480 Kč</dd></div>
-          <div class="polozka"><dt>Vlasy a vousy, krátké vlasy</dt><dd>620 Kč</dd></div>
-          <div class="polozka"><dt>Vlasy a vousy, dlouhé vlasy</dt><dd>720 Kč</dd></div>
-        </dl>
-        <p class="isic-pozn">Na samotné vousy a na dětské střihy studentská cena neplatí.</p>
+        <div class="isic-dvojice">
+          <div class="blok">
+            <h4 class="podskupina">Střih</h4>
+            <dl>
+              <div class="polozka"><dt>Krátké vlasy</dt><dd>380 Kč</dd></div>
+              <div class="polozka"><dt>Dlouhé vlasy</dt><dd>480 Kč</dd></div>
+            </dl>
+          </div>
+          <div class="blok">
+            <h4 class="podskupina">Vlasy a vousy</h4>
+            <dl>
+              <div class="polozka"><dt>Krátké vlasy</dt><dd>620 Kč</dd></div>
+              <div class="polozka"><dt>Dlouhé vlasy</dt><dd>720 Kč</dd></div>
+            </dl>
+          </div>
+        </div>
       </div>
 
       <div class="cenik-akce">
@@ -377,12 +381,13 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
 <section class="prace" id="prace" aria-labelledby="praceNadpis">
   <div class="prace-hlava">
     <h2 class="nadpis" id="praceNadpis">Práce</h2>
+    <p class="zdroj">Hodnocení z Googlu</p>
   </div>
   <div class="prace-tok">
     <img class="foto-hlavni" src="img/strih-profil.jpg" width="900" height="1125" loading="lazy" alt="Střih z profilu: delší zvlněný vršek a nízký taper, na bílé stěně barbershopu">
     <blockquote class="q-dlouha">
       <p>Absolutní spokojenost s účesem vyhoví, či poradí, velký výběr pití a produktů do vlasů. David mi udělal úžasný low taper za což mu moc děkuji. Rozhodně doporučuji a přijdu znovu.</p>
-      <footer>Martin, Google</footer>
+      <footer>Martin</footer>
     </blockquote>
     <img class="foto-a" src="img/strih-vousy.jpg" width="900" height="900" loading="lazy" alt="Krátká ofina a zastřižené vousy, vedle zrcadlo s teplým podsvícením">
     <img class="foto-b" src="img/strih-fade.jpg" width="950" height="950" loading="lazy" alt="Střih s taper fade a delším vrškem z profilu">
@@ -391,7 +396,6 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
     </blockquote>
     <blockquote class="q-b">
       <p>Filip je hodný pečlivý barber, na všem si dá záležet a nenechá nic náhodě, za mě 5 hvězd</p>
-      <footer>Google</footer>
     </blockquote>
     <a class="vsechny" href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener">Přečíst všechna hodnocení</a>
   </div>
@@ -416,7 +420,7 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
     </div>
     <figure class="stitek-foto">
       <figcaption class="stitek-popis">Takhle to vypadá z chodníku. Vchod je z Počernické.</figcaption>
-      <img src="img/podnik.jpg" width="1400" height="788" loading="lazy" alt="Vchod do barbershopu z Počernické: černá cedule s názvem a adresou nad prosklenou výlohou, u dveří barber pole">
+      <img src="img/podnik.jpg" width="1400" height="788" loading="lazy" alt="Vchod do barbershopu z Počernické: prosklená výloha s popínavou zelení nad okny, skleněné dveře s otevírací dobou a barber pole u vchodu">
     </figure>
   </div>
 </section>
