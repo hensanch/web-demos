@@ -14,7 +14,7 @@
 <meta property="og:description" content="Bez objednání, v OC Cíl. 5,0 z 5 na Googlu ze 152 recenzí.">
 <meta property="og:image" content="https://hensanch.github.io/web-demos/alfa-barbershop-v3/img/hero-siroky.jpg">
 <meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="800">
+<meta property="og:image:height" content="600">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,12 +49,12 @@ section{scroll-margin-top:0}
 .al-nadpis{font-size:clamp(30px,8vw,54px);line-height:1.04;font-weight:700;letter-spacing:-.02em}
 
 /* --- vlna: profil jejich recepčního pultu, hrana každého tmavého bloku --- */
-.al-vlna{position:absolute;left:150px;bottom:-1px;width:110px;height:88px;display:block;fill:var(--sten);z-index:3}
-.al-vlna-plocha{position:absolute;right:0;bottom:-1px;height:88px;width:calc(100% - 260px);background:var(--sten);z-index:3}
+.al-vlna{position:absolute;left:170px;bottom:-1px;width:78px;height:106px;display:block;fill:var(--sten);z-index:3}
+.al-vlna-plocha{position:absolute;right:0;bottom:-1px;height:106px;width:calc(100% - 248px);background:var(--sten);z-index:3}
 
 /* ---------- úvod ---------- */
-.al-uvod{position:relative;background:var(--noc);color:var(--svetlo);padding-bottom:96px}
-.al-pruh{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px 12px}
+.al-uvod{position:relative;background:var(--noc);color:var(--svetlo);padding-bottom:110px}
+.al-pruh{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px 10px}
 .al-stav{font-size:14px;font-weight:500}
 .al-stav b{font-weight:700}
 .al-stav.je-zavreno b{color:var(--svetlo)}
@@ -63,7 +63,7 @@ section{scroll-margin-top:0}
   border:1px solid rgba(241,241,245,.5);font-size:12px;font-weight:700;letter-spacing:.18em;cursor:pointer;
 }
 .al-foto{position:relative}
-.al-uvod-foto{width:100%;height:clamp(310px,45vh,370px);object-fit:cover;object-position:50% 20%}
+.al-uvod-foto{width:100%;height:clamp(280px,45vh,340px);object-fit:cover;object-position:50% 20%}
 .al-foto::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:42%;pointer-events:none;
   background:linear-gradient(to top,var(--noc) 8%,rgba(20,20,25,.72) 44%,rgba(20,20,25,0) 100%);
@@ -79,7 +79,7 @@ section{scroll-margin-top:0}
   font-size:.13em;line-height:1;letter-spacing:1.167em;margin:.55em 0 0 .04em;margin-right:-1.167em;
   text-shadow:0 1px 10px rgba(0,0,0,.55);white-space:nowrap;
 }
-.al-akce{display:flex;gap:10px;margin-top:20px}
+.al-akce{display:flex;gap:10px;margin-top:12px}
 .al-btn{
   flex:1 1 0;min-height:52px;display:flex;align-items:center;justify-content:center;
   text-decoration:none;font-weight:700;font-size:16px;padding:0 10px;
@@ -92,7 +92,7 @@ section{scroll-margin-top:0}
 }
 
 /* ---------- fakta hned pod úvodem ---------- */
-.al-fakta{padding:16px 0 4px}
+.al-fakta{padding:12px 0 4px}
 .al-hodnoceni{display:flex;align-items:baseline;gap:8px;font-weight:500}
 .al-hodnoceni p{margin:0}
 .al-adresa{color:var(--sed);font-size:15px;margin-top:4px}
@@ -134,7 +134,7 @@ section{scroll-margin-top:0}
 .al-hodiny .dnes dt,.al-hodiny .dnes dd{color:var(--tus);font-weight:700}
 .al-hodiny .al-stav{margin-top:16px;padding-top:14px;border-top:1px solid var(--linka);font-size:15px}
 .al-hodiny .al-stav.je-zavreno b{color:var(--tus)}
-.al-tel{font-size:clamp(26px,7vw,36px);font-weight:700;text-decoration:none;letter-spacing:-.01em;display:inline-block;min-height:44px}
+.al-tel{color:var(--tus);font-size:clamp(26px,7vw,36px);font-weight:700;text-decoration:none;letter-spacing:-.01em;display:inline-block;min-height:44px}
 .al-mapy{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
 .al-mapy a{
   flex:1 1 180px;min-height:52px;display:flex;align-items:center;justify-content:center;
@@ -177,9 +177,9 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
   body{font-size:18px}
   .al-obal{padding:0 40px}
   .al-usek{padding:76px 0}
-  .al-vlna{left:52%;width:200px;height:160px}
-  .al-vlna-plocha{height:160px;width:calc(48% - 200px)}
-  .al-uvod{padding-bottom:180px}
+  .al-vlna{left:max(40px,calc(50% - 90px));width:140px;height:190px}
+  .al-vlna-plocha{height:190px;width:calc(50% - 50px)}
+  .al-uvod{padding-bottom:110px}
   .al-pruh{padding:14px 26px 16px}
   .al-stav{font-size:16px}
   .al-uvod-foto{height:min(66vh,600px);object-position:50% 16%}
@@ -207,7 +207,7 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
   .al-m1,.al-m2,.al-m3{grid-column:auto;aspect-ratio:auto;height:470px}
   .al-kde-sekce .al-obal{max-width:var(--sirka)}
   .al-dvojice{grid-template-columns:1.05fr .85fr 1.1fr;gap:34px;align-items:stretch;margin-top:34px}
-  .al-kontakt{display:flex;flex-direction:column;justify-content:space-between}
+  .al-kontakt{display:flex;flex-direction:column;justify-content:flex-start;gap:28px}
   .al-dvojice .al-kde-foto{display:block;grid-column:3;margin:0}
   .al-dvojice .al-kde-foto img{width:100%;height:100%;min-height:340px;object-fit:cover;object-position:50% 34%}
   footer .al-obal{display:grid;grid-template-columns:1fr 1fr;gap:30px}
@@ -240,7 +240,7 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
         <a class="al-btn al-btn-prazd" href="tel:+420773137979">Zavolat</a>
       </div>
     </div>
-    <svg class="al-vlna" viewBox="0 0 200 160" aria-hidden="true"><path d="M0,160 C50,159 66,132 84,104 C102,76 112,44 126,26 C146,2 170,0 200,0 L200,160 Z"/></svg>
+    <svg class="al-vlna" viewBox="0 0 140 190" aria-hidden="true"><path d="M0,190 C18,189 26,186 40,168 C54,150 56,132 62,122 C70,110 84,110 94,100 C106,88 108,52 118,32 C126,16 132,4 140,0 L140,190 Z"/></svg>
     <div class="al-vlna-plocha" aria-hidden="true"></div>
   </header>
 
