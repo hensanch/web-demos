@@ -2,14 +2,14 @@
 <html lang="cs">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Design Barbershop &amp; Studio – Praha 10 Malešice</title>
 <meta name="description" content="Barbershop na Počernické 518/55 v Malešicích. Celý ceník včetně příplatků za mytí, obočí a hair tattoo. Rezervace online, 4,9 na Googlu.">
 <link rel="canonical" href="https://hensanch.github.io/web-demos/designbarbershop-v4/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:title" content="Design Barbershop &amp; Studio – Praha 10 Malešice">
-<meta property="og:description" content="Celý ceník včetně příplatků. Spočítej si cenu dřív, než si sedneš do křesla.">
+<meta property="og:description" content="Celý ceník i s příplatky za mytí, obočí a hair tattoo. Pánské a dětské střihy v Malešicích.">
 <meta property="og:image" content="https://hensanch.github.io/web-demos/designbarbershop-v4/img/salon.jpg">
 <meta property="og:url" content="https://hensanch.github.io/web-demos/designbarbershop-v4/">
 <meta name="theme-color" content="#121417">
@@ -22,7 +22,8 @@
   --spara:#33373B;
   --stena:#DDE1DE;
   --omitka:#F4F5F3;
-  --beton:#6B7276;
+  --beton:#565C60;
+  --seda:#A9B1AF;
   --tus:#14171A;
   --sirka:1180px;
 }
@@ -36,39 +37,40 @@ body{
 }
 img{max-width:100%;display:block}
 a{color:inherit}
-h1,h2,h3,p,ul,ol,figure,fieldset,legend{margin:0;padding:0}
+h1,h2,h3,p,ul,ol,dl,dd,dt,figure{margin:0;padding:0}
 ul{list-style:none}
-fieldset{border:0;min-width:0}
 
 .wrap{max-width:var(--sirka);margin:0 auto;padding:0 20px}
-.znacka-font{font-family:Sancreek,"Schibsted Grotesk",serif;font-weight:400;letter-spacing:.005em}
 
-/* ---------- glossy black tile, the room's floor ---------- */
-.dlazdice{
-  position:relative;background-color:var(--dlazba);color:var(--omitka);
-  background-image:
-    linear-gradient(rgba(255,255,255,.042) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.042) 1px,transparent 1px);
-  background-size:72px 72px;background-position:-1px -1px;
-}
+/* ---------- dark surfaces: flat tile, one gloss, no grid behind text ---------- */
+.dlazdice{position:relative;background:var(--dlazba);color:var(--omitka)}
 .dlazdice::before{
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,0) 300px);
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,0) 300px);
 }
 .dlazdice>*{position:relative}
+/* the glossy floor itself, once, at the foot of the price list, with nothing on it */
+.podlaha{
+  height:64px;margin-top:26px;border-top:1px solid rgba(255,255,255,.17);
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,0) 74%);
+  background-size:72px 72px,72px 72px,100% 100%;
+}
 
 /* ---------- floating menu button + modal ---------- */
 .menu-btn{
-  position:fixed;top:12px;right:12px;z-index:60;
+  position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:60;
   width:52px;height:52px;border-radius:50%;border:1px solid rgba(244,245,243,.35);
   background:rgba(18,20,23,.82);color:#fff;cursor:pointer;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
   backdrop-filter:saturate(140%) blur(6px);
 }
 .menu-btn span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px}
-.menu-btn:focus-visible,.btn:focus-visible,a:focus-visible,input:focus-visible,button:focus-visible{
+.menu-btn:focus-visible,.btn:focus-visible,a:focus-visible,button:focus-visible{
   outline:3px solid var(--tus);outline-offset:3px}
-.dlazdice a:focus-visible,.dlazdice button:focus-visible,.dlazdice input:focus-visible{outline-color:#fff}
+.dlazdice a:focus-visible,.dlazdice button:focus-visible{outline-color:#fff}
 
 .modal{
   position:fixed;inset:0;z-index:80;display:none;
@@ -76,35 +78,37 @@ fieldset{border:0;min-width:0}
   margin:0;padding:0;border:0;background:transparent;overflow:hidden;
 }
 .modal[open]{display:block}
-.modal::backdrop{background:rgba(18,20,23,.6)}
 .modal-panel{
   position:absolute;inset:0;background:var(--dlazba);color:var(--omitka);
-  padding:76px 24px 32px;display:flex;flex-direction:column;gap:6px;
+  padding:calc(76px + env(safe-area-inset-top,0px)) 24px calc(32px + env(safe-area-inset-bottom,0px));
+  display:flex;flex-direction:column;gap:6px;
 }
 .modal-panel a{
   display:block;padding:16px 0;font-size:26px;font-weight:700;text-decoration:none;
   border-bottom:1px solid var(--spara);min-height:44px;
 }
 .modal-zavri{
-  position:absolute;top:12px;right:12px;width:52px;height:52px;border-radius:50%;
+  position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:12px;width:52px;height:52px;border-radius:50%;
   border:1px solid rgba(244,245,243,.35);background:transparent;color:#fff;font-size:24px;cursor:pointer;
 }
 .modal-tel{margin-top:auto;font-size:19px;color:#B9C0BE}
 .modal-tel a{display:inline-flex;align-items:center;min-height:48px;font-weight:700;color:#fff;border-bottom:0;padding:0}
 
-/* ---------- 1. vstup ---------- */
-.vstup-foto img{width:100%;height:230px;object-fit:cover;object-position:50% 62%}
-.vstup-text{padding:22px 20px 30px;max-width:var(--sirka);margin:0 auto}
-h1{font-size:clamp(30px,8.6vw,44px);line-height:1.02;font-family:Sancreek,serif;font-weight:400}
-h1 .amp{display:block;font-size:.62em;margin-top:.16em}
-.co{margin-top:12px;font-size:16px;color:#3D4347;max-width:32ch}
-.fakta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:14px;font-size:15px}
+/* ---------- 1. vstup: photo, name, proof, action, then the explaining line ---------- */
+.vstup-foto img{width:100%;height:322px;object-fit:cover;object-position:32% 56%}
+.vstup-text{padding:20px 20px 28px;max-width:var(--sirka);margin:0 auto}
+h1{
+  font-family:Sancreek,serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(26px,7.4vw,42px);line-height:1.04;
+}
+h1 .amp{display:block;font-size:.6em;margin-top:.14em}
+.fakta{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:12px;font-size:15px}
 .hvezda{font-weight:800;font-size:19px}
 .hvezda i{font-style:normal}
 .pocet{color:var(--beton)}
 .stav{padding-left:11px;border-left:2px solid var(--tus);font-weight:700}
 .stav.zavreno{border-left-color:var(--beton);color:var(--beton);font-weight:500}
-.akce{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.akce{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
   min-height:54px;padding:0 19px;border-radius:3px;font-size:16.5px;font-weight:700;
@@ -112,136 +116,150 @@ h1 .amp{display:block;font-size:.62em;margin-top:.16em}
 }
 .btn-hlavni{background:var(--tus);color:var(--omitka)}
 .btn-vedlejsi{background:transparent;color:var(--tus)}
+.co{margin-top:16px;font-size:16px;color:#3D4347;max-width:38ch}
 
-/* ---------- 2. ceník: seznam a kalkulačka v jednom ---------- */
-.cenik{padding:34px 0 40px}
-.nadpis{font-family:Sancreek,serif;font-weight:400;font-size:clamp(27px,7vw,40px);line-height:1.06}
+/* ---------- 2. ceník, printed ---------- */
+#cenik,#prace,#adresa{scroll-margin-top:calc(-1 * env(safe-area-inset-top,0px))}
+.cenik{padding:calc(34px + env(safe-area-inset-top,0px)) 0 0}
+.nadpis{
+  font-family:Sancreek,serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(25px,6.4vw,38px);line-height:1.08;
+}
 .cenik .nadpis{color:#fff}
-.cenik-uvod{margin-top:12px;color:#B9C0BE;font-size:16px;max-width:46ch}
-.cenik-vnitrek{margin-top:24px}
-.blok+.blok,.cenik-prava>*+*{margin-top:22px}
-.blok legend{
-  font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-  color:#8B9391;padding-bottom:6px;
+.cenik-uvod{margin-top:12px;color:#B9C0BE;font-size:16px;max-width:48ch}
+.cenik-vnitrek{margin-top:26px}
+.skupina-nadpis{font-size:15px;font-weight:800;color:var(--seda);padding-bottom:4px}
+.polozka{
+  display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  padding:11px 0;border-top:1px solid var(--spara);
 }
-.volba{
-  display:flex;align-items:center;gap:13px;min-height:52px;padding:6px 2px;
-  border-bottom:1px solid var(--spara);cursor:pointer;
-}
-.volba input{
-  width:23px;height:23px;flex:none;margin:0;accent-color:#F4F5F3;cursor:pointer;
-}
-.volba-jm{flex:1;font-size:16.5px;font-weight:500;line-height:1.28}
-.volba-jm small{display:block;font-size:12.5px;color:#8B9391;font-weight:400;margin-top:3px;line-height:1.35}
-.volba-cena{font-size:16.5px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
-.volba input:checked ~ .volba-jm,.volba input:checked ~ .volba-cena{font-weight:800}
-.volba.pripl .volba-cena{color:#fff;font-weight:800}
-.pripl-foto figcaption{margin-top:8px;font-size:13.5px;color:#8B9391}
-.pripl-foto img{width:100%;height:168px;object-fit:cover;object-position:50% 38%}
-.isic-staticky{margin-top:10px;font-size:14.5px;color:#B9C0BE;max-width:46ch}
-.soucet{
-  padding:18px;border:2px solid var(--omitka);
-  display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
-}
-.soucet-popis{font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B9C0BE}
-#celkem{font-size:clamp(40px,12vw,60px);font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
-.cenik-pod{font-size:14px;color:#8B9391;max-width:50ch}
+.polozka dt{font-size:17px;font-weight:500;line-height:1.3}
+.polozka dt small{display:block;font-size:13px;color:var(--seda);font-weight:400;margin-top:3px;line-height:1.35}
+.polozka dd{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* the one bright panel in the dark section is the surcharge list */
+.pripl-panel{margin-top:24px;background:var(--omitka);color:var(--tus);padding:18px 18px 20px}
+.pripl-panel .skupina-nadpis{color:var(--beton);font-size:15px}
+.pripl-panel .polozka{border-top-color:#CFD3D0;padding:14px 0}
+.pripl-panel .polozka dt{font-size:18px;font-weight:700}
+.pripl-panel .polozka dd{font-size:18px;font-weight:800}
+.isic-staticky{margin-top:20px;font-size:15px;color:#B9C0BE;max-width:48ch}
+.pripl-foto{margin-top:22px}
+.pripl-foto img{width:100%;height:160px;object-fit:cover;object-position:50% 44%}
+.pripl-foto figcaption{margin-top:8px;font-size:13.5px;color:var(--seda)}
 
 /* ---------- 3. práce ---------- */
-.prace{padding:34px 0 40px}
+.prace{padding:calc(30px + env(safe-area-inset-top,0px)) 0 34px}
 .prace-hlava{max-width:var(--sirka);margin:0 auto 18px;padding:0 20px}
 .prace-tok{max-width:var(--sirka);margin:0 auto;padding:0 20px;display:grid;gap:16px}
 .prace-tok img{width:100%;height:auto}
-.prace-tok>img:first-child{max-height:400px;object-fit:cover;object-position:50% 34%}
+.prace-tok>img:first-child{max-height:340px;object-fit:cover;object-position:50% 34%}
 .dvojice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .dvojice img{height:100%;object-fit:cover;aspect-ratio:4/5}
-blockquote{margin:0;padding:2px 0}
+.hlasy{display:grid;gap:16px;align-content:start}
+blockquote{margin:0}
 blockquote p{font-size:17.5px;line-height:1.42;font-weight:500;max-width:40ch}
 blockquote p::before{content:"„"}
 blockquote p::after{content:"“"}
-blockquote footer{margin-top:9px;font-size:14px;color:var(--beton);font-weight:700}
-.vsechny{display:inline-block;margin-top:6px;font-weight:700;font-size:16px;min-height:44px;line-height:44px}
+blockquote footer{margin-top:8px;font-size:14px;color:var(--beton);font-weight:700;padding:0}
+.vsechny{display:inline-flex;align-items:center;min-height:44px;font-weight:700;font-size:16px}
 
 /* ---------- 4. adresa ---------- */
-.adresa{padding:36px 0 44px;border-top:2px solid var(--tus)}
-.adresa-mrizka{max-width:var(--sirka);margin:0 auto;padding:0 20px;display:grid;gap:24px}
-.adresa h2{font-family:Sancreek,serif;font-weight:400;font-size:clamp(24px,6.4vw,34px);line-height:1.12}
+.adresa{padding:calc(32px + env(safe-area-inset-top,0px)) 0 36px;border-top:2px solid var(--tus)}
+.adresa-mrizka{max-width:var(--sirka);margin:0 auto;padding:0 20px;display:grid;gap:22px}
+.adresa h2{
+  font-family:Sancreek,serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(22px,5.8vw,32px);line-height:1.14;
+}
 .adresa .ulice{margin-top:8px;font-size:clamp(21px,5.4vw,28px);font-weight:800;line-height:1.2}
-.hodiny{max-width:400px}
-.hodiny li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid #C8CDCA;font-size:16.5px}
+.kontakt{margin-top:14px;display:flex;flex-direction:column;gap:2px}
+.kontakt a{display:inline-flex;align-items:center;min-height:48px;font-weight:700;font-size:17px}
+.hodiny{max-width:420px}
+.hodiny li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid #C3C8C5;font-size:17px}
 .hodiny li:first-child{border-top:0}
 .hodiny li.dnes{font-weight:800}
 .hodiny li.dnes .den::after{content:" (dnes)";font-weight:500;color:var(--beton)}
-.kontakt{display:flex;flex-direction:column;gap:2px}
-.kontakt a{display:inline-flex;align-items:center;min-height:48px;font-weight:700;font-size:17px}
-.stitek-foto img{width:100%;max-width:662px;border:1px solid #C8CDCA}
-.stitek-popis{margin-top:10px;font-size:14px;color:var(--beton);max-width:36ch}
+.stitek-foto img{width:100%;height:auto;border:1px solid #C3C8C5}
+.stitek-popis{margin-top:10px;font-size:14px;color:var(--beton)}
 
 /* ---------- footer ---------- */
-footer{padding:30px 0 96px}
+body>footer{padding:28px 0 86px}
 .footer-mrizka{max-width:var(--sirka);margin:0 auto;padding:0 20px;display:grid;gap:14px}
-.footer-znacka{font-family:Sancreek,serif;font-size:24px;line-height:1.1}
-footer p{font-size:15px;color:#B9C0BE}
-footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-height:44px}
+.footer-znacka{font-family:Sancreek,serif;font-size:22px;line-height:1.15;text-transform:uppercase}
+body>footer p{font-size:15px;color:#B9C0BE}
+body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-height:44px}
 
-/* ---------- spodní lišta ---------- */
+/* ---------- bottom bar ---------- */
 .lista{
-  position:fixed;left:0;right:0;bottom:0;z-index:50;
-  display:grid;grid-template-columns:1fr 1fr;
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  display:grid;grid-template-columns:auto 1fr 1fr;
   background:var(--dlazba);border-top:1px solid var(--spara);
   padding-bottom:env(safe-area-inset-bottom);
-  transform:translateY(105%);transition:transform .22s ease;
+  visibility:hidden;transform:translateY(105%);
+  transition:transform .22s ease, visibility .22s ease;
 }
-.lista.vidno{transform:translateY(0)}
-.lista a{
-  display:flex;align-items:center;justify-content:center;min-height:58px;
+.lista.vidno{visibility:visible;transform:translateY(0)}
+.lista a,.lista button{
+  display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px;
   color:var(--omitka);text-decoration:none;font-weight:700;font-size:16.5px;
+  background:none;border:0;font-family:inherit;cursor:pointer;
 }
-.lista a+a{background:var(--omitka);color:var(--tus)}
+.lista .lista-book{background:var(--omitka);color:var(--tus)}
 .preskoc{position:absolute;left:-9999px}
 .preskoc:focus{
   left:12px;top:12px;z-index:90;background:var(--tus);color:#fff;
   display:inline-flex;align-items:center;min-height:46px;padding:0 18px;border-radius:3px;font-weight:700;
 }
 
+@media (max-width:759px){
+  /* the burger would otherwise sit on top of a price row: it leaves with the hero */
+  .menu-btn.skryto{display:none}
+}
+
 @media (min-width:760px){
-  .vstup{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:74vh}
+  .vstup{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:72vh}
   .vstup-foto{order:2}
-  .vstup-foto img{height:100%;min-height:420px;object-position:50% 55%}
-  .vstup-text{order:1;align-self:center;padding:44px 40px;margin:0;max-width:none}
-  h1{font-size:clamp(40px,4.4vw,60px)}
-  .co{font-size:18px;margin-top:16px}
-  .cenik{padding:56px 0 60px}
-  .cenik-vnitrek{display:grid;grid-template-columns:1.05fr .95fr;gap:20px 56px;align-items:start;margin-top:30px}
-  .cenik-prava{display:grid;grid-template-columns:1fr auto;gap:26px 32px;align-items:start}
-  .cenik-prava .blok{grid-column:1}
-  .cenik-prava .pripl-foto{grid-column:2;width:200px;margin-top:0}
-  .cenik-prava .pripl-foto img{height:200px}
-  .cenik-prava .isic-blok,.cenik-prava .soucet,.cenik-prava .cenik-pod{grid-column:1/-1;margin-top:0}
-  .blok+.blok{margin-top:0}
-  .prace{padding:52px 0 56px}
-  .prace-tok{grid-template-columns:1.05fr .95fr;gap:32px 44px;align-items:end}
-  .prace-tok>img:first-child{grid-column:1;grid-row:1;max-height:470px;object-fit:cover;object-position:50% 26%}
-  .prace-tok>blockquote:nth-of-type(1){grid-column:2;grid-row:1}
-  .dvojice{grid-column:1;grid-row:2;gap:18px}
-  .prace-tok>blockquote:nth-of-type(2){grid-column:2;grid-row:2}
-  .prace-tok>blockquote:nth-of-type(3){grid-column:1/-1;grid-row:3;justify-self:start}
-  blockquote p{font-size:20px;max-width:40ch}
-  .vsechny{margin-top:0}
-  .adresa{padding:52px 0 56px}
-  .adresa-mrizka{grid-template-columns:1.1fr .95fr .95fr;gap:34px 44px;align-items:start}
+  .vstup-foto img{height:100%;min-height:430px;object-position:38% 52%}
+  .vstup-text{order:1;align-self:center;margin:0;max-width:none;
+    padding:44px 40px 44px max(20px, calc((100vw - var(--sirka))/2 + 20px));}
+  h1{font-size:clamp(36px,4vw,54px)}
+  .co{font-size:17px}
+
+  .cenik{padding:calc(56px + env(safe-area-inset-top,0px)) 0 0}
+  .cenik-vnitrek{display:grid;grid-template-columns:1.08fr .92fr;gap:0 56px;align-items:stretch;margin-top:32px}
+  .cenik-prava{display:flex;flex-direction:column;height:100%}
+  .pripl-panel{margin-top:0;padding:22px 24px 24px}
+  .blok .polozka{padding:17px 0}
+  /* the photo takes exactly the space left over, so both columns end on one baseline */
+  .pripl-foto{margin-top:22px;flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+  .pripl-foto img{flex:1 1 0;height:0;min-height:190px;object-fit:cover;object-position:50% 46%}
+  .podlaha{height:104px;margin-top:40px}
+
+  /* one strip of their work, then the three voices as a newspaper row */
+  .prace{padding:calc(52px + env(safe-area-inset-top,0px)) 0 56px}
+  .prace-tok{grid-template-columns:1fr 2fr;gap:26px;align-items:start}
+  .prace-tok>img:first-child{grid-column:1;grid-row:1;height:380px;max-height:none;object-fit:cover;object-position:50% 24%}
+  .dvojice{grid-column:2;grid-row:1;gap:26px}
+  .dvojice img{aspect-ratio:auto;height:380px;object-fit:cover}
+  .prace-tok>blockquote{grid-column:1;grid-row:2}
+  .hlasy{grid-column:2;grid-row:2;grid-template-columns:1fr 1fr;gap:10px 26px;align-content:start}
+  .hlasy .vsechny{grid-column:1/-1}
+  blockquote p{font-size:18.5px;max-width:34ch}
+
+  .adresa{padding:calc(52px + env(safe-area-inset-top,0px)) 0 56px}
+  .adresa-mrizka{grid-template-columns:1fr 1fr;gap:26px 48px;align-items:start}
   .adr-hlava{grid-column:1;grid-row:1}
-  .hodiny{grid-column:2;grid-row:1}
-  .kontakt{grid-column:3;grid-row:1}
-  .stitek-foto{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:auto 1fr;gap:0 26px;align-items:end}
-  .stitek-popis{margin-top:0;align-self:end;padding-bottom:6px}
+  .hodiny{grid-column:1;grid-row:2}
+  .kontakt{grid-column:2;grid-row:1/span 2;margin-top:0}
+  .stitek-foto{grid-column:1/-1;grid-row:3}
+  .stitek-foto img{height:470px;object-fit:cover;object-position:50% 8%}
   .footer-mrizka{grid-template-columns:1fr auto;align-items:end}
+  body>footer{padding:30px 0 34px}
   .lista{display:none}
   .menu-btn{top:18px;right:22px}
 }
 @media (min-width:1100px){
-  .vstup-text{padding:56px 60px}
-  .cenik,.prace,.adresa{padding-left:0;padding-right:0}
+  .vstup-text{padding:56px 48px 56px max(20px, calc((100vw - var(--sirka))/2 + 20px))}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
@@ -249,22 +267,24 @@ footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-h
 </style>
 </head>
 <body>
-<a class="preskoc" href="#cenik">Přeskočit na ceník</a>
+<a class="preskoc" href="#obsah">Přeskočit na obsah</a>
 
-<button class="menu-btn" id="menuBtn" aria-haspopup="dialog" aria-label="Otevřít menu">
+<button class="menu-btn" id="menuBtn" aria-haspopup="dialog" aria-controls="modal" aria-expanded="false" aria-label="Otevřít menu">
   <span></span><span></span><span></span>
 </button>
 
-<dialog class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Menu">
+<dialog class="modal" id="modal" aria-modal="true" aria-label="Menu">
   <div class="modal-panel">
     <button class="modal-zavri" id="modalZavri" aria-label="Zavřít menu">&#215;</button>
-    <a href="#cenik" data-zavri>Ceník a příplatky</a>
-    <a href="#prace" data-zavri>Práce</a>
-    <a href="#adresa" data-zavri>Kde nás najdeš</a>
+    <a href="#cenik">Ceník a příplatky</a>
+    <a href="#prace">Práce</a>
+    <a href="#adresa">Kde nás najdeš</a>
     <a href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener">Rezervovat termín</a>
-    <p class="modal-tel"><a href="tel:+420777591353">777 591 353</a></p>
+    <p class="modal-tel"><a href="tel:+420777591353">777 591 353</a></p>
   </div>
 </dialog>
+
+<main id="obsah">
 
 <!-- 1. vstup -->
 <section class="vstup">
@@ -273,63 +293,59 @@ footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-h
   </div>
   <div class="vstup-text">
     <h1>Design Barbershop<span class="amp">&amp; Studio</span></h1>
-    <p class="co">Pánské a dětské střihy a vousy v Malešicích. Objednáváš se online, ceník máš celý tady.</p>
     <p class="fakta">
       <span class="hvezda">4,9 <i aria-hidden="true">&#9733;</i></span>
-      <span class="pocet">více než 1 100 hodnocení na Googlu</span>
+      <span class="pocet">více než 1 100 hodnocení na Googlu</span>
       <span class="stav" id="stav">Otevírací doba</span>
     </p>
     <div class="akce" id="akceHero">
       <a class="btn btn-hlavni" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener">Rezervovat termín</a>
-      <a class="btn btn-vedlejsi" href="tel:+420777591353">777 591 353</a>
+      <a class="btn btn-vedlejsi" href="tel:+420777591353">777 591 353</a>
     </div>
+    <p class="co">Pánské a dětské střihy a vousy v Malešicích. Objednáš se online, ceník máš celý tady.</p>
   </div>
 </section>
 
-<!-- 2. ceník: seznam a kalkulačka v jednom -->
+<!-- 2. ceník -->
 <section class="cenik dlazdice" id="cenik" aria-labelledby="cenikNadpis">
   <div class="wrap">
     <h2 class="nadpis" id="cenikNadpis">Ceník</h2>
-    <p class="cenik-uvod">Celý ceník i s příplatky. Vyber si, co chceš, a dole ti naskočí částka za celou návštěvu.</p>
+    <p class="cenik-uvod">Stříháme v Malešicích od roku 2022, jsme tu čtyři a ke střihu u nás dostaneš něco k pití.</p>
 
     <div class="cenik-vnitrek">
-      <fieldset class="blok">
-        <legend>Střih a vousy</legend>
-        <label class="volba"><input type="radio" name="strih" value="klas" data-c="420" data-isic="380" checked><span class="volba-jm">Klasický střih<small>30 minut</small></span><span class="volba-cena">420 Kč</span></label>
-        <label class="volba"><input type="radio" name="strih" value="dlouhe" data-c="520" data-isic="480"><span class="volba-jm">Dlouhé vlasy a trendy účesy<small>mullet, messy fringe, fade s texturou, edgar, warrior cut, 30 minut</small></span><span class="volba-cena">520 Kč</span></label>
-        <label class="volba"><input type="radio" name="strih" value="vousy" data-c="280"><span class="volba-jm">Úprava vousů<small>15 minut</small></span><span class="volba-cena">280 Kč</span></label>
-        <label class="volba"><input type="radio" name="strih" value="vvk" data-c="650" data-isic="620"><span class="volba-jm">Vlasy a vousy, krátké vlasy</span><span class="volba-cena">650 Kč</span></label>
-        <label class="volba"><input type="radio" name="strih" value="vvd" data-c="750" data-isic="720"><span class="volba-jm">Vlasy a vousy, dlouhé vlasy</span><span class="volba-cena">750 Kč</span></label>
-        <label class="volba"><input type="radio" name="strih" value="detk" data-c="350"><span class="volba-jm">Dětský střih do 10 let, krátké vlasy<small>30 minut</small></span><span class="volba-cena">350 Kč</span></label>
-        <label class="volba"><input type="radio" name="strih" value="detd" data-c="450"><span class="volba-jm">Dětský střih do 10 let, dlouhé vlasy<small>30 minut</small></span><span class="volba-cena">450 Kč</span></label>
-      </fieldset>
+      <div class="blok">
+        <h3 class="skupina-nadpis">Střih a vousy</h3>
+        <dl>
+          <div class="polozka"><dt>Klasický střih<small>30 minut</small></dt><dd>420 Kč</dd></div>
+          <div class="polozka"><dt>Dlouhé vlasy a trendy účesy<small>mullet, messy fringe, fade s texturou, edgar, warrior cut, 30 minut</small></dt><dd>520 Kč</dd></div>
+          <div class="polozka"><dt>Úprava vousů<small>15 minut</small></dt><dd>280 Kč</dd></div>
+          <div class="polozka"><dt>Vlasy a vousy, krátké vlasy</dt><dd>650 Kč</dd></div>
+          <div class="polozka"><dt>Vlasy a vousy, dlouhé vlasy</dt><dd>750 Kč</dd></div>
+          <div class="polozka"><dt>Dětský střih do 10 let, krátké vlasy<small>30 minut</small></dt><dd>350 Kč</dd></div>
+          <div class="polozka"><dt>Dětský střih do 10 let, dlouhé vlasy<small>30 minut</small></dt><dd>450 Kč</dd></div>
+        </dl>
+      </div>
 
       <div class="cenik-prava">
-        <fieldset class="blok">
-          <legend>Příplatky ke střihu</legend>
-          <label class="volba pripl"><input type="checkbox" data-c="100"><span class="volba-jm">Mytí vlasů</span><span class="volba-cena">+100 Kč</span></label>
-          <label class="volba pripl"><input type="checkbox" data-c="50"><span class="volba-jm">Obočí</span><span class="volba-cena">+50 Kč</span></label>
-          <label class="volba pripl"><input type="checkbox" data-c="50" data-od="1"><span class="volba-jm">Hair tattoo</span><span class="volba-cena">od +50 Kč</span></label>
-        </fieldset>
+        <div class="pripl-panel">
+          <h3 class="skupina-nadpis">Příplatky ke střihu</h3>
+          <dl>
+            <div class="polozka"><dt>Mytí vlasů</dt><dd>+100 Kč</dd></div>
+            <div class="polozka"><dt>Obočí</dt><dd>+50 Kč</dd></div>
+            <div class="polozka"><dt>Hair tattoo</dt><dd>od +50 Kč</dd></div>
+          </dl>
+        </div>
+
+        <p class="isic-staticky">Se studentskou kartou stojí střih 380 Kč na krátké vlasy a 480 Kč na dlouhé, vlasy a vousy dohromady 620 Kč a 720 Kč. Na samotné vousy a na dětské střihy studentská cena není.</p>
 
         <figure class="pripl-foto">
-          <img src="img/hair-tattoo.jpg" width="660" height="660" loading="lazy" alt="Vyholená linka nad uchem, hair tattoo, a police s vlasovými produkty za ní">
+          <img src="img/hair-tattoo.jpg" width="1200" height="1200" loading="lazy" alt="Vyholená linka nad uchem, hair tattoo, a police s vlasovými produkty za ní">
           <figcaption>Hair tattoo, vyholená linka nad uchem.</figcaption>
         </figure>
-
-        <div class="isic-blok">
-          <label class="volba"><input type="checkbox" id="isic"><span class="volba-jm">Mám ISIC</span><span class="volba-cena">studentská cena</span></label>
-          <p class="isic-staticky">Se studentskou kartou stojí střih 380 Kč na krátké vlasy a 480 Kč na dlouhé, vlasy a vousy dohromady 620 Kč a 720 Kč. Na samotné vousy a na dětské střihy studentská cena není.</p>
-        </div>
-
-        <div class="soucet">
-          <span class="soucet-popis">Celkem</span>
-          <output id="celkem" aria-live="polite">420 Kč</output>
-        </div>
-        <p class="cenik-pod">Příplatky se ke střihu přičítají. V součtu je vidíš rovnou, ať víš, na čem jsi, než si sedneš do křesla.</p>
       </div>
     </div>
   </div>
+  <div class="podlaha" aria-hidden="true"></div>
 </section>
 
 <!-- 3. práce -->
@@ -343,19 +359,21 @@ footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-h
       <p>Absolutní spokojenost s účesem vyhoví, či poradí, velký výběr pití a produktů do vlasů. David mi udělal úžasný low taper za což mu moc děkuji. Rozhodně doporučuji a přijdu znovu.</p>
       <footer>Martin, 5 hvězd na Googlu</footer>
     </blockquote>
-    <blockquote>
-      <p>Krásné prostředí a moc milý barber Marek, určitě přijdu znovu a mohu velmi doporučit</p>
-      <footer>5 hvězd na Googlu</footer>
-    </blockquote>
     <div class="dvojice">
-      <img src="img/strih-vousy.jpg" width="788" height="1400" loading="lazy" alt="Krátká ofina a zastřižené vousy, vedle zrcadlo s teplým podsvícením">
-      <img src="img/detsky-strih.jpg" width="1050" height="1400" loading="lazy" alt="Barber stříhá kluka v chromovém křesle nad černou lesklou dlažbou">
+      <img src="img/strih-vousy.jpg" width="720" height="1280" loading="lazy" alt="Krátká ofina a zastřižené vousy, vedle zrcadlo s teplým podsvícením">
+      <img src="img/detsky-strih.jpg" width="720" height="960" loading="lazy" alt="Barber stříhá kluka v chromovém křesle nad černou lesklou dlažbou">
     </div>
-    <blockquote>
-      <p>Filip je hodný pečlivý barber, na všem si dá záležet a nenechá nic náhodě, za mě 5 hvězd</p>
-      <footer>5 hvězd na Googlu</footer>
+    <div class="hlasy">
+      <blockquote>
+        <p>Krásné prostředí a moc milý barber Marek, určitě přijdu znovu a mohu velmi doporučit</p>
+        <footer>5 hvězd na Googlu</footer>
+      </blockquote>
+      <blockquote>
+        <p>Filip je hodný pečlivý barber, na všem si dá záležet a nenechá nic náhodě, za mě 5 hvězd</p>
+        <footer>5 hvězd na Googlu</footer>
+      </blockquote>
       <a class="vsechny" href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener">Přečíst všechna hodnocení</a>
-    </blockquote>
+    </div>
   </div>
 </section>
 
@@ -367,25 +385,23 @@ footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-h
       <p class="ulice">Počernická 518/55<br>Praha 10 – Malešice</p>
     </div>
     <ul class="hodiny" id="hodiny">
-      <li data-d="1"><span class="den">Pondělí</span><span>9:30 – 19:30</span></li>
-      <li data-d="2"><span class="den">Úterý</span><span>9:30 – 19:30</span></li>
-      <li data-d="3"><span class="den">Středa</span><span>9:30 – 19:30</span></li>
-      <li data-d="4"><span class="den">Čtvrtek</span><span>9:30 – 19:30</span></li>
-      <li data-d="5"><span class="den">Pátek</span><span>9:30 – 19:30</span></li>
-      <li data-d="6"><span class="den">Sobota</span><span>10:00 – 17:00</span></li>
-      <li data-d="0"><span class="den">Neděle</span><span>10:00 – 17:00</span></li>
+      <li data-d="1 2 3 4 5"><span class="den">Pondělí až pátek</span><span>9:30 – 19:30</span></li>
+      <li data-d="6 0"><span class="den">Sobota a neděle</span><span>10:00 – 17:00</span></li>
     </ul>
     <div class="kontakt">
-      <a href="tel:+420777591353">Zavolat 777 591 353</a>
-      <a href="https://www.google.com/maps?q=Po%C4%8Dernick%C3%A1%20518/55,%20108%2000%20Praha%2010-Male%C5%A1ice&amp;z=16" target="_blank" rel="noopener">Otevřít v mapě</a>
+      <a href="tel:+420777591353">Zavolat 777 591 353</a>
+      <a href="https://maps.app.goo.gl/XHJqNHLacYyy1re47" target="_blank" rel="noopener">Otevřít v Mapách Google</a>
+      <a href="https://mapy.com/cs/zakladni?q=Po%C4%8Dernick%C3%A1%20518%2F55%20Praha%2010" target="_blank" rel="noopener">Otevřít v Mapy.cz</a>
       <a href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener">Rezervovat termín</a>
     </div>
     <figure class="stitek-foto">
-      <img src="img/stitek.jpg" width="662" height="178" loading="lazy" alt="Černá cedule nad vchodem s nápisem Design Barbershop a adresou Počernická 518/55">
-      <figcaption class="stitek-popis">Tuhle ceduli hledej z chodníku, hned vedle pizzerie.</figcaption>
+      <img src="img/podnik.jpg" width="1400" height="788" loading="lazy" alt="Vchod do barbershopu z Počernické: černá cedule s názvem a adresou nad prosklenou výlohou, u dveří barber pole">
+      <figcaption class="stitek-popis">Takhle to vypadá z chodníku. Vchod je z Počernické.</figcaption>
     </figure>
   </div>
 </section>
+
+</main>
 
 <footer class="dlazdice">
   <div class="footer-mrizka">
@@ -394,15 +410,16 @@ footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-h
       <p>Počernická 518/55, Praha 10 – Malešice</p>
     </div>
     <div>
-      <p><a href="tel:+420777591353">777 591 353</a></p>
+      <p><a href="tel:+420777591353">777 591 353</a></p>
       <p>Po až pá 9:30 – 19:30, so a ne 10:00 – 17:00</p>
     </div>
   </div>
 </footer>
 
 <nav class="lista" id="lista" aria-label="Rychlé akce">
+  <button type="button" id="listaMenu" aria-haspopup="dialog" aria-controls="modal" aria-expanded="false">Menu</button>
   <a href="tel:+420777591353">Zavolat</a>
-  <a href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener">Rezervovat</a>
+  <a class="lista-book" href="https://noona.app/cs/designbarbershop/book" target="_blank" rel="noopener">Rezervovat</a>
 </nav>
 
 <script type="application/ld+json">
@@ -413,9 +430,9 @@ footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-h
   "url":"https://hensanch.github.io/web-demos/designbarbershop-v4/",
   "image":"https://hensanch.github.io/web-demos/designbarbershop-v4/img/salon.jpg",
   "telephone":"+420777591353",
-  "priceRange":"280–750 Kč",
-  "address":{"@type":"PostalAddress","streetAddress":"Počernická 518/55","addressLocality":"Praha 10 – Malešice","postalCode":"10800","addressCountry":"CZ"},
-  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"1100"},
+  "priceRange":"280–900 Kč",
+  "address":{"@type":"PostalAddress","streetAddress":"Počernická 518/55","addressLocality":"Praha 10 – Malešice","postalCode":"108 00","addressCountry":"CZ"},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"1143"},
   "openingHoursSpecification":[
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:30","closes":"19:30"},
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"10:00","closes":"17:00"}
@@ -451,68 +468,42 @@ footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-h
       if (t.m < dnes[0]) {
         otevre = "dnes v " + hhmm(dnes[0]);
       } else {
-        var zitra = (t.d + 1) % 7;
-        otevre = "zítra v " + hhmm(PLAN[zitra][0]);
+        otevre = "zítra v " + hhmm(PLAN[(t.d + 1) % 7][0]);
       }
       el.textContent = "Zavřeno, otevíráme " + otevre;
       el.classList.add("zavreno");
     }
-    var radek = document.querySelector('#hodiny li[data-d="' + t.d + '"]');
+    var radek = document.querySelector('#hodiny li[data-d~="' + t.d + '"]');
     if (radek) radek.classList.add("dnes");
   }
-
-  /* ---------- kalkulačka ---------- */
-  var celkem = document.getElementById("celkem");
-  var isic = document.getElementById("isic");
-  var strihy = Array.prototype.slice.call(document.querySelectorAll('input[name="strih"]'));
-  var priplatky = Array.prototype.slice.call(document.querySelectorAll('.volba.pripl input'));
-
-  function cena(inp){
-    var zakl = parseInt(inp.getAttribute("data-c"), 10);
-    var s = inp.getAttribute("data-isic");
-    return (isic && isic.checked && s) ? parseInt(s, 10) : zakl;
-  }
-  function prepocitat(){
-    var vybrany = null, i;
-    for (i = 0; i < strihy.length; i++) if (strihy[i].checked) vybrany = strihy[i];
-    if (!vybrany || !celkem) return;
-
-    strihy.forEach(function(inp){
-      var popisek = inp.parentNode.querySelector(".volba-cena");
-      if (popisek) popisek.textContent = cena(inp) + " Kč";
-    });
-
-    var soucet = cena(vybrany), od = false;
-    priplatky.forEach(function(p){
-      if (p.checked) {
-        soucet += parseInt(p.getAttribute("data-c"), 10);
-        if (p.getAttribute("data-od")) od = true;
-      }
-    });
-    celkem.textContent = (od ? "od " : "") + soucet + " Kč";
-  }
-  strihy.concat(priplatky).forEach(function(x){ x.addEventListener("change", prepocitat); });
-  if (isic) isic.addEventListener("change", prepocitat);
-  prepocitat();
 
   /* ---------- menu jako skutečný modal ---------- */
   var modal = document.getElementById("modal");
   var btn = document.getElementById("menuBtn");
+  var btnLista = document.getElementById("listaMenu");
   var zavri = document.getElementById("modalZavri");
+  var vratitFokusNa = btn;
 
-  function otevri(){
+  function stav(otevreno){
+    [btn, btnLista].forEach(function(b){ if (b) b.setAttribute("aria-expanded", otevreno ? "true" : "false"); });
+  }
+  function otevri(zdroj){
     if (!modal) return;
+    vratitFokusNa = zdroj || btn;
     if (modal.showModal) modal.showModal(); else modal.setAttribute("open","");
     document.body.style.overflow = "hidden";
+    stav(true);
     if (zavri) zavri.focus();
   }
   function zavrit(){
     if (!modal) return;
     if (modal.close) modal.close(); else modal.removeAttribute("open");
     document.body.style.overflow = "";
-    if (btn) btn.focus();
+    stav(false);
+    if (vratitFokusNa) vratitFokusNa.focus();
   }
-  if (btn) btn.addEventListener("click", otevri);
+  if (btn) btn.addEventListener("click", function(){ otevri(btn); });
+  if (btnLista) btnLista.addEventListener("click", function(){ otevri(btnLista); });
   if (zavri) zavri.addEventListener("click", zavrit);
   if (modal) {
     modal.addEventListener("cancel", function(e){ e.preventDefault(); zavrit(); });
@@ -522,12 +513,14 @@ footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-h
     });
   }
 
-  /* ---------- spodní lišta až když zmizí tlačítka v hlavičce ---------- */
+  /* ---------- lišta přijde a burger odejde, jakmile zmizí tlačítka v hlavičce ---------- */
   var lista = document.getElementById("lista");
   var akce = document.getElementById("akceHero");
   if (lista && akce && "IntersectionObserver" in window) {
     new IntersectionObserver(function(zaznamy){
-      lista.classList.toggle("vidno", !zaznamy[0].isIntersecting);
+      var pryc = !zaznamy[0].isIntersecting;
+      lista.classList.toggle("vidno", pryc);
+      if (btn) btn.classList.toggle("skryto", pryc);
     }, { rootMargin: "0px 0px -12px 0px" }).observe(akce);
   }
 })();
