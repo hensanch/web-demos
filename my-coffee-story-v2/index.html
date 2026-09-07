@@ -242,6 +242,7 @@ a,button{touch-action:manipulation}
   .tlacitko{padding-left:26px;padding-right:26px}
 }
 [tabindex="-1"]:focus,[tabindex="-1"]:focus-visible{outline:0}
+html.dotyk :focus-visible{outline:0}
 </style>
 <script type="application/ld+json">
 {
@@ -263,6 +264,7 @@ a,button{touch-action:manipulation}
   "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"785"}
 }
 </script>
+<script>(function(){var h=document.documentElement;addEventListener("pointerdown",function(){h.classList.add("dotyk")},true);addEventListener("keydown",function(e){if(e.key==="Tab"||e.key.indexOf("Arrow")===0||e.key==="Enter"||e.key===" ")h.classList.remove("dotyk")},true);})();</script>
 </head>
 <body>
 <a class="skok" href="#cenik">Přeskočit na ceník</a>

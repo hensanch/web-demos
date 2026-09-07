@@ -280,7 +280,9 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
 }
+html.dotyk :focus-visible{outline:0}
 </style>
+<script>(function(){var h=document.documentElement;addEventListener("pointerdown",function(){h.classList.add("dotyk")},true);addEventListener("keydown",function(e){if(e.key==="Tab"||e.key.indexOf("Arrow")===0||e.key==="Enter"||e.key===" ")h.classList.remove("dotyk")},true);})();</script>
 </head>
 <body>
 <a class="preskoc" href="#obsah">Přeskočit na obsah</a>

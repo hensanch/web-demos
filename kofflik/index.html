@@ -225,10 +225,12 @@ footer .jm{font-size:20px;font-weight:600;margin-bottom:4px}
   .uvod .sirka{column-gap:72px}
 }
 [tabindex="-1"]:focus,[tabindex="-1"]:focus-visible{outline:0}
+html.dotyk :focus-visible{outline:0}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"Kofflík","servesCuisine":"Česká","priceRange":"100–200 Kč","image":"https://hensanch.github.io/web-demos/kofflik/img/polevky.jpg","telephone":"+420606585315","url":"https://www.facebook.com/Kofflik.Polevky/","address":{"@type":"PostalAddress","streetAddress":"V Olšinách 16/82","addressLocality":"Praha 10 – Strašnice","postalCode":"100 00","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.0723789,"longitude":14.4914625},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"11:00","closes":"19:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"177"}}
 </script>
+<script>(function(){var h=document.documentElement;addEventListener("pointerdown",function(){h.classList.add("dotyk")},true);addEventListener("keydown",function(e){if(e.key==="Tab"||e.key.indexOf("Arrow")===0||e.key==="Enter"||e.key===" ")h.classList.remove("dotyk")},true);})();</script>
 </head>
 <body>
 <a class="preskoc" href="#polevky">Přeskočit na polévky</a>
@@ -281,7 +283,7 @@ footer .jm{font-size:20px;font-weight:600;margin-bottom:4px}
       <figure><img src="img/ciabatta.jpg" width="1200" height="900" alt="Hovězí v ciabattě na dřevěném prkénku se salátem" loading="lazy"><figcaption>Trhané hovězí v&nbsp;ciabattě</figcaption></figure>
       <figure><img src="img/krabicky.jpg" width="1400" height="788" alt="Dvě krabičky s sebou: palačinky s ovocem a kuřecí prso s bramborovou kaší" loading="lazy"><figcaption>S&nbsp;sebou v&nbsp;krabičce</figcaption></figure>
     </div>
-    <p class="cena">K&nbsp;polévce teplé jídlo, kanapky, saláty, bagety a&nbsp;rillettes na chlebu. Podle Googlu vyjde oběd na 100&nbsp;až 200&nbsp;Kč, s&nbsp;sebou nebo na místě u&nbsp;pultu.</p>
+    <p class="cena">K&nbsp;polévce teplé jídlo, kanapky, saláty, bagety a&nbsp;rillettes na chlebu. Podle hodnocení na Googlu vyjde oběd na 100&nbsp;až 200&nbsp;Kč, s&nbsp;sebou nebo na místě u&nbsp;pultu.</p>
   </div>
 </section>
 
