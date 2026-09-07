@@ -52,7 +52,7 @@
      applied only to touch pointers. 0 on every desktop pointer. */
   --sat:0px;
 }
-@media (hover:none) and (pointer:coarse){:root{--sat:62px}}
+@supports (-webkit-touch-callout:none){@media (hover:none) and (pointer:coarse){:root{--sat:62px}}}
 *,*::before,*::after{box-sizing:border-box}
 html{
   -webkit-text-size-adjust:100%;
@@ -328,7 +328,7 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
   .recenze{padding:44px 0 0}
   .citace-mrizka{display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px}
   .citace p{font-size:16px}
-  .citace--velka p{font-size:clamp(30px,2.6vw,38px);max-width:24ch}
+  .citace--velka p{font-size:clamp(30px,2.6vw,38px);}
 
   .prace{padding:56px 0 64px}
   .prace .hlavicka{display:flex;align-items:center;justify-content:space-between;gap:32px}
@@ -386,7 +386,6 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
       <p class="znamka"><b>4,9</b> <span>ze 275 hodnocení na Googlu</span></p>
       <a class="cta" id="ctaHero" href="https://the-wind-barber.reservio.com/booking">Rezervovat termín</a>
       <p class="tel">Nebo zavolej <a href="tel:+420778865220">778 865 220</a></p>
-      <p class="bezobjednani">Přijímáme zákazníky i&nbsp;bez předchozí rezervace.</p>
     </div>
   </section>
 
@@ -450,7 +449,7 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
             <p class="podpis">Richard, Google, duben 2026</p>
           </blockquote>
           <blockquote class="citace">
-            <p>„Na výběr spoustu termínů a&nbsp;ještě v&nbsp;tentýž den. … Prostředí na mě působilo dobře a&nbsp;útulně, 3 křesla.“</p>
+            <p>„Nutná rezervace předem, ale na výběr spoustu termínů a&nbsp;ještě v&nbsp;tentýž den. … Prostředí na mě působilo dobře a&nbsp;útulně, 3 křesla.“</p>
             <p class="podpis">Róbert, Google, únor 2026</p>
           </blockquote>
           <blockquote class="citace">
@@ -524,7 +523,7 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
   <div class="wrap">
     <p class="jmeno">The Wind Barber shop</p>
     <p class="kde">Vršovická 89, 100 00 Praha 10, Vršovice.<br>Telefon <a href="tel:+420778865220">778 865 220</a></p>
-    <p class="pravni">Provozovatel Thank Trung Pham, IČO 01932632.<br>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, která vede <a href="https://coi.gov.cz/informace-o-adr/">mimosoudní řešení spotřebitelských sporů</a>.</p>
+    <p class="pravni">Provozovatel Thank Trung Pham, IČO 01932632.<br>Případné spory lze řešit mimosoudně u&nbsp;<a href="https://coi.gov.cz/informace-o-adr/">České obchodní inspekce</a>.</p>
   </div>
 </footer>
 

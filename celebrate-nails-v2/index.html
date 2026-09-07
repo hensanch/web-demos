@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nehtové studio Praha 10 – Vršovice | CELEBRATE</title>
-<meta name="description" content="CELEBRATE, nehtové studio v Praze 10 ve Vršovicích, Minská 17. Manikúra, pedikúra, obočí a řasy. Ceník v korunách, otevřeno každý den od 9 do 20, objednání online.">
+<meta name="description" content="CELEBRATE, nehtové studio v Praze 10 ve Vršovicích, Minská 17. Manikúra, pedikúra, obočí a řasy. Ceník, otevřeno každý den od 9 do 20, objednání online.">
 <meta name="theme-color" content="#1D1A18">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:title" content="CELEBRATE – nehtové studio ve Vršovicích">
-<meta property="og:description" content="Manikúra, pedikúra, obočí a řasy na Minské 17. Ceník v korunách, otevřeno každý den od 9 do 20.">
+<meta property="og:description" content="Manikúra, pedikúra, obočí a řasy na Minské 17. Ceník, otevřeno každý den od 9 do 20, objednání online.">
 <meta property="og:image" content="https://hensanch.github.io/web-demos/celebrate-nails-v2/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -37,7 +37,7 @@
      iOS 27 simulator); env(safe-area-inset-top) reports 0 there, so the inset is a literal. */
   --sat:env(safe-area-inset-top, 0px);
 }
-@media (hover:none) and (pointer:coarse){:root{--sat:62px}
+@supports (-webkit-touch-callout:none){@media (hover:none) and (pointer:coarse){:root{--sat:62px}}
   /* na dotykovém displeji doskočí #klid o 96 px výš, aby byl vidět celý přesah fotky */
   #klid{scroll-margin-top:calc(-1 * var(--sat) + 96px)}}
 section,.skupina{scroll-margin-top:calc(-1 * var(--sat))}
@@ -377,7 +377,7 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Pedikúra samotná</span><span class="c">850&nbsp;Kč</span><span class="d">60&nbsp;min</span></div>
         <div class="polozka"><span class="n">Pánská pedikúra</span><span class="c">850&nbsp;Kč</span><span class="d">40&nbsp;min</span></div>
         <div class="polozka"><span class="n">Frenč</span><span class="c">200&nbsp;Kč</span><span class="d">15&nbsp;min</span></div>
-        <p class="pozn">SPA pedikúra zahrnuje peeling chodidel, deset minut masáže a&nbsp;hydrataci. Sundání gel-laku z&nbsp;jiného studia stojí 100&nbsp;až&nbsp;200&nbsp;Kč navíc. Frenč je francouzská špička na&nbsp;nohou; francouzská manikúra na&nbsp;rukou je samostatná služba v&nbsp;ceníku manikúry.</p>
+        <p class="pozn">SPA pedikúra zahrnuje peeling chodidel, deset minut masáže a&nbsp;hydrataci. Sundání gel-laku z&nbsp;jiného studia stojí 100&nbsp;až&nbsp;200&nbsp;Kč navíc. Frenč je francouzská špička na&nbsp;nohou.</p>
       </div>
       <div class="skupina" id="balicky" tabindex="-1">
         <h3>Balíčky</h3>
@@ -454,7 +454,7 @@ nav.stolni{display:none}
       <img src="img/tray.jpg" width="840" height="840" alt="Ruka drží šálek kávy nad bambusovým podnosem, vedle sklenice vody a&nbsp;dvě kostky cukru" loading="lazy" decoding="async">
     </div>
     <h2 id="klid-h">Povídat, nebo klid?</h2>
-    <p class="uvodni">Když se objednáváte online, vyberete si u&nbsp;toho ještě jednu věc. Při objednání se vás ještě zeptáme, jak chcete návštěvu strávit:</p>
+    <p class="uvodni">Když se objednáváte online, zeptáme se vás ještě na&nbsp;jednu věc: jak chcete návštěvu strávit.</p>
     <ul class="volby">
       <li>Můžeme si povídat</li>
       <li>Přeji si klid</li>
@@ -511,7 +511,6 @@ nav.stolni{display:none}
     </div>
     <!-- Bez cookies a bez měřicích kódů; písmo self-hostované, mapa click-to-load, takže není potřeba lišta souhlasu. -->
     <!-- §435 OZ: doplnit jméno/název, sídlo a IČO. Altegio privacy_policy uvádí legal_entity_name "Yana Borodkina" - nepotvrzeno, proto na stránce není. -->
-    <p class="pravni">Provozovatel: doplníme po&nbsp;potvrzení.</p>
     <p class="pravni">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce:</p>
     <a class="adr" href="https://coi.gov.cz/informace-o-adr/" target="_blank" rel="noopener">https://coi.gov.cz/informace-o-adr/</a>
   </div>
