@@ -101,14 +101,17 @@ p{margin:0}
 /* ---------- window band (the bold element) ---------- */
 .okno{background:var(--tus);margin-top:24px}
 .okno-in{
-  display:flex;flex-wrap:wrap;align-items:baseline;
-  column-gap:clamp(26px,6vw,72px);padding-top:20px;padding-bottom:22px;
+  display:flex;justify-content:space-between;align-items:baseline;
+  column-gap:12px;padding-top:10px;padding-bottom:12px;
 }
 .okno a{
+  position:relative;
   font-family:var(--serif);color:var(--saten);text-decoration:none;
-  font-size:clamp(34px,9.4vw,66px);line-height:1.16;padding:9px 0;white-space:nowrap;
+  font-size:clamp(17px,4.8vw,34px);line-height:1;padding:11px 0;white-space:nowrap;
   border-bottom:1px solid transparent;
 }
+/* neviditelné zvětšení dotykové plochy na 44 px, vzhled beze změny */
+.okno a::after{content:"";position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:44px}
 
 /* ---------- práce ---------- */
 .prace{padding-top:6px}
@@ -122,8 +125,6 @@ p{margin:0}
 }
 .hlas + .hlas{margin-top:6px}
 .hlas p{font-family:var(--serif);font-size:15.5px;line-height:1.5}
-.hlas.velky-hlas{padding:24px 22px 20px}
-.hlas.velky-hlas p{font-size:clamp(27px,7.2vw,31px);line-height:1.3}
 .hlas cite{
   display:block;font-style:normal;
   font-family:var(--sans);font-size:12.5px;font-weight:800;letter-spacing:.2em;
@@ -276,7 +277,7 @@ p{margin:0}
   .tlacitka{flex-direction:row;margin-top:24px}
   .tl{min-width:220px}
   .okno{margin-top:0}
-  .okno-in{flex-wrap:nowrap;padding-top:30px;padding-bottom:34px}
+  .okno-in{padding-top:18px;padding-bottom:20px}
   .prace{max-width:1180px;margin:0 auto;padding:44px var(--okraj) 0;padding-left:calc(var(--okraj) + env(safe-area-inset-left));padding-right:calc(var(--okraj) + env(safe-area-inset-right));display:grid;grid-template-columns:1fr 1fr;column-gap:26px;align-items:start}
   .prace>.jen-ctecky{grid-column:1/-1}
   .velky{grid-column:1;grid-row:1/span 2}
@@ -359,7 +360,7 @@ p{margin:0}
     <img src="img/vino.jpg" width="1050" height="1400" loading="lazy" alt="Vínově červené nehty čtvercového tvaru se smetanovou mašličkou na prsteníčku.">
   </figure>
 
-  <blockquote class="hlas velky-hlas">
+  <blockquote class="hlas">
     <p>„Co se nehtů týče, vydrží mi déle než v&nbsp;jiných salonech a&nbsp;vždy vypadají tak, jak si přeji nebo ukážu na fotce. Nechávám si tu prodlužovat i&nbsp;řasy a&nbsp;vždy vypadají přirozeně.“</p>
     <cite>Věra, Google</cite>
   </blockquote>
