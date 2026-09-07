@@ -67,7 +67,7 @@ p{margin:0}
 .znacka{margin-top:24px;display:block}
 .znacka-nazev,.znacka-pod{display:block;width:max-content;max-width:100%;white-space:nowrap;font-family:"Montserrat","Golos Text",sans-serif}
 .znacka-nazev{font-weight:200;font-size:clamp(44px,15.4vw,60px);line-height:1.02;letter-spacing:.24em}
-.znacka-pod{font-weight:300;font-size:15px;line-height:1.3;letter-spacing:.33em;margin-top:6px;color:var(--ram)}
+.znacka-pod{font-weight:300;font-size:18px;line-height:1.3;letter-spacing:.6em;margin-top:4px;color:var(--ram)}
 .uvod-foto{margin:18px 0 0}
 .uvod-foto img{width:100%;aspect-ratio:1200/912;object-fit:cover}
 .stav{margin-top:14px;font-weight:500;font-size:17px}
@@ -195,15 +195,14 @@ blockquote .autor::before{content:"";display:inline-block;width:18px;height:1px;
   .tlacitko{grid-column:1;grid-row:6;justify-self:start;min-width:320px;margin-top:26px}
   .pozn{grid-column:1;grid-row:7}
   .znacka-nazev{font-size:92px;letter-spacing:.2em}
-  .znacka-pod{font-size:19px;letter-spacing:.36em}
+  .znacka-pod{font-size:27px;letter-spacing:.6em}
   .dvere{--pad:56px;padding-bottom:64px}
   .dvere-in{display:grid;grid-template-columns:minmax(0,480px) minmax(0,560px);justify-content:space-between;column-gap:48px;align-items:center}
   .dvere-text h2{margin-top:0}
   .navsteva{--pad:64px;padding-bottom:30px}
   .moment{margin-top:40px}
-  .moment-kava{display:grid;grid-template-columns:minmax(0,600px) minmax(0,440px);justify-content:space-between;column-gap:48px;align-items:end}
-  .moment-kava img{aspect-ratio:1200/1344}
-  .moment-kava blockquote{margin-top:0;padding-bottom:40px}
+  .moment-kava{display:grid;grid-template-columns:minmax(0,600px) minmax(0,440px);justify-content:space-between;column-gap:48px;align-items:center}
+  .moment-kava blockquote{margin-top:0}
   .moment-prace{grid-template-columns:minmax(0,420px) minmax(0,620px);justify-content:space-between;column-gap:48px;align-items:center;row-gap:44px}
   .prace-modre{grid-column:1;grid-row:1}
   .prace-modre img{aspect-ratio:1200/1024}
@@ -471,10 +470,12 @@ blockquote .autor::before{content:"";display:inline-block;width:18px;height:1px;
     var nat = nazev.getBoundingClientRect().width;
     var ls = Math.max(0, (W - nat) / 6);
     nazev.style.letterSpacing = ls + 'px';
-    var V = W - ls;
-    pod.style.letterSpacing = '0px';
+    var V = W - ls, V2 = V * 0.8;
+    pod.style.letterSpacing = '0px'; pod.style.marginLeft = '0px';
     var pnat = pod.getBoundingClientRect().width, ch = pod.textContent.length;
-    pod.style.letterSpacing = Math.max(0, (V - pnat) / (ch - 1)) + 'px';
+    var lp = Math.max(0, (V2 - pnat) / (ch - 1));
+    pod.style.letterSpacing = lp + 'px';
+    pod.style.marginLeft = Math.max(0, (V - V2) / 2) + 'px';
   }
   logo();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(logo);
@@ -496,7 +497,8 @@ blockquote .autor::before{content:"";display:inline-block;width:18px;height:1px;
 
   /* Menu: dialog shora. Klepnutí = fokus na dialog, klávesnice = první odkaz. Zpět gesto zavírá menu. */
   var menu = document.getElementById('menu'), main = document.querySelector('main'), pata = document.querySelector('.pata'), skok = document.querySelector('.skok');
-  var scrollY0 = 0, otevrene = false, opener = null;
+  var scrollY0 = 0, otevrene = false, opener = null, cilPo = null, maHistorii = false;
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
   function zamek(on){
     if (on) { scrollY0 = window.scrollY; document.body.style.top = (-scrollY0) + 'px'; document.body.classList.add('menu-otevreno'); }
     else { document.body.classList.remove('menu-otevreno'); document.body.style.top = ''; window.scrollTo(0, scrollY0); }
@@ -505,12 +507,12 @@ blockquote .autor::before{content:"";display:inline-block;width:18px;height:1px;
   function otevrit(ev){
     if (!menu || otevrene) return;
     opener = ev.currentTarget;
-    otevrene = true;
+    otevrene = true; cilPo = null;
+    maHistorii = false; try { history.pushState({menu:1}, ''); maHistorii = true; } catch (e) {}
     zamek(true); inert(true);
     if (typeof menu.showModal === 'function') menu.showModal(); else menu.setAttribute('open','');
     if (ev.detail === 0) { var prvni = menu.querySelector('a'); if (prvni) prvni.focus(); }
     else { menu.focus(); }
-    try { history.pushState({menu:1}, ''); } catch (e) {}
   }
   function zavrit(cil){
     if (!menu || !otevrene) return;
@@ -521,29 +523,23 @@ blockquote .autor::before{content:"";display:inline-block;width:18px;height:1px;
       var sekce = document.querySelector(cil);
       if (sekce) {
         sekce.scrollIntoView({block:'start'});
-        try { history.replaceState(history.state, '', cil); } catch (e) {}
         sekce.focus({preventScroll:true});
       }
     } else if (opener && opener.tabIndex !== -1) { opener.focus({preventScroll:true}); }
   }
+  function zavritPres(cil){
+    cilPo = cil || null;
+    if (maHistorii) { history.back(); } else { zavrit(cilPo); cilPo = null; }
+  }
   document.querySelectorAll('[data-menu-otevrit]').forEach(function(b){ b.addEventListener('click', otevrit); });
   if (menu) {
-    menu.querySelector('[data-menu-zavrit]').addEventListener('click', function(){ history.back(); });
-    menu.addEventListener('click', function(e){ if (e.target === menu) history.back(); });
-    menu.addEventListener('cancel', function(e){ e.preventDefault(); history.back(); });
+    menu.querySelector('[data-menu-zavrit]').addEventListener('click', function(){ zavritPres(); });
+    menu.addEventListener('click', function(e){ if (e.target === menu) zavritPres(); });
+    menu.addEventListener('cancel', function(e){ e.preventDefault(); zavritPres(); });
     menu.querySelectorAll('.menu-seznam a').forEach(function(a){
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        var cil = a.getAttribute('href');
-        otevrene = false;
-        if (menu.open) menu.close();
-        inert(false); zamek(false);
-        try { history.back(); } catch (err) {}
-        var sekce = document.querySelector(cil);
-        if (sekce) { sekce.scrollIntoView({block:'start'}); sekce.focus({preventScroll:true}); }
-      });
+      a.addEventListener('click', function(e){ e.preventDefault(); zavritPres(a.getAttribute('href')); });
     });
-    window.addEventListener('popstate', function(){ if (otevrene) zavrit(); });
+    window.addEventListener('popstate', function(){ if (otevrene) { var c = cilPo; cilPo = null; zavrit(c); } });
   }
 
   /* Mapa až po klepnutí. */
