@@ -217,6 +217,7 @@ dialog.menu{
   background:var(--stul);color:var(--zar);overflow:auto;
 }
 dialog.menu::backdrop{background:rgba(12,10,9,.86)}
+dialog.menu:focus,dialog.menu:focus-visible{outline:none}
 .menuvnitrek{display:flex;flex-direction:column;padding:14px var(--pad) calc(24px + env(safe-area-inset-bottom, 0px))}
 .menuvnitrek .hlava{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .menuvnitrek .hlava b{font-size:14px;letter-spacing:.16em;font-weight:800;color:var(--kour)}
@@ -528,7 +529,7 @@ nav.stolni{display:none}
   <a class="prim" href="https://n831422.alteg.io/" target="_blank" rel="noopener">Objednat se</a>
 </div>
 
-<dialog class="menu" id="menu" aria-label="Nabídka stránky">
+<dialog class="menu" id="menu" aria-label="Nabídka stránky" tabindex="-1">
   <div class="menuvnitrek">
     <div class="hlava">
       <b>CELEBRATE</b>
@@ -668,8 +669,11 @@ nav.stolni{display:none}
     zamkni();
     dlg.showModal();
     try { history.pushState({ menu: 1 }, ''); } catch (e) {}
+    /* Klávesnice (detail 0) dostane fokus na první odkaz; prst dostane fokus na panel bez rámečku. */
+    var klavesnice = e && e.detail === 0;
     var prvni = dlg.querySelector('nav a');
-    if (prvni) { prvni.focus({ preventScroll: true }); }
+    if (klavesnice && prvni) { prvni.focus({ preventScroll: true }); }
+    else { dlg.focus({ preventScroll: true }); }
   }
   function zavriMenu() {
     if (podporaDialog && dlg.open) { dlg.close(); }
@@ -678,6 +682,8 @@ nav.stolni{display:none}
   if (otevrit2) { otevrit2.addEventListener('click', otevriMenu); }
   if (zavrit) { zavrit.addEventListener('click', zavriMenu); }
   if (podporaDialog) {
+    /* Klepnutí mimo panel (na ztmavené pozadí) zavře nabídku. */
+    dlg.addEventListener('click', function (ev) { if (ev.target === dlg) { zavriMenu(); } });
     dlg.addEventListener('close', function () {
       odemkni();
       if (history.state && history.state.menu) { history.back(); }
