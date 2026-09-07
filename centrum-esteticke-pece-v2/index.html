@@ -35,7 +35,7 @@
 @supports (-webkit-touch-callout:none){@media (hover:none) and (pointer:coarse){:root{--sat:62px}}}
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-padding-top:0;-webkit-text-size-adjust:100%}
+html{scroll-padding-top:0;-webkit-text-size-adjust:100%;background:var(--noc)}
 @media (max-width:899px){html{scroll-padding-bottom:calc(var(--lista) + 16px)}}
 body{margin:0;background:var(--zed);color:var(--tus);font-family:"Domine",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.55;font-weight:400;-webkit-tap-highlight-color:transparent}
 img{display:block;max-width:100%;height:auto}
@@ -201,7 +201,7 @@ dialog.menu::backdrop{background:transparent}
 .arch{background:var(--sklo);width:min(100%,360px);padding:30px 28px 24px;text-align:center}
 .arch ul{list-style:none;margin:0;padding:0}
 .arch li a{display:block;padding:11px 8px;font-size:22px;font-weight:700;text-decoration:none;line-height:1.2}
-.arch li a.mensi{font-size:17px;font-weight:400;text-decoration:underline}
+.arch li a.mensi{font-size:17px;font-weight:400;text-decoration:underline;padding:13px 8px}
 @media (hover:hover){.arch li a:hover{text-decoration:underline}}
 .zavrit{margin-top:18px;min-height:44px;padding:0 18px;background:transparent;border:1px solid var(--tus);color:var(--tus);font:400 15px/1 "Domine",Georgia,serif;cursor:pointer}
 @media (hover:hover){.zavrit:hover{background:var(--tus);color:var(--sklo)}}
@@ -250,7 +250,6 @@ body.zamek .menu-tl{visibility:hidden}
   </div>
   <div class="radek">
     <h3>Masáže</h3>
-    <div><p>„Je tady velmi příjemné prostředí… už jsem se objednala na&nbsp;masáž… po&nbsp;prázdninách bude kosmetika a&nbsp;obočí.“</p><p class="kdo">Věra</p></div>
   </div>
   <div class="radek">
     <h3>Prodlužování řas</h3>
