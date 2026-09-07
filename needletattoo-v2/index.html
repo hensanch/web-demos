@@ -220,7 +220,11 @@ figure{margin:0}
   .pata{padding-bottom:48px}
   .pata-in{flex-direction:row;align-items:center;gap:0}
   .cedule{width:min(520px,36%);flex:0 0 auto}
-  .pata-text{margin:0;max-width:620px;padding:0 var(--okraj) 0 52px}
+  .pata-text{margin:0;max-width:none;flex:1;
+    padding:0 calc(var(--okraj) + env(safe-area-inset-right)) 0 52px;
+    display:flex;align-items:flex-end;justify-content:space-between;gap:48px}
+  .pata-znak{margin:0}
+  .pata-kontakt{text-align:right}
 }
 
 /* ---- spodní lišta ---- */
@@ -397,8 +401,10 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
         <span class="pata-n">Needle</span>
         <span class="pata-t">Tattoo</span>
       </p>
-      <p>Hartigova 60, 130 00 Praha 3-Žižkov</p>
-      <p><a href="tel:+420725734400">725 734 400</a></p>
+      <div class="pata-kontakt">
+        <p>Hartigova 60, 130 00 Praha 3-Žižkov</p>
+        <p><a href="tel:+420725734400">725 734 400</a></p>
+      </div>
     </div>
   </div>
 </footer>

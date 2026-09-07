@@ -40,8 +40,7 @@
   --seda:#A2A8AF;      /* secondary text on the dark */
   --seda-tm:#5C5750;   /* secondary text on the brick panel */
   --vyveska:#E0812C;   /* the orange of their window vinyl. one job: booking */
-  --linka:#2E3views;   /* placeholder, overwritten below */
-  --linka:rgba(198,172,131,.26);
+  --linka:rgba(198,172,131,.26); /* a hairline of the oak floor */
   --ring:var(--vyveska);
   --sirka:1040px;
 }
@@ -125,11 +124,12 @@ h1 span{display:block}
 @media (hover:hover){.tel a:hover{color:var(--dub)}}
 
 /* ---- 2. ceník: the price column ----------------------------------------------- */
-.cenik{padding:30px 0 0}
+.cenik{padding:34px 0 0}
 h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-spacing:.01em;margin-bottom:20px}
-.ceny{list-style:none;margin:0;padding:0;border-top:1px solid var(--linka)}
+.ceny{list-style:none;margin:0;padding:0}
+.cenik-hlava .ceny{border-top:1px solid var(--linka)}
 .ceny li{
-  display:grid;grid-template-columns:1fr auto;align-items:baseline;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;
   column-gap:16px;padding:14px 0 15px;border-bottom:1px solid var(--linka);
 }
 .ceny .co-je{grid-column:1;font-size:16.5px;font-weight:600;line-height:1.25}
@@ -137,48 +137,50 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
 .ceny .kc{
   grid-column:2;grid-row:1;
   font-family:Sansita,Georgia,serif;font-weight:900;
-  font-size:clamp(38px,10.4vw,58px);line-height:.82;
+  font-size:clamp(38px,10.4vw,56px);line-height:.82;
   color:var(--dub);font-variant-numeric:tabular-nums;white-space:nowrap;
 }
 .ceny .kc i{font-family:'IBM Plex Sans',sans-serif;font-style:normal;font-weight:400;
   font-size:14px;color:var(--seda);letter-spacing:0}
 
-/* the one move that crosses a section edge: this brick panel starts inside the
-   ceník and its bottom 72 px hang down into the reviews below it */
+/* The one move that crosses a section edge: the whitewashed brick of their back wall
+   comes up UNDER the last two rows of the price list, with the notched corners of
+   their own sign, and carries on as the ground of the reviews. One list, two grounds. */
 .most{
-  position:relative;z-index:2;
-  margin:26px -6px -72px;
   background:var(--cihla);color:var(--kuze);
-  padding:22px 18px 26px;
-  clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);
+  margin-top:30px;padding:24px 0 28px;
+  clip-path:polygon(28px 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%,0 28px);
   --ring:#181B21;
 }
-.most .ceny{border-top:0}
-.most .ceny li{border-bottom:1px solid rgba(24,27,33,.16)}
+.most .ceny li{border-bottom:1px solid rgba(24,27,33,.17)}
 .most .ceny li:last-of-type{border-bottom:0}
 .most .kc{color:var(--kuze)}
 .most .kc i{color:var(--seda-tm)}
 .misto{grid-column:1/-1;font-size:13.5px;color:var(--seda-tm);margin-top:4px}
 .misto s{text-decoration-thickness:1.5px}
-.rozdil{margin-top:14px;font-size:14.5px;line-height:1.5;color:var(--seda-tm);max-width:44ch}
+.rozdil{margin-top:16px;font-size:14.5px;line-height:1.5;color:var(--seda-tm);max-width:46ch}
 
-/* ---- 3. reviews --------------------------------------------------------------- */
-.recenze{padding:128px 0 34px}
-.citace{margin:0;padding:18px 0 20px;border-bottom:1px solid var(--linka)}
-.citace:first-of-type{border-top:1px solid var(--linka)}
+/* ---- 3. reviews: still standing on the brick ---------------------------------- */
+.recenze{
+  background:var(--cihla);color:var(--kuze);padding:10px 0 40px;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,28px 100%,0 calc(100% - 28px));
+  --ring:#181B21;
+}
+.recenze h2{margin-bottom:18px}
+.citace{margin:0;padding:17px 0 19px;border-bottom:1px solid rgba(24,27,33,.17)}
+.citace:first-of-type{border-top:1px solid rgba(24,27,33,.17)}
 .citace p{font-size:17px;line-height:1.5}
-.citace footer{margin-top:9px;font-size:13.5px;color:var(--seda)}
-.vic{display:inline-block;margin-top:20px;font-size:15.5px;color:var(--papir);
-  text-decoration-color:var(--dub);text-underline-offset:4px;min-height:44px;
+.citace .podpis{margin-top:9px;font-size:13.5px;color:var(--seda-tm)}
+.vic{display:inline-block;margin-top:18px;font-size:15.5px;color:var(--kuze);
+  text-decoration-color:rgba(24,27,33,.45);text-underline-offset:4px;min-height:44px;
   line-height:44px;touch-action:manipulation}
-@media (hover:hover){.vic:hover{color:var(--dub)}}
+@media (hover:hover){.vic:hover{text-decoration-color:var(--kuze)}}
 
-/* ---- 4. práce: two hung columns ------------------------------------------------ */
-.prace{padding:8px 0 40px}
+/* ---- 4. práce: four pictures hung at two heights -------------------------------- */
+.prace{padding:34px 0 40px}
 .stena{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start}
-.stena .sloupec{display:grid;gap:8px}
-.stena .sloupec:nth-child(2){margin-top:34px}
 .stena img{width:100%}
+.stena img:nth-child(2),.stena img:nth-child(4){margin-top:30px}
 
 /* ---- 5. otevírací doba --------------------------------------------------------- */
 .kdy{padding:6px 0 44px}
@@ -255,47 +257,54 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
 @media (min-width:900px){
   body{font-size:17px}
   .wrap{padding:0 40px}
-  .uvod{padding:64px 0 60px}
-  .uvod .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
-    gap:48px;align-items:center}
-  .uvod .text{grid-column:1;max-width:26ch}
-  .hero{grid-column:2;grid-row:1/span 2;margin:0;align-self:stretch}
-  .hero img{height:100%;min-height:420px;aspect-ratio:auto}
-  .uvod .akce{grid-column:1}
-  h1{font-size:clamp(56px,4.6vw,72px);margin-bottom:14px}
-  .co{font-size:17px;margin-bottom:26px}
+  .uvod{padding:70px 0 66px}
+  .uvod .wrap{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);
+    gap:0 56px;align-items:start}
+  .uvod .text{grid-column:1;grid-row:1}
+  .hero{grid-column:2;grid-row:1/span 2;margin:0;align-self:center}
+  .hero img{aspect-ratio:1170/658}
+  .uvod .akce{grid-column:1;grid-row:2;margin-top:34px}
+  h1{font-size:clamp(52px,4.35vw,64px);margin-bottom:16px}
+  .co{font-size:17px;max-width:34ch;margin-bottom:0}
   .znamka{margin-bottom:6px}
   .znamka b{font-size:40px}
-  .cta{align-self:start;display:inline-flex;min-width:280px}
-  .cenik{padding:56px 0 0}
-  .ceny li{grid-template-columns:minmax(0,20ch) minmax(0,1fr) auto;column-gap:32px;padding:18px 0 19px}
-  .ceny .popis{grid-column:2;grid-row:1;margin-top:2px;font-size:14.5px}
-  .ceny .kc{grid-column:3}
-  .most{margin:34px 0 -84px;max-width:760px;padding:28px 32px 32px}
-  .most .ceny li{grid-template-columns:minmax(0,1fr) auto}
-  .most .misto{grid-column:1;grid-row:2;margin-top:6px}
-  .recenze{padding:150px 0 50px}
+  .cta{display:inline-flex;min-width:290px}
+
+  .cenik{padding:64px 0 0}
+  .cenik-hlava .wrap,.most .wrap{display:grid;grid-template-columns:minmax(0,196px) minmax(0,1fr);
+    column-gap:56px;align-items:start}
+  .cenik-hlava h2{grid-column:1;margin:0}
+  .cenik-hlava .ceny,.most .ceny{grid-column:2;max-width:700px}
+  .most .rozdil{grid-column:2;max-width:700px}
+  .ceny li{padding:17px 0 18px}
+  .ceny .popis{font-size:14px}
+  .most{margin-top:44px;padding:34px 0 38px}
+
+  .recenze{padding:34px 0 50px}
   .citace-mrizka{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
   .citace p{font-size:17.5px}
-  .prace{padding:14px 0 60px}
-  .stena{grid-template-columns:repeat(4,1fr);gap:12px}
-  .stena .sloupec:nth-child(2){margin-top:0}
-  .stena .sloupec:nth-child(even){margin-top:52px}
-  .kdy{padding:14px 0 70px}
-  .kdy .wrap{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:16px 56px}
-  .kdy h2{grid-column:1/-1}
-  .hodiny{grid-column:1;margin-bottom:0}
-  .kdy .kontakt{grid-column:2;align-self:start}
-  .vyloha{grid-column:1/-1;margin:34px 0 0}
-  .vyloha img{aspect-ratio:1000/430}
+
+  .prace{padding:52px 0 62px}
+  .stena{grid-template-columns:repeat(4,1fr);gap:14px}
+  .stena img:nth-child(2),.stena img:nth-child(4){margin-top:56px}
+
+  .kdy{padding:20px 0 72px}
+  .kdy .wrap{display:grid;grid-template-columns:minmax(0,196px) minmax(0,340px) minmax(0,1fr);
+    column-gap:56px;row-gap:0;align-items:start}
+  .kdy h2{grid-column:1;grid-row:1;margin:0}
+  .hodiny{grid-column:2;grid-row:1;margin-bottom:0;max-width:none}
+  .kdy .kontakt{grid-column:3;grid-row:1}
+  .vyloha{grid-column:2/-1;grid-row:2;margin:40px 0 0}
+  .vyloha img{aspect-ratio:1000/540}
   .vyloha figcaption{padding:10px 0 0}
-  .pata{padding:34px 0 40px}
+
+  .pata{padding:38px 0 44px}
+  .pata .wrap{display:grid;grid-template-columns:minmax(0,196px) minmax(0,1fr);column-gap:56px}
+  .pata .jmeno{grid-column:1;grid-row:1}
+  .pata p:not(.jmeno){grid-column:2}
   .lista{display:none}
   .menu ul{columns:2;column-gap:56px;max-width:900px;margin-inline:auto;width:100%}
   .menu .telefon{max-width:900px;margin-inline:auto;width:100%}
-}
-@media (min-width:900px) and (hover:hover){
-  .stena img{transition:opacity .18s ease}
 }
 </style>
 </head>
@@ -326,70 +335,74 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
   </section>
 
   <section class="cenik" id="cenik" tabindex="-1" aria-labelledby="h-cenik">
-    <div class="wrap">
-      <h2 id="h-cenik">Ceník</h2>
-      <ol class="ceny">
-        <li>
-          <span class="co-je">Pánský střih krátký</span>
-          <span class="kc">470<i> Kč</i></span>
-          <span class="popis">Mytí, vysoušení vlasů, střih, péče o vlasy a styling.</span>
-        </li>
-        <li>
-          <span class="co-je">Pánský střih dlouhý, 8–9 cm</span>
-          <span class="kc">520<i> Kč</i></span>
-        </li>
-        <li>
-          <span class="co-je">Střih do hola</span>
-          <span class="kc">280<i> Kč</i></span>
-        </li>
-        <li>
-          <span class="co-je">Dětský střih do 12 let</span>
-          <span class="kc">350<i> Kč</i></span>
-        </li>
-        <li>
-          <span class="co-je">Úprava vousů</span>
-          <span class="kc">330<i> Kč</i></span>
-          <span class="popis">Zkrácení vousů, úprava koutků, po holení, vůně a styling.</span>
-        </li>
-      </ol>
-
-      <div class="most">
+    <div class="cenik-hlava">
+      <div class="wrap">
+        <h2 id="h-cenik">Ceník</h2>
         <ol class="ceny">
           <li>
-            <span class="co-je">Střih vlasů a vousy</span>
-            <span class="kc">650<i> Kč</i></span>
-            <span class="misto">místo <s>800 Kč</s> zvlášť</span>
+            <span class="co-je">Pánský střih krátký</span>
+            <span class="kc">470<i>&nbsp;Kč</i></span>
+            <span class="popis">Mytí, vysoušení vlasů, střih, péče o&nbsp;vlasy a&nbsp;styling.</span>
           </li>
           <li>
-            <span class="co-je">Střih dlouhých vlasů a vousy</span>
-            <span class="kc">700<i> Kč</i></span>
-            <span class="misto">místo <s>850 Kč</s> zvlášť</span>
+            <span class="co-je">Pánský střih dlouhý, 8–9 cm</span>
+            <span class="kc">520<i>&nbsp;Kč</i></span>
+          </li>
+          <li>
+            <span class="co-je">Střih do hola</span>
+            <span class="kc">280<i>&nbsp;Kč</i></span>
+          </li>
+          <li>
+            <span class="co-je">Dětský střih do 12 let</span>
+            <span class="kc">350<i>&nbsp;Kč</i></span>
+          </li>
+          <li>
+            <span class="co-je">Úprava vousů</span>
+            <span class="kc">330<i>&nbsp;Kč</i></span>
+            <span class="popis">Zkrácení vousů, úprava koutků, po holení, vůně a&nbsp;styling.</span>
           </li>
         </ol>
-        <p class="rozdil">Obojí dohromady vyjde o 150 Kč levněji než střih a vousy zvlášť.</p>
+      </div>
+    </div>
+
+    <div class="most">
+      <div class="wrap">
+        <ol class="ceny">
+          <li>
+            <span class="co-je">Střih vlasů a&nbsp;vousy</span>
+            <span class="kc">650<i>&nbsp;Kč</i></span>
+            <span class="misto">místo <s>800&nbsp;Kč</s> zvlášť</span>
+          </li>
+          <li>
+            <span class="co-je">Střih dlouhých vlasů a&nbsp;vousy</span>
+            <span class="kc">700<i>&nbsp;Kč</i></span>
+            <span class="misto">místo <s>850&nbsp;Kč</s> zvlášť</span>
+          </li>
+        </ol>
+        <p class="rozdil">Obojí dohromady vyjde o&nbsp;150&nbsp;Kč levněji než střih a&nbsp;vousy zvlášť.</p>
       </div>
     </div>
   </section>
 
   <section class="recenze" id="recenze" tabindex="-1" aria-labelledby="h-recenze">
     <div class="wrap">
-      <h2 id="h-recenze">Recenze z Googlu</h2>
+      <h2 id="h-recenze">Recenze z&nbsp;Googlu</h2>
       <div class="citace-mrizka">
         <blockquote class="citace">
           <p>Vždy perfektně ostříhaný. Super přístup.</p>
-          <footer>Martin, Google, před 2 měsíci</footer>
+          <p class="podpis">Martin, Google, před 2 měsíci</p>
         </blockquote>
         <blockquote class="citace">
-          <p>Super cena, krásná práce a taky oceňuju rychlost. Šikovní borci, dávají si záležet a ví, co dělají.</p>
-          <footer>Richard, Google, před 5 měsíci</footer>
+          <p>Super cena, krásná práce a&nbsp;taky oceňuju rychlost. Šikovní borci, dávají si záležet a&nbsp;ví, co dělají.</p>
+          <p class="podpis">Richard, Google, před 5 měsíci</p>
         </blockquote>
         <blockquote class="citace">
-          <p>Pěkný a rychlý střih. Přesně podle představ.</p>
-          <footer>Matyáš, Google, před 6 měsíci</footer>
+          <p>Pěkný a&nbsp;rychlý střih. Přesně podle představ.</p>
+          <p class="podpis">Matyáš, Google, před 6 měsíci</p>
         </blockquote>
         <blockquote class="citace">
-          <p>S účesem jsem naprosto spokojený. Určitě navštívím znovu a mohu jen doporučit. Prostředí na mě působilo dobře a útulně, 3 křesla.</p>
-          <footer>Róbert, Google, před 7 měsíci</footer>
+          <p>S&nbsp;účesem jsem naprosto spokojený. Určitě navštívím znovu a&nbsp;mohu jen doporučit. Prostředí na mě působilo dobře a&nbsp;útulně, 3 křesla.</p>
+          <p class="podpis">Róbert, Google, před 7 měsíci</p>
         </blockquote>
       </div>
       <a class="vic" href="https://www.google.com/maps/place/The+Wind+Barber+shop/data=!4m7!3m6!1s0x470b93124852a201:0xb31273a6e974c578!8m2!3d50.0704561!4d14.4744748!16s%2Fg%2F11s7sfwkvn!19sChIJAaJSSBKTC0cReMV06aZzErM">Všech 275 hodnocení na Googlu</a>
@@ -400,18 +413,14 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
     <div class="wrap">
       <h2 id="h-prace">Práce</h2>
       <div class="stena">
-        <div class="sloupec">
-          <img src="img/prace1.jpg" width="1000" height="1238" loading="lazy" decoding="async"
-               alt="Fade s vyholenou linkou nad uchem, za zákazníkem bílá cihlová stěna salonu.">
-          <img src="img/prace2.jpg" width="889" height="1185" loading="lazy" decoding="async"
-               alt="Krátký sestřih z profilu, v pozadí rámované plakáty na bílé stěně.">
-        </div>
-        <div class="sloupec">
-          <img src="img/prace3.jpg" width="1000" height="998" loading="lazy" decoding="async"
-               alt="Zákazník s tetováním na krku v křesle, v zrcadle za ním pracuje barber.">
-          <img src="img/prace4.jpg" width="1000" height="1046" loading="lazy" decoding="async"
-               alt="Chlapec v křesle po střihu s vyholenými boky, povídá si s barberem.">
-        </div>
+        <img src="img/prace1.jpg" width="1000" height="1238" loading="lazy" decoding="async"
+             alt="Fade s vyholenou linkou nad uchem, za zákazníkem bílá cihlová stěna salonu.">
+        <img src="img/prace3.jpg" width="1000" height="998" loading="lazy" decoding="async"
+             alt="Zákazník s tetováním na krku v křesle, v zrcadle za ním pracuje barber.">
+        <img src="img/prace2.jpg" width="889" height="1185" loading="lazy" decoding="async"
+             alt="Krátký sestřih z profilu, v pozadí rámované plakáty na bílé stěně.">
+        <img src="img/prace4.jpg" width="1000" height="1046" loading="lazy" decoding="async"
+             alt="Chlapec v křesle po střihu s vyholenými boky, povídá si s barberem.">
       </div>
     </div>
   </section>
@@ -429,7 +438,7 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
         <li data-den="0"><span class="den">neděle</span> <span>zavřeno</span></li>
       </ul>
       <div class="kontakt">
-        <p class="adresa">Vršovická 89<br>100 00 Praha 10, Vršovice<br>V přízemí.</p>
+        <p class="adresa">Vršovická 89<br>100 00 Praha 10, Vršovice<br>V&nbsp;přízemí.</p>
         <div class="odkazy">
           <a href="tel:+420607337907">607 337 907</a>
           <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Vr%C5%A1ovick%C3%A1%2089%2C%20100%2000%20Praha%2010">Trasa na Mapách Google</a>
@@ -451,8 +460,8 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
     <p class="jmeno">The Wind Barber shop</p>
     <p>Vršovická 89, 100 00 Praha 10, Vršovice. Telefon <a href="tel:+420607337907">607 337 907</a>.</p>
     <p>[Jméno, sídlo, IČO majitele]</p>
-    <p>Případné spory lze řešit mimosoudně u České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">https://coi.gov.cz/informace-o-adr/</a></p>
-    <p>Tahle stránka neukládá cookies a nenačítá nic z cizích serverů. Písma jsou uložená přímo tady, mapa se otevře až po kliknutí.</p>
+    <p>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">https://coi.gov.cz/informace-o-adr/</a></p>
+    <p>Tahle stránka neukládá cookies a&nbsp;nenačítá nic z&nbsp;cizích serverů. Písma jsou uložená přímo tady, mapa se otevře až po kliknutí.</p>
   </div>
 </footer>
 

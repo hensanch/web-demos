@@ -69,7 +69,7 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
 /* ---------- 1. úvod ---------- */
 .uvod{padding:26px 0 34px}
 .znacka{
-  font-size:clamp(38px,13.1vw,150px);
+  font-size:clamp(38px,13.1vw,163px);
   letter-spacing:.035em;
   line-height:.95;
   margin:0 0 12px;
@@ -94,25 +94,29 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
   font-weight:700;font-size:18px;letter-spacing:.005em;
   text-decoration:none;border:0;width:100%;
 }
-.telefon{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;color:var(--zar);font-size:17px;font-weight:500;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:var(--kava)}
-.telefon .pop{color:var(--kour);font-weight:400;margin-right:8px;text-decoration:none}
+.telefon{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;color:var(--zar);font-size:17px;font-weight:500;text-decoration:none}
+.telefon .pop{color:var(--kour);font-weight:400;margin-right:8px}
+.telefon .cislo{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:var(--kava)}
 
 /* ---------- 2. ceník ---------- */
 .cenik{padding:34px 0 40px;border-top:1px solid var(--kava)}
 .nadpis{font-size:clamp(29px,8.2vw,46px);margin-bottom:6px}
 .podnadpis{color:var(--kour);font-size:15.5px;max-width:56ch;margin-bottom:26px}
-.skupiny{display:grid;gap:30px}
+.skupiny{display:block}
+.skupina{margin-bottom:28px}
+.skupina:last-child{margin-bottom:0}
 .skupina h3{
   display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   font-size:15px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
   padding-bottom:9px;border-bottom:2px solid var(--kava);margin-bottom:2px;
 }
 .skupina h3 span{font-size:13px;font-weight:500;letter-spacing:.02em;text-transform:none;color:var(--kour);white-space:nowrap}
-.polozka{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(110,85,70,.42)}
-.polozka .n{font-size:16.5px;font-weight:400;line-height:1.3}
+.polozka{display:grid;grid-template-columns:1fr auto;gap:1px 14px;align-items:baseline;padding:8px 0;border-bottom:1px solid rgba(110,85,70,.42)}
+.polozka .n{font-size:16.5px;font-weight:400;line-height:1.28}
 .polozka .c{font-size:16.5px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
-.polozka .d{grid-column:1;font-size:13px;color:var(--kour);letter-spacing:.01em}
+.polozka .d{grid-column:1;font-size:12.5px;line-height:1.25;color:var(--kour);letter-spacing:.01em}
 .pozn{margin-top:12px;font-size:14.5px;color:var(--kour);line-height:1.5;max-width:52ch}
+.objblok{display:none}
 
 /* ---------- 3. práce + recenze ---------- */
 .prace{border-top:1px solid var(--kava);padding-top:0}
@@ -219,8 +223,12 @@ nav.stolni{display:none}
   .akce{grid-column:1}
   .hlavni{width:auto;max-width:360px}
 
-  .skupiny{grid-template-columns:1fr 1fr;gap:34px 64px}
+  .skupiny{column-count:2;column-gap:64px}
+  .skupina{break-inside:avoid;margin-bottom:34px}
   .cenik{padding:52px 0 56px}
+  .objblok{display:block;break-inside:avoid;border-top:2px solid var(--kava);padding-top:18px}
+  .objblok p{font-size:15.5px;color:var(--kour);margin-bottom:16px;max-width:34ch}
+  .objblok .hlavni{max-width:320px;min-height:56px;font-size:17px}
   .nadpis{margin-bottom:8px}
   .podnadpis{margin-bottom:34px}
 
@@ -275,7 +283,7 @@ nav.stolni{display:none}
     </div>
     <div class="akce">
       <a class="hlavni" href="https://n831422.alteg.io/" target="_blank" rel="noopener">Objednat se online</a>
-      <a class="telefon" href="tel:+420777159873"><span class="pop">Nebo zavolejte</span>777&nbsp;159&nbsp;873</a>
+      <a class="telefon" href="tel:+420777159873"><span class="pop">Nebo zavolejte</span><span class="cislo">777&nbsp;159&nbsp;873</span></a>
     </div>
     <nav class="stolni" aria-label="Sekce stránky">
       <a href="#cenik">Ceník</a>
@@ -356,6 +364,11 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Ruce</span><span class="c">500–800&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
       </div>
 
+      <div class="objblok">
+        <p>Termín si vyberete v&nbsp;objednávkovém systému studia, bez zakládání účtu.</p>
+        <a class="hlavni" href="https://n831422.alteg.io/" target="_blank" rel="noopener">Objednat se online</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -370,7 +383,7 @@ nav.stolni{display:none}
     <img src="img/work-broskvova.jpg" width="620" height="620" alt="Nehty v&nbsp;broskvovém odstínu, ruka s&nbsp;drobným tetováním" loading="lazy" decoding="async">
   </div>
   <div class="obal recenze">
-    <p class="souhrn"><b>4,9</b> ze&nbsp;102 hodnocení. Z&nbsp;posledních dvaceti recenzí má studio dvacet pětihvězdičkových.</p>
+    <p class="souhrn"><b>4,9</b> ze&nbsp;102 hodnocení na&nbsp;Googlu.</p>
     <div class="citaty">
       <figure>
         <blockquote>Úžasný salon! Perfektní manikúra a&nbsp;tak milý a&nbsp;profesionální přístup, moc doporučuji.</blockquote>
