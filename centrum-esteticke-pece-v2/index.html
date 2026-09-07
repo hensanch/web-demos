@@ -55,17 +55,18 @@ p{margin:0}
 /* 1. the shopfront at night */
 .noc{background:var(--noc);color:var(--tus);padding:var(--ram)}
 .tabule-noc{display:grid;gap:var(--ram)}
-.okno{background:var(--sklo);overflow:hidden;height:334px}
+.okno{background:var(--sklo);overflow:hidden;height:324px}
 .okno img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.dvere{background:var(--sklo);padding:18px 20px 16px}
-.hodnoceni{font-size:16px;color:var(--samet);margin-top:14px}
+.dvere{background:var(--sklo);padding:16px 20px 14px}
+.hodnoceni{font-size:16px;color:var(--samet);margin-top:10px}
 .hodnoceni a{color:var(--samet)}
 .hodnoceni b{color:var(--tus);font-weight:700;font-size:20px}
-.jmeno{font-family:"Domine",Georgia,serif;font-weight:700;font-size:30px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;margin:0 0 8px}
+.jmeno{font-family:"Domine",Georgia,serif;font-weight:700;font-size:30px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;margin:0 0 6px}
+@media (max-width:359px){.jmeno{font-size:27px}}
 .co{font-size:17px;line-height:1.45}
-.stav{margin-top:10px;font-size:16px}
+.stav{margin-top:8px;font-size:16px}
 .stav b{font-weight:700}
-.akce{display:flex;align-items:center;gap:22px;margin-top:14px;flex-wrap:wrap}
+.akce{display:flex;align-items:center;gap:22px;margin-top:12px;flex-wrap:wrap}
 .zavolat{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;background:var(--rty);color:var(--sklo);text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.005em}
 .zavolat:focus-visible{outline-color:var(--tus)}
 @media (hover:hover){.zavolat:hover{background:#96181D}}

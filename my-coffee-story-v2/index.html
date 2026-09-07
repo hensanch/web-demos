@@ -165,10 +165,11 @@ a,button{touch-action:manipulation}
   :root{--okraj:80px}
   .disk{top:8px;right:24px}
   .tabule{padding-right:calc(var(--okraj) + 70px);font-size:16px}
-  .vchod-telo{display:grid;grid-template-columns:minmax(0,470px) minmax(0,720px);column-gap:70px;justify-content:space-between;align-items:start;padding-top:36px;padding-bottom:44px}
-  .vchod-telo h1{font-size:72px;margin-bottom:26px}
+  .vchod-telo{display:grid;grid-template-columns:minmax(0,470px) minmax(0,720px);grid-template-rows:repeat(4,auto) 1fr;column-gap:70px;justify-content:space-between;align-items:start;padding-top:36px;padding-bottom:44px}
+  .vchod-telo .akce{align-self:start}
+  .vchod-telo h1{font-size:96px;margin-bottom:28px}
   .pokoj{grid-column:2;grid-row:1/6;margin:0}
-  .pokoj img{height:540px;object-fit:cover}
+  .pokoj img{height:500px;object-fit:cover}
   .co{font-size:21px;margin-bottom:12px}
   .hodnoceni,.stav{font-size:18px}
   .vchod-telo .stav{margin-bottom:28px}
