@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bar Praha 10 – Vršovice | Aprés Bar</title>
-<meta name="description" content="Aprés Bar, malý bar na Kodaňské ve Vršovicích. Bernard na pípě, koktejly, rumy a české pálenky. Otevřeno pondělí až sobota od 17:00 do půlnoci.">
-<meta property="og:title" content="Aprés Bar, Kodaňská 65, Vršovice">
+<title>Bar Praha 10 – Vršovice | Après Bar</title>
+<meta name="description" content="Après Bar, malý bar na Kodaňské ve Vršovicích. Bernard na pípě, koktejly, rumy a české pálenky. Otevřeno pondělí až sobota od 17:00 do půlnoci.">
+<meta property="og:title" content="Après Bar, Kodaňská 65, Vršovice">
 <meta property="og:description" content="Malý bar na Kodaňské. Pondělí až sobota od 17:00 do půlnoci.">
 <meta property="og:image" content="https://hensanch.github.io/web-demos/apres-bar/img/domecek-vecer-1170.jpg">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%231C3260'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='22'%20fill='%23F3EFE6'/%3E%3Cpath%20d='M32%2032V16M32%2032l10%206'%20stroke='%2317130F'%20stroke-width='4'%20stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%231C3260'/%3E%3Cpath%20d='M18%2012L32%208L46%2012V15H18Z'%20fill='%23F3EFE6'/%3E%3Ccircle%20cx='32'%20cy='36'%20r='22'%20fill='%23F3EFE6'/%3E%3Cpath%20d='M32%2016v5M32%2051v5M12%2036h5M47%2036h5M32%2036V21M32%2036l11%206'%20stroke='%2317130F'%20stroke-width='3.5'%20stroke-linecap='round'/%3E%3C/svg%3E">
 <!-- Fonts are self-hosted (fonts/) and the map loads only after a tap, so the page makes no third-party request on load and needs no cookie bar. -->
 <style>
 @font-face{font-family:"Annie";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/annieuseyourtelescope-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -62,7 +62,7 @@ html.dotyk :focus-visible{outline:0}
 .hodiny-radek{display:flex;align-items:flex-end;gap:14px;margin-bottom:10px}
 .hodiny-radek .stav{padding-bottom:6px;max-width:calc(100% - 118px)}
 .stav strong{white-space:nowrap}
-.hodiny{flex:0 0 auto;width:104px;height:104px}
+.hodiny{flex:0 0 auto;width:104px;height:111px}
 .stav{line-height:1.2}
 .stav strong{display:block;font-size:22px;font-weight:600}
 .stav span{display:block;font-size:15px;margin-top:3px;color:var(--smrk)}
@@ -70,13 +70,13 @@ html.dotyk :focus-visible{outline:0}
 .co{font-size:18px;margin-top:6px}
 .uvod-foto{grid-area:foto;margin:2px calc(-1 * var(--okraj)) 0}
 .uvod-foto img{width:100%;aspect-ratio:1600/1100;object-fit:cover}
-.uvod-akce{grid-area:akce;display:grid;gap:12px}
-.hodnoceni{font-weight:500;text-decoration-thickness:1px;text-underline-offset:4px}
+.uvod-akce{grid-area:akce;display:grid;gap:4px}
+.hodnoceni{display:inline-block;padding:9px 0;font-weight:500;text-decoration-thickness:1px;text-underline-offset:4px}
 .akce{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .tlacitko{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 34px;background:var(--smrk);color:var(--tus);font-weight:600;font-size:18px;text-decoration:none;border-radius:3px}
 .tlacitko:focus-visible{outline-color:var(--krida)}
 @media (hover:hover){.tlacitko:hover{background:#E6CBA2}}
-.tel{font-weight:500;text-decoration:none;border-bottom:1px solid var(--dub);padding-bottom:1px;white-space:nowrap}
+.tel{display:inline-flex;align-items:center;min-height:44px;font-weight:500;text-decoration:none;border-bottom:1px solid var(--dub);white-space:nowrap}
 @media (hover:hover){.tel:hover,.hodnoceni:hover{border-color:var(--krida);text-decoration-color:var(--krida)}}
 
 /* 2 · Co nalejeme: the pine band */
@@ -176,15 +176,17 @@ html.dotyk :focus-visible{outline:0}
   .uvod{padding:44px 0 56px}
   .uvod .obal{grid-template-areas:"text foto" "akce foto";grid-template-columns:400px minmax(0,1fr);column-gap:56px;row-gap:0;align-items:end}
   .uvod-text{align-self:start}
-  .hodiny{width:140px;height:140px}
+  .hodiny{width:140px;height:149px}
   .stav strong{font-size:26px}
   .stav span{font-size:17px}
   .nazev{font-size:108px;margin-top:22px}
   .co{font-size:21px;margin-top:10px}
   .uvod-foto{margin:0}
   .uvod-akce{padding-top:36px}
-  .skupiny{grid-template-columns:1.1fr 1.2fr .9fr;gap:48px;margin-top:40px}
-  .skupina.kava{grid-column:auto;max-width:none}
+  .skupiny{grid-template-columns:1fr 2fr;grid-template-areas:"pipa kokt" "kava kokt";gap:40px 64px;margin-top:40px;align-items:start}
+  .skupina.pipa-sk{grid-area:pipa}.skupina.kokt{grid-area:kokt}.skupina.kava{grid-area:kava;grid-column:auto;max-width:none}
+  .kokt .radky{column-count:2;column-gap:48px}
+  .kokt .radky li{break-inside:avoid}
   .pipa h2,.rec h2,.kdy h2{font-size:40px}
   .fotky .obal{gap:30px}
   .dvojice{gap:30px}
@@ -202,7 +204,7 @@ html.dotyk :focus-visible{outline:0}
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BarOrPub","name":"Aprés Bar","address":{"@type":"PostalAddress","streetAddress":"Kodaňská 65","addressLocality":"Praha 10-Vršovice","postalCode":"100 00","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.0705784,"longitude":14.4612826},"telephone":"+420773821632","priceRange":"100–200 Kč","image":"https://hensanch.github.io/web-demos/apres-bar/img/domecek-vecer-1170.jpg","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"17:00","closes":"00:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"213"},"sameAs":["https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ"]}
+{"@context":"https://schema.org","@type":"BarOrPub","name":"Après Bar","alternateName":"Aprés Bar","address":{"@type":"PostalAddress","streetAddress":"Kodaňská 65","addressLocality":"Praha 10-Vršovice","postalCode":"100 00","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.0705784,"longitude":14.4612826},"telephone":"+420773821632","priceRange":"100–200 Kč","image":"https://hensanch.github.io/web-demos/apres-bar/img/domecek-vecer-1170.jpg","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"17:00","closes":"00:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"213"},"sameAs":["https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ"]}
 </script>
 </head>
 <body>
@@ -210,37 +212,38 @@ html.dotyk :focus-visible{outline:0}
 <button class="tabule" id="menu-otevrit" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
 
 <main>
-<section class="uvod" id="uvod" aria-label="Aprés Bar">
+<section class="uvod" id="uvod" aria-label="Après Bar">
   <div class="obal">
     <div class="uvod-text">
       <div class="hodiny-radek">
-        <svg class="hodiny" viewBox="0 0 120 120" width="104" height="104" role="img" aria-labelledby="hodiny-popis">
+        <svg class="hodiny" viewBox="0 0 120 128" width="104" height="111" role="img" aria-labelledby="hodiny-popis">
           <title id="hodiny-popis">Hodiny ukazují pražský čas. Otevřeno je od 17:00 do půlnoci.</title>
-          <circle cx="60" cy="60" r="58" fill="#2B2E2B"/>
-          <circle cx="60" cy="60" r="51" fill="#F3EFE6"/>
-          <path d="M82.5 98.97 A45 45 0 1 1 60 15" fill="none" stroke="#D8B98C" stroke-width="5"/>
-          <g stroke="#17130F" stroke-width="1.8" stroke-linecap="round">
-            <line id="hodiny-dilek" x1="60" y1="13" x2="60" y2="20"/>
-            <use href="#hodiny-dilek" transform="rotate(30 60 60)"/><use href="#hodiny-dilek" transform="rotate(60 60 60)"/>
-            <use href="#hodiny-dilek" transform="rotate(120 60 60)"/><use href="#hodiny-dilek" transform="rotate(150 60 60)"/>
-            <use href="#hodiny-dilek" transform="rotate(210 60 60)"/><use href="#hodiny-dilek" transform="rotate(240 60 60)"/>
-            <use href="#hodiny-dilek" transform="rotate(300 60 60)"/><use href="#hodiny-dilek" transform="rotate(330 60 60)"/>
+          <path d="M33 13 L60 5 L87 13 L87 17 L33 17 Z" fill="#3A3E3A"/>
+          <circle cx="60" cy="70" r="56" fill="#3A3E3A"/>
+          <circle cx="60" cy="70" r="49" fill="#F3EFE6"/>
+          <circle cx="60" cy="70" r="45.5" fill="none" stroke="#17130F" stroke-width="3.6" stroke-dasharray="1.1 3.665" transform="rotate(-90 60 70)"/>
+          <g stroke="#17130F" stroke-width="2.4">
+            <line id="hodiny-dilek" x1="60" y1="23" x2="60" y2="31"/>
+            <use href="#hodiny-dilek" transform="rotate(30 60 70)"/><use href="#hodiny-dilek" transform="rotate(60 60 70)"/>
+            <use href="#hodiny-dilek" transform="rotate(120 60 70)"/><use href="#hodiny-dilek" transform="rotate(150 60 70)"/>
+            <use href="#hodiny-dilek" transform="rotate(210 60 70)"/><use href="#hodiny-dilek" transform="rotate(240 60 70)"/>
+            <use href="#hodiny-dilek" transform="rotate(300 60 70)"/><use href="#hodiny-dilek" transform="rotate(330 60 70)"/>
           </g>
-          <g stroke="#17130F" stroke-width="3.2" stroke-linecap="round">
-            <line id="hodiny-ctvrt" x1="60" y1="12" x2="60" y2="23"/>
-            <use href="#hodiny-ctvrt" transform="rotate(90 60 60)"/><use href="#hodiny-ctvrt" transform="rotate(180 60 60)"/><use href="#hodiny-ctvrt" transform="rotate(270 60 60)"/>
+          <g stroke="#17130F" stroke-width="3.6">
+            <line id="hodiny-ctvrt" x1="60" y1="22" x2="60" y2="33"/>
+            <use href="#hodiny-ctvrt" transform="rotate(90 60 70)"/><use href="#hodiny-ctvrt" transform="rotate(180 60 70)"/><use href="#hodiny-ctvrt" transform="rotate(270 60 70)"/>
           </g>
-          <line id="rucicka-h" x1="60" y1="64" x2="60" y2="34" stroke="#17130F" stroke-width="4.5" stroke-linecap="round" transform="rotate(210 60 60)"/>
-          <line id="rucicka-m" x1="60" y1="65" x2="60" y2="22" stroke="#17130F" stroke-width="3" stroke-linecap="round" transform="rotate(0 60 60)"/>
-          <circle cx="60" cy="60" r="3.2" fill="#17130F"/>
+          <line id="rucicka-h" x1="60" y1="74" x2="60" y2="44" stroke="#17130F" stroke-width="4.5" stroke-linecap="round" transform="rotate(0 60 70)"/>
+          <line id="rucicka-m" x1="60" y1="75" x2="60" y2="30" stroke="#17130F" stroke-width="3" stroke-linecap="round" transform="rotate(0 60 70)"/>
+          <circle cx="60" cy="70" r="3.2" fill="#17130F"/>
         </svg>
-        <p class="stav" id="stav"><strong>Otevřeno</strong><span>pondělí až sobota od&nbsp;17:00</span></p>
+        <p class="stav" id="stav"><strong>Pondělí až sobota</strong><span>od&nbsp;17:00 do půlnoci</span></p>
       </div>
-      <h1 class="nazev">Aprés Bar</h1>
+      <h1 class="nazev">Après Bar</h1>
       <p class="co">Malý bar na Kodaňské ve Vršovicích</p>
     </div>
     <figure class="uvod-foto">
-      <img src="img/domecek-vecer-1170.jpg" srcset="img/domecek-vecer-780.jpg 780w, img/domecek-vecer-1170.jpg 1170w, img/domecek-vecer-1600.jpg 1600w" sizes="(min-width:900px) 740px, 100vw" width="1600" height="1100" alt="Aprés Bar večer: bílý domeček s černou střechou a rozsvícenými okny, u dveří stojí dva lidé u stolku" fetchpriority="high">
+      <img src="img/domecek-vecer-1170.jpg" srcset="img/domecek-vecer-780.jpg 780w, img/domecek-vecer-1170.jpg 1170w, img/domecek-vecer-1600.jpg 1600w" sizes="(min-width:900px) 740px, 100vw" width="1600" height="1100" alt="Après Bar večer: bílý domeček s černou střechou a rozsvícenými okny, u dveří stojí dva lidé u stolku" fetchpriority="high">
     </figure>
     <div class="uvod-akce">
       <a class="hodnoceni" href="https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ">4,9 z&nbsp;213 recenzí na Googlu</a>
@@ -255,9 +258,8 @@ html.dotyk :focus-visible{outline:0}
 <section class="pipa" id="nalejeme" tabindex="-1" aria-labelledby="nalejeme-h">
   <div class="obal">
     <h2 id="nalejeme-h">Co nalejeme</h2>
-    <p class="uvodni">Ceny jsou stejné jako na tabulích nad barem.</p>
     <div class="skupiny">
-      <div class="skupina">
+      <div class="skupina pipa-sk">
         <h3>Na pípě</h3>
         <table class="pivo">
           <thead><tr><th scope="col">Pivo a&nbsp;nealko</th><th scope="col">velké</th><th scope="col">malé</th></tr></thead>
@@ -267,11 +269,12 @@ html.dotyk :focus-visible{outline:0}
             <tr><td>Vršovický sifon, soda</td><td>30&nbsp;Kč</td><td>20&nbsp;Kč</td></tr>
           </tbody>
         </table>
-        <p>Vedle Bernardu se točí i&nbsp;jedna pípa, která se střídá.</p>
+        <p>Na dalších pípách se točí, co je zrovna naražené.</p>
       </div>
-      <div class="skupina">
+      <div class="skupina kokt">
         <h3>Koktejly</h3>
         <ul class="radky">
+          <li><span>Crodino Spritz, nealko</span><span class="cena">69&nbsp;Kč</span></li>
           <li><span>Aperol Spritz</span><span class="cena">129&nbsp;Kč</span></li>
           <li><span>Skinny Bitch</span><span class="cena">130&nbsp;Kč</span></li>
           <li><span>Gin &amp; Tonic</span><span class="cena">150&nbsp;Kč</span></li>
@@ -300,7 +303,7 @@ html.dotyk :focus-visible{outline:0}
         </ul>
       </div>
     </div>
-    <p class="police">K&nbsp;tomu rumy, giny, whisky a&nbsp;české pálenky podle toho, co je zrovna na polici, víno Grillo a&nbsp;Nero d’Avola a&nbsp;k&nbsp;pivu něco malého ze studené kuchyně.</p>
+    <p class="police">K&nbsp;tomu rumy, giny, whisky a&nbsp;české pálenky podle toho, co je zrovna na polici. Víno podle tabule.</p>
   </div>
 </section>
 
@@ -308,16 +311,13 @@ html.dotyk :focus-visible{outline:0}
   <div class="obal">
     <figure class="siroka">
       <img src="img/u-baru-780.jpg" srcset="img/u-baru-780.jpg 780w, img/u-baru-1600.jpg 1600w" sizes="(min-width:900px) 1104px, 100vw" width="1600" height="1200" alt="Hosté sedí u baru na stoličkách, barman nalévá, nad lahvemi řada tabulí s koktejly, strop z prken" loading="lazy">
-      <figcaption>U&nbsp;baru je pár štokrlí, ceny visí nad lahvemi.</figcaption>
     </figure>
     <div class="dvojice">
       <figure>
         <img src="img/nalevani-600.jpg" srcset="img/nalevani-600.jpg 600w, img/nalevani-1200.jpg 1200w" sizes="(min-width:900px) 537px, (min-width:600px) 50vw, 100vw" width="1200" height="1500" alt="Barman nalévá prosecco do dvou sklenic s pomerančem, spritz" loading="lazy">
-        <figcaption>Spritz se nalévá u&nbsp;baru.</figcaption>
       </figure>
       <figure>
         <img src="img/daiquiri-negroni-600.jpg" srcset="img/daiquiri-negroni-600.jpg 600w, img/daiquiri-negroni-1200.jpg 1200w" sizes="(min-width:900px) 537px, (min-width:600px) 50vw, 100vw" width="1200" height="1500" alt="Daiquiri se solným okrajem a limetkou a negroni na vínových ubrouscích na dubovém stole" loading="lazy">
-        <figcaption>Daiquiri a&nbsp;negroni na ubrousku.</figcaption>
       </figure>
     </div>
   </div>
@@ -364,7 +364,6 @@ html.dotyk :focus-visible{outline:0}
     </div>
     <figure class="kdy-foto">
       <img src="img/pivo-venku-780.jpg" srcset="img/pivo-venku-780.jpg 780w, img/pivo-venku-1170.jpg 1170w" sizes="(min-width:900px) 520px, 100vw" width="1600" height="1067" alt="Pivo na venkovním parapetu v noci, přes ulici sedí lidé na obrubníku" loading="lazy">
-      <figcaption>Večer se pije i&nbsp;venku na parapetu.</figcaption>
     </figure>
   </div>
 </section>
@@ -372,15 +371,15 @@ html.dotyk :focus-visible{outline:0}
 
 <footer class="pata">
   <div class="obal">
-    <p class="nazev" aria-hidden="true">Aprés Bar</p>
+    <p class="nazev" aria-hidden="true">Après Bar</p>
     <p>Kodaňská 65, 100 00 Praha 10-Vršovice<br><a class="tel" href="tel:+420773821632">773&nbsp;821&nbsp;632</a></p>
-    <p><a href="https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ">Aprés Bar na Mapách Google</a></p>
+    <p><a href="https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ">Après Bar na Mapách Google</a></p>
     <!-- Provozovatel, sídlo, IČO a věta o ČOI (https://coi.gov.cz/informace-o-adr/) doplnit po potvrzení majitelem; v žádné fotce nejsou čitelné. -->
   </div>
 </footer>
 
 <div class="lista" id="lista">
-  <p class="stav" id="stav-lista"><strong>Otevřeno</strong><span>pondělí až sobota od&nbsp;17:00</span></p>
+  <p class="stav" id="stav-lista"><strong>Pondělí až sobota</strong><span>od&nbsp;17:00 do půlnoci</span></p>
   <a class="tel" href="tel:+420773821632">Zavolat</a>
   <a class="tlacitko" href="https://www.google.com/maps/dir/?api=1&amp;destination=Apr%C3%A9s%20Bar%2C%20Koda%C5%88sk%C3%A1%2065%2C%20Praha%2010&amp;destination_place_id=ChIJrwxQyJeTC0cRUrFGJrs8-pQ">Trasa</a>
 </div>
@@ -388,7 +387,7 @@ html.dotyk :focus-visible{outline:0}
 <dialog class="menu" id="menu" tabindex="-1" aria-labelledby="menu-nadpis">
   <div class="menu-vnitrek">
     <div class="menu-hlava">
-      <p class="nazev" id="menu-nadpis">Aprés Bar</p>
+      <p class="nazev" id="menu-nadpis">Après Bar</p>
       <button class="zavrit" type="button" id="menu-zavrit">Zavřít</button>
     </div>
     <ul class="menu-odkazy">
@@ -398,7 +397,7 @@ html.dotyk :focus-visible{outline:0}
       <li><a href="#kdy">Kdy přijít</a></li>
     </ul>
     <div class="menu-pata">
-      <p class="stav" id="stav-menu"><strong>Otevřeno</strong><span>pondělí až sobota od&nbsp;17:00</span></p>
+      <p class="stav" id="stav-menu"><strong>Pondělí až sobota</strong><span>od&nbsp;17:00 do půlnoci</span></p>
       <a class="tel" href="tel:+420773821632">773&nbsp;821&nbsp;632</a>
     </div>
   </div>
@@ -423,14 +422,14 @@ html.dotyk :focus-visible{outline:0}
   function stav(){
     var t=ted(), otevreno=t.den!==0&&t.h>=17, slovo, kdy;
     if(otevreno){slovo='Otevřeno';kdy='do půlnoci';}
-    else if(t.den===0){slovo='Zavřeno';kdy='v pondělí od 17:00';}
-    else{slovo='Zavřeno';kdy='dnes od 17:00';}
+    else if(t.den===0){slovo='V pondělí od 17:00';kdy='teď zavřeno';}
+    else{slovo='Dnes od 17:00';kdy='teď zavřeno';}
     stavy.forEach(function(el){if(!el)return;el.firstElementChild.textContent=slovo;el.lastElementChild.textContent=kdy;});
     html.toggleAttribute('data-otevreno',otevreno);
     var rows=d.querySelectorAll('#tyden li');
     for(var i=0;i<rows.length;i++)rows[i].classList.toggle('dnes',rows[i].getAttribute('data-den')===String(t.den));
     var rh=d.getElementById('rucicka-h'),rm=d.getElementById('rucicka-m');
-    if(rh){rh.setAttribute('transform','rotate('+(((t.h%12)*30)+t.m*0.5)+' 60 60)');rm.setAttribute('transform','rotate('+(t.m*6)+' 60 60)');
+    if(rh){rh.setAttribute('transform','rotate('+(((t.h%12)*30)+t.m*0.5)+' 60 70)');rm.setAttribute('transform','rotate('+(t.m*6)+' 60 70)');
       var tt=d.getElementById('hodiny-popis');if(tt)tt.textContent='V Praze je '+t.h+':'+(t.m<10?'0':'')+t.m+'. Otevřeno je od 17:00 do půlnoci.';}
   }
   stav();setInterval(stav,30000);
@@ -460,7 +459,7 @@ html.dotyk :focus-visible{outline:0}
     menu.close();mimo.forEach(function(el){if(el)el.inert=false;});
     odemkni();history.scrollRestoration='auto';
     if(skok){var cil=d.getElementById(skok);skok=null;
-      if(cil){history.pushState(null,'','#'+cil.id);cil.scrollIntoView({block:'start'});cil.focus({preventScroll:true});}
+      if(cil){setTimeout(function(){history.pushState(null,'','#'+cil.id);cil.scrollIntoView({block:'start'});cil.focus({preventScroll:true});},0);}
     }else{otevrit.focus({preventScroll:true});}
   }
   function zavri(){if(history.state&&history.state.menu){history.back();}else{dokonci();}}
@@ -476,7 +475,7 @@ html.dotyk :focus-visible{outline:0}
   if(mb)mb.addEventListener('click',function(){
     var box=d.getElementById('mapa'),f=d.createElement('iframe');
     f.src='https://www.google.com/maps?q=Koda%C5%88sk%C3%A1%2065%2C%20Praha%2010&z=16&output=embed';
-    f.title='Mapa: Aprés Bar, Kodaňská 65';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.setAttribute('allowfullscreen','');
+    f.title='Mapa: Après Bar, Kodaňská 65';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.setAttribute('allowfullscreen','');
     box.innerHTML='';box.appendChild(f);box.classList.add('nactena');f.focus({preventScroll:true});
   });
 })();
