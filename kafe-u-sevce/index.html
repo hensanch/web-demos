@@ -89,28 +89,28 @@ html[data-otevreno="0"] .stav::before{background:none;box-shadow:inset 0 0 0 2px
 .hodnoceni{margin-top:14px;font-size:16px}
 .hodnoceni a{text-decoration-thickness:1.5px;text-underline-offset:3px}
 /* the ring: the sign's stitched circle with their real cup inside */
-.prsten{position:relative;width:320px;height:320px;margin:26px auto -130px;z-index:2}
+.prsten{position:relative;width:min(320px,100vw - 40px);aspect-ratio:1;margin:26px auto -130px;z-index:2}
 .prsten svg{position:absolute;inset:0;width:100%;height:100%}
 .prsten img{position:absolute;left:12%;top:12%;width:76%;height:76%;border-radius:50%;object-fit:cover}
 
 /* ------- inside (pale) ------- */
 .uvnitr{background:var(--stena)}
 .cil{scroll-margin-top:calc(-1 * var(--sat))}
-#cenik{padding-top:calc(130px + 34px + var(--sat));padding-bottom:56px}
+#cenik{padding-top:calc(130px + 28px + var(--sat));padding-bottom:40px}
 .nadpis{font-size:36px;text-transform:uppercase;letter-spacing:.02em}
-.skupina{margin-top:28px}
+.skupina{margin-top:22px}
 .skupina h3{font-size:22px;letter-spacing:.02em;text-transform:uppercase;padding-bottom:8px;border-bottom:1.5px solid var(--stit)}
 .radek{display:flex;align-items:baseline;gap:10px;padding:6px 0}
 .radek .ved{flex:1;border-bottom:2px dotted var(--pult);position:relative;top:-5px;min-width:24px}
 .radek .cena{font-family:"Oswald",sans-serif;font-size:21px;font-variant-numeric:tabular-nums;white-space:nowrap}
-.pozn{margin-top:18px;font-size:15px;max-width:32em}
+.pozn{margin-top:14px;font-size:15px;max-width:32em}
 .foto-tabule{margin:0;display:none}
 .foto-tabule figcaption{font-size:14px;margin-top:8px}
 
-#pult{padding-top:calc(8px + var(--sat));padding-bottom:56px}
+#pult{padding-top:calc(8px + var(--sat));padding-bottom:40px}
 #pult .nadpis{margin-bottom:14px}
 .na-pultu{max-width:34em}
-.fotky{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.fotky{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
 .fotky figure{margin:0}
 .fotky .siroka{grid-column:1 / -1}
 .fotky img{width:100%;object-fit:cover;aspect-ratio:4/5}
@@ -120,17 +120,17 @@ html[data-otevreno="0"] .stav::before{background:none;box-shadow:inset 0 0 0 2px
 .fotky .matcha img{aspect-ratio:4/3;object-position:50% 30%}
 .fotky figcaption{font-size:14px;margin-top:6px}
 
-#recenze{padding-top:calc(8px + var(--sat));padding-bottom:64px}
+#recenze{padding-top:calc(8px + var(--sat));padding-bottom:48px}
 #recenze .nadpis{margin-bottom:22px}
-.velka{font-size:21px;line-height:1.4;max-width:30em}
+.velka{font-size:20px;line-height:1.4;max-width:30em}
 .velka .podpis,.mala .podpis{margin-top:10px;font-size:15px;font-weight:700}
-.male{margin-top:28px;border-top:1.5px solid var(--stit)}
+.male{margin-top:22px;border-top:1.5px solid var(--stit)}
 .mala{padding:18px 0;border-bottom:1px solid var(--pult);margin:0}
 .mala p{max-width:34em}
 .vsechny{display:inline-block;margin-top:20px;font-weight:700;text-underline-offset:3px;text-decoration-thickness:1.5px}
 
 /* ------- street again: Kde ------- */
-#kde{background:var(--omitka);padding-top:calc(44px + var(--sat));padding-bottom:56px}
+#kde{background:var(--omitka);padding-top:calc(40px + var(--sat));padding-bottom:44px}
 #kde .nadpis{margin-bottom:10px}
 .adresa{max-width:30em}
 .hodiny{margin:24px 0 0;padding:0;list-style:none;border-top:1.5px solid var(--stit)}
@@ -146,6 +146,7 @@ html[data-otevreno="0"] .stav::before{background:none;box-shadow:inset 0 0 0 2px
 .mapa-odkazy a{text-underline-offset:3px;text-decoration-thickness:1.5px;display:inline-block;padding:8px 0}
 .pruceli{margin:28px 0 0}
 .pruceli figcaption{font-size:14px;margin-top:8px}
+.pruceli img{aspect-ratio:1;object-fit:cover;object-position:50% 62%}
 
 /* ------- footer ------- */
 .pata{background:var(--omitka);border-top:1.5px solid var(--stit)}
@@ -179,6 +180,7 @@ html[data-otevreno="0"] .deska .stav::before{background:none;box-shadow:inset 0 
 .deska .zavrit{position:absolute;right:10px;top:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:30px;line-height:1;color:#fff}
 .deska :focus-visible{outline:3px solid #fff;outline-offset:3px}
 html.menu-otevreno{overflow:hidden}
+html.menu-otevreno .horni{visibility:hidden}
 
 /* ------- desktop ------- */
 @media (min-width:900px){
@@ -192,7 +194,7 @@ html.menu-otevreno{overflow:hidden}
  .co{margin-top:14px;font-size:19px;max-width:26em}
  .trasa{width:auto;min-width:260px;padding:0 40px;margin-top:34px}
  .hodnoceni{font-size:17px;margin-top:18px}
- .prsten{width:520px;height:520px;margin:0 0 -190px}
+ .prsten{width:520px;margin:0 0 -190px}
  .cil{scroll-margin-top:0}
  #cenik{padding-top:56px}
  #cenik-sekce .obsah{display:grid;grid-template-columns:560px 1fr;column-gap:72px;align-items:start}
@@ -218,12 +220,13 @@ html.menu-otevreno{overflow:hidden}
  #kde .obsah{display:grid;grid-template-columns:1fr 480px;column-gap:72px;align-items:start}
  #kde .nadpis{grid-column:1 / -1}
  .pruceli{margin:0;grid-column:2;grid-row:2 / span 6}
+ .pruceli img{aspect-ratio:auto}
  .pata .obsah{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-bottom:28px}
  .deska{width:420px}
 }
 @media (min-width:900px) and (max-width:1100px){
  .ulice .obsah{grid-template-columns:1fr 440px}
- .prsten{width:440px;height:440px;margin-bottom:-160px}
+ .prsten{width:440px;margin-bottom:-160px}
  .foto-tabule{margin-top:180px}
  #cenik-sekce .obsah{grid-template-columns:1fr 1fr}
 }
@@ -278,7 +281,7 @@ html.menu-otevreno{overflow:hidden}
      <div class="radek"><span>Mošt jablko</span><span class="ved"></span><span class="cena">55&nbsp;Kč</span></div>
      <div class="radek"><span>Mošt hruška 0,33&nbsp;l</span><span class="ved"></span><span class="cena">59&nbsp;Kč</span></div>
     </div>
-    <p class="pozn">Platit můžete kartou. Kávu s&nbsp;sebou vám připravíme do&nbsp;kelímku, koláče zabalíme.</p>
+    <p class="pozn">Platit můžete kartou. Všechno si můžete vzít i&nbsp;s&nbsp;sebou.</p>
    </div>
    <figure class="foto-tabule">
     <img src="img/kavovar-tabule-800.jpg" srcset="img/kavovar-tabule-800.jpg 800w, img/kavovar-tabule-1400.jpg 1400w" sizes="(min-width:1100px) 488px, (min-width:900px) 45vw, calc(100vw - 40px)" width="800" height="540" alt="Bílý kávovar Astoria, mlýnek a tabule s cenami na dřevěném pultu před kachlíkovou stěnou" loading="lazy">
@@ -306,7 +309,7 @@ html.menu-otevreno{overflow:hidden}
     </figure>
     <figure class="polovina matcha">
      <img src="img/matcha-lavicka-600.jpg" srcset="img/matcha-lavicka-600.jpg 600w, img/matcha-lavicka-1100.jpg 1100w" sizes="(min-width:1100px) 364px, (min-width:900px) 33vw, calc(100vw - 40px)" width="600" height="750" alt="Ledová matcha latte v kelímku před kavárnou, v pozadí dvě hostky na lavičce" loading="lazy">
-     <figcaption>Ledová matcha v&nbsp;létě</figcaption>
+     <figcaption>Ledová matcha latte</figcaption>
     </figure>
     <figure class="polovina police">
      <img src="img/police-rostliny-600.jpg" srcset="img/police-rostliny-600.jpg 600w, img/police-rostliny-1100.jpg 1100w" sizes="(min-width:1100px) 364px, (min-width:900px) 33vw, calc(50vw - 25px)" width="600" height="630" alt="Dřevěný pult s vitrínou, černé police s vínem a kávou, nad nimi zavěšené květiny v proutěných koších" loading="lazy">
