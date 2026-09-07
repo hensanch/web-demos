@@ -25,7 +25,7 @@
   --sat:0px;
   --okraj:20px;
 }
-@media (hover:none) and (pointer:coarse){:root{--sat:62px}}
+@supports (-webkit-touch-callout:none){@media (hover:none) and (pointer:coarse){:root{--sat:62px}}}
 
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:0;-webkit-text-size-adjust:100%}
@@ -58,6 +58,7 @@ a,button{touch-action:manipulation}
 .pokoj img{width:100%;height:auto}
 .co{font-size:19px;margin-bottom:8px}
 .hodnoceni{font-weight:500;margin-bottom:6px}
+.hodnoceni a{display:inline-flex;align-items:center;min-height:44px}
 .stav{font-weight:500;color:var(--tuzka);margin-bottom:18px}
 .stav.otevreno{color:var(--uhel)}
 .akce{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
@@ -65,14 +66,16 @@ a,button{touch-action:manipulation}
 .telefon{font-weight:500;text-decoration-thickness:1px;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}
 
 /* 2. Stůl: the honey tabletop with the plates on it */
-.stul{background:var(--stul);padding:calc(30px + var(--sat)) var(--okraj) 34px;display:grid;grid-template-columns:repeat(12,1fr);gap:18px 10px;align-items:start}
+.stul{background:var(--stul);padding:calc(30px + var(--sat)) 0 34px;display:grid;grid-template-columns:repeat(12,1fr);gap:18px 8px;align-items:start}
 .stul figure{margin:0}
-.stul figcaption{font-weight:500;font-size:16px;line-height:1.3;margin-top:8px}
+.stul figcaption{font-weight:500;font-size:16px;line-height:1.3;margin-top:8px;padding:0 var(--okraj)}
+.stul img{width:100%;object-fit:cover}
 .j1{grid-column:1/13}
-.j2{grid-column:5/13;margin-top:-4px}
+.j2{grid-column:1/13}
 .j3{grid-column:1/7}
-.j4{grid-column:7/13;margin-top:34px}
-.stul-veta{grid-column:1/13;font-size:19px;font-weight:500;margin-top:6px}
+.j4{grid-column:7/13}
+.j3 img,.j4 img{height:200px}
+.stul-veta{grid-column:1/13;font-size:19px;font-weight:500;margin-top:6px;padding:0 var(--okraj)}
 
 /* 3. Ceník: typeset rows, never chalk */
 .cenik{padding:calc(40px + var(--sat)) var(--okraj) 42px}
@@ -114,11 +117,10 @@ a,button{touch-action:manipulation}
 .mapa{margin:0;padding:0}
 .mapa-plocha{background:#E4DFD6;min-height:220px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding:22px var(--okraj)}
 .mapa-plocha button{min-height:50px;padding:2px 26px 0;border-radius:25px;border:2px solid var(--uhel);background:transparent;font-weight:700;font-size:18px;cursor:pointer}
-.mapa-veta{font-size:16px;color:var(--tuzka);max-width:30ch}
 .mapa-plocha a{font-weight:500;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center}
 .mapa iframe{display:block;width:100%;height:340px;border:0}
 .ulice-fotky{padding:0;margin-top:0;display:grid;grid-template-columns:1fr;gap:0}
-.ulice-fotky img{width:100%}
+.ulice-fotky img{width:100%;object-position:center 42%}
 .ulice-fotky .pult{display:none}
 
 /* footer on the facade brown, outside main */
@@ -163,20 +165,21 @@ a,button{touch-action:manipulation}
   :root{--okraj:80px}
   .disk{top:8px;right:24px}
   .tabule{padding-right:calc(var(--okraj) + 70px);font-size:16px}
-  .vchod-telo{display:grid;grid-template-columns:minmax(380px,470px) minmax(560px,720px);grid-template-rows:auto auto auto auto 1fr;column-gap:70px;justify-content:space-between;align-items:start;padding-top:36px;padding-bottom:44px}
-  .vchod-telo .akce{align-self:end}
+  .vchod-telo{display:grid;grid-template-columns:minmax(0,470px) minmax(0,720px);column-gap:70px;justify-content:space-between;align-items:start;padding-top:36px;padding-bottom:44px}
   .vchod-telo h1{font-size:72px;margin-bottom:26px}
-  .pokoj{grid-column:2;grid-row:1/6;margin:0;align-self:stretch}
-  .pokoj img{height:100%;object-fit:cover}
+  .pokoj{grid-column:2;grid-row:1/6;margin:0}
+  .pokoj img{height:540px;object-fit:cover}
   .co{font-size:21px;margin-bottom:12px}
   .hodnoceni,.stav{font-size:18px}
   .vchod-telo .stav{margin-bottom:28px}
-  .stul{padding:calc(48px + var(--sat)) var(--okraj) 52px;gap:0 24px;grid-template-columns:repeat(12,1fr)}
-  .j1{grid-column:1/5;grid-row:1/3}
-  .j2{grid-column:5/9;margin-top:60px;grid-row:1/3}
-  .j3{grid-column:9/11;margin-top:130px;grid-row:1/3}
-  .j4{grid-column:11/13;margin-top:0;grid-row:1/3}
-  .stul-veta{grid-column:1/13;grid-row:3;margin-top:36px;font-size:22px}
+  .stul{padding:calc(48px + var(--sat)) 0 52px;gap:26px 12px;grid-template-columns:repeat(12,1fr)}
+  .j1{grid-column:1/7}
+  .j2{grid-column:7/13}
+  .j1 img,.j2 img{height:540px}
+  .j3{grid-column:1/5}
+  .j4{grid-column:5/9}
+  .j3 img,.j4 img{height:330px}
+  .stul-veta{grid-column:9/13;grid-row:2;align-self:end;margin-top:0;font-size:22px;padding:0 var(--okraj) 0 12px}
   .cenik{padding-top:calc(56px + var(--sat));padding-bottom:56px}
   .cenik h2,.bublina h2,.ulice h2{font-size:38px;margin-bottom:30px}
   .skupiny{display:grid;grid-template-columns:1fr 1fr;column-gap:80px;max-width:1120px}
@@ -194,8 +197,7 @@ a,button{touch-action:manipulation}
   .mapa-plocha{min-height:340px;padding:32px}
   .mapa iframe{height:380px}
   .ulice-fotky{grid-template-columns:2fr 1fr;gap:0}
-  .ulice-fotky{height:620px}
-  .ulice-fotky img{height:100%;object-fit:cover}
+  .ulice-fotky img{height:620px;object-fit:cover}
   .ulice-fotky .pult{display:block}
   .pata{padding:44px var(--okraj) 44px;font-size:16px}
   .lista{display:none}
@@ -284,21 +286,21 @@ a,button{touch-action:manipulation}
       <p class="pozn">S&nbsp;sebou? Ano.</p>
     </div>
   </div>
-  <figure class="vitrina"><img src="img/vitrina.jpg" width="1170" height="975" alt="Koláče, šátečky, bagely a quiche na dřevěných prkénkách na pultu, u nich černé cedulky s cenami psané křídou" loading="lazy"><figcaption>Na pultu, s&nbsp;cenami na cedulkách</figcaption></figure>
+  <figure class="vitrina"><img src="img/vitrina.jpg" width="1170" height="975" alt="Koláče, šátečky, bagely a quiche na dřevěných prkénkách na pultu, u nich černé cedulky s cenami psané křídou" loading="lazy"><figcaption>Z&nbsp;vitríny</figcaption></figure>
 </section>
 
 <section id="recenze" class="bublina cil" tabindex="-1">
   <h2>Recenze</h2>
   <figure class="cedule">
-    <svg viewBox="0 0 360 336" width="330" height="308" role="img" aria-label="Zde platí, co je malé, to je milé. Eva, recenze na Googlu">
-      <ellipse cx="184" cy="150" rx="172" ry="146" fill="#fff" stroke="#1C1B19" stroke-width="3"/>
-      <path d="M74 256 C70 290 54 312 30 326 C74 318 110 300 138 280 Z" fill="#fff" stroke="#1C1B19" stroke-width="3" stroke-linejoin="round"/>
-      <path d="M80 262 C98 274 116 280 134 282" fill="none" stroke="#fff" stroke-width="7"/>
-      <circle cx="198" cy="146" r="114" fill="#1C1B19"/>
-      <text x="198" y="122" text-anchor="middle" fill="#fff" font-family="League Spartan, Avenir, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="27" letter-spacing="0.5">
-        <tspan x="198" dy="0">ZDE PLATÍ,</tspan>
-        <tspan x="198" dy="31">CO JE MALÉ,</tspan>
-        <tspan x="198" dy="31">TO JE MILÉ.</tspan>
+    <svg viewBox="0 0 360 320" width="330" height="293" role="img" aria-label="Zde platí, co je malé, to je milé. Eva, recenze na Googlu">
+      <ellipse cx="180" cy="152" rx="160" ry="152" fill="#fff" stroke="#1C1B19" stroke-width="4"/>
+      <path d="M86 262 C78 282 66 294 48 302 C74 300 104 294 128 282 Z" fill="#fff" stroke="#1C1B19" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M92 266 C104 274 116 279 126 281" fill="none" stroke="#fff" stroke-width="8"/>
+      <circle cx="204" cy="142" r="124" fill="#1C1B19"/>
+      <text x="204" y="118" text-anchor="middle" fill="#fff" font-family="League Spartan, Avenir, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="27" letter-spacing="0.5">
+        <tspan x="204" dy="0">ZDE PLATÍ,</tspan>
+        <tspan x="204" dy="32">CO JE MALÉ,</tspan>
+        <tspan x="204" dy="32">TO JE MILÉ.</tspan>
       </text>
     </svg>
     <figcaption>Eva, recenze na Googlu</figcaption>
@@ -326,14 +328,13 @@ a,button{touch-action:manipulation}
     </div>
     <div class="mapa" id="mapa">
       <div class="mapa-plocha">
-        <p class="mapa-veta">Mapa se načte, až o&nbsp;ni požádáte. Do té doby se nic neposílá.</p>
         <button type="button" id="nacist-mapu">Zobrazit mapu</button>
         <a href="https://www.google.com/maps/place/My+Coffee+Story/data=!4m7!3m6!1s0x470b9498e22f0dab:0xb67a047e686869f0!8m2!3d50.0896211!4d14.4685599!16s%2Fg%2F11c6q586kn" rel="noopener">Otevřít v&nbsp;Mapách Google</a>
       </div>
     </div>
   </div>
   <div class="ulice-fotky">
-    <img src="img/vyloha.jpg" width="1170" height="1268" alt="Hnědá dřevěná výloha kavárny s křídovou tabulí Káva a Drinks, lavičkou a otevřenými dveřmi, uvnitř svítí žárovky" loading="lazy">
+    <img src="img/vyloha.jpg" width="1170" height="1635" alt="Hnědá dřevěná výloha kavárny s křídovou tabulí Káva a Drinks, lavičkou a otevřenými dveřmi, uvnitř svítí žárovky" loading="lazy">
     <img class="pult" src="img/pult.jpg" width="900" height="1400" alt="Pult z překližky s vyříznutým logem My Coffee Story, za ním barista u kávovaru" loading="lazy">
   </div>
 </section>
@@ -342,9 +343,9 @@ a,button{touch-action:manipulation}
 
 <footer class="pata">
   <p>My Coffee Story, J. Želivského 1801/22, 130&nbsp;00 Praha 3.</p>
-  <p>Provozovatel a&nbsp;IČO: doplníme před spuštěním webu.</p>
+  <!-- Provozovatel, sídlo a IČO doplnit před spuštěním (§435 OZ); na checklistu předání. -->
   <p>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/" rel="noopener">coi.gov.cz/informace-o-adr</a>.</p>
-  <p>Web nic nesleduje: žádné cookies, žádná lišta. Mapa se načte, až na ni klepnete.</p>
+  <!-- Žádné cookies ani lišta: fonty jsou na vlastním serveru, mapa Google se načte až po klepnutí, nic se neposílá třetím stranám. -->
 </footer>
 
 <div class="lista" id="lista">

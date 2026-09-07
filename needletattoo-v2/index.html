@@ -527,7 +527,7 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
     var html = document.documentElement, puv = html.style.scrollBehavior;
     html.style.scrollBehavior = "auto";
     if(kam){ var el = document.querySelector(kam); if(el) el.scrollIntoView({block:"start"}); }
-    else { window.scrollTo(0, posun); }
+    else { window.scrollTo({top:posun,left:0,behavior:'instant'}); }
     html.style.scrollBehavior = puv;
   }
   function poZavreni(){

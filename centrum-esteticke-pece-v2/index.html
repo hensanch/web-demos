@@ -32,7 +32,7 @@
   --ram:14px;         /* the dark frame around a pane on a phone */
   --lista:72px;
 }
-@media (hover:none) and (pointer:coarse){:root{--sat:62px}}
+@supports (-webkit-touch-callout:none){@media (hover:none) and (pointer:coarse){:root{--sat:62px}}}
 
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:0;-webkit-text-size-adjust:100%}
@@ -55,17 +55,17 @@ p{margin:0}
 /* 1. the shopfront at night */
 .noc{background:var(--noc);color:var(--tus);padding:var(--ram)}
 .tabule-noc{display:grid;gap:var(--ram)}
-.okno{background:var(--sklo);overflow:hidden;height:280px}
-.okno img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
-.dvere{background:var(--sklo);padding:20px 20px 18px}
-.hodnoceni{font-size:16px;color:var(--samet)}
+.okno{background:var(--sklo);overflow:hidden;height:334px}
+.okno img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.dvere{background:var(--sklo);padding:18px 20px 16px}
+.hodnoceni{font-size:16px;color:var(--samet);margin-top:14px}
 .hodnoceni a{color:var(--samet)}
 .hodnoceni b{color:var(--tus);font-weight:700;font-size:20px}
-.jmeno{font-family:"Great Vibes","Domine",cursive;font-weight:400;font-size:46px;line-height:1.02;margin:8px 0 10px;letter-spacing:.005em}
+.jmeno{font-family:"Domine",Georgia,serif;font-weight:700;font-size:30px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;margin:0 0 8px}
 .co{font-size:17px;line-height:1.45}
-.stav{margin-top:12px;font-size:16px}
+.stav{margin-top:10px;font-size:16px}
 .stav b{font-weight:700}
-.akce{display:flex;align-items:center;gap:22px;margin-top:18px;flex-wrap:wrap}
+.akce{display:flex;align-items:center;gap:22px;margin-top:14px;flex-wrap:wrap}
 .zavolat{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;background:var(--rty);color:var(--sklo);text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.005em}
 .zavolat:focus-visible{outline-color:var(--tus)}
 @media (hover:hover){.zavolat:hover{background:#96181D}}
@@ -77,9 +77,9 @@ p{margin:0}
   .okno{height:600px;order:2}
   .okno img{object-position:50% 50%}
   .dvere{padding:44px 48px 40px;display:flex;flex-direction:column;justify-content:center}
-  .hodnoceni{font-size:18px}
-  .hodnoceni b{font-size:24px}
-  .jmeno{font-size:78px;margin:14px 0 18px}
+  .hodnoceni{font-size:17px;margin-top:22px}
+  .hodnoceni b{font-size:22px}
+  .jmeno{font-size:52px;margin:0 0 16px}
   .co{font-size:20px;max-width:34ch}
   .stav{font-size:18px;margin-top:16px}
   .akce{margin-top:26px}
@@ -102,6 +102,7 @@ h2{font-size:30px;margin-bottom:22px}
 .radek .kdo{color:var(--samet);font-size:15px;margin-top:6px}
 .prakticke{margin-top:26px;max-width:62ch;font-size:17px;color:var(--tus)}
 .prakticke a{white-space:nowrap}
+.prakticke a,.hodnoceni a,.vsechna a,.mapa-odkazy a,.pata p a{display:inline-block;padding:12px 0;margin:-12px 0}
 @media (min-width:900px){
   #sluzby{padding-top:calc(72px + var(--sat));padding-bottom:64px}
   .radek{grid-template-columns:300px minmax(0,1fr);gap:40px;padding:26px 0}
@@ -177,12 +178,12 @@ h2{font-size:30px;margin-bottom:22px}
 .pata{background:var(--noc);color:var(--sklo);padding:44px 0 calc(40px + var(--lista))}
 .pata a{color:var(--sklo)}
 .pata :focus-visible{outline-color:var(--sklo)}
-.pata .jmeno-p{font-family:"Great Vibes","Domine",cursive;font-size:40px;line-height:1.05;margin-bottom:18px}
+.pata .jmeno-p{font-family:"Great Vibes","Domine",cursive;font-size:32px;line-height:1.05;margin-bottom:16px}
 .pata p{font-size:15px;line-height:1.6;max-width:70ch;opacity:.92}
 .pata p + p{margin-top:8px}
 .pata .odkazy{margin-top:20px;display:flex;gap:22px;flex-wrap:wrap}
 .pata .odkazy a{min-height:44px;display:inline-flex;align-items:center;font-weight:700}
-@media (min-width:900px){.pata{padding:64px 0 56px}.pata .jmeno-p{font-size:52px}}
+@media (min-width:900px){.pata{padding:64px 0 56px}.pata .jmeno-p{font-size:40px}}
 
 /* phone bottom bar: the night strip with two lit panes, after the hero button leaves */
 .lista{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--noc);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;visibility:hidden;transform:translateY(100%);transition:transform .25s ease,visibility 0s linear .25s}
@@ -197,7 +198,6 @@ dialog.menu{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-hei
 dialog.menu[open]{display:flex}
 dialog.menu::backdrop{background:transparent}
 .arch{background:var(--sklo);width:min(100%,360px);padding:30px 28px 24px;text-align:center}
-.arch .nazev-m{font-weight:700;font-size:14px;letter-spacing:.02em;text-transform:uppercase;margin-bottom:14px}
 .arch ul{list-style:none;margin:0;padding:0}
 .arch li a{display:block;padding:11px 8px;font-size:22px;font-weight:700;text-decoration:none;line-height:1.2}
 .arch li a.mensi{font-size:17px;font-weight:400;text-decoration:underline}
@@ -221,14 +221,14 @@ body.zamek .menu-tl{visibility:hidden}
       <img src="img/vyloha-noc.jpg" width="620" height="830" fetchpriority="high" alt="Výloha salonu v noci: na skle černé obočí, řasy a červené rty, za sklem osvětlený salon s lustrem">
     </div>
     <div class="dvere">
-      <p class="hodnoceni"><b>4,8</b> <span>ze&nbsp;147 hodnocení</span> <a href="https://www.google.com/maps/place/Centrum+Estetick%C3%A9+P%C3%A9%C4%8De/data=!4m7!3m6!1s0x470b935e813bc4c3:0xa7e7ca2cb160d609!8m2!3d50.088443!4d14.4671871!16s%2Fg%2F11ggdsv411!19sChIJw8Q7gV6TC0cRCdZgsSzK56c" rel="noopener">na&nbsp;Googlu</a></p>
       <h1 class="jmeno">Centrum Estetické Péče</h1>
-      <p class="co">Český kosmetický salon na&nbsp;Žižkově. Kosmetika, řasy, obočí, nehty, pedikúra a&nbsp;masáže. Objednání po&nbsp;telefonu.</p>
+      <p class="co">Český kosmetický salon na&nbsp;Žižkově. Kosmetika, řasy, obočí, nehty, pedikúra a&nbsp;masáže.</p>
       <p class="stav" id="stav">Po–Čt 8:00–20:00, Pá 8:00–12:00</p>
       <div class="akce">
         <a class="zavolat" id="zavolat-hero" href="tel:+420602402991">Zavolat 602&nbsp;402&nbsp;991</a>
         <a class="trasa" href="https://www.google.com/maps/dir/?api=1&amp;destination=Zelenky-Hajsk%C3%A9ho+1727%2F3%2C+130+00+Praha+3" rel="noopener">Trasa</a>
       </div>
+      <p class="hodnoceni"><b>4,8</b> <span>ze&nbsp;147 hodnocení</span> <a href="https://www.google.com/maps/place/Centrum+Estetick%C3%A9+P%C3%A9%C4%8De/data=!4m7!3m6!1s0x470b935e813bc4c3:0xa7e7ca2cb160d609!8m2!3d50.088443!4d14.4671871!16s%2Fg%2F11ggdsv411!19sChIJw8Q7gV6TC0cRCdZgsSzK56c" rel="noopener">na&nbsp;Googlu</a></p>
     </div>
   </div>
 </section>
@@ -237,31 +237,31 @@ body.zamek .menu-tl{visibility:hidden}
   <h2>Služby</h2>
   <div class="radek">
     <h3>Manikúra</h3>
-    <div><p>„Nehtíky jsou precizně zpracované do&nbsp;posledního detailu a&nbsp;je vidět, že svou práci dělají s&nbsp;láskou a&nbsp;maximální pečlivostí.“</p><p class="kdo">Lucie, hodnocení na&nbsp;Googlu</p></div>
+    <div><p>„Nehtíky jsou precizně zpracované do&nbsp;posledního detailu a&nbsp;je vidět, že svou práci dělají s&nbsp;láskou a&nbsp;maximální pečlivostí.“</p><p class="kdo">Lucie</p></div>
   </div>
   <div class="radek">
     <h3>Pedikúra</h3>
-    <div><p>„Dnes jsem byla v&nbsp;tomto salonu na&nbsp;pedikúře a&nbsp;manikúře a&nbsp;jsem nadmíru spokojena! Dámy, které o&nbsp;mě pečovaly, byly velmi milé a&nbsp;hlavně ve&nbsp;své práci pečlivé a&nbsp;precizní. Nebyl problém, když jsem s&nbsp;sebou měla půlroční dceru.“</p><p class="kdo">Karolína, hodnocení na&nbsp;Googlu</p></div>
+    <div><p>„Dnes jsem byla v&nbsp;tomto salonu na&nbsp;pedikúře a&nbsp;manikúře a&nbsp;jsem nadmíru spokojena! Dámy, které o&nbsp;mě pečovaly, byly velmi milé a&nbsp;hlavně ve&nbsp;své práci pečlivé a&nbsp;precizní. Nebyl problém, když jsem s&nbsp;sebou měla půlroční dceru, což také velmi oceňuji!“</p><p class="kdo">Karolína</p></div>
   </div>
   <div class="radek">
     <h3>Kosmetika</h3>
-    <div><p>„Už přes tři roky chodím pravidelně na&nbsp;kosmetiku ke&nbsp;Kristýnce a&nbsp;jsem víc než spokojená. Zachránila mi pleť, pokaždé je ošetření na&nbsp;míru podle aktuálních potřeb.“</p><p class="kdo">Andrea, hodnocení na&nbsp;Googlu</p></div>
+    <div><p>„Už přes tři roky chodím pravidelně na&nbsp;kosmetiku ke&nbsp;Kristýnce a&nbsp;jsem víc než spokojená. Zachránila mi pleť, pokaždé je ošetření na&nbsp;míru podle aktuálních potřeb.“</p><p class="kdo">Andrea</p></div>
   </div>
   <div class="radek">
     <h3>Masáže</h3>
-    <div><p>Na masáž se objednáte po&nbsp;telefonu, stejně jako na&nbsp;všechno ostatní.</p></div>
+    <div><p>„Je tady velmi příjemné prostředí… už jsem se objednala na&nbsp;masáž… po&nbsp;prázdninách bude kosmetika a&nbsp;obočí.“</p><p class="kdo">Věra</p></div>
   </div>
   <div class="radek">
     <h3>Prodlužování řas</h3>
-    <div><p>„Moc děkuji paní K.&nbsp;Kinské za&nbsp;krásné moje první prodloužení řas… nechala jsem si s&nbsp;výběrem poradit a&nbsp;super výsledek.“</p><p class="kdo">Věra, hodnocení na&nbsp;Googlu</p></div>
+    <div><p>„K&nbsp;paní majitelce chodím víc jak 15&nbsp;let. Maximální spokojenost, nádherné řasy, které mi všichni pokaždé moc chválí.“</p><p class="kdo">Yvona</p></div>
   </div>
   <div class="radek">
     <h3>Obočí a&nbsp;řasy: úprava, barvení, laminace</h3>
-    <div><p>„Chodím pravidelně na&nbsp;řasy a&nbsp;byla jsem i&nbsp;na&nbsp;obočí. Velká spokojenost. Krásné prostředí, milý a&nbsp;vstřícný kolektiv salonu.“</p><p class="kdo">Mirka, hodnocení na&nbsp;Googlu</p></div>
+    <div><p>„Chodím pravidelně na&nbsp;řasy a&nbsp;byla jsem i&nbsp;na&nbsp;obočí. Velká spokojenost. Krásné prostředí, milý a&nbsp;vstřícný kolektiv salonu.“</p><p class="kdo">Mirka</p></div>
   </div>
   <div class="radek">
     <h3>Permanentní make-up obočí</h3>
-    <div><p>„Byla jsem zde na&nbsp;předělávce obočí, kdy jsem měla špatný tvar z&nbsp;jiného salonu. PMU obočí mi dělala majitelka Kristýnka. Je to žena na&nbsp;svém místě, poradí, vyslechne.“</p><p class="kdo">Martina, hodnocení na&nbsp;Googlu</p></div>
+    <div><p>„Byla jsem zde na&nbsp;předělávce obočí, kdy jsem měla špatný tvar z&nbsp;jiného salonu. PMU obočí mi dělala majitelka Kristýnka. Jsem nadšená jejím přístupem a&nbsp;profesionalitou.“</p><p class="kdo">Martina</p></div>
   </div>
   <p class="prakticke">Termín si domluvíte po&nbsp;telefonu na <a href="tel:+420602402991">602&nbsp;402&nbsp;991</a>. Platí se hotově. Vstup je bezbariérový.</p>
 </section>
@@ -269,10 +269,10 @@ body.zamek .menu-tl{visibility:hidden}
 <section id="fotky" class="blok" tabindex="-1" aria-label="Fotky salonu a práce">
   <div class="stena">
     <figure class="f1"><img src="img/rasy-usmev.jpg" width="1100" height="1399" loading="lazy" alt="Prodloužené řasy zblízka, klientka se usmívá do kamery"></figure>
-    <blockquote class="rec r1"><p>Dlouho jsem hledala salon, kde se domluvím česky. Hezké prostředí a&nbsp;moc šikovné holky.</p><span class="kdo">Kamila, hodnocení na&nbsp;Googlu</span></blockquote>
-    <figure class="f2"><img src="img/tabule.jpg" width="1000" height="1298" loading="lazy" alt="Podsvícená bílá tabule s korunkou, názvem salonu a podpisem majitelky nad recepčním pultem"><figcaption>Majitelkou je Mgr.&nbsp;Kristýna Kinská; její podpis je na&nbsp;tabuli nad pultem.</figcaption></figure>
+    <blockquote class="rec r1"><p>Dlouho jsem hledala salon, kde se domluvím česky. … Hezké prostředí a&nbsp;moc šikovné holky.</p><span class="kdo">Kamila</span></blockquote>
+    <figure class="f2"><img src="img/tabule.jpg" width="1000" height="1574" loading="lazy" alt="Podsvícená bílá tabule s korunkou, názvem salonu a podpisem majitelky nad recepčním pultem"><figcaption>Tabule nad pultem, podpis majitelky.</figcaption></figure>
     <figure class="f3"><img src="img/nehty.jpg" width="1000" height="1000" loading="lazy" alt="Bílé gelové nehty na dubovém stole"></figure>
-    <blockquote class="rec r2"><p>Velmi oceňuji individuální a&nbsp;citlivý přístup. Už se těším na&nbsp;další návštěvu, tentokrát na&nbsp;kosmetiku.</p><span class="kdo">Eliška, hodnocení na&nbsp;Googlu</span></blockquote>
+    <blockquote class="rec r2"><p>Velmi oceňuji individuální a&nbsp;citlivý přístup. Už se těším na&nbsp;další návštěvu, tentokrát na&nbsp;kosmetiku.</p><span class="kdo">Eliška</span></blockquote>
     <figure class="f4"><img src="img/rasy-zavrene.jpg" width="1000" height="1000" loading="lazy" alt="Prodloužené řasy, klientka se zavřenýma očima"></figure>
     <p class="vsechna"><a href="https://www.google.com/maps/place/Centrum+Estetick%C3%A9+P%C3%A9%C4%8De/data=!4m7!3m6!1s0x470b935e813bc4c3:0xa7e7ca2cb160d609!8m2!3d50.088443!4d14.4671871!16s%2Fg%2F11ggdsv411!19sChIJw8Q7gV6TC0cRCdZgsSzK56c" rel="noopener">Všechna hodnocení na&nbsp;Googlu</a></p>
   </div>
@@ -299,7 +299,7 @@ body.zamek .menu-tl{visibility:hidden}
     </div>
   </div>
   <div class="mapa" id="mapa">
-    <p>Zelenky-Hajského 1727/3, Praha&nbsp;3, Žižkov. Kousek od&nbsp;Olšanského náměstí.</p>
+    <p>Zelenky-Hajského 1727/3, Praha&nbsp;3, Žižkov. Kousek od&nbsp;Basilejského náměstí.</p>
     <button class="nacist" type="button" id="nacist">Zobrazit mapu</button>
     <p class="mapa-odkazy"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Zelenky-Hajsk%C3%A9ho+1727%2F3%2C+130+00+Praha+3" rel="noopener">Trasa v&nbsp;Mapách Google</a></p>
   </div>
@@ -309,7 +309,7 @@ body.zamek .menu-tl{visibility:hidden}
 <footer class="pata">
   <div class="blok">
     <p class="jmeno-p">Centrum Estetické Péče</p>
-    <p>Provozovatel: Mgr.&nbsp;Kristýna Kinská, IČO 87529033, Zelenky-Hajského 1727/3, 130&nbsp;00 Praha&nbsp;3.</p>
+    <p>Provozovatel: Mgr.&nbsp;Kristýna Kinská, IČO 87529033, sídlo Dlouhá 36, 250&nbsp;70 Postřižín. Provozovna Zelenky-Hajského 1727/3, 130&nbsp;00 Praha&nbsp;3.</p>
     <p>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/" rel="noopener">coi.gov.cz/informace-o-adr</a>.</p>
     <div class="odkazy">
       <a href="https://m.facebook.com/293254321204612/" rel="noopener">Facebook</a>
@@ -326,7 +326,6 @@ body.zamek .menu-tl{visibility:hidden}
 
 <dialog class="menu" id="menu" tabindex="-1" aria-label="Menu">
   <div class="arch">
-    <p class="nazev-m">Centrum estetické péče</p>
     <ul>
       <li><a href="#sluzby">Služby</a></li>
       <li><a href="#fotky">Fotky</a></li>

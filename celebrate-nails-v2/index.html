@@ -655,7 +655,7 @@ nav.stolni{display:none}
     var b = document.body;
     b.style.position = ''; b.style.top = ''; b.style.left = ''; b.style.right = '';
     pozadi.forEach(function (e) { if (e) { e.inert = false; } });
-    window.scrollTo(0, pozice);
+    window.scrollTo({top:pozice,left:0,behavior:'instant'});
   }
   function otevriMenu(e) {
     if (!podporaDialog) { return; }
