@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Needle Tattoo, tetovací studio v Žižkově</title>
-<meta name="description" content="Tetovací studio Needle Tattoo v Žižkově, Hartigova 60. Blackwork, písmo, jemná linka, neo-traditional i barevné práce. 4,9 z 274 hodnocení. Jen na objednání, telefon 725 734 400.">
+<title>Needle Tattoo, tetovací studio v&nbsp;Žižkově</title>
+<meta name="description" content="Tetovací studio Needle Tattoo v Žižkově, Hartigova 60. Blackwork, písmo, jemná linka, kresba i barevné práce. Jen na objednání, telefon 725 734 400.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%2316130F'/%3E%3Ctext%20x='16'%20y='25'%20font-family='Georgia,serif'%20font-size='24'%20font-weight='700'%20fill='%23DAC889'%20text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:title" content="Needle Tattoo, tetovací studio v Žižkově">
-<meta property="og:description" content="Hartigova 60, Praha 3-Žižkov. 4,9 z 274 hodnocení. Jen na objednání.">
-<meta property="og:image" content="https://hensanch.github.io/web-demos/needletattoo-v2/img/studio.jpg">
+<meta property="og:description" content="Hartigova 60, Praha 3-Žižkov. Jen na objednání.">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/needletattoo-v2/img/nadpis.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="font/rokkitt-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="font/bevan-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* Fonty jsou na tomto serveru, nic se nenačítá z Googlu: žádné cookies, žádná lišta. */
+/* Fonty leží na tomto serveru, nic se nenačítá z Googlu: žádné cookies, žádná lišta. */
 @font-face{font-family:Bevan;font-style:normal;font-weight:400;font-display:swap;
   src:url(font/bevan-latin.woff2) format("woff2");
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -28,49 +28,59 @@
 @font-face{font-family:Rokkitt;font-style:normal;font-weight:300 700;font-display:swap;
   src:url(font/rokkitt-latin-ext.woff2) format("woff2");
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
 :root{
-  --zlato:#B79A5A;
+  --zlato:#B79A5A;        /* medián zlaceného stropu */
+  --zlato-svetlo:#BEA163; /* +3 %, pod lištou a uprostřed pásů */
+  --zlato-stin:#AC8F52;   /* -3 %, na švech k černým blokům */
   --stena:#16130F;
   --tus:#241D12;
   --krida:#EFE6D0;
   --znak:#DAC889;
-  --cerven:#D14A45;
+  --cerven:#D8564F;
   --okraj:20px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:53px}
+@media (min-width:700px){html{scroll-padding-top:63px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
-  margin:0;background:var(--zlato);color:var(--tus);
+  margin:0;background:var(--zlato);color:var(--tus);overflow-anchor:none;
   font-family:Rokkitt,"Iowan Old Style",Georgia,serif;font-size:17px;line-height:1.55;
   font-weight:400;-webkit-font-smoothing:antialiased;
 }
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--stena);outline-offset:3px}
-.tmave :focus-visible{outline-color:var(--znak)}
-.mimo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tmave :focus-visible,.tmave:focus-visible{outline-color:var(--znak)}
+section:focus{outline:none}
+figure{margin:0}
 .skok{position:absolute;left:-9999px;top:0;background:var(--stena);color:var(--krida);padding:12px 16px;z-index:60}
 .skok:focus{left:8px;top:8px}
-.uvnitr{max-width:1180px;margin:0 auto;padding-left:var(--okraj);padding-right:var(--okraj)}
-
-/* ---- sticky hairline bar ---- */
-.lista{
-  position:sticky;top:0;z-index:40;background:var(--zlato);
-  border-bottom:1px solid rgba(22,19,15,.32);
+.uvnitr{
+  max-width:1180px;margin:0 auto;
+  padding-left:calc(var(--okraj) + env(safe-area-inset-left));
+  padding-right:calc(var(--okraj) + env(safe-area-inset-right));
 }
-.lista-in{max-width:1180px;margin:0 auto;padding:0 var(--okraj);
+
+/* ---- sticky hairline bar: 52 + 1 px = 53, 62 + 1 = 63 (scroll-padding-top) ---- */
+.lista{position:sticky;top:0;z-index:40;background:var(--zlato-svetlo);
+  border-bottom:1px solid rgba(22,19,15,.32)}
+.lista-in{max-width:1180px;margin:0 auto;
+  padding-left:calc(var(--okraj) + env(safe-area-inset-left));
+  padding-right:calc(var(--okraj) + env(safe-area-inset-right));
   display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px}
 .lista-jm{font-weight:500;font-size:1.0625rem}
 .menu-tl{
   appearance:none;border:1px solid var(--stena);background:transparent;color:var(--stena);
   font:500 .8125rem/1 Rokkitt,Georgia,serif;letter-spacing:.14em;text-transform:uppercase;
-  min-height:36px;padding:0 14px;cursor:pointer;border-radius:0;
+  min-height:44px;padding:0 16px;cursor:pointer;border-radius:0;
 }
-@media (min-width:700px){.lista-in{min-height:62px}.menu-tl{min-height:44px}}
+@media (min-width:700px){.lista-in{min-height:62px}}
 
 /* ---- 1. úvod ---- */
-.uvod{padding-top:26px}
+.uvod{padding-top:26px;
+  background:radial-gradient(126% 82% at 50% -6%,var(--zlato-svetlo) 0%,var(--zlato) 56%,var(--zlato-stin) 100%)}
 .znacka{margin:0;line-height:1}
 .znacka-n{
   display:block;font-family:Bevan,Georgia,serif;font-weight:400;
@@ -79,21 +89,19 @@ a{color:inherit}
 }
 .znacka-t{
   display:block;font-weight:300;text-transform:uppercase;
-  font-size:clamp(1.34rem,6.85vw,2.94rem);letter-spacing:.185em;line-height:1.15;
-  margin-top:.14em;color:var(--tus);
+  font-size:clamp(2.088rem,10.91vw,4.613rem);letter-spacing:.48em;line-height:1.06;
+  margin-top:.02em;color:var(--tus);
 }
 .kdo{margin:15px 0 0;font-size:1.0625rem;max-width:23em}
 .znamka{margin:9px 0 0;font-weight:500;font-size:1.0625rem}
 .hvezda{font-size:1rem;line-height:1;margin-right:.22em;position:relative;top:-1px}
+.jen{margin:5px 0 0;font-size:1.0625rem;font-weight:400}
 .akce{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 20px}
-.tl{
-  display:inline-flex;align-items:center;justify-content:center;min-height:52px;
-  padding:0 20px;text-decoration:none;font-weight:500;font-size:1.0625rem;letter-spacing:.01em;
-}
+.tl{display:inline-flex;align-items:center;justify-content:center;min-height:52px;
+  padding:0 20px;text-decoration:none;font-weight:500;font-size:1.0625rem;letter-spacing:.01em}
 .tl-plny{background:var(--stena);color:var(--krida)}
 .tl-obrys{border:1px solid rgba(22,19,15,.55);color:var(--stena);font-weight:400}
-.jen{margin:5px 0 0;font-size:1.0625rem;font-weight:400}
-.pas{width:100%;height:min(58vw,340px);object-fit:cover;object-position:52% 42%}
+.pas{width:100%;height:min(58vw,340px);object-fit:cover;object-position:50% 46%}
 @media (min-width:900px){
   .uvod{padding-top:52px}
   .uvod-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end}
@@ -101,165 +109,149 @@ a{color:inherit}
   .pas{height:min(42vw,480px);margin-top:34px}
 }
 
-/* ---- 2. práce: black wall crossed by one huge photo ---- */
-.zed{position:relative;margin-top:0;padding-top:16px;padding-bottom:32px}
+/* ---- 2. práce: černá zeď, kterou prošívá jedna velká fotka ---- */
+.zed{position:relative;padding:16px 0 32px}
 .zed::before{content:"";position:absolute;left:0;right:0;top:128px;bottom:0;background:var(--stena)}
 .zed>*{position:relative}
-.stitek{
-  font-size:.8125rem;letter-spacing:.17em;text-transform:uppercase;font-weight:500;
-  margin:6px 0 0;color:var(--tus);
-}
 .kusy{display:flex;flex-direction:column;gap:22px}
 .par{display:flex;gap:4%;align-items:flex-start}
-.par-velky{gap:5%}
-.k-velky{flex:0 0 66%;min-width:0}
-.k-velky img{aspect-ratio:1000/1333;object-fit:cover}
-.s-velky{padding-top:6px;flex:1;color:var(--tus)}
-.roh{display:block}
 .kus{margin:0;min-width:0}
 .kus img{width:100%}
-.kus .stitek{color:var(--znak);opacity:.85}
-.k-pismo{width:100%}
-.k-pismo img{aspect-ratio:1000/381;object-fit:cover}
-.k-linka{flex:0 0 52%;min-width:0}
-.k-lucerna{flex:0 0 44%;min-width:0;margin-top:54px}
-.k-kocka{flex:0 0 46%;min-width:0;margin-top:32px}
-.k-patch{flex:0 0 50%;min-width:0}
-.k-loko{width:44%;margin-left:auto}
-.hlas{
-  color:var(--krida);margin:26px 0 0;font-size:1.125rem;line-height:1.5;max-width:26em;
-}
-.hlas b{display:block;font-weight:400;font-size:.9375rem;color:var(--znak);opacity:.72;margin-top:9px}
+.stitek{font-size:.8125rem;letter-spacing:.17em;text-transform:uppercase;font-weight:500;
+  margin:7px 0 0;color:var(--znak);opacity:.85}
+.k-velky{flex:0 0 64%}
+.k-velky img{aspect-ratio:1160/1547;object-fit:cover}
+.k-kresba{flex:0 0 30%;margin-top:172px}
+.k-linka{flex:0 0 52%}
+.k-kocka{flex:0 0 44%;margin-top:26px}
+.k-patch{flex:0 0 50%}
+.k-loko{flex:0 0 46%;margin-top:44px}
+.hlas{color:var(--krida);margin:26px 0 0;font-size:1.125rem;line-height:1.5;max-width:27em}
+.hlas b{display:block;font-weight:400;font-size:.9375rem;color:var(--znak);opacity:.78;margin-top:9px}
 @media (min-width:900px){
+  .zed{padding:26px 0 56px}
   .zed::before{top:176px}
-  .zed{padding-top:26px;padding-bottom:56px}
   .kusy{display:grid;grid-template-columns:repeat(12,1fr);gap:26px 28px;align-items:start}
   .par{display:contents}
-  .kus{width:auto}
-  .par-velky{display:block;grid-column:1/8;grid-row:1/5}
-  .k-velky{flex:none;width:100%}
-  .s-velky{padding-top:0;margin-top:10px;font-size:.875rem;color:var(--znak);opacity:.85}
-  .k-pismo{grid-column:8/13;grid-row:1;margin-top:150px}
-  .k-linka{grid-column:8/11;grid-row:2/4;flex:none}
-  .k-lucerna{grid-column:11/13;grid-row:2/4;flex:none;margin-top:0;padding-top:40px}
-  .k-kocka{grid-column:1/5;grid-row:5;flex:none;margin-top:0}
-  .k-patch{grid-column:5/9;grid-row:5;flex:none;padding-top:54px}
-  .roh{grid-column:9/13;grid-row:5;padding-top:190px}
-  .k-loko{width:100%;margin-left:0}
-  .hlas{margin-top:24px;font-size:1.0625rem}
+  .kus{flex:none;width:auto;margin-top:0}
+  .k-velky{grid-column:1/7;grid-row:1}
+  .k-velky .stitek{font-size:.875rem}
+  .k-kresba{grid-column:7/10;grid-row:1;margin-top:300px}
+  .k-linka{grid-column:10/13;grid-row:1;margin-top:222px}
+  .k-kocka{grid-column:1/5;grid-row:2}
+  .k-patch{grid-column:5/9;grid-row:2;padding-top:40px}
+  .k-loko{grid-column:9/13;grid-row:2;padding-top:300px}
+  .hlas{grid-column:1/13;grid-row:3;margin-top:8px;font-size:1.0625rem;max-width:46em}
 }
 
 /* ---- 3. lidi ---- */
-.lidi{padding:34px 0 6px}
-.h2{
-  font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:1.4375rem;letter-spacing:.01em;
-  margin:0 0 18px;color:var(--stena);
-}
-.velka-citace{
-  font-size:1.4375rem;line-height:1.42;margin:0;font-weight:400;max-width:19em;
-}
-.podpis{font-size:.9375rem;font-weight:400;margin:9px 0 0;opacity:.82}
-.dvojice{display:flex;flex-direction:column;gap:20px;margin-top:24px;
+.lidi{padding:34px 0 10px;
+  background:linear-gradient(180deg,var(--zlato-stin) 0%,var(--zlato-svetlo) 46%,var(--zlato) 100%)}
+.h2{font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:1.4375rem;letter-spacing:.01em;
+  margin:0 0 18px;color:var(--stena)}
+.velka-citace{font-size:1.4375rem;line-height:1.42;margin:0;font-weight:400;max-width:19em}
+.podpis{font-size:.9375rem;font-weight:400;margin:9px 0 0;color:#332818}
+.trojice{display:flex;flex-direction:column;gap:20px;margin-top:26px;
   border-top:1px solid rgba(22,19,15,.3);padding-top:24px}
-.dvojice p{margin:0;font-size:1.0625rem;line-height:1.5}
+.trojice p{margin:0;font-size:1.0625rem;line-height:1.5}
 .souhrn{margin:26px 0 0;font-size:1.0625rem;font-weight:500}
 .souhrn a{color:var(--stena);display:inline-block;padding:12px 4px;margin:-12px -4px}
 @media (min-width:900px){
-  .lidi{padding:64px 0 16px}
-  .velka-citace{font-size:1.875rem;max-width:20em}
-  .dvojice{flex-direction:row;gap:48px}
-  .dvojice>div{flex:1}
+  .lidi{padding:64px 0 20px}
+  .velka-citace{font-size:1.875rem;max-width:36em}
+  .trojice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px;margin-top:34px;padding-top:30px}
 }
 
-/* ---- 4. než přijdete: one black slab ---- */
-.pred{padding:28px 0 10px}
+/* ---- 4. než přijdete: jeden černý blok ---- */
+.pred{padding:28px 0 10px;
+  background:radial-gradient(96% 74% at 50% 52%,var(--zlato-stin) 0%,var(--zlato) 74%,var(--zlato-svetlo) 100%)}
 .deska{background:var(--stena);color:var(--krida);padding:28px 22px 30px}
 .deska .h2{color:var(--krida);margin-bottom:12px}
-.deska p{margin:0 0 4px;font-size:1.0625rem;max-width:28em}
+.deska p{margin:0 0 4px;font-size:1.0625rem;max-width:30em}
+.drobne{margin-top:12px !important;font-size:1rem;color:var(--krida);opacity:.72}
 .cislo{
   display:inline-block;font-family:Bevan,Georgia,serif;font-weight:400;
-  font-size:clamp(2rem,10.4vw,3.4rem);line-height:1.06;letter-spacing:.005em;
-  color:var(--znak);text-decoration:none;margin:16px 0 2px;justify-self:start;
+  font-size:clamp(2rem,10.4vw,3.4rem);line-height:1.1;letter-spacing:.005em;
+  color:var(--znak);text-decoration:none;margin:18px 0 0;padding:8px 0;
 }
 .cislo:hover{text-decoration:underline;text-underline-offset:6px}
-.fakta{margin:24px 0 0;padding:0;border-top:1px solid rgba(239,230,208,.24)}
-.fakta div{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid rgba(239,230,208,.16)}
-.fakta div:last-child{border-bottom:0}
-.fakta dt{flex:0 0 116px;font-size:1.0625rem;font-weight:500;color:var(--znak);opacity:.85}
-.fakta dd{margin:0;flex:1;font-size:1.0625rem}
-.hlas-tmavy{margin:22px 0 0;font-size:1.0625rem;line-height:1.5;max-width:30em;color:var(--krida)}
-.hlas-tmavy b{display:block;font-weight:400;font-size:.9375rem;color:var(--znak);opacity:.72;margin-top:8px}
+.hlas-tmavy{margin:22px 0 0;padding-top:22px;font-size:1.0625rem;line-height:1.5;
+  max-width:62em;color:var(--krida);border-top:1px solid rgba(239,230,208,.2)}
+.hlas-tmavy b{display:block;font-weight:400;font-size:.9375rem;color:var(--znak);opacity:.78;margin-top:8px}
 @media (min-width:900px){
   .pred{padding:52px 0 20px}
-  .deska{padding:46px 48px 48px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
-    gap:16px 64px;align-items:start}
-  .deska .h2{grid-column:1/2}
-  .deska>p{grid-column:1/2}
-  .cislo{grid-column:1/2;font-size:3.4rem}
-  .hlas-tmavy{grid-column:1/2;margin-top:26px}
-  .fakta{grid-column:2/3;grid-row:1/6;margin-top:6px;border-top:0}
-  .fakta div:first-child{border-top:1px solid rgba(239,230,208,.24)}
+  .deska{padding:46px 48px 44px;display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 56px;align-items:center}
+  .deska-l{grid-column:1/2;grid-row:1}
+  .cislo{grid-column:2/3;grid-row:1;justify-self:start;align-self:center;font-size:4.1rem;margin:0}
+  .hlas-tmavy{grid-column:1/3;grid-row:2;margin-top:34px}
 }
 
 /* ---- 5. kde ---- */
-.kde{padding:30px 0 34px}
-.adresa{font-family:Bevan,Georgia,serif;font-weight:400;font-size:clamp(1.9rem,9.2vw,3rem);
-  line-height:1;margin:0;color:var(--stena)}
+.kde{padding:30px 0 34px;
+  background:linear-gradient(180deg,var(--zlato-svetlo) 0%,var(--zlato) 42%,var(--zlato-stin) 100%)}
+.adresa{font-family:Bevan,Georgia,serif;font-weight:400;font-size:clamp(1.62rem,7.4vw,2.5rem);
+  line-height:1.04;margin:0;color:var(--stena)}
 .kde p{margin:12px 0 0;font-size:1.0625rem;max-width:26em}
 .odkazy{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0}
-.kde img{margin-top:24px;width:100%;aspect-ratio:1400/934;object-fit:cover}
+.kde-mala{margin-top:24px;width:100%;aspect-ratio:1000/817;object-fit:cover}
+.kde-velka{margin-top:22px;width:100%;aspect-ratio:1300/867;object-fit:cover}
 @media (min-width:900px){
   .kde{padding:58px 0 56px}
-  .kde-in{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:start}
-  .kde img{margin-top:6px}
+  .kde-in{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:48px;align-items:stretch}
+  .kde-mala{margin-top:30px}
+  .kde-velka{margin-top:0;height:100%;aspect-ratio:auto;min-height:100%}
 }
 
 /* ---- patička ---- */
-.pata{background:var(--stena);color:var(--krida);padding:30px 0 calc(86px + env(safe-area-inset-bottom))}
+.pata{background:var(--stena);color:var(--krida);padding:0 0 calc(86px + env(safe-area-inset-bottom))}
+.pata-in{display:flex;flex-direction:column}
+.cedule{width:min(430px,80%);aspect-ratio:880/450;object-fit:cover;object-position:0 50%}
+.pata-text{width:100%;max-width:1180px;margin:0 auto;
+  padding:26px calc(var(--okraj) + env(safe-area-inset-right)) 0 calc(var(--okraj) + env(safe-area-inset-left))}
 .pata-znak{line-height:1;margin:0 0 16px}
 .pata-n{display:block;font-family:Bevan,Georgia,serif;font-size:2.5rem;line-height:.9;
   text-transform:uppercase;color:var(--znak)}
-.pata-t{display:block;font-weight:300;text-transform:uppercase;font-size:1.1875rem;
-  letter-spacing:.185em;color:var(--cerven);margin-top:.24em}
+.pata-t{display:block;font-weight:300;text-transform:uppercase;font-size:1.56rem;
+  letter-spacing:.47em;color:var(--cerven);margin-top:.06em}
 .pata p{margin:0 0 6px;font-size:1rem}
 .pata a{color:var(--krida);display:inline-block;padding:13px 4px;margin:-13px -4px}
-@media (min-width:900px){.pata{padding-bottom:44px}}
+@media (min-width:900px){
+  .pata{padding-bottom:48px}
+  .pata-in{flex-direction:row;align-items:center;gap:0}
+  .cedule{width:min(520px,36%);flex:0 0 auto}
+  .pata-text{margin:0;max-width:620px;padding:0 var(--okraj) 0 52px}
+}
 
 /* ---- spodní lišta ---- */
 .spodni{
   position:fixed;left:0;right:0;bottom:0;z-index:45;display:flex;
   background:var(--stena);border-top:1px solid rgba(239,230,208,.2);
   padding-bottom:env(safe-area-inset-bottom);
+  padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);
   transform:translateY(102%);visibility:hidden;
   transition:transform .22s ease,visibility .22s;
 }
 .spodni.je{transform:translateY(0);visibility:visible}
-.spodni a{
-  flex:1;min-height:56px;display:flex;align-items:center;justify-content:center;
-  text-decoration:none;color:var(--krida);font-weight:500;font-size:1.0625rem;
-}
+.spodni a{flex:1;min-height:56px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;color:var(--krida);font-weight:500;font-size:1.0625rem}
 .spodni a+a{border-left:1px solid rgba(239,230,208,.2);flex:0 0 40%;color:var(--znak)}
 @media (prefers-reduced-motion:reduce){.spodni{transition:none}}
 @media (min-width:900px){.spodni{display:none}}
 
 /* ---- modální menu ---- */
-dialog.menu{
-  border:0;padding:0;margin:0;width:100%;max-width:none;height:100%;max-height:none;
-  background:var(--stena);color:var(--krida);
-}
+dialog.menu{border:0;padding:0;margin:0;width:100%;max-width:none;height:100%;max-height:none;
+  background:var(--stena);color:var(--krida)}
 dialog.menu::backdrop{background:rgba(0,0,0,.72)}
-.menu-in{display:flex;flex-direction:column;height:100%;padding:16px var(--okraj) 34px}
+.menu-in{display:flex;flex-direction:column;height:100%;
+  padding:16px calc(var(--okraj) + env(safe-area-inset-right)) 34px calc(var(--okraj) + env(safe-area-inset-left))}
 .menu-vrch{display:flex;justify-content:flex-end}
-.zavrit{
-  appearance:none;background:transparent;border:1px solid rgba(239,230,208,.5);color:var(--krida);
+.zavrit{appearance:none;background:transparent;border:1px solid rgba(239,230,208,.5);color:var(--krida);
   font:500 .8125rem/1 Rokkitt,Georgia,serif;letter-spacing:.14em;text-transform:uppercase;
-  min-height:44px;padding:0 16px;cursor:pointer;
-}
+  min-height:44px;padding:0 16px;cursor:pointer}
 .menu-in nav{margin-top:auto;display:flex;flex-direction:column}
-.menu-in nav a{
-  text-decoration:none;color:var(--krida);font-size:1.625rem;font-weight:400;
-  padding:13px 0;border-bottom:1px solid rgba(239,230,208,.16);min-height:44px;
-}
+.menu-in nav a{text-decoration:none;color:var(--krida);font-size:1.625rem;font-weight:400;
+  padding:13px 0;border-bottom:1px solid rgba(239,230,208,.16);min-height:44px}
 .menu-in nav a:first-child{border-top:1px solid rgba(239,230,208,.16)}
 .menu-tel{margin-top:24px;font-family:Bevan,Georgia,serif;font-size:1.75rem;color:var(--znak);
   text-decoration:none;display:inline-block;min-height:44px;align-self:flex-start}
@@ -272,144 +264,142 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
 <header class="lista" id="lista">
   <div class="lista-in">
     <span class="lista-jm">Needle Tattoo</span>
-    <button class="menu-tl" id="menuTl" aria-haspopup="dialog">Menu</button>
+    <button class="menu-tl" id="menuTl" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
 </header>
 
 <main id="obsah">
 
-  <section class="uvod" id="uvod">
+  <section class="uvod" id="uvod" tabindex="-1">
     <div class="uvnitr uvod-in">
       <div>
         <h1 class="znacka">
           <span class="znacka-n">Needle</span>
           <span class="znacka-t">Tattoo</span>
         </h1>
-        <p class="kdo">Tetovací studio v Žižkově, Hartigova 60. Od jemné linky po blackwork.</p>
-        <p class="znamka"><span class="hvezda" aria-hidden="true">★</span><span class="pocet">4,9 z 274 hodnocení na Googlu</span></p>
-        <p class="jen" id="stav">Jen na objednání.</p>
+        <p class="kdo">Tetovací studio v&nbsp;Žižkově, Hartigova 60. Od jemné linky po blackwork.</p>
+        <p class="znamka"><span class="hvezda" aria-hidden="true">★</span><span class="pocet">4,9 z&nbsp;274 hodnocení na Googlu</span></p>
+        <p class="jen">Jen na objednání.</p>
         <div class="akce" id="akce">
           <a class="tl tl-plny" href="tel:+420725734400">Zavolat 725 734 400</a>
-          <a class="tl tl-obrys" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hartigova%2060%2C%20130%2000%20Praha%203-%C5%BDi%C5%BEkov" target="_blank" rel="noopener">Kudy k nám</a>
+          <a class="tl tl-obrys" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hartigova%2060%2C%20130%2000%20Praha%203-%C5%BDi%C5%BEkov" target="_blank" rel="noopener">Kudy k&nbsp;nám</a>
         </div>
       </div>
-      <img class="pas" src="img/studio.jpg" width="1200" height="980" alt="Zadní místnost studia: zlacený strop, bílá omítka, okno do zahrady a přepážka pomalovaná černo-zlatou kaligrafií." fetchpriority="high" decoding="async">
+      <img class="pas" src="img/nadpis.jpg" width="1140" height="840" alt="Nápis přes klíční kosti v ostrém kaligrafickém písmu, pod ním stínovaná sova s roztaženými křídly." fetchpriority="high" decoding="async">
     </div>
   </section>
 
-  <section class="zed" id="prace" aria-label="Práce ze studia">
+  <section class="zed" id="prace" tabindex="-1" aria-label="Práce ze studia">
     <div class="uvnitr">
       <div class="kusy">
-        <div class="par par-velky">
+        <div class="par">
           <figure class="kus k-velky">
-            <img src="img/sleeve.jpg" width="1200" height="1600" alt="Blackworkový rukáv od lokte po prsty: oko, organické tvary a silná linka." loading="lazy" decoding="async">
+            <img src="img/sleeve.jpg" width="1160" height="1547" alt="Blackworkový rukáv od lokte po prsty: oko, organické tvary a silná linka." loading="lazy" decoding="async">
+            <figcaption class="stitek">Blackwork</figcaption>
           </figure>
-          <p class="stitek s-velky">Blackwork</p>
-        </div>
-        <figure class="kus k-pismo">
-          <img src="img/pismo.jpg" width="1000" height="381" alt="Nápis přes klíční kosti v ostrém kaligrafickém písmu." loading="lazy" decoding="async">
-          <p class="stitek">Písmo</p>
-        </figure>
-        <div class="par">
-        <figure class="kus k-linka">
-          <img src="img/jemna-linka.jpg" width="600" height="1120" alt="Předloktí s jemnou linkou: anděl, lebka a dvě dotýkající se ruce." loading="lazy" decoding="async">
-          <p class="stitek">Jemná linka</p>
-        </figure>
-        <figure class="kus k-lucerna">
-          <img src="img/lucerna.jpg" width="900" height="900" alt="Barevná lucerna se svíčkou v neo-traditional stylu, kolem hvězdy." loading="lazy" decoding="async">
-          <p class="stitek">Neo-traditional</p>
-        </figure>
+          <figure class="kus k-kresba">
+            <img src="img/kresba.jpg" width="560" height="898" alt="Gilotina na předloktí v kresebném stylu s roztřepenou linkou." loading="lazy" decoding="async">
+            <figcaption class="stitek">Kresba</figcaption>
+          </figure>
         </div>
         <div class="par">
-        <figure class="kus k-kocka">
-          <img src="img/kocka.jpg" width="585" height="1250" alt="Kočka na paži v malované barevné technice, oranžová a zelená." loading="lazy" decoding="async">
-          <p class="stitek">Barevné</p>
-        </figure>
-        <figure class="kus k-patch">
-          <img src="img/patchwork.jpg" width="700" height="1287" alt="Paže poskládaná z patnácti drobných motivů, černé a červené linky." loading="lazy" decoding="async">
-          <p class="stitek">Patchwork</p>
-        </figure>
+          <figure class="kus k-linka">
+            <img src="img/jemna-linka.jpg" width="600" height="1120" alt="Předloktí s jemnou linkou: anděl, lebka, hvězdy a dvě ruce, jedna kostlivá, natažené k sobě." loading="lazy" decoding="async">
+            <figcaption class="stitek">Jemná linka</figcaption>
+          </figure>
+          <figure class="kus k-kocka">
+            <img src="img/kocka.jpg" width="585" height="1250" alt="Kočka na paži v malované barevné technice, oranžová a zelená." loading="lazy" decoding="async">
+            <figcaption class="stitek">Barevné</figcaption>
+          </figure>
         </div>
-        <div class="roh">
+        <div class="par">
+          <figure class="kus k-patch">
+            <img src="img/patchwork.jpg" width="700" height="1287" alt="Paže poskládaná z drobných motivů, černé a červené linky." loading="lazy" decoding="async">
+            <figcaption class="stitek">Patchwork</figcaption>
+          </figure>
           <figure class="kus k-loko">
-            <img src="img/lokomotiva.jpg" width="900" height="899" alt="Parní lokomotiva na lýtku, stínovaná černá a šedá." loading="lazy" decoding="async">
-            <p class="stitek">Black &amp; grey</p>
+            <img src="img/lokomotiva.jpg" width="620" height="619" alt="Parní lokomotiva na lýtku, stínovaná černá a šedá." loading="lazy" decoding="async">
+            <figcaption class="stitek">Black &amp; grey</figcaption>
           </figure>
-          <blockquote class="hlas">
-            „Strašně příjemný kluci, co rozumí tomu, co dělají. Čistý prostředí, poradí vám, udělá to přesně tak, jak chcete.“
-            <b>Adam, před pěti měsíci</b>
-          </blockquote>
         </div>
+        <blockquote class="hlas">
+          „Profesionální přístup, velmi čisté prostředí a&nbsp;kvalitně odvedená práce. Pokud chcete kvalitu, promyšlené detaily a&nbsp;poradenství na úrovni, určitě doporučuji.“
+          <b>Zuzana, před čtyřmi měsíci, Google</b>
+        </blockquote>
       </div>
     </div>
   </section>
 
-  <section class="lidi" id="lidi">
+  <section class="lidi" id="lidi" tabindex="-1">
     <div class="uvnitr">
-      <h2 class="h2">Co o studiu píšou</h2>
+      <h2 class="h2">Co o&nbsp;studiu píšou</h2>
       <blockquote class="velka-citace">
-        „Byl jsem tu na tetování už podruhé a můžu říct, že je to na vysoké úrovni. Pan Adam je velmi komunikativní, profesionální a hlavně vyjde vstříc všemu. Už bych neměnil!“
+        „Byl jsem tu na tetování už podruhé a&nbsp;můžu říct, že je to na vysoké úrovni. Pan Adam je velmi komunikativní, profesionální a&nbsp;hlavně vyjde vstříc všemu. Už bych neměnil!“
       </blockquote>
-      <p class="podpis">Tomáš, před dvěma měsíci</p>
-      <div class="dvojice">
+      <p class="podpis">Tomas, před dvěma měsíci, Google</p>
+      <div class="trojice">
         <div>
           <p>„Individuální přístup, pěkné nové studio, krásná precizní práce.“</p>
-          <p class="podpis">Piotrusia, před dvěma měsíci</p>
+          <p class="podpis">Piotrusia, před dvěma měsíci, Google</p>
         </div>
         <div>
-          <p>„Super přístup, pohodovej pokec a práce skvěle odvedená. Naprostá spokojenost.“</p>
-          <p class="podpis">Matěj, před dvěma měsíci</p>
+          <p>„Super přístup, pohodovej pokec a&nbsp;práce skvěle odvedená. Naprostá spokojenost.“</p>
+          <p class="podpis">Matěj, před dvěma měsíci, Google</p>
+        </div>
+        <div>
+          <p>„Děkuji za dnešní tetování, naprostá spokojenost.“</p>
+          <p class="podpis">Jana, před čtyřmi měsíci, Google</p>
         </div>
       </div>
       <p class="souhrn"><a href="https://www.google.com/maps/place/needletattoo/data=!4m7!3m6!1s0x470b935f86bc3061:0x4a503043eef5a42f!8m2!3d50.0886392!4d14.4607038!16s%2Fg%2F11hczxmh_y!19sChIJYTC8hl-TC0cRL6T17kMwUEo" target="_blank" rel="noopener">Přečíst všech 274 hodnocení na Googlu</a></p>
     </div>
   </section>
 
-  <section class="pred" id="objednani">
+  <section class="pred" id="objednani" tabindex="-1">
     <div class="uvnitr">
       <div class="deska tmave">
-        <h2 class="h2">Než přijdete</h2>
-        <p>Do studia se chodí na objednání. Zavolejte a řekněte, co máte v hlavě.</p>
+        <div class="deska-l">
+          <h2 class="h2">Než přijdete</h2>
+          <p>Do studia se chodí na objednání. Zavolejte a&nbsp;řekněte, co máte v&nbsp;hlavě.</p>
+          <p class="drobne">Platba kartou. Bezbariérový vstup i&nbsp;parkování. Wi-Fi zdarma.</p>
+        </div>
         <a class="cislo" href="tel:+420725734400">725 734 400</a>
         <blockquote class="hlas-tmavy">
-          „Velmi čisté prostředí a kvalitně odvedená práce. Pokud chcete kvalitu, promyšlené detaily a poradenství na úrovni, určitě doporučuji.“
-          <b>Zuzana, před čtyřmi měsíci</b>
+          „Tohle je tak příjemný místo, že bych tu mohla být celý den a&nbsp;každý den.“
+          <b>Pavlína, před deseti měsíci, Google</b>
         </blockquote>
-        <dl class="fakta">
-          <div><dt>Objednání</dt><dd>Musíte být objednaní.</dd></div>
-          <div><dt>Platba</dt><dd>Platební i debetní karty.</dd></div>
-          <div><dt>Přístup</dt><dd>Bezbariérový vstup i parkování.</dd></div>
-          <div><dt>Wi-Fi</dt><dd>Zdarma.</dd></div>
-        </dl>
       </div>
     </div>
   </section>
 
-  <section class="kde" id="kde">
+  <section class="kde" id="kde" tabindex="-1">
     <div class="uvnitr kde-in">
-      <div>
-        <h2 class="adresa">Hartigova 60</h2>
-        <p>130 00 Praha 3-Žižkov. Vstup i parkování jsou bezbariérové.</p>
+      <div class="kde-text">
+        <h2 class="adresa">Zlacený strop,<br>černý mramor</h2>
+        <p>Hartigova 60, 130 00 Praha 3-Žižkov.</p>
         <div class="odkazy">
           <a class="tl tl-plny" href="tel:+420725734400">Zavolat</a>
           <a class="tl tl-obrys" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hartigova%2060%2C%20130%2000%20Praha%203-%C5%BDi%C5%BEkov" target="_blank" rel="noopener">Otevřít trasu</a>
         </div>
+        <img class="kde-mala" src="img/studio.jpg" width="1000" height="817" alt="Zadní místnost studia: zlacený strop, bílá omítka, okno do zahrady a přepážka pomalovaná černo-zlatou kaligrafií." loading="lazy" decoding="async">
       </div>
-      <img src="img/chodba.jpg" width="1400" height="934" alt="Chodba studia: černé stěny, zlacený strop, leštěný černo-zlatý mramor a otevřené dveře do pracoven." loading="lazy" decoding="async">
+      <img class="kde-velka" src="img/chodba.jpg" width="1300" height="867" alt="Chodba studia: černé stěny, zlacený strop, leštěný černo-zlatý mramor a otevřené dveře do pracoven." loading="lazy" decoding="async">
     </div>
   </section>
 
 </main>
 
 <footer class="pata tmave">
-  <div class="uvnitr">
-    <p class="pata-znak">
-      <span class="pata-n">Needle</span>
-      <span class="pata-t">Tattoo</span>
-    </p>
-    <p>Hartigova 60, 130 00 Praha 3-Žižkov</p>
-    <p><a href="tel:+420725734400">725 734 400</a></p>
-    <p>Jen na objednání.</p>
+  <div class="pata-in">
+    <img class="cedule" src="img/cedule.jpg" width="880" height="450" alt="Ručně malovaný nápis nad pultem: NEEDLE zlatě, pod ním TATTOO červeně na černé desce." loading="lazy" decoding="async">
+    <div class="pata-text">
+      <p class="pata-znak">
+        <span class="pata-n">Needle</span>
+        <span class="pata-t">Tattoo</span>
+      </p>
+      <p>Hartigova 60, 130 00 Praha 3-Žižkov</p>
+      <p><a href="tel:+420725734400">725 734 400</a></p>
+    </div>
   </div>
 </footer>
 
@@ -421,14 +411,14 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
 <dialog class="menu tmave" id="menu" aria-label="Menu">
   <div class="menu-in">
     <div class="menu-vrch"><button class="zavrit" id="zavritTl">Zavřít</button></div>
-    <nav>
+    <nav id="menuNav">
       <a href="#prace">Práce</a>
-      <a href="#lidi">Co o studiu píšou</a>
+      <a href="#lidi">Co o&nbsp;studiu píšou</a>
       <a href="#objednani">Než přijdete</a>
-      <a href="#kde">Hartigova 60</a>
+      <a href="#kde">Kde nás najdete</a>
     </nav>
     <a class="menu-tel" href="tel:+420725734400">725 734 400</a>
-    <p class="menu-adr">Hartigova 60, Praha 3-Žižkov. Jen na objednání.</p>
+    <p class="menu-adr">Hartigova 60, Praha 3-Žižkov</p>
   </div>
 </dialog>
 
@@ -438,11 +428,10 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
   "@type":"TattooParlor",
   "name":"Needle Tattoo",
   "url":"https://hensanch.github.io/web-demos/needletattoo-v2/",
-  "image":"https://hensanch.github.io/web-demos/needletattoo-v2/img/studio.jpg",
+  "image":"https://hensanch.github.io/web-demos/needletattoo-v2/img/nadpis.jpg",
   "telephone":"+420725734400",
   "address":{"@type":"PostalAddress","streetAddress":"Hartigova 60","addressLocality":"Praha 3-Žižkov","postalCode":"13000","addressCountry":"CZ"},
   "geo":{"@type":"GeoCoordinates","latitude":50.0886392,"longitude":14.4607038},
-  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"274","bestRating":"5"},
   "paymentAccepted":"Platební karty, debetní karty",
   "hasMap":"https://www.google.com/maps/place/needletattoo/data=!4m7!3m6!1s0x470b935f86bc3061:0x4a503043eef5a42f!8m2!3d50.0886392!4d14.4607038"
 }
@@ -452,30 +441,12 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
 (function(){
   "use strict";
 
-  /* Živý stav otevírací doby v Europe/Prague.
-     HODINY zůstává null, dokud majitel nepotvrdí otevírací dobu — Google žádnou tabulku nemá.
-     Formát, až bude: {1:[["10:00","18:00"]], 2:[...], ...} kde klíč je den (0 = neděle). */
-  var HODINY = null;
-  function stav(){
-    if(!HODINY) return null;
-    var f = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Prague",hour12:false,
-      weekday:"short",hour:"2-digit",minute:"2-digit"});
-    var d = {}; f.formatToParts(new Date()).forEach(function(p){ d[p.type]=p.value; });
-    var dny = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
-    var den = dny[d.weekday], ted = parseInt(d.hour,10)*60 + parseInt(d.minute,10);
-    var dnes = HODINY[den] || [];
-    for(var i=0;i<dnes.length;i++){
-      var a = dnes[i][0].split(":"), b = dnes[i][1].split(":");
-      var od = +a[0]*60 + +a[1], doo = +b[0]*60 + +b[1];
-      if(ted>=od && ted<doo) return "Teď otevřeno do " + dnes[i][1];
-    }
-    return dnes.length ? "Dnes zavřeno" : "Dnes zavřeno";
-  }
-  var stavEl = document.getElementById("stav");
-  var s = stav();
-  if(stavEl && s) stavEl.textContent = s + ", jen na objednání";
+  /* Otevírací doba: Google pro toto studio žádnou tabulku nemá (0 řádků), takže na stránce
+     není žádný živý stav "otevřeno / zavřeno" a nic ho nedopočítává. Až majitel dobu potvrdí,
+     doplní se sem výpočet v Europe/Prague a text "Jen na objednání." v úvodu se jím nahradí.
+     Do té doby je to záměrně no-op, ne mrtvý kód. */
 
-  /* Spodní lišta: až když obě akce z první obrazovky zmizí. */
+  /* Spodní lišta: až když obě akce z první obrazovky odjedou nahoru. */
   var akce = document.getElementById("akce"), spodni = document.getElementById("spodni");
   if(akce && spodni && "IntersectionObserver" in window){
     new IntersectionObserver(function(e){
@@ -487,11 +458,16 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
   var dlg = document.getElementById("menu"),
       otevri = document.getElementById("menuTl"),
       zavri = document.getElementById("zavritTl"),
+      nav = document.getElementById("menuNav"),
       lista = document.getElementById("lista"),
       obsah = document.getElementById("obsah"),
       pata = document.querySelector(".pata"),
       skok = document.querySelector(".skok"),
-      posun = 0;
+      posun = 0, cil = null, vHistorii = false;
+
+  /* Prohlížeč nesmí obnovovat pozici sám: po history.back() by přepsal jak návrat,
+     tak skok z menu (naměřeno: scrollY 0 po každém odkazu). */
+  if("scrollRestoration" in history){ try{ history.scrollRestoration = "manual"; }catch(e){} }
 
   function inertuj(on){
     [lista,obsah,pata,spodni,skok].forEach(function(el){
@@ -500,33 +476,65 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
     });
   }
   function otevrit(){
-    posun = window.scrollY;
+    posun = window.scrollY; cil = null;
     if(typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open","");
     inertuj(true);
+    if(otevri) otevri.setAttribute("aria-expanded","true");
     document.body.style.position = "fixed";
     document.body.style.top = (-posun) + "px";
     document.body.style.width = "100%";
-    var prvni = dlg.querySelector("nav a"); if(prvni) prvni.focus();
+    if(!vHistorii){ try{ history.pushState({ntMenu:1},""); vHistorii = true; }catch(e){} }
+    var prvni = dlg.querySelector("nav a"); if(prvni) prvni.focus({preventScroll:true});
   }
   function zavrit(){
     if(typeof dlg.close === "function" && dlg.open) dlg.close(); else dlg.removeAttribute("open");
   }
+  /* Odkaz z menu skáče na sekci, Escape a Zavřít vracejí původní pozici.
+     Bez animace a dvakrát: podruhé až po přepočtu výšky, jinak se scroll ořízne. */
+  function obnov(kam){
+    var html = document.documentElement, puv = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
+    if(kam){ var el = document.querySelector(kam); if(el) el.scrollIntoView({block:"start"}); }
+    else { window.scrollTo(0, posun); }
+    html.style.scrollBehavior = puv;
+  }
   function poZavreni(){
     inertuj(false);
+    if(otevri) otevri.setAttribute("aria-expanded","false");
+    var kam = cil; cil = null;
     document.body.style.position = "";
     document.body.style.top = "";
     document.body.style.width = "";
-    window.scrollTo(0, posun);
-    if(otevri) otevri.focus();
+    obnov(kam);
+    window.requestAnimationFrame(function(){
+      obnov(kam);
+      if(kam){ var el = document.querySelector(kam); if(el) el.focus({preventScroll:true}); }
+      else if(otevri) otevri.focus({preventScroll:true});
+    });
+    if(vHistorii){ vHistorii = false; try{ history.back(); }catch(e){} }
   }
   if(otevri) otevri.addEventListener("click", otevrit);
-  if(zavri) zavri.addEventListener("click", zavrit);
+  if(zavri) zavri.addEventListener("click", function(){ cil = null; zavrit(); });
+  if(nav){
+    nav.addEventListener("click", function(ev){
+      var a = ev.target.closest("a[href^='#']");
+      if(!a) return;
+      ev.preventDefault();
+      cil = a.getAttribute("href");
+      zavrit();
+    });
+  }
   if(dlg){
     dlg.addEventListener("close", poZavreni);
-    dlg.addEventListener("cancel", function(){ /* Escape zavírá nativně */ });
-    dlg.addEventListener("click", function(ev){ if(ev.target === dlg) zavrit(); });
-    dlg.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", zavrit); });
+    dlg.addEventListener("click", function(ev){ if(ev.target === dlg){ cil = null; zavrit(); } });
+    dlg.querySelectorAll("a[href^='tel:']").forEach(function(a){
+      a.addEventListener("click", function(){ cil = null; zavrit(); });
+    });
   }
+  window.addEventListener("popstate", function(){
+    vHistorii = false;
+    if(dlg && dlg.open){ cil = null; zavrit(); }
+  });
 })();
 </script>
 </body>

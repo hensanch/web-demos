@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holičství Praha 10 – Vršovice | The Wind Barber shop</title>
+<meta name="description" content="Pánský střih od 280 Kč, střih s vousy za 650 Kč. Vršovická 89, Praha 10 – Vršovice. Rezervace online, 4,9 ze 275 hodnocení na Googlu.">
+<link rel="canonical" href="https://hensanch.github.io/web-demos/wind-barber-v2/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="The Wind Barber shop – holičství ve Vršovicích">
+<meta property="og:description" content="Pánský střih od 280 Kč, střih s vousy za 650 Kč. Vršovická 89, Praha 10.">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/wind-barber-v2/img/hero.jpg">
+<meta property="og:url" content="https://hensanch.github.io/web-demos/wind-barber-v2/">
+<meta name="theme-color" content="#181B21">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%23181B21'/%3E%3Cpath%20d='M5%208.5L10.5%2024L16%2013.5L21.5%2024L27%208.5'%20fill='none'%20stroke='%23E0812C'%20stroke-width='4.2'%20stroke-linejoin='round'%20stroke-linecap='round'/%3E%3C/svg%3E">
+
+<style>
+/* ---- self-hosted type: nothing is requested from a third party ---------------- */
+@font-face{font-family:Sansita;font-style:normal;font-weight:900;font-display:swap;
+  src:url(fonts/sansita-900-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:Sansita;font-style:normal;font-weight:900;font-display:swap;
+  src:url(fonts/sansita-900-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;
+  src:url(fonts/ibmplexsans-400-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;
+  src:url(fonts/ibmplexsans-400-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+/* ---- tokens: sampled off their own photographs -------------------------------- */
+:root{
+  --kuze:#181B21;      /* the black quilted leather sofa and the barber chairs */
+  --kuze-hlub:#12141A; /* the same leather in shadow: the bar and the footer */
+  --cihla:#DEE2DC;     /* the whitewashed brick of the back wall */
+  --dub:#C6AC83;       /* the pale oak plank floor */
+  --papir:#F2F1EC;     /* the white plaster busts on the shelf */
+  --seda:#A2A8AF;      /* secondary text on the dark */
+  --seda-tm:#5C5750;   /* secondary text on the brick panel */
+  --vyveska:#E0812C;   /* the orange of their window vinyl. one job: booking */
+  --linka:#2E3views;   /* placeholder, overwritten below */
+  --linka:rgba(198,172,131,.26);
+  --ring:var(--vyveska);
+  --sirka:1040px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:14px;
+  scroll-padding-bottom:96px;
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;
+  background:var(--kuze);
+  color:var(--papir);
+  font:400 16.5px/1.55 'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+  overflow-wrap:break-word;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2{font-family:Sansita,Georgia,serif;font-weight:900;text-wrap:balance;margin:0}
+p{margin:0}
+button{font:inherit}
+[tabindex="-1"]:focus{outline:none}
+:focus-visible{outline:3px solid var(--ring);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--vyveska);color:var(--kuze);
+  padding:12px 18px;font-weight:600;z-index:70;touch-action:manipulation}
+.skip:focus{left:8px;top:8px}
+
+.wrap{width:100%;max-width:var(--sirka);margin:0 auto;padding:0 20px}
+section{scroll-margin-top:14px}
+
+/* ---- the floating menu button ------------------------------------------------- */
+.menuBtn{
+  position:fixed;top:12px;right:12px;z-index:40;
+  min-height:44px;min-width:44px;padding:0 16px;
+  background:rgba(18,20,26,.86);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  color:var(--papir);border:1px solid var(--linka);border-radius:2px;
+  font-size:14.5px;font-weight:600;letter-spacing:.01em;
+  touch-action:manipulation;cursor:pointer;
+}
+@media (hover:hover){.menuBtn:hover{background:var(--papir);color:var(--kuze);border-color:var(--papir)}}
+
+/* ---- 1. the first screen ------------------------------------------------------ */
+.uvod{padding:26px 0 34px}
+h1{
+  font-size:clamp(40px,12.4vw,74px);
+  line-height:.92;letter-spacing:.005em;text-transform:uppercase;
+  margin:0 0 10px;
+}
+h1 span{display:block}
+.co{color:var(--seda);font-size:15.5px;margin-bottom:16px}
+.hero{margin:0 -20px 16px}
+.hero img{width:100%;aspect-ratio:1170/658;object-fit:cover}
+.znamka{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.znamka b{font-family:Sansita,Georgia,serif;font-weight:900;font-size:34px;line-height:1;
+  color:var(--dub);font-variant-numeric:tabular-nums}
+.znamka span{font-size:14.5px;color:var(--seda)}
+.stav{font-size:15.5px;display:flex;align-items:center;gap:8px;min-height:24px;margin-bottom:18px}
+.stav::before{content:"";width:9px;height:9px;background:var(--seda);flex:0 0 auto;
+  clip-path:polygon(3px 0,6px 0,9px 3px,9px 6px,6px 9px,3px 9px,0 6px,0 3px)}
+.stav.je-otevreno::before{background:var(--dub)}
+.stav.je-otevreno{color:var(--papir)}
+.stav.je-zavreno{color:var(--seda)}
+
+.cta{
+  display:flex;align-items:center;justify-content:center;
+  min-height:56px;padding:0 22px;
+  background:var(--vyveska);color:var(--kuze);
+  font-size:17.5px;font-weight:600;text-decoration:none;letter-spacing:.005em;
+  touch-action:manipulation;
+  clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px);
+}
+@media (hover:hover){.cta:hover{background:#F09742}}
+.tel{margin-top:12px;font-size:15.5px;color:var(--seda)}
+.tel a{color:var(--papir);text-decoration-color:var(--dub);text-underline-offset:3px;
+  display:inline-block;min-height:24px;touch-action:manipulation}
+@media (hover:hover){.tel a:hover{color:var(--dub)}}
+
+/* ---- 2. ceník: the price column ----------------------------------------------- */
+.cenik{padding:30px 0 0}
+h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-spacing:.01em;margin-bottom:20px}
+.ceny{list-style:none;margin:0;padding:0;border-top:1px solid var(--linka)}
+.ceny li{
+  display:grid;grid-template-columns:1fr auto;align-items:baseline;
+  column-gap:16px;padding:14px 0 15px;border-bottom:1px solid var(--linka);
+}
+.ceny .co-je{grid-column:1;font-size:16.5px;font-weight:600;line-height:1.25}
+.ceny .popis{grid-column:1/-1;font-size:13.5px;line-height:1.45;color:var(--seda);margin-top:5px;max-width:46ch}
+.ceny .kc{
+  grid-column:2;grid-row:1;
+  font-family:Sansita,Georgia,serif;font-weight:900;
+  font-size:clamp(38px,10.4vw,58px);line-height:.82;
+  color:var(--dub);font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.ceny .kc i{font-family:'IBM Plex Sans',sans-serif;font-style:normal;font-weight:400;
+  font-size:14px;color:var(--seda);letter-spacing:0}
+
+/* the one move that crosses a section edge: this brick panel starts inside the
+   ceník and its bottom 72 px hang down into the reviews below it */
+.most{
+  position:relative;z-index:2;
+  margin:26px -6px -72px;
+  background:var(--cihla);color:var(--kuze);
+  padding:22px 18px 26px;
+  clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);
+  --ring:#181B21;
+}
+.most .ceny{border-top:0}
+.most .ceny li{border-bottom:1px solid rgba(24,27,33,.16)}
+.most .ceny li:last-of-type{border-bottom:0}
+.most .kc{color:var(--kuze)}
+.most .kc i{color:var(--seda-tm)}
+.misto{grid-column:1/-1;font-size:13.5px;color:var(--seda-tm);margin-top:4px}
+.misto s{text-decoration-thickness:1.5px}
+.rozdil{margin-top:14px;font-size:14.5px;line-height:1.5;color:var(--seda-tm);max-width:44ch}
+
+/* ---- 3. reviews --------------------------------------------------------------- */
+.recenze{padding:128px 0 34px}
+.citace{margin:0;padding:18px 0 20px;border-bottom:1px solid var(--linka)}
+.citace:first-of-type{border-top:1px solid var(--linka)}
+.citace p{font-size:17px;line-height:1.5}
+.citace footer{margin-top:9px;font-size:13.5px;color:var(--seda)}
+.vic{display:inline-block;margin-top:20px;font-size:15.5px;color:var(--papir);
+  text-decoration-color:var(--dub);text-underline-offset:4px;min-height:44px;
+  line-height:44px;touch-action:manipulation}
+@media (hover:hover){.vic:hover{color:var(--dub)}}
+
+/* ---- 4. práce: two hung columns ------------------------------------------------ */
+.prace{padding:8px 0 40px}
+.stena{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start}
+.stena .sloupec{display:grid;gap:8px}
+.stena .sloupec:nth-child(2){margin-top:34px}
+.stena img{width:100%}
+
+/* ---- 5. otevírací doba --------------------------------------------------------- */
+.kdy{padding:6px 0 44px}
+.hodiny{list-style:none;margin:0 0 22px;padding:0;max-width:420px}
+.hodiny li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;
+  border-bottom:1px solid var(--linka);font-size:16px;font-variant-numeric:tabular-nums}
+.hodiny li.dnes{color:var(--papir);font-weight:600}
+.hodiny li.dnes .den::before{content:"";display:inline-block;width:8px;height:8px;
+  background:var(--dub);margin-right:9px;vertical-align:middle;
+  clip-path:polygon(3px 0,5px 0,8px 3px,8px 5px,5px 8px,3px 8px,0 5px,0 3px)}
+.hodiny li:not(.dnes){color:var(--seda)}
+.adresa{font-size:17px;line-height:1.5;margin-bottom:16px}
+.odkazy{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:26px}
+.odkazy a{font-size:15.5px;color:var(--papir);text-decoration-color:var(--dub);
+  text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center;
+  touch-action:manipulation}
+@media (hover:hover){.odkazy a:hover{color:var(--dub)}}
+.vyloha{margin:0 -20px}
+.vyloha img{width:100%;aspect-ratio:1000/672;object-fit:cover}
+.vyloha figcaption{padding:10px 20px 0;font-size:13.5px;color:var(--seda);max-width:44ch}
+
+/* ---- footer -------------------------------------------------------------------- */
+.pata{background:var(--kuze-hlub);padding:26px 0 108px;font-size:13.5px;line-height:1.6;color:var(--seda)}
+.pata p{margin-bottom:9px;max-width:62ch}
+.pata .jmeno{font-family:Sansita,Georgia,serif;font-weight:900;text-transform:uppercase;
+  font-size:17px;color:var(--papir);letter-spacing:.02em;margin-bottom:12px}
+.pata a{color:var(--seda);text-underline-offset:3px}
+@media (hover:hover){.pata a:hover{color:var(--papir)}}
+
+/* ---- the fixed bar -------------------------------------------------------------- */
+.lista{
+  position:fixed;left:0;right:0;bottom:0;z-index:45;
+  display:flex;align-items:center;gap:12px;
+  padding:10px 14px;
+  background:rgba(18,20,26,.94);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-top:1px solid var(--linka);
+  transform:translateY(105%);visibility:hidden;
+  transition:transform .22s ease,visibility .22s;
+}
+.lista.vidno{transform:none;visibility:visible}
+@media (prefers-reduced-motion:reduce){.lista{transition:none}}
+.lista .cta{flex:1 1 auto;min-height:50px;font-size:16.5px}
+.lista .zavolat{
+  flex:0 0 auto;min-height:50px;display:inline-flex;align-items:center;padding:0 14px;
+  font-size:15.5px;color:var(--papir);text-decoration:none;
+  border:1px solid var(--linka);touch-action:manipulation;
+  clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px);
+}
+@media (hover:hover){.lista .zavolat:hover{border-color:var(--dub);color:var(--dub)}}
+
+/* ---- the menu, a real modal ------------------------------------------------------ */
+.menu{position:fixed;inset:0;z-index:60;background:var(--kuze-hlub);
+  display:flex;flex-direction:column;justify-content:center;padding:24px 20px}
+.menu[hidden]{display:none}
+.menu ul{list-style:none;margin:0 0 26px;padding:0}
+.menu a.polozka{
+  display:block;padding:13px 0;min-height:52px;
+  font-family:Sansita,Georgia,serif;font-weight:900;font-size:clamp(28px,8.4vw,44px);
+  line-height:1.15;text-transform:uppercase;letter-spacing:.01em;
+  color:var(--papir);text-decoration:none;touch-action:manipulation;
+}
+@media (hover:hover){.menu a.polozka:hover{color:var(--dub)}}
+.menu .zavrit{
+  position:absolute;top:12px;right:12px;min-height:44px;min-width:44px;padding:0 16px;
+  background:transparent;color:var(--papir);border:1px solid var(--linka);border-radius:2px;
+  font-size:14.5px;font-weight:600;touch-action:manipulation;cursor:pointer;
+}
+@media (hover:hover){.menu .zavrit:hover{background:var(--papir);color:var(--kuze)}}
+.menu .telefon{margin-top:16px;font-size:15.5px;color:var(--seda)}
+.menu .telefon a{color:var(--papir);text-underline-offset:3px}
+
+/* ---- desktop --------------------------------------------------------------------- */
+@media (min-width:900px){
+  body{font-size:17px}
+  .wrap{padding:0 40px}
+  .uvod{padding:64px 0 60px}
+  .uvod .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
+    gap:48px;align-items:center}
+  .uvod .text{grid-column:1;max-width:26ch}
+  .hero{grid-column:2;grid-row:1/span 2;margin:0;align-self:stretch}
+  .hero img{height:100%;min-height:420px;aspect-ratio:auto}
+  .uvod .akce{grid-column:1}
+  h1{font-size:clamp(56px,4.6vw,72px);margin-bottom:14px}
+  .co{font-size:17px;margin-bottom:26px}
+  .znamka{margin-bottom:6px}
+  .znamka b{font-size:40px}
+  .cta{align-self:start;display:inline-flex;min-width:280px}
+  .cenik{padding:56px 0 0}
+  .ceny li{grid-template-columns:minmax(0,20ch) minmax(0,1fr) auto;column-gap:32px;padding:18px 0 19px}
+  .ceny .popis{grid-column:2;grid-row:1;margin-top:2px;font-size:14.5px}
+  .ceny .kc{grid-column:3}
+  .most{margin:34px 0 -84px;max-width:760px;padding:28px 32px 32px}
+  .most .ceny li{grid-template-columns:minmax(0,1fr) auto}
+  .most .misto{grid-column:1;grid-row:2;margin-top:6px}
+  .recenze{padding:150px 0 50px}
+  .citace-mrizka{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+  .citace p{font-size:17.5px}
+  .prace{padding:14px 0 60px}
+  .stena{grid-template-columns:repeat(4,1fr);gap:12px}
+  .stena .sloupec:nth-child(2){margin-top:0}
+  .stena .sloupec:nth-child(even){margin-top:52px}
+  .kdy{padding:14px 0 70px}
+  .kdy .wrap{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:16px 56px}
+  .kdy h2{grid-column:1/-1}
+  .hodiny{grid-column:1;margin-bottom:0}
+  .kdy .kontakt{grid-column:2;align-self:start}
+  .vyloha{grid-column:1/-1;margin:34px 0 0}
+  .vyloha img{aspect-ratio:1000/430}
+  .vyloha figcaption{padding:10px 0 0}
+  .pata{padding:34px 0 40px}
+  .lista{display:none}
+  .menu ul{columns:2;column-gap:56px;max-width:900px;margin-inline:auto;width:100%}
+  .menu .telefon{max-width:900px;margin-inline:auto;width:100%}
+}
+@media (min-width:900px) and (hover:hover){
+  .stena img{transition:opacity .18s ease}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#obsah">Přeskočit na obsah</a>
+<button class="menuBtn" id="menuBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu">Menu</button>
+
+<main id="obsah">
+
+  <section class="uvod" aria-labelledby="nazev">
+    <div class="wrap">
+      <div class="text">
+        <h1 id="nazev">The Wind <span>Barber shop</span></h1>
+        <p class="co">Holičství ve Vršovicích, Praha 10. Stříhají tu dva barbeři, na tři křesla.</p>
+      </div>
+      <figure class="hero">
+        <img src="img/hero.jpg" width="1170" height="658" fetchpriority="high" decoding="async"
+             alt="Dva barbeři stříhají u křesel, zákazníci čekají u výlohy do Vršovické ulice.">
+      </figure>
+      <div class="akce">
+        <p class="znamka"><b>4,9</b> <span>ze 275 hodnocení na Googlu</span></p>
+        <p class="stav" id="stav">Otevírací doba se načítá</p>
+        <a class="cta" id="ctaHero" href="https://the-wind-barber.reservio.com/booking">Rezervovat termín</a>
+        <p class="tel">Nebo zavolejte <a href="tel:+420607337907">607 337 907</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cenik" id="cenik" tabindex="-1" aria-labelledby="h-cenik">
+    <div class="wrap">
+      <h2 id="h-cenik">Ceník</h2>
+      <ol class="ceny">
+        <li>
+          <span class="co-je">Pánský střih krátký</span>
+          <span class="kc">470<i> Kč</i></span>
+          <span class="popis">Mytí, vysoušení vlasů, střih, péče o vlasy a styling.</span>
+        </li>
+        <li>
+          <span class="co-je">Pánský střih dlouhý, 8–9 cm</span>
+          <span class="kc">520<i> Kč</i></span>
+        </li>
+        <li>
+          <span class="co-je">Střih do hola</span>
+          <span class="kc">280<i> Kč</i></span>
+        </li>
+        <li>
+          <span class="co-je">Dětský střih do 12 let</span>
+          <span class="kc">350<i> Kč</i></span>
+        </li>
+        <li>
+          <span class="co-je">Úprava vousů</span>
+          <span class="kc">330<i> Kč</i></span>
+          <span class="popis">Zkrácení vousů, úprava koutků, po holení, vůně a styling.</span>
+        </li>
+      </ol>
+
+      <div class="most">
+        <ol class="ceny">
+          <li>
+            <span class="co-je">Střih vlasů a vousy</span>
+            <span class="kc">650<i> Kč</i></span>
+            <span class="misto">místo <s>800 Kč</s> zvlášť</span>
+          </li>
+          <li>
+            <span class="co-je">Střih dlouhých vlasů a vousy</span>
+            <span class="kc">700<i> Kč</i></span>
+            <span class="misto">místo <s>850 Kč</s> zvlášť</span>
+          </li>
+        </ol>
+        <p class="rozdil">Obojí dohromady vyjde o 150 Kč levněji než střih a vousy zvlášť.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="recenze" id="recenze" tabindex="-1" aria-labelledby="h-recenze">
+    <div class="wrap">
+      <h2 id="h-recenze">Recenze z Googlu</h2>
+      <div class="citace-mrizka">
+        <blockquote class="citace">
+          <p>Vždy perfektně ostříhaný. Super přístup.</p>
+          <footer>Martin, Google, před 2 měsíci</footer>
+        </blockquote>
+        <blockquote class="citace">
+          <p>Super cena, krásná práce a taky oceňuju rychlost. Šikovní borci, dávají si záležet a ví, co dělají.</p>
+          <footer>Richard, Google, před 5 měsíci</footer>
+        </blockquote>
+        <blockquote class="citace">
+          <p>Pěkný a rychlý střih. Přesně podle představ.</p>
+          <footer>Matyáš, Google, před 6 měsíci</footer>
+        </blockquote>
+        <blockquote class="citace">
+          <p>S účesem jsem naprosto spokojený. Určitě navštívím znovu a mohu jen doporučit. Prostředí na mě působilo dobře a útulně, 3 křesla.</p>
+          <footer>Róbert, Google, před 7 měsíci</footer>
+        </blockquote>
+      </div>
+      <a class="vic" href="https://www.google.com/maps/place/The+Wind+Barber+shop/data=!4m7!3m6!1s0x470b93124852a201:0xb31273a6e974c578!8m2!3d50.0704561!4d14.4744748!16s%2Fg%2F11s7sfwkvn!19sChIJAaJSSBKTC0cReMV06aZzErM">Všech 275 hodnocení na Googlu</a>
+    </div>
+  </section>
+
+  <section class="prace" id="prace" tabindex="-1" aria-labelledby="h-prace">
+    <div class="wrap">
+      <h2 id="h-prace">Práce</h2>
+      <div class="stena">
+        <div class="sloupec">
+          <img src="img/prace1.jpg" width="1000" height="1238" loading="lazy" decoding="async"
+               alt="Fade s vyholenou linkou nad uchem, za zákazníkem bílá cihlová stěna salonu.">
+          <img src="img/prace2.jpg" width="889" height="1185" loading="lazy" decoding="async"
+               alt="Krátký sestřih z profilu, v pozadí rámované plakáty na bílé stěně.">
+        </div>
+        <div class="sloupec">
+          <img src="img/prace3.jpg" width="1000" height="998" loading="lazy" decoding="async"
+               alt="Zákazník s tetováním na krku v křesle, v zrcadle za ním pracuje barber.">
+          <img src="img/prace4.jpg" width="1000" height="1046" loading="lazy" decoding="async"
+               alt="Chlapec v křesle po střihu s vyholenými boky, povídá si s barberem.">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kdy" id="kdy" tabindex="-1" aria-labelledby="h-kdy">
+    <div class="wrap">
+      <h2 id="h-kdy">Otevírací doba</h2>
+      <ul class="hodiny" id="hodiny">
+        <li data-den="1"><span class="den">pondělí</span> <span>9:30–19:00</span></li>
+        <li data-den="2"><span class="den">úterý</span> <span>9:30–19:00</span></li>
+        <li data-den="3"><span class="den">středa</span> <span>9:30–19:00</span></li>
+        <li data-den="4"><span class="den">čtvrtek</span> <span>9:30–19:30</span></li>
+        <li data-den="5"><span class="den">pátek</span> <span>9:30–19:30</span></li>
+        <li data-den="6"><span class="den">sobota</span> <span>9:30–19:00</span></li>
+        <li data-den="0"><span class="den">neděle</span> <span>zavřeno</span></li>
+      </ul>
+      <div class="kontakt">
+        <p class="adresa">Vršovická 89<br>100 00 Praha 10, Vršovice<br>V přízemí.</p>
+        <div class="odkazy">
+          <a href="tel:+420607337907">607 337 907</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Vr%C5%A1ovick%C3%A1%2089%2C%20100%2000%20Praha%2010">Trasa na Mapách Google</a>
+          <a href="https://the-wind-barber.reservio.com/booking">Volné termíny na Reserviu</a>
+        </div>
+      </div>
+      <figure class="vyloha">
+        <img src="img/okno.jpg" width="1000" height="672" loading="lazy" decoding="async"
+             alt="Výloha holičství: tři zarámované fotky střihů stojí na bílých kostkách.">
+        <figcaption>Podle výlohy nás poznáte. Zarámované střihy stojí na bílých kostkách hned za sklem.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pata">
+  <div class="wrap">
+    <p class="jmeno">The Wind Barber shop</p>
+    <p>Vršovická 89, 100 00 Praha 10, Vršovice. Telefon <a href="tel:+420607337907">607 337 907</a>.</p>
+    <p>[Jméno, sídlo, IČO majitele]</p>
+    <p>Případné spory lze řešit mimosoudně u České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">https://coi.gov.cz/informace-o-adr/</a></p>
+    <p>Tahle stránka neukládá cookies a nenačítá nic z cizích serverů. Písma jsou uložená přímo tady, mapa se otevře až po kliknutí.</p>
+  </div>
+</footer>
+
+<div class="lista" id="lista">
+  <a class="cta" href="https://the-wind-barber.reservio.com/booking">Rezervovat termín</a>
+  <a class="zavolat" href="tel:+420607337907">Zavolat</a>
+</div>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button class="zavrit" id="zavrit">Zavřít</button>
+  <nav>
+    <ul>
+      <li><a class="polozka" href="#cenik">Ceník</a></li>
+      <li><a class="polozka" href="#recenze">Recenze</a></li>
+      <li><a class="polozka" href="#prace">Práce</a></li>
+      <li><a class="polozka" href="#kdy">Otevírací doba</a></li>
+      <li><a class="polozka" href="https://the-wind-barber.reservio.com/booking">Rezervovat termín</a></li>
+    </ul>
+  </nav>
+  <p class="telefon">Nebo zavolejte <a href="tel:+420607337907">607 337 907</a></p>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "The Wind Barber shop",
+  "url": "https://hensanch.github.io/web-demos/wind-barber-v2/",
+  "image": "https://hensanch.github.io/web-demos/wind-barber-v2/img/hero.jpg",
+  "telephone": "+420607337907",
+  "priceRange": "280-700 CZK",
+  "currenciesAccepted": "CZK",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Vrsovicka 89",
+    "addressLocality": "Praha",
+    "postalCode": "100 00",
+    "addressRegion": "Praha 10",
+    "addressCountry": "CZ"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.0704561, "longitude": 14.4744748 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Saturday"], "opens": "09:30", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday","Friday"], "opens": "09:30", "closes": "19:30" }
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": { "@type": "EntryPoint", "urlTemplate": "https://the-wind-barber.reservio.com/booking" }
+  }
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+  var NBSP = ' ';
+
+  /* ---------- live open state, Europe/Prague ---------- */
+  var HOD = { 1:[570,1140], 2:[570,1140], 3:[570,1140], 4:[570,1170], 5:[570,1170], 6:[570,1140], 0:null };
+  var KDY = { 1:'v'+NBSP+'pondělí', 2:'v'+NBSP+'úterý', 3:'ve'+NBSP+'středu', 4:'ve'+NBSP+'čtvrtek', 5:'v'+NBSP+'pátek', 6:'v'+NBSP+'sobotu', 0:'v'+NBSP+'neděli' };
+
+  function ted() {
+    try {
+      var p = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Prague', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
+      }).formatToParts(new Date());
+      var g = function (t) { for (var i = 0; i < p.length; i++) { if (p[i].type === t) return p[i].value; } return ''; };
+      var m = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
+      var d = m[g('weekday')];
+      if (d === undefined) return null;
+      return { d: d, m: (parseInt(g('hour'), 10) % 24) * 60 + parseInt(g('minute'), 10) };
+    } catch (e) { return null; }
+  }
+  function cas(min) { var h = Math.floor(min / 60), m = min % 60; return h + ':' + (m < 10 ? '0' + m : m); }
+
+  var el = document.getElementById('stav');
+  var n = ted();
+  if (n && el) {
+    var dnes = HOD[n.d], text, otevreno = false;
+    if (dnes && n.m >= dnes[0] && n.m < dnes[1]) {
+      otevreno = true;
+      text = 'Otevřeno, zavíráme v' + NBSP + cas(dnes[1]);
+    } else if (dnes && n.m < dnes[0]) {
+      text = 'Zavřeno, otevíráme dnes v' + NBSP + cas(dnes[0]);
+    } else {
+      for (var i = 1; i <= 7; i++) {
+        var nd = (n.d + i) % 7;
+        if (HOD[nd]) {
+          text = 'Zavřeno, otevíráme ' + (i === 1 ? 'zítra' : KDY[nd]) + ' v' + NBSP + cas(HOD[nd][0]);
+          break;
+        }
+      }
+    }
+    el.textContent = text;
+    el.className = 'stav ' + (otevreno ? 'je-otevreno' : 'je-zavreno');
+
+    var radky = document.querySelectorAll('#hodiny li');
+    for (var j = 0; j < radky.length; j++) {
+      if (parseInt(radky[j].getAttribute('data-den'), 10) === n.d) { radky[j].className = 'dnes'; }
+    }
+  } else if (el) {
+    el.textContent = 'Po až so 9:30' + '–' + '19:00, v' + NBSP + 'neděli zavřeno';
+    el.className = 'stav je-zavreno';
+  }
+
+  /* ---------- the fixed bar appears once the first button is gone ---------- */
+  var lista = document.getElementById('lista');
+  var ctaHero = document.getElementById('ctaHero');
+  if (lista && ctaHero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (ents) {
+      lista.className = ents[0].isIntersecting ? 'lista' : 'lista vidno';
+    }, { rootMargin: '0px 0px -40px 0px' }).observe(ctaHero);
+  }
+
+  /* ---------- the menu: a real modal with a history entry ---------- */
+  var menu = document.getElementById('menu');
+  var menuBtn = document.getElementById('menuBtn');
+  var zavrit = document.getElementById('zavrit');
+  var otevreno = false, vratitFokus = null;
+
+  function fokusovatelne() {
+    return menu.querySelectorAll('a[href], button');
+  }
+  function otevrit() {
+    if (otevreno) return;
+    otevreno = true;
+    vratitFokus = document.activeElement;
+    menu.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    menuBtn.setAttribute('aria-expanded', 'true');
+    try { history.pushState({ menu: true }, ''); } catch (e) {}
+    var f = fokusovatelne();
+    if (f.length) { f[0].focus(); }
+  }
+  function zavrit_(zpet) {
+    if (!otevreno) return;
+    otevreno = false;
+    menu.hidden = true;
+    document.documentElement.style.overflow = '';
+    menuBtn.setAttribute('aria-expanded', 'false');
+    if (!zpet) { try { if (history.state && history.state.menu) history.back(); } catch (e) {} }
+    if (vratitFokus && vratitFokus.focus) { vratitFokus.focus(); }
+  }
+  menuBtn.addEventListener('click', otevrit);
+  zavrit.addEventListener('click', function () { zavrit_(false); });
+  window.addEventListener('popstate', function () { if (otevreno) zavrit_(true); });
+  document.addEventListener('keydown', function (e) {
+    if (!otevreno) return;
+    if (e.key === 'Escape') { e.preventDefault(); zavrit_(false); return; }
+    if (e.key === 'Tab') {
+      var f = fokusovatelne();
+      if (!f.length) return;
+      var prvni = f[0], posledni = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === prvni) { e.preventDefault(); posledni.focus(); }
+      else if (!e.shiftKey && document.activeElement === posledni) { e.preventDefault(); prvni.focus(); }
+    }
+  });
+
+  var skoky = menu.querySelectorAll('a.polozka[href^="#"]');
+  var pomalu = window.matchMedia('(prefers-reduced-motion: reduce)');
+  for (var k = 0; k < skoky.length; k++) {
+    skoky[k].addEventListener('click', function (e) {
+      e.preventDefault();
+      var cil = document.getElementById(this.getAttribute('href').slice(1));
+      if (!cil) return;
+      vratitFokus = null;
+      zavrit_(false);
+      setTimeout(function () {
+        cil.scrollIntoView({ behavior: pomalu.matches ? 'auto' : 'smooth', block: 'start' });
+        cil.focus({ preventScroll: true });
+      }, 40);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
