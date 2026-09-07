@@ -118,12 +118,12 @@ p{margin:0}
 }
 .okno a:hover{border-bottom-color:var(--saten)}
 @media (prefers-reduced-motion:no-preference){
-  .okno a{opacity:0;transform:translateY(7px);animation:prijezd .5s cubic-bezier(.2,.7,.3,1) forwards}
+  .okno a{animation:prijezd .5s cubic-bezier(.2,.7,.3,1) both}
   .okno a:nth-child(2){animation-delay:70ms}
   .okno a:nth-child(3){animation-delay:140ms}
   .okno a:nth-child(4){animation-delay:210ms}
 }
-@keyframes prijezd{to{opacity:1;transform:none}}
+@keyframes prijezd{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 
 /* ---------- práce: one big, then small ---------- */
 .prace{padding-bottom:2px}
@@ -184,7 +184,8 @@ p{margin:0}
   font-family:var(--sans);font-size:13.5px;font-weight:800;letter-spacing:.02em;
   color:#D6C7BF;white-space:nowrap;text-align:right;
 }
-.listek{background:var(--saten);padding:6px 20px 14px}
+.ram{padding:0}
+.listek{background:var(--saten);padding:6px 18px 14px}
 .pod{
   font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
   color:var(--bronz);margin:16px 0 2px;
@@ -194,7 +195,7 @@ p{margin:0}
   align-items:end;padding:8px 0;border-top:1px solid var(--linka);
 }
 .listek .polozka:first-of-type,.polozka.bez-linky{border-top:0}
-.co{font-family:var(--serif);font-size:16.5px;line-height:1.3;padding-right:.45em}
+.co{font-family:var(--serif);font-size:16.5px;line-height:1.3;padding-right:.45em;max-width:13.4em}
 .cas{font-family:var(--sans);font-size:12.5px;color:var(--bronz);margin-left:.5em;white-space:nowrap}
 .vodic{border-bottom:1px dotted var(--bronz);opacity:.55;margin-bottom:.28em;min-width:1.4em}
 .kc{
@@ -283,6 +284,19 @@ p{margin:0}
 .nabidka .telefon a{color:var(--saten);font-weight:700}
 
 /* ---------- desktop ---------- */
+@media (max-width:380px){
+  :root{--okraj:16px}
+  .vitrina-foto img{height:38vh;min-height:244px;max-height:290px}
+  .deska h1{font-size:36px}
+  .deska{padding:20px 18px 22px}
+  .listek{padding:6px 14px 12px}
+  .co{max-width:12.6em}
+  .rasy-hlavicka,.rasy-radek{grid-template-columns:1fr 62px 68px;column-gap:6px}
+  .rasy-hlavicka{font-size:10px;letter-spacing:.1em}
+  .co{font-size:15.5px;max-width:12.8em}
+  .kc{font-size:14.5px}
+  .okno-in{column-gap:22px}
+}
 @media (min-width:900px){
   :root{--okraj:40px;--rejstrik:52px}
   .vitrina{display:grid;grid-template-columns:minmax(420px,46%) 1fr;align-items:center;min-height:min(78vh,660px);max-width:1440px;margin:0 auto;overflow:hidden}
@@ -324,9 +338,10 @@ p{margin:0}
   .rejstrik-in{justify-content:flex-start;column-gap:56px}
   .rejstrik a{font-size:18px}
   .pas-in{padding-top:20px;padding-bottom:24px}
+  .ram{padding-left:var(--okraj);padding-right:var(--okraj);max-width:1180px;margin:0 auto}
   .listek{padding:10px 40px 22px}
   .listek-mriz{display:grid;grid-template-columns:1fr 1fr;column-gap:64px;align-items:start}
-  .co{font-size:17.5px}
+  .co{font-size:17.5px;max-width:none}
   .polozka{padding:10px 0}
 
   .adresa{max-width:1180px;margin:0 auto;padding:70px var(--okraj) 52px;display:grid;grid-template-columns:1fr 1fr;column-gap:56px;align-items:start}
@@ -449,7 +464,7 @@ p{margin:0}
 
   <section class="skupina" id="ceny-ruce" aria-labelledby="n-ruce">
     <div class="pas"><div class="pas-in obal"><h3 id="n-ruce">Manikúra</h3><span class="od">od 350 Kč</span></div></div>
-    <div class="obal"><div class="listek"><div class="listek-mriz">
+    <div class="ram"><div class="listek"><div class="listek-mriz">
       <div>
         <h4 class="pod">Modelace nehtů</h4>
         <div class="polozka bez-linky"><span class="co">Gelové nehty nové, krátké, bez zdobení<span class="cas">60 min</span></span><span class="vodic"></span><span class="kc">640 Kč</span></div>
@@ -471,7 +486,7 @@ p{margin:0}
 
   <section class="skupina" id="ceny-nohy" aria-labelledby="n-nohy">
     <div class="pas"><div class="pas-in obal"><h3 id="n-nohy">Pedikúra</h3><span class="od">od 500 Kč</span></div></div>
-    <div class="obal"><div class="listek"><div class="listek-mriz">
+    <div class="ram"><div class="listek"><div class="listek-mriz">
       <div>
         <div class="polozka bez-linky"><span class="co">Pedikúra classic, dámská i pánská<span class="cas">30 min</span></span><span class="vodic"></span><span class="kc">500 Kč</span></div>
         <div class="polozka"><span class="co">Pedikúra a klasický lak<span class="cas">60 min</span></span><span class="vodic"></span><span class="kc">600 Kč</span></div>
@@ -489,7 +504,7 @@ p{margin:0}
 
   <section class="skupina" id="ceny-rasy" aria-labelledby="n-rasy">
     <div class="pas"><div class="pas-in obal"><h3 id="n-rasy">Řasy</h3><span class="od">od 900 Kč</span></div></div>
-    <div class="obal"><div class="listek"><div class="listek-mriz">
+    <div class="ram"><div class="listek"><div class="listek-mriz">
       <div>
         <div class="rasy-hlavicka"><span>Prodlužování</span><span>nové</span><span>doplnění</span></div>
         <div class="rasy-radek"><span class="co">Classic<span class="cas">120 / 105 min</span></span><span class="kc">900 Kč</span><span class="kc">700 Kč</span></div>
@@ -509,7 +524,7 @@ p{margin:0}
 
   <section class="skupina" id="ceny-oboci" aria-labelledby="n-oboci">
     <div class="pas"><div class="pas-in obal"><h3 id="n-oboci">Obočí</h3><span class="od">od 200 Kč</span></div></div>
-    <div class="obal"><div class="listek"><div class="listek-mriz">
+    <div class="ram"><div class="listek"><div class="listek-mriz">
       <div>
         <div class="polozka bez-linky"><span class="co">Úprava obočí<span class="cas">30 min</span></span><span class="vodic"></span><span class="kc">200 Kč</span></div>
         <div class="polozka"><span class="co">Barvení obočí<span class="cas">30 min</span></span><span class="vodic"></span><span class="kc">300 Kč</span></div>
