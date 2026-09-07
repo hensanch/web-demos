@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kavárna Praha 3 – Žižkov | My Coffee Story</title>
+<meta name="description" content="My Coffee Story, malá kavárna na Žižkově u zastávky Biskupcova. Káva, brunch od úterý do neděle, domácí koláče, salonek a zahrádka ve vnitrobloku. Otevřeno každý den.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Cellipse%20cx='34'%20cy='28'%20rx='28'%20ry='24'%20fill='%23fff'%20stroke='%231C1B19'%20stroke-width='3'/%3E%3Cpath%20d='M16%2044%20L4%2060%20L28%2050%20Z'%20fill='%23fff'%20stroke='%231C1B19'%20stroke-width='3'%20stroke-linejoin='round'/%3E%3Ccircle%20cx='36'%20cy='27'%20r='18'%20fill='%231C1B19'/%3E%3C/svg%3E">
+<meta property="og:title" content="My Coffee Story, kavárna na Žižkově">
+<meta property="og:description" content="Káva, brunch a domácí koláče u zastávky Biskupcova. 4,7 z více než 780 recenzí.">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/my-coffee-story-v2/img/oblouk-1170.jpg">
+<meta property="og:type" content="website">
+<link rel="preload" href="fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"League Spartan";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/league-spartan-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"League Spartan";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/league-spartan-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --stena:#EFECE6;
+  --stul:#BA7B4A;
+  --fasada:#4B3D36;
+  --uhel:#1C1B19;
+  --tuzka:#6B625B;
+  --linka:rgba(28,27,25,.18);
+  --sat:0px;
+  --okraj:20px;
+}
+@media (hover:none) and (pointer:coarse){:root{--sat:62px}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:0;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--stena);color:var(--uhel);font:400 18px/1.5 "League Spartan",Avenir,"Helvetica Neue",Arial,sans-serif;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+body.zamek{position:fixed;left:0;right:0;overflow:hidden}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.1}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+a,button{touch-action:manipulation}
+:focus-visible{outline:3px solid var(--uhel);outline-offset:3px}
+.stul :focus-visible{outline-color:var(--uhel)}
+.pata :focus-visible,.menu :focus-visible,.tabule :focus-visible{outline-color:var(--stena)}
+
+.skok{position:absolute;left:-999px;top:8px;background:var(--uhel);color:var(--stena);padding:10px 14px;z-index:20}
+.skok:focus{left:8px}
+
+/* the Menu control: the black disc of their sign, floating top right at any scroll position */
+.disk{position:fixed;top:6px;right:14px;z-index:15;width:44px;height:44px;border-radius:50%;background:var(--uhel);color:#fff;border:2px solid var(--stena);padding:0;cursor:pointer;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.disk:focus-visible{outline-color:var(--uhel)}
+
+.cil{scroll-margin-top:calc(-1 * var(--sat))}
+
+/* 1. Vchod: the board row on the facade brown, then the name, then the room */
+.tabule{background:var(--fasada);color:var(--stena);min-height:56px;display:flex;align-items:center;padding:8px calc(var(--okraj) + 56px) 8px var(--okraj);font-weight:500;font-size:15px;line-height:1.3}
+.vchod-telo{padding:22px var(--okraj) 28px}
+.vchod-telo h1{font-weight:800;text-transform:uppercase;font-size:clamp(50px,15.4vw,66px);line-height:.9;letter-spacing:-.012em;margin:0 0 16px}
+.pokoj{margin:0 calc(-1 * var(--okraj)) 16px}
+.pokoj img{width:100%;height:auto}
+.co{font-size:19px;margin-bottom:8px}
+.hodnoceni{font-weight:500;margin-bottom:6px}
+.stav{font-weight:500;color:var(--tuzka);margin-bottom:18px}
+.stav.otevreno{color:var(--uhel)}
+.akce{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.tlacitko{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:2px 34px 0;border-radius:27px;background:var(--uhel);color:var(--stena);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.01em}
+.telefon{font-weight:500;text-decoration-thickness:1px;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}
+
+/* 2. Stůl: the honey tabletop with the plates on it */
+.stul{background:var(--stul);padding:calc(30px + var(--sat)) var(--okraj) 34px;display:grid;grid-template-columns:repeat(12,1fr);gap:18px 10px;align-items:start}
+.stul figure{margin:0}
+.stul figcaption{font-weight:500;font-size:16px;line-height:1.3;margin-top:8px}
+.j1{grid-column:1/13}
+.j2{grid-column:5/13;margin-top:-4px}
+.j3{grid-column:1/7}
+.j4{grid-column:7/13;margin-top:34px}
+.stul-veta{grid-column:1/13;font-size:19px;font-weight:500;margin-top:6px}
+
+/* 3. Ceník: typeset rows, never chalk */
+.cenik{padding:calc(40px + var(--sat)) var(--okraj) 42px}
+.cenik h2,.bublina h2,.ulice h2{font-weight:700;font-size:30px;margin-bottom:22px}
+.skupina{margin-bottom:26px}
+.skupina h3{font-weight:500;font-size:16px;color:var(--tuzka);margin-bottom:6px;letter-spacing:.01em}
+.skupina dl{margin:0}
+.radka{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--linka)}
+.radka dt{font-size:19px}
+.radka dd{margin:0;font-weight:500;font-size:19px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.radka small{display:block;font-size:15px;color:var(--tuzka);margin-top:2px}
+.pozn{font-size:19px;margin-top:8px}
+
+/* 4. Bublina: their sign, once, with a customer's words on the disc */
+.bublina{padding:calc(40px + var(--sat)) var(--okraj) 42px;border-top:1px solid var(--linka)}
+.cedule{margin:0 0 30px}
+.cedule svg{display:block;width:330px;max-width:100%;height:auto;margin-left:-6px}
+.cedule figcaption{font-size:16px;color:var(--tuzka);margin-top:2px}
+.hlasy{list-style:none;margin:0;padding:0}
+.hlasy li{padding:16px 0;border-top:1px solid var(--linka)}
+.hlasy blockquote{margin:0}
+.hlasy p{font-size:19px}
+.hlasy .kdo{margin-top:6px;font-weight:500;color:var(--tuzka);font-size:16px}
+.vsechny{display:inline-block;margin-top:18px;font-weight:500;text-underline-offset:3px;min-height:44px;line-height:44px}
+
+/* 5. Ulice */
+.ulice{padding:calc(40px + var(--sat)) 0 0;border-top:1px solid var(--linka)}
+.ulice > *{padding-left:var(--okraj);padding-right:var(--okraj)}
+.ulice address{font-style:normal;font-size:19px;margin-bottom:14px}
+.hodiny{margin:0 0 14px}
+.hodiny > div{display:grid;grid-template-columns:1fr auto;gap:12px;padding:9px 0;border-bottom:1px solid var(--linka);font-size:18px}
+.hodiny dd{margin:0;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hodiny .dnes dt::after{content:" (dnes)";font-weight:500}
+.ulice .stav{margin-bottom:14px}
+.zadni{font-size:18px;margin-bottom:16px;max-width:36ch}
+.kontakt{margin-bottom:24px}
+.mapa{margin:0;padding:0}
+.mapa-plocha{background:#E4DFD6;min-height:220px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding:22px var(--okraj)}
+.mapa-plocha button{min-height:50px;padding:2px 26px 0;border-radius:25px;border:2px solid var(--uhel);background:transparent;font-weight:700;font-size:18px;cursor:pointer}
+.mapa-plocha a{font-weight:500;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center}
+.mapa iframe{display:block;width:100%;height:340px;border:0}
+.ulice-fotky{padding:0;margin-top:0;display:grid;grid-template-columns:1fr;gap:0}
+.ulice-fotky img{width:100%}
+.ulice-fotky .pult{display:none}
+
+/* footer on the facade brown, outside main */
+.pata{background:var(--fasada);color:var(--stena);padding:34px var(--okraj) calc(34px + 84px);font-size:15px;line-height:1.5}
+.pata p{max-width:60ch;margin-bottom:8px}
+.pata a{text-underline-offset:3px}
+
+/* bottom bar, phones only, after the first button has left */
+.lista{position:fixed;left:0;right:0;bottom:0;z-index:12;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--stena);border-top:1px solid var(--linka);visibility:hidden;transform:translateY(102%)}
+.lista.videt{visibility:visible;transform:none}
+.lista a{min-height:52px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;font-size:18px}
+.lista .tlacitko{min-height:52px}
+.lista .volat{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:899px){html{scroll-padding-bottom:84px}}
+
+/* menu dialog: the facade brown, full screen, four words */
+.menu{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;padding:0;background:var(--fasada);color:var(--stena);outline:none}
+.menu::backdrop{background:transparent}
+.menu-obsah{padding:calc(18px + env(safe-area-inset-top,0px)) 24px 24px;min-height:100%;display:flex;flex-direction:column}
+.menu-hlava{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin-bottom:26px}
+.menu-nazev{font-weight:800;text-transform:uppercase;font-size:18px;letter-spacing:.02em}
+.zavrit{background:transparent;border:2px solid var(--stena);border-radius:22px;min-height:44px;padding:2px 18px 0;font-weight:700;cursor:pointer}
+.menu nav{display:flex;flex-direction:column;gap:2px;margin-bottom:auto}
+.menu nav a{font-weight:800;text-transform:uppercase;font-size:clamp(34px,10vw,44px);line-height:1.12;text-decoration:none;padding:6px 0}
+.menu-pata{margin-top:32px;font-size:17px}
+.menu-pata p{margin-bottom:6px}
+.menu-pata a{text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center;font-weight:500}
+
+@media (hover:hover){
+  a:hover{text-decoration-thickness:2px}
+  .tlacitko:hover{background:#000}
+  .disk:hover{background:#000;border-color:#fff}
+  .mapa-plocha button:hover{background:var(--uhel);color:var(--stena)}
+  .zavrit:hover{background:var(--stena);color:var(--fasada)}
+  .menu nav a:hover{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .lista{transition:transform .25s ease,visibility .25s}
+}
+
+@media (min-width:900px){
+  :root{--okraj:80px}
+  .disk{top:8px;right:24px}
+  .tabule{padding-right:calc(var(--okraj) + 70px);font-size:16px}
+  .vchod-telo{display:grid;grid-template-columns:minmax(380px,470px) minmax(560px,720px);column-gap:70px;justify-content:space-between;align-items:start;padding-top:36px;padding-bottom:44px}
+  .vchod-telo h1{font-size:72px;margin-bottom:26px}
+  .pokoj{grid-column:2;grid-row:1/7;margin:0;align-self:stretch}
+  .pokoj img{height:100%;object-fit:cover}
+  .co{font-size:21px;margin-bottom:12px}
+  .hodnoceni,.stav{font-size:18px}
+  .vchod-telo .stav{margin-bottom:28px}
+  .stul{padding:calc(48px + var(--sat)) var(--okraj) 52px;gap:0 24px;grid-template-columns:repeat(12,1fr)}
+  .j1{grid-column:1/5;grid-row:1/3}
+  .j2{grid-column:5/9;margin-top:60px;grid-row:1/3}
+  .j3{grid-column:9/11;margin-top:130px;grid-row:1/3}
+  .j4{grid-column:11/13;margin-top:0;grid-row:1/3}
+  .stul-veta{grid-column:1/13;grid-row:3;margin-top:36px;font-size:22px}
+  .cenik{padding-top:calc(56px + var(--sat));padding-bottom:56px}
+  .cenik h2,.bublina h2,.ulice h2{font-size:38px;margin-bottom:30px}
+  .skupiny{display:grid;grid-template-columns:1fr 1fr;column-gap:80px;max-width:1120px}
+  .radka dt,.radka dd,.pozn,.hlasy p,.ulice address,.zadni{font-size:20px}
+  .bublina{padding-top:calc(56px + var(--sat));padding-bottom:56px;display:grid;grid-template-columns:520px 1fr;column-gap:80px;align-items:start}
+  .bublina h2{grid-column:1/3}
+  .cedule svg{width:480px;margin-left:-10px}
+  .hlasy li:first-child{border-top:0;padding-top:0}
+  .ulice{padding-top:calc(56px + var(--sat))}
+  .ulice-hlava{display:grid;grid-template-columns:minmax(360px,460px) 1fr;column-gap:80px;align-items:start;padding-bottom:48px}
+  .ulice-hlava h2{grid-column:1/3}
+  .mapa{padding:0;margin:0}
+  .mapa-plocha{min-height:340px;padding:32px}
+  .mapa iframe{height:380px}
+  .ulice-fotky{grid-template-columns:2fr 1fr;gap:0}
+  .ulice-fotky img{height:100%;object-fit:cover}
+  .ulice-fotky .pult{display:block}
+  .pata{padding:44px var(--okraj) 44px;font-size:16px}
+  .lista{display:none}
+  .menu-obsah{padding:24px var(--okraj) 40px}
+  .menu nav a{font-size:64px}
+}
+@media (max-width:359px){
+  .vchod-telo h1{font-size:44px}
+  .akce{gap:14px}
+  .tlacitko{padding-left:26px;padding-right:26px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CafeOrCoffeeShop",
+  "name":"My Coffee Story",
+  "image":"https://hensanch.github.io/web-demos/my-coffee-story-v2/img/oblouk-1170.jpg",
+  "url":"https://hensanch.github.io/web-demos/my-coffee-story-v2/",
+  "telephone":"+420725791271",
+  "priceRange":"100–200 Kč",
+  "servesCuisine":"Káva, brunch, domácí koláče",
+  "address":{"@type":"PostalAddress","streetAddress":"J. Želivského 1801/22","addressLocality":"Praha 3","postalCode":"130 00","addressCountry":"CZ"},
+  "geo":{"@type":"GeoCoordinates","latitude":50.0896211,"longitude":14.4685599},
+  "hasMap":"https://www.google.com/maps/place/My+Coffee+Story/data=!4m7!3m6!1s0x470b9498e22f0dab:0xb67a047e686869f0!8m2!3d50.0896211!4d14.4685599!16s%2Fg%2F11c6q586kn",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"15:00"}
+  ],
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"785"}
+}
+</script>
+</head>
+<body>
+<a class="skok" href="#cenik">Přeskočit na ceník</a>
+<button class="disk" id="otevrit" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
+
+<main id="main">
+
+<section id="uvod" class="vchod" aria-label="My Coffee Story">
+  <div class="tabule"><p>Double espresso 59&nbsp;Kč, cappuccino 85&nbsp;Kč, americano 75&nbsp;Kč</p></div>
+  <div class="vchod-telo">
+    <h1>My Coffee<br>Story</h1>
+    <picture class="pokoj">
+      <source media="(min-width:900px)" srcset="img/oblouk-1440.jpg">
+      <img src="img/oblouk-1170.jpg" width="1170" height="702" alt="Úzká bílá kavárna s obloukem, holými žárovkami na černých kabelech a bílými židlemi, vzadu dveře do salonku a na zahrádku" fetchpriority="high">
+    </picture>
+    <p class="co">Kavárna na Žižkově, u&nbsp;zastávky Biskupcova.</p>
+    <p class="hodnoceni"><a href="https://www.google.com/maps/place/My+Coffee+Story/data=!4m7!3m6!1s0x470b9498e22f0dab:0xb67a047e686869f0!8m2!3d50.0896211!4d14.4685599!16s%2Fg%2F11c6q586kn" rel="noopener">4,7 z&nbsp;více než 780 recenzí na Googlu</a></p>
+    <p class="stav" id="stav" aria-live="polite">Pondělí až pátek 8:00–18:00, sobota a&nbsp;neděle 9:00–15:00</p>
+    <p class="akce">
+      <a class="tlacitko" id="hlavni" href="https://www.google.com/maps/dir/?api=1&amp;destination=J.+%C5%BDelivsk%C3%A9ho+1801%2F22%2C+130+00+Praha+3&amp;destination_place_id=ChIJqw0v4piUC0cR8GloaH4EerY" rel="noopener">Trasa</a>
+      <a class="telefon" href="tel:+420725791271">725&nbsp;791&nbsp;271</a>
+    </p>
+  </div>
+</section>
+
+<section id="brunch" class="stul cil" tabindex="-1" aria-label="Brunch">
+  <figure class="j1"><img src="img/vejce.jpg" width="1170" height="1365" alt="Míchaná vejce s chlebem a polníčkem na dřevěném stole, host u vedlejšího talíře krájí chleba" loading="lazy"><figcaption>Míchaná vejce s&nbsp;chlebem</figcaption></figure>
+  <figure class="j2"><img src="img/avokado.jpg" width="1170" height="903" alt="Avokádový toust s pošírovaným vejcem, vedle sklenice džusu a espresso" loading="lazy"><figcaption>Avokádový toust s&nbsp;vejcem</figcaption></figure>
+  <figure class="j3"><img src="img/livance.jpg" width="1170" height="1268" alt="Tři lívance s dušenými jablky, šlehačkou a mátou" loading="lazy"><figcaption>Lívance s&nbsp;jablky</figcaption></figure>
+  <figure class="j4"><img src="img/cappuccino.jpg" width="1170" height="756" alt="Cappuccino s rozetou v bílém šálku s kresbou, na dřevěném stole" loading="lazy"><figcaption>Cappuccino</figcaption></figure>
+  <p class="stul-veta">Brunch je od úterý do neděle.</p>
+</section>
+
+<section id="cenik" class="cenik cil" tabindex="-1">
+  <h2>Ceník</h2>
+  <div class="skupiny">
+    <div class="skupina">
+      <h3>Káva</h3>
+      <dl>
+        <div class="radka"><dt>Double espresso</dt><dd>59&nbsp;Kč</dd></div>
+        <div class="radka"><dt>Cappuccino</dt><dd>85&nbsp;Kč</dd></div>
+        <div class="radka"><dt>Café latte</dt><dd>85&nbsp;Kč</dd></div>
+        <div class="radka"><dt>Americano</dt><dd>75&nbsp;Kč</dd></div>
+        <div class="radka"><dt>Espresso tonic</dt><dd>99&nbsp;Kč</dd></div>
+      </dl>
+    </div>
+    <div class="skupina">
+      <h3>Z&nbsp;vitríny</h3>
+      <dl>
+        <div class="radka"><dt>Rakytníkový koláč</dt><dd>40&nbsp;Kč</dd></div>
+        <div class="radka"><dt>Šátečky <small>povidla, nebo čokoláda s&nbsp;banánem</small></dt><dd>45&nbsp;Kč</dd></div>
+      </dl>
+      <p class="pozn">K&nbsp;tomu mimosa, aperol nebo prosecco.</p>
+      <p class="pozn">S&nbsp;sebou? Ano.</p>
+    </div>
+  </div>
+</section>
+
+<section id="recenze" class="bublina cil" tabindex="-1">
+  <h2>Recenze</h2>
+  <figure class="cedule">
+    <svg viewBox="0 0 360 336" width="330" height="308" role="img" aria-label="Zde platí, co je malé, to je milé. Eva, recenze na Googlu">
+      <ellipse cx="184" cy="150" rx="172" ry="146" fill="#fff" stroke="#1C1B19" stroke-width="3"/>
+      <path d="M92 268 C70 292 46 314 22 330 C58 318 92 302 124 284 Z" fill="#fff" stroke="#1C1B19" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M96 272 C110 280 118 282 128 284" fill="#fff" stroke="#fff" stroke-width="6"/>
+      <circle cx="198" cy="146" r="114" fill="#1C1B19"/>
+      <text x="198" y="122" text-anchor="middle" fill="#fff" font-family="League Spartan, Avenir, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="27" letter-spacing="0.5">
+        <tspan x="198" dy="0">ZDE PLATÍ,</tspan>
+        <tspan x="198" dy="31">CO JE MALÉ,</tspan>
+        <tspan x="198" dy="31">TO JE MILÉ.</tspan>
+      </text>
+    </svg>
+    <figcaption>Eva, recenze na Googlu</figcaption>
+  </figure>
+  <ul class="hlasy">
+    <li><blockquote><p>„Oáza klidu nebo rychlá záchrana při uspěchaném dni přímo u&nbsp;zastávky Biskupcova. Výborná káva i&nbsp;matcha a&nbsp;luxusní čerstvé koláče a&nbsp;dezerty, jako od babičky.“</p><p class="kdo">Markéta</p></blockquote></li>
+    <li><blockquote><p>„Úchvatná stinná zahrádka. 33 schodů. Výborná káva. Milá obsluha.“</p><p class="kdo">Staso</p></blockquote></li>
+    <li><blockquote><p>„Kdyby bylo víc hvězdiček, dala bych je bez váhání! Útulné příjemné místo, nesmírně milá obsluha, výborná káva a&nbsp;koláče.“</p><p class="kdo">Petra</p></blockquote></li>
+  </ul>
+  <a class="vsechny" href="https://www.google.com/maps/place/My+Coffee+Story/data=!4m7!3m6!1s0x470b9498e22f0dab:0xb67a047e686869f0!8m2!3d50.0896211!4d14.4685599!16s%2Fg%2F11c6q586kn" rel="noopener">Všechny recenze na Googlu</a>
+</section>
+
+<section id="kde" class="ulice cil" tabindex="-1">
+  <div class="ulice-hlava">
+    <h2>U&nbsp;zastávky Biskupcova</h2>
+    <div class="ulice-info">
+      <address>J. Želivského 1801/22<br>130&nbsp;00 Praha 3 – Žižkov</address>
+      <dl class="hodiny">
+        <div data-dny="12345"><dt>Pondělí až pátek</dt><dd>8:00–18:00</dd></div>
+        <div data-dny="60"><dt>Sobota a&nbsp;neděle</dt><dd>9:00–15:00</dd></div>
+      </dl>
+      <p class="stav" data-stav></p>
+      <p class="zadni">Za obloukem je salonek a&nbsp;cesta na zahrádku ve vnitrobloku.</p>
+      <p class="kontakt">Telefon <a class="telefon" href="tel:+420725791271">725&nbsp;791&nbsp;271</a></p>
+    </div>
+    <div class="mapa" id="mapa">
+      <div class="mapa-plocha">
+        <button type="button" id="nacist-mapu">Zobrazit mapu</button>
+        <a href="https://www.google.com/maps/place/My+Coffee+Story/data=!4m7!3m6!1s0x470b9498e22f0dab:0xb67a047e686869f0!8m2!3d50.0896211!4d14.4685599!16s%2Fg%2F11c6q586kn" rel="noopener">Otevřít v&nbsp;Mapách Google</a>
+      </div>
+    </div>
+  </div>
+  <div class="ulice-fotky">
+    <img src="img/vyloha.jpg" width="1170" height="1268" alt="Hnědá dřevěná výloha kavárny s křídovou tabulí Káva a Drinks, lavičkou a otevřenými dveřmi, uvnitř svítí žárovky" loading="lazy">
+    <img class="pult" src="img/pult.jpg" width="900" height="1400" alt="Pult z překližky s vyříznutým logem My Coffee Story, za ním barista u kávovaru" loading="lazy">
+  </div>
+</section>
+
+</main>
+
+<footer class="pata">
+  <p>My Coffee Story, J. Želivského 1801/22, 130&nbsp;00 Praha 3.</p>
+  <p>Provozovatel a&nbsp;IČO: doplníme před spuštěním webu.</p>
+  <p>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/" rel="noopener">coi.gov.cz/informace-o-adr</a>.</p>
+  <p>Web nic nesleduje: žádné cookies, žádná lišta. Mapa se načte, až na ni klepnete.</p>
+</footer>
+
+<div class="lista" id="lista">
+  <a class="volat" href="tel:+420725791271">Zavolat</a>
+  <a class="tlacitko" href="https://www.google.com/maps/dir/?api=1&amp;destination=J.+%C5%BDelivsk%C3%A9ho+1801%2F22%2C+130+00+Praha+3&amp;destination_place_id=ChIJqw0v4piUC0cR8GloaH4EerY" rel="noopener">Trasa</a>
+</div>
+
+<dialog id="menu" class="menu" aria-labelledby="menu-nazev" tabindex="-1">
+  <div class="menu-obsah">
+    <div class="menu-hlava">
+      <p class="menu-nazev" id="menu-nazev">My Coffee Story</p>
+      <button class="zavrit" type="button" id="zavrit">Zavřít</button>
+    </div>
+    <nav aria-label="Části stránky">
+      <a href="#brunch">Brunch</a>
+      <a href="#cenik">Ceník</a>
+      <a href="#recenze">Recenze</a>
+      <a href="#kde">Kde nás najdete</a>
+    </nav>
+    <div class="menu-pata">
+      <p id="menu-stav"></p>
+      <p><a href="tel:+420725791271">725&nbsp;791&nbsp;271</a></p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var NBSP=" ";
+  var HOURS={1:[8,18],2:[8,18],3:[8,18],4:[8,18],5:[8,18],6:[9,15],0:[9,15]};
+  function prague(){
+    var parts=new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Prague",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+    var o={};parts.forEach(function(p){o[p.type]=p.value});
+    var days={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    return {d:days[o.weekday],h:parseInt(o.hour,10)%24,m:parseInt(o.minute,10)};
+  }
+  function fmt(h){return h+":00"}
+  function stateText(now){
+    var t=HOURS[now.d],cur=now.h+now.m/60;
+    if(cur>=t[0]&&cur<t[1]) return {open:true,text:"Otevřeno, zavíráme v"+NBSP+fmt(t[1])};
+    if(cur<t[0]) return {open:false,text:"Zavřeno, otevíráme v"+NBSP+fmt(t[0])};
+    var zitra=HOURS[(now.d+1)%7];
+    return {open:false,text:"Zavřeno, otevíráme zítra v"+NBSP+fmt(zitra[0])};
+  }
+  var now=prague(),st=stateText(now);
+  var a=document.getElementById("stav");
+  a.textContent=st.text; a.classList.toggle("otevreno",st.open);
+  var b=document.querySelector("[data-stav]"); if(b){b.textContent=st.text;b.classList.toggle("otevreno",st.open)}
+  var c=document.getElementById("menu-stav"); if(c){c.textContent=st.text}
+  document.querySelectorAll(".hodiny [data-dny]").forEach(function(row){
+    if(row.getAttribute("data-dny").indexOf(String(now.d))>=0) row.classList.add("dnes");
+  });
+
+  /* map, only when asked */
+  var mb=document.getElementById("nacist-mapu");
+  if(mb){mb.addEventListener("click",function(){
+    var f=document.createElement("iframe");
+    f.src="https://www.google.com/maps?q=J.+%C5%BDelivsk%C3%A9ho+1801%2F22%2C+Praha+3&z=16&output=embed";
+    f.title="Mapa: My Coffee Story, J. Želivského 22, Praha 3";
+    f.setAttribute("loading","lazy"); f.setAttribute("referrerpolicy","no-referrer-when-downgrade");
+    var box=document.getElementById("mapa"); box.innerHTML=""; box.appendChild(f);
+  })}
+
+  /* bottom bar after the first button has gone */
+  var lista=document.getElementById("lista"),hl=document.getElementById("hlavni");
+  if("IntersectionObserver" in window&&lista&&hl){
+    new IntersectionObserver(function(es){
+      var e=es[0];
+      var gone=!e.isIntersecting&&e.boundingClientRect.top<0;
+      lista.classList.toggle("videt",gone);
+      lista.setAttribute("aria-hidden",gone?"false":"true");
+    },{threshold:0}).observe(hl);
+  }
+
+  /* menu dialog */
+  var dlg=document.getElementById("menu"),btn=document.getElementById("otevrit"),zav=document.getElementById("zavrit");
+  var main=document.getElementById("main"),pata=document.querySelector(".pata"),skok=document.querySelector(".skok");
+  var y=0,pushed=false;
+  function lock(on){
+    [main,pata,lista,btn,skok].forEach(function(el){if(el)el.inert=on});
+    if(on){y=window.scrollY;document.body.style.top=(-y)+"px";document.body.classList.add("zamek")}
+    else{document.body.classList.remove("zamek");document.body.style.top="";window.scrollTo(0,y)}
+  }
+  function open(e){
+    if(dlg.open)return;
+    dlg.showModal(); lock(true);
+    try{history.pushState({menu:1},"");pushed=true}catch(x){}
+    if(e&&e.detail===0){dlg.querySelector("nav a").focus()}else{dlg.focus()}
+  }
+  function close(fromPop,focusEl){
+    if(!dlg.open)return;
+    dlg.close(); lock(false);
+    if(pushed&&!fromPop){pushed=false;try{history.back()}catch(x){}}
+    pushed=false;
+    if(focusEl)focusEl.focus({preventScroll:true}); else btn.focus({preventScroll:true});
+  }
+  btn.addEventListener("click",open);
+  zav.addEventListener("click",function(){close(false)});
+  dlg.addEventListener("cancel",function(e){e.preventDefault();close(false)});
+  dlg.addEventListener("click",function(e){if(e.target===dlg)close(false)});
+  window.addEventListener("popstate",function(){if(dlg.open)close(true)});
+  dlg.querySelectorAll("nav a").forEach(function(l){
+    l.addEventListener("click",function(e){
+      var id=l.getAttribute("href").slice(1),t=document.getElementById(id);
+      if(!t)return;
+      e.preventDefault();
+      close(false,t);
+      t.scrollIntoView();
+      t.focus({preventScroll:true});
+    });
+  });
+  /* skip link and in-page focus */
+  skok.addEventListener("click",function(e){var t=document.getElementById("cenik");if(t){e.preventDefault();t.scrollIntoView();t.focus({preventScroll:true})}});
+})();
+</script>
+</body>
+</html>

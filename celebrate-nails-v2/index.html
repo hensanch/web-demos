@@ -37,7 +37,9 @@
      iOS 27 simulator); env(safe-area-inset-top) reports 0 there, so the inset is a literal. */
   --sat:env(safe-area-inset-top, 0px);
 }
-@media (hover:none) and (pointer:coarse){:root{--sat:62px}}
+@media (hover:none) and (pointer:coarse){:root{--sat:62px}
+  /* na dotykovém displeji doskočí #klid o 96 px výš, aby byl vidět celý přesah fotky */
+  #klid{scroll-margin-top:calc(-1 * var(--sat) + 96px)}}
 section,.skupina{scroll-margin-top:calc(-1 * var(--sat))}
 *,*::before,*::after{box-sizing:border-box}
 html{
@@ -119,15 +121,9 @@ section[tabindex="-1"]:focus,section[tabindex="-1"]:focus-visible,
 .cenik{padding:calc(34px + var(--sat)) 0 calc(40px + var(--sat));border-top:1px solid var(--kava)}
 .nadpis{font-size:clamp(29px,8.2vw,46px);margin-bottom:6px}
 .podnadpis{color:var(--kour);font-size:15.5px;max-width:56ch;margin-bottom:26px}
-.skupiny{display:flex;flex-direction:column}
-.sloupec{display:contents}
-#manikura{order:1}
-#pedikura{order:2}
-#balicky{order:3}
-#oboci{order:4}
-#depilace{order:5}
+.skupiny{display:block}
 .skupina{margin-bottom:calc(28px + var(--sat));padding-top:var(--sat)}
-.sloupec>.skupina:last-child{margin-bottom:28px}
+.skupiny>.skupina:last-child{margin-bottom:0}
 .skupina h3{
   display:block;
   font-size:15px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
@@ -262,9 +258,12 @@ nav.stolni{display:none}
   .hlavni{width:auto;max-width:360px}
 
   .skupiny{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;align-items:start}
-  .sloupec{display:block}
-  .skupina{margin-bottom:calc(34px + var(--sat));order:0}
-  .sloupec>.skupina:last-child{margin-bottom:0}
+  .skupina{margin-bottom:calc(34px + var(--sat))}
+  #manikura{grid-column:1;grid-row:1 / span 2}
+  #oboci{grid-column:1;grid-row:3;margin-bottom:0}
+  #pedikura{grid-column:2;grid-row:1}
+  #balicky{grid-column:2;grid-row:2}
+  #depilace{grid-column:2;grid-row:3;margin-bottom:0}
   .cenik{padding:calc(52px + var(--sat)) 0 calc(56px + var(--sat))}
   .objblok{display:flex;align-items:center;justify-content:space-between;gap:48px;margin-top:34px;padding-top:24px}
   .objblok p{margin-bottom:0;font-size:16.5px;max-width:46ch}
@@ -316,7 +315,7 @@ nav.stolni{display:none}
   <div class="obal prvni">
     <button class="menuhorni" type="button" id="otevritmenu2" aria-haspopup="dialog">Menu</button>
     <div class="hero">
-      <img src="img/hero.jpg" width="1200" height="840" alt="Ruka s&nbsp;mocha gel-lakem a&nbsp;zlatým plátkem na&nbsp;jednom nehtu, práce studia CELEBRATE" fetchpriority="high" decoding="async">
+      <img src="img/hero.jpg" width="1200" height="840" alt="Ruka s&nbsp;mocha gel-lakem a&nbsp;zlatým plátkem na&nbsp;jednom nehtu" fetchpriority="high" decoding="async">
     </div>
     <h1 class="znacka" id="jmeno">CELEBRATE</h1>
     <div class="levy">
@@ -344,10 +343,9 @@ nav.stolni{display:none}
 <section id="cenik" class="cenik" tabindex="-1" aria-labelledby="cenik-h">
   <div class="obal">
     <h2 class="nadpis" id="cenik-h">Ceník</h2>
-    <p class="podnadpis">Ceny jsou konečné a&nbsp;stejné jako v&nbsp;objednávkovém systému studia. Tam, kde je rozpětí, se cena řídí délkou nehtů a&nbsp;náročností zdobení.</p>
+    <p class="podnadpis">Ceny jsou stejné jako v&nbsp;našem objednávkovém systému. Tam, kde je rozpětí, se cena řídí délkou nehtů a&nbsp;náročností zdobení.</p>
 
     <div class="skupiny">
-      <div class="sloupec">
       <div class="skupina" id="manikura" tabindex="-1">
         <h3>Manikúra</h3>
         <div class="polozka"><span class="n">Manikúra a&nbsp;gel-lak</span><span class="c">800&nbsp;Kč</span><span class="d">60&nbsp;min</span></div>
@@ -359,7 +357,7 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Francouzská manikúra s&nbsp;gel-lakem</span><span class="c">1&nbsp;000–1&nbsp;200&nbsp;Kč</span><span class="d">90&nbsp;min</span></div>
         <div class="polozka"><span class="n">Doplnění gelových nehtů</span><span class="c">1&nbsp;200–1&nbsp;400&nbsp;Kč</span><span class="d">90&nbsp;min</span></div>
         <div class="polozka"><span class="n">Manikúra samotná, bez laku</span><span class="c">600&nbsp;Kč</span><span class="d">60&nbsp;min</span></div>
-        <div class="polozka"><span class="n">Panská manikúra</span><span class="c">600&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
+        <div class="polozka"><span class="n">Pánská manikúra</span><span class="c">600&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
         <div class="polozka"><span class="n">Zdobení nehtů</span><span class="c">100–300&nbsp;Kč</span><span class="d">20&nbsp;min</span></div>
         <div class="polozka"><span class="n">Oprava jednoho nehtu</span><span class="c">do&nbsp;200&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
         <div class="polozka"><span class="n">Odlakování bez další služby</span><span class="c">200&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
@@ -367,17 +365,6 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Čtyři ruce, tedy manikúra a&nbsp;pedikúra zároveň</span><span class="c">200&nbsp;Kč</span><span class="d">příplatek ke&nbsp;dvěma službám</span></div>
         <p class="pozn">Sundání materiálu z&nbsp;jiného studia se připočítává k&nbsp;ceně manikúry nebo pedikúry. U&nbsp;doplnění závisí cena na&nbsp;výsledné délce nehtů, složitější zdobení je za&nbsp;příplatek.</p>
       </div>
-      <div class="skupina" id="oboci" tabindex="-1">
-        <h3>Obočí a&nbsp;řasy</h3>
-        <div class="polozka"><span class="n">Laminace obočí</span><span class="c">1&nbsp;000&nbsp;Kč</span><span class="d">45&nbsp;min</span></div>
-        <div class="polozka"><span class="n">Úprava a&nbsp;barvení obočí, barva nebo henna</span><span class="c">600&nbsp;Kč</span><span class="d">45&nbsp;min</span></div>
-        <div class="polozka"><span class="n">Úprava obočí pinzetou nebo voskem</span><span class="c">350&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
-        <div class="polozka"><span class="n">Barvení obočí barvou nebo hennou</span><span class="c">350&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
-        <div class="polozka"><span class="n">Laminace řas</span><span class="c">1&nbsp;100&nbsp;Kč</span><span class="d">45&nbsp;min</span></div>
-        <div class="polozka"><span class="n">Barvení řas</span><span class="c">200&nbsp;Kč</span><span class="d">15&nbsp;min</span></div>
-      </div>
-      </div>
-      <div class="sloupec">
       <div class="skupina" id="pedikura" tabindex="-1">
         <h3>Pedikúra</h3>
         <div class="polozka"><span class="n">Mokrá pedikúra a&nbsp;gel-lak</span><span class="c">1&nbsp;100&nbsp;Kč</span><span class="d">70&nbsp;min</span></div>
@@ -388,7 +375,7 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Suchá pedikúra a&nbsp;klasický lak</span><span class="c">950&nbsp;Kč</span><span class="d">50&nbsp;min</span></div>
         <div class="polozka"><span class="n">Mokrá pedikúra samotná</span><span class="c">950&nbsp;Kč</span><span class="d">45&nbsp;min</span></div>
         <div class="polozka"><span class="n">Pedikúra samotná</span><span class="c">850&nbsp;Kč</span><span class="d">60&nbsp;min</span></div>
-        <div class="polozka"><span class="n">Panská pedikúra</span><span class="c">850&nbsp;Kč</span><span class="d">40&nbsp;min</span></div>
+        <div class="polozka"><span class="n">Pánská pedikúra</span><span class="c">850&nbsp;Kč</span><span class="d">40&nbsp;min</span></div>
         <div class="polozka"><span class="n">Frenč</span><span class="c">200&nbsp;Kč</span><span class="d">15&nbsp;min</span></div>
         <p class="pozn">SPA pedikúra zahrnuje peeling chodidel, deset minut masáže a&nbsp;hydrataci. Sundání gel-laku z&nbsp;jiného studia stojí 100&nbsp;až&nbsp;200&nbsp;Kč navíc. Frenč je francouzská špička na&nbsp;nohou; francouzská manikúra na&nbsp;rukou je samostatná služba v&nbsp;ceníku manikúry.</p>
       </div>
@@ -399,6 +386,15 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">LET’S&nbsp;CELEBRATE: manikúra&nbsp;+ gel-lak&nbsp;+ laminace obočí</span><span class="c">1&nbsp;500&nbsp;Kč</span><span class="d">150&nbsp;min</span></div>
         <div class="polozka"><span class="n">Manikúra a&nbsp;pedikúra najednou, ve&nbsp;čtyřech rukou</span><span class="c">2&nbsp;000&nbsp;Kč</span><span class="d">70&nbsp;min</span></div>
       </div>
+      <div class="skupina" id="oboci" tabindex="-1">
+        <h3>Obočí a&nbsp;řasy</h3>
+        <div class="polozka"><span class="n">Laminace obočí</span><span class="c">1&nbsp;000&nbsp;Kč</span><span class="d">45&nbsp;min</span></div>
+        <div class="polozka"><span class="n">Úprava a&nbsp;barvení obočí, barva nebo henna</span><span class="c">600&nbsp;Kč</span><span class="d">45&nbsp;min</span></div>
+        <div class="polozka"><span class="n">Úprava obočí pinzetou nebo voskem</span><span class="c">350&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
+        <div class="polozka"><span class="n">Barvení obočí barvou nebo hennou</span><span class="c">350&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
+        <div class="polozka"><span class="n">Laminace řas</span><span class="c">1&nbsp;100&nbsp;Kč</span><span class="d">45&nbsp;min</span></div>
+        <div class="polozka"><span class="n">Barvení řas</span><span class="c">200&nbsp;Kč</span><span class="d">15&nbsp;min</span></div>
+      </div>
       <div class="skupina" id="depilace" tabindex="-1">
         <h3>Depilace</h3>
         <div class="polozka"><span class="n">Bikiny basic</span><span class="c">500&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
@@ -407,11 +403,10 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Nohy celé</span><span class="c">800&nbsp;Kč</span><span class="d">60&nbsp;min</span></div>
         <div class="polozka"><span class="n">Ruce</span><span class="c">500–800&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
       </div>
-      </div>
     </div>
 
     <div class="objblok">
-      <p>V&nbsp;objednávkovém systému studia si vyberete službu, den a&nbsp;čas.</p>
+      <p>V&nbsp;našem objednávkovém systému si vyberete službu, den a&nbsp;čas.</p>
       <a class="hlavni" href="https://n831422.alteg.io/" target="_blank" rel="noopener">Objednat se online</a>
     </div>
   </div>
@@ -419,9 +414,9 @@ nav.stolni{display:none}
 
 <!-- 3 ------------------------------------------------------------------ -->
 <section id="prace" class="prace" tabindex="-1" aria-labelledby="prace-h">
-  <h2 id="prace-h" class="skip">Práce studia a&nbsp;recenze</h2>
+  <h2 id="prace-h" class="skip">Naše práce a&nbsp;recenze</h2>
   <div class="obal uvodrecenzi">
-    <p class="souhrn"><b>4,9</b> ze&nbsp;102 hodnocení na&nbsp;Googlu. Tohle jsou nehty od&nbsp;nich.</p>
+    <p class="souhrn"><b>4,9</b> ze&nbsp;102 hodnocení na&nbsp;Googlu. Tohle jsou nehty od&nbsp;nás.</p>
   </div>
   <div class="mrizka">
     <img src="img/work-cervena.jpg" width="620" height="620" alt="Mandlové nehty v&nbsp;jasně červeném gel-laku" loading="lazy" decoding="async">
@@ -432,7 +427,7 @@ nav.stolni{display:none}
   <div class="obal recenze">
     <div class="citaty">
       <figure>
-        <blockquote>Úžasný salon! Perfektní manikúra a&nbsp;tak milý a&nbsp;profesionální přístup. Moc doporučuji.</blockquote>
+        <blockquote>Úžasný salon! Perfektní manikúra a&nbsp;tak milý a&nbsp;profesionální přístup. Mooooc doporučuji.</blockquote>
         <figcaption>Julie, Google</figcaption>
       </figure>
       <figure>
@@ -459,13 +454,13 @@ nav.stolni{display:none}
       <img src="img/tray.jpg" width="840" height="840" alt="Ruka drží šálek kávy nad bambusovým podnosem, vedle sklenice vody a&nbsp;dvě kostky cukru" loading="lazy" decoding="async">
     </div>
     <h2 id="klid-h">Povídat, nebo klid?</h2>
-    <p class="uvodni">Když se objednáváte online, vyberete si u&nbsp;toho ještě jednu věc. Studio se ptá, jak chcete návštěvu strávit:</p>
+    <p class="uvodni">Když se objednáváte online, vyberete si u&nbsp;toho ještě jednu věc. Při objednání se vás ještě zeptáme, jak chcete návštěvu strávit:</p>
     <ul class="volby">
       <li>Můžeme si povídat</li>
       <li>Přeji si klid</li>
       <li>Zatím nevím</li>
     </ul>
-    <p class="pod">Káva nebo čaj po&nbsp;příchodu, křeslo v&nbsp;relax zóně a&nbsp;na&nbsp;pultu kroužky se vzorky odstínů, které si můžete přiložit k&nbsp;ruce.</p>
+    <p class="pod">Po&nbsp;příchodu vám nabídneme kávu nebo čaj, křeslo v&nbsp;relax zóně a&nbsp;na&nbsp;pultu kroužky se vzorky odstínů, které si můžete přiložit k&nbsp;ruce.</p>
   </div>
 </section>
 
@@ -493,13 +488,13 @@ nav.stolni{display:none}
       </div>
       <div class="mapa" id="mapa">
         <div class="vnitrek">
-          <p>Mapa se načte, až&nbsp;na&nbsp;ni klepnete. Do&nbsp;té doby stránka nikam nic neposílá.</p>
+          <!-- Mapa se načte až po klepnutí: žádný požadavek na Google při načtení stránky (CZ opt-in). -->
           <button type="button" id="nacistmapu">Zobrazit mapu</button>
         </div>
       </div>
     </div>
     <div class="salon">
-      <img src="img/salon.jpg" width="900" height="1170" alt="Interiér studia: bílé stěny, žárovky na&nbsp;černých kabelech, dvě šedá křesla a&nbsp;tmavé pracovní pulty" loading="lazy" decoding="async">
+      <img src="img/salon.jpg" width="900" height="1170" alt="Náš interiér: bílé stěny, žárovky na&nbsp;černých kabelech, dvě šedá křesla a&nbsp;tmavé pracovní pulty" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -514,9 +509,9 @@ nav.stolni{display:none}
       <a href="https://n831422.alteg.io/" target="_blank" rel="noopener">Objednávkový systém</a>
       <a href="https://www.instagram.com/celebrate.cz" target="_blank" rel="noopener">Instagram</a>
     </div>
-    <p>Stránka nepoužívá cookies ani měřicí kódy. Písmo je uložené přímo tady, mapa se načte až&nbsp;po&nbsp;klepnutí.</p>
-    <!-- IČO doplnit z výpisu před spuštěním (§435 OZ); jméno provozovatele je z privacy_policy jejich vlastního rezervačního systému Altegio, k potvrzení s majitelkou -->
-    <p class="pravni">Provozovatel: Yana Borodkina, Minská&nbsp;17, 101&nbsp;00 Praha&nbsp;10-Vršovice.</p>
+    <!-- Bez cookies a bez měřicích kódů; písmo self-hostované, mapa click-to-load, takže není potřeba lišta souhlasu. -->
+    <!-- §435 OZ: doplnit jméno/název, sídlo a IČO. Altegio privacy_policy uvádí legal_entity_name "Yana Borodkina" - nepotvrzeno, proto na stránce není. -->
+    <p class="pravni">Provozovatel: doplníme po&nbsp;potvrzení.</p>
     <p class="pravni">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce:</p>
     <a class="adr" href="https://coi.gov.cz/informace-o-adr/" target="_blank" rel="noopener">https://coi.gov.cz/informace-o-adr/</a>
   </div>

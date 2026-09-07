@@ -214,8 +214,9 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
 .prace{padding:calc(36px + var(--sat)) 0 40px}
 .velka{margin:0 -20px 8px}
 .velka img{width:100%}
-.drobne{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.drobne{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .drobne img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.drobne img:nth-child(3){grid-column:1/-1;aspect-ratio:16/9}
 
 /* ---- 5. otevírací doba, led by today -------------------------------------------- */
 .kdy{padding:calc(30px + var(--sat)) 0 40px}
@@ -251,7 +252,7 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
 .pata p{margin-bottom:9px;max-width:46ch}
 .pata .jmeno{font-family:Sansita,Georgia,serif;font-weight:900;text-transform:uppercase;
   font-size:17px;color:var(--papir);letter-spacing:.02em;margin-bottom:12px}
-.pata a{color:var(--seda);text-underline-offset:3px;display:inline-block;padding:13px 0;
+.pata a{color:var(--seda);text-underline-offset:3px;display:inline;padding:13px 0;
   touch-action:manipulation}
 @media (hover:hover){.pata a:hover{color:var(--papir)}}
 
@@ -295,7 +296,7 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
 
 /* ---- desktop ------------------------------------------------------------------------ */
 @media (min-width:900px){
-  :root{--ax:78px; --ay:62px; --bx:34px; --by:27px}
+  :root{--ax:78px; --ay:62px; --bx:34px; --by:27px; --sat:0px}
   body{font-size:17px}
   .wrap{padding:0 40px}
   .uvod{padding:0 0 62px}
@@ -337,27 +338,27 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
     justify-content:center;font-size:17.5px;font-weight:600;text-decoration:none;min-width:300px}
   .dilna{display:grid;grid-template-columns:minmax(0,1fr) 232px;column-gap:20px;align-items:start}
   .velka{margin:0}
-  .drobne{grid-template-columns:1fr;gap:20px}
-  .drobne img{aspect-ratio:1/1}
+  .drobne{grid-template-columns:1fr;gap:12px}
+  .drobne img{aspect-ratio:232/342}
+  .drobne img:nth-child(3){grid-column:auto;aspect-ratio:232/342}
 
   .kdy{padding:40px 0 72px}
-  .kdy .wrap{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);
-    column-gap:64px;align-items:start}
+  .kdy .wrap{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr) minmax(0,340px);
+    column-gap:48px;align-items:start}
   .kdy h2{grid-column:1/-1;grid-row:1}
   .dnesek{grid-column:1/-1;grid-row:2;font-size:clamp(30px,2.8vw,42px);margin-bottom:26px}
   .hodiny{grid-column:1;grid-row:3;margin-bottom:0;max-width:none}
   .kdy .kontakt{grid-column:2;grid-row:3}
-  .znak{grid-column:2;grid-row:4;margin-top:34px;flex-direction:column;align-items:flex-start;gap:12px}
-  .znak img{width:340px}
+  .znak{grid-column:3;grid-row:3;margin-top:0;flex-direction:column;align-items:flex-start;gap:12px}
+  .znak img{width:100%;max-width:340px}
   .znak figcaption{max-width:30ch}
 
   .pata{padding:38px 0 44px}
-  .pata .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:56px}
+  .pata .wrap{display:grid;grid-template-columns:minmax(0,330px) minmax(0,1fr);column-gap:64px}
   .pata .jmeno{grid-column:1;grid-row:1}
   .pata .kde{grid-column:1;grid-row:2}
   .pata .pravni{grid-column:2;grid-row:1/span 2}
-  .pata .tech{grid-column:3;grid-row:1/span 2}
-  .pata p{max-width:40ch}
+  .pata p{max-width:62ch}
   .lista{display:none}
   .menu ul{columns:2;column-gap:56px;max-width:900px;margin-inline:auto;width:100%}
   .menu .telefon{max-width:900px;margin-inline:auto;width:100%}
@@ -445,11 +446,11 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
         </blockquote>
         <div class="citace-mrizka">
           <blockquote class="citace">
-            <p>„Super cena, krásná práce a&nbsp;taky oceňuju rychlost. Šikovní borci, dávají si záležet a&nbsp;ví, co dělají.“</p>
+            <p>„Super cena, krásná práce a&nbsp;taky oceňuju rychlost. Šikovní borci, dávaj si záležet a&nbsp;ví, co dělaj.“</p>
             <p class="podpis">Richard, Google, duben 2026</p>
           </blockquote>
           <blockquote class="citace">
-            <p>„Nutná rezervace předem, ale na výběr spoustu termínů a&nbsp;ještě v&nbsp;tentýž den. … Prostředí na mě působilo dobře a&nbsp;útulně, 3 křesla.“</p>
+            <p>„Na výběr spoustu termínů a&nbsp;ještě v&nbsp;tentýž den. … Prostředí na mě působilo dobře a&nbsp;útulně, 3 křesla.“</p>
             <p class="podpis">Róbert, Google, únor 2026</p>
           </blockquote>
           <blockquote class="citace">
@@ -506,8 +507,8 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
           <a href="tel:+420778865220">778 865 220</a>
           <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Vr%C5%A1ovick%C3%A1%2089%2C%20100%2000%20Praha%2010">Trasa na Mapách Google</a>
         </div>
-        <p class="pobidka">Termíny má na starost Reservio.</p>
-        <a class="konec" href="https://the-wind-barber.reservio.com/booking">Vyber si termín</a>
+        <p class="pobidka">Rezervace přes Reservio.</p>
+        <a class="konec" href="https://the-wind-barber.reservio.com/booking">Rezervovat termín</a>
       </div>
       <figure class="znak">
         <img src="img/znak.jpg" width="380" height="290" loading="lazy" decoding="async"
@@ -524,7 +525,6 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
     <p class="jmeno">The Wind Barber shop</p>
     <p class="kde">Vršovická 89, 100 00 Praha 10, Vršovice.<br>Telefon <a href="tel:+420778865220">778 865 220</a></p>
     <p class="pravni">Provozovatel Thank Trung Pham, IČO 01932632.<br>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, která vede <a href="https://coi.gov.cz/informace-o-adr/">mimosoudní řešení spotřebitelských sporů</a>.</p>
-    <p class="tech">Tahle stránka neukládá cookies a&nbsp;nenačítá nic z&nbsp;cizích serverů. Písma jsou uložená přímo tady, mapa se otevře až po kliknutí.</p>
   </div>
 </footer>
 
