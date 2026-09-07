@@ -143,7 +143,7 @@ h1 .amp{display:block;font-size:.6em;margin-top:.14em}
 .pripl-foto img{width:100%;height:230px;object-fit:cover;object-position:50% 50%}
 .pripl-foto figcaption{margin-top:8px;font-size:13.5px;color:var(--beton)}
 .isic-blok{margin-top:26px}
-.isic-dvojice{display:grid;gap:22px;margin-top:4px}
+.par{display:grid;gap:22px;margin-top:6px}
 .podskupina{font-size:13.5px;font-weight:700;letter-spacing:.02em;color:var(--seda);padding-bottom:2px}
 .zdroj{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--beton)}
 
@@ -154,7 +154,7 @@ h1 .amp{display:block;font-size:.6em;margin-top:.14em}
 .prace-tok>*{grid-column:1/-1}
 .prace-tok img{width:100%;height:auto;object-fit:cover}
 .prace-tok .foto-hlavni{aspect-ratio:4/5;object-position:44% 26%}
-.prace-tok .foto-a,.prace-tok .foto-b{grid-column:auto;aspect-ratio:4/5}
+.prace-tok .foto-b{height:200px;object-position:50% 46%}
 blockquote{margin:0;background:var(--omitka);padding:20px}
 blockquote p{font-size:20px;line-height:1.4;font-weight:500;text-indent:-.42em}
 blockquote p::before{content:"„"}
@@ -233,24 +233,24 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
   .cenik{padding:calc(56px + env(safe-area-inset-top,0px)) 0 72px}
   .cenik-vnitrek{display:grid;grid-template-columns:1.08fr .92fr;gap:34px 56px;align-items:stretch;margin-top:32px}
   .cenik-vnitrek>.blok{grid-column:1;grid-row:1}
-  .blok .polozka{padding:17px 0}
+  .blok .polozka{padding:15px 0}
   /* the panel starts level with the price list's first rule; its photo takes the slack,
      so the two columns end on one line */
-  .pripl-panel{grid-column:2;grid-row:1;margin-top:24px;padding:22px 24px 24px}
+  .pripl-panel{grid-column:2;grid-row:1/3;margin-top:24px;padding:22px 24px 24px}
   .pripl-foto{margin-top:20px;flex:1 1 auto;min-height:0}
   .pripl-foto img{flex:1 1 0;height:0;min-height:180px}
-  .isic-blok{grid-column:1/-1;grid-row:2;margin-top:0}
-  .isic-dvojice{grid-template-columns:1fr 1fr;gap:0 56px;margin-top:10px}
+  .isic-blok{grid-column:1;grid-row:2;margin-top:0}
+  .cenik-akce{grid-column:1;grid-row:3;margin-top:6px}
+  .par{grid-template-columns:1fr 1fr;gap:0 34px;margin-top:10px}
 
   /* one strip of their work, then the three voices as a newspaper row */
   .prace{padding:calc(52px + env(safe-area-inset-top,0px)) 0 56px}
   /* one tall portrait holding the left, two unequal photos and three unequal voices to its right */
   .prace-tok{grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
   .prace-tok .foto-hlavni{grid-column:1/6;grid-row:1/6;aspect-ratio:auto;height:100%;min-height:440px;object-position:44% 22%}
-  .prace-tok .foto-a{grid-column:6/9;grid-row:1;aspect-ratio:auto;height:296px}
-  .prace-tok .foto-b{grid-column:9/13;grid-row:1;aspect-ratio:auto;height:296px}
-  .zdroj{grid-column:6/13;grid-row:2;align-self:end}
-  .q-dlouha{grid-column:6/13;grid-row:3}
+  .zdroj{grid-column:6/13;grid-row:1;align-self:start}
+  .q-dlouha{grid-column:6/13;grid-row:2}
+  .prace-tok .foto-b{grid-column:6/13;grid-row:3;height:296px;object-position:50% 46%}
   .q-a{grid-column:6/10;grid-row:4}
   .q-b{grid-column:10/13;grid-row:4/6}
   .prace-tok>blockquote{padding:24px}
@@ -326,15 +326,25 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
     <div class="cenik-vnitrek">
       <div class="blok">
         <h3 class="skupina-nadpis">Střih a vousy</h3>
-        <dl>
-          <div class="polozka"><dt>Klasický střih<small>30 minut</small></dt><dd>420 Kč</dd></div>
-          <div class="polozka"><dt>Dlouhé vlasy a trendy účesy<small>mullet, messy fringe, fade s texturou, edgar, warrior cut, 30 minut</small></dt><dd>520 Kč</dd></div>
-          <div class="polozka"><dt>Úprava vousů<small>15 minut</small></dt><dd>280 Kč</dd></div>
-          <div class="polozka"><dt>Vlasy a vousy, krátké vlasy</dt><dd>650 Kč</dd></div>
-          <div class="polozka"><dt>Vlasy a vousy, dlouhé vlasy</dt><dd>750 Kč</dd></div>
-          <div class="polozka"><dt>Dětský střih do 10 let, krátké vlasy<small>30 minut</small></dt><dd>350 Kč</dd></div>
-          <div class="polozka"><dt>Dětský střih do 10 let, dlouhé vlasy<small>30 minut</small></dt><dd>450 Kč</dd></div>
-        </dl>
+        <div class="par">
+          <div>
+            <h4 class="podskupina">Střih</h4>
+            <dl>
+              <div class="polozka"><dt>Klasický střih<small>30 minut</small></dt><dd>420 Kč</dd></div>
+              <div class="polozka"><dt>Dlouhé vlasy a trendy účesy<small>mullet, messy fringe, fade s texturou, edgar, warrior cut, 30 minut</small></dt><dd>520 Kč</dd></div>
+              <div class="polozka"><dt>Dětský střih do 10 let, krátké vlasy<small>30 minut</small></dt><dd>350 Kč</dd></div>
+              <div class="polozka"><dt>Dětský střih do 10 let, dlouhé vlasy<small>30 minut</small></dt><dd>450 Kč</dd></div>
+            </dl>
+          </div>
+          <div>
+            <h4 class="podskupina">Vousy</h4>
+            <dl>
+              <div class="polozka"><dt>Úprava vousů<small>15 minut</small></dt><dd>280 Kč</dd></div>
+              <div class="polozka"><dt>Vlasy a vousy, krátké vlasy</dt><dd>650 Kč</dd></div>
+              <div class="polozka"><dt>Vlasy a vousy, dlouhé vlasy</dt><dd>750 Kč</dd></div>
+            </dl>
+          </div>
+        </div>
       </div>
 
       <div class="pripl-panel">
@@ -344,7 +354,7 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
           <div class="polozka"><dt>Obočí</dt><dd>+50 Kč</dd></div>
           <div class="polozka"><dt>Hair tattoo</dt><dd>od +50 Kč</dd></div>
         </dl>
-        <p class="priklad">Klasický střih s mytím vlasů = 520 Kč.</p>
+        <p class="priklad">Klasický střih, mytí vlasů a obočí = 570 Kč.</p>
         <figure class="pripl-foto">
           <img src="img/hair-tattoo.jpg" width="660" height="370" loading="lazy" alt="Vyholená linka v zátylku, hair tattoo, v pozadí police s vlasovými produkty">
           <figcaption>Hair tattoo, vyholená linka v zátylku.</figcaption>
@@ -353,7 +363,7 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
 
       <div class="isic-blok">
         <h3 class="skupina-nadpis">Se studentskou kartou (ISIC)</h3>
-        <div class="isic-dvojice">
+        <div class="par">
           <div class="blok">
             <h4 class="podskupina">Střih</h4>
             <dl>
@@ -390,8 +400,7 @@ body>footer a{color:#fff;font-weight:700;display:inline-flex;align-items:center;
       <p>Absolutní spokojenost s účesem vyhoví, či poradí, velký výběr pití a produktů do vlasů. David mi udělal úžasný low taper za což mu moc děkuji. Rozhodně doporučuji a přijdu znovu.</p>
       <footer>Martin</footer>
     </blockquote>
-    <img class="foto-a" src="img/strih-crop.jpg" width="590" height="590" loading="lazy" alt="Krátký texturovaný střih s taperem, na černé obkladové stěně barbershopu">
-    <img class="foto-b" src="img/strih-fade.jpg" width="950" height="950" loading="lazy" alt="Střih s taper fade a delším vrškem z profilu">
+    <img class="foto-b" src="img/strih-fade.jpg" width="1060" height="480" loading="lazy" alt="Zátylek s burst fade a texturovaným vrškem zblízka">
     <blockquote class="q-a">
       <p>Krásné prostředí a moc milý barber Marek, určitě přijdu znovu a mohu velmi doporučit</p>
     </blockquote>
