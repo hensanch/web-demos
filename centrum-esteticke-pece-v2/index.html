@@ -55,13 +55,13 @@ p{margin:0}
 /* 1. the shopfront at night */
 .noc{background:var(--noc);color:var(--tus);padding:var(--ram)}
 .tabule-noc{display:grid;gap:var(--ram)}
-.okno{background:var(--sklo);overflow:hidden;height:300px}
+.okno{background:var(--sklo);overflow:hidden;height:280px}
 .okno img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
-.dvere{background:var(--sklo);padding:22px 20px 20px}
+.dvere{background:var(--sklo);padding:20px 20px 18px}
 .hodnoceni{font-size:16px;color:var(--samet)}
 .hodnoceni a{color:var(--samet)}
 .hodnoceni b{color:var(--tus);font-weight:700;font-size:20px}
-.jmeno{font-family:"Great Vibes","Domine",cursive;font-weight:400;font-size:46px;line-height:1.02;margin:10px 0 12px;letter-spacing:.005em}
+.jmeno{font-family:"Great Vibes","Domine",cursive;font-weight:400;font-size:46px;line-height:1.02;margin:8px 0 10px;letter-spacing:.005em}
 .co{font-size:17px;line-height:1.45}
 .stav{margin-top:12px;font-size:16px}
 .stav b{font-weight:700}
@@ -74,7 +74,7 @@ p{margin:0}
 @media (min-width:900px){
   .noc{padding:56px 0}
   .tabule-noc{grid-template-columns:minmax(0,1fr) 460px;gap:28px;max-width:1200px;margin:0 auto;padding:0 32px}
-  .okno{height:auto;min-height:520px}
+  .okno{height:600px;order:2}
   .okno img{object-position:50% 50%}
   .dvere{padding:44px 48px 40px;display:flex;flex-direction:column;justify-content:center}
   .hodnoceni{font-size:18px}
@@ -205,6 +205,7 @@ dialog.menu::backdrop{background:transparent}
 .zavrit{margin-top:18px;min-height:44px;padding:0 18px;background:transparent;border:1px solid var(--tus);color:var(--tus);font:400 15px/1 "Domine",Georgia,serif;cursor:pointer}
 @media (hover:hover){.zavrit:hover{background:var(--tus);color:var(--sklo)}}
 body.zamek{position:fixed;width:100%;overflow:hidden}
+body.zamek .menu-tl{visibility:hidden}
 
 @media (prefers-reduced-motion:reduce){.lista,.lista.ven{transition:none}}
 </style>
@@ -220,9 +221,9 @@ body.zamek{position:fixed;width:100%;overflow:hidden}
       <img src="img/vyloha-noc.jpg" width="620" height="830" fetchpriority="high" alt="Výloha salonu v noci: na skle černé obočí, řasy a červené rty, za sklem osvětlený salon s lustrem">
     </div>
     <div class="dvere">
-      <p class="hodnoceni"><b>4,8</b> ze&nbsp;147 hodnocení <a href="https://www.google.com/maps/place/Centrum+Estetick%C3%A9+P%C3%A9%C4%8De/data=!4m7!3m6!1s0x470b935e813bc4c3:0xa7e7ca2cb160d609!8m2!3d50.088443!4d14.4671871!16s%2Fg%2F11ggdsv411!19sChIJw8Q7gV6TC0cRCdZgsSzK56c" rel="noopener">na&nbsp;Googlu</a></p>
+      <p class="hodnoceni"><b>4,8</b> <span>ze&nbsp;147 hodnocení</span> <a href="https://www.google.com/maps/place/Centrum+Estetick%C3%A9+P%C3%A9%C4%8De/data=!4m7!3m6!1s0x470b935e813bc4c3:0xa7e7ca2cb160d609!8m2!3d50.088443!4d14.4671871!16s%2Fg%2F11ggdsv411!19sChIJw8Q7gV6TC0cRCdZgsSzK56c" rel="noopener">na&nbsp;Googlu</a></p>
       <h1 class="jmeno">Centrum Estetické Péče</h1>
-      <p class="co">Kosmetický salon na&nbsp;Žižkově. Kosmetika, řasy, obočí, nehty, pedikúra a&nbsp;masáže. Český salon, objednání po&nbsp;telefonu.</p>
+      <p class="co">Český kosmetický salon na&nbsp;Žižkově. Kosmetika, řasy, obočí, nehty, pedikúra a&nbsp;masáže. Objednání po&nbsp;telefonu.</p>
       <p class="stav" id="stav">Po–Čt 8:00–20:00, Pá 8:00–12:00</p>
       <div class="akce">
         <a class="zavolat" id="zavolat-hero" href="tel:+420602402991">Zavolat 602&nbsp;402&nbsp;991</a>
@@ -256,7 +257,7 @@ body.zamek{position:fixed;width:100%;overflow:hidden}
   </div>
   <div class="radek">
     <h3>Obočí a&nbsp;řasy: úprava, barvení, laminace</h3>
-    <div><p>„Chodím pravidelně na&nbsp;řasy a&nbsp;byla jsem i&nbsp;na&nbsp;obočí. Velká spokojenost. Krásné prostředí, milý a&nbsp;vstřícný kolektiv salonu. Vždy poradí.“</p><p class="kdo">Mirka, hodnocení na&nbsp;Googlu</p></div>
+    <div><p>„Chodím pravidelně na&nbsp;řasy a&nbsp;byla jsem i&nbsp;na&nbsp;obočí. Velká spokojenost. Krásné prostředí, milý a&nbsp;vstřícný kolektiv salonu.“</p><p class="kdo">Mirka, hodnocení na&nbsp;Googlu</p></div>
   </div>
   <div class="radek">
     <h3>Permanentní make-up obočí</h3>
@@ -268,10 +269,10 @@ body.zamek{position:fixed;width:100%;overflow:hidden}
 <section id="fotky" class="blok" tabindex="-1" aria-label="Fotky salonu a práce">
   <div class="stena">
     <figure class="f1"><img src="img/rasy-usmev.jpg" width="1100" height="1399" loading="lazy" alt="Prodloužené řasy zblízka, klientka se usmívá do kamery"></figure>
-    <blockquote class="rec r1"><p>Dlouho jsem hledala salon, kde se domluvím česky. Na&nbsp;manikúru, pedikúru a&nbsp;obočí chodím již rok a&nbsp;vždy jsem moc spokojená. Hezké prostředí a&nbsp;moc šikovné holky.</p><span class="kdo">Kamila, hodnocení na&nbsp;Googlu</span></blockquote>
+    <blockquote class="rec r1"><p>Dlouho jsem hledala salon, kde se domluvím česky. Hezké prostředí a&nbsp;moc šikovné holky.</p><span class="kdo">Kamila, hodnocení na&nbsp;Googlu</span></blockquote>
     <figure class="f2"><img src="img/tabule.jpg" width="1000" height="1298" loading="lazy" alt="Podsvícená bílá tabule s korunkou, názvem salonu a podpisem majitelky nad recepčním pultem"><figcaption>Majitelkou je Mgr.&nbsp;Kristýna Kinská; její podpis je na&nbsp;tabuli nad pultem.</figcaption></figure>
     <figure class="f3"><img src="img/nehty.jpg" width="1000" height="1000" loading="lazy" alt="Bílé gelové nehty na dubovém stole"></figure>
-    <blockquote class="rec r2"><p>Výsledky jsou vždy krásné a&nbsp;přirozené, prostředí salonu je čisté a&nbsp;příjemné a&nbsp;celý tým je nesmírně milý.</p><span class="kdo">Eliška, hodnocení na&nbsp;Googlu</span></blockquote>
+    <blockquote class="rec r2"><p>Velmi oceňuji individuální a&nbsp;citlivý přístup. Už se těším na&nbsp;další návštěvu, tentokrát na&nbsp;kosmetiku.</p><span class="kdo">Eliška, hodnocení na&nbsp;Googlu</span></blockquote>
     <figure class="f4"><img src="img/rasy-zavrene.jpg" width="1000" height="1000" loading="lazy" alt="Prodloužené řasy, klientka se zavřenýma očima"></figure>
     <p class="vsechna"><a href="https://www.google.com/maps/place/Centrum+Estetick%C3%A9+P%C3%A9%C4%8De/data=!4m7!3m6!1s0x470b935e813bc4c3:0xa7e7ca2cb160d609!8m2!3d50.088443!4d14.4671871!16s%2Fg%2F11ggdsv411!19sChIJw8Q7gV6TC0cRCdZgsSzK56c" rel="noopener">Všechna hodnocení na&nbsp;Googlu</a></p>
   </div>
@@ -298,8 +299,8 @@ body.zamek{position:fixed;width:100%;overflow:hidden}
     </div>
   </div>
   <div class="mapa" id="mapa">
-    <p>Mapa se načte z&nbsp;Googlu až po&nbsp;klepnutí. Do&nbsp;té doby stránka nic nikam neposílá.</p>
-    <button class="nacist" type="button" id="nacist">Načíst mapu</button>
+    <p>Zelenky-Hajského 1727/3, Praha&nbsp;3, Žižkov. Kousek od&nbsp;Olšanského náměstí.</p>
+    <button class="nacist" type="button" id="nacist">Zobrazit mapu</button>
     <p class="mapa-odkazy"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Zelenky-Hajsk%C3%A9ho+1727%2F3%2C+130+00+Praha+3" rel="noopener">Trasa v&nbsp;Mapách Google</a></p>
   </div>
 </section>
@@ -310,7 +311,6 @@ body.zamek{position:fixed;width:100%;overflow:hidden}
     <p class="jmeno-p">Centrum Estetické Péče</p>
     <p>Provozovatel: Mgr.&nbsp;Kristýna Kinská, IČO 87529033, Zelenky-Hajského 1727/3, 130&nbsp;00 Praha&nbsp;3.</p>
     <p>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/" rel="noopener">coi.gov.cz/informace-o-adr</a>.</p>
-    <p>Stránka neukládá cookies a&nbsp;nenačítá nic z&nbsp;cizích serverů, dokud si sami nezobrazíte mapu.</p>
     <div class="odkazy">
       <a href="https://m.facebook.com/293254321204612/" rel="noopener">Facebook</a>
       <a href="https://www.google.com/maps/place/Centrum+Estetick%C3%A9+P%C3%A9%C4%8De/data=!4m7!3m6!1s0x470b935e813bc4c3:0xa7e7ca2cb160d609!8m2!3d50.088443!4d14.4671871!16s%2Fg%2F11ggdsv411!19sChIJw8Q7gV6TC0cRCdZgsSzK56c" rel="noopener">Google</a>

@@ -54,7 +54,7 @@ a,button{touch-action:manipulation}
 .tabule{background:var(--fasada);color:var(--stena);min-height:56px;display:flex;align-items:center;padding:8px calc(var(--okraj) + 56px) 8px var(--okraj);font-weight:500;font-size:15px;line-height:1.3}
 .vchod-telo{padding:22px var(--okraj) 28px}
 .vchod-telo h1{font-weight:800;text-transform:uppercase;font-size:clamp(50px,15.4vw,66px);line-height:.9;letter-spacing:-.012em;margin:0 0 16px}
-.pokoj{margin:0 calc(-1 * var(--okraj)) 16px}
+.pokoj{display:block;margin:0 calc(-1 * var(--okraj)) 16px}
 .pokoj img{width:100%;height:auto}
 .co{font-size:19px;margin-bottom:8px}
 .hodnoceni{font-weight:500;margin-bottom:6px}
@@ -85,6 +85,8 @@ a,button{touch-action:manipulation}
 .radka dd{margin:0;font-weight:500;font-size:19px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .radka small{display:block;font-size:15px;color:var(--tuzka);margin-top:2px}
 .pozn{font-size:19px;margin-top:8px}
+.vitrina{margin:26px calc(-1 * var(--okraj)) 0}
+.vitrina figcaption{padding:8px var(--okraj) 0;font-size:16px;color:var(--tuzka)}
 
 /* 4. Bublina: their sign, once, with a customer's words on the disc */
 .bublina{padding:calc(40px + var(--sat)) var(--okraj) 42px;border-top:1px solid var(--linka)}
@@ -112,6 +114,7 @@ a,button{touch-action:manipulation}
 .mapa{margin:0;padding:0}
 .mapa-plocha{background:#E4DFD6;min-height:220px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding:22px var(--okraj)}
 .mapa-plocha button{min-height:50px;padding:2px 26px 0;border-radius:25px;border:2px solid var(--uhel);background:transparent;font-weight:700;font-size:18px;cursor:pointer}
+.mapa-veta{font-size:16px;color:var(--tuzka);max-width:30ch}
 .mapa-plocha a{font-weight:500;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center}
 .mapa iframe{display:block;width:100%;height:340px;border:0}
 .ulice-fotky{padding:0;margin-top:0;display:grid;grid-template-columns:1fr;gap:0}
@@ -160,9 +163,10 @@ a,button{touch-action:manipulation}
   :root{--okraj:80px}
   .disk{top:8px;right:24px}
   .tabule{padding-right:calc(var(--okraj) + 70px);font-size:16px}
-  .vchod-telo{display:grid;grid-template-columns:minmax(380px,470px) minmax(560px,720px);column-gap:70px;justify-content:space-between;align-items:start;padding-top:36px;padding-bottom:44px}
+  .vchod-telo{display:grid;grid-template-columns:minmax(380px,470px) minmax(560px,720px);grid-template-rows:auto auto auto auto 1fr;column-gap:70px;justify-content:space-between;align-items:start;padding-top:36px;padding-bottom:44px}
+  .vchod-telo .akce{align-self:end}
   .vchod-telo h1{font-size:72px;margin-bottom:26px}
-  .pokoj{grid-column:2;grid-row:1/7;margin:0;align-self:stretch}
+  .pokoj{grid-column:2;grid-row:1/6;margin:0;align-self:stretch}
   .pokoj img{height:100%;object-fit:cover}
   .co{font-size:21px;margin-bottom:12px}
   .hodnoceni,.stav{font-size:18px}
@@ -176,6 +180,8 @@ a,button{touch-action:manipulation}
   .cenik{padding-top:calc(56px + var(--sat));padding-bottom:56px}
   .cenik h2,.bublina h2,.ulice h2{font-size:38px;margin-bottom:30px}
   .skupiny{display:grid;grid-template-columns:1fr 1fr;column-gap:80px;max-width:1120px}
+  .vitrina{margin:44px 0 0;max-width:760px}
+  .vitrina figcaption{padding-left:0}
   .radka dt,.radka dd,.pozn,.hlasy p,.ulice address,.zadni{font-size:20px}
   .bublina{padding-top:calc(56px + var(--sat));padding-bottom:56px;display:grid;grid-template-columns:520px 1fr;column-gap:80px;align-items:start}
   .bublina h2{grid-column:1/3}
@@ -188,6 +194,7 @@ a,button{touch-action:manipulation}
   .mapa-plocha{min-height:340px;padding:32px}
   .mapa iframe{height:380px}
   .ulice-fotky{grid-template-columns:2fr 1fr;gap:0}
+  .ulice-fotky{height:620px}
   .ulice-fotky img{height:100%;object-fit:cover}
   .ulice-fotky .pult{display:block}
   .pata{padding:44px var(--okraj) 44px;font-size:16px}
@@ -229,7 +236,7 @@ a,button{touch-action:manipulation}
 <main id="main">
 
 <section id="uvod" class="vchod" aria-label="My Coffee Story">
-  <div class="tabule"><p>Double espresso 59&nbsp;Kč, cappuccino 85&nbsp;Kč, americano 75&nbsp;Kč</p></div>
+  <div class="tabule"><p>Double espresso 59&nbsp;Kč, cappuccino 85&nbsp;Kč</p></div>
   <div class="vchod-telo">
     <h1>My Coffee<br>Story</h1>
     <picture class="pokoj">
@@ -277,6 +284,7 @@ a,button{touch-action:manipulation}
       <p class="pozn">S&nbsp;sebou? Ano.</p>
     </div>
   </div>
+  <figure class="vitrina"><img src="img/vitrina.jpg" width="1170" height="975" alt="Koláče, šátečky, bagely a quiche na dřevěných prkénkách na pultu, u nich černé cedulky s cenami psané křídou" loading="lazy"><figcaption>Na pultu, s&nbsp;cenami na cedulkách</figcaption></figure>
 </section>
 
 <section id="recenze" class="bublina cil" tabindex="-1">
@@ -284,8 +292,8 @@ a,button{touch-action:manipulation}
   <figure class="cedule">
     <svg viewBox="0 0 360 336" width="330" height="308" role="img" aria-label="Zde platí, co je malé, to je milé. Eva, recenze na Googlu">
       <ellipse cx="184" cy="150" rx="172" ry="146" fill="#fff" stroke="#1C1B19" stroke-width="3"/>
-      <path d="M92 268 C70 292 46 314 22 330 C58 318 92 302 124 284 Z" fill="#fff" stroke="#1C1B19" stroke-width="3" stroke-linejoin="round"/>
-      <path d="M96 272 C110 280 118 282 128 284" fill="#fff" stroke="#fff" stroke-width="6"/>
+      <path d="M74 256 C70 290 54 312 30 326 C74 318 110 300 138 280 Z" fill="#fff" stroke="#1C1B19" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M80 262 C98 274 116 280 134 282" fill="none" stroke="#fff" stroke-width="7"/>
       <circle cx="198" cy="146" r="114" fill="#1C1B19"/>
       <text x="198" y="122" text-anchor="middle" fill="#fff" font-family="League Spartan, Avenir, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="27" letter-spacing="0.5">
         <tspan x="198" dy="0">ZDE PLATÍ,</tspan>
@@ -318,6 +326,7 @@ a,button{touch-action:manipulation}
     </div>
     <div class="mapa" id="mapa">
       <div class="mapa-plocha">
+        <p class="mapa-veta">Mapa se načte, až o&nbsp;ni požádáte. Do té doby se nic neposílá.</p>
         <button type="button" id="nacist-mapu">Zobrazit mapu</button>
         <a href="https://www.google.com/maps/place/My+Coffee+Story/data=!4m7!3m6!1s0x470b9498e22f0dab:0xb67a047e686869f0!8m2!3d50.0896211!4d14.4685599!16s%2Fg%2F11c6q586kn" rel="noopener">Otevřít v&nbsp;Mapách Google</a>
       </div>
@@ -364,6 +373,7 @@ a,button{touch-action:manipulation}
 
 <script>
 (function(){
+  try{history.scrollRestoration="manual"}catch(x){}
   var NBSP=" ";
   var HOURS={1:[8,18],2:[8,18],3:[8,18],4:[8,18],5:[8,18],6:[9,15],0:[9,15]};
   function prague(){
