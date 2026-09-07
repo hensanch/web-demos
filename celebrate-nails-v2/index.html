@@ -29,6 +29,7 @@
   --zar:#F7F2EA;
   --kour:#A79C93;
   --kava:#6E5546;
+  --okraj:#8A6E5B;
   --lista:72px;
   --pad:20px;
   --max:1200px;
@@ -82,7 +83,6 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
 .fakta{display:flex;flex-direction:column;gap:5px;margin-bottom:18px}
 .hodnoceni{font-size:16px;color:var(--kour)}
 .hodnoceni b{font-weight:700;color:var(--zar);font-size:19px;font-variant-numeric:tabular-nums}
-.hodnoceni a{color:var(--kour);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--kava)}
 .stav{font-size:16px;font-weight:500;color:var(--zar);min-height:25px}
 .stav.zavreno{color:var(--kour)}
 .tecka{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--svetlo);margin-right:8px;vertical-align:middle}
@@ -104,7 +104,7 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
 .podnadpis{color:var(--kour);font-size:15.5px;max-width:56ch;margin-bottom:26px}
 .skupiny{display:block}
 .skupina{margin-bottom:28px}
-.skupina:last-child{margin-bottom:0}
+.sloupec>.skupina:last-child{margin-bottom:28px}
 .skupina h3{
   display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   font-size:15px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
@@ -116,7 +116,8 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
 .polozka .c{font-size:16.5px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
 .polozka .d{grid-column:1;font-size:12.5px;line-height:1.25;color:var(--kour);letter-spacing:.01em}
 .pozn{margin-top:12px;font-size:14.5px;color:var(--kour);line-height:1.5;max-width:52ch}
-.objblok{display:none}
+.objblok{border-top:2px solid var(--kava);padding-top:20px;margin-top:4px}
+.objblok p{font-size:15.5px;color:var(--kour);margin-bottom:16px;max-width:44ch}
 
 /* ---------- 3. práce + recenze ---------- */
 .prace{border-top:1px solid var(--kava);padding-top:0}
@@ -152,10 +153,10 @@ figure figcaption{margin-top:8px;font-size:14px;color:var(--kour);letter-spacing
 .adresa{font-size:19px;font-weight:500;line-height:1.45;margin:24px 0 4px}
 .odkazy{display:flex;flex-wrap:wrap;gap:10px 22px;margin:14px 0 4px}
 .odkazy a{display:inline-flex;align-items:center;min-height:44px;font-size:16px;color:var(--zar);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--kava)}
-.mapa{margin-top:24px;background:var(--deska);border:1px solid var(--kava)}
+.mapa{margin-top:24px;background:var(--deska);border:1px solid var(--okraj)}
 .mapa .vnitrek{padding:22px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 .mapa p{font-size:14.5px;color:var(--kour);max-width:42ch}
-.mapa button{background:transparent;border:1px solid var(--zar);color:var(--zar);padding:12px 18px;min-height:46px;font-weight:600;font-size:15.5px}
+.mapa button{background:transparent;border:1px solid var(--okraj);color:var(--zar);padding:12px 18px;min-height:46px;font-weight:600;font-size:15.5px}
 .mapa iframe{display:block;width:100%;height:320px;border:0}
 .salon{margin-top:28px}
 .salon img{width:100%;height:auto;aspect-ratio:900/1170;object-fit:cover}
@@ -164,7 +165,10 @@ figure figcaption{margin-top:8px;font-size:14px;color:var(--kour);letter-spacing
 footer{background:var(--deska);padding:30px 0 calc(var(--lista) + 34px);font-size:13.5px;color:var(--kour);line-height:1.6}
 footer p{margin-bottom:10px;max-width:62ch}
 footer a{color:var(--kour);text-decoration:underline;text-underline-offset:3px}
-.pravni{color:#7E736B}
+.patodkazy{display:flex;flex-wrap:wrap;gap:0 24px;margin:2px 0 10px}
+.patodkazy a{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;color:var(--zar)}
+.adr{display:inline-flex;align-items:center;min-height:44px;font-size:13.5px;color:#9C9189}
+.pravni{color:#9C9189}
 
 /* ---------- lišta ---------- */
 .lista{
@@ -173,8 +177,8 @@ footer a{color:var(--kour);text-decoration:underline;text-underline-offset:3px}
   height:var(--lista);padding:0 10px;
   background:var(--deska);border-top:1px solid var(--kava);
 }
-.lista .menu{flex:0 0 auto;display:flex;align-items:center;justify-content:center;height:50px;padding:0 15px;background:transparent;border:1px solid var(--kava);font-weight:600;font-size:15.5px;white-space:nowrap}
-.lista .vol{flex:0 0 auto;display:flex;align-items:center;justify-content:center;height:50px;padding:0 15px;white-space:nowrap;border:1px solid var(--kava);color:var(--zar);text-decoration:none;font-weight:600;font-size:15.5px}
+.lista .menu{flex:0 0 auto;display:flex;align-items:center;justify-content:center;height:50px;padding:0 15px;background:transparent;border:1px solid var(--okraj);font-weight:600;font-size:15.5px;white-space:nowrap}
+.lista .vol{flex:0 0 auto;display:flex;align-items:center;justify-content:center;height:50px;padding:0 15px;white-space:nowrap;border:1px solid var(--okraj);color:var(--zar);text-decoration:none;font-weight:600;font-size:15.5px}
 .lista .prim{flex:1 1 auto;display:flex;align-items:center;justify-content:center;height:50px;padding:0 8px;background:var(--svetlo);color:var(--stul);text-decoration:none;font-weight:700;font-size:16px;white-space:nowrap}
 
 /* ---------- menu ---------- */
@@ -186,7 +190,7 @@ dialog.menu::backdrop{background:rgba(12,10,9,.86)}
 .menuvnitrek{display:flex;flex-direction:column;height:100%;padding:22px var(--pad) 30px}
 .menuvnitrek .hlava{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
 .menuvnitrek .hlava b{font-size:17px;letter-spacing:.16em;font-weight:800}
-.zavrit{background:transparent;border:1px solid var(--kava);color:var(--zar);min-height:46px;padding:10px 18px;font-weight:600}
+.zavrit{background:transparent;border:1px solid var(--okraj);color:var(--zar);min-height:46px;padding:10px 18px;font-weight:600}
 .menuvnitrek nav{display:flex;flex-direction:column}
 .menuvnitrek nav a{display:flex;align-items:center;min-height:60px;font-size:26px;font-weight:800;letter-spacing:-.01em;text-decoration:none;border-bottom:1px solid var(--kava)}
 .menuvnitrek .spodek{margin-top:auto;padding-top:26px;display:flex;flex-direction:column;gap:12px}
@@ -223,12 +227,13 @@ nav.stolni{display:none}
   .akce{grid-column:1}
   .hlavni{width:auto;max-width:360px}
 
-  .skupiny{column-count:2;column-gap:64px}
-  .skupina{break-inside:avoid;margin-bottom:34px}
+  .skupiny{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;align-items:start}
+  .skupina{margin-bottom:34px}
+  .sloupec>.skupina:last-child{margin-bottom:0}
   .cenik{padding:52px 0 56px}
-  .objblok{display:block;break-inside:avoid;border-top:2px solid var(--kava);padding-top:18px}
-  .objblok p{font-size:15.5px;color:var(--kour);margin-bottom:16px;max-width:34ch}
-  .objblok .hlavni{max-width:320px;min-height:56px;font-size:17px}
+  .objblok{display:flex;align-items:center;justify-content:space-between;gap:48px;margin-top:34px;padding-top:24px}
+  .objblok p{margin-bottom:0;font-size:16.5px;max-width:46ch}
+  .objblok .hlavni{flex:0 0 auto;width:340px;min-height:60px;font-size:17px}
   .nadpis{margin-bottom:8px}
   .podnadpis{margin-bottom:34px}
 
@@ -278,7 +283,7 @@ nav.stolni{display:none}
       <img src="img/hero.jpg" width="1200" height="840" alt="Ruka s&nbsp;mocha gel-lakem a&nbsp;zlatým plátkem na&nbsp;jednom nehtu, práce studia CELEBRATE" fetchpriority="high" decoding="async">
     </div>
     <div class="fakta">
-      <p class="hodnoceni"><b>4,9</b> z&nbsp;102 hodnocení na&nbsp;<a href="https://www.google.com/maps/place/CELEBRATE+nehtov%C3%A9+studio/data=!4m7!3m6!1s0x470b93b31ed77da5:0x67d886a8d3075b16!8m2!3d50.0679662!4d14.4580102" target="_blank" rel="noopener">Googlu</a></p>
+      <p class="hodnoceni"><b>4,9</b> z&nbsp;102 hodnocení na&nbsp;Googlu</p>
       <p class="stav" id="stav" data-open="9" data-close="21"><span class="tecka"></span>Otevřeno každý den od&nbsp;9:00 do&nbsp;21:00</p>
     </div>
     <div class="akce">
@@ -302,7 +307,7 @@ nav.stolni{display:none}
     <p class="podnadpis">Ceny jsou stejné jako v&nbsp;objednávkovém systému studia. U&nbsp;služeb, kde je rozpětí, se cena řídí délkou nehtů a&nbsp;náročností zdobení.</p>
 
     <div class="skupiny">
-
+      <div class="sloupec">
       <div class="skupina">
         <h3>Manikúra <span>od&nbsp;600&nbsp;Kč</span></h3>
         <div class="polozka"><span class="n">+ gel-lak</span><span class="c">800&nbsp;Kč</span><span class="d">60&nbsp;min</span></div>
@@ -321,7 +326,15 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Sundání gelu nebo gel-laku z&nbsp;jiného studia</span><span class="c">200–400&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
         <p class="pozn">Sundání materiálu z&nbsp;jiného studia se připočítává k&nbsp;ceně manikúry nebo pedikúry. U&nbsp;doplnění závisí cena na&nbsp;výsledné délce nehtů, složitější zdobení je za&nbsp;příplatek.</p>
       </div>
-
+      <div class="skupina">
+        <h3>Balíčky <span>od&nbsp;1&nbsp;200&nbsp;Kč</span></h3>
+        <div class="polozka"><span class="n">SHINE&nbsp;UP: manikúra, gel-lak, úprava a&nbsp;barvení obočí</span><span class="c">1&nbsp;200&nbsp;Kč</span><span class="d">150&nbsp;min</span></div>
+        <div class="polozka"><span class="n">BRILLIANT&nbsp;YOU: pedikúra, gel-lak, úprava a&nbsp;barvení obočí</span><span class="c">1&nbsp;350&nbsp;Kč</span><span class="d">120&nbsp;min</span></div>
+        <div class="polozka"><span class="n">LET’S&nbsp;CELEBRATE: manikúra, gel-lak, laminace obočí</span><span class="c">1&nbsp;500&nbsp;Kč</span><span class="d">150&nbsp;min</span></div>
+        <div class="polozka"><span class="n">Manikúra a&nbsp;pedikúra najednou, ve&nbsp;čtyřech rukou</span><span class="c">2&nbsp;000&nbsp;Kč</span><span class="d">70&nbsp;min</span></div>
+      </div>
+      </div>
+      <div class="sloupec">
       <div class="skupina">
         <h3>Pedikúra <span>od&nbsp;850&nbsp;Kč</span></h3>
         <div class="polozka"><span class="n">Mokrá pedikúra a&nbsp;gel-lak</span><span class="c">1&nbsp;100&nbsp;Kč</span><span class="d">70&nbsp;min</span></div>
@@ -336,15 +349,6 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Frenč</span><span class="c">200&nbsp;Kč</span><span class="d">15&nbsp;min</span></div>
         <p class="pozn">SPA pedikúra zahrnuje peeling chodidel, deset minut masáže a&nbsp;hydrataci. Sundání gel-laku z&nbsp;jiného studia stojí 100&nbsp;až&nbsp;200&nbsp;Kč navíc.</p>
       </div>
-
-      <div class="skupina">
-        <h3>Balíčky <span>od&nbsp;1&nbsp;200&nbsp;Kč</span></h3>
-        <div class="polozka"><span class="n">SHINE&nbsp;UP: manikúra, gel-lak, úprava a&nbsp;barvení obočí</span><span class="c">1&nbsp;200&nbsp;Kč</span><span class="d">150&nbsp;min</span></div>
-        <div class="polozka"><span class="n">BRILLIANT&nbsp;YOU: pedikúra, gel-lak, úprava a&nbsp;barvení obočí</span><span class="c">1&nbsp;350&nbsp;Kč</span><span class="d">120&nbsp;min</span></div>
-        <div class="polozka"><span class="n">LET’S&nbsp;CELEBRATE: manikúra, gel-lak, laminace obočí</span><span class="c">1&nbsp;500&nbsp;Kč</span><span class="d">150&nbsp;min</span></div>
-        <div class="polozka"><span class="n">Manikúra a&nbsp;pedikúra najednou, ve&nbsp;čtyřech rukou</span><span class="c">2&nbsp;000&nbsp;Kč</span><span class="d">70&nbsp;min</span></div>
-      </div>
-
       <div class="skupina">
         <h3>Obočí a&nbsp;řasy <span>od&nbsp;200&nbsp;Kč</span></h3>
         <div class="polozka"><span class="n">Laminace obočí</span><span class="c">1&nbsp;000&nbsp;Kč</span><span class="d">45&nbsp;min</span></div>
@@ -354,7 +358,6 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Laminace řas</span><span class="c">1&nbsp;100&nbsp;Kč</span><span class="d">45&nbsp;min</span></div>
         <div class="polozka"><span class="n">Barvení řas</span><span class="c">200&nbsp;Kč</span><span class="d">15&nbsp;min</span></div>
       </div>
-
       <div class="skupina">
         <h3>Depilace <span>od&nbsp;500&nbsp;Kč</span></h3>
         <div class="polozka"><span class="n">Bikiny basic</span><span class="c">500&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
@@ -363,12 +366,12 @@ nav.stolni{display:none}
         <div class="polozka"><span class="n">Nohy celé</span><span class="c">800&nbsp;Kč</span><span class="d">60&nbsp;min</span></div>
         <div class="polozka"><span class="n">Ruce</span><span class="c">500–800&nbsp;Kč</span><span class="d">30&nbsp;min</span></div>
       </div>
-
-      <div class="objblok">
-        <p>Termín si vyberete v&nbsp;objednávkovém systému studia, bez zakládání účtu.</p>
-        <a class="hlavni" href="https://n831422.alteg.io/" target="_blank" rel="noopener">Objednat se online</a>
       </div>
+    </div>
 
+    <div class="objblok">
+      <p>Termín si vyberete v&nbsp;objednávkovém systému studia. Vidíte v&nbsp;něm volné časy a&nbsp;nemusíte nic zakládat.</p>
+      <a class="hlavni" href="https://n831422.alteg.io/" target="_blank" rel="noopener">Objednat se online</a>
     </div>
   </div>
 </section>
@@ -464,10 +467,16 @@ nav.stolni{display:none}
 
 <footer>
   <div class="obal">
-    <p>CELEBRATE, nehtové studio. Minská&nbsp;17, 101&nbsp;00 Praha&nbsp;10-Vršovice. Telefon <a href="tel:+420777159873">777&nbsp;159&nbsp;873</a>. Objednávky přes <a href="https://n831422.alteg.io/" target="_blank" rel="noopener">online systém</a> nebo telefonicky.</p>
+    <p>CELEBRATE, nehtové studio. Minská&nbsp;17, 101&nbsp;00 Praha&nbsp;10-Vršovice. Objednávky online nebo telefonicky.</p>
+    <div class="patodkazy">
+      <a href="tel:+420777159873">777&nbsp;159&nbsp;873</a>
+      <a href="https://n831422.alteg.io/" target="_blank" rel="noopener">Objednávkový systém</a>
+      <a href="https://www.instagram.com/celebrate.cz" target="_blank" rel="noopener">Instagram</a>
+    </div>
     <p>Stránka nepoužívá cookies ani měřicí kódy. Písmo je uložené přímo tady, mapa se načte až&nbsp;po&nbsp;klepnutí.</p>
     <p class="pravni">[Jméno, sídlo, IČO majitele]</p>
-    <p class="pravni">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/" target="_blank" rel="noopener">https://coi.gov.cz/informace-o-adr/</a></p>
+    <p class="pravni">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce:</p>
+    <a class="adr" href="https://coi.gov.cz/informace-o-adr/" target="_blank" rel="noopener">https://coi.gov.cz/informace-o-adr/</a>
   </div>
 </footer>
 

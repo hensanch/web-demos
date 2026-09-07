@@ -42,7 +42,7 @@
   --rejstrik:46px;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;scroll-padding-top:var(--rejstrik);scroll-padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;scroll-padding-bottom:calc(72px + env(safe-area-inset-bottom))}
 body{
   margin:0;background:var(--stena);color:var(--tus);
   font-family:var(--sans);font-size:16px;line-height:1.55;
@@ -144,7 +144,8 @@ p{margin:0}
   border-bottom:1px solid rgba(242,237,234,.28);margin-top:22px;
 }
 .rejstrik-in{display:flex;justify-content:space-between;column-gap:10px}
-.rejstrik a{
+.skupina{scroll-margin-top:var(--rejstrik)}
+.rejstrik a{min-width:44px;padding-inline:8px;box-sizing:border-box;
   font-family:var(--serif);font-size:15.5px;color:var(--saten);text-decoration:none;
   display:flex;align-items:center;min-height:var(--rejstrik);white-space:nowrap;
 }
@@ -291,7 +292,8 @@ p{margin:0}
   .pravidlo{max-width:640px;font-size:17px}
   .rejstrik{margin-top:34px}
   .rejstrik-in{justify-content:flex-start;column-gap:56px}
-  .rejstrik a{font-size:18px}
+  .skupina{scroll-margin-top:var(--rejstrik)}
+.rejstrik a{min-width:44px;padding-inline:8px;box-sizing:border-box;font-size:18px}
   .skupina{margin-top:18px}
   .pas{padding:19px 32px 21px}
   .pas h3{font-size:34px}
@@ -422,7 +424,7 @@ p{margin:0}
   </div>
   <div class="obal">
     <section class="skupina" id="ceny-nohy" aria-labelledby="n-nohy">
-      <div class="pas"><h3 id="n-nohy">Pedikúra</h3><span class="od">od 500&nbsp;Kč</span></div>
+      <div class="pas"><h3 id="n-nohy">Pedikúra</h3><span class="od">pedikúra od 500&nbsp;Kč</span></div>
       <div class="telo">
 <div class="skupina-mriz">
       <div>
@@ -443,7 +445,7 @@ p{margin:0}
   </div>
   <div class="obal">
     <section class="skupina" id="ceny-rasy" aria-labelledby="n-rasy">
-      <div class="pas"><h3 id="n-rasy">Řasy</h3><span class="od">od 900&nbsp;Kč</span></div>
+      <div class="pas"><h3 id="n-rasy">Řasy</h3><span class="od">prodloužení od 900&nbsp;Kč</span></div>
       <div class="telo">
 <div class="skupina-mriz">
       <div>
@@ -466,7 +468,7 @@ p{margin:0}
   </div>
   <div class="obal">
     <section class="skupina" id="ceny-oboci" aria-labelledby="n-oboci">
-      <div class="pas"><h3 id="n-oboci">Obočí</h3><span class="od">od 200&nbsp;Kč</span></div>
+      <div class="pas"><h3 id="n-oboci">Obočí</h3><span class="od">úprava od 200&nbsp;Kč</span></div>
       <div class="telo">
 <div class="skupina-mriz">
       <div>
