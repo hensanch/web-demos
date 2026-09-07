@@ -78,6 +78,14 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
 }
 .co{color:var(--kour);font-size:16px;line-height:1.5;max-width:38ch;margin-bottom:18px}
 .co b{color:var(--zar);font-weight:500}
+.prvni{position:relative}
+.menuhorni{
+  position:absolute;top:0;right:var(--pad);z-index:10;
+  display:flex;align-items:center;justify-content:center;
+  min-height:46px;padding:0 16px;
+  background:var(--stul);color:var(--zar);border:0;
+  font-weight:500;font-size:15.5px;letter-spacing:.02em;
+}
 .hero{margin:0 calc(var(--pad) * -1) 16px}
 .hero img{width:100%;height:auto;aspect-ratio:1200/840;object-fit:cover}
 .fakta{display:flex;flex-direction:column;gap:4px;margin-bottom:16px}
@@ -216,13 +224,14 @@ nav.stolni{display:none}
   .lista .vol:hover,.lista .menu:hover,.zavrit:hover,.mapa button:hover{border-color:var(--zar);background:rgba(247,242,234,.06)}
   .telefon:hover,.vic:hover,.odkazy a:hover,.hodnoceni a:hover{text-decoration-color:var(--zar)}
   .menuvnitrek nav a:hover{color:var(--svetlo);padding-left:8px}
+  .menuhorni:hover{background:var(--deska)}
   footer a:hover{color:var(--zar)}
 }
 
 @media (min-width:900px){
   :root{--pad:40px}
   body{font-size:17px}
-  .lista{display:none}
+  .lista,.menuhorni{display:none}
   html{scroll-padding-bottom:0;scroll-padding-top:0}
   footer{padding-bottom:40px}
 
@@ -288,6 +297,7 @@ nav.stolni{display:none}
 <!-- 1 ------------------------------------------------------------------ -->
 <section id="uvod" class="uvod" tabindex="-1" aria-labelledby="jmeno">
   <div class="obal prvni">
+    <button class="menuhorni" type="button" id="otevritmenu2" aria-haspopup="dialog">Menu</button>
     <div class="hero">
       <img src="img/hero.jpg" width="1200" height="840" alt="Ruka s&nbsp;mocha gel-lakem a&nbsp;zlatým plátkem na&nbsp;jednom nehtu, práce studia CELEBRATE" fetchpriority="high" decoding="async">
     </div>
@@ -617,6 +627,8 @@ nav.stolni{display:none}
   /* --- menu jako modál --- */
   var dlg = document.getElementById('menu');
   var otevrit = document.getElementById('otevritmenu');
+  var otevrit2 = document.getElementById('otevritmenu2');
+  var posledniOtevirac = null;
   var zavrit = document.getElementById('zavritmenu');
   var podporaDialog = dlg && typeof dlg.showModal === 'function';
 
@@ -634,8 +646,9 @@ nav.stolni{display:none}
     pozadi.forEach(function (e) { if (e) { e.inert = false; } });
     window.scrollTo(0, pozice);
   }
-  function otevriMenu() {
+  function otevriMenu(e) {
     if (!podporaDialog) { return; }
+    posledniOtevirac = (e && e.currentTarget) || otevrit;
     zamkni();
     dlg.showModal();
     try { history.pushState({ menu: 1 }, ''); } catch (e) {}
@@ -646,12 +659,15 @@ nav.stolni{display:none}
     if (podporaDialog && dlg.open) { dlg.close(); }
   }
   if (otevrit) { otevrit.addEventListener('click', otevriMenu); }
+  if (otevrit2) { otevrit2.addEventListener('click', otevriMenu); }
   if (zavrit) { zavrit.addEventListener('click', zavriMenu); }
   if (podporaDialog) {
     dlg.addEventListener('close', function () {
       odemkni();
       if (history.state && history.state.menu) { history.back(); }
-      if (otevrit) { otevrit.focus({ preventScroll: true }); }
+      var cil = posledniOtevirac || otevrit;
+      if (cil && cil.offsetParent !== null) { cil.focus({ preventScroll: true }); }
+      else if (otevrit) { otevrit.focus({ preventScroll: true }); }
     });
     window.addEventListener('popstate', function () {
       if (dlg.open) { dlg.close(); }

@@ -106,9 +106,9 @@ main[inert],footer[inert],.lista[inert]{filter:none}
    which is how the vinyl stacks its own two lines (g03.jpg) */
 h1{margin:0 0 10px;line-height:.9;text-transform:uppercase}
 .wind{display:block;color:var(--vyveska);
-  font-size:calc(var(--h1) * .72);letter-spacing:.569em;margin-right:-.569em;line-height:1.02}
-.bs{display:block;color:var(--papir);font-size:var(--h1);letter-spacing:.004em}
-h1{--h1:clamp(42px,13.35vw,64px)}
+  font-size:calc(var(--h1) * .72);letter-spacing:var(--ls);line-height:1.02;white-space:nowrap}
+.bs{display:block;color:var(--papir);white-space:nowrap;font-size:var(--h1);letter-spacing:.004em}
+h1{--h1:clamp(36px,12.0vw,64px);--ls:.6502em}
 .co{color:var(--seda);font-size:15.5px;margin-bottom:14px}
 .znamka{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
 .znamka b{font-family:Sansita,Georgia,serif;font-weight:900;font-size:34px;line-height:1;
@@ -227,7 +227,7 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
 .opakovat{display:none}
 .znak{margin:28px 0 0;display:flex;align-items:center;gap:18px}
 .znak img{width:190px;flex:0 0 auto}
-.znak figcaption{font-size:14px;color:var(--seda);max-width:20ch}
+.znak figcaption{font-size:14.5px;color:var(--seda);max-width:26ch}
 
 /* ---- footer --------------------------------------------------------------------- */
 .pata{background:var(--kuze-hlub);padding:26px 0 108px;font-size:13.5px;line-height:1.6;
@@ -329,8 +329,9 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
   .kdy h2{grid-column:1/-1;grid-row:1}
   .hodiny{grid-column:1;grid-row:2;margin-bottom:0;max-width:none}
   .kdy .kontakt{grid-column:2;grid-row:2}
-  .znak{grid-column:1;grid-row:3;margin-top:34px}
-  .znak img{width:260px}
+  .znak{grid-column:1/-1;grid-row:3;margin-top:38px;gap:24px}
+  .znak img{width:300px}
+  .znak figcaption{max-width:24ch}
 
   .pata{padding:38px 0 44px}
   .pata .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:56px}
@@ -360,7 +361,8 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
     </figure>
     <div class="wrap">
       <p class="stav" id="stav">Po až so otevřeno, v&nbsp;neděli zavřeno</p>
-      <h1 id="nazev"><span class="wind">The Wind</span> <span class="bs">Barber shop</span></h1>
+      <h1 id="nazev">
+        <span class="wind">The Wind</span> <span class="bs">Barber shop</span></h1>
       <p class="co">Holičství ve Vršovicích, Praha 10.</p>
       <p class="znamka"><b>4,9</b> <span>ze 275 hodnocení na Googlu</span></p>
       <a class="cta" id="ctaHero" href="https://the-wind-barber.reservio.com/booking">Rezervovat termín</a>
@@ -489,7 +491,7 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
         <a class="konec" href="https://the-wind-barber.reservio.com/booking">Vyber si termín</a>
       </div>
       <figure class="znak">
-        <img src="img/znak.jpg" width="315" height="285" loading="lazy" decoding="async"
+        <img src="img/znak.jpg" width="380" height="290" loading="lazy" decoding="async"
              alt="Znak na výloze: the Wind nad nápisem BARBER SHOP, bílé písmo v oranžovém rámečku.">
         <figcaption>Na skle poznáš tenhle znak.</figcaption>
       </figure>
