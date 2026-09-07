@@ -47,17 +47,19 @@
   /* the stepped right-angle corner traced off the orange keyline in g03.jpg:
      the rule runs, turns 90 deg, runs, turns 90 deg again. No diagonals anywhere. */
   --ax:36px; --ay:30px; --bx:16px; --by:14px;
+  /* iOS Safari lands a fragment 62 CSS px below the physical top and reports
+     env(safe-area-inset-top) as 0 in a normal tab, so the inset is a constant
+     applied only to touch pointers. 0 on every desktop pointer. */
+  --sat:0px;
 }
+@media (hover:none) and (pointer:coarse){:root{--sat:62px}}
 *,*::before,*::after{box-sizing:border-box}
 html{
   -webkit-text-size-adjust:100%;
   scroll-behavior:smooth;
-  /* Measured on an iPhone 17 Pro simulator: iOS Safari lands a fragment about
-     59 pt BELOW the physical top and reports env(safe-area-inset-top) as 0 in
-     that view, so neither scroll-padding-top nor a negative scroll-margin can
-     undo it. Every jump is therefore done in JS with an absolute scrollTo, and
-     each anchor target carries 66 px of its own top padding so the heading
-     clears the status bar that is drawn over the page. */
+  /* The four anchor targets pull the landing back up by --sat and add the same
+     amount to their own top padding, so the band the status bar is drawn over
+     is the target's own background and the heading sits below the clock. */
   scroll-padding-top:0;
   scroll-padding-bottom:calc(92px + env(safe-area-inset-bottom,0px));
 }
@@ -82,6 +84,7 @@ button{font:inherit}
   padding-left:calc(20px + env(safe-area-inset-left,0px));
   padding-right:calc(20px + env(safe-area-inset-right,0px))}
 section{scroll-margin-top:0}
+#cenik,#recenze,#prace,#kdy{scroll-margin-top:calc(-1 * var(--sat))}
 main[inert],footer[inert],.lista[inert]{filter:none}
 
 .menuBtn{
@@ -131,7 +134,7 @@ h1{--h1:clamp(36px,12.0vw,64px);--ls:.6502em}
 @media (hover:hover){.tel a:hover{color:var(--dub)}}
 
 /* ---- 2. ceník: the price column ----------------------------------------------- */
-.cenik{padding:66px 0 34px}
+.cenik{padding:calc(30px + var(--sat)) 0 34px}
 h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-spacing:.01em;
   margin-bottom:18px}
 .ceny{list-style:none;margin:0;padding:0}
@@ -191,7 +194,7 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
 .uspora span{font-size:14.5px;color:var(--seda-tm);max-width:22ch}
 
 /* ---- 3. reviews, standing on the same brick ------------------------------------ */
-.recenze{padding:66px 0 0}
+.recenze{padding:calc(34px + var(--sat)) 0 0}
 .recenze h2{margin-bottom:16px}
 .citace{margin:0;padding:16px 0 18px;border-bottom:1px solid var(--linka-tm)}
 .citace-mrizka .citace:first-of-type{border-top:0}
@@ -208,14 +211,14 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
 @media (hover:hover){.vic:hover{text-decoration-color:var(--kuze)}}
 
 /* ---- 4. práce: one big, three small --------------------------------------------- */
-.prace{padding:66px 0 40px}
+.prace{padding:calc(36px + var(--sat)) 0 40px}
 .velka{margin:0 -20px 8px}
 .velka img{width:100%}
 .drobne{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .drobne img{width:100%;aspect-ratio:1/1;object-fit:cover}
 
 /* ---- 5. otevírací doba, led by today -------------------------------------------- */
-.kdy{padding:66px 0 40px}
+.kdy{padding:calc(30px + var(--sat)) 0 40px}
 .kdy h2{font-size:clamp(22px,5.6vw,28px);margin-bottom:6px}
 .dnesek{font-family:Sansita,Georgia,serif;font-weight:900;color:var(--dub);
   font-size:clamp(28px,8vw,38px);line-height:1;text-transform:uppercase;
@@ -595,18 +598,6 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
   }
   function cas(min) { var h = Math.floor(min / 60), m = min % 60; return h + ':' + (m < 10 ? '0' + m : m); }
 
-  window.addEventListener('load', function () {
-    var h = location.hash.slice(1);
-    if (!h) return;
-    var cil = document.getElementById(h);
-    if (!cil) return;
-    setTimeout(function () {
-      var y = Math.round(cil.getBoundingClientRect().top + (window.pageYOffset || 0));
-      window.scrollTo(0, y);
-      cil.focus({ preventScroll: true });
-    }, 120);
-  });
-
   var el = document.getElementById('stav');
   var nadpis = document.getElementById('dnesek');
   var n = ted();
@@ -703,11 +694,8 @@ h2{font-size:clamp(26px,7vw,38px);line-height:1;text-transform:uppercase;letter-
   var skoky = menu.querySelectorAll('a.polozka[href^="#"]');
   var pomalu = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  /* scrollIntoView is offset by the status bar on iOS; an absolute scrollTo is not. */
   function skoc(cil, jak) {
-    var y = Math.round(cil.getBoundingClientRect().top + (window.pageYOffset || 0));
-    try { window.scrollTo({ top: y, left: 0, behavior: jak }); }
-    catch (e) { window.scrollTo(0, y); }
+    cil.scrollIntoView({ behavior: jak, block: 'start' });
     cil.focus({ preventScroll: true });
   }
   for (var k = 0; k < skoky.length; k++) {
