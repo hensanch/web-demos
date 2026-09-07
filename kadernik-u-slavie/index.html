@@ -9,11 +9,15 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pánský Kadeřník U Slávie, Praha 10-Vršovice">
 <meta property="og:description" content="Klasické pánské kadeřnictví bez objednání, od 7 ráno. Bělocerkevská 2, u stadionu Slavie.">
-<meta property="og:image" content="https://hensanch.github.io/web-demos/kadernik-u-slavie/img/oblouk-strih.jpg">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/kadernik-u-slavie/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="cs_CZ">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23D3AB4E%22%2F%3E%3Cpath%20d%3D%22M8%2028V16a8%208%200%200%201%2016%200v12z%22%20fill%3D%22%2319130D%22%2F%3E%3C%2Fsvg%3E">
 <link rel="preload" href="fonts/tinos-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/tinos-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/tinos-700-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/tinos-400-ext.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HairSalon","name":"Pánský Kadeřník U Slávie","image":"https://hensanch.github.io/web-demos/kadernik-u-slavie/img/oblouk-strih.jpg","telephone":"+420604833719","priceRange":"Kč","paymentAccepted":"Cash","address":{"@type":"PostalAddress","streetAddress":"Bělocerkevská 1438/2","addressLocality":"Praha 10-Vršovice","postalCode":"100 00","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.0695253,"longitude":14.469466},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:00","closes":"18:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","reviewCount":"363"},"sameAs":["https://www.facebook.com/pages/biz/Kade%C5%99nictv%C3%AD-u-Slavie-171031660058206/"]}
 </script>
@@ -48,6 +52,7 @@ a,button{touch-action:manipulation}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
 img{display:block;max-width:100%;height:auto}
 :focus-visible{outline:3px solid var(--tus);outline-offset:3px}
+main>section:focus,main>section:focus-visible{outline:0}
 .skok{position:absolute;left:var(--okraj);top:-60px;background:var(--tus);color:var(--lamino);padding:10px 14px;z-index:20}
 .skok:focus{top:8px}
 
@@ -68,11 +73,12 @@ h1.nazev{margin-top:6px;font-size:38px;letter-spacing:0}
 .akce{margin-top:18px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 .tlacitko{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;background:var(--plast);color:#fff;font-weight:700;font-size:18px;text-decoration:none;border:2px solid var(--plast)}
 @media (hover:hover){ .tlacitko:hover{background:#244B69;border-color:#244B69} }
-.trasa{min-height:44px;display:inline-flex;align-items:center;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.trasa{min-height:44px;min-width:44px;display:inline-flex;align-items:center;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
 @media (hover:hover){ .trasa:hover{text-decoration-thickness:4px} }
 
 /* sections on the laminate */
 main>section{padding:56px var(--okraj) 64px;background:var(--lamino)}
+main>section+section{border-top:1.5px solid var(--dyha)}
 main>section[id]:not(.zed){scroll-margin-top:calc(-1 * var(--sat));padding-top:calc(56px + var(--sat))}
 h2{font-size:28px;margin-bottom:26px}
 .blok{max-width:60ch}
@@ -82,7 +88,7 @@ h2{font-size:28px;margin-bottom:26px}
 .jak div{display:grid;grid-template-columns:1fr;gap:4px 24px;padding:16px 0;border-top:1.5px solid var(--dyha)}
 .jak div:last-child{border-bottom:1.5px solid var(--dyha)}
 .jak dt{color:var(--dyha);font-weight:700}
-.jak dd{margin:0;max-width:52ch}
+.jak dd{margin:0;max-width:52ch;text-wrap:pretty}
 
 /* 3. what men say */
 .recenze{margin:0;padding:0;list-style:none}
@@ -192,7 +198,7 @@ dialog.sup::backdrop{background:rgba(25,19,13,.55)}
       <p class="co">Pánské kadeřnictví ve&nbsp;Vršovicích, Bělocerkevská&nbsp;2, Praha&nbsp;10.</p>
       <p class="stav" id="stav-uvod">Po–Čt 7–19, Pá 7–18</p>
       <div class="akce">
-        <a class="tlacitko" id="zavolat-uvod" href="tel:+420604833719">Zavolat</a>
+        <a class="tlacitko" id="zavolat-uvod" href="tel:+420604833719">Zavolat 604&nbsp;833&nbsp;719</a>
         <a class="trasa" href="https://www.google.com/maps/dir/?api=1&amp;destination=B%C4%9Blocerkevsk%C3%A1%201438%2F2%2C%20Praha%2010" rel="noopener">Trasa</a>
       </div>
     </div>
@@ -214,8 +220,8 @@ dialog.sup::backdrop{background:rgba(25,19,13,.55)}
   <div class="dvojice">
     <div>
       <ul class="recenze">
-        <li><blockquote>„Velmi příjemné kadeřnictví – milý a&nbsp;ochotný personál, kvalitní služby a&nbsp;k&nbsp;tomu férové ceny. Rád se sem vracím.“</blockquote><p class="kdo">Jan, říjen 2025</p></li>
-        <li><blockquote>„Není to žádný nóbl kadeřnictví, ale ženský tam pracují léta a&nbsp;svojí práci znají a&nbsp;vždy dobře ostříhají podle mého zadání.“</blockquote><p class="kdo">Vladimir, 2022</p></li>
+        <li><blockquote>„Velmi příjemné kadeřnictví – milý a&nbsp;ochotný personál, kvalitní služby a&nbsp;k&nbsp;tomu férové ceny. Rád se sem vracím.“</blockquote><p class="kdo">Jan, Google</p></li>
+        <li><blockquote>„Není to žádný nóbl kadeřnictví, ale ženský tam pracují léta a&nbsp;svojí práci znají a&nbsp;vždy dobře ostříhají podle mého zadání.“</blockquote><p class="kdo">Vladimir, Google</p></li>
         <li><blockquote>„Z&nbsp;dlouhých vlasů pod lopatky jsem měl za&nbsp;10&nbsp;minut moderní krátký sestřih. … Líbí se mi ten přístup bez objednání.“</blockquote><p class="kdo">Lukáš, březen 2022</p></li>
         <li><blockquote>„Rychlé a&nbsp;dobré stříhání bez objednávání se dopředu, což pánové ocení.“</blockquote><p class="kdo">Michal, listopad 2019</p></li>
       </ul>
