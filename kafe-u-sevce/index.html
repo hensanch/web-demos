@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kavárna Praha 10 – Strašnice | Kafe U&nbsp;Ševce</title>
+<meta name="description" content="Kafe U Ševce, malá kavárna ve Strašnicích hned u tramvajové zastávky. Výběrová káva, moravské koláče, croissanty a snídaně s sebou. Otevřeno ve všední dny od 7:30.">
+<link rel="canonical" href="https://hensanch.github.io/web-demos/kafe-u-sevce/">
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="Kafe U Ševce, kavárna ve Strašnicích">
+<meta property="og:description" content="Výběrová káva, moravské koláče a snídaně s sebou. V Olšinách 50, hned u zastávky.">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/kafe-u-sevce/img/vitrina-kolace-1400.jpg">
+<meta property="og:url" content="https://hensanch.github.io/web-demos/kafe-u-sevce/">
+<meta property="og:locale" content="cs_CZ">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%231F2238%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2224%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%224%22%20stroke-dasharray%3D%227.5%205%22%2F%3E%3Cpath%20d%3D%22M20%2028h20v6a10%2010%200%200%201-20%200z%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22M40%2030h4a4%204%200%200%201%200%208h-4%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CafeOrCoffeeShop",
+ "name": "Kafe U Ševce",
+ "url": "https://hensanch.github.io/web-demos/kafe-u-sevce/",
+ "image": "https://hensanch.github.io/web-demos/kafe-u-sevce/img/vitrina-kolace-1400.jpg",
+ "sameAs": ["https://www.facebook.com/kafeusevce"],
+ "address": {"@type": "PostalAddress", "streetAddress": "V Olšinách 1122/50", "addressLocality": "Praha 10 – Strašnice", "postalCode": "100 00", "addressCountry": "CZ"},
+ "geo": {"@type": "GeoCoordinates", "latitude": 50.0711528, "longitude": 14.4853888},
+ "servesCuisine": "Káva, pečivo, snídaně",
+ "priceRange": "1–100 Kč",
+ "openingHoursSpecification": [
+  {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "07:30", "closes": "18:00"},
+  {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "07:30", "closes": "17:00"}
+ ],
+ "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "97"}
+}
+</script>
+<style>
+@font-face{font-family:"Oswald";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/oswald-500-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Oswald";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/oswald-500-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Arimo";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/arimo-400-latin-ext.woff2) format("woff2");unicode-range:U+0100-017F,U+02C6-02DD}
+@font-face{font-family:"Arimo";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/arimo-400-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Arimo";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/arimo-700-latin-ext.woff2) format("woff2");unicode-range:U+0100-017F,U+02C6-02DD}
+@font-face{font-family:"Arimo";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/arimo-700-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --omitka:#E6B694;
+ --stena:#F4EEE5;
+ --stit:#1F2238;
+ --pult:#B98F5E;
+ --bily:#FFFFFF;
+ --sat:0px;
+ --lista:76px;
+ --okraj:20px;
+ --sirka:1120px;
+}
+@supports (-webkit-touch-callout:none){
+ @media (hover:none) and (pointer:coarse){ :root{--sat:62px} }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--omitka);color:var(--stit);font-family:"Arimo",Arial,Helvetica,sans-serif;font-size:17px;line-height:1.5;-webkit-text-size-adjust:100%;scroll-padding-top:0;scroll-padding-bottom:calc(var(--lista) + 8px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--omitka);-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:"Oswald","Arial Narrow",sans-serif;font-weight:500;line-height:1.05;text-wrap:balance}
+p,blockquote{margin:0}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+button,a,summary{touch-action:manipulation}
+:focus-visible{outline:3px solid var(--stit);outline-offset:3px}
+html.dotyk :focus-visible{outline:0}
+.preskoc{position:absolute;left:-999px;top:8px;background:var(--stit);color:#fff;padding:10px 14px;z-index:60}
+.preskoc:focus{left:8px}
+.obsah{width:100%;max-width:var(--sirka);margin:0 auto;padding-left:var(--okraj);padding-right:var(--okraj)}
+
+/* ------- top row: Menu ------- */
+.horni{position:relative;z-index:5}
+.horni .obsah{display:flex;justify-content:flex-end;align-items:center;height:60px}
+.slovo-menu{display:inline-flex;align-items:center;justify-content:center;min-width:76px;height:44px;border:1.5px solid var(--stit);font-family:"Oswald",sans-serif;font-size:19px;letter-spacing:.04em;text-transform:uppercase;line-height:1}
+@media (hover:hover){.slovo-menu:hover{background:var(--stit);color:#fff}}
+
+/* ------- first screen (street) ------- */
+.ulice{background:var(--omitka);padding-bottom:0}
+.ulice .obsah{padding-top:4px}
+.nazev{font-size:16vw;letter-spacing:.01em;text-transform:uppercase;line-height:1;margin-left:-.03em;white-space:nowrap}
+.stav{margin-top:14px;font-weight:700;font-size:17px}
+.stav::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--stit);margin-right:9px;vertical-align:1px}
+html[data-otevreno="0"] .stav::before{background:none;box-shadow:inset 0 0 0 2px var(--stit)}
+.co{margin-top:10px;max-width:32em}
+.trasa{display:flex;align-items:center;justify-content:center;margin-top:22px;height:58px;width:100%;background:var(--stit);color:#fff;text-decoration:none;font-family:"Oswald",sans-serif;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+@media (hover:hover){.trasa:hover{background:#0F1122}}
+.hodnoceni{margin-top:14px;font-size:16px}
+.hodnoceni a{text-decoration-thickness:1.5px;text-underline-offset:3px}
+/* the ring: the sign's stitched circle with their real cup inside */
+.prsten{position:relative;width:320px;height:320px;margin:26px auto -130px;z-index:2}
+.prsten svg{position:absolute;inset:0;width:100%;height:100%}
+.prsten img{position:absolute;left:12%;top:12%;width:76%;height:76%;border-radius:50%;object-fit:cover}
+
+/* ------- inside (pale) ------- */
+.uvnitr{background:var(--stena)}
+.cil{scroll-margin-top:calc(-1 * var(--sat))}
+#cenik{padding-top:calc(130px + 34px + var(--sat));padding-bottom:56px}
+.nadpis{font-size:36px;text-transform:uppercase;letter-spacing:.02em}
+.skupina{margin-top:28px}
+.skupina h3{font-size:22px;letter-spacing:.02em;text-transform:uppercase;padding-bottom:8px;border-bottom:1.5px solid var(--stit)}
+.radek{display:flex;align-items:baseline;gap:10px;padding:6px 0}
+.radek .ved{flex:1;border-bottom:2px dotted var(--pult);position:relative;top:-5px;min-width:24px}
+.radek .cena{font-family:"Oswald",sans-serif;font-size:21px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pozn{margin-top:18px;font-size:15px;max-width:32em}
+.foto-tabule{margin:0;display:none}
+.foto-tabule figcaption{font-size:14px;margin-top:8px}
+
+#pult{padding-top:calc(8px + var(--sat));padding-bottom:56px}
+#pult .nadpis{margin-bottom:14px}
+.na-pultu{max-width:34em}
+.fotky{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.fotky figure{margin:0}
+.fotky .siroka{grid-column:1 / -1}
+.fotky img{width:100%;object-fit:cover;aspect-ratio:4/5}
+.fotky .siroka img{aspect-ratio:4/3}
+.fotky .police{display:none}
+.fotky .matcha{grid-column:1 / -1}
+.fotky .matcha img{aspect-ratio:4/3;object-position:50% 30%}
+.fotky figcaption{font-size:14px;margin-top:6px}
+
+#recenze{padding-top:calc(8px + var(--sat));padding-bottom:64px}
+#recenze .nadpis{margin-bottom:22px}
+.velka{font-size:21px;line-height:1.4;max-width:30em}
+.velka .podpis,.mala .podpis{margin-top:10px;font-size:15px;font-weight:700}
+.male{margin-top:28px;border-top:1.5px solid var(--stit)}
+.mala{padding:18px 0;border-bottom:1px solid var(--pult);margin:0}
+.mala p{max-width:34em}
+.vsechny{display:inline-block;margin-top:20px;font-weight:700;text-underline-offset:3px;text-decoration-thickness:1.5px}
+
+/* ------- street again: Kde ------- */
+#kde{background:var(--omitka);padding-top:calc(44px + var(--sat));padding-bottom:56px}
+#kde .nadpis{margin-bottom:10px}
+.adresa{max-width:30em}
+.hodiny{margin:24px 0 0;padding:0;list-style:none;border-top:1.5px solid var(--stit)}
+.hodiny li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--pult)}
+.hodiny li.dnes{font-weight:700}
+.hodiny li.dnes span:first-child::after{content:" (dnes)";font-weight:400}
+.hodiny .cas{font-family:"Oswald",sans-serif;font-size:19px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mapa{margin-top:22px}
+.mapa iframe{display:block;width:100%;height:340px;border:0}
+.nacti{height:48px;padding:0 22px;border:1.5px solid var(--stit);font-weight:700;background:var(--omitka)}
+@media (hover:hover){.nacti:hover{background:var(--stit);color:#fff}}
+.mapa-odkazy{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 22px;font-weight:700}
+.mapa-odkazy a{text-underline-offset:3px;text-decoration-thickness:1.5px;display:inline-block;padding:8px 0}
+.pruceli{margin:28px 0 0}
+.pruceli figcaption{font-size:14px;margin-top:8px}
+
+/* ------- footer ------- */
+.pata{background:var(--omitka);border-top:1.5px solid var(--stit)}
+.pata .obsah{padding-top:28px;padding-bottom:calc(28px + var(--lista))}
+.pata .znacka{font-family:"Oswald",sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:.03em}
+.pata p{margin-top:8px;font-size:15px}
+.pata a{text-underline-offset:3px;display:inline-block;padding:6px 0}
+
+/* ------- phone bar ------- */
+.lista{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--omitka);border-top:1.5px solid var(--stit);padding:8px var(--okraj) calc(8px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;visibility:hidden;transform:translateY(100%);transition:transform .25s,visibility .25s}
+.lista.videt{visibility:visible;transform:none}
+@media (prefers-reduced-motion:reduce){.lista{transition:none}}
+.lista .slovo-menu{flex:0 0 auto;min-width:90px;height:52px}
+.lista .trasa{margin:0;height:52px;flex:1}
+
+/* ------- menu: the sign board ------- */
+.deska{border:0;padding:0;margin:auto;width:min(88vw,420px);max-height:88vh;overflow:auto;background:var(--stit);color:#fff;outline:none}
+.deska::backdrop{background:rgba(31,34,56,.62)}
+.deska-vnitrek{padding:28px 28px 28px}
+.deska .logo{width:64px;height:64px;margin:0 auto}
+.deska .logo svg{display:block;width:100%;height:100%}
+.deska .jmeno{text-align:center;margin-top:10px;font-family:"Oswald",sans-serif;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+.deska ul{list-style:none;margin:26px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.35)}
+.deska li a{display:block;padding:12px 0;font-family:"Oswald",sans-serif;font-size:28px;line-height:1.15;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+@media (hover:hover){.deska li a:hover{padding-left:8px}}
+.deska .stav{color:#fff}
+.deska .stav::before{background:#fff}
+html[data-otevreno="0"] .deska .stav::before{background:none;box-shadow:inset 0 0 0 2px #fff}
+.deska .trasa{background:#fff;color:var(--stit);margin-top:14px}
+@media (hover:hover){.deska .trasa:hover{background:var(--omitka)}}
+.deska .zavrit{position:absolute;right:10px;top:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:30px;line-height:1;color:#fff}
+.deska :focus-visible{outline:3px solid #fff;outline-offset:3px}
+html.menu-otevreno{overflow:hidden}
+
+/* ------- desktop ------- */
+@media (min-width:900px){
+ :root{--okraj:40px;--lista:0px}
+ html{scroll-padding-top:60px;scroll-padding-bottom:0}
+ .horni{position:sticky;top:0;background:var(--omitka)}
+ .lista{display:none}
+ .ulice .obsah{display:grid;grid-template-columns:1fr 520px;column-gap:72px;align-items:start;padding-top:24px}
+ .nazev{font-size:84px}
+ .stav{margin-top:26px;font-size:19px}
+ .co{margin-top:14px;font-size:19px;max-width:26em}
+ .trasa{width:auto;min-width:260px;padding:0 40px;margin-top:34px}
+ .hodnoceni{font-size:17px;margin-top:18px}
+ .prsten{width:520px;height:520px;margin:0 0 -190px}
+ .cil{scroll-margin-top:0}
+ #cenik{padding-top:56px}
+ #cenik-sekce .obsah{display:grid;grid-template-columns:560px 1fr;column-gap:72px;align-items:start}
+ .foto-tabule{display:block}
+ #cenik .nadpis{font-size:44px}
+ .foto-tabule{margin-top:210px}
+ #pult{padding-top:24px}
+ #pult .nadpis,#recenze .nadpis,#kde .nadpis{font-size:44px}
+ .na-pultu{font-size:19px}
+ .fotky{grid-template-columns:repeat(12,1fr);gap:14px;margin-top:34px}
+ .fotky .siroka{grid-column:span 8}
+ .fotky .uzka,.fotky .polovina{grid-column:span 4}
+ .fotky .uzka.croissant img{aspect-ratio:364/556}
+ .fotky .police{display:block}
+ .fotky .matcha{grid-column:span 4}
+ .fotky .matcha img{aspect-ratio:4/5;object-position:50% 50%}
+ #recenze{padding-top:24px;padding-bottom:80px}
+ #recenze .obsah{display:grid;grid-template-columns:1fr 1fr;column-gap:72px}
+ #recenze .nadpis,#recenze .vsechny{grid-column:1 / -1}
+ .velka{font-size:26px}
+ .male{margin-top:0}
+ #kde{padding-top:56px;padding-bottom:72px}
+ #kde .obsah{display:grid;grid-template-columns:1fr 480px;column-gap:72px;align-items:start}
+ #kde .nadpis{grid-column:1 / -1}
+ .pruceli{margin:0;grid-column:2;grid-row:2 / span 6}
+ .pata .obsah{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-bottom:28px}
+ .deska{width:420px}
+}
+@media (min-width:900px) and (max-width:1100px){
+ .ulice .obsah{grid-template-columns:1fr 440px}
+ .prsten{width:440px;height:440px;margin-bottom:-160px}
+ .foto-tabule{margin-top:180px}
+ #cenik-sekce .obsah{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<a class="preskoc" href="#cenik">Přeskočit na ceník</a>
+
+<div class="horni" id="horni">
+ <div class="obsah">
+  <button class="slovo-menu" id="otevri-menu" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
+ </div>
+</div>
+
+<main id="hlavni">
+ <section class="ulice" id="uvod" aria-label="Kafe U Ševce">
+  <div class="obsah">
+   <div>
+    <h1 class="nazev">Kafe U&nbsp;Ševce</h1>
+    <p class="stav" id="stav" data-stav>Otevřeno ve všední dny od&nbsp;7:30</p>
+    <p class="co">Malá kavárna ve&nbsp;Strašnicích, hned u&nbsp;tramvajové zastávky. Výběrová káva, moravské koláče, croissanty a&nbsp;snídaně s&nbsp;sebou.</p>
+    <a class="trasa" id="hlavni-trasa" href="https://www.google.com/maps/dir/?api=1&amp;destination=Kafe+U+%C5%A0evce,+V+Ol%C5%A1in%C3%A1ch+1122/50,+Praha+10" rel="noopener">Trasa</a>
+    <p class="hodnoceni"><a href="https://www.google.com/maps/place/Kafe+U+%C5%A0evce/data=!4m7!3m6!1s0x470b9300742774c9:0xffdc23d7907808c!8m2!3d50.0711528!4d14.4853888!16s%2Fg%2F11y36d459m!19sChIJyXQndACTC0cRjIAHeT3C_Q8" rel="noopener">4,9 z&nbsp;97 recenzí na&nbsp;Googlu</a></p>
+   </div>
+   <figure class="prsten">
+    <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="47" fill="none" stroke="#1F2238" stroke-width="4.6" stroke-dasharray="8.6 6.17" stroke-dashoffset="4.3" stroke-linecap="butt"/></svg>
+    <img src="img/hrnek-medved-520.jpg" srcset="img/hrnek-medved-520.jpg 520w, img/hrnek-medved-800.jpg 800w, img/hrnek-medved-1100.jpg 1100w" sizes="(min-width:1100px) 395px, (min-width:900px) 335px, 243px" width="520" height="520" alt="Cappuccino s medvídkem v mléčné pěně na dřevěném tácku" fetchpriority="high">
+   </figure>
+  </div>
+ </section>
+
+ <section class="uvnitr" id="cenik-sekce" aria-labelledby="cenik-nadpis">
+  <div class="obsah">
+   <div class="cil" id="cenik" tabindex="-1">
+    <h2 class="nadpis" id="cenik-nadpis">Ceník</h2>
+    <div class="skupina">
+     <h3>Káva a&nbsp;čaj</h3>
+     <div class="radek"><span>Espresso</span><span class="ved"></span><span class="cena">50&nbsp;Kč</span></div>
+     <div class="radek"><span>Double espresso</span><span class="ved"></span><span class="cena">60&nbsp;Kč</span></div>
+     <div class="radek"><span>Cappuccino</span><span class="ved"></span><span class="cena">69&nbsp;Kč</span></div>
+     <div class="radek"><span>Americano</span><span class="ved"></span><span class="cena">60&nbsp;Kč</span></div>
+     <div class="radek"><span>Café lungo</span><span class="ved"></span><span class="cena">55&nbsp;Kč</span></div>
+     <div class="radek"><span>Café latte</span><span class="ved"></span><span class="cena">75&nbsp;Kč</span></div>
+     <div class="radek"><span>Flat white</span><span class="ved"></span><span class="cena">75&nbsp;Kč</span></div>
+     <div class="radek"><span>Rostlinné mléko</span><span class="ved"></span><span class="cena">+10&nbsp;Kč</span></div>
+     <div class="radek"><span>Čaj</span><span class="ved"></span><span class="cena">45&nbsp;Kč</span></div>
+    </div>
+    <div class="skupina">
+     <h3>K&nbsp;tomu</h3>
+     <div class="radek"><span>Moravský koláč malý</span><span class="ved"></span><span class="cena">40&nbsp;Kč</span></div>
+     <div class="radek"><span>Moravský koláč velký</span><span class="ved"></span><span class="cena">50&nbsp;Kč</span></div>
+     <div class="radek"><span>Mošt jablko</span><span class="ved"></span><span class="cena">55&nbsp;Kč</span></div>
+     <div class="radek"><span>Mošt hruška 0,33&nbsp;l</span><span class="ved"></span><span class="cena">59&nbsp;Kč</span></div>
+    </div>
+    <p class="pozn">Platit můžete kartou. Kávu s&nbsp;sebou vám připravíme do&nbsp;kelímku, koláče zabalíme.</p>
+   </div>
+   <figure class="foto-tabule">
+    <img src="img/kavovar-tabule-800.jpg" srcset="img/kavovar-tabule-800.jpg 800w, img/kavovar-tabule-1400.jpg 1400w" sizes="(min-width:1100px) 488px, (min-width:900px) 45vw, calc(100vw - 40px)" width="800" height="540" alt="Bílý kávovar Astoria, mlýnek a tabule s cenami na dřevěném pultu před kachlíkovou stěnou" loading="lazy">
+    <figcaption>Tabule u&nbsp;kávovaru</figcaption>
+   </figure>
+  </div>
+ </section>
+
+ <section class="uvnitr cil" id="pult" aria-labelledby="pult-nadpis" tabindex="-1">
+  <div class="obsah">
+   <h2 class="nadpis" id="pult-nadpis">Co je na&nbsp;pultu</h2>
+   <p class="na-pultu">Kávu vaříme ze&nbsp;zrn pražírny The Naughty Dog, k&nbsp;ní děláme i&nbsp;matcha latte a&nbsp;batch brew. Ve&nbsp;vitríně jsou moravské koláče, croissanty a&nbsp;kváskový chléb, na&nbsp;policích mošty, džemy, sirupy a&nbsp;víno, k&nbsp;tomu farmářské jogurty. Sníst se to dá u&nbsp;pultu, na&nbsp;lavičce před dveřmi, nebo si to vezmete s&nbsp;sebou k&nbsp;tramvaji.</p>
+   <div class="fotky">
+    <figure class="siroka">
+     <img src="img/vitrina-kolace-800.jpg" srcset="img/vitrina-kolace-800.jpg 800w, img/vitrina-kolace-1400.jpg 1400w" sizes="(min-width:1100px) 742px, (min-width:900px) 66vw, calc(100vw - 40px)" width="800" height="600" alt="Skleněná vitrína s moravskými koláči na mřížkách, croissanty a proutěný tác s koláči na pultu" loading="lazy">
+     <figcaption>Vitrína s&nbsp;koláči</figcaption>
+    </figure>
+    <figure class="uzka croissant">
+     <img src="img/croissant-kava-600.jpg" srcset="img/croissant-kava-600.jpg 600w, img/croissant-kava-1100.jpg 1100w" sizes="(min-width:1100px) 364px, (min-width:900px) 33vw, calc(50vw - 25px)" width="600" height="720" alt="Ruka s dvoubarevným croissantem nad talířkem, vedle cappuccino na kulatém dřevěném tácku" loading="lazy">
+     <figcaption>Croissant a&nbsp;cappuccino</figcaption>
+    </figure>
+    <figure class="polovina">
+     <img src="img/snidane-venku-600.jpg" srcset="img/snidane-venku-600.jpg 600w, img/snidane-venku-1100.jpg 1100w" sizes="(min-width:1100px) 364px, (min-width:900px) 33vw, calc(50vw - 25px)" width="600" height="625" alt="Croissant, cappuccino a batch brew na dřevěném stole před kavárnou, u stolu sedí host" loading="lazy">
+     <figcaption>Snídaně na&nbsp;lavičce před dveřmi</figcaption>
+    </figure>
+    <figure class="polovina matcha">
+     <img src="img/matcha-lavicka-600.jpg" srcset="img/matcha-lavicka-600.jpg 600w, img/matcha-lavicka-1100.jpg 1100w" sizes="(min-width:1100px) 364px, (min-width:900px) 33vw, calc(100vw - 40px)" width="600" height="750" alt="Ledová matcha latte v kelímku před kavárnou, v pozadí dvě hostky na lavičce" loading="lazy">
+     <figcaption>Ledová matcha v&nbsp;létě</figcaption>
+    </figure>
+    <figure class="polovina police">
+     <img src="img/police-rostliny-600.jpg" srcset="img/police-rostliny-600.jpg 600w, img/police-rostliny-1100.jpg 1100w" sizes="(min-width:1100px) 364px, (min-width:900px) 33vw, calc(50vw - 25px)" width="600" height="630" alt="Dřevěný pult s vitrínou, černé police s vínem a kávou, nad nimi zavěšené květiny v proutěných koších" loading="lazy">
+     <figcaption>Police s&nbsp;vínem, kávou a&nbsp;mošty</figcaption>
+    </figure>
+   </div>
+  </div>
+ </section>
+
+ <section class="uvnitr cil" id="recenze" aria-labelledby="recenze-nadpis" tabindex="-1">
+  <div class="obsah">
+   <h2 class="nadpis" id="recenze-nadpis">Z&nbsp;recenzí</h2>
+   <blockquote class="velka">
+    <p>„V&nbsp;puklině tuctového baráku vedle zastávky tramvaje se skrývá prostor, který je vyzdobený rustikálními policemi, na&nbsp;kterých leží vše od&nbsp;výběrové kávy po pečivo a&nbsp;třeba i&nbsp;škvarkovou pomazánku. Kávě ani obsluze rozhodně nejde nic vytknout. Jestli jdete kolem, zastavte se; určitě vám přijede i&nbsp;jiná tramvaj.“</p>
+    <p class="podpis">Josef, Google</p>
+   </blockquote>
+   <div class="male">
+    <blockquote class="mala">
+     <p>„Chci moc vyzdvihnout obsluhu – paní, která byla neskutečně milá a&nbsp;ochotná, poradila mi s&nbsp;výběrem kávy a&nbsp;hlavně mi svou energií zlepšila den. Káva skvělá – měla jsem flat white a&nbsp;batch, a&nbsp;k&nbsp;tomu croissant.“</p>
+     <p class="podpis">Hanka, Google</p>
+    </blockquote>
+    <blockquote class="mala">
+     <p>„Výborný batch brew. V&nbsp;okolí určitě nej kavárna, když chcete kvalitní kávu… a&nbsp;je to hned u&nbsp;zastávky. Bylo fajn prohodit pár slov s&nbsp;baristkou.“</p>
+     <p class="podpis">Petr, Google</p>
+    </blockquote>
+    <blockquote class="mala">
+     <p>„Ideální místo pro snídani. Krásně zrenovované místo na&nbsp;kavárnu. A&nbsp;jako vnuk ševce pana Lébra rád podpořím. Šel jsem tam s&nbsp;dědou po letech a&nbsp;moc se mu to líbilo.“</p>
+     <p class="podpis">Tobiaš, Google</p>
+    </blockquote>
+   </div>
+   <a class="vsechny" href="https://www.google.com/maps/place/Kafe+U+%C5%A0evce/data=!4m7!3m6!1s0x470b9300742774c9:0xffdc23d7907808c!8m2!3d50.0711528!4d14.4853888!16s%2Fg%2F11y36d459m!19sChIJyXQndACTC0cRjIAHeT3C_Q8" rel="noopener">Všech 97 recenzí na&nbsp;Googlu</a>
+  </div>
+ </section>
+
+ <section class="cil" id="kde" aria-labelledby="kde-nadpis" tabindex="-1">
+  <div class="obsah">
+   <h2 class="nadpis" id="kde-nadpis">Cestou na&nbsp;metro</h2>
+   <p class="adresa">V&nbsp;Olšinách 1122/50, Praha 10 – Strašnice. Vchod s&nbsp;bílou mříží a&nbsp;tabulí na&nbsp;chodníku, vedle zastávky tramvaje.</p>
+   <ul class="hodiny" id="hodiny">
+    <li data-dny="1,2,3,4"><span>Pondělí až čtvrtek</span><span class="cas">7:30–18:00</span></li>
+    <li data-dny="5"><span>Pátek</span><span class="cas">7:30–17:00</span></li>
+    <li data-dny="6,0"><span>Sobota a&nbsp;neděle</span><span class="cas">zavřeno</span></li>
+   </ul>
+   <div class="mapa" id="mapa">
+    <button class="nacti" id="nacti-mapu" type="button">Zobrazit mapu</button>
+   </div>
+   <p class="mapa-odkazy">
+    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Kafe+U+%C5%A0evce,+V+Ol%C5%A1in%C3%A1ch+1122/50,+Praha+10" rel="noopener">Trasa v&nbsp;Mapách Google</a>
+    <a href="https://www.facebook.com/kafeusevce" rel="noopener">Novinky na&nbsp;Facebooku</a>
+   </p>
+   <figure class="pruceli">
+    <img src="img/pruceli-600.jpg" srcset="img/pruceli-600.jpg 600w, img/pruceli-1000.jpg 1000w" sizes="(min-width:900px) 480px, calc(100vw - 40px)" width="600" height="810" alt="Vchod do kavárny v broskvové omítce s tmavým štítem Kafe U Ševce a křídovou tabulí u dveří" loading="lazy">
+    <figcaption>V&nbsp;Olšinách 50</figcaption>
+   </figure>
+  </div>
+ </section>
+</main>
+
+<footer class="pata">
+ <div class="obsah">
+  <div>
+   <p class="znacka">Kafe U&nbsp;Ševce</p>
+   <p>V&nbsp;Olšinách 1122/50, 100&nbsp;00 Praha 10 – Strašnice</p>
+  </div>
+  <p><a href="https://www.facebook.com/kafeusevce" rel="noopener">Facebook</a> &nbsp; <a href="https://www.google.com/maps/place/Kafe+U+%C5%A0evce/data=!4m7!3m6!1s0x470b9300742774c9:0xffdc23d7907808c!8m2!3d50.0711528!4d14.4853888!16s%2Fg%2F11y36d459m!19sChIJyXQndACTC0cRjIAHeT3C_Q8" rel="noopener">Google</a></p>
+ </div>
+ <!-- Stránka nenačítá nic z cizích serverů: písma jsou uložená u ní, mapa se načte až po klepnutí. Žádné cookies, žádná lišta. Provozovatel, sídlo a IČO doplníme po potvrzení majitelkou. -->
+</footer>
+
+<div class="lista" id="lista" aria-hidden="true">
+ <button class="slovo-menu" id="otevri-menu-2" type="button" aria-haspopup="dialog" aria-controls="menu" tabindex="-1">Menu</button>
+ <a class="trasa" href="https://www.google.com/maps/dir/?api=1&amp;destination=Kafe+U+%C5%A0evce,+V+Ol%C5%A1in%C3%A1ch+1122/50,+Praha+10" rel="noopener" tabindex="-1">Trasa</a>
+</div>
+
+<dialog class="deska" id="menu" aria-label="Menu stránky" tabindex="-1">
+ <div class="deska-vnitrek">
+  <button class="zavrit" id="zavri-menu" type="button" aria-label="Zavřít menu">×</button>
+  <div class="logo" aria-hidden="true">
+   <svg viewBox="0 0 100 100" focusable="false"><circle cx="50" cy="50" r="44" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="9 6.9" stroke-dashoffset="4.5"/><path d="M30 42h34v10a17 17 0 0 1-34 0z" fill="#fff"/><path d="M64 46h6a6 6 0 0 1 0 12h-6" fill="none" stroke="#fff" stroke-width="4"/><path d="M33 47c6-3 24-3 30 0" fill="none" stroke="#1F2238" stroke-width="2.4" stroke-dasharray="1 2.6" stroke-linecap="round"/></svg>
+  </div>
+  <p class="jmeno">Kafe U&nbsp;Ševce</p>
+  <ul>
+   <li><a href="#cenik">Ceník</a></li>
+   <li><a href="#pult">Co je na&nbsp;pultu</a></li>
+   <li><a href="#recenze">Recenze</a></li>
+   <li><a href="#kde">Kde nás najdete</a></li>
+   <li><a href="https://www.facebook.com/kafeusevce" rel="noopener">Facebook</a></li>
+  </ul>
+  <p class="stav" data-stav style="margin-top:22px">Otevřeno ve všední dny od&nbsp;7:30</p>
+  <a class="trasa" href="https://www.google.com/maps/dir/?api=1&amp;destination=Kafe+U+%C5%A0evce,+V+Ol%C5%A1in%C3%A1ch+1122/50,+Praha+10" rel="noopener">Trasa</a>
+ </div>
+</dialog>
+
+<script>
+(function(){
+ var html=document.documentElement;
+
+ /* touch vs keyboard: rings only for keyboard users */
+ document.addEventListener('pointerdown',function(){html.classList.add('dotyk')},true);
+ document.addEventListener('keydown',function(e){if(['Tab','ArrowDown','ArrowUp','Enter',' '].indexOf(e.key)>-1)html.classList.remove('dotyk')},true);
+
+ /* live open state, Europe/Prague */
+ var OTV={1:[[7,30],[18,0]],2:[[7,30],[18,0]],3:[[7,30],[18,0]],4:[[7,30],[18,0]],5:[[7,30],[17,0]]};
+ var DNY=['v neděli','v pondělí','v úterý','ve středu','ve čtvrtek','v pátek','v sobotu'];
+ function ted(){
+  try{
+   var f=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Prague',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false});
+   var p={};f.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+   var d=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.weekday);
+   return {d:d,m:(parseInt(p.hour,10)%24)*60+parseInt(p.minute,10)};
+  }catch(e){var n=new Date();return {d:n.getDay(),m:n.getHours()*60+n.getMinutes()};}
+ }
+ function fmt(h){return h[0]+':'+(h[1]<10?'0':'')+h[1]}
+ function stav(){
+  var t=ted(),h=OTV[t.d],txt,open=false;
+  if(h){
+   var od=h[0][0]*60+h[0][1],doo=h[1][0]*60+h[1][1];
+   if(t.m>=od&&t.m<doo){open=true;txt='Otevřeno, dnes do '+fmt(h[1]);}
+   else if(t.m<od){txt='Zavřeno, otevíráme dnes v '+fmt(h[0]);}
+  }
+  if(!txt){
+   var n=t.d,i=0;do{n=(n+1)%7;i++}while(!OTV[n]&&i<7);
+   txt='Zavřeno, otevíráme '+(i===1?'zítra':DNY[n])+' v '+fmt(OTV[n][0]);
+  }
+  html.setAttribute('data-otevreno',open?'1':'0');
+  document.querySelectorAll('[data-stav]').forEach(function(el){el.textContent=txt});
+  document.querySelectorAll('#hodiny li').forEach(function(li){li.classList.toggle('dnes',li.getAttribute('data-dny').split(',').indexOf(String(t.d))>-1)});
+ }
+ stav();setInterval(stav,60000);
+
+ /* the name fills its column like the sign fills its board */
+ var nazev=document.querySelector('.nazev');
+ function fitName(){
+  nazev.style.fontSize='';
+  var w=nazev.parentElement.clientWidth,fs=parseFloat(getComputedStyle(nazev).fontSize),sw=nazev.scrollWidth;
+  if(w>0&&sw>0)nazev.style.fontSize=Math.min(150,fs*w/sw*0.985)+'px';
+ }
+ fitName();window.addEventListener('resize',fitName);
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitName);
+
+ /* phone bar appears when the first-screen button has left */
+ var lista=document.getElementById('lista'),tl=document.getElementById('hlavni-trasa');
+ function listaViditelna(on){lista.classList.toggle('videt',on);lista.setAttribute('aria-hidden',on?'false':'true');lista.querySelectorAll('a,button').forEach(function(el){el.tabIndex=on?0:-1})}
+ if('IntersectionObserver' in window){
+  new IntersectionObserver(function(es){es.forEach(function(en){listaViditelna(!en.isIntersecting&&en.boundingClientRect.top<0)})},{threshold:0}).observe(tl);
+ }
+
+ /* menu = the sign board */
+ var dlg=document.getElementById('menu'),scrollY=0,pushed=false;
+ var inertni=[document.getElementById('hlavni'),document.getElementById('horni'),document.querySelector('.pata'),lista,document.querySelector('.preskoc')];
+ function otevri(e){
+  if(dlg.open)return;
+  scrollY=window.scrollY;
+  history.scrollRestoration='manual';
+  html.classList.add('menu-otevreno');
+  document.body.style.position='fixed';document.body.style.top=(-scrollY)+'px';document.body.style.left='0';document.body.style.right='0';
+  inertni.forEach(function(el){if(el)el.inert=true});
+  dlg.showModal();
+  if(e&&e.detail===0){var prvni=dlg.querySelector('li a');if(prvni)prvni.focus();}else{dlg.focus();}
+  history.pushState({menu:1},'');pushed=true;
+ }
+ function zavriBezHistorie(){
+  if(!dlg.open)return;
+  dlg.close();
+  inertni.forEach(function(el){if(el)el.inert=false});
+  html.classList.remove('menu-otevreno');
+  document.body.style.position='';document.body.style.top='';document.body.style.left='';document.body.style.right='';
+  window.scrollTo({top:scrollY,left:0,behavior:'instant'});
+  history.scrollRestoration='auto';
+ }
+ function zavri(){if(pushed){pushed=false;history.back();}else{zavriBezHistorie();}}
+ window.addEventListener('popstate',function(){if(dlg.open){pushed=false;zavriBezHistorie();}});
+ document.getElementById('otevri-menu').addEventListener('click',otevri);
+ document.getElementById('otevri-menu-2').addEventListener('click',otevri);
+ document.getElementById('zavri-menu').addEventListener('click',zavri);
+ dlg.addEventListener('cancel',function(e){e.preventDefault();zavri();});
+ dlg.addEventListener('click',function(e){if(e.target===dlg)zavri();});
+ dlg.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+   e.preventDefault();
+   var cil=document.querySelector(a.hash);
+   var jdi=function(){
+    if(!cil)return;
+    cil.scrollIntoView({block:'start'});
+    cil.focus({preventScroll:true});
+   };
+   if(pushed){
+    pushed=false;
+    window.addEventListener('popstate',function h(){window.removeEventListener('popstate',h);setTimeout(jdi,0);});
+    history.back();
+   }else{zavriBezHistorie();jdi();}
+  });
+ });
+
+ /* map loads only after a tap */
+ document.getElementById('nacti-mapu').addEventListener('click',function(){
+  var box=document.getElementById('mapa');
+  var f=document.createElement('iframe');
+  f.src='https://www.google.com/maps?q=V+Ol%C5%A1in%C3%A1ch+1122%2F50,+100+00+Praha+10&z=16&output=embed';
+  f.title='Mapa: Kafe U Ševce, V Olšinách 1122/50';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';
+  box.innerHTML='';box.appendChild(f);
+ });
+})();
+</script>
+</body>
+</html>
