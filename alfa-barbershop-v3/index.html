@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ALFA Barber Shop – Praha 10, Zahradní Město, bez objednání</title>
 <meta name="description" content="Holičství v OC Cíl na Zahradním Městě. Bez objednání, hodnocení 5,0 z 5 na Googlu ze 152 recenzí. Topolová 2915/16, Praha 10. Telefon 773 137 979.">
 <meta name="theme-color" content="#141419">
@@ -32,7 +32,7 @@
   --sirka:1120px;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;scroll-padding-bottom:calc(84px + env(safe-area-inset-bottom))}
 body{
   margin:0;background:var(--sten);color:var(--tus);
   font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
@@ -41,10 +41,12 @@ body{
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,p,figure,ul{margin:0}
+h1,h2{text-wrap:balance}
 button{font:inherit;color:inherit}
+a,button,summary,label{touch-action:manipulation}
 section{scroll-margin-top:0}
 
-.al-obal{max-width:var(--sirka);margin:0 auto;padding:0 22px}
+.al-obal{max-width:var(--sirka);margin:0 auto;padding-left:calc(22px + env(safe-area-inset-left));padding-right:calc(22px + env(safe-area-inset-right))}
 .al-usek{padding:46px 0}
 .al-nadpis{font-size:clamp(30px,8vw,54px);line-height:1.04;font-weight:700;letter-spacing:-.02em}
 
@@ -54,7 +56,7 @@ section{scroll-margin-top:0}
 
 /* ---------- úvod ---------- */
 .al-uvod{position:relative;background:var(--noc);color:var(--svetlo);padding-bottom:110px}
-.al-pruh{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px 10px}
+.al-pruh{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px calc(16px + env(safe-area-inset-right)) 10px calc(16px + env(safe-area-inset-left))}
 .al-stav{font-size:14px;font-weight:500}
 .al-stav b{font-weight:700}
 .al-stav.je-zavreno b{color:var(--svetlo)}
@@ -68,7 +70,7 @@ section{scroll-margin-top:0}
   content:"";position:absolute;left:0;right:0;bottom:0;height:42%;pointer-events:none;
   background:linear-gradient(to top,var(--noc) 8%,rgba(20,20,25,.72) 44%,rgba(20,20,25,0) 100%);
 }
-.al-uvod-text{position:relative;z-index:2;margin-top:-72px;padding:0 22px}
+.al-uvod-text{position:relative;z-index:2;margin-top:-72px;padding-left:calc(22px + env(safe-area-inset-left));padding-right:calc(22px + env(safe-area-inset-right))}
 .al-znak{
   font-family:Marcellus,"Times New Roman",serif;color:var(--zlato);
   font-size:min(24vw,112px);line-height:.86;letter-spacing:.04em;
@@ -138,28 +140,37 @@ section{scroll-margin-top:0}
 .al-mapy{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
 .al-mapy a{
   flex:1 1 180px;min-height:52px;display:flex;align-items:center;justify-content:center;
-  border:1px solid rgba(23,23,27,.4);text-decoration:none;font-weight:700;font-size:16px;
+  border:1px solid rgba(23,23,27,.48);text-decoration:none;font-weight:700;font-size:16px;
 }
 @media (hover:hover){.al-mapy a:hover{background:rgba(23,23,27,.06)}}
+@media (hover:hover){
+  .al-menu-btn:hover,.al-zavrit:hover{background:rgba(241,241,245,.12);border-color:rgba(241,241,245,.85)}
+  .al-odkaz:hover{text-decoration-thickness:2px}
+  .al-tel:hover{text-decoration:underline;text-underline-offset:6px}
+  footer a:hover{text-decoration-thickness:2px}
+  .al-modal nav a:hover{color:var(--zlato)}
+  .al-lista a:hover{background:#26262D}
+  .al-lista a:first-child:hover{background:#FFF}
+}
 
 footer{border-top:1px solid var(--linka);margin-top:46px;padding:28px 0 84px;color:var(--sed);font-size:14px;line-height:1.6}
 footer b{color:var(--tus);font-weight:700;font-size:15px}
 footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
 
 /* menu */
-.al-modal{position:fixed;inset:0;z-index:70;background:var(--noc);color:var(--svetlo);display:flex;flex-direction:column}
+.al-modal{position:fixed;inset:0;z-index:70;background:var(--noc);color:var(--svetlo);display:flex;flex-direction:column;overscroll-behavior:contain;overflow:auto}
 .al-modal[hidden]{display:none}
-.al-modal-hlava{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+.al-modal-hlava{display:flex;align-items:center;justify-content:space-between;padding:16px calc(20px + env(safe-area-inset-right)) 16px calc(20px + env(safe-area-inset-left))}
 .al-modal-znak{font-family:Marcellus,serif;color:var(--zlato);font-size:30px;letter-spacing:.06em}
 .al-zavrit{min-width:56px;min-height:44px;background:none;border:1px solid rgba(241,241,245,.5);font-size:12px;font-weight:700;letter-spacing:.16em;cursor:pointer}
-.al-modal nav{padding:6px 20px 20px;display:flex;flex-direction:column}
+.al-modal nav{padding:6px calc(20px + env(safe-area-inset-right)) 20px calc(20px + env(safe-area-inset-left));display:flex;flex-direction:column}
 .al-modal nav a{display:block;padding:16px 0;text-decoration:none;font-size:23px;font-weight:500;border-bottom:1px solid rgba(241,241,245,.16)}
 .al-modal nav a:last-child{border-bottom:0}
 
 /* spodní lišta */
 .al-lista{
   position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:1px;
-  background:var(--tus);padding-bottom:12px;
+  background:var(--tus);padding-bottom:calc(12px + env(safe-area-inset-bottom));
   transform:translateY(110%);visibility:hidden;
   transition:transform .22s ease,visibility .22s;
 }
@@ -175,7 +186,7 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
 
 @media (min-width:760px){
   body{font-size:18px}
-  .al-obal{padding:0 40px}
+  .al-obal{padding-left:calc(40px + env(safe-area-inset-left));padding-right:calc(40px + env(safe-area-inset-right))}
   .al-usek{padding:76px 0}
   .al-vlna{left:max(40px,calc(50% - 90px));width:140px;height:190px}
   .al-vlna-plocha{height:190px;width:calc(50% - 50px)}
@@ -184,7 +195,7 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
   .al-stav{font-size:16px}
   .al-uvod-foto{height:min(66vh,600px);object-position:50% 42%}
   .al-foto::after{height:22%}
-  .al-uvod-text{margin-top:-104px;padding:0 40px;max-width:var(--sirka);margin-left:auto;margin-right:auto}
+  .al-uvod-text{margin-top:-104px;padding-left:calc(40px + env(safe-area-inset-left));padding-right:calc(40px + env(safe-area-inset-right));max-width:var(--sirka);margin-left:auto;margin-right:auto}
   .al-znak{font-size:clamp(100px,10vw,148px)}
 
   .al-akce{max-width:430px;margin-top:26px}
@@ -215,6 +226,7 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
   footer .al-obal{display:grid;grid-template-columns:1fr 1fr;gap:30px}
   footer{padding:38px 0 46px}
   .al-lista{display:none}
+  html{scroll-padding-bottom:0}
 }
 </style>
 </head>
@@ -225,7 +237,7 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
 
   <header class="al-uvod">
     <div class="al-pruh">
-      <p class="al-stav" data-stav>Po–Pá 9:00–19:30, So–Ne 10:00–19:30</p>
+      <p class="al-stav" data-stav aria-live="polite">Po–Pá 9:00–19:30, So–Ne 10:00–19:30</p>
       <button class="al-menu-btn" id="alMenu" type="button" aria-haspopup="dialog" aria-controls="alModal" aria-expanded="false">MENU</button>
     </div>
     <div class="al-foto">
@@ -248,20 +260,20 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
 
   <section class="al-fakta">
     <div class="al-obal">
-      <div class="al-hodnoceni"><span aria-hidden="true">★</span><p>5,0 z 5 na Googlu, 152 hodnocení</p></div>
-      <p class="al-adresa">Topolová 2915/16, OC Cíl, Praha 10</p>
+      <div class="al-hodnoceni"><span aria-hidden="true">★</span><p>5,0&nbsp;z&nbsp;5 na Googlu, 152&nbsp;hodnocení</p></div>
+      <p class="al-adresa">Topolová 2915/16, OC&nbsp;Cíl, Praha&nbsp;10</p>
     </div>
   </section>
 
-  <section class="al-usek al-bez" id="bez-objednani">
+  <section class="al-usek al-bez" id="bez-objednani" tabindex="-1">
     <div class="al-obal">
       <h2 class="al-nadpis">Bez objednání</h2>
-      <p>Přijďte, kdy se vám to hodí. Sednete si a počkáte, až na vás přijde řada.</p>
-      <p>V čekacím koutě je PlayStation a miska bonbonů, pití máte zdarma.</p>
+      <p>Přijďte, kdy se vám to hodí. Sednete si a&nbsp;počkáte, až na vás přijde řada.</p>
+      <p>V&nbsp;čekacím koutě je PlayStation a&nbsp;miska bonbonů, pití máte zdarma.</p>
     </div>
   </section>
 
-  <section class="al-usek al-recenze" id="recenze">
+  <section class="al-usek al-recenze" id="recenze" tabindex="-1">
     <div class="al-obal">
       <h2 class="al-nadpis">Co píšou na Googlu</h2>
       <div class="al-rec">
@@ -290,17 +302,17 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
           </li>
         </ul>
       </div>
-      <a class="al-odkaz" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ">Všech 152 hodnocení na Googlu</a>
+      <a class="al-odkaz" href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ">Všech 152&nbsp;hodnocení na Googlu</a>
     </div>
   </section>
 
-  <section class="al-blok" id="strihy">
+  <section class="al-blok" id="strihy" tabindex="-1">
     <figure class="al-strop">
       <img src="img/strop.jpg" width="890" height="235" loading="lazy" decoding="async"
            alt="Strop salonu ze světelných šestiúhelníků nad zrcadlovou stěnou">
     </figure>
     <div class="al-obal">
-      <h2 class="al-nadpis">Fade, buzzcut,<br>pánský i dětský střih.</h2>
+      <h2 class="al-nadpis">Fade, buzzcut,<br>pánský i&nbsp;dětský střih.</h2>
       <div class="al-mrizka">
         <figure class="al-m1"><img src="img/strih-1.jpg" width="760" height="1351" loading="lazy" decoding="async" alt="Dospívající zákazník po střihu, krátká rovná ofina a boky vyholené strojkem"></figure>
         <figure class="al-m2"><img src="img/strih-2.jpg" width="760" height="760" loading="lazy" decoding="async" alt="Chlapec po střihu, přechod vyholený strojkem nad uchem, za ním dlouhé podsvícené zrcadlo a pult salonu"></figure>
@@ -309,10 +321,10 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
     </div>
   </section>
 
-  <section class="al-usek al-kde-sekce" id="kde">
+  <section class="al-usek al-kde-sekce" id="kde" tabindex="-1">
     <div class="al-obal">
-      <h2 class="al-nadpis">V OC Cíl<br>na Zahradním Městě</h2>
-      <p>Topolová 2915/16, Praha 10. Jsme uvnitř obchodního centra.</p>
+      <h2 class="al-nadpis">V&nbsp;OC&nbsp;Cíl<br>na Zahradním Městě</h2>
+      <p>Topolová 2915/16, Praha&nbsp;10. Jsme uvnitř obchodního centra.</p>
       <div class="al-dvojice">
         <div class="al-hodiny">
           <dl id="alHodiny">
@@ -324,13 +336,13 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
             <div data-den="6"><dt>Sobota</dt><dd>10:00–19:30</dd></div>
             <div data-den="0"><dt>Neděle</dt><dd>10:00–19:30</dd></div>
           </dl>
-          <p class="al-stav" data-stav>Po–Pá 9:00–19:30, So–Ne 10:00–19:30</p>
+          <p class="al-stav" data-stav aria-live="polite">Po–Pá 9:00–19:30, So–Ne 10:00–19:30</p>
         </div>
         <div class="al-kontakt">
-          <p><a class="al-tel" href="tel:+420773137979">773 137 979</a></p>
+          <p><a class="al-tel" href="tel:+420773137979">773&nbsp;137&nbsp;979</a></p>
           <div class="al-mapy">
-            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Topolov%C3%A1%202915%2F16%2C%20106%2000%20Praha%2010&amp;destination_place_id=ChIJ37BcMZh-poIRYM9aQUxZSGQ">Trasa v Google Maps</a>
-            <a href="https://mapy.com/cs/zakladni?q=Topolov%C3%A1%202915%2F16%2C%20Praha%2010">Otevřít v Mapy.cz</a>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Topolov%C3%A1%202915%2F16%2C%20106%2000%20Praha%2010&amp;destination_place_id=ChIJ37BcMZh-poIRYM9aQUxZSGQ">Trasa v&nbsp;Google Maps</a>
+            <a href="https://mapy.com/cs/zakladni?q=Topolov%C3%A1%202915%2F16%2C%20Praha%2010">Otevřít v&nbsp;Mapy.cz</a>
           </div>
         </div>
         <figure class="al-kde-foto">
@@ -347,12 +359,12 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
     <div class="al-obal">
       <div>
         <p><b>ALFA Barber Shop</b></p>
-        <p>Topolová 2915/16, 106 00 Praha 10, Zahradní Město (OC Cíl)</p>
-        <p><a href="tel:+420773137979">773 137 979</a></p>
+        <p>Topolová 2915/16, 106&nbsp;00 Praha&nbsp;10, Zahradní Město (OC&nbsp;Cíl)</p>
+        <p><a href="tel:+420773137979">773&nbsp;137&nbsp;979</a></p>
       </div>
       <div>
         <p>Po–Pá 9:00–19:30, So–Ne 10:00–19:30</p>
-        <p><a href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ">5,0 z 5 na Googlu, 152 hodnocení</a></p>
+        <p><a href="https://www.google.com/maps/place/ALFA+Barbershop/data=!4m7!3m6!1s0x82a67e98315cb0df:0x6448594c415acf60!8m2!3d50.0571409!4d14.5077053!16s%2Fg%2F11zbzs0x6j!19sChIJ37BcMZh-poIRYM9aQUxZSGQ">5,0&nbsp;z&nbsp;5 na Googlu, 152&nbsp;hodnocení</a></p>
       </div>
     </div>
   </footer>
@@ -367,7 +379,7 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
     <a href="#recenze">Recenze</a>
     <a href="#strihy">Střihy</a>
     <a href="#kde">Kde nás najdete</a>
-    <a href="tel:+420773137979">Zavolat 773 137 979</a>
+    <a href="tel:+420773137979">Zavolat 773&nbsp;137&nbsp;979</a>
   </nav>
 </div>
 
@@ -444,8 +456,10 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
   var lista = document.getElementById("alLista");
   var kdoOtevrel = null;
   var posun = 0;
+  var stavHistorie = false;
 
   function otevri(){
+    if(!modal.hidden){ return; }
     kdoOtevrel = document.activeElement;
     modal.hidden = false;
     btn.setAttribute("aria-expanded","true");
@@ -455,10 +469,15 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
     document.body.style.position = "fixed";
     document.body.style.top = (-posun) + "px";
     document.body.style.width = "100%";
+    if(!stavHistorie){
+      try{ history.pushState({alMenu:1}, ""); stavHistorie = true; }catch(e){}
+    }
     zavrit.focus();
     document.addEventListener("keydown", klavesa);
   }
-  function zavri(){
+  function zavri(volby){
+    if(modal.hidden){ return; }
+    volby = volby || {};
     modal.hidden = true;
     btn.setAttribute("aria-expanded","false");
     main.inert = false; lista.inert = false;
@@ -468,7 +487,8 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
     document.body.style.width = "";
     window.scrollTo(0, posun);
     document.removeEventListener("keydown", klavesa);
-    if(kdoOtevrel && kdoOtevrel.focus){ kdoOtevrel.focus(); }
+    if(volby.fokus !== false && kdoOtevrel && kdoOtevrel.focus){ kdoOtevrel.focus(); }
+    if(stavHistorie && volby.historie !== false){ stavHistorie = false; history.back(); }
   }
   function klavesa(e){
     if(e.key === "Escape"){ zavri(); return; }
@@ -479,9 +499,29 @@ footer a{color:var(--tus);display:inline-block;padding:14px 0;line-height:1.2}
     if(e.shiftKey && document.activeElement === prvni){ e.preventDefault(); posledni.focus(); }
     else if(!e.shiftKey && document.activeElement === posledni){ e.preventDefault(); prvni.focus(); }
   }
+  window.addEventListener("popstate", function(){
+    stavHistorie = false;
+    zavri({historie:false});
+  });
   btn.addEventListener("click", otevri);
-  zavrit.addEventListener("click", zavri);
-  Array.prototype.forEach.call(modal.querySelectorAll("nav a"), function(a){ a.addEventListener("click", zavri); });
+  zavrit.addEventListener("click", function(){ zavri(); });
+  Array.prototype.forEach.call(modal.querySelectorAll("nav a"), function(a){
+    a.addEventListener("click", function(e){
+      var cil = a.getAttribute("href") || "";
+      if(cil.charAt(0) !== "#"){ zavri({historie:false}); return; }
+      e.preventDefault();
+      var sekce = document.getElementById(cil.slice(1));
+      zavri({fokus:false, historie:false});
+      try{
+        if(stavHistorie){ history.replaceState(null, "", cil); stavHistorie = false; }
+        else { history.pushState(null, "", cil); }
+      }catch(er){ location.hash = cil; }
+      if(sekce){
+        sekce.scrollIntoView();
+        sekce.focus({preventScroll:true});
+      }
+    });
+  });
 
   var akce = document.getElementById("alAkce");
   if("IntersectionObserver" in window){

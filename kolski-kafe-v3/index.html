@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kolski Kafe – kavárna a cukrárna, Vršovická 866/3, Praha 10</title>
 <meta name="description" content="Malá kavárna a cukrárna na Vršovické kousek od vršovického nádraží. Domácí zákusky, velké chlebíčky, káva. Po–Pá 8:00–18:00, So 9:00–15:30.">
 <meta property="og:title" content="Kolski Kafe – kavárna a cukrárna ve Vršovicích">
@@ -25,7 +25,7 @@
   --zidle:#E8B317;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;scroll-padding-bottom:calc(80px + env(safe-area-inset-bottom))}
 body{
   margin:0;background:var(--stena);color:var(--sazi);
   font-family:Gabarito,"Segoe UI",system-ui,sans-serif;
@@ -35,10 +35,14 @@ body{
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3,p,ul,ol,figure,blockquote{margin:0}
+h1,h2{text-wrap:balance}
+a,button,summary,label{touch-action:manipulation}
 ul{padding:0;list-style:none}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.preskoc{position:absolute;left:-9999px;top:0;z-index:70;background:var(--sazi);color:var(--stena);padding:12px 16px;font-weight:700;text-decoration:none}
+.preskoc:focus{left:10px;top:10px}
 
-.pas{max-width:1140px;margin:0 auto;padding:0 18px}
+.pas{max-width:1140px;margin:0 auto;padding-left:calc(18px + env(safe-area-inset-left));padding-right:calc(18px + env(safe-area-inset-right))}
 .siroka{width:100%;max-width:1140px;margin:0 auto}
 
 /* ---------- 1. hlavička ---------- */
@@ -121,8 +125,10 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
 }
 .foto-cedule{margin-top:18px;aspect-ratio:16/10;object-fit:cover}
 .mapa-obal{position:relative;margin-top:18px;height:240px;background:#e5ded1}
+.mapa-nahrada{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px;text-align:center;font-size:15.5px;color:var(--tlum)}
+.mapa-nahrada b{color:var(--sazi);font-weight:700}
 .mapa-obal a{position:absolute;inset:0;z-index:1}
-.mapa{width:100%;height:100%;border:0;display:block;pointer-events:none;margin:0}
+.mapa{position:relative;z-index:1;width:100%;height:100%;border:0;display:block;pointer-events:none;margin:0}
 .popiska{font-size:14px;color:var(--tlum);margin-top:6px}
 
 /* ---------- pata ---------- */
@@ -134,7 +140,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
 .spodek{
   position:fixed;left:0;right:0;bottom:0;z-index:40;
   display:flex;gap:8px;
-  padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+  padding:8px calc(12px + env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left));
   background:var(--stena);border-top:1.5px solid var(--sazi);
   transform:translateY(115%);visibility:hidden;transition:transform .22s ease,visibility .22s;
 }
@@ -142,10 +148,21 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
 .spodek .tl{min-height:48px;font-size:15.5px}
 @media (prefers-reduced-motion:reduce){.spodek{transition:none}}
 
+/* ---------- hover ---------- */
+@media (hover:hover){
+  #otevrit-menu:hover,#zavrit-menu:hover{background:var(--sazi);color:var(--stena)}
+  .tl-hlavni:hover{background:#F2C22B}
+  .tl-vedlejsi:hover{background:rgba(34,31,28,.07)}
+  .odkazy a:hover{background:rgba(34,31,28,.07)}
+  .znamka a:hover,.pata a:hover{text-decoration-thickness:2px}
+  .menu-odkazy a:hover{color:var(--zidle-cervena)}
+  .mapa-obal a:hover{box-shadow:inset 0 0 0 2px var(--sazi)}
+}
+
 /* ---------- menu ---------- */
 .menu-okno{
   position:fixed;inset:0;z-index:60;background:var(--stena);overscroll-behavior:contain;
-  padding:14px 18px calc(24px + env(safe-area-inset-bottom));
+  padding:14px calc(18px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(18px + env(safe-area-inset-left));
   overflow:auto;
 }
 .menu-okno[hidden]{display:none}
@@ -164,7 +181,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
 /* ---------- desktop ---------- */
 @media (min-width:820px){
   body{font-size:18px}
-  .pas{padding:0 40px}
+  .pas{padding-left:calc(40px + env(safe-area-inset-left));padding-right:calc(40px + env(safe-area-inset-right))}
   .uvod{padding-top:16px}
   .dvojice{display:grid;grid-template-columns:1.06fr 1fr;grid-template-rows:auto 1fr;gap:22px 46px;margin-top:8px}
   .hlavicka-text{grid-column:1;grid-row:1}
@@ -200,6 +217,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   .mapa-obal{height:100%;min-height:420px;margin-top:0}
   .foto-cedule{margin-top:22px}
   .spodek{display:none}
+  html{scroll-padding-bottom:0}
   .pata{padding-bottom:18px}
   .menu-odkazy{columns:2;column-gap:40px}
 }
@@ -212,8 +230,9 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
 <body>
 
 <div id="stranka">
+<a class="preskoc" href="#obsah">Přeskočit na obsah</a>
 
-<main>
+<main id="obsah" tabindex="-1">
 
   <!-- 1 -->
   <section class="uvod">
@@ -225,11 +244,11 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
     <div class="pas dvojice">
       <div class="hlavicka-text">
         <h1 class="jmeno">Kolski Kafe</h1>
-        <p class="co-to-je">Kavárna a cukrárna na Vršovické, pár minut od vršovického nádraží.</p>
-        <p class="znamka"><a href="https://www.google.com/maps/place/KOLSKI+KAFE/data=!4m7!3m6!1s0x470b93800ff6416f:0xbe5de33a67b5abbf!8m2!3d50.0661853!4d14.4493461!16s%2Fg%2F1tmpcn89!19sChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener">4,8 z 181 recenzí na Googlu</a></p>
+        <p class="co-to-je">Kavárna a&nbsp;cukrárna na Vršovické, pár minut od vršovického nádraží.</p>
+        <p class="znamka"><a href="https://www.google.com/maps/place/KOLSKI+KAFE/data=!4m7!3m6!1s0x470b93800ff6416f:0xbe5de33a67b5abbf!8m2!3d50.0661853!4d14.4493461!16s%2Fg%2F1tmpcn89!19sChIJb0H2D4CTC0cRv6u1ZzrjXb4" target="_blank" rel="noopener">4,8&nbsp;z&nbsp;181 recenzí na Googlu</a></p>
         <p class="stav" id="stav" aria-live="polite">Po–Pá 8:00–18:00, So 9:00–15:30</p>
       </div>
-      <img class="foto-stul" src="img/mistnost.jpg" width="1400" height="1050"
+      <img class="foto-stul" src="img/mistnost.jpg" width="1400" height="1050" loading="eager" fetchpriority="high" decoding="async"
            alt="Vnitřek kavárny: stolky z kotoučů kmene, červená, žlutá a zelená židle, velké okno do Vršovické">
       <div class="akce" id="hero-akce">
         <a class="tl tl-hlavni" href="https://www.google.com/maps/dir/?api=1&amp;destination=Vr%C5%A1ovick%C3%A1%20866%2F3%2C%20101%2000%20Praha%2010&amp;destination_place_id=ChIJb0H2D4CTC0cRv6u1ZzrjXb4">Ukázat cestu</a>
@@ -239,7 +258,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   </section>
 
   <!-- 2 -->
-  <section class="blok" id="vitrina">
+  <section class="blok" id="vitrina" tabindex="-1">
     <div class="pas"><h2>Ve vitríně</h2></div>
     <div class="pas vitrina-mriz">
       <img class="siroka" src="img/vitrina.jpg" width="1600" height="1200" loading="lazy"
@@ -252,20 +271,20 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
           <li class="cedulka"><span class="co">Medovník</span><span class="kc">59,–<span class="sr-only"> korun</span></span></li>
         </ul>
         <p class="poznamka">Nabídka se mění podle toho, co se zrovna peče.</p>
-        <p class="dal">Kromě zákusků chlebíčky krabí a hermelínový, obložené chleby, polévky a dort na objednávku. Z baru flat white, cappuccino, horká čokoláda a čaje.</p>
+        <p class="dal">Kromě zákusků chlebíčky krabí a&nbsp;hermelínový, obložené chleby, polévky a&nbsp;dort na objednávku. Z&nbsp;baru flat white, cappuccino, horká čokoláda a&nbsp;čaje.</p>
       </div>
     </div>
   </section>
 
   <!-- 3 -->
-  <section class="blok" id="chlebicky">
+  <section class="blok" id="chlebicky" tabindex="-1">
     <div class="pas"><h2>Chlebíčky</h2></div>
     <div class="pas chleb-mriz">
       <img class="siroka" src="img/chlebicky.jpg" width="1400" height="1050" loading="lazy"
            alt="Tři chlebíčky a cappuccino na stolku z kotouče kmene">
       <div>
         <p class="veta">Šunkový, krabí, hermelínový. Velké, jeden vydá za dva běžné.</p>
-        <p class="veta">Dort na objednávku, třeba k narozeninám, se domlouvá telefonem.</p>
+        <p class="veta">Dort na objednávku, třeba k&nbsp;narozeninám, se domlouvá telefonem.</p>
         <blockquote class="hlas">
           <p>„Výborná kavárnička, velmi milá a pohotová obsluha, výborné zákusky i chlebíčky. Chlebíčky jsou opravdu velké, jeden vydá za dva běžné.“</p>
           <cite>Eva, Google</cite>
@@ -275,8 +294,8 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   </section>
 
   <!-- 4 -->
-  <section class="blok" id="kavarna">
-    <div class="pas"><h2>V kavárně</h2></div>
+  <section class="blok" id="kavarna" tabindex="-1">
+    <div class="pas"><h2>V&nbsp;kavárně</h2></div>
     <div class="pas kavarna-fotky">
       <img class="siroka" src="img/tram.jpg" width="900" height="1600" loading="lazy"
            alt="Dřevěný trám uprostřed kavárny, holé žárovky na lankách, obrázky na stěně">
@@ -286,7 +305,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
     <div class="pas kavarna-dole">
       <ul class="radky" role="list">
         <li>Wi-Fi zdarma, dá se tu pracovat na notebooku</li>
-        <li>Obsluha u stolu, vhodné pro děti</li>
+        <li>Obsluha u&nbsp;stolu, vhodné pro děti</li>
         <li>Posezení venku na chodníku</li>
         <li>Platba kartou</li>
       </ul>
@@ -298,10 +317,10 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   </section>
 
   <!-- 5 -->
-  <section class="blok" id="kde">
+  <section class="blok" id="kde" tabindex="-1">
     <div class="pas kde-mriz">
       <div>
-        <h2 class="adresa">Vršovická 866/3<br>Praha 10 – Vršovice</h2>
+        <h2 class="adresa">Vršovická 866/3<br>Praha&nbsp;10 – Vršovice</h2>
         <ul class="hodiny" id="hodiny" role="list">
           <li data-dny="1,2,3,4,5"><span class="den">Pondělí až pátek</span> <span>8:00–18:00</span></li>
           <li data-dny="6"><span class="den">Sobota</span> <span>9:00–15:30</span></li>
@@ -309,7 +328,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
         </ul>
         <p class="stav" id="stav-dole">Po–Pá 8:00–18:00, So 9:00–15:30</p>
         <div class="odkazy">
-          <a href="tel:+420773516560">Zavolat 773 516 560</a>
+          <a href="tel:+420773516560">Zavolat 773&nbsp;516&nbsp;560</a>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Kolski%20Kafe&amp;query_place_id=ChIJb0H2D4CTC0cRv6u1ZzrjXb4">Google Maps</a>
           <a href="https://mapy.cz/zakladni?q=Vr%C5%A1ovick%C3%A1%20866%2F3%2C%20Praha%2010&amp;z=17">Mapy.cz</a>
         </div>
@@ -318,6 +337,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
         <p class="popiska">Poznáte to podle hrnku nad výlohou.</p>
       </div>
       <div class="mapa-obal">
+        <p class="mapa-nahrada"><b>Vršovická 866/3, Praha&nbsp;10 – Vršovice</b>Pár minut od vršovického nádraží, poznáte to podle hrnku nad výlohou.</p>
         <iframe class="mapa" title="Mapa: Kolski Kafe, Vršovická 866/3, Praha 10"
                 src="https://www.google.com/maps?q=KOLSKI+KAFE+Vr%C5%A1ovick%C3%A1+866%2F3%2C+101+00+Praha+10&amp;z=16&amp;output=embed"
                 loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1"></iframe>
@@ -329,7 +349,7 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
 </main>
   <footer class="pata">
     <div class="pas">
-      <p><b>Kolski Kafe</b>, Vršovická 866/3, Praha 10 – Vršovice, <a href="tel:+420773516560">773 516 560</a></p>
+      <p><b>Kolski Kafe</b>, Vršovická 866/3, Praha&nbsp;10 – Vršovice, <a href="tel:+420773516560">773&nbsp;516&nbsp;560</a></p>
     </div>
   </footer>
 </div>
@@ -346,11 +366,11 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   <nav class="menu-odkazy" aria-label="Sekce">
     <a href="#vitrina">Ve vitríně</a>
     <a href="#chlebicky">Chlebíčky</a>
-    <a href="#kavarna">V kavárně</a>
+    <a href="#kavarna">V&nbsp;kavárně</a>
     <a href="#kde">Kde nás najdete</a>
-    <a href="tel:+420773516560">Zavolat 773 516 560</a>
+    <a href="tel:+420773516560">Zavolat 773&nbsp;516&nbsp;560</a>
   </nav>
-  <p class="menu-pata">Vršovická 866/3, Praha 10 – Vršovice</p>
+  <p class="menu-pata">Vršovická 866/3, Praha&nbsp;10 – Vršovice</p>
 </div>
 
 <script type="application/ld+json">
@@ -453,29 +473,51 @@ h2{font-size:clamp(23px,6.4vw,34px);font-weight:700;line-height:1.1;letter-spaci
   var zavrit = document.getElementById('zavrit-menu');
   var stranka = document.getElementById('stranka');
   var listaSkryta = false;
+  var stavHistorie = false;
 
   function otevri() {
+    if (!okno.hidden) return;
     okno.hidden = false;
     otevrit.setAttribute('aria-expanded', 'true');
     stranka.inert = true;
     listaEl.style.display = 'none';
     listaSkryta = true;
     document.body.style.overflow = 'hidden';
+    if (!stavHistorie) {
+      try { history.pushState({ menu: 1 }, ''); stavHistorie = true; } catch (e) {}
+    }
     zavrit.focus();
   }
-  function zavri() {
+  function zavri(volby) {
+    if (okno.hidden) return;
+    volby = volby || {};
     okno.hidden = true;
     otevrit.setAttribute('aria-expanded', 'false');
     stranka.inert = false;
     if (listaSkryta) { listaEl.style.display = ''; listaSkryta = false; }
     document.body.style.overflow = '';
-    otevrit.focus();
+    if (volby.fokus !== false) otevrit.focus();
+    if (stavHistorie && volby.historie !== false) { stavHistorie = false; history.back(); }
   }
+  window.addEventListener('popstate', function () {
+    stavHistorie = false;
+    zavri({ historie: false });
+  });
   otevrit.addEventListener('click', otevri);
-  zavrit.addEventListener('click', zavri);
+  zavrit.addEventListener('click', function () { zavri(); });
   okno.addEventListener('click', function (e) {
     var a = e.target.closest('a');
-    if (a) zavri();
+    if (!a) return;
+    var cil = a.getAttribute('href') || '';
+    if (cil.charAt(0) !== '#') { zavri({ historie: false }); return; }
+    e.preventDefault();
+    var sekce = document.getElementById(cil.slice(1));
+    zavri({ fokus: false, historie: false });
+    try {
+      if (stavHistorie) { history.replaceState(null, '', cil); stavHistorie = false; }
+      else { history.pushState(null, '', cil); }
+    } catch (er) { location.hash = cil; }
+    if (sekce) { sekce.scrollIntoView(); sekce.focus({ preventScroll: true }); }
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !okno.hidden) zavri();

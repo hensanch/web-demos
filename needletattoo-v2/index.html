@@ -12,10 +12,22 @@
 <meta property="og:description" content="Hartigova 60, Praha 3-Žižkov. 4,9 z 274 hodnocení. Jen na objednání.">
 <meta property="og:image" content="https://hensanch.github.io/web-demos/needletattoo-v2/img/studio.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bevan&family=Rokkitt:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" href="font/rokkitt-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="font/bevan-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Fonty jsou na tomto serveru, nic se nenačítá z Googlu: žádné cookies, žádná lišta. */
+@font-face{font-family:Bevan;font-style:normal;font-weight:400;font-display:swap;
+  src:url(font/bevan-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Bevan;font-style:normal;font-weight:400;font-display:swap;
+  src:url(font/bevan-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Rokkitt;font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(font/rokkitt-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Rokkitt;font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(font/rokkitt-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 :root{
   --zlato:#B79A5A;
   --stena:#16130F;
@@ -49,7 +61,7 @@ a{color:inherit}
 }
 .lista-in{max-width:1180px;margin:0 auto;padding:0 var(--okraj);
   display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px}
-.lista-jm{font-weight:500;letter-spacing:.10em;text-transform:uppercase;font-size:.8125rem}
+.lista-jm{font-weight:500;font-size:1.0625rem}
 .menu-tl{
   appearance:none;border:1px solid var(--stena);background:transparent;color:var(--stena);
   font:500 .8125rem/1 Rokkitt,Georgia,serif;letter-spacing:.14em;text-transform:uppercase;
@@ -70,17 +82,17 @@ a{color:inherit}
   font-size:clamp(1.34rem,6.85vw,2.94rem);letter-spacing:.185em;line-height:1.15;
   margin-top:.14em;color:var(--tus);
 }
-.kdo{margin:16px 0 0;font-size:1.0625rem;max-width:23em}
+.kdo{margin:15px 0 0;font-size:1.0625rem;max-width:23em}
 .znamka{margin:9px 0 0;font-weight:500;font-size:1.0625rem}
-.hvezda{font-family:Bevan,Georgia,serif;font-size:1.1875rem;line-height:1;margin-right:.1em}
-.akce{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
+.hvezda{font-size:1rem;line-height:1;margin-right:.22em;position:relative;top:-1px}
+.akce{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 20px}
 .tl{
   display:inline-flex;align-items:center;justify-content:center;min-height:52px;
   padding:0 20px;text-decoration:none;font-weight:500;font-size:1.0625rem;letter-spacing:.01em;
 }
 .tl-plny{background:var(--stena);color:var(--krida)}
-.tl-obrys{border:1.5px solid var(--stena);color:var(--stena)}
-.jen{margin:14px 0 22px;font-size:.9375rem;letter-spacing:.04em;text-transform:uppercase;font-weight:500;opacity:.78}
+.tl-obrys{border:1px solid rgba(22,19,15,.55);color:var(--stena);font-weight:400}
+.jen{margin:5px 0 0;font-size:1.0625rem;font-weight:400}
 .pas{width:100%;height:min(58vw,340px);object-fit:cover;object-position:52% 42%}
 @media (min-width:900px){
   .uvod{padding-top:52px}
@@ -90,53 +102,55 @@ a{color:inherit}
 }
 
 /* ---- 2. práce: black wall crossed by one huge photo ---- */
-.zed{position:relative;margin-top:0;padding-bottom:38px}
-.zed::before{content:"";position:absolute;left:0;right:0;top:112px;bottom:0;background:var(--stena)}
+.zed{position:relative;margin-top:0;padding-top:16px;padding-bottom:32px}
+.zed::before{content:"";position:absolute;left:0;right:0;top:128px;bottom:0;background:var(--stena)}
 .zed>*{position:relative}
-.zed-hlava{display:flex;align-items:flex-start;gap:18px;padding-top:0}
-.velky{width:70%;flex:0 0 70%;margin:0}
-.velky img{width:100%;aspect-ratio:1000/1333;object-fit:cover}
 .stitek{
   font-size:.8125rem;letter-spacing:.17em;text-transform:uppercase;font-weight:500;
   margin:6px 0 0;color:var(--tus);
 }
-.zed-hlava .stitek{padding-top:6px;flex:1}
-.kusy{margin-top:26px;display:flex;flex-direction:column;gap:26px}
-.kus{margin:0}
+.kusy{display:flex;flex-direction:column;gap:22px}
+.par{display:flex;gap:4%;align-items:flex-start}
+.par-velky{gap:5%}
+.k-velky{flex:0 0 66%;min-width:0}
+.k-velky img{aspect-ratio:1000/1333;object-fit:cover}
+.s-velky{padding-top:6px;flex:1;color:var(--tus)}
+.roh{display:block}
+.kus{margin:0;min-width:0}
 .kus img{width:100%}
 .kus .stitek{color:var(--znak);opacity:.85}
 .k-pismo{width:100%}
 .k-pismo img{aspect-ratio:1000/381;object-fit:cover}
-.k-lucerna{width:62%;margin-left:auto}
-.k-linka{width:56%}
-.k-kocka{width:68%;margin-left:auto}
-.k-patch{width:58%}
-.k-loko{width:50%;margin-left:auto}
+.k-linka{flex:0 0 52%;min-width:0}
+.k-lucerna{flex:0 0 44%;min-width:0;margin-top:54px}
+.k-kocka{flex:0 0 46%;min-width:0;margin-top:32px}
+.k-patch{flex:0 0 50%;min-width:0}
+.k-loko{width:44%;margin-left:auto}
 .hlas{
-  color:var(--krida);margin:30px 0 0;font-size:1.125rem;line-height:1.5;max-width:26em;
+  color:var(--krida);margin:26px 0 0;font-size:1.125rem;line-height:1.5;max-width:26em;
 }
-.hlas b{display:block;font-weight:500;font-size:.8125rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--znak);margin-top:10px}
+.hlas b{display:block;font-weight:400;font-size:.9375rem;color:var(--znak);opacity:.72;margin-top:9px}
 @media (min-width:900px){
-  .zed::before{top:150px}
-  .zed-hlava{gap:40px;align-items:flex-start}
-  .velky{width:400px;flex:0 0 400px}
-  .zed-hlava .stitek{padding-top:14px;font-size:.875rem}
-  .kusy{
-    display:grid;grid-template-columns:repeat(12,1fr);gap:32px 28px;align-items:start;
-    margin-top:-330px;padding-left:440px;
-  }
-  .k-pismo{grid-column:1/13;width:100%}
-  .k-linka{grid-column:1/6;width:100%}
-  .k-lucerna{grid-column:6/13;width:100%;margin-left:0;padding-top:44px}
-  .k-kocka{grid-column:1/7;width:100%;margin-left:0}
-  .k-patch{grid-column:7/13;width:100%;padding-top:52px}
-  .k-loko{grid-column:1/6;width:100%;margin-left:0}
-  .hlas{grid-column:6/13;margin-top:8px;align-self:center}
+  .zed::before{top:176px}
+  .zed{padding-top:26px;padding-bottom:56px}
+  .kusy{display:grid;grid-template-columns:repeat(12,1fr);gap:26px 28px;align-items:start}
+  .par{display:contents}
+  .kus{width:auto}
+  .par-velky{display:block;grid-column:1/8;grid-row:1/5}
+  .k-velky{flex:none;width:100%}
+  .s-velky{padding-top:0;margin-top:10px;font-size:.875rem;color:var(--znak);opacity:.85}
+  .k-pismo{grid-column:8/13;grid-row:1;margin-top:150px}
+  .k-linka{grid-column:8/11;grid-row:2/4;flex:none}
+  .k-lucerna{grid-column:11/13;grid-row:2/4;flex:none;margin-top:0;padding-top:40px}
+  .k-kocka{grid-column:1/5;grid-row:5;flex:none;margin-top:0}
+  .k-patch{grid-column:5/9;grid-row:5;flex:none;padding-top:54px}
+  .roh{grid-column:9/13;grid-row:5;padding-top:190px}
+  .k-loko{width:100%;margin-left:0}
+  .hlas{margin-top:24px;font-size:1.0625rem}
 }
 
 /* ---- 3. lidi ---- */
-.lidi{padding:44px 0 8px}
+.lidi{padding:34px 0 6px}
 .h2{
   font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:1.4375rem;letter-spacing:.01em;
   margin:0 0 18px;color:var(--stena);
@@ -144,12 +158,12 @@ a{color:inherit}
 .velka-citace{
   font-size:1.4375rem;line-height:1.42;margin:0;font-weight:400;max-width:19em;
 }
-.podpis{font-size:.8125rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin:10px 0 0;opacity:.72}
-.dvojice{display:flex;flex-direction:column;gap:24px;margin-top:30px;
+.podpis{font-size:.9375rem;font-weight:400;margin:9px 0 0;opacity:.82}
+.dvojice{display:flex;flex-direction:column;gap:20px;margin-top:24px;
   border-top:1px solid rgba(22,19,15,.3);padding-top:24px}
 .dvojice p{margin:0;font-size:1.0625rem;line-height:1.5}
 .souhrn{margin:26px 0 0;font-size:1.0625rem;font-weight:500}
-.souhrn a{color:var(--stena)}
+.souhrn a{color:var(--stena);display:inline-block;padding:12px 4px;margin:-12px -4px}
 @media (min-width:900px){
   .lidi{padding:64px 0 16px}
   .velka-citace{font-size:1.875rem;max-width:20em}
@@ -158,7 +172,7 @@ a{color:inherit}
 }
 
 /* ---- 4. než přijdete: one black slab ---- */
-.pred{padding:34px 0 12px}
+.pred{padding:28px 0 10px}
 .deska{background:var(--stena);color:var(--krida);padding:28px 22px 30px}
 .deska .h2{color:var(--krida);margin-bottom:12px}
 .deska p{margin:0 0 4px;font-size:1.0625rem;max-width:28em}
@@ -170,12 +184,11 @@ a{color:inherit}
 .cislo:hover{text-decoration:underline;text-underline-offset:6px}
 .fakta{margin:24px 0 0;padding:0;border-top:1px solid rgba(239,230,208,.24)}
 .fakta div{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid rgba(239,230,208,.16)}
-.fakta dt{flex:0 0 116px;font-size:.8125rem;letter-spacing:.15em;text-transform:uppercase;
-  font-weight:500;color:var(--znak);padding-top:3px}
+.fakta div:last-child{border-bottom:0}
+.fakta dt{flex:0 0 116px;font-size:1.0625rem;font-weight:500;color:var(--znak);opacity:.85}
 .fakta dd{margin:0;flex:1;font-size:1.0625rem}
 .hlas-tmavy{margin:22px 0 0;font-size:1.0625rem;line-height:1.5;max-width:30em;color:var(--krida)}
-.hlas-tmavy b{display:block;font-weight:500;font-size:.8125rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--znak);margin-top:8px}
+.hlas-tmavy b{display:block;font-weight:400;font-size:.9375rem;color:var(--znak);opacity:.72;margin-top:8px}
 @media (min-width:900px){
   .pred{padding:52px 0 20px}
   .deska{padding:46px 48px 48px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
@@ -189,12 +202,12 @@ a{color:inherit}
 }
 
 /* ---- 5. kde ---- */
-.kde{padding:38px 0 40px}
+.kde{padding:30px 0 34px}
 .adresa{font-family:Bevan,Georgia,serif;font-weight:400;font-size:clamp(1.9rem,9.2vw,3rem);
   line-height:1;margin:0;color:var(--stena)}
 .kde p{margin:12px 0 0;font-size:1.0625rem;max-width:26em}
 .odkazy{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0}
-.kde img{margin-top:28px;width:100%;aspect-ratio:1400/934;object-fit:cover}
+.kde img{margin-top:24px;width:100%;aspect-ratio:1400/934;object-fit:cover}
 @media (min-width:900px){
   .kde{padding:58px 0 56px}
   .kde-in{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:start}
@@ -202,14 +215,14 @@ a{color:inherit}
 }
 
 /* ---- patička ---- */
-.pata{background:var(--stena);color:var(--krida);padding:34px 0 calc(104px + env(safe-area-inset-bottom))}
+.pata{background:var(--stena);color:var(--krida);padding:30px 0 calc(86px + env(safe-area-inset-bottom))}
 .pata-znak{line-height:1;margin:0 0 16px}
 .pata-n{display:block;font-family:Bevan,Georgia,serif;font-size:2.5rem;line-height:.9;
   text-transform:uppercase;color:var(--znak)}
-.pata-t{display:block;font-weight:300;text-transform:uppercase;font-size:1.0625rem;
+.pata-t{display:block;font-weight:300;text-transform:uppercase;font-size:1.1875rem;
   letter-spacing:.185em;color:var(--cerven);margin-top:.24em}
 .pata p{margin:0 0 6px;font-size:1rem}
-.pata a{color:var(--krida)}
+.pata a{color:var(--krida);display:inline-block;padding:13px 4px;margin:-13px -4px}
 @media (min-width:900px){.pata{padding-bottom:44px}}
 
 /* ---- spodní lišta ---- */
@@ -248,8 +261,9 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
   padding:13px 0;border-bottom:1px solid rgba(239,230,208,.16);min-height:44px;
 }
 .menu-in nav a:first-child{border-top:1px solid rgba(239,230,208,.16)}
-.menu-tel{margin-top:26px;font-family:Bevan,Georgia,serif;font-size:1.75rem;color:var(--znak);
-  text-decoration:none;display:inline-block;min-height:44px}
+.menu-tel{margin-top:24px;font-family:Bevan,Georgia,serif;font-size:1.75rem;color:var(--znak);
+  text-decoration:none;display:inline-block;min-height:44px;align-self:flex-start}
+.menu-adr{margin:2px 0 0;font-size:1rem;opacity:.7}
 </style>
 </head>
 <body>
@@ -271,13 +285,13 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
           <span class="znacka-n">Needle</span>
           <span class="znacka-t">Tattoo</span>
         </h1>
-        <p class="kdo">Tetovací studio v Žižkově, Hartigova 60. Zlacený strop, černý mramor, práce od jemné linky po blackwork.</p>
+        <p class="kdo">Tetovací studio v Žižkově, Hartigova 60. Od jemné linky po blackwork.</p>
         <p class="znamka"><span class="hvezda" aria-hidden="true">★</span><span class="pocet">4,9 z 274 hodnocení na Googlu</span></p>
+        <p class="jen" id="stav">Jen na objednání.</p>
         <div class="akce" id="akce">
           <a class="tl tl-plny" href="tel:+420725734400">Zavolat 725 734 400</a>
           <a class="tl tl-obrys" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hartigova%2060%2C%20130%2000%20Praha%203-%C5%BDi%C5%BEkov" target="_blank" rel="noopener">Kudy k nám</a>
         </div>
-        <p class="jen" id="stav">Jen na objednání</p>
       </div>
       <img class="pas" src="img/studio.jpg" width="1200" height="980" alt="Zadní místnost studia: zlacený strop, bílá omítka, okno do zahrady a přepážka pomalovaná černo-zlatou kaligrafií." fetchpriority="high" decoding="async">
     </div>
@@ -285,18 +299,18 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
 
   <section class="zed" id="prace" aria-label="Práce ze studia">
     <div class="uvnitr">
-      <div class="zed-hlava">
-        <figure class="velky">
-          <img src="img/sleeve.jpg" width="1000" height="1333" alt="Blackworkový rukáv od lokte po prsty: oko, organické tvary a silná linka." loading="lazy" decoding="async">
-        </figure>
-        <p class="stitek">Blackwork</p>
-      </div>
-
       <div class="kusy">
+        <div class="par par-velky">
+          <figure class="kus k-velky">
+            <img src="img/sleeve.jpg" width="1200" height="1600" alt="Blackworkový rukáv od lokte po prsty: oko, organické tvary a silná linka." loading="lazy" decoding="async">
+          </figure>
+          <p class="stitek s-velky">Blackwork</p>
+        </div>
         <figure class="kus k-pismo">
           <img src="img/pismo.jpg" width="1000" height="381" alt="Nápis přes klíční kosti v ostrém kaligrafickém písmu." loading="lazy" decoding="async">
           <p class="stitek">Písmo</p>
         </figure>
+        <div class="par">
         <figure class="kus k-linka">
           <img src="img/jemna-linka.jpg" width="600" height="1120" alt="Předloktí s jemnou linkou: anděl, lebka a dvě dotýkající se ruce." loading="lazy" decoding="async">
           <p class="stitek">Jemná linka</p>
@@ -305,22 +319,27 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
           <img src="img/lucerna.jpg" width="900" height="900" alt="Barevná lucerna se svíčkou v neo-traditional stylu, kolem hvězdy." loading="lazy" decoding="async">
           <p class="stitek">Neo-traditional</p>
         </figure>
+        </div>
+        <div class="par">
         <figure class="kus k-kocka">
-          <img src="img/kocka.jpg" width="760" height="1211" alt="Kočka na paži v malované barevné technice, oranžová a zelená." loading="lazy" decoding="async">
+          <img src="img/kocka.jpg" width="585" height="1250" alt="Kočka na paži v malované barevné technice, oranžová a zelená." loading="lazy" decoding="async">
           <p class="stitek">Barevné</p>
         </figure>
         <figure class="kus k-patch">
           <img src="img/patchwork.jpg" width="700" height="1287" alt="Paže poskládaná z patnácti drobných motivů, černé a červené linky." loading="lazy" decoding="async">
           <p class="stitek">Patchwork</p>
         </figure>
-        <figure class="kus k-loko">
-          <img src="img/lokomotiva.jpg" width="900" height="899" alt="Parní lokomotiva na lýtku, stínovaná černá a šedá." loading="lazy" decoding="async">
-          <p class="stitek">Black &amp; grey</p>
-        </figure>
-        <blockquote class="hlas">
-          „Strašně příjemný kluci, co rozumí tomu, co dělají. Čistý prostředí, poradí vám, udělá to přesně tak, jak chcete.“
-          <b>Adam, Google</b>
-        </blockquote>
+        </div>
+        <div class="roh">
+          <figure class="kus k-loko">
+            <img src="img/lokomotiva.jpg" width="900" height="899" alt="Parní lokomotiva na lýtku, stínovaná černá a šedá." loading="lazy" decoding="async">
+            <p class="stitek">Black &amp; grey</p>
+          </figure>
+          <blockquote class="hlas">
+            „Strašně příjemný kluci, co rozumí tomu, co dělají. Čistý prostředí, poradí vám, udělá to přesně tak, jak chcete.“
+            <b>Adam, před pěti měsíci</b>
+          </blockquote>
+        </div>
       </div>
     </div>
   </section>
@@ -329,20 +348,20 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
     <div class="uvnitr">
       <h2 class="h2">Co o studiu píšou</h2>
       <blockquote class="velka-citace">
-        „Byl jsem u něj už několikrát, i v různých studiích, ale musím říct, že v Needle Tattoo je to opravdu TOP! Děkuji za nádherný rukáv a také děkuji týmu Needle Tattoo za skvělou atmosféru.“
+        „Byl jsem tu na tetování už podruhé a můžu říct, že je to na vysoké úrovni. Pan Adam je velmi komunikativní, profesionální a hlavně vyjde vstříc všemu. Už bych neměnil!“
       </blockquote>
-      <p class="podpis">Maris</p>
+      <p class="podpis">Tomáš, před dvěma měsíci</p>
       <div class="dvojice">
         <div>
-          <p>„Hned při vstupu jsem se zde cítila jako doma, protože se nám dostalo opravdu milého a přátelského přístupu.“</p>
-          <p class="podpis">Tereza</p>
+          <p>„Individuální přístup, pěkné nové studio, krásná precizní práce.“</p>
+          <p class="podpis">Piotrusia, před dvěma měsíci</p>
         </div>
         <div>
-          <p>„Nějakých 4,5 hodiny tetování uteklo jak voda, cením osobní přístup tatéra, domluvu, výsledek vynikající.“</p>
-          <p class="podpis">Jan</p>
+          <p>„Super přístup, pohodovej pokec a práce skvěle odvedená. Naprostá spokojenost.“</p>
+          <p class="podpis">Matěj, před dvěma měsíci</p>
         </div>
       </div>
-      <p class="souhrn">4,9 ze všech 274 hodnocení. <a href="https://www.google.com/maps/place/needletattoo/data=!4m7!3m6!1s0x470b935f86bc3061:0x4a503043eef5a42f!8m2!3d50.0886392!4d14.4607038!16s%2Fg%2F11hczxmh_y!19sChIJYTC8hl-TC0cRL6T17kMwUEo" target="_blank" rel="noopener">Přečíst je na mapě</a></p>
+      <p class="souhrn"><a href="https://www.google.com/maps/place/needletattoo/data=!4m7!3m6!1s0x470b935f86bc3061:0x4a503043eef5a42f!8m2!3d50.0886392!4d14.4607038!16s%2Fg%2F11hczxmh_y!19sChIJYTC8hl-TC0cRL6T17kMwUEo" target="_blank" rel="noopener">Přečíst všech 274 hodnocení na Googlu</a></p>
     </div>
   </section>
 
@@ -353,8 +372,8 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
         <p>Do studia se chodí na objednání. Zavolejte a řekněte, co máte v hlavě.</p>
         <a class="cislo" href="tel:+420725734400">725 734 400</a>
         <blockquote class="hlas-tmavy">
-          „Nabídnou kafe, Red Bull, vždycky ochotně poradí s placementem, aftercare, čímkoliv.“
-          <b>Matěj</b>
+          „Velmi čisté prostředí a kvalitně odvedená práce. Pokud chcete kvalitu, promyšlené detaily a poradenství na úrovni, určitě doporučuji.“
+          <b>Zuzana, před čtyřmi měsíci</b>
         </blockquote>
         <dl class="fakta">
           <div><dt>Objednání</dt><dd>Musíte být objednaní.</dd></div>
@@ -409,6 +428,7 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
       <a href="#kde">Hartigova 60</a>
     </nav>
     <a class="menu-tel" href="tel:+420725734400">725 734 400</a>
+    <p class="menu-adr">Hartigova 60, Praha 3-Žižkov. Jen na objednání.</p>
   </div>
 </dialog>
 
