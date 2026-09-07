@@ -13,8 +13,6 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%231C3260'/%3E%3Cpath%20d='M18%2012L32%208L46%2012V15H18Z'%20fill='%23F3EFE6'/%3E%3Ccircle%20cx='32'%20cy='36'%20r='22'%20fill='%23F3EFE6'/%3E%3Cpath%20d='M32%2016v5M32%2051v5M12%2036h5M47%2036h5M32%2036V21M32%2036l11%206'%20stroke='%2317130F'%20stroke-width='3.5'%20stroke-linecap='round'/%3E%3C/svg%3E">
 <!-- Fonts are self-hosted (fonts/) and the map loads only after a tap, so the page makes no third-party request on load and needs no cookie bar. -->
 <style>
-@font-face{font-family:"Annie";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/annieuseyourtelescope-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:"Annie";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/annieuseyourtelescope-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Rubik";font-style:normal;font-weight:300 900;font-display:swap;src:url(fonts/rubik-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"Rubik";font-style:normal;font-weight:300 900;font-display:swap;src:url(fonts/rubik-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
@@ -42,6 +40,7 @@ a{color:inherit}
 button{font:inherit;color:inherit}
 a,button,summary,input{touch-action:manipulation}
 h1,h2,h3{text-wrap:balance;margin:0}
+.nazev-h{margin:0;line-height:0}
 p{margin:0}
 :focus-visible{outline:3px solid var(--krida);outline-offset:3px}
 html.dotyk :focus-visible{outline:0}
@@ -66,18 +65,19 @@ html.dotyk :focus-visible{outline:0}
 .stav{line-height:1.2}
 .stav strong{display:block;font-size:22px;font-weight:600}
 .stav span{display:block;font-size:15px;margin-top:3px;color:var(--smrk)}
-.nazev{font:400 clamp(50px,17.4vw,68px)/1 "Annie","Rubik",sans-serif;letter-spacing:.005em;margin-top:6px}
+.nazev{margin-top:8px;display:block;width:min(100%,320px);height:auto;color:var(--krida)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .co{font-size:18px;margin-top:6px}
 .uvod-foto{grid-area:foto;margin:2px calc(-1 * var(--okraj)) 0}
 .uvod-foto img{width:100%;aspect-ratio:1600/1100;object-fit:cover}
-.uvod-akce{grid-area:akce;display:grid;gap:4px}
-.hodnoceni{display:inline-block;padding:9px 0;font-weight:500;text-decoration-thickness:1px;text-underline-offset:4px}
+.uvod-akce{grid-area:akce}
+.rezervace{font-size:17px}
 .akce{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .tlacitko{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 34px;background:var(--smrk);color:var(--tus);font-weight:600;font-size:18px;text-decoration:none;border-radius:3px}
 .tlacitko:focus-visible{outline-color:var(--krida)}
 @media (hover:hover){.tlacitko:hover{background:#E6CBA2}}
 .tel{display:inline-flex;align-items:center;min-height:44px;font-weight:500;text-decoration:none;border-bottom:1px solid var(--dub);white-space:nowrap}
-@media (hover:hover){.tel:hover,.hodnoceni:hover{border-color:var(--krida);text-decoration-color:var(--krida)}}
+@media (hover:hover){.tel:hover{border-color:var(--krida)}}
 
 /* 2 · Co nalejeme: the pine band */
 .pipa{background:var(--smrk);color:var(--tus);scroll-margin-top:calc(-1 * var(--sat));padding:calc(var(--sekce) + var(--sat)) 0 var(--sekce)}
@@ -115,7 +115,7 @@ html.dotyk :focus-visible{outline:0}
 .male blockquote{margin:0;max-width:40ch}
 .rec blockquote p:not(.podpis)::before{content:"„"}
 .rec blockquote p:not(.podpis)::after{content:"“"}
-.vsechny{display:inline-block;margin-top:30px;font-weight:500;text-underline-offset:4px;text-decoration-thickness:1px}
+.vsechny{display:inline-block;padding:12px 0;margin:18px 0 -12px;font-weight:500;text-underline-offset:4px;text-decoration-thickness:1px}
 @media (hover:hover){.vsechny:hover{text-decoration-color:var(--smrk)}}
 
 /* 5 · Kdy přijít */
@@ -127,7 +127,7 @@ html.dotyk :focus-visible{outline:0}
 .tyden .dnes{color:var(--smrk);font-weight:600}
 .tyden .dnes span:first-child::after{content:" (dnes)";font-weight:400}
 .adresa{margin-top:26px;display:grid;gap:12px;max-width:52ch}
-.adresa a{text-underline-offset:4px;text-decoration-thickness:1px}
+.adresa a:not(.tel){display:inline-block;padding:12px 0;margin:-12px 0;text-underline-offset:4px;text-decoration-thickness:1px}
 .mapa{margin-top:4px;border:1px solid var(--dub);min-height:120px;display:grid;place-items:center;padding:24px;text-align:center;gap:10px}
 .mapa button{min-height:48px;padding:0 22px;background:transparent;border:1.5px solid var(--smrk);color:var(--krida);border-radius:3px;cursor:pointer;font-weight:500}
 @media (hover:hover){.mapa button:hover{background:rgba(216,185,140,.15)}}
@@ -139,13 +139,15 @@ html.dotyk :focus-visible{outline:0}
 
 /* footer, outside main; same family as the top so overscroll matches */
 .pata{background:var(--noc);padding:40px 0 calc(40px + 84px)}
-.pata .nazev{font-size:44px}
+.pata .nazev{width:220px;margin-top:0}
 .pata p{margin-top:10px;max-width:52ch}
-.pata a{text-underline-offset:4px;text-decoration-thickness:1px}
+.pata a:not(.tel){display:inline-block;padding:12px 0;margin:-12px 0;text-underline-offset:4px;text-decoration-thickness:1px}
 
 /* bottom bar: visible only after the hero button has left the viewport */
 .lista{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--noc);border-top:1px solid rgba(156,122,78,.5);padding:10px var(--okraj) calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:12px;visibility:hidden;transform:translateY(100%)}
 .lista.videt{visibility:visible;transform:none}
+.lista a{white-space:nowrap;overflow-wrap:normal}
+@media (max-width:359px){.lista .stav span{display:none}}
 .lista .stav strong{font-size:16px}
 .lista .stav span{font-size:13px;margin-top:1px}
 .lista .tel{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1.5px solid rgba(243,239,230,.6);border-radius:3px}
@@ -156,7 +158,7 @@ html.dotyk :focus-visible{outline:0}
 .menu::backdrop{background:rgba(16,32,63,.6)}
 .menu-vnitrek{min-height:100%;display:grid;grid-template-rows:auto 1fr auto;padding:14px var(--okraj) calc(28px + env(safe-area-inset-bottom))}
 .menu-hlava{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.menu-hlava .nazev{font-size:34px}
+.menu-hlava .nazev{width:170px;margin:0}
 .zavrit{min-height:44px;min-width:44px;padding:8px 14px;background:#1F1A18;border:1.5px solid rgba(243,239,230,.55);border-radius:2px;font-weight:500;cursor:pointer;-webkit-appearance:none;appearance:none}
 .menu-odkazy{list-style:none;margin:0;padding:24px 0 0;align-self:center}
 .menu-odkazy a{display:block;padding:14px 0;font-size:32px;line-height:1.15;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(156,122,78,.55)}
@@ -179,7 +181,7 @@ html.dotyk :focus-visible{outline:0}
   .hodiny{width:140px;height:149px}
   .stav strong{font-size:26px}
   .stav span{font-size:17px}
-  .nazev{font-size:108px;margin-top:22px}
+  .nazev{width:400px;margin-top:26px}
   .co{font-size:21px;margin-top:10px}
   .uvod-foto{margin:0}
   .uvod-akce{padding-top:36px}
@@ -208,6 +210,7 @@ html.dotyk :focus-visible{outline:0}
 </script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><path id="znak" d="M 12 170 L 75 14 L 136 172 M 38 124 L 116 126 M 160 66 L 176 242 M 166 92 C 188 68 242 76 240 116 C 238 148 200 164 172 156 M 256 70 L 266 168 M 260 96 C 270 74 298 66 314 70 M 324 116 L 394 112 C 398 76 366 62 340 76 C 314 90 316 146 340 164 C 362 178 390 166 404 152 M 346 16 L 368 46 M 482 72 C 462 60 436 70 434 92 C 432 116 482 120 482 142 C 482 166 442 174 424 162 M 578 60 L 584 172 M 578 60 C 624 56 650 68 646 92 C 642 116 610 120 586 116 C 624 114 662 122 660 148 C 658 174 612 178 586 172 M 744 108 C 732 86 694 88 682 108 C 670 130 680 164 706 168 C 732 170 748 146 746 118 L 742 86 L 750 170 C 752 178 760 178 766 172 M 776 84 L 786 170 M 778 106 C 786 84 812 76 830 82" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/></defs></svg>
 <a class="skok" href="#nalejeme">Přeskočit na nabídku</a>
 <button class="tabule" id="menu-otevrit" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
 
@@ -239,17 +242,16 @@ html.dotyk :focus-visible{outline:0}
         </svg>
         <p class="stav" id="stav"><strong>Pondělí až sobota</strong><span>od&nbsp;17:00 do půlnoci</span></p>
       </div>
-      <h1 class="nazev">Après Bar</h1>
-      <p class="co">Malý bar na Kodaňské ve Vršovicích</p>
+      <h1 class="nazev-h"><svg class="nazev" viewBox="0 0 850 260" aria-hidden="true" focusable="false"><use href="#znak"/></svg><span class="sr">Après Bar</span></h1>
+      <p class="co">Malý bar na Kodaňské ve Vršovicích, 4,9 z&nbsp;213 recenzí na Googlu.</p>
     </div>
     <figure class="uvod-foto">
       <img src="img/domecek-vecer-1170.jpg" srcset="img/domecek-vecer-780.jpg 780w, img/domecek-vecer-1170.jpg 1170w, img/domecek-vecer-1600.jpg 1600w" sizes="(min-width:900px) 740px, 100vw" width="1600" height="1100" alt="Après Bar večer: bílý domeček s černou střechou a rozsvícenými okny, u dveří stojí dva lidé u stolku" fetchpriority="high">
     </figure>
     <div class="uvod-akce">
-      <a class="hodnoceni" href="https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ">4,9 z&nbsp;213 recenzí na Googlu</a>
       <div class="akce">
         <a class="tlacitko" id="trasa-hero" href="https://www.google.com/maps/dir/?api=1&amp;destination=Apr%C3%A9s%20Bar%2C%20Koda%C5%88sk%C3%A1%2065%2C%20Praha%2010&amp;destination_place_id=ChIJrwxQyJeTC0cRUrFGJrs8-pQ">Trasa</a>
-        <a class="tel" href="tel:+420773821632">773&nbsp;821&nbsp;632</a>
+        <p class="rezervace">Rezervace na <a class="tel" href="tel:+420773821632">773&nbsp;821&nbsp;632</a>.</p>
       </div>
     </div>
   </div>
@@ -335,7 +337,7 @@ html.dotyk :focus-visible{outline:0}
       <blockquote><p>Top bar na Kodaňské, útulná atmosféra a&nbsp;patrně bezkonkurenční výběr pálenek široko daleko.</p><p class="podpis">Jiří, Google</p></blockquote>
       <blockquote><p>Velmi útulný bar s&nbsp;dobrým pivem. Sem budeme chodit rádi!</p><p class="podpis">Lukáš, Google</p></blockquote>
     </div>
-    <a class="vsechny" href="https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ">Všech 213 recenzí na Googlu</a>
+    <a class="vsechny" href="https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ">4,9 z&nbsp;213 recenzí na Googlu</a>
   </div>
 </section>
 
@@ -355,7 +357,7 @@ html.dotyk :focus-visible{outline:0}
       <div class="adresa">
         <p>Kodaňská 65, Praha 10-Vršovice. Bílý domeček na rohu, u&nbsp;hodin.</p>
         <p>Rezervace a&nbsp;dotazy: <a class="tel" href="tel:+420773821632">773&nbsp;821&nbsp;632</a></p>
-        <p>Sedí se i&nbsp;venku. Platit můžete kartou. Psi můžou dovnitř. Wi-Fi zdarma, bezbariérový vstup.</p>
+        <p>Sedí se i&nbsp;venku, platí se i&nbsp;kartou a&nbsp;psi můžou dovnitř.</p>
         <div class="mapa" id="mapa">
           <button type="button" id="mapa-tlacitko">Ukázat mapu</button>
           <a href="https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ">Otevřít v&nbsp;Mapách Google</a>
@@ -371,7 +373,7 @@ html.dotyk :focus-visible{outline:0}
 
 <footer class="pata">
   <div class="obal">
-    <p class="nazev" aria-hidden="true">Après Bar</p>
+    <svg class="nazev" viewBox="0 0 850 260" aria-hidden="true" focusable="false"><use href="#znak"/></svg>
     <p>Kodaňská 65, 100 00 Praha 10-Vršovice<br><a class="tel" href="tel:+420773821632">773&nbsp;821&nbsp;632</a></p>
     <p><a href="https://www.google.com/maps/place/?q=place_id:ChIJrwxQyJeTC0cRUrFGJrs8-pQ">Après Bar na Mapách Google</a></p>
     <!-- Provozovatel, sídlo, IČO a věta o ČOI (https://coi.gov.cz/informace-o-adr/) doplnit po potvrzení majitelem; v žádné fotce nejsou čitelné. -->
@@ -387,7 +389,7 @@ html.dotyk :focus-visible{outline:0}
 <dialog class="menu" id="menu" tabindex="-1" aria-labelledby="menu-nadpis">
   <div class="menu-vnitrek">
     <div class="menu-hlava">
-      <p class="nazev" id="menu-nadpis">Après Bar</p>
+      <p id="menu-nadpis"><svg class="nazev" viewBox="0 0 850 260" aria-hidden="true" focusable="false"><use href="#znak"/></svg><span class="sr">Après Bar</span></p>
       <button class="zavrit" type="button" id="menu-zavrit">Zavřít</button>
     </div>
     <ul class="menu-odkazy">
