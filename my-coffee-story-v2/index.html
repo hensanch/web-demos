@@ -75,6 +75,8 @@ a,button{touch-action:manipulation}
 .j3{grid-column:1/7}
 .j4{grid-column:7/13}
 .j3 img,.j4 img{height:200px}
+.j5{grid-column:1/13}
+.j5 img{height:240px}
 .stul-veta{grid-column:1/13;font-size:19px;font-weight:500;margin-top:6px;padding:0 var(--okraj)}
 
 /* 3. Ceník: typeset rows, never chalk */
@@ -121,12 +123,12 @@ a,button{touch-action:manipulation}
 .mapa iframe{display:block;width:100%;height:340px;border:0}
 .ulice-fotky{padding:0;margin-top:0;display:grid;grid-template-columns:1fr;gap:0}
 .ulice-fotky img{width:100%;object-position:center 42%}
-.ulice-fotky .pult{display:none}
+.ulice-fotky .pult{height:420px;object-fit:cover;object-position:center 30%}
 
 /* footer on the facade brown, outside main */
 .pata{background:var(--fasada);color:var(--stena);padding:34px var(--okraj) calc(34px + 84px);font-size:15px;line-height:1.5}
 .pata p{max-width:60ch;margin-bottom:8px}
-.pata a{text-underline-offset:3px}
+.pata a{text-underline-offset:3px;display:inline-block;padding:12px 0;margin:-12px 0}
 
 /* bottom bar, phones only, after the first button has left */
 .lista{position:fixed;left:0;right:0;bottom:0;z-index:12;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--stena);border-top:1px solid var(--linka);visibility:hidden;transform:translateY(102%)}
@@ -161,6 +163,34 @@ a,button{touch-action:manipulation}
   .lista{transition:transform .25s ease,visibility .25s}
 }
 
+/* phone length: 6244 px at 390 was 9.4 screens; these cap the photos and trim padding on phones only */
+@media (max-width:899px){
+  .stul{padding-top:calc(24px + var(--sat));padding-bottom:26px;gap:14px 8px}
+  .j1 img{height:330px}
+  .j2 img{height:240px}
+  .j3{grid-column:1/5}
+  .j4{grid-column:5/9}
+  .j5{grid-column:9/13}
+  .j3 img,.j4 img,.j5 img{height:150px}
+  .stul figcaption{font-size:15px;margin-top:6px;padding:0 0 0 8px}
+  .j1 figcaption,.j2 figcaption{padding-left:var(--okraj)}
+  .stul-veta{margin-top:2px}
+  .cenik{padding-top:calc(36px + var(--sat));padding-bottom:34px}
+  .radka{padding:9px 0}
+  .vitrina{margin-top:20px}
+  .vitrina img{height:220px;object-fit:cover}
+  .bublina{padding-top:calc(36px + var(--sat));padding-bottom:34px}
+  .cedule{margin-bottom:22px}
+  .cedule svg{width:300px}
+  .hlasy li{padding:12px 0}
+  .vsechny{margin-top:10px}
+  .ulice{padding-top:calc(36px + var(--sat))}
+  .mapa-plocha{min-height:160px;padding:18px var(--okraj)}
+  .ulice-fotky img{height:420px;object-fit:cover;object-position:center 40%}
+  .ulice-fotky .pult{height:300px;object-position:center 30%}
+  .pata{padding-top:24px}
+}
+
 @media (min-width:900px){
   :root{--okraj:80px}
   .disk{top:8px;right:24px}
@@ -179,8 +209,9 @@ a,button{touch-action:manipulation}
   .j1 img,.j2 img{height:540px}
   .j3{grid-column:1/5}
   .j4{grid-column:5/9}
-  .j3 img,.j4 img{height:330px}
-  .stul-veta{grid-column:9/13;grid-row:2;align-self:end;margin-top:0;font-size:22px;padding:0 var(--okraj) 0 12px}
+  .j5{grid-column:9/13}
+  .j3 img,.j4 img,.j5 img{height:330px}
+  .stul-veta{grid-column:1/13;margin-top:6px;font-size:22px;padding:0 var(--okraj)}
   .cenik{padding-top:calc(56px + var(--sat));padding-bottom:56px}
   .cenik h2,.bublina h2,.ulice h2{font-size:38px;margin-bottom:30px}
   .skupiny{display:grid;grid-template-columns:1fr 1fr;column-gap:80px;max-width:1120px}
@@ -199,7 +230,7 @@ a,button{touch-action:manipulation}
   .mapa iframe{height:380px}
   .ulice-fotky{grid-template-columns:2fr 1fr;gap:0}
   .ulice-fotky img{height:620px;object-fit:cover}
-  .ulice-fotky .pult{display:block}
+  .ulice-fotky .pult{height:620px;object-position:center 42%}
   .pata{padding:44px var(--okraj) 44px;font-size:16px}
   .lista{display:none}
   .menu-obsah{padding:24px var(--okraj) 40px}
@@ -261,6 +292,7 @@ a,button{touch-action:manipulation}
   <figure class="j2"><img src="img/avokado.jpg" width="1170" height="903" alt="Avokádový toust s pošírovaným vejcem, vedle sklenice džusu a espresso" loading="lazy"><figcaption>Avokádový toust s&nbsp;vejcem</figcaption></figure>
   <figure class="j3"><img src="img/livance.jpg" width="1170" height="1268" alt="Tři lívance s dušenými jablky, šlehačkou a mátou" loading="lazy"><figcaption>Lívance s&nbsp;jablky</figcaption></figure>
   <figure class="j4"><img src="img/cappuccino.jpg" width="1170" height="756" alt="Cappuccino s rozetou v bílém šálku s kresbou, na dřevěném stole" loading="lazy"><figcaption>Cappuccino</figcaption></figure>
+  <figure class="j5"><img src="img/cortado.jpg" width="1170" height="1268" alt="Cortado ve skleničce s malou rozetou, na dřevěném stole, host sedí naproti" loading="lazy"><figcaption>Cortado</figcaption></figure>
   <p class="stul-veta">Brunch je od úterý do neděle.</p>
 </section>
 
@@ -294,14 +326,13 @@ a,button{touch-action:manipulation}
   <h2>Recenze</h2>
   <figure class="cedule">
     <svg viewBox="0 0 360 320" width="330" height="293" role="img" aria-label="Zde platí, co je malé, to je milé. Eva, recenze na Googlu">
-      <ellipse cx="180" cy="152" rx="160" ry="152" fill="#fff" stroke="#1C1B19" stroke-width="4"/>
-      <path d="M86 262 C78 282 66 294 48 302 C74 300 104 294 128 282 Z" fill="#fff" stroke="#1C1B19" stroke-width="4" stroke-linejoin="round"/>
-      <path d="M92 266 C104 274 116 279 126 281" fill="none" stroke="#fff" stroke-width="8"/>
-      <circle cx="204" cy="142" r="124" fill="#1C1B19"/>
-      <text x="204" y="118" text-anchor="middle" fill="#fff" font-family="League Spartan, Avenir, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="27" letter-spacing="0.5">
-        <tspan x="204" dy="0">ZDE PLATÍ,</tspan>
-        <tspan x="204" dy="32">CO JE MALÉ,</tspan>
-        <tspan x="204" dy="32">TO JE MILÉ.</tspan>
+      <path d="M130.6 296.6 A160 152 0 1 0 88.2 276.5 C84 288 72 298 58 304 C50 307 50 312 58 311 C84 308 108 303 130.6 296.6 Z" fill="#fff" stroke="#1C1B19" stroke-width="4" stroke-linejoin="round"/>
+      <ellipse cx="180" cy="152" rx="146" ry="138" fill="none" stroke="#1C1B19" stroke-width="2"/>
+      <circle cx="206" cy="140" r="104" fill="#1C1B19"/>
+      <text x="206" y="117" text-anchor="middle" fill="#fff" font-family="League Spartan, Avenir, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="24" letter-spacing="0.5">
+        <tspan x="206" dy="0">ZDE PLATÍ,</tspan>
+        <tspan x="206" dy="29">CO JE MALÉ,</tspan>
+        <tspan x="206" dy="29">TO JE MILÉ.</tspan>
       </text>
     </svg>
     <figcaption>Eva, recenze na Googlu</figcaption>
@@ -335,7 +366,7 @@ a,button{touch-action:manipulation}
     </div>
   </div>
   <div class="ulice-fotky">
-    <img src="img/vyloha.jpg" width="1170" height="1635" alt="Hnědá dřevěná výloha kavárny s křídovou tabulí Káva a Drinks, lavičkou a otevřenými dveřmi, uvnitř svítí žárovky" loading="lazy">
+    <img src="img/vyloha.jpg" width="1170" height="2084" alt="Hnědá dřevěná výloha kavárny s křídovou tabulí Káva a Drinks, lavičkou a otevřenými dveřmi, uvnitř svítí žárovky" loading="lazy">
     <img class="pult" src="img/pult.jpg" width="900" height="1400" alt="Pult z překližky s vyříznutým logem My Coffee Story, za ním barista u kávovaru" loading="lazy">
   </div>
 </section>
