@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pánské kadeřnictví Praha 10 – Vršovice | Pánský Kadeřník U&nbsp;Slávie</title>
+<meta name="description" content="Pánský Kadeřník U Slávie, Bělocerkevská 2, Praha 10-Vršovice. Klasické pánské kadeřnictví bez objednání, od 7 ráno, 4,6 z 363 recenzí na Googlu. Telefon 604 833 719.">
+<meta name="theme-color" content="#D3AB4E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pánský Kadeřník U Slávie, Praha 10-Vršovice">
+<meta property="og:description" content="Klasické pánské kadeřnictví bez objednání, od 7 ráno. Bělocerkevská 2, u stadionu Slavie.">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/kadernik-u-slavie/img/oblouk-strih.jpg">
+<meta property="og:locale" content="cs_CZ">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23D3AB4E%22%2F%3E%3Cpath%20d%3D%22M8%2028V16a8%208%200%200%201%2016%200v12z%22%20fill%3D%22%2319130D%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="fonts/cp-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cp-400.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HairSalon","name":"Pánský Kadeřník U Slávie","image":"https://hensanch.github.io/web-demos/kadernik-u-slavie/img/oblouk-strih.jpg","telephone":"+420604833719","priceRange":"Kč","paymentAccepted":"Cash","address":{"@type":"PostalAddress","streetAddress":"Bělocerkevská 1438/2","addressLocality":"Praha 10-Vršovice","postalCode":"100 00","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.0695253,"longitude":14.469466},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:00","closes":"18:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","reviewCount":"363"},"sameAs":["https://www.facebook.com/pages/biz/Kade%C5%99nictv%C3%AD-u-Slavie-171031660058206/"]}
+</script>
+<style>
+@font-face{font-family:"Courier Prime";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/cp-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Courier Prime";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/cp-400-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Courier Prime";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/cp-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Courier Prime";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/cp-700-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --zed:#D3AB4E;      /* the lit yellow wall */
+  --lamino:#EDE9E0;   /* white laminate doors, cape white */
+  --dyha:#6B4722;     /* dark wood veneer */
+  --tus:#19130D;      /* the black chairs */
+  --plast:#2F5F84;    /* the blue of the capes: the call button only */
+  --sat:0px;
+  --okraj:20px;
+  --lista:64px;
+}
+/* iOS Mobile Safari lands a fragment 62 px under the visible top; env(safe-area-inset-top) is 0 there. */
+@supports (-webkit-touch-callout:none){
+  @media (hover:none) and (pointer:coarse){ :root{--sat:62px} }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--zed);scroll-padding-top:0;scroll-padding-bottom:calc(var(--lista) + 16px);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+body{margin:0;background:var(--lamino);color:var(--tus);font-family:"Courier Prime","Courier New",Courier,monospace;font-size:16.5px;line-height:1.5;-webkit-tap-highlight-color:transparent}
+body.zamek{position:fixed;left:0;right:0;overflow:hidden}
+h1,h2,h3{margin:0;font-weight:700;line-height:1.1;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+a,button{touch-action:manipulation}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--tus);outline-offset:3px}
+.skok{position:absolute;left:var(--okraj);top:-60px;background:var(--tus);color:var(--lamino);padding:10px 14px;z-index:20}
+.skok:focus{top:8px}
+
+/* fixed typed Menu word, top right, at every scroll position */
+.menu-slovo{position:fixed;top:0;right:0;z-index:15;transition:background-color .2s;min-height:44px;min-width:44px;padding:12px var(--okraj) 8px 16px;font-weight:700;font-size:17px;line-height:24px;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;background:transparent}
+@media (hover:hover){ .menu-slovo:hover{text-decoration-thickness:4px} }
+.menu-slovo.na-lamine{background:var(--lamino)}
+
+/* 1. the wall */
+main>.zed{background:var(--zed);padding:18px var(--okraj) 30px}
+.oblouk{position:relative;width:300px;max-width:100%;aspect-ratio:300/320;border:5px solid var(--dyha);border-radius:150px 150px 0 0;overflow:hidden;background:var(--dyha)}
+.oblouk img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.oblouk-druhy{display:none}
+.hodnoceni{display:inline-block;margin-top:20px;font-size:16.5px;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+h1.nazev{margin-top:8px;font-size:34px;letter-spacing:-.01em}
+.co{margin-top:10px;max-width:34ch}
+.stav{margin-top:8px;font-weight:700}
+.akce{margin-top:18px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.tlacitko{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;background:var(--plast);color:#fff;font-weight:700;font-size:18px;text-decoration:none;border:2px solid var(--plast)}
+@media (hover:hover){ .tlacitko:hover{background:#244B69;border-color:#244B69} }
+.trasa{min-height:44px;display:inline-flex;align-items:center;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+@media (hover:hover){ .trasa:hover{text-decoration-thickness:4px} }
+
+/* sections on the laminate */
+main>section{padding:56px var(--okraj) 64px}
+main>section[id]:not(.zed){scroll-margin-top:calc(-1 * var(--sat));padding-top:calc(56px + var(--sat))}
+h2{font-size:26px;margin-bottom:28px}
+.blok{max-width:60ch}
+
+/* 2. how it works: a typed definition list */
+.jak{margin:0}
+.jak div{display:grid;grid-template-columns:1fr;gap:4px 24px;padding:16px 0;border-top:1.5px solid var(--dyha)}
+.jak div:last-child{border-bottom:1.5px solid var(--dyha)}
+.jak dt{color:var(--dyha);font-weight:700}
+.jak dd{margin:0;max-width:52ch}
+
+/* 3. what men say */
+.recenze{margin:0;padding:0;list-style:none}
+.recenze li{padding:0 0 26px}
+.recenze blockquote{margin:0;font-size:19px;line-height:1.45;max-width:38ch}
+.recenze .kdo{margin-top:8px;color:var(--dyha)}
+.vsechny{display:inline-block;min-height:44px;line-height:44px;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.pas{margin:36px calc(-1 * var(--okraj)) 0;background:var(--dyha)}
+.pas img{width:100%;height:auto;aspect-ratio:1200/1413;object-fit:cover}
+.pas figcaption{padding:10px var(--okraj) 12px;color:var(--lamino);font-size:15px}
+
+/* 4. where */
+.tyden{border-collapse:collapse;width:100%;max-width:26ch;margin:0 0 30px}
+.tyden td{padding:7px 0;border-top:1.5px solid var(--dyha);vertical-align:top}
+.tyden td+td{text-align:right;white-space:nowrap}
+.tyden tr:last-child td{border-bottom:1.5px solid var(--dyha)}
+.tyden tr.dnes td{font-weight:700}
+.tyden .znacka{display:none;font-weight:700}
+.tyden tr.dnes .znacka{display:inline}
+.kde p{margin:0 0 14px;max-width:52ch}
+.kde a.odkaz{display:inline-block;min-height:44px;line-height:44px}
+.kde .telefon{font-size:24px;font-weight:700;text-decoration:none;min-height:44px;line-height:44px;display:inline-block}
+@media (hover:hover){ .kde .telefon:hover{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px} }
+.mapa{margin-top:18px;border:1.5px solid var(--dyha);background:var(--lamino)}
+.mapa-otevrit{display:flex;width:100%;min-height:52px;align-items:center;justify-content:space-between;padding:0 16px;font-weight:700;text-align:left}
+.mapa-otevrit span+span{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+@media (hover:hover){ .mapa-otevrit:hover span+span{text-decoration-thickness:4px} }
+.mapa iframe{display:block;width:100%;height:320px;border:0}
+.mapa .odkaz{display:inline-block;padding:0 16px;min-height:44px;line-height:44px}
+
+/* footer: the wall again */
+footer{background:var(--zed);padding:44px var(--okraj) calc(44px + var(--lista))}
+footer p{margin:0 0 6px}
+footer .odkazy{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px 24px}
+footer .odkazy a{min-height:44px;line-height:44px;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+footer .drobne{margin-top:22px;font-size:14px;max-width:46ch}
+
+/* bottom bar: appears when the hero button has left the viewport */
+.lista{position:fixed;left:0;right:0;bottom:0;z-index:12;display:flex;align-items:stretch;background:var(--lamino);border-top:1.5px solid var(--dyha);padding-bottom:env(safe-area-inset-bottom);visibility:hidden;transform:translateY(100%);transition:transform .2s,visibility 0s .2s}
+.lista.videt{visibility:visible;transform:none;transition:transform .2s,visibility 0s}
+.lista .stav-lista{flex:1;display:flex;align-items:center;padding:0 var(--okraj);font-size:14px;line-height:1.3;min-height:calc(var(--lista) - 2px)}
+.lista .trasa{padding:0 16px}
+.lista .tlacitko{min-height:auto;padding:0 24px;border:0}
+@media (prefers-reduced-motion:reduce){ .lista{transition:none} }
+
+/* the menu: a drawer from the right edge, in the veneer */
+dialog.sup{position:fixed;inset:0 0 0 auto;margin:0;width:min(82vw,360px);max-width:none;height:100%;max-height:none;padding:0;border:0;background:var(--dyha);color:var(--lamino);outline:none}
+dialog.sup::backdrop{background:rgba(25,19,13,.55)}
+.sup-vnitrek{display:flex;flex-direction:column;min-height:100%;padding:calc(14px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom))}
+.sup-zavrit{align-self:flex-end;min-height:44px;min-width:44px;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;color:var(--lamino)}
+.sup ul{list-style:none;margin:30px 0 0;padding:0}
+.sup li a{display:block;padding:12px 0;font-size:24px;font-weight:700;line-height:1.2;text-decoration:none;color:var(--lamino);border-top:1.5px solid rgba(237,233,224,.35)}
+.sup li:last-child a{border-bottom:1.5px solid rgba(237,233,224,.35)}
+@media (hover:hover){ .sup li a:hover,.sup-zavrit:hover{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px} }
+.sup .sup-tel{margin-top:auto;padding-top:30px}
+.sup .sup-tel a{color:var(--lamino);font-weight:700;font-size:22px;text-decoration:none;display:inline-block;min-height:44px;line-height:44px}
+.sup :focus-visible{outline-color:var(--lamino)}
+
+@media (max-width:359px){ h1.nazev{font-size:29px} }
+@media (min-width:700px){
+  :root{--okraj:40px}
+  main>.zed{padding:40px var(--okraj) 48px}
+  .oblouk{width:340px;aspect-ratio:340/400;border-radius:170px 170px 0 0}
+  h1.nazev{font-size:44px}
+  main>section{padding:72px var(--okraj) 80px}
+  main>section[id]:not(.zed){padding-top:calc(72px + var(--sat))}
+  .jak div{grid-template-columns:200px 1fr}
+  .pas{margin:44px 0 0;max-width:780px}
+  .kde-dva{display:grid;grid-template-columns:auto 1fr;gap:0 72px;align-items:start}
+}
+@media (min-width:1100px){
+  :root{--okraj:62px}
+  main>.zed{padding:72px var(--okraj) 80px}
+  .zed-uvnitr{display:grid;grid-template-columns:520px 1fr;gap:80px;align-items:end;max-width:1316px}
+  .zed-text{order:1;padding-bottom:8px}
+  .zrcadla{order:2;display:flex;gap:36px;justify-content:flex-start}
+  .oblouk-druhy{display:block}
+  h1.nazev{font-size:52px}
+  .hodnoceni{margin-top:0}
+  main>section{padding:76px var(--okraj) 84px}
+  main>section[id]:not(.zed){padding-top:calc(76px + var(--sat))}
+  .dvojice{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:0 88px;align-items:start}
+  .pas{margin-top:0;max-width:none}
+  .recenze blockquote{font-size:21px}
+  footer{padding-bottom:44px}
+}
+</style>
+</head>
+<body>
+<a class="skok" href="#jak">Přeskočit na obsah</a>
+<button class="menu-slovo" type="button" id="menu-otevrit" aria-haspopup="dialog" aria-controls="sup">Menu</button>
+
+<main>
+<section class="zed" id="uvod" aria-label="Pánský Kadeřník U Slávie">
+  <div class="zed-uvnitr">
+    <div class="zrcadla">
+      <figure class="oblouk" style="margin:0">
+        <img src="img/oblouk-strih.jpg" srcset="img/oblouk-strih-s.jpg 440w, img/oblouk-strih.jpg 680w" sizes="(min-width:700px) 340px, 300px" width="680" height="820" alt="Kadeřnice stříhá zákazníka v černém křesle, vedle čeká další pán pod pláštěnkou" fetchpriority="high">
+      </figure>
+      <figure class="oblouk oblouk-druhy" style="margin:0">
+        <img src="img/oblouk-strojek.jpg" width="680" height="818" alt="Kadeřnice stříhá strojkem mladého muže pod modrobílou pláštěnkou" loading="lazy">
+      </figure>
+    </div>
+    <div class="zed-text">
+      <a class="hodnoceni" href="https://www.google.com/maps/place/?q=place_id:ChIJTxzG0naTC0cR20B2-DpKIgg" rel="noopener">4,6 ze 363 recenzí na&nbsp;Googlu</a>
+      <h1 class="nazev">Pánský kadeřník U&nbsp;Slávie</h1>
+      <p class="co">Pánské kadeřnictví ve&nbsp;Vršovicích, Bělocerkevská&nbsp;2, Praha&nbsp;10.</p>
+      <p class="stav" id="stav-uvod">Po–Čt 7–19, Pá 7–18</p>
+      <div class="akce">
+        <a class="tlacitko" id="zavolat-uvod" href="tel:+420604833719">Zavolat</a>
+        <a class="trasa" href="https://www.google.com/maps/dir/?api=1&amp;destination=B%C4%9Blocerkevsk%C3%A1%201438%2F2%2C%20Praha%2010" rel="noopener">Trasa</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="jak" tabindex="-1">
+  <h2>Jak to u&nbsp;nás chodí</h2>
+  <dl class="jak">
+    <div><dt>Objednání</dt><dd>Žádné. Přijdete, sednete si na&nbsp;lavici a&nbsp;počkáte, až na&nbsp;vás přijde řada.</dd></div>
+    <div><dt>Střih</dt><dd>Klasický pánský střih, strojkem i&nbsp;nůžkami, a&nbsp;oholení krku. Starším pánům zastřihneme i&nbsp;obočí.</dd></div>
+    <div><dt>Platba</dt><dd>Hotově. Karty nebereme.</dd></div>
+    <div><dt>Otevřeno</dt><dd>Od&nbsp;7 ráno, pondělí až pátek. V&nbsp;sobotu a&nbsp;v&nbsp;neděli je zavřeno.</dd></div>
+  </dl>
+</section>
+
+<section id="chlapi" tabindex="-1">
+  <h2>Co říkají chlapi</h2>
+  <div class="dvojice">
+    <div>
+      <ul class="recenze">
+        <li><blockquote>„Velmi příjemné kadeřnictví – milý a&nbsp;ochotný personál, kvalitní služby a&nbsp;k&nbsp;tomu férové ceny. Rád se sem vracím.“</blockquote><p class="kdo">Jan, před 11&nbsp;měsíci</p></li>
+        <li><blockquote>„Není to žádný nóbl kadeřnictví, ale ženský tam pracují léta a&nbsp;svojí práci znají a&nbsp;vždy dobře ostříhají podle mého zadání.“</blockquote><p class="kdo">Vladimir, před 4&nbsp;lety</p></li>
+        <li><blockquote>„Z&nbsp;dlouhých vlasů pod lopatky jsem měl za&nbsp;10&nbsp;minut moderní krátký sestřih. … Líbí se mi ten přístup bez objednání.“</blockquote><p class="kdo">Lukáš, před 4&nbsp;lety</p></li>
+        <li><blockquote>„Rychlé a&nbsp;dobré stříhání bez objednávání se dopředu, což pánové ocení.“</blockquote><p class="kdo">Michal, před 6&nbsp;lety</p></li>
+      </ul>
+      <a class="vsechny" href="https://www.google.com/maps/place/?q=place_id:ChIJTxzG0naTC0cR20B2-DpKIgg" rel="noopener">Všech 363 recenzí na&nbsp;Googlu</a>
+    </div>
+    <figure class="pas">
+      <img src="img/strojek-pas.jpg" srcset="img/strojek-pas-s.jpg 780w, img/strojek-pas.jpg 1200w" sizes="(min-width:1100px) 560px, (min-width:700px) 780px, 100vw" width="1200" height="1413" alt="Kadeřnice se strojkem v ruce stříhá mladého muže, zákazník sedí pod bílou pláštěnkou s modrými hřebeny a nůžkami" loading="lazy">
+      <figcaption>Strojek, pak nůžky. Stříhá se u&nbsp;zrcadla, ne v&nbsp;zadní místnosti.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="kde" tabindex="-1" class="kde">
+  <h2>Kde nás najdete</h2>
+  <div class="kde-dva">
+    <table class="tyden" id="tyden">
+      <tbody>
+        <tr data-den="1"><td>Pondělí <span class="znacka">(dnes)</span></td><td>7–19</td></tr>
+        <tr data-den="2"><td>Úterý <span class="znacka">(dnes)</span></td><td>7–19</td></tr>
+        <tr data-den="3"><td>Středa <span class="znacka">(dnes)</span></td><td>7–19</td></tr>
+        <tr data-den="4"><td>Čtvrtek <span class="znacka">(dnes)</span></td><td>7–19</td></tr>
+        <tr data-den="5"><td>Pátek <span class="znacka">(dnes)</span></td><td>7–18</td></tr>
+        <tr data-den="6"><td>Sobota <span class="znacka">(dnes)</span></td><td>zavřeno</td></tr>
+        <tr data-den="0"><td>Neděle <span class="znacka">(dnes)</span></td><td>zavřeno</td></tr>
+      </tbody>
+    </table>
+    <div>
+      <p><a class="odkaz" href="https://www.google.com/maps/dir/?api=1&amp;destination=B%C4%9Blocerkevsk%C3%A1%201438%2F2%2C%20Praha%2010" rel="noopener">Bělocerkevská 1438/2, 100&nbsp;00 Praha&nbsp;10‑Vršovice</a></p>
+      <p><a class="telefon" href="tel:+420604833719">604&nbsp;833&nbsp;719</a></p>
+      <p>Kousek od stadionu Slavie. Platí se hotově. Před domem je bezbariérové parkování.</p>
+      <div class="mapa" id="mapa">
+        <button class="mapa-otevrit" type="button" id="mapa-otevrit"><span>Mapa</span><span>Otevřít</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><strong>Pánský kadeřník U&nbsp;Slávie</strong></p>
+  <p>Bělocerkevská 1438/2, 100&nbsp;00 Praha&nbsp;10‑Vršovice</p>
+  <p><a href="tel:+420604833719" style="text-decoration:none">604&nbsp;833&nbsp;719</a></p>
+  <div class="odkazy">
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJTxzG0naTC0cR20B2-DpKIgg" rel="noopener">Google</a>
+    <a href="https://www.facebook.com/pages/biz/Kade%C5%99nictv%C3%AD-u-Slavie-171031660058206/" rel="noopener">Facebook</a>
+  </div>
+  <!-- Legal line (jméno/název, sídlo, IČO, ADR sentence) is added after the owner confirms the data; nothing legible in the shop's photos. Fonts are self-hosted and the map loads on click, so no third-party request happens on page load and no cookie bar is needed. -->
+</footer>
+
+<div class="lista" id="lista" aria-hidden="true">
+  <p class="stav-lista" id="stav-lista">Po–Čt 7–19, Pá 7–18</p>
+  <a class="trasa" href="https://www.google.com/maps/dir/?api=1&amp;destination=B%C4%9Blocerkevsk%C3%A1%201438%2F2%2C%20Praha%2010" rel="noopener" tabindex="-1">Trasa</a>
+  <a class="tlacitko" href="tel:+420604833719" tabindex="-1">Zavolat</a>
+</div>
+
+<dialog class="sup" id="sup" tabindex="-1" aria-label="Menu">
+  <div class="sup-vnitrek">
+    <button class="sup-zavrit" type="button" id="sup-zavrit">Zavřít</button>
+    <ul>
+      <li><a href="#uvod">Nahoru</a></li>
+      <li><a href="#jak">Jak to u&nbsp;nás chodí</a></li>
+      <li><a href="#chlapi">Co říkají chlapi</a></li>
+      <li><a href="#kde">Kde nás najdete</a></li>
+    </ul>
+    <p class="sup-tel"><a href="tel:+420604833719">604&nbsp;833&nbsp;719</a></p>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  /* live open state in Europe/Prague. Hours from Google: Po–Čt 7–19, Pá 7–18, So+Ne zavřeno. */
+  var H={1:[7,19],2:[7,19],3:[7,19],4:[7,19],5:[7,18],6:null,0:null};
+  var DNY=['v neděli','v pondělí','v úterý','ve středu','ve čtvrtek','v pátek','v sobotu'];
+  function praha(){
+    try{
+      var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Prague',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+      var o={};p.forEach(function(x){o[x.type]=x.value});
+      var d={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+      return {d:d,m:(parseInt(o.hour,10)%24)*60+parseInt(o.minute,10)};
+    }catch(e){var n=new Date();return {d:n.getDay(),m:n.getHours()*60+n.getMinutes()};}
+  }
+  function stav(){
+    var t=praha(),h=H[t.d],txt,kratce;
+    if(h&&t.m>=h[0]*60&&t.m<h[1]*60){ txt='Otevřeno, dnes do '+h[1]+':00'; kratce='Otevřeno do '+h[1]+':00'; }
+    else if(h&&t.m<h[0]*60){ txt='Zavřeno, dnes otevíráme v '+h[0]+':00'; kratce='Zavřeno, dnes od '+h[0]+':00'; }
+    else{
+      var d=t.d,k=0;do{d=(d+1)%7;k++;}while(!H[d]&&k<7);
+      var kdy=(k===1?'zítra':DNY[d]);
+      txt='Zavřeno, otevíráme '+kdy+' v '+H[d][0]+':00'; kratce='Zavřeno, '+kdy+' od '+H[d][0]+':00';
+    }
+    var nb=function(x){return x.replace(/ v /g,' v ').replace(/ ve /g,' ve ');};
+    var a=document.getElementById('stav-uvod'),b=document.getElementById('stav-lista');
+    if(a)a.textContent=nb(txt); if(b)b.textContent=nb(kratce);
+    var r=document.querySelector('#tyden tr[data-den="'+t.d+'"]'); if(r)r.classList.add('dnes');
+  }
+  stav(); setInterval(stav,60000);
+
+  /* bottom bar only once the hero's own button has left the viewport */
+  var lista=document.getElementById('lista'),cil=document.getElementById('zavolat-uvod'),otevrit=document.getElementById('menu-otevrit');
+  function ukaz(on){ lista.classList.toggle('videt',on); otevrit.classList.toggle('na-lamine',on); lista.setAttribute('aria-hidden',on?'false':'true'); lista.querySelectorAll('a').forEach(function(a){ if(on)a.removeAttribute('tabindex'); else a.setAttribute('tabindex','-1'); }); }
+  if('IntersectionObserver' in window&&cil){
+    new IntersectionObserver(function(es){ es.forEach(function(e){ ukaz(!e.isIntersecting&&e.boundingClientRect.top<0); }); },{threshold:0}).observe(cil);
+  }
+
+  /* the menu: a <dialog> drawer; iOS body lock with an instant restore; back gesture closes it */
+  var sup=document.getElementById('sup'),zavrit=document.getElementById('sup-zavrit');
+  var y=0,otevreno=false,vHistorii=false;
+  function open(klavesnice){
+    if(otevreno)return; otevreno=true;
+    y=window.scrollY||window.pageYOffset;
+    history.scrollRestoration='manual';
+    document.body.style.top=(-y)+'px'; document.body.classList.add('zamek');
+    sup.showModal();
+    if(klavesnice){ var f=sup.querySelector('a'); if(f)f.focus(); } else { sup.focus(); }
+    history.pushState({sup:1},''); vHistorii=true;
+  }
+  function close(cilId){
+    if(!otevreno)return; otevreno=false;
+    sup.close();
+    document.body.classList.remove('zamek'); document.body.style.top='';
+    window.scrollTo({top:y,left:0,behavior:'instant'});
+    history.scrollRestoration='auto';
+    if(cilId){
+      var el=document.getElementById(cilId);
+      if(el){ el.scrollIntoView({block:'start'}); el.focus({preventScroll:true}); }
+    } else { otevrit.focus({preventScroll:true}); }
+  }
+  otevrit.addEventListener('click',function(e){ open(e.detail===0); });
+  function zpet(){ var h=vHistorii; vHistorii=false; close(); if(h)history.back(); }
+  zavrit.addEventListener('click',zpet);
+  sup.addEventListener('cancel',function(e){ e.preventDefault(); zpet(); });
+  sup.addEventListener('click',function(e){ if(e.target===sup)zpet(); });
+  sup.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault(); var id=a.getAttribute('href').slice(1);
+      var h=vHistorii; vHistorii=false; close(id); if(h)history.back();
+    });
+  });
+  window.addEventListener('popstate',function(){ if(otevreno){ vHistorii=false; close(); } });
+
+  /* the map loads only when asked for: no third-party request on page load */
+  var mo=document.getElementById('mapa-otevrit');
+  mo.addEventListener('click',function(){
+    var box=document.getElementById('mapa');
+    var f=document.createElement('iframe');
+    f.src='https://www.google.com/maps?q=B%C4%9Blocerkevsk%C3%A1%201438%2F2%2C%20Praha%2010&z=16&output=embed';
+    f.title='Mapa: Bělocerkevská 1438/2, Praha 10'; f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade';
+    var l=document.createElement('a'); l.className='odkaz'; l.href='https://www.google.com/maps/dir/?api=1&destination=B%C4%9Blocerkevsk%C3%A1%201438%2F2%2C%20Praha%2010'; l.rel='noopener'; l.textContent='Otevřít v Mapách Google';
+    box.replaceChildren(f,l);
+  });
+})();
+</script>
+</body>
+</html>
