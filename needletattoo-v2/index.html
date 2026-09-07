@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Needle Tattoo, tetovací studio v&nbsp;Žižkově</title>
-<meta name="description" content="Tetovací studio Needle Tattoo v Žižkově, Hartigova 60. Blackwork, písmo, jemná linka, kresba i barevné práce. Jen na objednání, telefon 725 734 400.">
+<title>Needle Tattoo, tetovací studio na Žižkově</title>
+<meta name="description" content="Tetovací studio Needle Tattoo na Žižkově, Hartigova 60. Blackwork, písmo, jemná linka, kresba i barevné práce. Jen na objednání, telefon 725 734 400.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%2316130F'/%3E%3Ctext%20x='16'%20y='25'%20font-family='Georgia,serif'%20font-size='24'%20font-weight='700'%20fill='%23DAC889'%20text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
-<meta property="og:title" content="Needle Tattoo, tetovací studio v Žižkově">
+<meta property="og:title" content="Needle Tattoo, tetovací studio na Žižkově">
 <meta property="og:description" content="Hartigova 60, Praha 3-Žižkov. Jen na objednání.">
 <meta property="og:image" content="https://hensanch.github.io/web-demos/needletattoo-v2/img/nadpis.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -88,8 +88,8 @@ figure{margin:0}
   text-transform:uppercase;color:var(--stena);
 }
 .znacka-t{
-  display:block;font-weight:600;text-transform:uppercase;
-  font-size:clamp(3.31rem,17.29vw,7.31rem);letter-spacing:.006em;line-height:.88;
+  display:block;font-weight:300;text-transform:uppercase;
+  font-size:clamp(3.31rem,17.29vw,7.31rem);letter-spacing:.024em;line-height:.88;
   margin-top:.04em;color:var(--tus);
 }
 .kdo{margin:15px 0 0;font-size:1.0625rem;max-width:23em}
@@ -107,6 +107,14 @@ figure{margin:0}
   .uvod-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end}
   .kdo{font-size:1.1875rem;max-width:none}
   .pas{height:min(42vw,480px);margin-top:34px}
+}
+
+/* Dvousloupcový úvod potřebuje 1180 px: NEEDLE má v Bevanu 577 px a do poloviny
+   užšího okna se nevejde, fotka mu pak přejela poslední písmena. Mezi 900 a 1180 px
+   zůstává úvod jednosloupcový jako na telefonu. */
+@media (min-width:900px) and (max-width:1179.98px){
+  .uvod-in{display:block}
+  .pas{margin-top:24px;height:min(46vw,380px)}
 }
 
 /* ---- 2. práce: černá zeď, kterou prošívá jedna velká fotka ---- */
@@ -294,7 +302,7 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
           <span class="znacka-n">Needle</span>
           <span class="znacka-t">Tattoo</span>
         </h1>
-        <p class="kdo">Tetovací studio v&nbsp;Žižkově, Hartigova 60. Od jemné linky po blackwork.</p>
+        <p class="kdo">Tetovací studio na Žižkově, Hartigova 60.</p>
         <p class="znamka"><span class="hvezda" aria-hidden="true">★</span><span class="pocet">4,9 z&nbsp;274 hodnocení na Googlu</span></p>
         <p class="jen">Jen na objednání.</p>
         <div class="akce" id="akce">
@@ -341,7 +349,7 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
         </div>
         <blockquote class="hlas">
           <p>„Profesionální přístup, velmi čisté prostředí a&nbsp;kvalitně odvedená práce. Pokud chcete kvalitu, promyšlené detaily a&nbsp;poradenství na úrovni, určitě doporučuji.“</p>
-          <b>Zuzana, před čtyřmi měsíci, Google</b>
+          <b>Zuzana, Google</b>
         </blockquote>
       </div>
     </div>
@@ -353,15 +361,15 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
       <blockquote class="velka-citace">
         „Byl jsem tu na tetování už podruhé a&nbsp;můžu říct, že je to na vysoké úrovni. Pan Adam je velmi komunikativní, profesionální a&nbsp;hlavně vyjde vstříc všemu. Už bych neměnil!“
       </blockquote>
-      <p class="podpis">Tomas, před dvěma měsíci, Google</p>
+      <p class="podpis">Tomas, Google</p>
       <div class="dalsi">
         <div>
           <p>„Individuální přístup, pěkné nové studio, krásná precizní práce.“</p>
-          <p class="podpis">Piotrusia, před dvěma měsíci, Google</p>
+          <p class="podpis">Piotrusia, Google</p>
         </div>
         <div>
           <p>„Děkuji za dnešní tetování, naprostá spokojenost.“</p>
-          <p class="podpis">Jana, před čtyřmi měsíci, Google</p>
+          <p class="podpis">Jana, Google</p>
         </div>
       </div>
       <p class="souhrn"><a href="https://www.google.com/maps/place/needletattoo/data=!4m7!3m6!1s0x470b935f86bc3061:0x4a503043eef5a42f!8m2!3d50.0886392!4d14.4607038!16s%2Fg%2F11hczxmh_y!19sChIJYTC8hl-TC0cRL6T17kMwUEo" target="_blank" rel="noopener">Přečíst všech 274 hodnocení na Googlu</a></p>
@@ -374,7 +382,7 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
         <div class="deska-l">
           <h2 class="h2">Než přijdete</h2>
           <p>Do studia se chodí na objednání. Zavolejte a&nbsp;řekněte, co máte v&nbsp;hlavě.</p>
-          <p>Jak to tady chodí, popsali zákazníci na Googlu: návrh je hotový během pár minut, nabídnou kafe nebo Red Bull a&nbsp;poradí s&nbsp;umístěním i&nbsp;s&nbsp;hojením. Jedno sezení může trvat i&nbsp;čtyři a&nbsp;půl hodiny.</p>
+          <p>Nabídnou kafe nebo Red Bull a&nbsp;poradí s&nbsp;umístěním i&nbsp;s&nbsp;hojením. Jedno sezení může trvat i&nbsp;čtyři a&nbsp;půl hodiny.</p>
         </div>
         <div class="deska-r">
           <a class="cislo" href="tel:+420725734400">725 734 400</a>
@@ -382,7 +390,7 @@ dialog.menu::backdrop{background:rgba(0,0,0,.72)}
         </div>
         <blockquote class="hlas-tmavy">
           „Musím říct, že tohle je tak příjemný místo, že bych tu mohla být celý den a&nbsp;každý den.“
-          <b>Pavlína, před deseti měsíci, Google</b>
+          <b>Pavlína, Google</b>
         </blockquote>
       </div>
     </div>

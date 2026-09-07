@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nehtové studio Praha 10 – Vršovice | CELEBRATE</title>
 <meta name="description" content="CELEBRATE, nehtové studio v Praze 10 ve Vršovicích, Minská 17. Manikúra, pedikúra, obočí a řasy. Ceník v korunách, otevřeno každý den od 9 do 20, objednání online.">
 <meta name="theme-color" content="#1D1A18">
@@ -33,13 +33,17 @@
   --lista:72px;
   --pad:20px;
   --max:1200px;
+  /* iOS Safari lands a fragment 62 CSS px below the viewport top (measured, iPhone 17,
+     iOS 27 simulator); env(safe-area-inset-top) reports 0 there, so the inset is a literal. */
+  --sat:env(safe-area-inset-top, 0px);
 }
-section,.skupina{scroll-margin-top:0}
+@media (hover:none) and (pointer:coarse){:root{--sat:62px}}
+section,.skupina{scroll-margin-top:calc(-1 * var(--sat))}
 *,*::before,*::after{box-sizing:border-box}
 html{
   background:var(--stul);
   -webkit-text-size-adjust:100%;
-  scroll-padding-bottom:calc(72px + 16px); /* výška spodní lišty */
+  scroll-padding-bottom:calc(72px + 16px + env(safe-area-inset-bottom, 0px)); /* výška spodní lišty */
   scroll-padding-top:0;
 }
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
@@ -61,6 +65,8 @@ p{margin:0}
 button{font:inherit;color:inherit}
 button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:3px solid #FFD9A8;outline-offset:3px;border-radius:2px}
+section[tabindex="-1"]:focus,section[tabindex="-1"]:focus-visible,
+.skupina[tabindex="-1"]:focus,.skupina[tabindex="-1"]:focus-visible{outline:none}
 .svetlo :focus-visible{outline-color:#7A3A12}
 
 .obal{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
@@ -68,7 +74,7 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
 .skip:focus{left:8px;top:8px}
 
 /* ---------- 1. úvod ---------- */
-.uvod{padding:0 0 34px}
+.uvod{padding:0 0 calc(34px + var(--sat))}
 .znacka{
   font-size:clamp(38px,13.1vw,163px);
   letter-spacing:.035em;
@@ -80,12 +86,15 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
 .co b{color:var(--zar);font-weight:500}
 .prvni{position:relative}
 .menuhorni{
-  position:absolute;top:0;right:var(--pad);z-index:10;
+  position:fixed;top:env(safe-area-inset-top, 0px);right:0;z-index:41;
   display:flex;align-items:center;justify-content:center;
-  min-height:46px;padding:0 16px;
-  background:var(--stul);color:var(--zar);border:0;
+  min-height:48px;padding:0 18px;
+  background:var(--stul);color:var(--zar);
+  border:0;border-left:1px solid var(--okraj);border-bottom:1px solid var(--okraj);
   font-weight:500;font-size:15.5px;letter-spacing:.02em;
+  transform:translateY(0);transition:transform .18s ease-out,visibility .18s;
 }
+.menuhorni.skryta{transform:translateY(-100%);visibility:hidden}
 .hero{margin:0 calc(var(--pad) * -1) 16px}
 .hero img{width:100%;height:auto;aspect-ratio:1200/840;object-fit:cover}
 .fakta{display:flex;flex-direction:column;gap:4px;margin-bottom:16px}
@@ -107,11 +116,17 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
 .telefon .cislo{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:var(--kava)}
 
 /* ---------- 2. ceník ---------- */
-.cenik{padding:34px 0 40px;border-top:1px solid var(--kava)}
+.cenik{padding:calc(34px + var(--sat)) 0 calc(40px + var(--sat));border-top:1px solid var(--kava)}
 .nadpis{font-size:clamp(29px,8.2vw,46px);margin-bottom:6px}
 .podnadpis{color:var(--kour);font-size:15.5px;max-width:56ch;margin-bottom:26px}
-.skupiny{display:block}
-.skupina{margin-bottom:28px}
+.skupiny{display:flex;flex-direction:column}
+.sloupec{display:contents}
+#manikura{order:1}
+#pedikura{order:2}
+#balicky{order:3}
+#oboci{order:4}
+#depilace{order:5}
+.skupina{margin-bottom:calc(28px + var(--sat));padding-top:var(--sat)}
 .sloupec>.skupina:last-child{margin-bottom:28px}
 .skupina h3{
   display:block;
@@ -128,11 +143,12 @@ button,a,summary,[role=button]{touch-action:manipulation;-webkit-tap-highlight-c
 .objblok p{font-size:15.5px;color:var(--kour);margin-bottom:16px;max-width:44ch}
 
 /* ---------- 3. práce + recenze ---------- */
-.prace{border-top:1px solid var(--kava);padding-top:0}
+.prace{border-top:1px solid var(--kava);padding-top:var(--sat)}
 .mrizka{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .mrizka img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
-.recenze{padding:32px 0 40px}
-.souhrn{font-size:19px;font-weight:500;line-height:1.4;margin-bottom:24px;max-width:30ch}
+.uvodrecenzi{padding:30px 0 22px}
+.recenze{padding:30px 0 calc(40px + var(--sat))}
+.souhrn{font-size:19px;font-weight:500;line-height:1.4;max-width:34ch}
 .souhrn b{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums}
 .citaty{display:grid;gap:24px}
 figure{margin:0;padding-left:16px;border-left:2px solid var(--kava)}
@@ -141,9 +157,9 @@ figure figcaption{margin-top:8px;font-size:14px;color:var(--kour);letter-spacing
 .vic{display:inline-flex;align-items:center;min-height:44px;margin-top:22px;font-size:15.5px;color:var(--kour);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--kava)}
 
 /* ---------- 4. povídat nebo klid ---------- */
-.svetlo{background:var(--svetlo);color:var(--stul);padding-bottom:36px;margin-top:104px}
+.svetlo{background:var(--svetlo);color:var(--stul);padding:var(--sat) 0 calc(36px + var(--sat));margin-top:104px}
 .svetlo>.obal{display:flow-root}
-.tac{width:236px;margin:-96px 0 22px auto}
+.tac{width:236px;margin:calc(-96px - var(--sat)) 0 22px auto}
 .tac img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
 .svetlo h2{font-size:clamp(31px,9vw,54px);margin-bottom:14px;letter-spacing:-.02em}
 .svetlo p.uvodni{font-size:17px;line-height:1.5;max-width:40ch;margin-bottom:22px;color:#3B322C}
@@ -152,16 +168,14 @@ figure figcaption{margin-top:8px;font-size:14px;color:var(--kour);letter-spacing
 .svetlo p.pod{font-size:15.5px;color:#4A3F38;max-width:44ch}
 
 /* ---------- 5. sedm dní ---------- */
-.kde{padding:38px 0 40px}
-.hodinyobal{position:relative;margin:20px 0 4px}
-.hodinyobal::before{content:'';position:absolute;left:5px;top:22px;bottom:22px;width:1px;background:var(--kava)}
-.hodiny{width:100%;border-collapse:collapse;font-size:16px}
-.hodiny th{position:relative;text-align:left;font-weight:400;color:var(--kour);padding:9px 0 9px 28px;border-bottom:1px solid rgba(110,85,70,.42)}
-.hodiny th::before{content:'';position:absolute;left:1px;top:50%;margin-top:-5px;width:10px;height:10px;border-radius:50%;background:var(--stul);box-shadow:inset 0 0 0 1.5px var(--kour)}
-.hodiny tr.dnes th::before{background:var(--svetlo);box-shadow:none}
-.hodiny td{text-align:right;padding:9px 0;border-bottom:1px solid rgba(110,85,70,.42);font-variant-numeric:tabular-nums}
-.hodiny tr.dnes th,.hodiny tr.dnes td{color:var(--zar);font-weight:700}
-.hodiny tr.dnes th::after{content:'DNES';margin-left:10px;font-size:11px;letter-spacing:.14em;font-weight:800;color:var(--stul);background:var(--svetlo);padding:2px 6px;vertical-align:2px}
+.kde{padding:calc(38px + var(--sat)) 0 40px}
+.tyden{position:relative;display:flex;justify-content:space-between;max-width:322px;margin:24px 0 16px}
+.tyden::before{content:'';position:absolute;left:7px;right:7px;top:6px;height:1px;background:var(--kava)}
+.den{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.05em;color:var(--kour)}
+.den i{display:block;width:13px;height:13px;border-radius:50%;background:var(--stul);box-shadow:inset 0 0 0 1.5px var(--kour)}
+.den.dnes{color:var(--zar);font-weight:700}
+.den.dnes i{background:var(--svetlo);box-shadow:none}
+.kazdyden{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums}
 .adresa{font-size:19px;font-weight:500;line-height:1.45;margin:24px 0 4px}
 .odkazy{display:flex;flex-wrap:wrap;gap:10px 22px;margin:14px 0 4px}
 .odkazy a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;font-size:16px;color:var(--zar);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--kava)}
@@ -174,7 +188,7 @@ figure figcaption{margin-top:8px;font-size:14px;color:var(--kour);letter-spacing
 .salon img{width:100%;height:auto;aspect-ratio:900/1170;object-fit:cover}
 
 /* ---------- patička ---------- */
-footer{background:var(--deska);padding:30px 0 calc(var(--lista) + 34px);font-size:13.5px;color:var(--kour);line-height:1.6}
+footer{background:var(--deska);padding:30px 0 calc(var(--lista) + 34px + env(safe-area-inset-bottom, 0px));font-size:13.5px;color:var(--kour);line-height:1.6}
 footer p{margin-bottom:10px;max-width:62ch}
 footer a{color:var(--kour);text-decoration:underline;text-underline-offset:3px}
 .patodkazy{display:flex;flex-wrap:wrap;gap:0 24px;margin:2px 0 10px}
@@ -186,7 +200,7 @@ footer a{color:var(--kour);text-decoration:underline;text-underline-offset:3px}
 .lista{
   position:fixed;left:0;right:0;bottom:0;z-index:40;
   display:flex;gap:2px;align-items:center;
-  height:var(--lista);padding:0 8px;
+  height:calc(var(--lista) + env(safe-area-inset-bottom, 0px));padding:0 8px env(safe-area-inset-bottom, 0px);
   background:var(--deska);border-top:1px solid var(--kava);
   transform:translateY(0);transition:transform .18s ease-out,visibility .18s;
 }
@@ -197,13 +211,13 @@ footer a{color:var(--kour);text-decoration:underline;text-underline-offset:3px}
 
 /* ---------- menu ---------- */
 dialog.menu{
-  width:100%;max-width:100%;height:auto;max-height:88vh;
+  width:100%;max-width:100%;height:auto;max-height:88dvh;
   position:fixed;inset:auto 0 0 0;
   margin:0;padding:0;border:0;border-top:1px solid var(--okraj);
   background:var(--stul);color:var(--zar);overflow:auto;
 }
 dialog.menu::backdrop{background:rgba(12,10,9,.86)}
-.menuvnitrek{display:flex;flex-direction:column;padding:14px var(--pad) 24px}
+.menuvnitrek{display:flex;flex-direction:column;padding:14px var(--pad) calc(24px + env(safe-area-inset-bottom, 0px))}
 .menuvnitrek .hlava{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .menuvnitrek .hlava b{font-size:14px;letter-spacing:.16em;font-weight:800;color:var(--kour)}
 .zavrit{background:transparent;border:1px solid var(--okraj);color:var(--zar);min-height:46px;padding:10px 18px;font-weight:600}
@@ -235,7 +249,7 @@ nav.stolni{display:none}
   html{scroll-padding-bottom:0;scroll-padding-top:0}
   footer{padding-bottom:40px}
 
-  .uvod{padding:34px 0 52px}
+  .uvod{padding:34px 0 calc(52px + var(--sat))}
   .prvni{display:grid;grid-template-columns:360px 1fr;gap:0 56px;align-items:start}
   .prvni{align-items:stretch}
   .hero{margin:0;grid-column:2;grid-row:1}
@@ -247,9 +261,10 @@ nav.stolni{display:none}
   .hlavni{width:auto;max-width:360px}
 
   .skupiny{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;align-items:start}
-  .skupina{margin-bottom:34px}
+  .sloupec{display:block}
+  .skupina{margin-bottom:calc(34px + var(--sat));order:0}
   .sloupec>.skupina:last-child{margin-bottom:0}
-  .cenik{padding:52px 0 56px}
+  .cenik{padding:calc(52px + var(--sat)) 0 calc(56px + var(--sat))}
   .objblok{display:flex;align-items:center;justify-content:space-between;gap:48px;margin-top:34px;padding-top:24px}
   .objblok p{margin-bottom:0;font-size:16.5px;max-width:46ch}
   .objblok .hlavni{flex:0 0 auto;width:340px;min-height:60px;font-size:17px}
@@ -257,13 +272,14 @@ nav.stolni{display:none}
   .podnadpis{margin-bottom:34px}
 
   .mrizka{grid-template-columns:repeat(4,1fr)}
-  .recenze{padding:46px 0 56px}
-  .souhrn{max-width:40ch;font-size:21px}
+  .uvodrecenzi{padding:44px 0 26px}
+  .recenze{padding:38px 0 calc(56px + var(--sat))}
+  .souhrn{max-width:44ch;font-size:21px}
   .citaty{grid-template-columns:repeat(2,1fr);gap:34px 56px}
 
-  .svetlo{margin-top:130px;padding-bottom:60px}
-  .svetlopole{display:grid;grid-template-columns:1fr 420px;gap:0 64px;align-items:start}
-  .tac{width:420px;margin:-130px 0 0 0;grid-column:2;grid-row:1 / span 4}
+  .svetlo{margin-top:130px;padding-bottom:calc(60px + var(--sat))}
+  .svetlo>.obal.svetlopole{display:grid;grid-template-columns:1fr 420px;gap:0 64px;align-items:start}
+  .tac{width:420px;margin:calc(-130px - var(--sat)) 0 0 0;grid-column:2;grid-row:1 / span 4}
   .volby li{padding:14px 0}
   .svetlo h2{grid-column:1;margin-top:44px}
   .svetlo p.uvodni{grid-column:1;font-size:18px}
@@ -271,7 +287,7 @@ nav.stolni{display:none}
   .volby li{font-size:21px}
   .svetlo p.pod{grid-column:1}
 
-  .kde{padding:54px 0 62px}
+  .kde{padding:calc(54px + var(--sat)) 0 62px}
   .kdepole{display:grid;grid-template-columns:1fr 480px;gap:0 64px;align-items:start}
   .kdetext{grid-column:1}
   .salon{grid-column:2;margin-top:14px}
@@ -403,6 +419,9 @@ nav.stolni{display:none}
 <!-- 3 ------------------------------------------------------------------ -->
 <section id="prace" class="prace" tabindex="-1" aria-labelledby="prace-h">
   <h2 id="prace-h" class="skip">Práce studia a&nbsp;recenze</h2>
+  <div class="obal uvodrecenzi">
+    <p class="souhrn"><b>4,9</b> ze&nbsp;102 hodnocení na&nbsp;Googlu. Tohle jsou nehty od&nbsp;nich.</p>
+  </div>
   <div class="mrizka">
     <img src="img/work-cervena.jpg" width="620" height="620" alt="Mandlové nehty v&nbsp;jasně červeném gel-laku" loading="lazy" decoding="async">
     <img src="img/work-visnova.jpg" width="620" height="620" alt="Čtvercové nehty v&nbsp;tmavě višňové barvě" loading="lazy" decoding="async">
@@ -410,7 +429,6 @@ nav.stolni{display:none}
     <img src="img/work-perletova.jpg" width="620" height="620" alt="Mandlové nehty s&nbsp;perleťovým zdobením" loading="lazy" decoding="async">
   </div>
   <div class="obal recenze">
-    <p class="souhrn"><b>4,9</b> ze&nbsp;102 hodnocení na&nbsp;Googlu.</p>
     <div class="citaty">
       <figure>
         <blockquote>Úžasný salon! Perfektní manikúra a&nbsp;tak milý a&nbsp;profesionální přístup. Moc doporučuji.</blockquote>
@@ -456,20 +474,16 @@ nav.stolni{display:none}
     <div class="kdetext">
       <h2 class="nadpis" id="kde-h">Sedm dní v&nbsp;týdnu</h2>
       <p class="podnadpis">Termín si raději domluvte předem.</p>
-      <div class="hodinyobal">
-      <table class="hodiny" id="hodiny">
-        <caption class="skip">Otevírací doba</caption>
-        <tbody>
-          <tr data-den="1"><th scope="row">Pondělí</th><td>9:00–20:00</td></tr>
-          <tr data-den="2"><th scope="row">Úterý</th><td>9:00–20:00</td></tr>
-          <tr data-den="3"><th scope="row">Středa</th><td>9:00–20:00</td></tr>
-          <tr data-den="4"><th scope="row">Čtvrtek</th><td>9:00–20:00</td></tr>
-          <tr data-den="5"><th scope="row">Pátek</th><td>9:00–20:00</td></tr>
-          <tr data-den="6"><th scope="row">Sobota</th><td>9:00–20:00</td></tr>
-          <tr data-den="0"><th scope="row">Neděle</th><td>9:00–20:00</td></tr>
-        </tbody>
-      </table>
+      <div class="tyden" id="hodiny" aria-hidden="true">
+        <span class="den" data-den="1"><i></i>Po</span>
+        <span class="den" data-den="2"><i></i>Út</span>
+        <span class="den" data-den="3"><i></i>St</span>
+        <span class="den" data-den="4"><i></i>Čt</span>
+        <span class="den" data-den="5"><i></i>Pá</span>
+        <span class="den" data-den="6"><i></i>So</span>
+        <span class="den" data-den="0"><i></i>Ne</span>
       </div>
+      <p class="kazdyden">Každý den 9:00–20:00</p>
       <p class="adresa">Minská&nbsp;17<br>101&nbsp;00 Praha&nbsp;10-Vršovice</p>
       <div class="odkazy">
         <a href="tel:+420777159873">777&nbsp;159&nbsp;873</a>
@@ -603,8 +617,10 @@ nav.stolni{display:none}
     else { txt = 'Otevřeno, dnes do' + NB + doo + ':00'; }
     el.classList.toggle('zavreno', zavreno);
     el.innerHTML = '<span class="tecka"></span>' + txt;
-    var rada = document.querySelector('#hodiny tr[data-den="' + t.den + '"]');
-    if (rada) { rada.className = 'dnes'; }
+    var dny = document.querySelectorAll('#hodiny .den');
+    for (var i = 0; i < dny.length; i++) { dny[i].classList.remove('dnes'); }
+    var dnes = document.querySelector('#hodiny .den[data-den="' + t.den + '"]');
+    if (dnes) { dnes.classList.add('dnes'); }
   }
   stav();
   setInterval(stav, 60000);
@@ -666,7 +682,8 @@ nav.stolni{display:none}
       odemkni();
       if (history.state && history.state.menu) { history.back(); }
       var cil = posledniOtevirac || otevrit;
-      if (cil && cil.offsetParent !== null) { cil.focus({ preventScroll: true }); }
+      var videt = cil && cil.getBoundingClientRect().width > 0 && getComputedStyle(cil).visibility !== 'hidden';
+      if (videt) { cil.focus({ preventScroll: true }); }
       else if (otevrit) { otevrit.focus({ preventScroll: true }); }
     });
     window.addEventListener('popstate', function () {
@@ -693,10 +710,13 @@ nav.stolni{display:none}
   /* --- lišta se ukáže, až tlačítko z první obrazovky odjede --- */
   var lista = document.getElementById('lista');
   var prvniCta = document.querySelector('.akce .hlavni');
+  var hornimenu = document.querySelector('.menuhorni');
   if (lista && prvniCta && 'IntersectionObserver' in window) {
     lista.classList.add('skryta');
     new IntersectionObserver(function (zaznamy) {
-      lista.classList.toggle('skryta', zaznamy[0].isIntersecting);
+      var vidim = zaznamy[0].isIntersecting;
+      lista.classList.toggle('skryta', vidim);
+      if (hornimenu) { hornimenu.classList.toggle('skryta', !vidim); }
     }, { threshold: 0 }).observe(prvniCta);
   }
 }());
