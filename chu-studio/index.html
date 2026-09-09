@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manikúra Praha 2 – Vinohrady | CHu. STUDIO</title>
+<meta name="description" content="CHu. STUDIO na Korunní 56 ve Vinohradech. Manikúra, gelové nehty, akryl a nehtový design. 4,6 ze 766 recenzí. Objednávky telefonicky na 608 886 565.">
+<meta name="theme-color" content="#DCD9D2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20fill='%23131313'/%3E%3Ctext%20x='32'%20y='43'%20font-family='sans-serif'%20font-size='29'%20font-weight='300'%20fill='%23DCD9D2'%20text-anchor='middle'%3ECHu%3C/text%3E%3C/svg%3E">
+
+<!-- Písma jsou uložená na tomto serveru, mapa se načítá až po klepnutí: stránka
+     nedělá žádný požadavek na cizí server a neukládá cookies.
+     JSON-LD: image a sameAs míří na adresu, kde běží ukázka. Po nasazení na
+     chustudio.cz je přepsat na https://www.chustudio.cz/img/hero-d.jpg. -->
+<style>
+@font-face{font-family:Gantari;font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(font/gantari-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:Gantari;font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(font/gantari-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+:root{
+  --vapenec:#DCD9D2;      /* světlý kámen z dlažby, g06 */
+  --sparka:#C0BEB6;       /* druhý kámen a spáry */
+  --stin:#4A4D50;         /* kámen ve stínu, ztmavený na čitelnost; druhotný text */
+  --tus:#131313;          /* tuš z obrazu na stěně, g10 */
+  --sklo:#F2F0EA;         /* sklo výlohy */
+  --sat:0px;
+  --bar:0px;
+}
+@supports (-webkit-touch-callout:none){
+  @media (hover:none) and (pointer:coarse){ :root{--sat:62px} }
+}
+*{box-sizing:border-box}
+html{background:var(--vapenec);scroll-behavior:smooth;scroll-padding-top:0;scroll-padding-bottom:calc(var(--bar) + 16px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--vapenec);color:var(--tus);
+  font-family:Gantari,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:17px;line-height:1.5;font-weight:400;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+button,a{touch-action:manipulation}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:300;text-wrap:balance}
+p{margin:0}
+
+/* --- ohnisko klávesnice --- */
+:focus-visible{outline:3px solid var(--tus);outline-offset:2px}
+.lupa :focus-visible{outline-color:var(--sklo)}
+html.dotyk :focus-visible{outline:0}
+[tabindex="-1"]:focus{outline:0}
+
+/* --- dotykové terče: 44 px, aniž by se hnula sazba --- */
+.hvezdy,.dotek{position:relative}
+.dotek::after{content:'';position:absolute;left:0;right:0;top:50%;height:44px;transform:translateY(-50%)}
+.hvezdy::after{content:'';position:absolute;left:0;right:0;top:-16px;bottom:-6px}
+
+/* --- dlažba: mozaika z Korunní, kreslená, položená našikmo jako v g06.jpg --- */
+.dlazba{position:relative;overflow:hidden;background-color:var(--vapenec)}
+.dlazba::before{content:'';position:absolute;left:50%;top:50%;width:150vmax;height:150vmax;
+  margin:-75vmax 0 0 -75vmax;transform:rotate(45deg);transform-origin:center;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(to right,rgba(222,219,212,.9) 0 1px,transparent 1px 6px),
+    repeating-linear-gradient(to bottom,rgba(222,219,212,.9) 0 1px,transparent 1px 6px),
+    repeating-conic-gradient(#DFDCD5 0 25%,#B6B4AB 0 50%);
+  background-size:6px 6px,6px 6px,48px 48px;}
+@media (min-width:700px){.dlazba::before{background-size:7px 7px,7px 7px,56px 56px}}
+
+/* --- pruh s adresou --- */
+.ulice{padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-bottom:1px solid rgba(19,19,19,.22);font-size:13px;font-weight:500;letter-spacing:.045em}
+.ulice::after{content:'';position:absolute;inset:0;background:rgba(220,217,210,.5);pointer-events:none}
+.ulice>*{position:relative;z-index:1}
+.ulice .tel{display:none;text-decoration:none}
+@media (hover:hover){.ulice .tel:hover{text-decoration:underline}}
+
+/* --- první obrazovka --- */
+.hero-foto{width:100%;height:318px;object-fit:cover;object-position:52% 40%;background:var(--sparka)}
+.uvod{padding:22px 16px 26px}
+h1{font-size:clamp(42px,12vw,54px);line-height:.98;letter-spacing:.055em;font-weight:300;margin-bottom:14px}
+.delame{font-size:17.5px;line-height:1.42;max-width:24ch}
+.fakta{margin-top:16px;font-size:15px;display:flex;flex-direction:column;gap:5px}
+.hvezdy{text-decoration:none;border-bottom:1px solid rgba(19,19,19,.3);align-self:flex-start}
+@media (hover:hover){.hvezdy:hover{border-bottom-color:var(--tus)}}
+.provoz{font-weight:600}
+.provoz .tecka{display:none;width:8px;height:8px;border-radius:50%;background:var(--tus);margin-right:7px;vertical-align:1px}
+.provoz[data-otevreno] .tecka{display:inline-block}
+.provoz[data-otevreno="ne"] .tecka{background:transparent;box-shadow:inset 0 0 0 1.5px var(--stin)}
+.tlacitko{display:flex;align-items:center;justify-content:center;height:56px;margin-top:20px;
+  background:var(--tus);color:var(--sklo);text-decoration:none;font-size:17.5px;font-weight:600;letter-spacing:.02em}
+@media (hover:hover){.tlacitko:hover{background:#000}}
+.pod-tlacitkem{margin-top:11px;font-size:14.5px;color:var(--stin);line-height:1.45}
+.pod-tlacitkem a{color:var(--tus);text-decoration:none;border-bottom:1px solid rgba(19,19,19,.3)}
+
+/* --- sekce --- */
+section{padding-top:calc(38px + var(--sat));padding-bottom:38px;scroll-margin-top:calc(-1 * var(--sat))}
+h2{font-size:27px;letter-spacing:.03em;padding:0 16px;margin-bottom:18px}
+
+/* --- co uděláme --- */
+#sluzby{background:var(--sklo)}
+.seznam{border-top:1px solid rgba(19,19,19,.16);margin:0;padding-left:0}
+.seznam li{list-style:none;padding:13px 16px;border-bottom:1px solid rgba(19,19,19,.16);font-size:19px}
+.vysvetleni{padding:20px 16px 0;font-size:15.5px;line-height:1.5;max-width:44ch;color:#2c2c2c}
+
+/* --- mozaika práce --- */
+.mozaika{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:0 3px}
+.mozaika>*{min-width:0}
+.mozaika button{padding:0;border:0;background:none;cursor:pointer;display:block;aspect-ratio:1}
+.mozaika img{width:100%;height:100%;object-fit:cover}
+blockquote.kamen{margin:0}
+.kamen{grid-column:span 2;background:var(--sparka);padding:11px 13px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.kamen p{font-size:13.5px;line-height:1.34}
+.kamen span{font-size:11.5px;font-weight:500;color:#3f4144}
+.na-googlu{display:inline-block;margin:12px 16px 0;padding:11px 0;font-size:15px;text-decoration:none;border-bottom:1px solid rgba(19,19,19,.3)}
+@media (hover:hover){.na-googlu:hover{border-bottom-color:var(--tus)}}
+
+/* --- objednání a kde --- */
+.text16{padding:0 16px;max-width:46ch}
+.mapa{margin:20px 16px 0;position:relative;background:var(--sparka)}
+.mapa button{width:100%;border:1px solid rgba(19,19,19,.35);color:var(--tus);font:inherit;font-size:15.5px;
+  font-weight:600;padding:15px;cursor:pointer}
+.mapa button::after{content:'';position:absolute;inset:0;background:rgba(242,240,234,.7);pointer-events:none}
+.mapa button span{position:relative;z-index:1}
+@media (hover:hover){.mapa button:hover::after{background:rgba(242,240,234,.88)}}
+.mapa iframe{display:block;width:100%;height:300px;border:0}
+.kde{margin-top:24px;padding:0 16px;font-size:15.5px;line-height:1.7}
+.kde a{color:var(--tus)}
+.tyden{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;margin:26px 10px 0;padding:0}
+.tyden>div{background:var(--sklo);padding:11px 2px 12px;text-align:center;min-width:0}
+.tyden dt{font-size:13px;font-weight:600;letter-spacing:.03em}
+.tyden dd{margin:5px 0 0;font-size:min(11.5px,3vw);letter-spacing:-.01em;color:#3a3d3d;
+  font-variant-numeric:tabular-nums;overflow-wrap:break-word}
+.tyden .dnesek{background:var(--tus)}
+.tyden .dnesek dt{color:var(--sklo)}
+.tyden .dnesek dd{color:var(--sklo)}
+.salon{margin-top:26px;width:100%;height:auto}
+
+/* --- patička --- */
+.obrubnik{height:26px}
+@media (min-width:700px){.obrubnik{height:34px}}
+footer{padding:30px 16px calc(38px + var(--bar));border-top:1px solid rgba(19,19,19,.22);font-size:13.5px;line-height:1.7;color:#2c2c2c}
+footer .vinyl{font-size:19px;letter-spacing:.05em;font-weight:300;color:var(--tus);margin-bottom:10px}
+footer a{color:var(--tus)}
+footer .pravni{margin-top:14px;color:#3a3d3d;font-size:12.5px}
+
+/* --- spodní pás --- */
+.pas{background:var(--vapenec);position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+  gap:10px;padding:9px 12px calc(9px + env(safe-area-inset-bottom,0px));border-top:2px solid var(--tus);
+  visibility:hidden;transform:translateY(101%);transition:transform .18s ease}
+.pas.tady{visibility:visible;transform:none}
+.pas .menu{background:none;border:0;font:inherit;font-size:15px;font-weight:600;padding:11px 8px;cursor:pointer;color:var(--tus)}
+.pas .pas-provoz{font-size:13px;font-weight:500;text-align:center;color:#2c2c2c}
+.pas .zavolat{background:var(--tus);color:var(--sklo);text-decoration:none;font-size:15.5px;font-weight:600;padding:13px 20px}
+@media (prefers-reduced-motion:reduce){.pas{transition:none}html{scroll-behavior:auto}}
+
+/* --- zásuvka s nabídkou --- */
+dialog.sesuv{margin:0;padding:0;border:0;max-width:none;max-height:none;width:86vw;height:100%;height:100dvh;
+  background:var(--sklo);color:var(--tus);outline:none;box-shadow:0 0 0 100vmax rgba(19,19,19,.45)}
+dialog.sesuv::backdrop{background:rgba(19,19,19,.45)}
+.sesuv .vnitrek{padding:26px 22px 0;display:flex;flex-direction:column;height:100%}
+.sesuv .obrubnik{margin:0 -22px}
+.sesuv .vinyl{font-size:22px;letter-spacing:.055em;font-weight:300}
+.sesuv nav{margin-top:26px;display:flex;flex-direction:column}
+.sesuv nav a{font-size:22px;font-weight:300;letter-spacing:.02em;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(19,19,19,.16)}
+.sesuv .spodek{margin-top:auto;padding-top:24px;padding-bottom:6px;font-size:14.5px;line-height:1.6;color:#2c2c2c}
+.sesuv .spodek a{color:var(--tus)}
+.sesuv .pryc{position:absolute;top:14px;right:14px;background:none;border:0;font:inherit;font-size:15px;
+  font-weight:600;padding:11px 12px;cursor:pointer;color:var(--tus)}
+
+/* --- prohlížeč fotek --- */
+dialog.lupa{margin:0;padding:0;border:0;width:100%;max-width:none;height:100%;height:100dvh;max-height:none;
+  background:rgba(19,19,19,.94);outline:none;display:none}
+dialog.lupa[open]{display:flex;flex-direction:column}
+dialog.lupa::backdrop{background:rgba(19,19,19,.94)}
+.lupa img{margin:auto;max-width:100%;max-height:calc(100% - 120px);width:auto;object-fit:contain}
+.lupa .ovladani{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 12px calc(14px + env(safe-area-inset-bottom,0px))}
+.lupa .ovladani button{background:none;border:1px solid rgba(242,240,234,.5);color:var(--sklo);font:inherit;font-size:15px;
+  font-weight:500;padding:12px 18px;min-width:52px;cursor:pointer}
+@media (hover:hover){.lupa .ovladani button:hover{background:rgba(242,240,234,.14)}}
+.lupa .pocet{color:var(--sklo);font-size:14px;font-variant-numeric:tabular-nums}
+.lupa .pryc-lupa{position:absolute;top:10px;right:10px;background:none;border:0;color:var(--sklo);
+  font:inherit;font-size:15px;font-weight:600;padding:12px 14px;cursor:pointer}
+
+/* --- desktop --- */
+@media (min-width:700px){
+  :root{--sat:0px}
+  .ulice{padding:18px 32px;font-size:14px}
+  .ulice .tel{display:inline}
+  .mira{max-width:1120px;margin:0 auto}
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;padding:0 32px;max-width:1120px;margin:0 auto}
+  .hero picture{display:block;width:100%}
+  .hero-foto{height:auto;aspect-ratio:5/6;order:2;margin-top:34px;object-position:50% 38%}
+  .uvod{order:1;padding:34px 0 40px;display:flex;flex-direction:column;align-items:flex-start}
+  h1{font-size:clamp(54px,5.2vw,74px);margin-bottom:20px}
+  .delame{font-size:20px;max-width:22ch}
+  .fakta{font-size:16.5px;margin-top:22px}
+  .tlacitko{align-self:flex-start;display:inline-flex;padding:0 44px;height:58px;width:max-content}
+  .pod-tlacitkem{font-size:15px}
+  section{padding-top:64px;padding-bottom:64px}
+  h2{font-size:36px;padding:0 32px;margin-bottom:26px}
+  .seznam{max-width:1120px;margin:0 auto;column-count:2;column-gap:40px;border-top:0;padding:0 32px}
+  .seznam li{border-top:1px solid rgba(19,19,19,.16);border-bottom:0;padding:15px 0;font-size:21px;break-inside:avoid}
+  .vysvetleni{padding:26px 32px 0;font-size:17px;max-width:52ch}
+  .mozaika{grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;padding:0 4px}
+  .kamen{padding:16px 18px}
+  .kamen p{font-size:18px;line-height:1.38;font-weight:300}
+  .kamen span{font-size:13px}
+  .na-googlu{margin:20px 32px 0;font-size:16px}
+  .dole{max-width:1120px;margin:0 auto;padding:0 32px}
+  .text16,.kde{padding:0}
+  .mapa{margin:22px 0 0}
+  .mapa iframe{height:340px}
+  .tyden{margin:26px 0 0;gap:3px}
+  .tyden>div{padding:14px 4px 15px}
+  .tyden dt{font-size:14.5px}
+  .tyden dd{font-size:13px;margin-top:6px}
+  .salon{margin-top:24px}
+  footer{padding:36px 32px 44px;font-size:14.5px}
+  footer .obsah{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .pas{display:none}
+  dialog.sesuv{width:420px}
+  .lupa img{max-height:calc(100% - 140px)}
+}
+@media (min-width:900px){
+  .dole{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .salon{margin-top:0}
+  .mapa button{padding:78px 15px}
+}
+</style>
+</head>
+<body>
+
+<header class="ulice dlazba">
+  <span>Korunní&nbsp;56, Vinohrady</span>
+  <a class="tel dotek" href="tel:+420608886565">608&nbsp;886&nbsp;565</a>
+</header>
+
+<main id="uvod" tabindex="-1">
+  <div class="hero">
+    <picture>
+      <source media="(min-width:700px)" srcset="img/hero-d.jpg">
+      <img class="hero-foto" src="img/hero-p.jpg" width="1170" height="878" alt="Ruka s modro-růžovým ombré na dlouhých mandlových nehtech nad černobílou mozaikovou dlažbou" fetchpriority="high">
+    </picture>
+    <div class="uvod">
+      <h1>CHu. STUDIO</h1>
+      <p class="delame">Manikúra, gelové nehty a&nbsp;nehtový design ve&nbsp;Vinohradech.</p>
+      <div class="fakta">
+        <a class="hvezdy" href="https://www.google.com/maps/place/CHu.+STUDIO/data=!4m7!3m6!1s0x470b95d82f06d19d:0x18ed110f1ad8a645!8m2!3d50.0751921!4d14.4463768!16s%2Fg%2F11h1yv_1z3" target="_blank" rel="noopener">4,6 ze&nbsp;766 recenzí na&nbsp;Googlu</a>
+        <span class="provoz" id="provoz"><span class="tecka"></span><span id="provoz-text">Pondělí až pátek 9–19, sobota 10–18</span></span>
+      </div>
+      <a class="tlacitko" id="hlavni" href="tel:+420608886565">Zavolat</a>
+      <p class="pod-tlacitkem">Chodí se na&nbsp;objednání. Zavolejte na&nbsp;<a class="dotek" href="tel:+420608886565">608&nbsp;886&nbsp;565</a>.</p>
+    </div>
+  </div>
+
+  <section id="sluzby" tabindex="-1">
+    <div class="mira">
+      <h2>Co vám uděláme</h2>
+      <ul class="seznam">
+        <li>Manikúra</li>
+        <li>Gelové nehty</li>
+        <li>Akryl</li>
+        <li>Nehtový design a&nbsp;malování</li>
+        <li>Francouzská manikúra</li>
+        <li>Prodlužování řas</li>
+      </ul>
+      <p class="vysvetleni">Vzorky barev máme na&nbsp;stěně, vyberete si na&nbsp;místě. Přineste fotku předlohy a&nbsp;nehty namalujeme podle ní.</p>
+    </div>
+  </section>
+
+  <section id="prace" tabindex="-1">
+    <h2>Nehty, které odsud odešly</h2>
+    <div class="mozaika" id="mozaika">
+      <button type="button"><img src="img/p12.jpg" data-velka="img/velke/p12.jpg" width="400" height="400" loading="lazy" alt="Dlouhé mandlové nehty s růžovými otisky rtů, na ruce prsten ve tvaru kostry a hadí prsten"></button>
+      <blockquote class="kamen"><p>„Vždy si zde odpočinu a&nbsp;jakmile salon opustím, těším se na&nbsp;další termín.“</p><span>Karolína, Google</span></blockquote>
+      <button type="button"><img src="img/p08.jpg" data-velka="img/velke/p08.jpg" width="400" height="400" loading="lazy" alt="Dlouhé černé lesklé nehty a široký stříbrný prsten"></button>
+      <button type="button"><img src="img/p03.jpg" data-velka="img/velke/p03.jpg" width="400" height="400" loading="lazy" alt="Dlouhé mandlové nehty v mléčně bílé se zlatými linkami, perličkami a plastickými květy"></button>
+      <button type="button"><img src="img/p15.jpg" data-velka="img/velke/p15.jpg" width="400" height="400" loading="lazy" alt="Neonově žluté špičky s černou linkou a tečkami na průsvitných nehtech"></button>
+      <blockquote class="kamen"><p>„Paní Hana se krásně stará o&nbsp;nehty a&nbsp;zvládla celý složitý design, o&nbsp;který jsem požádala.“</p><span>Helena, Google</span></blockquote>
+      <button type="button"><img src="img/p05.jpg" data-velka="img/velke/p05.jpg" width="400" height="400" loading="lazy" alt="Šedé třpytivé nehty na tetované ruce nad šedou kostkovou dlažbou"></button>
+      <button type="button"><img src="img/p01.jpg" data-velka="img/velke/p01.jpg" width="400" height="400" loading="lazy" alt="Dlouhé mandlové nehty v malinovém kočičím oku s plastickými srdíčky a kamínky"></button>
+      <button type="button"><img src="img/p10.jpg" data-velka="img/velke/p10.jpg" width="400" height="400" loading="lazy" alt="Nehty s vypouklou hvězdou, hadím vzorem, stříbrným chromem a vínovými proužky"></button>
+      <button type="button"><img src="img/p13.jpg" data-velka="img/velke/p13.jpg" width="400" height="400" loading="lazy" alt="Dvě ruce přes sebe, mléčné mandlové nehty s tenkými stříbrnými vlnkami"></button>
+      <button type="button"><img src="img/p07.jpg" data-velka="img/velke/p07.jpg" width="400" height="400" loading="lazy" alt="Průsvitné nehty s trsy barevných kamínků u nehtového lůžka"></button>
+      <blockquote class="kamen"><p>„Slečna byla moc šikovná a&nbsp;pečlivá, nehty vypadají ještě líp než na referenčním obrázku.“</p><span>Ella, Google</span></blockquote>
+      <button type="button"><img src="img/p04.jpg" data-velka="img/velke/p04.jpg" width="400" height="400" loading="lazy" alt="Průsvitné nehty s drobnými malovanými kvítky a kamínky, ruce v rukávech světle modré mikiny"></button>
+      <button type="button"><img src="img/p14.jpg" data-velka="img/velke/p14.jpg" width="400" height="400" loading="lazy" alt="Stříbrné třpytivé nehty nad kyticí růžových růží"></button>
+      <button type="button"><img src="img/p06.jpg" data-velka="img/velke/p06.jpg" width="400" height="400" loading="lazy" alt="Tmavě vínové nehty, dva průsvitné s drobnými červenými kvítky"></button>
+      <blockquote class="kamen"><p>„Všichni moc milí a&nbsp;nehty jsou nádherné.“</p><span>Martina, Google</span></blockquote>
+      <button type="button"><img src="img/p09.jpg" data-velka="img/velke/p09.jpg" width="400" height="400" loading="lazy" alt="Perleťové nehty s fialovým polem, tenkou chromovou linkou a jedním kamínkem, ruka na dřevěném stole"></button>
+      <button type="button"><img src="img/p11.jpg" data-velka="img/velke/p11.jpg" width="400" height="400" loading="lazy" alt="Dlouhé nehty v tělové růžové, jeden se zlatou špičkou, na ruce několik zlatých prstenů"></button>
+      <blockquote class="kamen"><p>„Nehtařka se vždy snaží vyjít vstříc. Všechny nástroje vysterilizované.“</p><span>Adéla, Google</span></blockquote>
+    </div>
+    <a class="na-googlu" href="https://www.google.com/maps/place/CHu.+STUDIO/data=!4m7!3m6!1s0x470b95d82f06d19d:0x18ed110f1ad8a645!8m2!3d50.0751921!4d14.4463768!16s%2Fg%2F11h1yv_1z3" target="_blank" rel="noopener">Všech 766 recenzí na&nbsp;Googlu</a>
+  </section>
+
+  <section id="objednani" tabindex="-1">
+    <h2>Objednáváme se telefonicky</h2>
+    <div class="dole">
+      <div>
+        <p class="text16">Bez objednání to nejde. Zavolejte a&nbsp;řekneme vám, kdy máme volno.</p>
+        <div class="mapa" id="mapa">
+          <button type="button" class="dlazba" id="nacti-mapu"><span>Zobrazit mapu</span></button>
+        </div>
+        <p class="kde">Korunní&nbsp;1310/56, 120&nbsp;00 Praha&nbsp;2 – Vinohrady<br>
+        <a class="dotek" href="tel:+420608886565">608&nbsp;886&nbsp;565</a><br>
+        Platíte kartou i&nbsp;telefonem.</p>
+        <dl class="tyden" id="tyden" aria-label="Otevírací doba">
+          <div data-den="1"><dt>Po</dt><dd>9–19</dd></div>
+          <div data-den="2"><dt>Út</dt><dd>9–19</dd></div>
+          <div data-den="3"><dt>St</dt><dd>9–19</dd></div>
+          <div data-den="4"><dt>Čt</dt><dd>9–19</dd></div>
+          <div data-den="5"><dt>Pá</dt><dd>9–19</dd></div>
+          <div data-den="6"><dt>So</dt><dd>10–18</dd></div>
+          <div data-den="0"><dt>Ne</dt><dd>zavřeno</dd></div>
+        </dl>
+      </div>
+      <div>
+        <img class="salon" src="img/salon.jpg" width="1200" height="1040" loading="lazy" alt="Čekací koutek studia: dvě šedá křesla s hořčicovým polštářem, růžové tulipány na kulatém zlatém zrcadlovém stolku a v pozadí pracovní část salonu">
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="obrubnik dlazba" aria-hidden="true"></div>
+<footer>
+  <div class="obsah">
+    <div>
+      <p class="vinyl">CHu. STUDIO</p>
+      <p>Korunní&nbsp;1310/56, 120&nbsp;00 Praha&nbsp;2 – Vinohrady<br>
+      <a class="dotek" href="tel:+420608886565">608&nbsp;886&nbsp;565</a></p>
+    </div>
+    <div>
+      <p class="pravni">Provozovatel a&nbsp;IČO: <strong>[doplníme podle výpisu]</strong><br>
+      Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce,
+      <a class="dotek" href="https://coi.gov.cz/informace-o-adr/" target="_blank" rel="noopener">coi.gov.cz/informace-o-adr</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="pas" id="pas">
+  <button type="button" class="menu" id="otevri-menu" aria-haspopup="dialog">Menu</button>
+  <span class="pas-provoz" id="pas-provoz"></span>
+  <a class="zavolat" href="tel:+420608886565">Zavolat</a>
+</div>
+
+<dialog class="sesuv" id="sesuv" tabindex="-1" aria-label="Nabídka">
+  <div class="vnitrek">
+    <button type="button" class="pryc" id="pryc-menu">Zavřít</button>
+    <p class="vinyl">CHu. STUDIO</p>
+    <nav>
+      <a href="#sluzby">Co vám uděláme</a>
+      <a href="#prace">Nehty, které odsud odešly</a>
+      <a href="#objednani">Objednáváme se telefonicky</a>
+    </nav>
+    <div class="spodek">
+      <p>Korunní&nbsp;56, Vinohrady<br>
+      <a class="dotek" href="tel:+420608886565">608&nbsp;886&nbsp;565</a></p>
+      <p id="provoz-menu" style="margin-top:10px"></p>
+    </div>
+    <div class="obrubnik dlazba" aria-hidden="true"></div>
+  </div>
+</dialog>
+
+<dialog class="lupa" id="lupa" aria-label="Fotka práce">
+  <button type="button" class="pryc-lupa" id="pryc-lupa">Zavřít</button>
+  <img id="lupa-foto" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="">
+  <div class="ovladani">
+    <button type="button" id="predchozi" aria-label="Předchozí fotka">Zpět</button>
+    <span class="pocet" id="pocet"></span>
+    <button type="button" id="dalsi" aria-label="Další fotka">Další</button>
+  </div>
+</dialog>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NailSalon","name":"CHu. STUDIO",
+"address":{"@type":"PostalAddress","streetAddress":"Korunní 1310/56","addressLocality":"Praha","postalCode":"12000","addressRegion":"Praha 2 – Vinohrady","addressCountry":"CZ"},
+"telephone":"+420608886565","image":"https://hensanch.github.io/web-demos/chu-studio/img/hero-d.jpg",
+"hasMap":"https://www.google.com/maps/place/CHu.+STUDIO/data=!4m7!3m6!1s0x470b95d82f06d19d:0x18ed110f1ad8a645!8m2!3d50.0751921!4d14.4463768!16s%2Fg%2F11h1yv_1z3",
+"sameAs":["https://www.google.com/maps/place/CHu.+STUDIO/data=!4m7!3m6!1s0x470b95d82f06d19d:0x18ed110f1ad8a645!8m2!3d50.0751921!4d14.4463768!16s%2Fg%2F11h1yv_1z3"],
+"geo":{"@type":"GeoCoordinates","latitude":50.0751921,"longitude":14.4463768},
+"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","reviewCount":"766"},
+"openingHoursSpecification":[
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"18:00"}]}
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var doc = document.documentElement;
+  var NBSP = ' ';
+
+  /* --- dotyk vs. klávesnice: prstem se prstenec nekreslí --- */
+  document.addEventListener('pointerdown', function(){ doc.classList.add('dotyk'); }, true);
+  document.addEventListener('keydown', function(e){
+    if (['Tab','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Enter',' '].indexOf(e.key) > -1) doc.classList.remove('dotyk');
+  }, true);
+
+  /* --- když se fotka nestihne stáhnout (slabý signál), zkusíme ji ještě jednou --- */
+  document.addEventListener('error', function(e){
+    var t = e.target;
+    if (t && t.tagName === 'IMG' && !t.dataset.znovu && t.src.slice(0,5) !== 'data:'){
+      t.dataset.znovu = '1';
+      var s = t.src;
+      setTimeout(function(){ t.src = s + (s.indexOf('?') > -1 ? '&' : '?') + 'z=1'; }, 300);
+    }
+  }, true);
+
+  /* --- otevřeno / zavřeno v pražském čase --- */
+  var PLAN = {1:[9,19],2:[9,19],3:[9,19],4:[9,19],5:[9,19],6:[10,18],0:null};
+  var DNY = ['v' + NBSP + 'neděli','v' + NBSP + 'pondělí','v' + NBSP + 'úterý','ve' + NBSP + 'středu','ve' + NBSP + 'čtvrtek','v' + NBSP + 'pátek','v' + NBSP + 'sobotu'];
+  function prazskyCas(){
+    var f = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Prague',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false});
+    var p = {}; f.formatToParts(new Date()).forEach(function(x){ p[x.type] = x.value; });
+    var map = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    return {den:map[p.weekday], h:parseInt(p.hour,10), m:parseInt(p.minute,10)};
+  }
+  function provozTed(){
+    var t = prazskyCas(), dnes = PLAN[t.den], min = t.h*60 + t.m;
+    if (dnes && min >= dnes[0]*60 && min < dnes[1]*60)
+      return {ot:true, text:'Otevřeno do' + NBSP + dnes[1] + ':00'};
+    if (dnes && min < dnes[0]*60)
+      return {ot:false, text:'Otevíráme dnes v' + NBSP + dnes[0] + ':00'};
+    for (var i = 1; i <= 7; i++){
+      var d = (t.den + i) % 7, p = PLAN[d];
+      if (p) return {ot:false, text:'Otevíráme ' + DNY[d] + ' v' + NBSP + p[0] + ':00'};
+    }
+    return {ot:false, text:'Zavřeno'};
+  }
+  function napisProvoz(){
+    var s = provozTed();
+    document.getElementById('provoz').setAttribute('data-otevreno', s.ot ? 'ano' : 'ne');
+    document.getElementById('provoz-text').textContent = s.text;
+    document.getElementById('pas-provoz').textContent = s.text;
+    document.getElementById('provoz-menu').textContent = s.text;
+    var t = prazskyCas();
+    Array.prototype.forEach.call(document.querySelectorAll('.tyden [data-den]'), function(el){
+      el.classList.toggle('dnesek', el.getAttribute('data-den') === String(t.den));
+    });
+  }
+  napisProvoz();
+  setInterval(napisProvoz, 60000);
+
+  /* --- spodní pás se ukáže, až hlavní tlačítko odejde --- */
+  var pas = document.getElementById('pas'), hlavni = document.getElementById('hlavni');
+  function vyskaPasu(){ doc.style.setProperty('--bar', pas.classList.contains('tady') ? pas.offsetHeight + 'px' : '0px'); }
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){
+      pas.classList.toggle('tady', !e[0].isIntersecting);
+      vyskaPasu();
+    }, {rootMargin:'0px 0px -12px 0px'}).observe(hlavni);
+  } else { pas.classList.add('tady'); vyskaPasu(); }
+
+  /* --- nabídka: zásuvka zleva, zavírá ji i gesto zpět --- */
+  var sesuv = document.getElementById('sesuv'), otevriMenu = document.getElementById('otevri-menu');
+  var ulozenyY = 0, menuOtevrene = false;
+  function otevri(klavesnice){
+    ulozenyY = window.scrollY;
+    history.scrollRestoration = 'manual';
+    sesuv.showModal();
+    menuOtevrene = true;
+    document.body.style.position = 'fixed';
+    document.body.style.top = -ulozenyY + 'px';
+    document.body.style.left = '0'; document.body.style.right = '0';
+    history.pushState({menu:1}, '');
+    if (klavesnice) sesuv.querySelector('nav a').focus(); else sesuv.focus();
+  }
+  function pryc(){
+    if (!menuOtevrene) return;
+    menuOtevrene = false;
+    sesuv.close();
+    document.body.style.position = ''; document.body.style.top = '';
+    document.body.style.left = ''; document.body.style.right = '';
+    window.scrollTo({top:ulozenyY, left:0, behavior:'instant'});
+    history.scrollRestoration = 'auto';
+  }
+  otevriMenu.addEventListener('click', function(e){ otevri(e.detail === 0); });
+  document.getElementById('pryc-menu').addEventListener('click', function(){ if (history.state && history.state.menu) history.back(); else pryc(); });
+  sesuv.addEventListener('click', function(e){ if (e.target === sesuv){ if (history.state && history.state.menu) history.back(); else pryc(); } });
+  sesuv.addEventListener('cancel', function(e){ e.preventDefault(); if (history.state && history.state.menu) history.back(); else pryc(); });
+  Array.prototype.forEach.call(sesuv.querySelectorAll('nav a'), function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var cil = document.querySelector(a.getAttribute('href'));
+      if (history.state && history.state.menu) history.back(); else pryc();
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          cil.scrollIntoView({behavior:'instant', block:'start'});
+          cil.focus({preventScroll:true});
+        });
+      });
+    });
+  });
+
+  /* --- mapa se načte až po klepnutí --- */
+  document.getElementById('nacti-mapu').addEventListener('click', function(){
+    var r = document.createElement('iframe');
+    r.src = 'https://www.google.com/maps?q=Korunn%C3%AD%201310/56,%20120%2000%20Praha%202&z=16&output=embed';
+    r.title = 'Mapa: Korunní 1310/56, Praha 2 – Vinohrady';
+    r.loading = 'lazy';
+    r.referrerPolicy = 'no-referrer-when-downgrade';
+    document.getElementById('mapa').replaceChildren(r);
+  });
+
+  /* --- prohlížeč fotek: gesto zpět ho zavře, nikoli stránku --- */
+  var tlacitka = Array.prototype.slice.call(document.querySelectorAll('.mozaika button'));
+  var lupa = document.getElementById('lupa'), foto = document.getElementById('lupa-foto'), pocet = document.getElementById('pocet');
+  var kde = 0, lupaOtevrena = false;
+  function ukaz(i){
+    kde = (i + tlacitka.length) % tlacitka.length;
+    var img = tlacitka[kde].querySelector('img');
+    foto.src = img.getAttribute('data-velka') || img.src;
+    foto.alt = img.alt;
+    pocet.textContent = (kde + 1) + ' z' + NBSP + tlacitka.length;
+  }
+  function prycLupa(){
+    if (!lupaOtevrena) return;
+    lupaOtevrena = false;
+    lupa.close();
+    tlacitka[kde].focus({preventScroll:true});
+  }
+  tlacitka.forEach(function(b, i){
+    b.addEventListener('click', function(){
+      ukaz(i);
+      lupa.showModal();
+      lupaOtevrena = true;
+      history.pushState({lupa:1}, '');
+      lupa.focus();
+    });
+  });
+  document.getElementById('dalsi').addEventListener('click', function(){ ukaz(kde + 1); });
+  document.getElementById('predchozi').addEventListener('click', function(){ ukaz(kde - 1); });
+  document.getElementById('pryc-lupa').addEventListener('click', function(){ if (history.state && history.state.lupa) history.back(); else prycLupa(); });
+  lupa.addEventListener('click', function(e){ if (e.target === lupa){ if (history.state && history.state.lupa) history.back(); else prycLupa(); } });
+  lupa.addEventListener('cancel', function(e){ e.preventDefault(); if (history.state && history.state.lupa) history.back(); else prycLupa(); });
+  lupa.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight'){ e.preventDefault(); ukaz(kde + 1); }
+    if (e.key === 'ArrowLeft'){ e.preventDefault(); ukaz(kde - 1); }
+  });
+
+  window.addEventListener('popstate', function(){
+    if (menuOtevrene) pryc();
+    if (lupaOtevrena) prycLupa();
+  });
+})();
+</script>
+</body>
+</html>
