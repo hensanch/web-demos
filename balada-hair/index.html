@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kadeřnictví Praha 10 – Vršovice | Balada Hair</title>
+<meta name="description" content="Balada Hair, vlasové studio Davida Balady v Charkovské ulici, Praha 10-Vršovice. Střih, barvení, styling a péče o zdraví vlasů. 4,9 ze 66 recenzí na Googlu. Objednání telefonem: 776 375 435.">
+<meta name="theme-color" content="#E8EEEA">
+<link rel="canonical" href="https://www.davidbalada.cz/">
+<meta property="og:title" content="Balada Hair, vlasové studio ve Vršovicích">
+<meta property="og:description" content="Střih, barvení, styling a péče o zdraví vlasů. Charkovská 20, Praha 10-Vršovice. Objednání telefonem.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://www.davidbalada.cz/img/david.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%23E8EEEA'/%3E%3Cg%20fill='none'%20stroke='%231E211E'%20stroke-width='2'%20stroke-linecap='round'%3E%3Cpath%20d='M2%209H30'/%3E%3Cpath%20d='M4%209C5%2011%208%2027%2016%2027C25%2027%2023%2011%2012%206C17%207%2021%209%2028%209'/%3E%3C/g%3E%3C/svg%3E">
+
+<!-- Fonts are served from this folder, and the map only loads when the visitor taps it:
+     no third-party request on load, so the site sets nothing but technical storage
+     and needs no consent bar. Not stated on the page — that is a fact for the owner. -->
+<style>
+@font-face{font-family:"Newsreader";src:url(font/news-roman-latin-ext.woff2) format("woff2");font-weight:200 800;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Newsreader";src:url(font/news-roman-latin.woff2) format("woff2");font-weight:200 800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Newsreader";src:url(font/news-italic-latin-ext.woff2) format("woff2");font-weight:200 800;font-style:italic;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Newsreader";src:url(font/news-italic-latin.woff2) format("woff2");font-weight:200 800;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Madefor";src:url(font/wix-latin-ext.woff2) format("woff2");font-weight:400 600;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Madefor";src:url(font/wix-latin.woff2) format("woff2");font-weight:400 600;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --sklo:#E8EEEA;      /* pendant glass, g06 300,320-380,470; same wall in daylight, g13 */
+  --lesk:#F5F8F6;      /* the lit face of the same glass */
+  --ocel:#1E211E;      /* matte black steel: drawers, chair, shelf frame, mirror surround */
+  --kour:#556260;      /* --sklo darkened at its own hue */
+  --dub:#7E5029;       /* the oak floor between lit and shaded — the one accent */
+  --dub-tmavy:#653F1F;
+  --sat:0px;
+  /* his ceiling: a taut wire with a short run of unequal loops, then a long clear span.
+     A repeating tile, so the run repeats every 150px — a stylisation of g06 280,0-1067,230,
+     not a trace of it. */
+  --lano:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='150'%20height='27'%20viewBox='0%200%20150%2027'%3E%3Cg%20fill='none'%20stroke='%231E211E'%20stroke-width='1.3'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M0%207H150'/%3E%3Cpath%20d='M6%207C7%208.4%2010.5%2024%2018.5%2024C26.5%2024%2024.6%208.6%2013.5%204.8C18%205.7%2022%207%2028%207'/%3E%3Cpath%20d='M28%207C28.8%207.9%2031.3%2019%2037.2%2019C43%2019%2041.6%208%2033.4%205.3C36.7%206%2039.6%207%2044%207'/%3E%3Cpath%20d='M44%207C45.2%208.5%2049.3%2025.5%2058.8%2025.5C68.2%2025.5%2066%208.8%2053%204.6C58.3%205.6%2063%207%2070%207'/%3E%3C/g%3E%3C/svg%3E");
+  --lano-svetle:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='150'%20height='27'%20viewBox='0%200%20150%2027'%3E%3Cg%20fill='none'%20stroke='%23E8EEEA'%20stroke-width='1.3'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M0%207H150'/%3E%3Cpath%20d='M6%207C7%208.4%2010.5%2024%2018.5%2024C26.5%2024%2024.6%208.6%2013.5%204.8C18%205.7%2022%207%2028%207'/%3E%3Cpath%20d='M28%207C28.8%207.9%2031.3%2019%2037.2%2019C43%2019%2041.6%208%2033.4%205.3C36.7%206%2039.6%207%2044%207'/%3E%3Cpath%20d='M44%207C45.2%208.5%2049.3%2025.5%2058.8%2025.5C68.2%2025.5%2066%208.8%2053%204.6C58.3%205.6%2063%207%2070%207'/%3E%3C/g%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--sklo);scroll-padding-bottom:96px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sklo);color:var(--ocel);
+  font-family:"Madefor",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.55;letter-spacing:.002em;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit}
+button,a,summary,[role="button"]{touch-action:manipulation}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:400;
+  margin:0;line-height:1.02;letter-spacing:-.012em;text-wrap:balance}
+p,figure{margin:0}
+:focus-visible{outline:2.5px solid var(--dub);outline-offset:3px;border-radius:2px}
+/* on the two dark grounds the oak ring falls to 2,37:1 — the glass ring is 13,2:1 there */
+.psani :focus-visible,dialog.zaveseny :focus-visible{outline-color:var(--sklo)}
+html.dotyk :focus-visible{outline:0}
+[tabindex="-1"]:focus{outline:0}
+
+.obal{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:46px 0}
+#uvod{padding-top:16px}
+
+/* ---- the cable: his ceiling, drawn ---- */
+.strop{display:block;height:27px;background-image:var(--lano);background-repeat:repeat-x;
+  background-position:left top;background-size:150px 27px}
+.visi{position:relative;margin:0;padding-top:var(--pad,90px)}
+.visi::before{content:"";position:absolute;left:var(--x,50%);top:-20px;width:1.5px;
+  height:calc(var(--pad,90px) + 20px);background:var(--ocel)}
+.visi img{width:100%}
+
+/* ---- first screen: the cable, then the name on a long drop, then the photograph ---- */
+.jmeno{font-size:clamp(52px,15.5vw,116px);line-height:.94;position:relative;
+  padding-top:12px;margin:0 0 22px}
+.jmeno::before{content:"";position:absolute;left:-15px;top:-20px;bottom:-22px;
+  width:1.5px;background:var(--ocel)}
+.atelier-obal{padding-top:0}
+.atelier-obal::before{display:none}
+.atelier{aspect-ratio:866/620;object-fit:cover;background:var(--lesk)}
+.kdo{font-size:16.5px;line-height:1.45;color:var(--kour);margin-top:16px}
+.kdo strong{font-weight:600;color:var(--ocel)}
+.dopredu{font-size:16.5px;line-height:1.45;margin-top:8px}
+.ctyridevet{display:block;margin-top:2px;min-height:44px;padding:10px 0;font-size:15.5px;color:var(--kour);
+  text-underline-offset:3px;text-decoration-thickness:1px}
+.ctyridevet b{font-weight:600;color:var(--ocel)}
+.zvon{display:inline-flex;align-items:center;justify-content:center;gap:.5ch;
+  min-height:58px;margin-top:8px;padding:0 26px;background:var(--dub);color:var(--lesk);
+  font-weight:600;font-size:17.5px;letter-spacing:.005em;text-decoration:none;border:0;border-radius:2px}
+@media (hover:hover){.zvon:hover{background:var(--dub-tmavy)}}
+
+/* ---- what I do ---- */
+.nadpis{font-size:clamp(31px,7.4vw,46px);margin-bottom:14px}
+.slovo{font-size:17px;max-width:44ch;margin-bottom:18px}
+.umim{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;
+  column-gap:22px;border-top:1px solid rgba(30,33,30,.16)}
+.umim li{border-bottom:1px solid rgba(30,33,30,.16);padding:9px 0;
+  font-family:"Newsreader",Georgia,serif;font-style:normal;font-size:20px;line-height:1.25}
+.pokoj img{aspect-ratio:1067/1180;object-fit:cover;background:var(--lesk)}
+.delam-foto{margin-top:22px}
+
+/* ---- gallery: six results hanging like his seven jars ---- */
+.rada{margin-bottom:12px}
+.mriz{display:grid;gap:14px;align-items:start;grid-template-columns:1.3fr 1fr}
+.rada:nth-child(even) .mriz{grid-template-columns:1fr 1.3fr}
+.mriz img{aspect-ratio:4/5;object-fit:cover;background:var(--lesk)}
+
+/* ---- what people write ---- */
+.psani{background:var(--ocel);color:var(--sklo);
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.022) 0 1px,
+    rgba(255,255,255,0) 1px 12px,rgba(0,0,0,.10) 12px 13px,rgba(255,255,255,0) 13px 25px)}
+.psani .nadpis{color:var(--sklo)}
+.dopis{padding:14px 0;border-top:1px solid rgba(232,238,234,.2)}
+.dopis:first-of-type{border-top:0;padding-top:4px}
+.rekla{font-family:"Newsreader",Georgia,serif;font-style:normal;font-size:19.5px;line-height:1.45;margin-bottom:10px}
+.podepsana{font-size:14px;color:#A9B4B0;letter-spacing:.02em}
+.odpoved{margin-top:12px;padding-left:16px;border-left:1.5px solid rgba(232,238,234,.35);
+  font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:18px;line-height:1.4;color:#CBD4D0}
+.vsechny-recenze{display:inline-block;margin-top:8px;padding:10px 0;color:var(--sklo);font-size:15.5px;
+  text-underline-offset:4px}
+
+/* ---- how to book / where ---- */
+.cislo{font-family:"Newsreader",Georgia,serif;font-style:normal;font-size:clamp(38px,10vw,58px);
+  line-height:1;text-decoration:none;display:inline-block;padding:4px 0;margin:4px 0 14px}
+@media (hover:hover){.cislo:hover{text-decoration:underline;text-underline-offset:8px}}
+.adresa{font-size:16.5px;line-height:1.7;margin-bottom:8px}
+.adresa .tich{color:var(--kour)}
+.trasa{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;margin-top:6px;
+  border:1.5px solid var(--ocel);border-radius:2px;text-decoration:none;font-weight:600;font-size:16px}
+@media (hover:hover){.trasa:hover{background:var(--ocel);color:var(--sklo)}}
+.charkovska{margin-top:22px;position:relative;background:var(--lesk);border:1px solid rgba(30,33,30,.2)}
+.charkovska button{display:flex;flex-direction:column;align-items:flex-start;gap:5px;width:100%;
+  min-height:92px;padding:18px 20px 20px;background:none;border:0;text-align:left;cursor:pointer}
+.charkovska b{font-family:"Newsreader",Georgia,serif;font-style:normal;font-weight:600;font-size:22px}
+.charkovska small{font-size:14.5px;color:var(--kour)}
+.charkovska iframe{display:block;width:100%;height:320px;border:0}
+
+/* ---- footer ---- */
+footer{background:var(--sklo);padding:30px 0 76px;font-size:13.5px;line-height:1.75;color:var(--kour);
+  border-top:1px solid rgba(30,33,30,.16)}
+footer a{text-underline-offset:3px}
+footer .znacka{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:27px;
+  color:var(--ocel);margin-bottom:10px}
+.adr{display:inline-block;padding:11px 0;overflow-wrap:anywhere}
+.doplnit{border-bottom:1.5px dotted var(--dub);color:var(--dub)}
+
+/* ---- the bottom strip: prah, the threshold ---- */
+.prah{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;
+  grid-template-columns:auto 1fr;align-items:stretch;
+  background:var(--sklo);border-top:1.5px solid var(--ocel);
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+.prah button.zaves{display:flex;align-items:center;min-height:62px;padding:0 22px;
+  background:none;border:0;font-weight:600;font-size:16px;cursor:pointer}
+.prah .prava{display:flex}
+.prah .prava a{flex:1;display:flex;align-items:center;justify-content:center;min-height:62px;
+  text-decoration:none;font-weight:600;font-size:16px}
+.prah a.smer{border-left:1.5px solid var(--ocel)}
+.prah a.volat{background:var(--dub);color:var(--lesk)}
+.prah .prava a[hidden]{display:none;visibility:hidden}
+
+/* ---- the sheet that drops from the ceiling ---- */
+dialog.zaveseny{margin:0;padding:0;border:0;width:100%;max-width:none;
+  background:var(--ocel);color:var(--sklo);position:fixed;inset:0 0 auto 0}
+dialog.zaveseny::backdrop{background:rgba(20,24,22,.55)}
+dialog.zaveseny:focus{outline:0}
+.zaves-vnitrek{padding:calc(24px + env(safe-area-inset-top,0px)) 24px 30px}
+.zaves-lano{background-image:var(--lano-svetle);background-repeat:repeat-x;
+  background-position:left top;background-size:150px 27px;height:27px;margin:14px 0 0}
+.zaves-odkazy{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.zaves-odkazy li{position:relative}
+.zaves-odkazy a{display:block;padding-top:var(--pad);font-family:"Newsreader",Georgia,serif;
+  font-style:normal;font-size:26px;text-decoration:none;padding-bottom:14px}
+.zaves-odkazy li::before{content:"";position:absolute;left:14%;top:-20px;width:1.5px;
+  height:calc(var(--pad) + 20px);background:var(--sklo)}
+.zaves-hlava{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.zaves-hlava span{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:26px}
+.zaves-hlava button{background:none;border:0;padding:10px 4px;font-size:15.5px;cursor:pointer;
+  text-decoration:underline;text-underline-offset:4px}
+.zaves-telefon{display:block;margin-top:26px;font-size:16px;color:#A9B4B0;text-underline-offset:4px}
+
+/* very short folds (iPhone SE and an iPhone with the full Safari chrome) */
+@media (max-height:700px){
+  #uvod{padding-top:8px}
+  .jmeno{font-size:clamp(48px,14vw,116px);padding-top:8px;margin-bottom:14px}
+  .jmeno::before{bottom:-14px}
+  .kdo{margin-top:10px}
+  .dopredu{margin-top:6px}
+  .zvon{margin-top:6px}
+}
+@media (max-height:660px){.atelier{aspect-ratio:866/560}}
+
+@media (min-width:760px){
+  section{padding:66px 0}
+  #uvod{padding-top:30px}
+  .uvod{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);
+    column-gap:56px;align-items:start;grid-template-rows:auto auto auto auto auto auto 1fr}
+  .uvod>.strop{grid-column:2;grid-row:1}
+  .uvod>.atelier-obal{grid-column:2;grid-row:2/span 6;padding-top:var(--pad)}
+  .uvod>.atelier-obal::before{display:block}
+  .uvod>.jmeno{grid-column:1;grid-row:1/span 2;padding-top:0;margin-bottom:0}
+  .uvod>.jmeno::before{display:none}
+  .uvod>.kdo{grid-column:1;grid-row:3;font-size:17.5px;margin-top:22px}
+  .uvod>.dopredu{grid-column:1;grid-row:4;font-size:17.5px;margin-top:8px}
+  .uvod>.ctyridevet{grid-column:1;grid-row:5}
+  .uvod>.zvon{grid-column:1;grid-row:6;justify-self:start;align-self:start}
+  .delam-mriz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:48px;align-items:start}
+  .delam-foto{margin-top:0}
+  .umim{grid-template-columns:1fr}
+  .umim li{font-size:22px;padding:11px 0}
+  .kde-mriz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:56px;align-items:start}
+  .charkovska{margin-top:0}
+  .mriz{gap:22px}
+  .rada{margin-bottom:34px}
+  .dopisy{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+  .dopis,.dopis:first-of-type{border-top:1px solid rgba(232,238,234,.2);padding-top:16px}
+  .zaves-odkazy a{font-size:34px}
+  .prah{grid-template-columns:auto minmax(0,360px);justify-content:space-between;padding-left:calc(50vw - 580px + 24px);padding-right:calc(50vw - 580px + 24px)}
+}
+@media (min-width:1040px){
+  .galerie-obal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 52px}
+  .rada{margin-bottom:30px}
+  .jmeno{font-size:104px}
+  .dopisy{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
+  .umim{grid-template-columns:1fr 1fr;column-gap:40px}
+  .umim li{font-size:24px;padding:13px 0}
+  .delam-mriz{grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:56px}
+}
+/* the whole page is a short scroll on a desktop; the fixed strip is phone furniture */
+@media (min-width:1000px){
+  html{scroll-padding-bottom:24px}
+  .prah{display:none}
+  footer{padding-bottom:46px}
+}
+
+@supports (-webkit-touch-callout:none){
+  @media (hover:none) and (pointer:coarse){
+    :root{--sat:62px}
+    section{scroll-margin-top:calc(-1 * var(--sat));padding-top:calc(46px + var(--sat))}
+    #uvod{padding-top:16px;scroll-margin-top:0}
+    @media (max-height:700px){#uvod{padding-top:8px}}
+    @media (min-width:760px){section{padding-top:calc(66px + var(--sat))}#uvod{padding-top:30px}}
+  }
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<main>
+<section id="uvod" tabindex="-1">
+  <div class="obal uvod">
+    <span class="strop" aria-hidden="true"></span>
+    <h1 class="jmeno">Balada Hair</h1>
+    <figure class="visi atelier-obal" style="--pad:116px;--x:66%">
+      <img class="atelier" src="img/david.jpg" width="866" height="620" fetchpriority="high" decoding="async"
+           alt="David Balada při práci — česá klientce vlasy na focení.">
+    </figure>
+    <p class="kdo">Vlasové studio v&nbsp;Charkovské ulici ve Vršovicích. Jsem <strong>David Balada</strong>.</p>
+    <p class="dopredu">Objednávám vás dopředu, ať na vás mám čas.</p>
+    <a class="ctyridevet" href="https://www.google.com/maps/place/Balada+Hair/data=!4m7!3m6!1s0x470b9481c33f93cb:0x3d8e9b62e07b2130!8m2!3d50.0705473!4d14.4497822!16s%2Fg%2F11dx8kf6xf!19sChIJy5M_w4GUC0cRMCF74GKbjj0" target="_blank" rel="noopener"><b>4,9</b> ze 66&nbsp;recenzí na Googlu</a>
+    <a class="zvon" id="hlavni-zvon" href="tel:+420776375435">Zavolat 776&nbsp;375&nbsp;435</a>
+  </div>
+</section>
+
+<section id="delam" tabindex="-1">
+  <div class="obal delam-mriz">
+    <div>
+      <h2 class="nadpis">Co dělám</h2>
+      <p class="slovo">Nejvíc mi jde o&nbsp;zdravé vlasy. Řeknu vám, co jim pomůže, a&nbsp;ukážu, jak se o&nbsp;ně starat doma.</p>
+      <ul class="umim">
+        <li>Střih</li>
+        <li>Barvení</li>
+        <li>Styling</li>
+        <li>Péče o&nbsp;zdraví vlasů</li>
+        <li>Vlnité a&nbsp;kudrnaté vlasy metodou CGM</li>
+        <li>Svatební účesy</li>
+      </ul>
+    </div>
+    <div class="delam-foto">
+      <span class="strop" aria-hidden="true"></span>
+      <figure class="visi pokoj" style="--pad:104px;--x:38%">
+        <img src="img/salon.jpg" width="1067" height="1180" loading="lazy" decoding="async"
+             alt="Studio zevnitř: skleněné lampy na černém kabelu, černé police s přípravky, zrcadlo a dubová podlaha.">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="prace" tabindex="-1">
+  <div class="obal">
+    <h2 class="nadpis">Moje práce</h2>
+    <div class="galerie-obal">
+      <div class="rada">
+        <span class="strop" aria-hidden="true"></span>
+        <div class="mriz">
+          <figure class="visi" style="--pad:80px;--x:46%"><img src="img/p-stribrna.jpg" width="700" height="875" loading="lazy" decoding="async" alt="Popelavě stříbrná barva na polodlouhých vlasech."></figure>
+          <figure class="visi" style="--pad:138px;--x:52%"><img src="img/p-platina.jpg" width="520" height="650" loading="lazy" decoding="async" alt="Platinový balayage na dlouhých vlnitých vlasech, pohled zezadu."></figure>
+        </div>
+      </div>
+      <div class="rada">
+        <span class="strop" aria-hidden="true"></span>
+        <div class="mriz">
+          <figure class="visi" style="--pad:132px;--x:56%"><img src="img/p-tmava.jpg" width="520" height="650" loading="lazy" decoding="async" alt="Tmavě hnědé rovné vlasy se světlejšími konečky."></figure>
+          <figure class="visi" style="--pad:80px;--x:48%"><img src="img/p-dlouha.jpg" width="700" height="875" loading="lazy" decoding="async" alt="Dlouhé blond vlasy sestříhané do vrstev, pohled zezadu."></figure>
+        </div>
+      </div>
+      <div class="rada">
+        <span class="strop" aria-hidden="true"></span>
+        <div class="mriz">
+          <figure class="visi" style="--pad:82px;--x:50%"><img src="img/p-kudrny.jpg" width="700" height="875" loading="lazy" decoding="async" alt="Kudrnatý bob, pohled zezadu."></figure>
+          <figure class="visi" style="--pad:144px;--x:44%"><img src="img/p-medova.jpg" width="520" height="650" loading="lazy" decoding="async" alt="Medové vlny s prosvětlenými prameny kolem obličeje."></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recenze" class="psani" tabindex="-1">
+  <div class="obal">
+    <h2 class="nadpis">Co mi lidé napsali</h2>
+    <div class="dopisy">
+      <div class="dopis">
+        <p class="rekla">„David vždy skvěle poradí a&nbsp;vyjde vstříc mým požadavkům. Svoji práci odvádí precizně, ať už se jedná o&nbsp;barvení, střih nebo styling.“</p>
+        <p class="podepsana">Šárka, Google</p>
+        <p class="odpoved">„Moc děkuji Šárko za hezkou recenzi s&nbsp;fotkou :)! Těším se na příště.“</p>
+      </div>
+      <div class="dopis">
+        <p class="rekla">„K&nbsp;Davidovi chodím již přes deset let a&nbsp;neměnila bych! Měla jsem vždy suché a&nbsp;lámavé vlasy a&nbsp;od té doby, co jsou v&nbsp;péči Davida, vidím velké rozdíly.“</p>
+        <p class="podepsana">Nela, Google</p>
+        <p class="odpoved">„Moooc děkuji za tak pěknou recenzi! Těším se na dalších 10 let :)“</p>
+      </div>
+      <div class="dopis">
+        <p class="rekla">„Úžasný a&nbsp;profi přístup, opravdu jsem měla jistotu, že střih bude perfektní a&nbsp;je.“</p>
+        <p class="podepsana">Linda, Google</p>
+        <p class="odpoved">„Lindo, moc děkuji za tak pěknou recenzi! :) Těším se na příště“</p>
+      </div>
+    </div>
+    <a class="vsechny-recenze" href="https://www.google.com/maps/place/Balada+Hair/data=!4m7!3m6!1s0x470b9481c33f93cb:0x3d8e9b62e07b2130!8m2!3d50.0705473!4d14.4497822!16s%2Fg%2F11dx8kf6xf!19sChIJy5M_w4GUC0cRMCF74GKbjj0" target="_blank" rel="noopener">Všech 66 recenzí na Googlu</a>
+  </div>
+</section>
+
+<section id="objednat" tabindex="-1">
+  <div class="obal kde-mriz">
+    <div>
+      <h2 class="nadpis">Jak se ke mně objednáte</h2>
+      <p class="slovo">Termín domlouvám po telefonu. Zavolejte a&nbsp;najdeme čas, který vám sedne.</p>
+      <a class="cislo" href="tel:+420776375435">776&nbsp;375&nbsp;435</a>
+      <p class="adresa">Charkovská&nbsp;20, 101&nbsp;00 Praha&nbsp;10&nbsp;–&nbsp;Vršovice<br>
+        <span class="tich">Kousek od tramvajové zastávky. Platit můžete kartou i&nbsp;bezkontaktně.</span></p>
+      <a class="trasa" href="https://www.google.com/maps?q=Charkovsk%C3%A1%2020%2C%20101%2000%20Praha%2010-Vr%C5%A1ovice&amp;z=16" target="_blank" rel="noopener">Trasa</a>
+    </div>
+    <div class="charkovska" id="charkovska">
+      <button type="button" id="nacti-charkovskou">
+        <b>Charkovská 20</b>
+        <small>Klepnutím zobrazíte mapu</small>
+      </button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="obal">
+    <p class="znacka">Balada Hair</p>
+    <p>Charkovská 20, 101 00 Praha 10-Vršovice<br>776&nbsp;375&nbsp;435</p>
+    <p>Provozovatel: David Balada, <span class="doplnit">sídlo a&nbsp;IČO doplníme</span>.</p>
+    <p>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce,<br>
+      <a class="adr" href="https://coi.gov.cz/informace-o-adr/" target="_blank" rel="noopener">https://coi.gov.cz/informace-o-adr/</a></p>
+  </div>
+</footer>
+
+<div class="prah" id="prah">
+  <button class="zaves" type="button" id="otevri-zaves" aria-haspopup="dialog">Menu</button>
+  <div class="prava">
+    <a class="smer" id="cell-trasa" href="https://www.google.com/maps?q=Charkovsk%C3%A1%2020%2C%20101%2000%20Praha%2010-Vr%C5%A1ovice&amp;z=16" target="_blank" rel="noopener">Trasa</a>
+    <a class="volat" id="cell-volat" href="tel:+420776375435" hidden>Zavolat 776&nbsp;375&nbsp;435</a>
+  </div>
+</div>
+
+<dialog class="zaveseny" id="zaveseny" tabindex="-1" aria-label="Nabídka">
+  <div class="zaves-vnitrek">
+    <div class="zaves-hlava">
+      <span>Balada Hair</span>
+      <button type="button" id="zavri-zaves">Zavřít</button>
+    </div>
+    <div class="zaves-lano" aria-hidden="true"></div>
+    <ul class="zaves-odkazy">
+      <li style="--pad:26px"><a href="#delam">Co dělám</a></li>
+      <li style="--pad:58px"><a href="#prace">Moje práce</a></li>
+    </ul>
+    <div class="zaves-lano" aria-hidden="true"></div>
+    <ul class="zaves-odkazy">
+      <li style="--pad:52px"><a href="#recenze">Recenze</a></li>
+      <li style="--pad:24px"><a href="#objednat">Objednat se</a></li>
+    </ul>
+    <a class="zaves-telefon" href="tel:+420776375435">776&nbsp;375&nbsp;435, Charkovská&nbsp;20, Vršovice</a>
+  </div>
+</dialog>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HairSalon","name":"Balada Hair",
+"description":"Vlasové studio Davida Balady ve Vršovicích. Střih, barvení, styling a péče o zdraví vlasů.",
+"image":"https://www.davidbalada.cz/img/salon.jpg","telephone":"+420776375435","url":"https://www.davidbalada.cz/",
+"address":{"@type":"PostalAddress","streetAddress":"Charkovská 20","addressLocality":"Praha 10-Vršovice","postalCode":"10100","addressCountry":"CZ"},
+"geo":{"@type":"GeoCoordinates","latitude":50.0705473,"longitude":14.4497822},
+"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"66","bestRating":"5"},
+"paymentAccepted":"Platební karty, bezkontaktní platby",
+"areaServed":"Praha 10","currenciesAccepted":"CZK",
+"hasMap":"https://www.google.com/maps?q=Charkovsk%C3%A1+20,+101+00+Praha+10-Vr%C5%A1ovice"}
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var d=document, root=d.documentElement;
+
+  /* focus rings for keyboards only */
+  d.addEventListener("pointerdown",function(){root.classList.add("dotyk")},true);
+  d.addEventListener("keydown",function(e){
+    if(["Tab","ArrowUp","ArrowDown","ArrowLeft","ArrowRight","Enter"," "].indexOf(e.key)>-1) root.classList.remove("dotyk");
+  },true);
+
+  /* the strip's right cell swaps once the hero button is gone */
+  var hlavni=d.getElementById("hlavni-zvon"),
+      trasa=d.getElementById("cell-trasa"),
+      volat=d.getElementById("cell-volat");
+  if("IntersectionObserver" in window && hlavni){
+    new IntersectionObserver(function(e){
+      var venku=!e[0].isIntersecting;
+      volat.hidden=!venku; trasa.hidden=venku;
+    },{threshold:0}).observe(hlavni);
+  }
+
+  /* the sheet */
+  var sheet=d.getElementById("zaveseny"),
+      otevri=d.getElementById("otevri-zaves"),
+      zavri=d.getElementById("zavri-zaves"),
+      pozice=0, otevreno=false;
+
+  function open(klavesnice){
+    if(otevreno) return;
+    pozice=window.scrollY; otevreno=true;
+    history.scrollRestoration="manual";
+    history.pushState({menu:1},"");
+    sheet.showModal();
+    d.body.style.position="fixed"; d.body.style.top=(-pozice)+"px";
+    d.body.style.left="0"; d.body.style.right="0";
+    if(klavesnice){ var a=sheet.querySelector(".zaves-odkazy a"); if(a) a.focus(); }
+    else sheet.focus();
+  }
+  /* WebKit restores the popped entry's scroll AFTER this handler runs, which used to
+     undo scrollIntoView(). Keep scrollRestoration on "manual" until the jump has
+     happened, and hand it back one frame later. */
+  function close(cil){
+    if(!otevreno) return;
+    otevreno=false;
+    sheet.close();
+    d.body.style.position=""; d.body.style.top=""; d.body.style.left=""; d.body.style.right="";
+    window.scrollTo({top:pozice,left:0,behavior:"instant"});
+    if(cil){
+      var s=d.querySelector(cil);
+      if(s){ requestAnimationFrame(function(){ s.scrollIntoView(); s.focus({preventScroll:true}); history.scrollRestoration="auto"; }); }
+      else history.scrollRestoration="auto";
+    }else{ history.scrollRestoration="auto"; if(otevri) otevri.focus(); }
+  }
+  otevri.addEventListener("click",function(e){ open(e.detail===0); });
+  zavri.addEventListener("click",function(){ if(history.state&&history.state.menu) history.back(); else close(); });
+  sheet.addEventListener("cancel",function(e){ e.preventDefault(); if(history.state&&history.state.menu) history.back(); else close(); });
+  sheet.addEventListener("click",function(e){ if(e.target===sheet){ if(history.state&&history.state.menu) history.back(); else close(); } });
+  Array.prototype.forEach.call(sheet.querySelectorAll(".zaves-odkazy a"),function(a){
+    a.addEventListener("click",function(e){
+      e.preventDefault();
+      var cil=a.getAttribute("href");
+      if(history.state&&history.state.menu){ sheet.dataset.cil=cil; history.back(); }
+      else close(cil);
+    });
+  });
+  window.addEventListener("popstate",function(){
+    var cil=sheet.dataset.cil; sheet.dataset.cil="";
+    close(cil||null);
+  });
+
+  /* the map loads only when somebody asks for it */
+  var tlacitko=d.getElementById("nacti-charkovskou");
+  tlacitko.addEventListener("click",function(){
+    var r=d.createElement("iframe");
+    r.src="https://www.google.com/maps?q=Charkovsk%C3%A1+20,+101+00+Praha+10-Vr%C5%A1ovice&z=16&output=embed";
+    r.title="Mapa: Charkovská 20, Praha 10-Vršovice";
+    r.loading="lazy"; r.referrerPolicy="no-referrer-when-downgrade";
+    tlacitko.replaceWith(r);
+  });
+})();
+</script>
+</body>
+</html>
