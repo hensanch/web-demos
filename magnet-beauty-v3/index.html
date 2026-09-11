@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kosmetický salon Praha 3 – Žižkov | Magnet Beauty Studio</title>
+<meta name="description" content="Permanentní make-up obočí a rtů, manikúra a pedikúra, depilace, obočí a řasy. Magnet Beauty Studio, Štítného 23, Praha 3 – Žižkov. Objednání na 737 135 330, platí se hotově.">
+<link rel="canonical" href="https://hensanch.github.io/web-demos/magnet-beauty-v3/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Magnet Beauty Studio, Žižkov">
+<meta property="og:description" content="Permanentní make-up obočí a rtů, manikúra a pedikúra, depilace, obočí a řasy. Štítného 23, Praha 3.">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/magnet-beauty-v3/img/og.jpg">
+<meta property="og:locale" content="cs_CZ">
+<meta name="theme-color" content="#F2F1ED">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20fill%3D%27%23F2F1ED%27%2F%3E%3Ctext%20x%3D%2732%27%20y%3D%2746%27%20font-family%3D%27Helvetica%2CArial%2Csans-serif%27%20font-weight%3D%27300%27%20font-size%3D%2740%27%20text-anchor%3D%27middle%27%20fill%3D%27%23363C3F%27%3EM%3C%2Ftext%3E%3C%2Fsvg%3E">
+<!--
+  Stavba (poznámky pro nás, ne pro zákaznici):
+  - Písma Montserrat 200 a Golos Text 400/500/600 leží v ./fonts, latin + latin-ext. Nic z Googlu.
+  - Mapa se vkládá až po klepnutí. Do té doby stránka nedělá žádný požadavek na třetí stranu,
+    neukládá nic než technické věci, takže není potřeba cookie lišta.
+  - Otevírací doba: Po–Pá 10–20 a So 10–18 podle Googlu, neděle podle nápisu na dveřích
+    (NE PODLE DOHODY, research/photos/g11.jpg). Google uvádí neděli zavřeno. K potvrzení majitelkou.
+  - JSON-LD drží jen ten týden, který Google skutečně publikuje, tedy bez neděle. Bez aggregateRating
+    (vlastní hodnocení se značkovat nesmí), bez priceRange a bez currenciesAccepted (ceny neznáme).
+  - Footer: Provozovatel a IČO jsou na dveřích pod QR kódem, fotka je nepřečte. Placeholder zůstává
+    do potvrzení majitelkou, viz NOTES.md.
+  - Fotky: každý soubor v ./img je ořez z clients/magnet-beauty/research/photos/. Zdroje a ořezové
+    boxy jsou v DESIGN-v3.md.
+-->
+<style>
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:200 300;font-display:swap;src:url(fonts/montserrat-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:200 300;font-display:swap;src:url(fonts/montserrat-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/golos-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Golos Text";font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/golos-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --stena:#F2F1ED;
+  --podlaha:#D6D5D2;
+  --ram:#363C3F;
+  --sedak:#5C5B58;
+  --lak:#8E1414;
+  --okraj:16px;
+  --sat:0px;
+  --spodek:64px;
+  --sirka:1320px;
+}
+@supports (-webkit-touch-callout:none){@media (hover:none) and (pointer:coarse){:root{--sat:62px}}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:0;scroll-padding-bottom:calc(var(--spodek) + 12px);-webkit-text-size-adjust:100%;background:var(--stena)}
+body{margin:0;background:var(--stena);color:var(--ram);font:400 17px/1.55 "Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-tap-highlight-color:transparent;overflow-wrap:break-word}
+body.zamek{position:fixed;left:0;right:0;overflow:hidden}
+img{display:block;max-width:100%;height:auto}
+figure{margin:0}
+blockquote{margin:0}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px;touch-action:manipulation}
+button{font:inherit;color:inherit;touch-action:manipulation;cursor:pointer}
+h1,h2,h3{margin:0;font-weight:500;text-wrap:balance}
+h2{font-size:28px;line-height:1.18;letter-spacing:-.005em}
+h3{font-size:19px;line-height:1.3;font-weight:600}
+p{margin:0}
+:focus-visible{outline:3px solid var(--ram);outline-offset:3px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+.preskok{position:absolute;left:var(--okraj);top:-70px;background:var(--ram);color:#fff;padding:10px 14px;z-index:6}
+.preskok:focus{top:8px}
+
+.stitne{max-width:var(--sirka);margin:0 auto;padding-left:var(--okraj);padding-right:var(--okraj)}
+.cil{scroll-margin-top:calc(-1 * var(--sat));padding-top:calc(var(--pad) + var(--sat))}
+
+/* ── první obrazovka ─────────────────────────────────────────── */
+.vchod{padding-bottom:34px}
+.ulice,.vchod-a,.vchod-b{max-width:var(--sirka);margin:0 auto;padding-left:var(--okraj);padding-right:var(--okraj)}
+.ulice{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding-top:12px}
+.kde-jsme{font-size:15px;color:var(--sedak)}
+.navigace{display:flex;align-items:center;gap:24px}
+.navigace a{display:none;font-size:15px;padding:12px 0}
+.otevrit{background:none;border:1px solid var(--sedak);border-radius:2px;padding:0 16px;min-height:44px;font-size:15px;color:var(--ram);white-space:nowrap}
+
+.balonek{display:block;margin-top:16px}
+.balonek-nazev,.balonek-pod{display:block;font-family:"Montserrat","Golos Text",sans-serif;white-space:nowrap}
+.balonek-nazev{font-weight:200;font-size:clamp(46px,15.6vw,62px);line-height:1.05;letter-spacing:.06em}
+.balonek-pod{font-weight:300;font-size:16px;line-height:1.3;letter-spacing:.3em;margin-top:6px}
+.nko{position:relative}
+.jiskra{position:absolute;left:-.07em;top:-.10em;width:.38em;height:.38em;overflow:visible}
+.delame{margin-top:14px;font-size:17px;max-width:24em}
+.bodu{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:14px;padding:5px 0;width:max-content;max-width:100%;text-decoration:none}
+.bodu-cislo{font-size:30px;font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums}
+.bodu-text{font-size:16px;color:var(--sedak);text-decoration:underline;text-decoration-color:var(--sedak);text-underline-offset:3px}
+.ruka{margin-top:12px}
+.ruka img{width:100%}
+.dnesek{margin-top:12px;font-weight:500;font-size:17px}
+.puntik{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--ram);margin-right:9px;vertical-align:1px}
+.puntik.zavreno{background:none;box-shadow:inset 0 0 0 1.5px var(--sedak)}
+.telefon{display:flex;align-items:center;justify-content:center;margin-top:12px;min-height:56px;padding:0 24px;background:var(--lak);color:#fff;text-decoration:none;font-weight:500;font-size:18px;border-radius:2px}
+.hotove{margin-top:10px;font-size:15px;color:var(--sedak);max-width:30em}
+
+/* ── co děláme ───────────────────────────────────────────────── */
+.vinyl{--pad:38px;background:var(--podlaha);padding-bottom:40px}
+.uvedeni{margin-top:8px;color:var(--sedak);font-size:16px;max-width:32em}
+.tabule{margin-top:22px}
+.tabule img{width:100%}
+.ctverice{margin-top:8px}
+.prace{margin-top:30px}
+.prace-foto{margin-bottom:12px}
+.prace-foto img{width:100%}
+.prace p{margin-top:6px;max-width:32em}
+.napsala{margin-top:12px;font-size:16px;line-height:1.5;border-left:2px solid var(--ram);padding-left:14px}
+.napsala + .napsala{margin-top:14px}
+.autorka{display:block;margin-top:5px;font-size:14px;color:var(--sedak)}
+.cenakvalita{margin-top:32px;padding-top:18px;border-top:1px solid var(--sedak);font-size:18px;max-width:34em}
+
+/* ── co k tomu patří ─────────────────────────────────────────── */
+.patri{--pad:40px;padding-bottom:42px}
+.trojice{margin-top:24px;display:grid;gap:22px}
+.kus{display:grid;grid-template-columns:170px minmax(0,1fr);column-gap:16px;align-items:start}
+.kus img{width:100%}
+.kus blockquote{font-size:16px;line-height:1.45}
+
+/* ── štítného 23 ─────────────────────────────────────────────── */
+.adresa-sekce{--pad:40px;background:var(--podlaha);padding-bottom:42px}
+.dvere{margin-top:22px}
+.dvere img{width:100%;max-width:320px}
+.tyden{margin-top:22px}
+.dnesek-dole{margin-top:0}
+.doba{list-style:none;margin:14px 0 0;padding:0;max-width:24em}
+.doba li{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-top:1px solid var(--sedak);font-variant-numeric:tabular-nums}
+.doba li:last-child{border-bottom:1px solid var(--sedak)}
+.doba li.dnes{font-weight:600}
+.doba li.dnes span:first-child::after{content:" (dnes)";font-weight:400;color:var(--sedak)}
+.spojeni{margin-top:22px}
+.spojeni p + p{margin-top:9px}
+.spojeni p a[href^="tel"]{font-weight:500;display:inline-block;padding:9px 0;margin:-9px 0}
+.parkovani{margin-top:14px;font-size:16px;line-height:1.45;border-left:2px solid var(--ram);padding-left:14px}
+.adresa-sekce .telefon{margin-top:22px;max-width:340px}
+
+/* ── mapa: pruh přes celou šířku, žádný rámeček ──────────────── */
+.pruh{background:var(--ram);color:#fff}
+.pruh-in{max-width:var(--sirka);margin:0 auto;padding:26px var(--okraj);display:grid;gap:16px}
+.pruh-adresa{font-size:clamp(22px,5.4vw,32px);line-height:1.2;font-weight:500}
+.pruh-akce{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.pruh-nacist{background:#fff;color:var(--ram);border:0;border-radius:2px;min-height:48px;padding:0 22px;font-weight:500;font-size:16px}
+.pruh-odkaz{color:#fff;display:inline-block;padding:12px 0;margin:-12px 0;font-size:16px}
+.pruh.nactena .pruh-in{display:none}
+.pruh iframe{display:block;width:100%;height:340px;border:0}
+.pruh :focus-visible{outline-color:#fff}
+
+/* ── patička ─────────────────────────────────────────────────── */
+.paticka{padding:26px 0 calc(26px + var(--spodek));font-size:14px;line-height:1.5;color:var(--sedak)}
+.paticka p + p{margin-top:8px}
+.paticka a{color:inherit;display:inline-block;padding:12px 0;margin:-12px 0}
+
+/* ── spodní lišta (jen telefon) ──────────────────────────────── */
+.okraj-dole{position:fixed;left:0;right:0;bottom:0;z-index:4;display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;background:var(--stena);border-top:1px solid var(--podlaha);padding:8px var(--okraj) calc(8px + env(safe-area-inset-bottom));visibility:hidden;transform:translateY(100%);transition:transform .24s ease,visibility 0s}
+.okraj-dole.videt{visibility:visible;transform:none;transition:transform .24s ease}
+.dole-menu{background:none;border:1px solid var(--sedak);border-radius:2px;min-height:48px;font-size:16px;color:var(--ram)}
+.dole-volat{display:flex;align-items:center;justify-content:center;min-height:48px;background:var(--lak);color:#fff;text-decoration:none;font-weight:500;font-size:17px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){.okraj-dole{transition:none}}
+
+/* ── menu: okenice zdola ─────────────────────────────────────── */
+.okenice{position:fixed;inset:auto 0 0 0;width:100%;max-width:none;max-height:90vh;max-height:90dvh;margin:0;padding:0;border:0;background:transparent;overflow:visible;outline:none;color:var(--ram)}
+.okenice::backdrop{background:rgba(54,60,63,.5)}
+.okenice-in{background:var(--stena);padding:16px var(--okraj) calc(20px + env(safe-area-inset-bottom));border-top:1px solid var(--podlaha);max-height:90vh;max-height:90dvh;overflow:auto}
+.okenice-hlava{display:flex;justify-content:space-between;align-items:center;min-height:44px}
+.okenice-znak{font-family:"Montserrat","Golos Text",sans-serif;font-weight:200;font-size:22px;letter-spacing:.06em}
+.okenice-zavrit{background:none;border:1px solid var(--sedak);border-radius:2px;min-height:44px;padding:0 16px;font-size:15px;color:var(--ram)}
+.okenice-seznam{list-style:none;margin:14px 0 0;padding:0}
+.okenice-seznam a{display:block;padding:14px 0;font-size:21px;font-weight:500;text-decoration:none;border-top:1px solid var(--podlaha)}
+.okenice-seznam li:last-child a{border-bottom:1px solid var(--podlaha)}
+.okenice-pata{margin-top:16px;font-size:16px}
+.okenice-pata p + p{margin-top:6px}
+.okenice-pata a{font-weight:500}
+
+@media (hover:hover){
+  .bodu:hover .bodu-text,.navigace a:hover,.pruh-odkaz:hover,.paticka a:hover,.okenice-seznam a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+  .otevrit:hover,.dole-menu:hover,.okenice-zavrit:hover{border-color:var(--ram)}
+  .telefon:hover,.dole-volat:hover{background:#7A1010}
+  .pruh-nacist:hover{background:#E6E5E1}
+}
+
+/* ── 700 px: dvě fotky vedle sebe ────────────────────────────── */
+@media (min-width:700px){
+  :root{--okraj:28px}
+  .trojice{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+  .kus{display:block}
+  .kus img{margin-bottom:12px}
+  .ctverice{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px;row-gap:34px}
+  .prace{margin-top:0}
+  .p-laser,.p-rasy{grid-column:1 / -1}
+  .dva{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px;align-items:start}
+  .dva .napsala + .napsala{margin-top:0}
+}
+
+/* ── 900 px a výš: desktop ───────────────────────────────────── */
+@media (min-width:900px){
+  :root{--okraj:48px}
+  h2{font-size:38px}
+  h3{font-size:21px}
+  .navigace a{display:inline-block}
+  .otevrit{display:none}
+
+  /* první obrazovka: text vlevo, fotka až k pravému okraji okna */
+  .vchod{--lm:max(var(--okraj),calc((100vw - var(--sirka)) / 2 + var(--okraj)));padding-bottom:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,48%);column-gap:56px;max-width:none;padding-left:0;padding-right:0}
+  .ulice,.vchod-a,.vchod-b{max-width:none;margin:0;padding-right:0}
+  .ulice{grid-column:1 / -1;grid-row:1;padding-left:var(--lm);padding-right:var(--lm);padding-top:18px}
+  .vchod-a{grid-column:1;grid-row:2;padding:52px 0 0 var(--lm);align-self:end}
+  .vchod-b{grid-column:1;grid-row:3;padding:0 0 68px var(--lm)}
+  .ruka{grid-column:2;grid-row:2 / span 2;margin-top:0;position:relative;overflow:hidden;min-height:540px}
+  .ruka img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover}
+  .balonek{margin-top:0}
+  .balonek-nazev{font-size:82px;line-height:1}
+  .balonek-pod{font-size:24px;margin-top:9px}
+  .delame{font-size:20px;margin-top:22px;max-width:23em}
+  .bodu{margin-top:26px}
+  .bodu-cislo{font-size:38px}
+  .bodu-text{font-size:17px}
+  .dnesek{font-size:19px;margin-top:22px}
+  .telefon{margin-top:22px;min-width:330px;max-width:330px}
+  .hotove{font-size:16px;max-width:34em}
+
+  /* co děláme */
+  .vinyl{--pad:64px;padding-bottom:68px}
+  .vinyl-in{margin-top:34px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:40px;align-items:start}
+  .tabule{grid-column:1;grid-row:1;margin-top:0}
+  .ctverice{grid-column:2;grid-row:1 / span 2;margin-top:0;column-gap:32px;row-gap:32px;align-content:start}
+  .dva{grid-template-columns:minmax(0,1fr)}
+  .dva .napsala + .napsala{margin-top:14px}
+  .cenakvalita{grid-column:1;grid-row:2;margin-top:26px;font-size:19px;max-width:none}
+
+  /* co k tomu patří */
+  .patri{--pad:68px;padding-bottom:70px}
+  .trojice{margin-top:34px;gap:36px}
+  .kus blockquote{font-size:17px}
+
+  /* štítného 23 */
+  .adresa-sekce{--pad:68px;padding-bottom:70px}
+  .adresa-in{margin-top:34px;display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);column-gap:44px;align-items:start}
+  .dvere{grid-column:1;grid-row:1 / span 2;margin-top:0}
+  .dvere img{width:100%;max-width:none;height:auto}
+  .tyden{grid-column:2;grid-row:1;margin-top:0}
+  .doba{max-width:none}
+  .doba li{padding:10px 0;font-size:17px}
+  .spojeni{grid-column:2;grid-row:2;margin-top:26px}
+
+  /* mapa */
+  .pruh-in{padding:34px var(--okraj);grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:40px}
+  .pruh-akce{justify-content:flex-end}
+  .pruh iframe{height:460px}
+
+  .paticka{padding-bottom:30px}
+  .paticka-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);column-gap:56px}
+  .paticka-in p + p{margin-top:0}
+  .paticka-in p:first-child{grid-column:1}
+  .paticka-in p:nth-child(2){grid-column:1;margin-top:8px}
+  .paticka-in p:nth-child(3){grid-column:2;grid-row:1 / span 2}
+
+  .okraj-dole{display:none}
+  .okenice{display:none}
+}
+@media (min-width:1140px){
+  .vinyl-in{grid-template-columns:minmax(0,400px) minmax(0,1fr);column-gap:56px}
+  .ctverice{column-gap:44px;row-gap:38px}
+  .dva{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:44px}
+  .dva .napsala + .napsala{margin-top:0}
+  .adresa-in{grid-template-columns:minmax(0,420px) minmax(0,320px) minmax(0,1fr);column-gap:56px}
+  .dvere{grid-column:1;grid-row:1;height:100%}
+  .tyden{grid-column:2;grid-row:1}
+  .spojeni{grid-column:3;grid-row:1;margin-top:0}
+}
+@media (min-width:1280px){
+  .balonek-nazev{font-size:96px}
+  .balonek-pod{font-size:27px}
+  .delame{font-size:21px}
+}
+html.dotyk :focus-visible{outline:0}
+[tabindex="-1"]:focus,[tabindex="-1"]:focus-visible{outline:0}
+</style>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BeautySalon",
+ "name":"Magnet Beauty Studio",
+ "image":"https://hensanch.github.io/web-demos/magnet-beauty-v3/img/og.jpg",
+ "url":"https://hensanch.github.io/web-demos/magnet-beauty-v3/",
+ "telephone":"+420737135330",
+ "address":{"@type":"PostalAddress","streetAddress":"Štítného 629/23","addressLocality":"Praha 3","postalCode":"130 00","addressCountry":"CZ"},
+ "geo":{"@type":"GeoCoordinates","latitude":50.0852116,"longitude":14.451593},
+ "openingHoursSpecification":[
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"20:00"},
+  {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"18:00"}
+ ],
+ "paymentAccepted":"Cash",
+ "sameAs":"https://www.google.com/maps/place/?q=place_id:ChIJd3jPqoXrPygRTcDRaOi6Sfg"
+}
+</script>
+<script>(function(){var h=document.documentElement;addEventListener("pointerdown",function(){h.classList.add("dotyk")},true);addEventListener("keydown",function(e){if(e.key==="Tab"||e.key.indexOf("Arrow")===0||e.key==="Enter"||e.key===" ")h.classList.remove("dotyk")},true);})();</script>
+</head>
+<body>
+<a class="preskok" href="#delame">Přeskočit na služby</a>
+<main>
+
+<section class="vchod" id="vchod">
+  <div class="ulice">
+    <p class="kde-jsme">Štítného&nbsp;23, Žižkov</p>
+    <nav class="navigace" aria-label="Části stránky">
+      <a href="#delame">Co děláme</a>
+      <a href="#patri">Co k&nbsp;tomu patří</a>
+      <a href="#adresa">Štítného&nbsp;23</a>
+      <button class="otevrit" type="button" data-otevrit aria-haspopup="dialog" aria-controls="okenice">Menu</button>
+    </nav>
+  </div>
+
+  <div class="vchod-a">
+    <h1 class="balonek" aria-label="MAGNET beauty studio">
+      <span class="balonek-nazev" aria-hidden="true">MAG<span class="nko">N<svg class="jiskra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.95" stroke-linecap="round" aria-hidden="true"><path d="M12 0.2V7.4M12 16.6V23.8M0.2 12H7.4M16.6 12H23.8M8.9 8.9L5.7 5.7M15.1 15.1L18.3 18.3M15.1 8.9L18.3 5.7M8.9 15.1L5.7 18.3"/><circle cx="12" cy="12" r="2.5"/></svg></span>ET</span>
+      <span class="balonek-pod" aria-hidden="true">beauty studio</span>
+    </h1>
+    <p class="delame">Permanentní make-up obočí a&nbsp;rtů. Manikúra a&nbsp;pedikúra, depilace, obočí a&nbsp;řasy.</p>
+    <a class="bodu" href="https://www.google.com/maps/place/?q=place_id:ChIJd3jPqoXrPygRTcDRaOi6Sfg" rel="noopener">
+      <span class="bodu-cislo">4,9</span>
+      <span class="bodu-text">ze&nbsp;103 recenzí na&nbsp;Googlu</span>
+    </a>
+  </div>
+
+  <figure class="ruka">
+    <picture>
+      <source media="(min-width: 900px)" srcset="img/nehty.jpg" width="1140" height="1130">
+      <img src="img/nehty-s.jpg" width="1080" height="600" alt="Ruka s&nbsp;tmavě červeným gelovým lakem, práce studia" fetchpriority="high">
+    </picture>
+  </figure>
+
+  <div class="vchod-b">
+    <p class="dnesek"><span class="puntik" aria-hidden="true"></span><span class="dnesek-text">Po–Pá 10:00–20:00, So 10:00–18:00</span></p>
+    <a class="telefon" id="volat" href="tel:+420737135330">Zavolat 737&nbsp;135&nbsp;330</a>
+    <p class="hotove">Termín si domluvíte telefonem, platí se hotově. V&nbsp;neděli po domluvě.</p>
+  </div>
+</section>
+
+<section class="vinyl cil" id="delame" tabindex="-1">
+  <div class="stitne">
+    <h2>Co děláme</h2>
+    <p class="uvedeni">Čtyři věci, které máme napsané na dveřích.</p>
+    <div class="vinyl-in">
+      <figure class="tabule">
+        <picture>
+          <source media="(min-width: 900px)" srcset="img/sklo.jpg" width="430" height="650">
+          <img src="img/sklo-s.jpg" width="580" height="590" loading="lazy" alt="Sklo našich dveří ve Štítného: permanentní make-up, manikúra a&nbsp;pedikúra, depilace (dámská a&nbsp;pánská), obočí a&nbsp;řasy (úprava, barvení, laminace)">
+        </picture>
+      </figure>
+
+      <div class="ctverice">
+        <div class="prace">
+          <figure class="prace-foto">
+            <img src="img/oboci.jpg" width="1267" height="774" loading="lazy" alt="Obočí po permanentním make-upu, detail">
+          </figure>
+          <h3>Permanentní make-up</h3>
+          <p>Obočí a&nbsp;rty, i&nbsp;oprava staršího pigmentu.</p>
+          <blockquote class="napsala">„Má cit pro přirozenost, to je pro mne důležité. Za&nbsp;touto paní a&nbsp;jejími službami neváhám jet 160&nbsp;km.“<span class="autorka">Michaela, Google</span></blockquote>
+        </div>
+
+        <div class="prace">
+          <figure class="prace-foto">
+            <img src="img/nehty-svetle.jpg" width="900" height="550" loading="lazy" alt="Ruka se světle modrým gelovým lakem, práce studia">
+          </figure>
+          <h3>Manikúra a&nbsp;pedikúra</h3>
+          <p>Gelový lak na&nbsp;rukou i&nbsp;na&nbsp;nohou.</p>
+          <blockquote class="napsala">„Nechala jsem si udělat manikúru a&nbsp;pedikúru a&nbsp;byla jsem velmi spokojená s&nbsp;kvalitou práce.“<span class="autorka">Viktoria, Google</span></blockquote>
+        </div>
+
+        <div class="prace p-laser">
+          <h3>Depilace</h3>
+          <p>Dámská i&nbsp;pánská. Laserovou epilaci chodíte v&nbsp;kurzu, na&nbsp;několik návštěv po&nbsp;sobě.</p>
+          <div class="dva">
+            <blockquote class="napsala">„Absolvovala jsem celý kurz laserové epilace a&nbsp;jsem velmi spokojená. Chloupky skoro nerostou, a&nbsp;když i&nbsp;něco roste, tak strašně pomalu, holení jednou za&nbsp;měsíc.“<span class="autorka">Olga, Google</span></blockquote>
+            <blockquote class="napsala">„Začala jsem s&nbsp;kurzem laserové depilace. Výsledek byl vidět asi za&nbsp;10–14 dní a&nbsp;na to, že mám za&nbsp;sebou jen první sezení, mě příjemně překvapil.“<span class="autorka">Julia, Google</span></blockquote>
+          </div>
+        </div>
+
+        <div class="prace p-rasy">
+          <h3>Obočí a&nbsp;řasy</h3>
+          <p>Úprava a&nbsp;barvení obočí, laminace řas.</p>
+        </div>
+      </div>
+
+      <blockquote class="cenakvalita">„Tento salon navštěvuji již přes půl roku. Cena-kvalita ♡“<span class="autorka">Marina, Google</span></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="patri cil" id="patri" tabindex="-1">
+  <div class="stitne">
+    <h2>Co k&nbsp;tomu patří</h2>
+    <p class="uvedeni">Tři věci, které klientky na&nbsp;Googlu zmiňují samy od&nbsp;sebe.</p>
+    <div class="trojice">
+      <figure class="kus">
+        <img src="img/kava.jpg" width="1080" height="823" loading="lazy" alt="Bílý šálek kávy na&nbsp;dřevěném tácku vedle zelenkavého keramického jablka">
+        <blockquote>„Nabídnou vám kávu, přikryjí vás dekou, zvednou náladu.“<span class="autorka">Hanna, Google</span></blockquote>
+      </figure>
+      <figure class="kus">
+        <img src="img/ruze.jpg" width="1140" height="869" loading="lazy" alt="Tmavě rudá růže a&nbsp;tuba krému na&nbsp;domácí péči na&nbsp;stolku ve studiu">
+        <blockquote>„Pro domácí ošetření dali zdarma kosmetiku, krém na&nbsp;oční linky. A&nbsp;ještě na&nbsp;konci vám darují mini dárek, krásnou voňavou růži!“<span class="autorka">Valeria, Google</span></blockquote>
+      </figure>
+      <figure class="kus">
+        <img src="img/zrcadlo.jpg" width="1100" height="839" loading="lazy" alt="Kout studia: stojací zrcadlo s&nbsp;nápisem MAGNET, orchidej a&nbsp;mřížované okno do Štítného ulice">
+        <blockquote>„Líbilo se mi všechno, salon, poloha, mistryně.“<span class="autorka">Anastasia, Google</span></blockquote>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="adresa-sekce cil" id="adresa" tabindex="-1">
+  <div class="stitne">
+    <h2>Štítného&nbsp;23</h2>
+    <p class="uvedeni">Přízemí, vchod přímo z&nbsp;ulice. Hledejte tmavé dveře v&nbsp;kamenném oblouku.</p>
+    <div class="adresa-in">
+      <figure class="dvere">
+        <img src="img/dvere.jpg" width="900" height="970" loading="lazy" alt="Vchod do studia ve Štítného ulici: tmavé dveře s&nbsp;půlkruhovým nadsvětlíkem v&nbsp;kamenném oblouku">
+      </figure>
+      <div class="tyden">
+      <p class="dnesek dnesek-dole"><span class="puntik" aria-hidden="true"></span><span class="dnesek-text">Po–Pá 10:00–20:00, So 10:00–18:00</span></p>
+      <ul class="doba" id="doba" aria-label="Otevírací doba">
+        <li data-den="1"><span>Pondělí</span><span>10:00–20:00</span></li>
+        <li data-den="2"><span>Úterý</span><span>10:00–20:00</span></li>
+        <li data-den="3"><span>Středa</span><span>10:00–20:00</span></li>
+        <li data-den="4"><span>Čtvrtek</span><span>10:00–20:00</span></li>
+        <li data-den="5"><span>Pátek</span><span>10:00–20:00</span></li>
+        <li data-den="6"><span>Sobota</span><span>10:00–18:00</span></li>
+        <li data-den="0"><span>Neděle</span><span>podle dohody</span></li>
+      </ul>
+      </div>
+      <div class="spojeni">
+        <p>Štítného 629/23<br>130&nbsp;00 Praha&nbsp;3 – Žižkov</p>
+        <p><a href="tel:+420737135330">737&nbsp;135&nbsp;330</a></p>
+        <p>Objednáváme se telefonem, platí se hotově.</p>
+        <blockquote class="parkovani">„Parkování u&nbsp;salonu v&nbsp;ulici není problém, pracují taky o&nbsp;víkendu, kdy je parkování zdarma.“<span class="autorka">Valeria, Google</span></blockquote>
+        <a class="telefon" href="tel:+420737135330">Zavolat 737&nbsp;135&nbsp;330</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pruh" id="pruh">
+  <div class="pruh-in">
+    <p class="pruh-adresa">Štítného 629/23, Praha&nbsp;3</p>
+    <div class="pruh-akce">
+      <button class="pruh-nacist" type="button" data-mapa>Zobrazit mapu</button>
+      <a class="pruh-odkaz" href="https://www.google.com/maps/dir/?api=1&amp;destination=%C5%A0t%C3%ADtn%C3%A9ho+629%2F23%2C+Praha+3" rel="noopener">Trasa v&nbsp;Mapách Google</a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="paticka">
+  <div class="stitne paticka-in">
+    <p>Magnet Beauty Studio, Štítného 629/23, 130&nbsp;00 Praha&nbsp;3.</p>
+    <p>Provozovatel: doplníme po potvrzení. IČO: doplníme.</p>
+    <p>Kdybyste s&nbsp;námi měli spor a&nbsp;nedohodli jsme se, můžete se obrátit na Českou obchodní inspekci, která spory řeší mimosoudně: <a href="https://coi.gov.cz/informace-o-adr/" rel="noopener">coi.gov.cz/informace-o-adr</a>.</p>
+  </div>
+</footer>
+
+<div class="okraj-dole" id="okraj-dole" aria-hidden="true">
+  <button class="dole-menu" type="button" data-otevrit aria-haspopup="dialog" aria-controls="okenice" tabindex="-1">Menu</button>
+  <a class="dole-volat" href="tel:+420737135330" tabindex="-1">Zavolat 737&nbsp;135&nbsp;330</a>
+</div>
+
+<dialog class="okenice" id="okenice" tabindex="-1" aria-label="Menu">
+  <div class="okenice-in">
+    <div class="okenice-hlava">
+      <span class="okenice-znak">MAGNET</span>
+      <button class="okenice-zavrit" type="button" data-zavrit>Zavřít</button>
+    </div>
+    <ul class="okenice-seznam">
+      <li><a href="#delame">Co děláme</a></li>
+      <li><a href="#patri">Co k&nbsp;tomu patří</a></li>
+      <li><a href="#adresa">Štítného&nbsp;23</a></li>
+    </ul>
+    <div class="okenice-pata">
+      <p id="okenice-dnesek">Po–Pá 10:00–20:00, So 10:00–18:00</p>
+      <p><a href="tel:+420737135330">Zavolat 737&nbsp;135&nbsp;330</a></p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  'use strict';
+  var NB = ' ';
+
+  /* Otevírací doba: Po–Pá 10–20, So 10–18, neděle podle dohody (nápis na dveřích). Europe/Prague. */
+  var HOD = {1:[10,20],2:[10,20],3:[10,20],4:[10,20],5:[10,20],6:[10,18],0:null};
+  var DNY = ['neděli','pondělí','úterý','středu','čtvrtek','pátek','sobotu'];
+  function praha(){
+    try{
+      var f = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Prague',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false});
+      var p = {}; f.formatToParts(new Date()).forEach(function(x){ p[x.type] = x.value; });
+      var wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[p.weekday];
+      return {den:wd, min:(parseInt(p.hour,10)%24)*60 + parseInt(p.minute,10)};
+    }catch(e){ var n = new Date(); return {den:n.getDay(), min:n.getHours()*60 + n.getMinutes()}; }
+  }
+  function hh(h){ return h + ':00'; }
+  function stav(){
+    var t = praha(), h = HOD[t.den], text, otevreno = false;
+    if (h && t.min < h[0]*60) { text = 'Dnes otevřeno od' + NB + hh(h[0]) + ' do' + NB + hh(h[1]) + '.'; }
+    else if (h && t.min < h[1]*60) { text = 'Otevřeno, dnes do' + NB + hh(h[1]) + '.'; otevreno = true; }
+    else {
+      var d = t.den, i = 0, n, presNedeli = false;
+      do { d = (d + 1) % 7; i++; if (d === 0) presNedeli = true; n = HOD[d]; } while (!n && i < 7);
+      var zacatek = h ? 'Dnes už zavřeno. ' : 'Dnes podle dohody. ';
+      if (presNedeli) { text = zacatek + 'Zítra po domluvě, v' + NB + 'pondělí od' + NB + hh(n[0]) + '.'; }
+      else { text = zacatek + ((i === 1) ? 'Zítra' : 'V' + NB + DNY[d]) + ' od' + NB + hh(n[0]) + '.'; }
+    }
+    document.querySelectorAll('.dnesek-text').forEach(function(el){ el.textContent = text; });
+    document.querySelectorAll('.puntik').forEach(function(p){ p.classList.toggle('zavreno', !otevreno); });
+    var m = document.getElementById('okenice-dnesek'); if (m) m.textContent = text;
+    var dnes = String(t.den);
+    document.querySelectorAll('#doba li').forEach(function(li){ li.classList.toggle('dnes', li.getAttribute('data-den') === dnes); });
+  }
+  stav();
+  setInterval(stav, 60000);
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) stav(); });
+
+  /* Spodní lišta se ukáže, jakmile tlačítko Zavolat z první obrazovky není celé vidět. */
+  var listaEl = document.getElementById('okraj-dole'), heroBtn = document.getElementById('volat');
+  function lista(videt){
+    if (!listaEl) return;
+    listaEl.classList.toggle('videt', videt);
+    listaEl.setAttribute('aria-hidden', videt ? 'false' : 'true');
+    listaEl.querySelectorAll('button,a').forEach(function(c){ c.tabIndex = videt ? 0 : -1; });
+  }
+  if (listaEl && heroBtn && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(es){
+      var e = es[es.length - 1];
+      lista(e.intersectionRatio < 0.99);
+    }, {threshold:[0,1]}).observe(heroBtn);
+  }
+
+  /* Menu: okenice zdola. Klepnutí = fokus na dialog, klávesnice = první odkaz. Zpět gesto zavírá. */
+  var okenice = document.getElementById('okenice'), hlavni = document.querySelector('main'),
+      paticka = document.querySelector('.paticka'), preskok = document.querySelector('.preskok');
+  var y0 = 0, otevrene = false, opener = null, cilPo = null, maHistorii = false;
+  var koren = document.documentElement.style;
+  function zamek(on){
+    if (on) { y0 = window.scrollY; document.body.style.top = (-y0) + 'px'; document.body.classList.add('zamek'); }
+    else { document.body.classList.remove('zamek'); document.body.style.top = ''; window.scrollTo({top:y0,left:0,behavior:'instant'}); }
+  }
+  function inert(on){ [hlavni, paticka, listaEl, preskok].forEach(function(el){ if (!el) return; if (on) el.setAttribute('inert',''); else el.removeAttribute('inert'); }); }
+  /* WebKit dodělá obnovu scrollu po popstate až zhruba za 100 ms, proto scrollRestoration vracíme se zpožděním. */
+  function vratitObnovu(){
+    setTimeout(function(){ try { if ('scrollRestoration' in history) history.scrollRestoration = 'auto'; } catch (e) {} }, 300);
+  }
+  function otevrit(ev){
+    if (!okenice || otevrene) return;
+    opener = ev.currentTarget; otevrene = true; cilPo = null;
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+    maHistorii = false; try { history.pushState({menu:1}, ''); maHistorii = true; } catch (e) {}
+    zamek(true); inert(true);
+    if (typeof okenice.showModal === 'function') okenice.showModal(); else okenice.setAttribute('open','');
+    if (ev.detail === 0) { var a = okenice.querySelector('a'); if (a) a.focus(); } else { okenice.focus(); }
+  }
+  function zavrit(cil){
+    if (!okenice || !otevrene) return;
+    otevrene = false;
+    if (okenice.open) okenice.close(); else okenice.removeAttribute('open');
+    inert(false); zamek(false);
+    var sekce = cil ? document.querySelector(cil) : null;
+    if (sekce) {
+      var sat = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sat')) || 0;
+      var y = Math.max(0, Math.round(window.scrollY + sekce.getBoundingClientRect().top + sat));
+      koren.scrollBehavior = 'auto';
+      window.scrollTo({top:y,left:0,behavior:'instant'});
+      requestAnimationFrame(function(){
+        window.scrollTo({top:y,left:0,behavior:'instant'});
+        sekce.focus({preventScroll:true});
+        koren.scrollBehavior = '';
+      });
+    } else if (opener && opener.tabIndex !== -1) {
+      opener.focus({preventScroll:true});
+    }
+    vratitObnovu();
+  }
+  function zavritPres(cil){
+    cilPo = cil || null;
+    if (maHistorii) { history.back(); } else { zavrit(cilPo); cilPo = null; }
+  }
+  document.querySelectorAll('[data-otevrit]').forEach(function(b){ b.addEventListener('click', otevrit); });
+  if (okenice) {
+    okenice.querySelector('[data-zavrit]').addEventListener('click', function(){ zavritPres(); });
+    okenice.addEventListener('click', function(e){ if (e.target === okenice) zavritPres(); });
+    okenice.addEventListener('cancel', function(e){ e.preventDefault(); zavritPres(); });
+    okenice.querySelectorAll('.okenice-seznam a').forEach(function(a){
+      a.addEventListener('click', function(e){ e.preventDefault(); zavritPres(a.getAttribute('href')); });
+    });
+    window.addEventListener('popstate', function(){ if (otevrene) { var c = cilPo; cilPo = null; zavrit(c); } });
+  }
+
+  /* Mapa až po klepnutí. */
+  var pruh = document.getElementById('pruh');
+  if (pruh) {
+    pruh.querySelector('[data-mapa]').addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.google.com/maps?q=%C5%A0t%C3%ADtn%C3%A9ho+629%2F23%2C+130+00+Praha+3&z=16&output=embed';
+      f.title = 'Mapa: Štítného 629/23, Praha 3';
+      f.setAttribute('loading','lazy'); f.setAttribute('referrerpolicy','no-referrer-when-downgrade');
+      pruh.appendChild(f); pruh.classList.add('nactena');
+    });
+  }
+})();
+</script>
+</body>
+</html>
