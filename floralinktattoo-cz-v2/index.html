@@ -344,10 +344,24 @@ footer{
     display:grid;grid-template-columns:1fr 1fr;gap:34px;
     align-items:start;
   }
-  /* the grid cell is the measure up here; the tablet cap comes off */
-  .dvojice{ max-width:none; }
-  /* the right column hangs 64 px lower, whatever is in it */
-  .velke > :nth-child(even){ margin-top:64px; }
+  /* the grid cell is the measure up here; the tablet cap comes off. The gap matches
+     the grid's own 34 px, because up here the two pairs stand in one row and an
+     uneven 20/34/20 rhythm would read as two pairs rather than one band of four. */
+  .dvojice{ max-width:none;gap:34px; }
+  /* Desktop hangs the wall in three courses instead of carrying the phone's
+     interleave up here. A large piece is 708-739 px tall in a 543 px column and a
+     pair of small ones is 312-401: putting one beside the other left 243 px of bare
+     black under the first pair and 363 px under the second, ~600 px in the right
+     column. Like hangs with like — the two large pieces, then all four small ones as
+     one band, then the last two large pieces — so every course is made of things the
+     same height and nothing has to be padded. Phone DOM order, and therefore the
+     phone's interleave, is untouched; only the desktop cells move. */
+  .velke > :nth-child(1){ grid-column:1;grid-row:1; }   /* hannya */
+  .velke > :nth-child(3){ grid-column:2;grid-row:1; }   /* drak   */
+  .velke > :nth-child(2){ grid-column:1;grid-row:2; }   /* the line + volavka, motyl */
+  .velke > :nth-child(4){ grid-column:2;grid-row:2;align-self:center; } /* siska, stetec */
+  .velke > :nth-child(5){ grid-column:1;grid-row:3; }   /* vlna  */
+  .velke > :nth-child(6){ grid-column:2;grid-row:3; }   /* rukav */
   .maly-uvod{ margin-bottom:18px; }
   .prechod{ width:36%;margin-left:30%;margin-top:70px;margin-bottom:-130px; }
   #navrh{ padding-top:calc(210px + var(--sat)); }
