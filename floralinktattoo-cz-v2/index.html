@@ -76,8 +76,9 @@ html.dotyk :focus-visible{outline:0;}
 .preskocit:focus{left:0;}
 
 /* ---------- the frame: a hairline rule, a paper mat, the work inside ----------
-   Frames are for the ARCHIVE only in v2: her drawings and the small kept pieces.
-   The four tattoos in the portfolio proper hang unmatted on her own black. */
+   A frame now means exactly one thing: this is paper, kept and not sold. Every
+   tattoo on the page — large or small — hangs unmatted on her own black. The only
+   framed piece below the first screen is the painting. */
 .ram{
   border:1px solid rgba(142,106,69,.55);
   background:var(--pasparta);
@@ -90,9 +91,9 @@ html.dotyk :focus-visible{outline:0;}
 }
 
 /* ---------- first screen ---------- */
-.uvitani{ padding:22px var(--okraj) 0; }
+.uvitani{ padding:16px var(--okraj) 0; }
 .stitek-hlavni{
-  margin-top:14px;padding-top:14px;border-top:1px solid rgba(142,106,69,.6);
+  margin-top:10px;padding-top:12px;border-top:1px solid rgba(142,106,69,.6);
 }
 .stitek-hlavni h1{ font-size:40px;line-height:1.02;margin:0 0 8px; }
 .cojeto{ font-size:15px;line-height:1.45;color:var(--sepie);margin-bottom:6px; }
@@ -101,7 +102,7 @@ html.dotyk :focus-visible{outline:0;}
   padding:11px 0 12px;margin:-11px 0 -12px; }
 .znamka b{font-weight:600;}
 /* the price sentence is the answer to having no ceník, so it arrives BEFORE the button */
-.cena{ font-size:15px;line-height:1.45;color:var(--sepie);margin-top:12px; }
+.cena{ font-size:15px;line-height:1.45;color:var(--sepie);margin-top:10px; }
 .jen{ font-size:15px;color:var(--sepie);margin-top:10px; }
 
 .volat{
@@ -117,8 +118,8 @@ html.dotyk :focus-visible{outline:0;}
 .radky{ display:none;margin:0; }
 
 /* ---------- sections ---------- */
-section{ padding:calc(52px + var(--sat)) var(--okraj) 52px; scroll-margin-top:calc(-1 * var(--sat)); }
-#uvod{ padding-top:22px;scroll-margin-top:0; }
+section{ padding:calc(46px + var(--sat)) var(--okraj) 46px; scroll-margin-top:calc(-1 * var(--sat)); }
+#uvod{ padding-top:16px;scroll-margin-top:0; }
 section h2{ font-size:30px;line-height:1.1;margin-bottom:12px; }
 .text{ max-width:34em; }
 .text p + p{ margin-top:14px; }
@@ -130,63 +131,63 @@ section h2{ font-size:30px;line-height:1.1;margin-bottom:12px; }
   padding-bottom:0;
 }
 .tma h2{ color:var(--pasparta); }
-.tma h3{ color:var(--pasparta); }
 .tma .uvod-radek{ color:var(--kride); }
 
-/* the four: full column width, no mat, no frame */
-.velke{ display:grid;gap:26px;margin:0 0 6px; }
+/* the large pieces: full column width, no mat, no frame */
+.velke{ display:grid;gap:22px;margin:0 0 6px; }
 .kus{ margin:0; }
 .lupa{
   display:block;width:100%;padding:0;border:0;background:none;
   color:inherit;cursor:zoom-in;
 }
 .lupa .okno{ display:block; }
-.lupa img{ width:100%;height:auto; }
+.lupa img{ width:100%;height:auto;-webkit-user-drag:none;user-select:none; }
 .lupa[aria-expanded="true"]{ cursor:zoom-out; }
 .lupa[aria-expanded="true"] .okno{
   height:72vh;overflow:auto;-webkit-overflow-scrolling:touch;
   outline:1px solid rgba(142,106,69,.55);
 }
 .lupa[aria-expanded="true"] img{ width:200%;max-width:none; }
+/* a mouse gets no scrollbar on an overlay-scrollbar platform, so the window says
+   what it is with the cursor and can be dragged as well as wheeled */
+@media (hover:hover) and (pointer:fine){
+  .lupa[aria-expanded="true"] .okno{ cursor:grab; }
+  .lupa[aria-expanded="true"] .okno.tahne{ cursor:grabbing; }
+}
 .lupa[aria-expanded="true"]::after{
   content:"Klepnutím zmenšíte.";
   display:block;font:inherit;font-size:14px;line-height:1.4;
   color:var(--kride);text-align:left;padding-top:8px;
 }
-.stena .lupa[aria-expanded="true"]::after{ color:var(--sepie);padding-top:6px; }
+@media (hover:hover) and (pointer:fine){
+  .lupa[aria-expanded="true"]::after{ content:"Kliknutím zmenšíte."; }
+}
+/* the hint reads for the device that is actually in front of it */
+.jak-mys{ display:none; }
+@media (hover:hover) and (pointer:fine){
+  .jak-dotyk{ display:none; }
+  .jak-mys{ display:inline; }
+}
 
-/* ---------- the index: what is kept, framed, on the same wall ---------- */
-.archiv{
-  margin-top:44px;padding-top:26px;
-  border-top:1px solid rgba(142,106,69,.45);
-}
-.archiv h3{
-  font-family:'Commissioner',system-ui,sans-serif;font-weight:600;font-size:16px;
-  letter-spacing:.01em;margin:0 0 4px;text-wrap:balance;
-}
-.archiv .uvod-radek{ margin-bottom:22px; }
-.stena{ display:flex;flex-wrap:wrap;align-items:flex-start; }
-.stena .ram{ margin-bottom:18px;border-color:rgba(142,106,69,.75); }
-.stena .pasparta{ padding:8px 8px 10px; }
-.stena .lupa .okno{ display:block; }
-/* a tapped frame comes off the wall to the full column before it pans, so an
-   enlarged index piece is a real enlargement and not a 140 px window onto a crop */
-.stena .ram.zvetseny{ width:100%;margin-left:0;margin-top:0; }
-/* no two frames the same width, no two tops level (g18.jpg 620,120-1010,470) */
-.stena .h-volavka{ width:52%; }
-.stena .h-motyl  { width:44%;margin-left:2%;margin-top:46px; }
-.stena .h-stetec { width:46%; }
-.stena .h-siska  { width:44%;margin-left:2%;margin-top:34px; }
+/* ---------- her small work, hung between the large pieces ---------- */
+.maly-uvod{ color:var(--kride);max-width:34em;margin:0 0 14px; }
+.dvojice{ display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start; }
+/* no two tops level, as on her own wall (g18.jpg 620,120-1010,470) */
+.dvojice-a .kus:nth-child(2){ margin-top:16px; }
+.dvojice-b .kus:nth-child(1){ margin-top:12px; }
+/* a tapped small piece takes the whole column before it pans, so an enlargement
+   is a real enlargement and not a 172 px window onto a crop */
+.dvojice .kus.zvetseny{ grid-column:1 / -1;margin-top:0; }
 
 /* the painting hangs off the bottom of the dark wall onto the paper half */
 .prechod{
   position:relative;z-index:2;
-  width:64%;margin:0 0 -96px 30%;
+  width:64%;margin:28px 0 -96px 30%;
 }
 .prechod .stitek{ color:var(--sepie); }
 
 /* ---------- Návrh ---------- */
-#navrh{ padding-top:calc(148px + var(--sat)); }
+#navrh{ padding-top:calc(142px + var(--sat)); }
 .deska{ margin:26px 0 0;width:62%; }
 
 /* ---------- Nadiia + reviews ---------- */
@@ -213,7 +214,10 @@ section h2{ font-size:30px;line-height:1.1;margin-bottom:12px; }
 .udaje dd{ margin:0;flex:1 1 auto; }
 .udaje a{ display:inline-block;text-decoration:underline;text-decoration-color:rgba(142,106,69,.85);text-decoration-thickness:1px;text-underline-offset:.22em;
   padding:11px 0 12px;margin:-11px 0 -12px; }
-.pokoj{ margin:28px 0 0; }
+.pokoj-blok{ margin:28px 0 0; }
+.pokoj{ margin:0; }
+/* the one thing a first-timer asks that we are allowed to answer: her customers said it */
+.cisto{ margin-top:18px;max-width:34em; }
 .mapka{
   display:block;width:100%;margin-top:26px;padding:0;
   border:1px solid rgba(142,106,69,.55);background:var(--pasparta);
@@ -229,7 +233,7 @@ section h2{ font-size:30px;line-height:1.1;margin-bottom:12px; }
 /* ---------- footer ---------- */
 footer{
   background:var(--papir);
-  padding:44px var(--okraj) calc(112px + env(safe-area-inset-bottom,0px));
+  padding:44px var(--okraj) calc(88px + env(safe-area-inset-bottom,0px));
   border-top:1px solid rgba(142,106,69,.4);
 }
 .mesic{ display:block;width:30px;height:30px;margin-bottom:14px; }
@@ -296,10 +300,9 @@ footer{
 .hlavicka{ display:none; }
 
 @media (min-width:700px){
-  .stena .h-volavka{ width:27%; }
-  .stena .h-motyl  { width:23%;margin-left:2%;margin-top:58px; }
-  .stena .h-stetec { width:23%;margin-left:2%;margin-top:26px; }
-  .stena .h-siska  { width:20%;margin-left:2%;margin-top:0; }
+  /* a tablet column is 728 px wide: without the cap a "small piece" renders 354 px
+     and the whole point of the interleave — big work, small work — disappears */
+  .dvojice{ gap:20px;max-width:540px; }
   .prechod{ width:34%;margin-left:42%; }
   .deska{ width:46%; }
 }
@@ -341,16 +344,12 @@ footer{
     display:grid;grid-template-columns:1fr 1fr;gap:34px;
     align-items:start;
   }
-  .velke .kus:nth-child(even){ margin-top:64px; }
-  .archiv{ margin-top:70px;padding-top:34px; }
-  .archiv h3{ font-size:17px; }
-  .stena .ram{ margin-bottom:30px; }
-  .stena .pasparta{ padding:12px 12px 14px; }
-  .stena .h-volavka{ width:26%; }
-  .stena .h-motyl  { width:22%;margin-left:3%;margin-top:58px; }
-  .stena .h-stetec { width:22%;margin-left:3%;margin-top:22px; }
-  .stena .h-siska  { width:19%;margin-left:3%;margin-top:0; }
-  .prechod{ width:36%;margin-left:30%;margin-bottom:-130px; }
+  /* the grid cell is the measure up here; the tablet cap comes off */
+  .dvojice{ max-width:none; }
+  /* the right column hangs 64 px lower, whatever is in it */
+  .velke > :nth-child(even){ margin-top:64px; }
+  .maly-uvod{ margin-bottom:18px; }
+  .prechod{ width:36%;margin-left:30%;margin-top:70px;margin-bottom:-130px; }
   #navrh{ padding-top:calc(210px + var(--sat)); }
 
   .navrh-mriz{ display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:56px;align-items:start; }
@@ -367,7 +366,7 @@ footer{
     column-gap:56px;row-gap:34px;align-content:start;
   }
   .kdeco{ grid-area:info; }
-  .pokoj{ grid-area:foto;margin-top:0; }
+  .pokoj-blok{ grid-area:foto;margin-top:0; }
   .mapka{ grid-area:mapa;margin-top:0;align-self:start; }
   .udaje{ margin-top:22px; }
   .mapka iframe{ height:380px; }
@@ -401,6 +400,14 @@ footer{
 }
 @media (min-width:1280px){
   section, .uvitani, .hlavicka{ max-width:1200px; }
+}
+/* A 553 px-tall phone (iPhone SE with Safari's bar down) put the second line of the
+   price sentence behind the fixed strip. The label tightens; nothing moves or shrinks. */
+@media (max-width:899px) and (max-height:620px){
+  #uvod{ padding-top:8px; }
+  .stitek-hlavni{ margin-top:6px;padding-top:8px; }
+  .cojeto{ margin-bottom:2px; }
+  .cena{ margin-top:6px; }
 }
 </style>
 </head>
@@ -455,7 +462,7 @@ footer{
 <section id="portfolio" class="tma" tabindex="-1">
   <div class="obsah">
   <h2>Portfolio</h2>
-  <p class="uvod-radek">Dělám jemnou linku, blackwork, tuš i&nbsp;barvu. Klepnutím kus přiblížíte, prstem si ho posunete.</p>
+  <p class="uvod-radek">Dělám jemnou linku, blackwork, tuš i&nbsp;barvu. <span class="jak-dotyk">Klepnutím kus přiblížíte, prstem si ho posunete.</span><span class="jak-mys">Kliknutím kus přiblížíte, tažením nebo kolečkem si ho posunete.</span></p>
 
   <div class="velke">
 
@@ -465,73 +472,61 @@ footer{
       </button>
     </figure>
 
+    <div class="male">
+      <p class="maly-uvod">Menší kusy dělám taky: kotník, předloktí, lýtko, stehno.</p>
+      <div class="dvojice dvojice-a">
+        <figure class="kus">
+          <button class="lupa" type="button" aria-expanded="false">
+            <span class="okno"><img src="img/volavka.jpg" width="500" height="552" alt="Volavka v&nbsp;letu na&nbsp;lýtku, kolem ní modrá akvarelová skvrna a&nbsp;hvězdičky." loading="lazy" decoding="async"></span>
+          </button>
+        </figure>
+        <figure class="kus">
+          <button class="lupa" type="button" aria-expanded="false">
+            <span class="okno"><img src="img/motyl.jpg" width="500" height="647" alt="Růžový motýl na&nbsp;stehně, kolem něj tečkované paprsky a&nbsp;dva menší motýli." loading="lazy" decoding="async"></span>
+          </button>
+        </figure>
+      </div>
+    </div>
+
     <figure class="kus">
       <button class="lupa" type="button" aria-expanded="false">
         <span class="okno"><img src="img/drak.jpg" width="980" height="1334" alt="Drak s&nbsp;roztaženými křídly na&nbsp;stehně, jemná linka a&nbsp;tečkované stínování, nad ním hvězda." loading="lazy" decoding="async"></span>
       </button>
     </figure>
 
-    <figure class="kus">
-      <button class="lupa" type="button" aria-expanded="false">
-        <span class="okno"><img src="img/vlna.jpg" width="820" height="956" alt="Barevný rukáv: modré vlny, růžové pivoňky a&nbsp;dračí hlava přes hřbet ruky." loading="lazy" decoding="async"></span>
-      </button>
-    </figure>
-
-    <figure class="kus">
-      <button class="lupa" type="button" aria-expanded="false">
-        <span class="okno"><img src="img/rukav.jpg" width="980" height="1223" alt="Celý rukáv v&nbsp;blackworku: soví lebka s&nbsp;křídly nad kostrou paže, dole had." loading="lazy" decoding="async"></span>
-      </button>
-    </figure>
-
-  </div>
-
-  <div class="archiv">
-    <h3>Kresby a&nbsp;další práce</h3>
-    <p class="uvod-radek">Kreslím i&nbsp;mimo kůži. Zarámované kresby visí v&nbsp;ateliéru nad pohovkou.</p>
-
-    <div class="stena">
-
-      <figure class="ram h-volavka">
-        <div class="pasparta">
-          <button class="lupa" type="button" aria-expanded="false">
-            <span class="okno"><img src="img/volavka.jpg" width="500" height="552" alt="Volavka v&nbsp;letu na&nbsp;lýtku, kolem ní modrá akvarelová skvrna a&nbsp;hvězdičky." loading="lazy" decoding="async"></span>
-          </button>
-        </div>
+    <div class="dvojice dvojice-b">
+      <figure class="kus">
+        <button class="lupa" type="button" aria-expanded="false">
+          <span class="okno"><img src="img/siska.jpg" width="464" height="530" alt="Šiška a&nbsp;stébla trávy nad kotníkem, pod nimi jeden široký černý pruh kolem nohy a&nbsp;pod ním vlasová linka." loading="lazy" decoding="async"></span>
+        </button>
       </figure>
-
-      <figure class="ram h-motyl">
-        <div class="pasparta">
-          <button class="lupa" type="button" aria-expanded="false">
-            <span class="okno"><img src="img/motyl.jpg" width="500" height="647" alt="Růžový motýl na&nbsp;stehně, kolem něj tečkované paprsky a&nbsp;dva menší motýli." loading="lazy" decoding="async"></span>
-          </button>
-        </div>
+      <figure class="kus">
+        <button class="lupa" type="button" aria-expanded="false">
+          <span class="okno"><img src="img/stetec.jpg" width="500" height="597" alt="Předloktí s&nbsp;pásem černých tahů štětcem a&nbsp;drobnými červenými skvrnami." loading="lazy" decoding="async"></span>
+        </button>
       </figure>
-
-      <figure class="ram h-stetec">
-        <div class="pasparta">
-          <button class="lupa" type="button" aria-expanded="false">
-            <span class="okno"><img src="img/stetec.jpg" width="500" height="597" alt="Předloktí s&nbsp;pásem černých tahů štětcem a&nbsp;drobnými červenými skvrnami." loading="lazy" decoding="async"></span>
-          </button>
-        </div>
-      </figure>
-
-      <figure class="ram h-siska">
-        <div class="pasparta">
-          <button class="lupa" type="button" aria-expanded="false">
-            <span class="okno"><img src="img/siska.jpg" width="464" height="530" alt="Šiška a&nbsp;stébla trávy nad kotníkem, pod nimi jeden široký černý pruh kolem nohy a&nbsp;pod ním vlasová linka." loading="lazy" decoding="async"></span>
-          </button>
-        </div>
-      </figure>
-
     </div>
 
-    <figure class="ram prechod">
-      <div class="pasparta">
-        <img src="img/srdce.jpg" width="600" height="761" alt="Malba na&nbsp;papíře: anatomické srdce v&nbsp;oranžové a&nbsp;červené, obtočené hadem, ze srdce trčí tři štětce." loading="lazy" decoding="async">
-        <figcaption class="stitek">Srdce, had a&nbsp;tři štětce.</figcaption>
-      </div>
+    <figure class="kus">
+      <button class="lupa" type="button" aria-expanded="false">
+        <span class="okno"><img src="img/vlna.jpg" width="820" height="956" alt="Barevný rukáv: modré vlny, růžové pivoňky a&nbsp;dračí hlava u&nbsp;dolního okraje." loading="lazy" decoding="async"></span>
+      </button>
     </figure>
+
+    <figure class="kus">
+      <button class="lupa" type="button" aria-expanded="false">
+        <span class="okno"><img src="img/rukav.jpg" width="980" height="1223" alt="Předloktí a&nbsp;loket v&nbsp;blackworku: soví lebka s&nbsp;křídly nad kostrou paže, dole had." loading="lazy" decoding="async"></span>
+      </button>
+    </figure>
+
   </div>
+
+  <figure class="ram prechod">
+    <div class="pasparta">
+      <img src="img/srdce.jpg" width="600" height="761" alt="Malba na&nbsp;papíře: anatomické srdce v&nbsp;oranžové a&nbsp;červené, obtočené hadem, ze srdce trčí tři štětce." loading="lazy" decoding="async">
+      <figcaption class="stitek">Srdce, had a&nbsp;tři štětce. Na&nbsp;papíře, ne na&nbsp;kůži.</figcaption>
+    </div>
+  </figure>
 
   </div>
 </section>
@@ -596,12 +591,18 @@ footer{
         -->
       </dl>
     </div>
+    <div class="pokoj-blok">
+      <figure class="pokoj">
+        <img src="img/atelier.jpg" width="640" height="532" alt="Ateliér: modrá sametová pohovka pod stěnou s&nbsp;devíti zarámovanými kresbami, vysoké zlaté zrcadlo, panel z&nbsp;mechu a&nbsp;dřevěný stojan s&nbsp;návrhy." loading="lazy" decoding="async">
+      </figure>
+      <blockquote class="slovo cisto">
+        <p>„Příjemné, útulné a&nbsp;čisté studio ve kterém se cítíte jako v&nbsp;nebeském ráji.“</p>
+        <cite>Ełiss, Google</cite>
+      </blockquote>
+    </div>
     <button class="mapka" type="button" id="mapa-tlacitko">
       <span>Ukázat mapu<small>nám. Bratří Synků 349/4, Praha 4 – Nusle</small></span>
     </button>
-    <figure class="pokoj">
-      <img src="img/atelier.jpg" width="640" height="532" alt="Ateliér: modrá sametová pohovka pod stěnou s&nbsp;devíti zarámovanými kresbami, vysoké zlaté zrcadlo, panel z&nbsp;mechu a&nbsp;dřevěný stojan s&nbsp;návrhy." loading="lazy" decoding="async">
-    </figure>
   </div>
 </section>
 
@@ -693,17 +694,49 @@ footer{
      history entry is pushed. The piece becomes a pan window at 200 % of the column, which
      is the only way to follow one of her hairlines on a 390 px screen. */
   Array.prototype.forEach.call(document.querySelectorAll(".lupa"), function(b){
+    var okno = b.firstElementChild;
+    var tah = null, posunuto = false;
+
     b.addEventListener("click", function(){
+      /* a mouse drag ends in a click; that click must not fold the piece back up */
+      if (posunuto) { posunuto = false; return; }
       var otevreno = b.getAttribute("aria-expanded") === "true";
       b.setAttribute("aria-expanded", otevreno ? "false" : "true");
-      var ram = b.closest(".ram");
-      if (ram) ram.classList.toggle("zvetseny", !otevreno);
+      var kus = b.closest(".ram") || b.closest(".kus");
+      if (kus) kus.classList.toggle("zvetseny", !otevreno);
       if (!otevreno) {
-        var okno = b.firstElementChild;
         okno.scrollLeft = Math.max(0, (okno.scrollWidth - okno.clientWidth) / 2);
         okno.scrollTop = Math.max(0, (okno.scrollHeight - okno.clientHeight) / 2);
       }
     });
+
+    /* A pointer gets no scrollbar on macOS, so the window is draggable as well as
+       wheelable. Touch is left to the browser's own panning. */
+    okno.addEventListener("pointerdown", function(e){
+      if (e.pointerType === "touch" || b.getAttribute("aria-expanded") !== "true") return;
+      tah = { x:e.clientX, y:e.clientY, l:okno.scrollLeft, t:okno.scrollTop };
+      posunuto = false;
+      okno.classList.add("tahne");
+      if (okno.setPointerCapture) okno.setPointerCapture(e.pointerId);
+    });
+    okno.addEventListener("pointermove", function(e){
+      if (!tah) return;
+      var dx = e.clientX - tah.x, dy = e.clientY - tah.y;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) posunuto = true;
+      okno.scrollLeft = tah.l - dx;
+      okno.scrollTop  = tah.t - dy;
+      e.preventDefault();
+    });
+    function pustit(e){
+      if (!tah) return;
+      tah = null;
+      okno.classList.remove("tahne");
+      if (okno.releasePointerCapture && okno.hasPointerCapture && okno.hasPointerCapture(e.pointerId)) {
+        okno.releasePointerCapture(e.pointerId);
+      }
+    }
+    okno.addEventListener("pointerup", pustit);
+    okno.addEventListener("pointercancel", pustit);
   });
 
   /* menu sheet */
