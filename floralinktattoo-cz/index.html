@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tetovací studio Praha 4 – Nusle | Floralink Tattoo</title>
+<meta name="description" content="Tetovací studio na náměstí Bratří Synků v Nuslích. Návrh na míru, jemná linka, blackwork, tuš i barva. 5,0 ze 44 recenzí na Googlu. Jen na objednání, 773 502 529.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%23E9E3D7'/%3E%3Cpath%20d='M22.5%2021.6A9.2%209.2%200%200%201%2011.2%207.9a9.2%209.2%200%201%200%2011.3%2013.7z'%20fill='%231A1712'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#E9E3D7">
+
+<!-- Fonts are self-hosted on purpose: no third-party request on page load, so the site needs no
+     cookie bar under the CZ rules. The Google map is click-to-load for the same reason.
+     Neither fact is mentioned in the customer copy. -->
+<style>
+@font-face{font-family:'Cormorant';font-style:normal;font-weight:400 600;font-display:swap;
+  src:url(fonts/cormorant-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Cormorant';font-style:normal;font-weight:400 600;font-display:swap;
+  src:url(fonts/cormorant-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/commissioner-latin-ext.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url(fonts/commissioner-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+:root{
+  --papir:#E9E3D7;
+  --pasparta:#F4EFE6;
+  --tus:#1A1712;
+  --noc:#0A0A0C;
+  --dub:#8E6A45;
+  --sepie:#5C5446;
+  --kride:#B5AB9B;
+  --okraj:16px;
+  --sat:0px;
+}
+@supports (-webkit-touch-callout:none){
+  @media (hover:none) and (pointer:coarse){ :root{ --sat:62px; } }
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{
+  background:var(--papir);
+  scroll-behavior:smooth;
+  scroll-padding-top:0;
+  scroll-padding-bottom:84px;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  margin:0;
+  background:var(--papir);
+  color:var(--tus);
+  font-family:'Commissioner',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:16.5px;
+  line-height:1.62;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+button,a{touch-action:manipulation;}
+img{display:block;max-width:100%;height:auto;}
+a{color:inherit;}
+h1,h2{font-family:'Cormorant',Georgia,serif;font-weight:500;margin:0;text-wrap:balance;letter-spacing:.004em;}
+p{margin:0;}
+:focus-visible{outline:3px solid var(--dub);outline-offset:2px;}
+html.dotyk :focus-visible{outline:0;}
+[tabindex="-1"]:focus{outline:0;}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{transition:none!important;} }
+
+.preskocit{
+  position:absolute;left:-9999px;top:0;z-index:60;
+  background:var(--tus);color:var(--papir);padding:12px 18px;font-size:15px;
+}
+.preskocit:focus{left:0;}
+
+/* ---------- the frame: a hairline rule, a paper mat, the work inside ---------- */
+.ram{
+  border:1px solid rgba(142,106,69,.55);
+  background:var(--pasparta);
+  margin:0;
+}
+.pasparta{ padding:14px 14px 20px; }
+.stitek{
+  font-size:14.5px;line-height:1.4;font-weight:500;color:var(--sepie);
+  margin-top:12px;
+}
+
+/* ---------- first screen ---------- */
+.uvitani{ padding:22px var(--okraj) 0; }
+.stitek-hlavni{
+  margin-top:16px;padding-top:15px;border-top:1px solid rgba(142,106,69,.6);
+}
+.stitek-hlavni h1{ font-size:42px;line-height:1.02;margin:0 0 8px; }
+.cojeto{ font-size:15px;line-height:1.45;color:var(--sepie);margin-bottom:7px; }
+.znamka{ font-size:15px;line-height:1.4; }
+.znamka a{ display:inline-block;text-decoration:underline;text-decoration-color:rgba(142,106,69,.85);text-decoration-thickness:1px;text-underline-offset:.22em;
+  padding:12px 0 13px;margin:-12px 0 -13px; }
+.znamka b{font-weight:600;}
+.jen{ font-size:15px;color:var(--sepie);margin-top:5px; }
+
+/* the label's lower half: her customer's sentence, the three facts, the price line */
+.doplnek{ margin-top:20px; }
+.slovo{ margin:0;font-size:16px;line-height:1.5; }
+.slovo cite{ display:block;font-style:normal;font-size:14.5px;color:var(--sepie);margin-top:4px; }
+.radky{ display:none;margin:0; }
+.cena{ font-size:15px;line-height:1.45;color:var(--sepie);margin-top:13px; }
+
+.volat{
+  display:block;margin:20px 0 0;padding:11px 20px 13px;
+  background:var(--tus);color:var(--papir);text-decoration:none;
+  font-weight:600;font-size:20px;line-height:1.2;letter-spacing:.01em;
+}
+.volat .cislo{ display:block;font-weight:400;font-size:16px;opacity:.9;margin-top:2px; }
+
+/* ---------- sections ---------- */
+section{ padding:calc(52px + var(--sat)) var(--okraj) 52px; scroll-margin-top:calc(-1 * var(--sat)); }
+#uvod{ padding-top:22px;scroll-margin-top:0; }
+section h2{ font-size:30px;line-height:1.1;margin-bottom:14px; }
+.text{ max-width:34em; }
+.text p + p{ margin-top:14px; }
+.uvod-radek{ color:var(--sepie);max-width:34em;margin-bottom:26px; }
+
+/* ---------- Návrh ---------- */
+.deska{ margin:0 0 26px; }
+.kresby{ margin-top:30px;display:flow-root; }
+.kresba-a{ width:78%;margin-top:30px; }
+
+/* the drawing that lands on the dark half */
+#navrh{ display:flow-root;padding-bottom:0; }
+.prechod{ position:relative;z-index:2;margin-bottom:-96px; }
+
+/* ---------- Portfolio, on her own photographic black ---------- */
+.tma{
+  background:var(--noc);color:var(--kride);
+  padding-top:calc(96px + 56px + var(--sat));
+}
+.tma h2{ color:var(--pasparta); }
+.tma .uvod-radek{ color:var(--kride); }
+.stena{
+  display:flex;flex-wrap:wrap;align-items:flex-start;
+  margin-top:6px;
+}
+.stena .ram{
+  break-inside:avoid;margin-bottom:18px;
+  border-color:rgba(142,106,69,.75);
+}
+.stena .pasparta{ padding:9px 9px 11px; }
+
+/* The hang, on a phone. g18.jpg 620,120-1010,470: nine frames over her sofa, no two
+   the same size and no two tops level. Width here is set by line weight, not taste --
+   the fine-line pieces (drak, rukav, siska) take the big frames because they turn to
+   grey mush small; the black-mass and colour pieces (hannya, stetec, vlna, motyl)
+   hang small beside them and still read. Widths sum under 100 % per line, so the
+   wrap points are fixed and the cluster is irregular on purpose. */
+.stena .h-hannya { width:36%;margin-top:88px; }
+.stena .h-drak   { width:60%;margin-left:2%; }
+.stena .h-rukav  { width:62%; }
+.stena .h-stetec { width:34%;margin-left:2%;margin-top:84px; }
+.stena .h-vlna   { width:44%;margin-top:60px; }
+.stena .h-motyl  { width:40%;margin-left:4%; }
+.stena .h-volavka{ width:58%; }
+.stena .h-siska  { width:60%;margin-left:36%; }
+
+/* from 700 the wall goes back to columns, two up, three from 900 */
+@media (min-width:700px){
+  .stena{ display:block;column-count:2;column-gap:20px; }
+  .stena .ram{ margin:0 0 26px; }
+  .stena .h-drak,.stena .h-stetec,.stena .h-siska{ width:100%; }
+  .stena .uzsi{ width:84%; }
+  .stena .uzsi-vpravo{ width:86%;margin-left:auto; }
+}
+
+/* ---------- Nadiia + reviews ---------- */
+.rekli{ margin-top:32px;border-top:1px solid rgba(142,106,69,.45);max-width:36em; }
+.rekli p{
+  padding:15px 0;border-bottom:1px solid rgba(142,106,69,.28);
+  font-size:16.5px;line-height:1.55;
+}
+.rekli b{ font-weight:600;letter-spacing:.01em; }
+.rekli b::after{ content:"\00a0\00a0"; }
+.vsech{
+  display:inline-block;margin-top:20px;font-size:15px;font-weight:500;
+  text-decoration:underline;text-decoration-color:rgba(142,106,69,.85);text-decoration-thickness:1px;text-underline-offset:.22em;
+  padding:12px 0 13px;
+}
+
+/* ---------- Ateliér ---------- */
+.udaje{ margin:26px 0 0;border-top:1px solid rgba(142,106,69,.45);max-width:36em; }
+.udaje div{
+  display:flex;gap:16px;padding:11px 0;
+  border-bottom:1px solid rgba(142,106,69,.28);font-size:16px;
+}
+.udaje dt{ flex:0 0 116px;color:var(--sepie);margin:0; }
+.udaje dd{ margin:0;flex:1 1 auto; }
+.udaje a{ display:inline-block;text-decoration:underline;text-decoration-color:rgba(142,106,69,.85);text-decoration-thickness:1px;text-underline-offset:.22em;
+  padding:11px 0 12px;margin:-11px 0 -12px; }
+.pokoj{ margin:28px 0 0; }
+.mapka{
+  display:block;width:100%;margin-top:26px;padding:0;
+  border:1px solid rgba(142,106,69,.55);background:var(--pasparta);
+  color:var(--tus);font:inherit;font-size:16px;font-weight:500;
+  text-align:left;cursor:pointer;
+}
+.mapka span{ display:block;padding:16px 16px 17px; }
+.mapka small{ display:block;font-weight:400;font-size:14.5px;color:var(--sepie);margin-top:2px; }
+@media (hover:hover){ .mapka:hover{ background:#FBF7F0; } }
+.mapka iframe{ display:block;width:100%;height:320px;border:0; }
+.mapka-nactena{ cursor:default; }
+
+/* ---------- footer ---------- */
+footer{
+  background:var(--papir);
+  padding:44px var(--okraj) calc(112px + env(safe-area-inset-bottom,0px));
+  border-top:1px solid rgba(142,106,69,.4);
+}
+.mesic{ display:block;width:30px;height:30px;margin-bottom:14px; }
+.pata-jmeno{ font-family:'Cormorant',Georgia,serif;font-size:24px;line-height:1.1; }
+.pata-radek{ font-size:14.5px;line-height:1.6;color:var(--sepie);margin-top:10px;max-width:38em; }
+.pata-radek a{ color:inherit;display:inline-block;text-decoration:underline;text-decoration-color:rgba(142,106,69,.85);text-decoration-thickness:1px;text-underline-offset:.22em;
+  padding:10px 0 11px;margin:-10px 0 -11px; }
+
+/* ---------- bottom strip ---------- */
+.prah{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;
+  display:grid;grid-template-columns:auto 1fr;
+  background:var(--papir);border-top:1px solid rgba(142,106,69,.55);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  visibility:hidden;
+}
+.prah.tady{ visibility:visible; }
+.prah button, .prah a{
+  font:inherit;font-size:17px;font-weight:600;text-decoration:none;
+  border:0;background:none;color:var(--tus);
+  min-height:60px;display:flex;align-items:center;justify-content:center;
+  padding:0 20px;cursor:pointer;
+}
+.prah .nabidka{ gap:9px; }
+.prah .nabidka i{
+  display:block;width:22px;height:15px;border-top:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;position:relative;
+}
+.prah .nabidka i::after{
+  content:"";position:absolute;left:0;right:0;top:6px;border-top:1.5px solid currentColor;
+}
+.prah .zvon{ background:var(--tus);color:var(--papir); }
+@media (hover:hover){ .prah .nabidka:hover{ background:#F1EBE0; } .prah .zvon:hover{ background:#000; } }
+
+/* ---------- menu: the page put in a mat ---------- */
+.plachta{
+  position:fixed;inset:0;z-index:50;background:var(--papir);
+  padding:14px;display:none;
+}
+.plachta[open]{ display:block; }
+.plachta:focus{ outline:0; }
+.plachta .vnitrek{
+  border:1px solid rgba(142,106,69,.55);height:100%;
+  padding:calc(24px + env(safe-area-inset-top,0px)) 22px 24px;
+  display:flex;flex-direction:column;
+}
+.plachta .zavri{
+  align-self:flex-end;font:inherit;font-size:16px;font-weight:600;
+  background:none;border:0;color:var(--tus);cursor:pointer;
+  min-height:44px;min-width:44px;padding:0 4px;
+}
+.plachta nav{ margin-top:auto;margin-bottom:auto; }
+.plachta nav a{
+  display:block;font-family:'Cormorant',Georgia,serif;font-size:36px;line-height:1.5;
+  text-decoration:none;
+}
+.plachta .tel{
+  display:inline-block;align-self:flex-start;font-size:21px;font-weight:600;
+  text-decoration:underline;text-decoration-color:rgba(142,106,69,.85);text-decoration-thickness:1px;text-underline-offset:.22em;padding:11px 0 12px;
+}
+.plachta .pod{ font-size:15px;color:var(--sepie);margin-top:14px; }
+
+/* ---------- desktop masthead ---------- */
+.hlavicka{ display:none; }
+
+@media (min-width:900px){
+  :root{ --okraj:40px; }
+  body{ font-size:17.5px; }
+  html{ scroll-padding-bottom:0; }
+  .prah{ display:none; }
+  .hlavicka{
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    max-width:1200px;margin:0 auto;padding:18px 40px 0;
+  }
+  .hlavicka .znak{ display:flex;align-items:center;gap:11px;font-size:16px;font-weight:500; }
+  .hlavicka .znak svg{ width:22px;height:22px;display:block; }
+  .hlavicka nav{ display:flex;gap:28px; }
+  .hlavicka nav a{
+    font-size:16px;text-decoration:none;padding:6px 0;
+    border-bottom:1px solid transparent;
+  }
+  @media (hover:hover){ .hlavicka nav a:hover{ border-bottom-color:var(--dub); } }
+
+  section{ max-width:1200px;margin:0 auto;padding:calc(80px + var(--sat)) 40px 80px; }
+  #uvod{ padding-top:22px; }
+  section h2{ font-size:42px;margin-bottom:18px; }
+
+  .uvitani{ padding:22px 40px 0;max-width:1200px;margin:0 auto; }
+  .pasparta-uvod img{ max-height:430px;width:auto; }
+  .stitek-hlavni h1{ font-size:clamp(40px,4.3vw,58px);margin-bottom:10px; }
+  .cojeto{ font-size:17px;max-width:30em; }
+  .znamka,.jen{ font-size:16.5px; }
+  .pasparta{ padding:20px 20px 24px; }
+  .volat{ width:max-content;max-width:100%;padding:14px 34px 16px;font-size:23px; }
+  .volat .cislo{ font-size:17px; }
+
+  .navrh-mriz{ display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:56px;align-items:start; }
+  .deska{ margin:0; }
+  .kresby{ margin-top:44px;display:block; }
+  .kresba-a{ width:min(100%,380px);margin-top:0; }
+  .prechod{ margin-bottom:-130px; }
+  .tma{ padding-top:calc(130px + 80px + var(--sat));max-width:none; }
+  .tma > .obsah{ max-width:1120px;margin:0 auto; }
+  .stena{ column-count:3;column-gap:26px; }
+  .stena .ram{ margin-bottom:38px; }
+  .stena .pasparta{ padding:13px 13px 15px; }
+
+  .kdo-mriz{ display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);gap:64px;align-items:start; }
+  .rekli{ margin-top:10px;max-width:none; }
+  .vsech{ margin-top:24px; }
+  .atelier-mriz{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,470px);
+    grid-template-areas:"info foto" "info mapa";
+    grid-template-rows:auto 1fr;
+    column-gap:56px;row-gap:34px;align-content:start;
+  }
+  .kdeco{ grid-area:info; }
+  .pokoj{ grid-area:foto;margin-top:0; }
+  .mapka{ grid-area:mapa;margin-top:0;align-self:start; }
+  .udaje{ margin-top:22px; }
+  .mapka iframe{ height:380px; }
+  footer{ padding:60px 40px 60px; }
+  .pata-vnitrek{ max-width:1200px;margin:0 auto; }
+}
+/* the print beside its label */
+@media (min-width:900px){
+  .pasparta-uvod{
+    display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
+    gap:clamp(28px,3vw,44px);align-items:stretch;padding:24px;
+  }
+  .pasparta-uvod img{ width:100%;height:auto;max-height:none;align-self:start; }
+  .pasparta-uvod .stitek-hlavni{
+    display:flex;flex-direction:column;
+    margin-top:0;padding-top:0;border-top:0;
+    border-left:1px solid rgba(142,106,69,.6);padding-left:clamp(28px,3vw,44px);padding-bottom:8px;
+  }
+  .volat{ align-self:flex-start;order:9;margin-top:14px; }
+  .doplnek{ order:5;margin-top:auto;padding-top:14px; }
+  .slovo{ font-size:17px; }
+  .cena{ margin-top:10px; }
+}
+/* the three facts fit beside the print only once the label has the measure for them */
+@media (min-width:1180px){
+  .radky{ display:block;margin-top:16px;border-top:1px solid rgba(142,106,69,.45); }
+  .radky div{ display:flex;gap:16px;padding:4px 0;border-bottom:1px solid rgba(142,106,69,.28);font-size:15px;line-height:1.4; }
+  .radky dt{ flex:0 0 104px;color:var(--sepie);margin:0; }
+  .radky dd{ margin:0;flex:1 1 auto; }
+}
+@media (min-width:1280px){
+  section, .uvitani, .hlavicka{ max-width:1200px; }
+}
+</style>
+</head>
+<body>
+<a class="preskocit" href="#uvod">Přeskočit na obsah</a>
+
+<div class="hlavicka">
+  <span class="znak">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M23.4 21.9A9.6 9.6 0 0 1 11.4 7.6a9.6 9.6 0 1 0 12 14.3z" fill="currentColor"/><path d="M26.2 6.6l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7zM21.3 12.9l.5 1.3 1.3.5-1.3.5-.5 1.3-.5-1.3-1.3-.5 1.3-.5z" fill="currentColor"/></svg>
+    Floralink Tattoo
+  </span>
+  <nav aria-label="Sekce stránky">
+    <a href="#navrh">Návrh</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#nadiia">Nadiia</a>
+    <a href="#atelier">Ateliér</a>
+  </nav>
+</div>
+
+<main>
+
+<section id="uvod" class="uvitani" tabindex="-1">
+  <div class="ram ram-uvod">
+    <div class="pasparta pasparta-uvod">
+      <img src="img/strom.jpg" width="1200" height="1052" alt="Celá horní záda ženy pokrytá jemnou linkou: strom se kořeny uprostřed, po stranách větve, lotos a drobné hvězdy." fetchpriority="high" decoding="async">
+      <div class="stitek-hlavni">
+        <h1>Floralink Tattoo</h1>
+        <p class="cojeto">Tetovací studio v&nbsp;Nuslích, na&nbsp;náměstí Bratří Synků. Tetuje Nadiia.</p>
+        <p class="znamka"><a href="https://www.google.com/maps/place/Floralinktattoo.cz/data=!4m7!3m6!1s0x470b9561864f9c3d:0x1dbbb18388bfe6ac!8m2!3d50.0646956!4d14.4415618!16s%2Fg%2F11w322xq66!19sChIJPZxPhmGVC0cRrOa_iIOxux0?authuser=0&amp;hl=cs" rel="noopener"><b>5,0</b> ze&nbsp;44 recenzí na&nbsp;Googlu</a></p>
+        <p class="jen">Jen na&nbsp;objednání.</p>
+        <a class="volat" href="tel:+420773502529" id="volat-hero">
+          Zavolat
+          <span class="cislo">773&nbsp;502&nbsp;529</span>
+        </a>
+        <div class="doplnek">
+          <blockquote class="slovo">
+            <p>„Pokud váháte, mrkněte na&nbsp;její portfolio a&nbsp;jednoduše vás dostane.“</p>
+            <cite>Světla K.</cite>
+          </blockquote>
+          <dl class="radky">
+            <div><dt>Adresa</dt><dd>nám.&nbsp;Bratří Synků 349/4, Nusle</dd></div>
+            <div><dt>Objednání</dt><dd>Musíte být objednáni</dd></div>
+            <div><dt>Studio</dt><dd>Vlastněno ženami, LGBTQ+ friendly</dd></div>
+          </dl>
+          <p class="cena">Cenu řeknu podle návrhu a&nbsp;velikosti. Zavolejte a&nbsp;domluvíme se.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="navrh" tabindex="-1">
+  <div class="navrh-mriz">
+    <figure class="deska">
+      <img src="img/stul.jpg" width="900" height="1077" alt="Nadiia sedí u&nbsp;dřevěného stolu v&nbsp;ateliéru a&nbsp;kreslí perem na&nbsp;tablet, na&nbsp;předloktí má vlastní tetování." loading="lazy" decoding="async">
+    </figure>
+    <div>
+      <h2>Návrh</h2>
+      <div class="text">
+        <p>Řeknete mi, co chcete. Návrh nakreslím a&nbsp;měním ho, dokud nesedí tvarem i&nbsp;místem na&nbsp;těle.</p>
+        <p>Kreslím i&nbsp;mimo kůži. Zarámované kresby visí v&nbsp;ateliéru nad pohovkou.</p>
+      </div>
+
+      <div class="kresby prechod">
+      <figure class="ram kresba-a">
+        <div class="pasparta">
+          <img src="img/srdce.jpg" width="635" height="805" alt="Malba na&nbsp;papíře: anatomické srdce v&nbsp;oranžové a&nbsp;červené, obtočené hadem, ze srdce trčí tři štětce." loading="lazy" decoding="async">
+          <figcaption class="stitek">Srdce, had a&nbsp;tři štětce.</figcaption>
+        </div>
+      </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="tma" tabindex="-1">
+  <div class="obsah">
+  <h2>Portfolio</h2>
+  <p class="uvod-radek">Jemná linka, blackwork, tuš i&nbsp;barva. Osm kousků z&nbsp;ateliéru.</p>
+  <div class="stena">
+
+    <figure class="ram uzsi h-hannya">
+      <div class="pasparta">
+        <img src="img/hannya.jpg" width="820" height="1068" alt="Celá záda muže pokrytá maskou hannya v&nbsp;černé a&nbsp;šedé, kolem ní vlnící se mraky." loading="lazy" decoding="async">
+      </div>
+    </figure>
+
+    <figure class="ram h-drak">
+      <div class="pasparta">
+        <img src="img/drak.jpg" width="760" height="1035" alt="Drak s&nbsp;roztaženými křídly na&nbsp;stehně, jemná linka a&nbsp;tečkované stínování, nad ním hvězda." loading="lazy" decoding="async">
+      </div>
+    </figure>
+
+    <figure class="ram uzsi-vpravo h-rukav">
+      <div class="pasparta">
+        <img src="img/rukav.jpg" width="820" height="1023" alt="Celý rukáv v&nbsp;blackworku: soví lebka s&nbsp;křídly nad kostrou paže, dole had." loading="lazy" decoding="async">
+      </div>
+    </figure>
+
+    <figure class="ram h-stetec">
+      <div class="pasparta">
+        <img src="img/stetec.jpg" width="720" height="860" alt="Předloktí s&nbsp;pásem černých tahů štětcem a&nbsp;drobnými červenými skvrnami." loading="lazy" decoding="async">
+      </div>
+    </figure>
+
+    <figure class="ram uzsi h-vlna">
+      <div class="pasparta">
+        <img src="img/vlna.jpg" width="820" height="717" alt="Barevný rukáv: modré vlny, růžové pivoňky a&nbsp;dračí hlava přes hřbet ruky." loading="lazy" decoding="async">
+      </div>
+    </figure>
+
+    <figure class="ram uzsi-vpravo h-motyl">
+      <div class="pasparta">
+        <img src="img/motyl.jpg" width="680" height="880" alt="Růžový motýl na&nbsp;stehně, kolem něj tečkované paprsky a&nbsp;dva menší motýli." loading="lazy" decoding="async">
+      </div>
+    </figure>
+
+    <figure class="ram uzsi h-volavka">
+      <div class="pasparta">
+        <img src="img/volavka.jpg" width="760" height="840" alt="Volavka v&nbsp;letu na&nbsp;lýtku, kolem ní modrá akvarelová skvrna a&nbsp;hvězdičky." loading="lazy" decoding="async">
+      </div>
+    </figure>
+
+    <figure class="ram h-siska">
+      <div class="pasparta">
+        <img src="img/siska.jpg" width="464" height="530" alt="Šiška a&nbsp;stébla trávy nad kotníkem, pod nimi jeden široký černý pruh kolem nohy a&nbsp;pod ním vlasová linka." loading="lazy" decoding="async">
+      </div>
+    </figure>
+
+  </div>
+  </div>
+</section>
+
+<section id="nadiia" tabindex="-1">
+  <div class="kdo-mriz">
+    <div>
+      <h2>Nadiia</h2>
+      <div class="text">
+        <p>Chodí ke&nbsp;mně lidi, co u&nbsp;mě mají první tetování, i&nbsp;ti, co se vracejí šest let a&nbsp;mají ode mě celý rukáv.</p>
+        <p>Po sezení vám řeknu, jak se o&nbsp;tetování starat. Když je potřeba, uděláme korekturu.</p>
+      </div>
+    </div>
+    <div>
+      <div class="rekli">
+        <p><b>Michaela</b>„Moje první tetování bylo právě tady a&nbsp;nemám co vytknout. Téměř bez bolesti, zájem ze strany tatérky, jestli je vše v&nbsp;pořádku po celý průběh tetování.“</p>
+        <p><b>Martin</b>„Za mě 100&nbsp;% servis, rychlé termíny, velmi milý přístup i&nbsp;profesionální rady.“</p>
+        <p><b>Kaja</b>„To, co jsem si přála, jsem dostala, prostor je nádherný a&nbsp;Nadia má prostě naprosto šikovné ruce.“</p>
+        <p><b>Klára</b>„Tetování krásně ošetřila, následnou korekci provedla zdarma.“</p>
+      </div>
+      <a class="vsech" href="https://www.google.com/maps/place/Floralinktattoo.cz/data=!4m7!3m6!1s0x470b9561864f9c3d:0x1dbbb18388bfe6ac!8m2!3d50.0646956!4d14.4415618!16s%2Fg%2F11w322xq66!19sChIJPZxPhmGVC0cRrOa_iIOxux0?authuser=0&amp;hl=cs" rel="noopener">Všech 44 recenzí na&nbsp;Googlu</a>
+    </div>
+  </div>
+</section>
+
+<section id="atelier" tabindex="-1">
+  <div class="atelier-mriz">
+    <div class="kdeco">
+      <h2>Ateliér v&nbsp;Nuslích</h2>
+      <div class="text">
+        <p>Najdete mě na&nbsp;náměstí Bratří Synků, u&nbsp;tramvajové zastávky stejného jména. Termín si domluvíme po&nbsp;telefonu.</p>
+      </div>
+      <dl class="udaje">
+        <div><dt>Adresa</dt><dd>nám.&nbsp;Bratří Synků 349/4<br>140&nbsp;00 Praha&nbsp;4 – Nusle</dd></div>
+        <div><dt>Telefon</dt><dd><a href="tel:+420773502529">773&nbsp;502&nbsp;529</a></dd></div>
+        <div><dt>Objednání</dt><dd>Musíte být objednáni</dd></div>
+        <div><dt>Platba</dt><dd>Platební i&nbsp;kreditní karty</dd></div>
+        <div><dt>Parkování</dt><dd>Na ulici, zdarma i&nbsp;placené</dd></div>
+        <div><dt>Studio</dt><dd>Označeno jako „vlastněno ženami“</dd></div>
+        <div><dt>Návštěvníci</dt><dd>LGBTQ+ friendly</dd></div>
+      </dl>
+    </div>
+    <button class="mapka" type="button" id="mapa-tlacitko">
+      <span>Ukázat mapu<small>nám. Bratří Synků 349/4, Praha 4 – Nusle</small></span>
+    </button>
+    <figure class="pokoj">
+      <img src="img/atelier.jpg" width="736" height="612" alt="Ateliér: modrá sametová pohovka pod stěnou s&nbsp;devíti zarámovanými kresbami, vysoké zlaté zrcadlo, panel z&nbsp;mechu a&nbsp;dřevěný stojan s&nbsp;návrhy." loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="pata-vnitrek">
+    <svg class="mesic" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M23.4 21.9A9.6 9.6 0 0 1 11.4 7.6a9.6 9.6 0 1 0 12 14.3z" fill="currentColor"/><path d="M26.2 6.6l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7zM21.3 12.9l.5 1.3 1.3.5-1.3.5-.5 1.3-.5-1.3-1.3-.5 1.3-.5z" fill="currentColor"/></svg>
+    <p class="pata-jmeno">Floralink Tattoo</p>
+    <p class="pata-radek">nám.&nbsp;Bratří Synků 349/4, 140&nbsp;00 Praha&nbsp;4 – Nusle<br><a href="tel:+420773502529">773&nbsp;502&nbsp;529</a> &nbsp; floralinktattoo.cz</p>
+    <!-- §435 OZ: trader name, sídlo and IČO. Marked placeholder on the demo, filled at handover;
+         the registrant name in the .cz registry is not public shop data. NOTES.md, owner question 5. -->
+    <p class="pata-radek">Provozovatel: doplníme po potvrzení. IČO: doplníme.</p>
+    <p class="pata-radek">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/" rel="noopener">https://coi.gov.cz/informace-o-adr/</a></p>
+  </div>
+</footer>
+
+<div class="prah" id="prah">
+  <button class="nabidka" type="button" id="otevri-nabidku" aria-haspopup="dialog" aria-expanded="false"><i aria-hidden="true"></i>Menu</button>
+  <a class="zvon" href="tel:+420773502529">Zavolat</a>
+</div>
+
+<div class="plachta" id="plachta" role="dialog" aria-modal="true" aria-label="Nabídka" tabindex="-1">
+  <div class="vnitrek">
+    <button class="zavri" type="button" id="zavri-nabidku">Zavřít</button>
+    <nav aria-label="Sekce stránky">
+      <a href="#navrh">Návrh</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#nadiia">Nadiia</a>
+      <a href="#atelier">Ateliér</a>
+    </nav>
+    <a class="tel" href="tel:+420773502529">773&nbsp;502&nbsp;529</a>
+    <p class="pod">Jen na&nbsp;objednání.</p>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"TattooParlor",
+  "name":"Floralink Tattoo",
+  "image":"https://floralinktattoo.cz/img/strom.jpg",
+  "telephone":"+420 773 502 529",
+  "url":"https://floralinktattoo.cz/",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"nám. Bratří Synků 349/4",
+    "addressLocality":"Praha 4 – Nusle",
+    "postalCode":"140 00",
+    "addressCountry":"CZ"
+  },
+  "geo":{"@type":"GeoCoordinates","latitude":50.0646956,"longitude":14.4415618},
+  "paymentAccepted":"Platební karty, kreditní karty"
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* focus modality: WebKit treats programmatic focus after a tap as :focus-visible */
+  var root = document.documentElement;
+  document.addEventListener("pointerdown", function(){ root.classList.add("dotyk"); }, true);
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Tab" || e.key === "Enter" || e.key === " " || e.key.indexOf("Arrow") === 0) {
+      root.classList.remove("dotyk");
+    }
+  }, true);
+
+  /* the bottom strip appears only once the hero's Zavolat has left the screen */
+  var prah = document.getElementById("prah");
+  var hero = document.getElementById("volat-hero");
+  if (prah && hero && "IntersectionObserver" in window) {
+    new IntersectionObserver(function(entries){
+      prah.classList.toggle("tady", !entries[0].isIntersecting);
+    }, {threshold:0}).observe(hero);
+  } else if (prah) {
+    prah.classList.add("tady");
+  }
+
+  /* menu sheet */
+  var plachta = document.getElementById("plachta");
+  var otevri  = document.getElementById("otevri-nabidku");
+  var zavri   = document.getElementById("zavri-nabidku");
+  var otevreno = false, ulozenaPozice = 0, tlacitkem = false;
+
+  function open(fromKeyboard){
+    if (otevreno) return;
+    otevreno = true;
+    ulozenaPozice = window.scrollY;
+    history.scrollRestoration = "manual";
+    plachta.setAttribute("open","");
+    otevri.setAttribute("aria-expanded","true");
+    document.body.style.position = "fixed";
+    document.body.style.top = (-ulozenaPozice) + "px";
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    history.pushState({nabidka:true}, "");
+    if (fromKeyboard) {
+      var prvni = plachta.querySelector("nav a");
+      if (prvni) prvni.focus();
+    } else {
+      plachta.focus();
+    }
+  }
+
+  function close(cil){
+    if (!otevreno) return;
+    otevreno = false;
+    plachta.removeAttribute("open");
+    otevri.setAttribute("aria-expanded","false");
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    window.scrollTo({top:ulozenaPozice, left:0, behavior:"instant"});
+    if (cil) {
+      var el = document.querySelector(cil);
+      if (el) {
+        el.scrollIntoView();
+        el.focus({preventScroll:true});
+      }
+    } else if (!tlacitkem) {
+      otevri.focus();
+    }
+    tlacitkem = false;
+    /* WebKit restores the popped entry's scroll AFTER popstate runs, so hand this
+       back a frame later or it overwrites the jump we just made. */
+    requestAnimationFrame(function(){ history.scrollRestoration = "auto"; });
+  }
+
+  var cilPoZavreni = null;
+  otevri.addEventListener("click", function(e){ open(e.detail === 0); });
+  zavri.addEventListener("click", function(){ tlacitkem = false; history.back(); });
+  plachta.addEventListener("click", function(e){
+    /* anywhere outside a control closes the sheet, not just the 14 px mat ring */
+    if (!e.target.closest("a[href], button")) history.back();
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && otevreno) history.back();
+  });
+  Array.prototype.forEach.call(plachta.querySelectorAll("nav a"), function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      cilPoZavreni = a.getAttribute("href");
+      tlacitkem = true;
+      history.back();
+    });
+  });
+  window.addEventListener("popstate", function(){
+    if (otevreno) { var c = cilPoZavreni; cilPoZavreni = null; close(c); }
+  });
+
+  /* keep focus inside the sheet */
+  plachta.addEventListener("keydown", function(e){
+    if (e.key !== "Tab" || !otevreno) return;
+    var f = plachta.querySelectorAll("button, a[href]");
+    if (!f.length) return;
+    var first = f[0], last = f[f.length-1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* map loads only when asked */
+  var mapaTl = document.getElementById("mapa-tlacitko");
+  mapaTl.addEventListener("click", function(){
+    var ram = document.createElement("div");
+    ram.className = "mapka mapka-nactena";
+    var f = document.createElement("iframe");
+    f.src = "https://www.google.com/maps?q=" + encodeURIComponent("nám. Bratří Synků 349/4, 140 00 Praha 4-Nusle") + "&z=16&output=embed";
+    f.title = "Mapa: nám. Bratří Synků 349/4, Praha 4 – Nusle";
+    f.loading = "lazy";
+    f.referrerPolicy = "no-referrer-when-downgrade";
+    ram.appendChild(f);
+    mapaTl.replaceWith(ram);
+    /* replaceWith drops focus to <body>; hand it to the map that just arrived */
+    f.focus({preventScroll:true});
+  });
+})();
+</script>
+</body>
+</html>
