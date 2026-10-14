@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prodloužení vlasů Liberec – Nádvorní | SHAR</title>
+<meta name="description" content="Prodloužení vlasů v Liberci, Nádvorní 1166/17. Objednání na čísle 606 136 090. Hodnocení 4,8 z 89 recenzí na Googlu.">
+<meta name="theme-color" content="#3D362E">
+<meta property="og:title" content="SHAR – prodloužení vlasů v Liberci">
+<meta property="og:description" content="Prodloužení vlasů v Liberci, Nádvorní 1166/17. Hodnocení 4,8 z 89 recenzí na Googlu.">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/prodlouzeni-vlasu-lbc/img/pred-po-1.jpg">
+<meta property="og:url" content="https://hensanch.github.io/web-demos/prodlouzeni-vlasu-lbc/">
+<link rel="icon" href="img/shar.jpg" type="image/jpeg">
+<link rel="preload" href="font/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/pred-po-1.jpg" as="image" fetchpriority="high">
+<!-- Fonts are self-hosted and the map loads only on a tap: no third-party request on page load, so no cookie bar is needed. -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HairSalon","name":"Prodloužení vlasů Lbc","alternateName":"SHAR","image":"https://hensanch.github.io/web-demos/prodlouzeni-vlasu-lbc/img/pred-po-1.jpg","telephone":"+420606136090","address":{"@type":"PostalAddress","streetAddress":"Nádvorní 1166/17","postalCode":"460 06","addressLocality":"Liberec","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.748638,"longitude":15.0644185},"hasMap":"https://www.google.com/maps/search/?api=1&query=Prodlou%C5%BEen%C3%AD%20vlas%C5%AF%20Lbc%2C%20N%C3%A1dvorn%C3%AD%201166%2F17%2C%20Liberec&query_place_id=ChIJue0pMIA1CUcRSqszNz7J0MU"}
+</script>
+<style>
+@font-face{font-family:Lexend;src:url(font/lexend-latin-ext.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Lexend;src:url(font/lexend-latin.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lexend Exa";src:url(font/lexend-exa-latin-ext.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Lexend Exa";src:url(font/lexend-exa-latin.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* The room, sampled from their photos (see DESIGN-v1.md) */
+:root{
+  --stena:#3D362E;   /* the photo wall's paper, g05/g10 */
+  --kuze:#2A1B17;    /* the crocodile leather chair in shade, g06 */
+  --dlazba:#C9B9A8;  /* the floor tiles, g04 */
+  --platina:#ECE9DF; /* the platinum hair, g01 */
+  --popel:#BDB4A4;   /* secondary text on the dark grounds */
+  --vetev:#80776A;   /* the paper's branches: hairlines only */
+  --list:#DCC698;    /* the paper's gold leaves: the call button and nothing else */
+  --visacka:#1E2328; /* the tag on every hair bundle, g07: Menu and its panel */
+  --inkoust:#211C17; /* text on the floor and on the gold */
+  --hlina:#4E4338;   /* secondary text on the floor */
+  --okraj:16px;
+  --mezera:56px;
+  --sat:0px;
+  --spodek:72px;
+}
+/* iOS Safari lands a fragment under its translucent status bar; only iOS gets the inset */
+@supports (-webkit-touch-callout:none){@media (hover:none) and (pointer:coarse){:root{--sat:62px}}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--stena);color:var(--platina);-webkit-text-size-adjust:100%;scroll-padding-top:0;scroll-padding-bottom:calc(var(--spodek) + 8px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--stena);font:350 17px/1.55 Lexend,system-ui,sans-serif;-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+h1,h2,p,figure,blockquote{margin:0}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em}
+a,button{touch-action:manipulation}
+:focus-visible{outline:2px solid var(--platina);outline-offset:3px;border-radius:2px}
+.dlazdice :focus-visible{outline-color:var(--inkoust)}
+html.dotyk :focus-visible{outline:0}
+[tabindex="-1"]:focus{outline:0}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+h2{font:500 28px/1.15 "Lexend Exa",Lexend,sans-serif;letter-spacing:-.01em;text-wrap:balance}
+
+.oddil{padding:calc(var(--mezera) + var(--sat)) var(--okraj) var(--mezera);scroll-margin-top:calc(-1 * var(--sat))}
+.kreslo{background:var(--kuze)}
+.dlazdice{background:var(--dlazba);color:var(--inkoust)}
+
+/* one call button */
+.zavolat{display:flex;align-items:center;justify-content:center;gap:.5em;min-height:56px;padding:0 20px;border-radius:6px;background:var(--list);color:var(--inkoust);font:600 18px/1.1 Lexend,sans-serif;text-decoration:none;white-space:nowrap}
+.zavolat span{font-weight:400}
+
+/* the Menu tag, cut like the tags on their hair bundles */
+.visacka{min-height:44px;min-width:72px;padding:0 18px;border:0;border-radius:6px;background:var(--visacka);color:var(--platina);font:500 15px/1 Lexend,sans-serif;cursor:pointer}
+
+/* ---------- first screen ---------- */
+.vstup{position:relative;display:grid;grid-template-areas:"hlava" "foto" "dole";padding:20px var(--okraj) 28px}
+.vstup .visacka{position:absolute;top:20px;right:var(--okraj)}
+.hlava{grid-area:hlava}
+.shar{display:block;width:min(300px,calc(100vw - 140px));height:auto;fill:currentColor}
+.co{display:block;margin-top:14px;font:400 20px/1.25 Lexend,sans-serif;max-width:16em}
+
+/* a before/after pair, standing on the wall */
+.promena{position:relative;margin:0 calc(-1 * var(--okraj))}
+.promena img{width:100%;-webkit-mask-image:linear-gradient(#000 calc(100% - 48px),transparent);mask-image:linear-gradient(#000 calc(100% - 48px),transparent)}
+.predtim,.potom{position:absolute;bottom:10px;font:400 14px/1 Lexend,sans-serif;color:var(--popel)}
+.predtim{left:var(--okraj)}
+.potom{left:calc(50% + var(--okraj))}
+.vstup .promena{grid-area:foto;margin-top:22px}
+
+.dole{grid-area:dole;margin-top:18px}
+.ctyriosm{margin-top:12px;color:var(--popel);font-size:15px;line-height:1.4}
+.ctyriosm a{padding:13px 0;color:var(--platina)}
+.ctyriosm b{font-weight:600}
+
+/* ---------- Před a po ---------- */
+.zed h2{margin-bottom:28px}
+.zed .promena + .klientka{margin-top:28px}
+.klientka blockquote p{font:300 22px/1.4 Lexend,sans-serif;text-wrap:pretty}
+.klientka figcaption{margin-top:12px;font-size:15px;color:var(--popel)}
+.dlazdice .klientka figcaption{color:var(--hlina)}
+.dalsi{display:inline-block;margin-top:20px;padding:12px 0;font-size:16px}
+
+/* ---------- Rozalie ---------- */
+.rozalie p.o-ni{margin-top:20px;max-width:34em}
+.rozalie .klientka{margin-top:36px}
+.svazky{width:calc(100% + 2 * var(--okraj));max-width:none;margin:40px calc(-1 * var(--okraj)) 0}
+
+/* ---------- Objednání ---------- */
+.dlazdice h2{margin-bottom:20px}
+.domluva{font:400 21px/1.4 Lexend,sans-serif;max-width:22em}
+.domluva a{font-weight:600;white-space:nowrap;padding:12px 0}
+.mistnost{width:calc(100% + 2 * var(--okraj));max-width:none;margin:32px calc(-1 * var(--okraj)) 0}
+.dlazdice .klientka{margin-top:24px}
+.nadvorni{margin-top:36px;font-size:17px}
+.nadvorni address{font-style:normal;font-weight:500}
+.nadvorni p{margin-top:6px;color:var(--hlina)}
+.plan{margin-top:20px;height:220px;border-radius:6px;overflow:hidden;background:var(--visacka)}
+.plan button{width:100%;height:100%;border:0;background:var(--visacka);color:var(--platina);font:500 17px/1.3 Lexend,sans-serif;cursor:pointer}
+.plan button span{display:block;margin-top:4px;font-weight:350;font-size:14px;color:var(--popel)}
+.plan iframe{display:block;width:100%;height:100%;border:0}
+.dlazdice .plan :focus-visible{outline-color:var(--platina);outline-offset:-5px}
+.trasa{display:inline-block;margin-top:8px;padding:12px 0}
+
+/* ---------- footer: the wall again, with their own disc ---------- */
+.konec{padding:44px var(--okraj) calc(var(--spodek) + 44px);color:var(--popel);font-size:15px;line-height:1.6}
+.konec img{width:88px;height:88px;border-radius:50%;margin-bottom:18px}
+.konec strong{color:var(--platina);font-weight:500}
+.konec a{padding:13px 0}
+.konec .pravni a{padding:14px 0}
+.konec .pravni{margin-top:20px;font-size:13px;max-width:40em}
+
+/* ---------- phone strip ---------- */
+.spodek{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:8px;padding:8px var(--okraj) calc(8px + env(safe-area-inset-bottom));background:var(--stena);border-top:1px solid var(--vetev);visibility:hidden;transform:translateY(100%)}
+.spodek[data-ukaz]{visibility:visible;transform:none}
+.spodek .zavolat{flex:1;min-height:52px}
+.spodek .visacka{min-height:52px}
+@media (prefers-reduced-motion:no-preference){.spodek{transition:transform .2s ease,visibility 0s linear .2s}.spodek[data-ukaz]{transition:transform .2s ease}}
+
+/* ---------- menu: a small panel hung from the tag that opened it ---------- */
+.seznam{position:fixed;inset:auto var(--okraj) auto auto;margin:0;width:min(300px,calc(100vw - 2 * var(--okraj)));padding:8px 0 10px;border:0;border-radius:6px;background:var(--visacka);color:var(--platina);box-shadow:0 18px 40px rgba(10,8,6,.45)}
+.seznam:focus{outline:0}
+.seznam::backdrop{background:rgba(24,20,16,.55)}
+.seznam ul{list-style:none;margin:0;padding:0}
+.seznam a{display:block;padding:12px 20px;font:400 21px/1.2 Lexend,sans-serif;text-decoration:none}
+.seznam .tel{font-size:17px;color:var(--list);margin-top:4px;border-top:1px solid #3A4048;padding-top:16px}
+.seznam .zavrit{display:block;margin:4px 12px 0 auto;min-height:44px;padding:0 10px;border:0;background:none;color:var(--popel);font:400 15px/1 Lexend,sans-serif;cursor:pointer}
+.seznam :focus-visible{outline-offset:-3px}
+
+@media (hover:hover){
+  .zavolat:hover{background:#E6D3A8}
+  .visacka:hover{background:#2A3037}
+  .seznam a:hover{background:#2A3037}
+  a:not(.zavolat):hover{text-decoration-thickness:2px}
+  .plan button:hover{background:#2A3037}
+}
+
+/* ---------- desktop ---------- */
+@media (min-width:960px){
+  :root{--okraj:48px;--mezera:104px;--sat:0px}
+  h2{font-size:40px}
+  .oddil{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:32px;justify-content:center;padding-left:max(var(--okraj),calc((100vw - 1240px) / 2));padding-right:max(var(--okraj),calc((100vw - 1240px) / 2))}
+
+  .vstup{grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-areas:". foto" "hlava foto" "dole foto" ". foto";grid-template-rows:1fr auto auto 1fr;column-gap:56px;max-width:1336px;margin:0 auto;padding:40px var(--okraj) 8px}
+  .vstup .visacka{top:40px;right:var(--okraj)}
+  .shar{width:440px}
+  .co{font-size:26px;margin-top:22px}
+  .vstup .promena{margin:76px 0 0}
+  .vstup .promena img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 88px);mask-image:linear-gradient(90deg,transparent,#000 88px)}
+  .vstup .predtim{left:28px}
+  .dole{margin-top:44px}
+  .dole .zavolat{display:inline-flex;min-height:60px;padding:0 32px;font-size:19px}
+  .ctyriosm{font-size:16px;margin-top:14px}
+
+  .promena{margin:0}
+  .promena img{-webkit-mask-image:none;mask-image:none}
+  .zed h2{grid-column:1 / -1;grid-row:1;margin-bottom:40px}
+  .zed .promena{grid-column:1 / span 7;grid-row:2 / span 2}
+  .zed .klientka,.zed .promena + .klientka{grid-column:9 / -1;grid-row:2;align-self:end;margin-top:0}
+  .zed .dalsi{grid-column:9 / -1;grid-row:3;align-self:start;justify-self:start}
+  .klientka blockquote p{font-size:27px}
+
+  .rozalie{grid-template-rows:auto auto auto 1fr}
+  .rozalie h2{grid-column:1 / span 5;grid-row:1}
+  .rozalie .o-ni{grid-column:1 / span 5;grid-row:2;margin-top:28px;font-size:19px}
+  .rozalie .klientka{grid-column:1 / span 5;grid-row:3;margin-top:44px}
+  .rozalie .svazky{grid-column:7 / -1;grid-row:1 / -1;width:100%;margin:0;align-self:start}
+
+  .dlazdice{grid-template-rows:repeat(5,auto) 1fr}
+  .dlazdice > h2{grid-column:8 / -1;grid-row:1;margin-bottom:28px}
+  .dlazdice .domluva{grid-column:8 / -1;grid-row:2;font-size:24px}
+  .dlazdice .nadvorni{grid-column:8 / -1;grid-row:3}
+  .dlazdice .plan{grid-column:8 / -1;grid-row:4;height:180px;margin-top:24px}
+  .dlazdice .trasa{grid-column:8 / -1;grid-row:5;justify-self:start}
+  .pohled{grid-column:1 / span 6;grid-row:1 / -1}
+  .mistnost{width:100%;margin:0}
+  .dlazdice .klientka{margin-top:28px}
+
+  .konec{display:grid;grid-template-columns:auto 1fr;column-gap:32px;align-items:start;padding:56px max(var(--okraj),calc((100vw - 1240px) / 2)) 56px}
+  .konec img{grid-row:1 / span 2;margin:0}
+  .spodek{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="vstup" id="uvod">
+  <div class="hlava">
+    <h1>
+<span class="vh">SHAR, </span><svg class="shar" viewBox="0 -712 2736 724" aria-hidden="true" focusable="false"><path transform="scale(1,-1)" d="M268 -10Q210 -10 160 5Q111 20 71 51Q31 81 0 126L77 215Q126 145 172 118Q217 92 278 92Q315 92 345 103Q375 115 393 135Q410 155 410 181Q410 199 404 215Q398 230 385 243Q373 256 353 266Q334 277 309 285Q283 293 251 299Q196 310 156 328Q116 346 88 373Q61 400 48 435Q35 470 35 513Q35 555 54 592Q73 628 106 655Q139 681 183 696Q227 711 279 711Q334 711 380 697Q425 683 460 655Q495 628 518 588L439 510Q419 542 394 564Q369 586 340 597Q310 609 276 609Q238 609 210 597Q182 586 166 565Q150 544 150 516Q150 496 158 479Q166 462 183 449Q199 436 227 426Q254 416 292 408Q347 396 390 378Q433 359 463 334Q493 309 509 278Q525 246 525 209Q525 141 493 92Q462 43 404 16Q347 -10 268 -10Z M1119 0V700H1234V0ZM665 0V700H779V0ZM714 294 714 404H1172V294Z M1654 700 1374 0H1503L1666 418Q1678 449 1688 474Q1697 498 1704 519Q1711 539 1717 557Q1723 576 1729 595L1702 596Q1710 570 1718 544Q1725 518 1736 488Q1746 457 1761 418L1914 0H2045L1763 700Z M2185 0V700H2485Q2545 700 2596 671Q2647 641 2677 591Q2707 540 2707 477Q2707 419 2677 370Q2647 320 2597 291Q2546 261 2485 261H2299V0ZM2598 0 2420 316 2538 341 2736 -1ZM2299 368H2492Q2521 368 2543 382Q2566 396 2579 421Q2591 446 2591 477Q2591 511 2575 537Q2559 563 2531 577Q2502 592 2465 592H2299Z"/></svg> <span class="co">Prodloužení vlasů v&nbsp;Liberci</span></h1>
+  </div>
+  <button class="visacka" type="button" data-menu aria-haspopup="dialog">Menu</button>
+  <figure class="promena">
+    <img src="img/pred-po-1.jpg" width="1290" height="980" fetchpriority="high" alt="Klientka zezadu u tapety se zlatými listy. Vlevo před prodloužením, tmavé melírované vlasy po ramena. Vpravo po prodloužení, rovné platinové vlasy do půli zad.">
+    <span class="predtim" aria-hidden="true">před</span><span class="potom" aria-hidden="true">po</span>
+  </figure>
+  <div class="dole">
+    <a class="zavolat" href="tel:+420606136090">Zavolat <span>606&nbsp;136&nbsp;090</span></a>
+    <p class="ctyriosm"><a href="https://www.google.com/maps/search/?api=1&amp;query=Prodlou%C5%BEen%C3%AD%20vlas%C5%AF%20Lbc%2C%20N%C3%A1dvorn%C3%AD%201166%2F17%2C%20Liberec&amp;query_place_id=ChIJue0pMIA1CUcRSqszNz7J0MU"><b>4,8</b> <span>z&nbsp;89&nbsp;recenzí na Googlu</span></a><br>Na objednávku, Nádvorní&nbsp;17, Liberec</p>
+  </div>
+</header>
+
+<main>
+<section class="oddil zed" id="pred-a-po" tabindex="-1" aria-labelledby="h-pred">
+  <h2 id="h-pred">Před a&nbsp;po</h2>
+  <figure class="promena">
+    <img src="img/pred-po-2.jpg" width="1290" height="1010" loading="lazy" decoding="async" alt="Klientka zezadu u téže tapety. Vlevo před prodloužením, světle hnědé vlasy pod ramena. Vpravo po prodloužení, dlouhé rovné červené vlasy.">
+    <span class="predtim" aria-hidden="true">před</span><span class="potom" aria-hidden="true">po</span>
+  </figure>
+  <figure class="klientka">
+    <blockquote><p>„Vlasy vypadají naprosto přirozeně, jsou krásně husté a&nbsp;práce byla provedena pečlivě a&nbsp;profesionálně.“</p></blockquote>
+    <figcaption>Giovanna, Google</figcaption>
+  </figure>
+  <a class="dalsi" href="https://www.google.com/maps/search/?api=1&amp;query=Prodlou%C5%BEen%C3%AD%20vlas%C5%AF%20Lbc%2C%20N%C3%A1dvorn%C3%AD%201166%2F17%2C%20Liberec&amp;query_place_id=ChIJue0pMIA1CUcRSqszNz7J0MU">Další fotky na Googlu</a>
+</section>
+
+<section class="oddil kreslo rozalie" id="rozalie" tabindex="-1" aria-labelledby="h-roza">
+  <h2 id="h-roza">Rozalie</h2>
+  <p class="o-ni">Rozalie vám všechno vysvětlí a&nbsp;vybere prodloužení, které sedne vašim vlasům. Poradí, jak o&nbsp;ně pečovat, aby vydržely co nejdéle. S&nbsp;dotazem se jí můžete ozvat i&nbsp;později.</p>
+  <figure class="klientka">
+    <blockquote><p>„Róza mi doslova vytrhla trn z&nbsp;paty na poslední chvíli den před mým měsíčním odjezdem […] Vstřícný, profesionální a&nbsp;především lidský přístup.“</p></blockquote>
+    <figcaption>Aneta, Google</figcaption>
+  </figure>
+  <img class="svazky" src="img/vlasy.jpg" width="1000" height="826" loading="lazy" decoding="async" alt="Svazky vlasů v odstínech od zlaté blond po stříbrnou, na každém černý štítek SHAR.">
+</section>
+
+<section class="oddil dlazdice" id="objednani" tabindex="-1" aria-labelledby="h-obj">
+  <h2 id="h-obj">Objednání</h2>
+  <p class="domluva">Pracujeme na objednávku. Zavolejte na <a href="tel:+420606136090">606&nbsp;136&nbsp;090</a> a&nbsp;domluvíme termín.</p>
+  <div class="pohled">
+    <img class="mistnost" src="img/studio.jpg" width="900" height="580" loading="lazy" decoding="async" alt="Studio: kožená křesla, dvě zrcadla ve zlatých rámech a&nbsp;prameny vlasů zavěšené na stěně.">
+    <figure class="klientka">
+      <blockquote><p>„Příjemné a&nbsp;útulné prostředí, milý přístup a&nbsp;navíc jsme si i&nbsp;hezky pokecali.“</p></blockquote>
+      <figcaption>Katka, Google</figcaption>
+    </figure>
+    <a class="dalsi vsech-recenzi" href="https://www.google.com/maps/search/?api=1&amp;query=Prodlou%C5%BEen%C3%AD%20vlas%C5%AF%20Lbc%2C%20N%C3%A1dvorn%C3%AD%201166%2F17%2C%20Liberec&amp;query_place_id=ChIJue0pMIA1CUcRSqszNz7J0MU">Všech 89&nbsp;recenzí na Googlu</a>
+  </div>
+  <div class="nadvorni">
+    <address>Nádvorní 1166/17<br>460&nbsp;06 Liberec</address>
+    <p>Bezbariérový vstup i&nbsp;toaleta, bezbariérové parkování.</p>
+  </div>
+  <div class="plan">
+    <button type="button">Zobrazit mapu<span>Nádvorní 1166/17, Liberec</span></button>
+  </div>
+  <a class="trasa" href="https://www.google.com/maps/dir/?api=1&amp;destination=N%C3%A1dvorn%C3%AD%201166%2F17%2C%20460%2006%20Liberec">Trasa v&nbsp;Mapách Google</a>
+</section>
+</main>
+
+<footer class="konec">
+  <img src="img/shar.jpg" width="240" height="240" loading="lazy" decoding="async" alt="Logo SHAR, hair extension specialist: zlatá korunka a&nbsp;nápis na černém kruhu.">
+  <div>
+    <p><strong>Prodloužení vlasů Lbc</strong><br>Nádvorní 1166/17, 460&nbsp;06 Liberec<br><a href="tel:+420606136090">606&nbsp;136&nbsp;090</a></p>
+    <!-- Legal footer (§435 OZ): jméno/název, sídlo a IČO provozovatele are not legible in any photo; owner question 4. -->
+    <p class="pravni">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">coi.gov.cz</a></p>
+  </div>
+</footer>
+
+<div class="spodek">
+  <button class="visacka" type="button" data-menu aria-haspopup="dialog">Menu</button>
+  <a class="zavolat" href="tel:+420606136090">Zavolat <span>606&nbsp;136&nbsp;090</span></a>
+</div>
+
+<dialog class="seznam" aria-label="Menu" tabindex="-1">
+  <nav>
+    <ul>
+      <li><a href="#pred-a-po">Před a&nbsp;po</a></li>
+      <li><a href="#rozalie">Rozalie</a></li>
+      <li><a href="#objednani">Objednání</a></li>
+      <li><a class="tel" href="tel:+420606136090">606&nbsp;136&nbsp;090</a></li>
+    </ul>
+  </nav>
+  <button class="zavrit" type="button">Zavřít</button>
+</dialog>
+
+<script>
+(() => {
+  const html = document.documentElement;
+  // touch never shows focus rings, the keyboard always does
+  addEventListener('pointerdown', () => html.classList.add('dotyk'), true);
+  addEventListener('keydown', e => { if (['Tab', 'Enter', ' ', 'ArrowDown', 'ArrowUp'].includes(e.key)) html.classList.remove('dotyk'); }, true);
+
+  // the phone strip appears once the first-screen call button is no longer fully in view
+  const strip = document.querySelector('.spodek');
+  const heroCall = document.querySelector('.vstup .zavolat');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => strip.toggleAttribute('data-ukaz', e.intersectionRatio < 0.99),
+      { threshold: [0, 0.99, 1] }).observe(heroCall);
+  } else strip.setAttribute('data-ukaz', '');
+
+  // menu: a small panel next to the tag that opened it; back gesture, Esc and a backdrop tap close it
+  const panel = document.querySelector('.seznam');
+  const motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+  let target = null;
+  document.querySelectorAll('[data-menu]').forEach(btn => btn.addEventListener('click', e => {
+    const r = btn.getBoundingClientRect();
+    if (r.top < innerHeight / 2) { panel.style.top = (r.bottom + 8) + 'px'; panel.style.bottom = 'auto'; }
+    else { panel.style.bottom = (innerHeight - r.top + 16) + 'px'; panel.style.top = 'auto'; }
+    history.scrollRestoration = 'manual';
+    history.pushState({ menu: 1 }, '');
+    panel.showModal();
+    (e.detail === 0 ? panel.querySelector('a') : panel).focus();
+  }));
+  const close = () => { if (panel.open) history.back(); };
+  panel.addEventListener('click', e => { if (e.target === panel) close(); });
+  panel.addEventListener('cancel', e => { e.preventDefault(); close(); });
+  panel.querySelector('.zavrit').addEventListener('click', close);
+  panel.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    target = document.querySelector(a.getAttribute('href'));
+    close();
+  }));
+  addEventListener('popstate', () => {
+    if (!panel.open) return;
+    panel.close();
+    const t = target; target = null;
+    if (t) { t.scrollIntoView({ behavior: motion }); t.focus({ preventScroll: true }); }
+    // WebKit restores the popped entry's scroll after popstate; keep it manual until the jump is done
+    setTimeout(() => { history.scrollRestoration = 'auto'; }, 400);
+  });
+
+  // the map loads only when asked for
+  const mapButton = document.querySelector('.plan button');
+  mapButton.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = 'https://www.google.com/maps?q=N%C3%A1dvorn%C3%AD%201166%2F17%2C%20460%2006%20Liberec&z=16&output=embed';
+    f.title = 'Mapa: Nádvorní 1166/17, Liberec';
+    f.referrerPolicy = 'no-referrer-when-downgrade';
+    mapButton.replaceWith(f);
+    f.focus();
+  });
+})();
+</script>
+</body>
+</html>
