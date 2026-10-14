@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manikúra Liberec – Nové&nbsp;Město | Royal Nails &amp; Beauty</title>
+<meta name="description" content="Nehtový salon ve Valdštejnské ulici v Liberci. Pondělí až pátek 9:00–18:00, objednání na čísle 605 441 101. Hodnocení 4,9 z 54 recenzí na Googlu.">
+<link rel="canonical" href="https://hensanch.github.io/web-demos/royal-nails-beauty/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:url" content="https://hensanch.github.io/web-demos/royal-nails-beauty/">
+<meta property="og:title" content="Royal Nails &amp; Beauty – nehtový salon v Liberci">
+<meta property="og:description" content="Valdštejnská 11, Liberec. Po–Pá 9:00–18:00, objednání na 605 441 101. 4,9 z 54 recenzí na Googlu.">
+<meta property="og:image" content="https://hensanch.github.io/web-demos/royal-nails-beauty/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#272A2C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Cpath%20d='M9%2030V14a7%207%200%200%201%2014%200v16z'%20fill='%23A52F63'/%3E%3C/svg%3E">
+<link rel="preload" href="font/allison-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="font/albert-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NailSalon","name":"Royal Nails & Beauty","url":"https://hensanch.github.io/web-demos/royal-nails-beauty/","image":"https://hensanch.github.io/web-demos/royal-nails-beauty/img/og.jpg","telephone":"+420605441101","address":{"@type":"PostalAddress","streetAddress":"Valdštejnská 284/11","postalCode":"460 01","addressLocality":"Liberec","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.7707914,"longitude":15.0523063},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}]}
+</script>
+<!-- Fonts are self-hosted and the map loads only on tap: no request to a third party on page load, so no cookie bar is needed. -->
+<style>
+@font-face{font-family:"Allison";font-style:normal;font-weight:400;font-display:swap;src:url(font/allison-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Allison";font-style:normal;font-weight:400;font-display:swap;src:url(font/allison-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Albert Sans";font-style:normal;font-weight:400 700;font-display:swap;src:url(font/albert-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Albert Sans";font-style:normal;font-weight:400 700;font-display:swap;src:url(font/albert-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --stena:#EFE6EB;   /* the lilac-pink wall (g09, g10), lifted at its own hue */
+  --mramor:#D3D9DA;  /* the grey marble floor tiles (g10) */
+  --kuze:#272A2C;    /* grey leather of the pedicure chair (g10), darkened: ink, button, footer */
+  --sediva:#67595E;  /* the wall hue, darkened: secondary text */
+  --folie:#A52F63;   /* the raspberry vinyl signature on the window (g09): the name and nothing else */
+  --okraj:16px;
+  --sat:0px;
+}
+@supports (-webkit-touch-callout:none){
+  @media (hover:none) and (pointer:coarse){:root{--sat:62px}}
+}
+*{box-sizing:border-box}
+html{background:var(--kuze);-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:0;scroll-padding-bottom:84px;-webkit-tap-highlight-color:transparent}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--stena);color:var(--kuze);font:400 17px/1.55 "Albert Sans",system-ui,sans-serif;font-feature-settings:"tnum" 0}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{text-wrap:balance}
+p{margin:0}
+a,button{touch-action:manipulation}
+:focus-visible{outline:3px solid var(--kuze);outline-offset:3px}
+html.dotyk :focus-visible{outline:0}
+[tabindex="-1"]:focus{outline:0}
+
+/* ---------- first screen: the name written on the white of her own photograph ---------- */
+.okno{position:relative;padding:0 0 28px}
+.kozesina{width:100%;aspect-ratio:800/813;object-fit:cover;object-position:50% 100%}
+.znacka{padding:0 var(--okraj)}
+.podpis{position:relative;z-index:1;margin:-2.81em 0 0;font:400 clamp(52px,16.4vw,104px)/.8 "Allison",cursive;color:var(--folie);letter-spacing:0}
+.podpis span{display:block;white-space:nowrap}
+.podpis .r{margin-left:.03em}
+.podpis .n{font-size:1.69em;margin:-.03em 0 0 .35em}
+.podpis .b{margin:.03em 0 0 1.75em}
+.ctyri{display:inline-block;margin-top:18px;font-weight:600;text-decoration:none;padding:10px 0}
+.ctyri b{font-weight:700}
+.ctyri span{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;font-weight:500}
+.adresa{margin-top:2px}
+.otevreno{margin-top:4px;color:var(--sediva)}
+.otevreno b{color:var(--kuze);font-weight:600}
+.akce{display:flex;align-items:center;gap:18px;margin-top:18px}
+.zavolat{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 36px;background:var(--kuze);color:#fff;border-radius:29px;font-weight:600;font-size:18px;text-decoration:none;letter-spacing:.01em}
+.cislo{font-weight:600;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ---------- sections ---------- */
+section{padding:calc(56px + var(--sat)) var(--okraj) 56px;scroll-margin-top:calc(-1 * var(--sat))}
+h2{margin:0 0 22px;font-size:30px;line-height:1.1;font-weight:700;letter-spacing:-.01em}
+.vedle{color:var(--sediva);max-width:34em}
+
+/* ---------- the colour wheel: her finished nails as the sample tips ---------- */
+.ruka-cela{margin:0;width:100%;max-width:520px}
+.ruka-cela img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--mramor)}
+@media (max-width:959px){.ruka-cela img{aspect-ratio:1/1}}
+.vejir{--r:min(100px,26vw);--w:min(52px,14vw);--h:min(87px,23.4vw);--vytah:16px;position:relative;height:calc(var(--r) + var(--h) + var(--vytah) + 14px);max-width:520px;margin:14px 0 0}
+.spicka{position:absolute;left:calc(50% - var(--w) / 2);bottom:12px;width:var(--w);height:var(--h);padding:0;border:0;background:transparent;cursor:pointer;
+  transform-origin:50% 100%;transform:rotate(var(--a)) translateY(calc(-1 * var(--r)));transition:transform .22s ease}
+.spicka img{width:100%;height:100%;object-fit:cover;border-radius:50% 50% 14% 14% / 34% 34% 9% 9%;box-shadow:0 0 0 1px rgba(39,42,44,.18)}
+.spicka::after{content:"";position:absolute;left:50%;top:100%;width:1px;height:var(--r);background:rgba(39,42,44,.28)}
+.spicka[aria-pressed="true"]{transform:rotate(var(--a)) translateY(calc(-1 * (var(--r) + var(--vytah))))}
+.spicka[aria-pressed="true"]::after{height:calc(var(--r) + var(--vytah))}
+.spicka[aria-pressed="true"] img{box-shadow:0 0 0 2px var(--kuze)}
+.osa{position:absolute;left:calc(50% - 13px);bottom:0;width:26px;height:26px;border-radius:50%;border:1px solid rgba(39,42,44,.35);background:var(--stena)}
+.osa::after{content:"";position:absolute;inset:8px;border-radius:50%;background:var(--kuze)}
+.napoveda{margin-top:12px;font-size:15px;color:var(--sediva);max-width:520px}
+.pravila{margin:36px 0 0;padding:0;max-width:30em}
+.pravila p{font-size:19px;line-height:1.45}
+blockquote p.podepsano{font:400 44px/1 "Allison",cursive;margin-top:4px}
+@media (prefers-reduced-motion:reduce){.spicka{transition:none}}
+
+/* ---------- reviews: signed notes ---------- */
+.vzkazy{display:grid;gap:40px;margin:0;padding:0;list-style:none}
+.vzkaz{margin:0}
+.vzkaz p{font-size:18px;line-height:1.5}
+.vsech{display:inline-block;margin-top:34px;padding:10px 0;font-weight:600}
+
+/* ---------- booking and the room ---------- */
+.termin{font-size:19px}
+.velke-cislo{display:inline-block;margin:6px 0 0;padding:4px 0;font-size:42px;line-height:1.1;font-weight:700;letter-spacing:-.01em;text-decoration:none;white-space:nowrap;font-variant-numeric:tabular-nums}
+.dny{margin:26px 0 0;padding:0;list-style:none}
+.dny li{padding:8px 0;border-top:1px solid rgba(39,42,44,.2)}
+.dny li:last-child{border-bottom:1px solid rgba(39,42,44,.2)}
+.dny li.ted{font-weight:700}
+.valdstejnska{margin-top:26px}
+.trasa{display:inline-block;margin-top:4px;padding:10px 0;font-weight:600}
+.podlaha{display:block;width:100%;margin-top:18px;min-height:96px;padding:20px;border:0;border-radius:4px;background:var(--mramor);color:var(--kuze);font:600 17px/1.4 "Albert Sans",system-ui,sans-serif;text-align:left;cursor:pointer}
+.podlaha span{display:block;font-weight:400;color:#4B5052;margin-top:4px}
+.mapa-ram{display:block;width:100%;height:320px;margin-top:18px;border:0;border-radius:4px}
+.salonek{margin:44px 0 0}
+.salonek img{width:100%;aspect-ratio:900/1028;object-fit:cover}
+.salonek blockquote{margin:22px 0 0;max-width:30em}
+.salonek blockquote p:first-child{font-size:18px}
+
+/* ---------- footer ---------- */
+.zaver{background:var(--kuze);color:var(--stena);padding:48px var(--okraj) calc(110px + env(safe-area-inset-bottom));font-size:15px}
+.zaver :focus-visible{outline-color:var(--stena)}
+.zaver .jmeno{font:400 52px/1 "Allison",cursive;margin:0 0 14px}
+.zaver p+p{margin-top:8px}
+.zaver .pravni{margin-top:22px;color:#BDB3B8;max-width:44em}
+.zaver a{display:inline-flex;align-items:center;min-height:44px}
+
+/* ---------- phone bar: three anchors and the call, shown once the hero button is gone ---------- */
+.kotvy{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;align-items:center;gap:4px;padding:8px 10px calc(8px + env(safe-area-inset-bottom)) 6px;background:var(--stena);border-top:1px solid rgba(39,42,44,.22);visibility:hidden;opacity:0;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility 0s .18s}
+.kotvy.ukaz{visibility:visible;opacity:1;transform:none;transition:opacity .18s,transform .18s}
+.kotvy a{display:flex;align-items:center;min-height:48px;padding:0 9px;font-size:15px;font-weight:600;text-decoration:none}
+.kotvy .zavolat{margin-left:auto;min-height:48px;padding:0 22px;font-size:16px}
+@media (prefers-reduced-motion:reduce){.kotvy,.kotvy.ukaz{transition:none;transform:none}}
+
+@media (hover:hover){
+  .zavolat:hover{background:#3A3E41}
+  .ctyri:hover span,.vsech:hover,.trasa:hover{text-decoration-thickness:2px}
+  .spicka:hover img{box-shadow:0 0 0 2px var(--sediva)}
+  .podlaha:hover{background:#C8CFD1}
+  .velke-cislo:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+}
+
+/* ---------- wider screens ---------- */
+@media (min-width:700px){
+  :root{--okraj:40px}
+  .vzkazy{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+}
+@media (min-width:960px){
+  :root{--okraj:max(48px, calc((100vw - 1180px) / 2))}
+  .kotvy{display:none}
+  html{scroll-padding-bottom:0}
+  .okno{display:grid;grid-template-columns:minmax(0,1fr) min(640px,46vw);column-gap:0;align-items:end;padding:40px var(--okraj) 56px}
+  .kozesina{grid-column:2;grid-row:1;width:100%;height:min(76vh,700px);aspect-ratio:auto;object-position:50% 100%}
+  .znacka{grid-column:1;grid-row:1;padding:0 0 0 0;position:relative;z-index:1}
+  .podpis{margin:0 0 0 -.05em;font-size:clamp(64px,8.6vw,124px)}
+  .podpis .n{font-size:1.66em;margin:-.05em 0 0 .56em}
+  .podpis .b{margin:-.22em 0 0 3em}
+  .ctyri{margin-top:30px}
+  section{padding:calc(96px + var(--sat)) var(--okraj) 96px}
+  h2{font-size:38px;margin-bottom:28px}
+  .nehty{display:grid;grid-template-columns:min(480px,40vw) minmax(0,1fr);column-gap:min(72px,5vw);align-items:start}
+  .nehty h2{grid-column:1/-1}
+  .nehty .ruka-cela{grid-column:1;grid-row:2}
+  .vyber{grid-column:2;grid-row:2;align-self:center}
+  .vejir{--r:min(170px,11.8vw);--w:min(84px,5.83vw);--h:min(140px,9.72vw);--vytah:22px;max-width:none;margin:0}
+  .napoveda{max-width:none;text-align:center}
+  .vzkazy{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .objednani{display:grid;grid-template-columns:minmax(0,1fr) min(520px,42vw);column-gap:min(80px,5vw);align-items:start}
+  .objednani>*{grid-column:1}
+  .salonek{grid-column:2;grid-row:1/9;margin:0}
+  .zaver{padding-bottom:56px}
+}
+@media (min-width:960px) and (max-width:1439px){.podpis .b{margin-left:3.9em}}
+</style>
+</head>
+<body>
+<header class="okno" id="uvod">
+  <img class="kozesina" src="img/hero-800.jpg" srcset="img/hero-800.jpg 800w, img/hero-1200.jpg 1200w" sizes="(min-width:960px) 640px, 100vw" width="800" height="813" alt="Dvě ruce na bílé kožešině, nehty se světle modrými konečky a tmavě modrou vlnkou" fetchpriority="high">
+  <div class="znacka">
+    <h1 class="podpis"> <span class="r">Royal</span> <span class="n">Nails</span> <span class="b">&amp;&nbsp;Beauty</span></h1>
+    <a class="ctyri" href="https://www.google.com/maps/place/?q=place_id:ChIJA4H69SE3CUcRbXz55DF7BjA"><b>4,9</b> <span>z&nbsp;54 recenzí na&nbsp;Googlu</span></a>
+    <p class="adresa">Nehtový salon v&nbsp;Liberci, Valdštejnská&nbsp;11</p>
+    <p class="otevreno" id="otevreno">Pondělí až pátek 9:00–18:00</p>
+    <div class="akce"><a class="zavolat" id="volat" href="tel:+420605441101">Zavolat</a><span class="cislo">605&nbsp;441&nbsp;101</span></div>
+  </div>
+</header>
+
+<main>
+<section class="nehty" id="nehty" tabindex="-1" aria-labelledby="h-nehty">
+  <h2 id="h-nehty">Nehty</h2>
+  <figure class="ruka-cela"><img id="ruka" src="img/cokolada.jpg" width="900" height="1125" loading="lazy" alt="Ruka v šedém rukávu, mandlové nehty v lesklé čokoládové barvě"></figure>
+  <div class="vyber">
+  <div class="vejir" role="group" aria-label="Vyberte nehty">
+    <button class="spicka" style="--a:-60deg" type="button" aria-pressed="false" data-img="img/modre.jpg" data-alt="Dvě ruce na bílé kožešině, nehty se světle modrými konečky a tmavě modrou vlnkou"><img src="img/tip-modre.jpg" width="132" height="220" loading="lazy" alt="Světle modré konečky s vlnkou"></button>
+    <button class="spicka" style="--a:-30deg" type="button" aria-pressed="false" data-img="img/kvety.jpg" data-alt="Ruka s prstenem, nehty světle růžové, dva s vlisovanými kvítky a plátky zlata"><img src="img/tip-kvety.jpg" width="132" height="220" loading="lazy" alt="Kvítky a plátky zlata"></button>
+    <button class="spicka" style="--a:0deg" type="button" aria-pressed="false" data-img="img/zelene.jpg" data-alt="Ruka v zeleném rukávu, mandlové nehty v několika zelených s třpytivou zlatou linkou"><img src="img/tip-zelene.jpg" width="132" height="220" loading="lazy" alt="Zelená se zlatou linkou"></button>
+    <button class="spicka" style="--a:30deg" type="button" aria-pressed="false" data-img="img/trpyt.jpg" data-alt="Ruka s prstýnkem, mandlové nehty bílé, ke kořeni přechází do stříbrného třpytu"><img src="img/tip-trpyt.jpg" width="132" height="220" loading="lazy" alt="Bílá se stříbrným třpytem"></button>
+    <button class="spicka" style="--a:60deg" type="button" aria-pressed="true" data-img="img/cokolada.jpg" data-alt="Ruka v šedém rukávu, mandlové nehty v lesklé čokoládové barvě"><img src="img/tip-cokolada.jpg" width="132" height="220" loading="lazy" alt="Lesklá čokoládová"></button>
+    <span class="osa" aria-hidden="true"></span>
+  </div>
+  <p class="napoveda">Klepněte na nehet a&nbsp;uvidíte celou ruku.</p>
+  <blockquote class="pravila">
+    <p>„Slečna je milá a&nbsp;vždy ochotně poradí s&nbsp;výběrem.“</p>
+    <p class="podepsano">Ilona</p>
+  </blockquote>
+  </div>
+</section>
+
+<section class="recenze" id="recenze" tabindex="-1" aria-labelledby="h-recenze">
+  <h2 id="h-recenze">Recenze</h2>
+  <ul class="vzkazy">
+    <li><blockquote class="vzkaz"><p>„Naprosto krásnej salonek, slečna moc hodná, šikovná a&nbsp;pečlivá. Mám z&nbsp;nehtů radost, vypadají krásně i&nbsp;péče byla skvělá.“</p><p class="podepsano">Vendula</p></blockquote></li>
+    <li><blockquote class="vzkaz"><p>„Naprosto skvělé! Vždy je slečna maximálně pečlivá, precizní a&nbsp;milá. Kdykoliv chci něco upravit nebo změnit, není absolutně žádný problém a&nbsp;vždy mi vyjde vstříc. Po&nbsp;celou dobu se ujišťuje, že jsem spokojená, což je za&nbsp;mě obrovské plus. Nehty jsou pokaždé dokonale udělané a&nbsp;odcházím nadšená. Moc doporučuji všemi deseti!“</p><p class="podepsano">Natálie</p></blockquote></li>
+    <li><blockquote class="vzkaz"><p>„Salón jsem navštívila třikrát a&nbsp;pokaždé jsem odcházela spokojená. Slečna je velmi pečlivá a&nbsp;precizní. Nehty drží a&nbsp;jsou pevné. Určitě se budu vracet, můžu doporučit!“</p><p class="podepsano">Anna</p></blockquote></li>
+  </ul>
+  <a class="vsech" href="https://www.google.com/maps/place/?q=place_id:ChIJA4H69SE3CUcRbXz55DF7BjA">Všech 54 recenzí na&nbsp;Googlu</a>
+</section>
+
+<section class="objednani" id="objednani" tabindex="-1" aria-labelledby="h-objednani">
+  <h2 id="h-objednani">Objednání</h2>
+  <p class="termin">Termín domluvíme po&nbsp;telefonu.</p>
+  <a class="velke-cislo" href="tel:+420605441101">605&nbsp;441&nbsp;101</a>
+  <ul class="dny" id="dny">
+    <li data-dny="1-5">Pondělí až pátek 9:00–18:00</li>
+    <li data-dny="6-7">Sobota a&nbsp;neděle zavřeno</li>
+  </ul>
+  <p class="valdstejnska">Valdštejnská 284/11, 460&nbsp;01 Liberec – Nové&nbsp;Město</p>
+  <a class="trasa" href="https://www.google.com/maps/dir/?api=1&amp;destination=Royal%20Nails%20%26%20Beauty%2C%20Valdštejnská%20284%2F11%2C%20Liberec&amp;destination_place_id=ChIJA4H69SE3CUcRbXz55DF7BjA">Trasa v&nbsp;Mapách Google</a>
+  <button class="podlaha" type="button" id="mapa">Ukázat na mapě<span>Valdštejnská 11, Liberec</span></button>
+  <figure class="salonek">
+    <img src="img/salon.jpg" width="900" height="1028" loading="lazy" alt="Salon: šedé křeslo na pedikúru, bílý stolek s obloukovou lampou, růžová sametová židle a prosvícené police s lahvičkami gelů pod oblouky z růží">
+    <blockquote>
+      <p>„Prostředí je příjemné a&nbsp;čisté. Vyhovovalo mi, že jsem tam byla jenom já a&nbsp;nebylo to přeplněné lidmi.“</p>
+      <p class="podepsano">Eliška</p>
+    </blockquote>
+  </figure>
+</section>
+</main>
+
+<footer class="zaver">
+  <p class="jmeno">Royal Nails &amp;&nbsp;Beauty</p>
+  <p>Valdštejnská 284/11, 460&nbsp;01 Liberec – Nové&nbsp;Město</p>
+  <p><a href="tel:+420605441101">605&nbsp;441&nbsp;101</a></p>
+  <!-- DEMO: provozovatel, sídlo a IČO doplníme po potvrzení majitelkou (OWNER-QUESTIONS.md). -->
+  <p class="pravni">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">coi.gov.cz</a></p>
+</footer>
+
+<nav class="kotvy" id="kotvy" aria-label="Rychlé odkazy">
+  <a href="#nehty">Nehty</a><a href="#recenze">Recenze</a><a href="#objednani">Objednání</a>
+  <a class="zavolat" href="tel:+420605441101">Zavolat</a>
+</nav>
+
+<script>
+(function(){
+  var html=document.documentElement;
+  // touch users never see focus rings, keyboard users keep all of them
+  addEventListener('pointerdown',function(){html.classList.add('dotyk')},true);
+  addEventListener('keydown',function(e){if(/^(Tab|Arrow|Enter| )/.test(e.key))html.classList.remove('dotyk')},true);
+
+  // live open state, Prague time; Google publishes Mon-Fri 9-18, weekend closed
+  var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Prague',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+  var g=function(t){return p.find(function(x){return x.type===t}).value};
+  var den=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(g('weekday'))+1, m=+g('hour')*60+ +g('minute');
+  var vsedni=den<=5, s;
+  if(vsedni&&m>=540&&m<1080)s='<b>Otevřeno</b>, dnes do&nbsp;18:00';
+  else if(vsedni&&m<540)s='<b>Zavřeno</b>, dnes od&nbsp;9:00 do&nbsp;18:00';
+  else if(den<=4||den===7)s='<b>Zavřeno</b>, zítra od&nbsp;9:00';
+  else s='<b>Zavřeno</b>, v&nbsp;pondělí od&nbsp;9:00';
+  document.getElementById('otevreno').innerHTML=s;
+  document.querySelector('#dny li[data-dny="'+(vsedni?'1-5':'6-7')+'"]').classList.add('ted');
+
+  // the colour wheel: a tip shows the whole hand
+  var ruka=document.getElementById('ruka'), spicky=document.querySelectorAll('.spicka');
+  spicky.forEach(function(b){b.addEventListener('click',function(){
+    spicky.forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    ruka.src=b.dataset.img; ruka.alt=b.dataset.alt;
+  })});
+
+  // map loads only when asked for
+  var mapa=document.getElementById('mapa');
+  mapa.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.className='mapa-ram'; f.title='Mapa: Valdštejnská 284/11, Liberec'; f.loading='lazy';
+    f.src='https://www.google.com/maps?q=Vald%C5%A1tejnsk%C3%A1+284%2F11%2C+460+01+Liberec&z=16&output=embed';
+    mapa.replaceWith(f);
+  });
+
+  // phone bar appears only once the hero call button is not fully on screen
+  var lista=document.getElementById('kotvy'), volat=document.getElementById('volat');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){lista.classList.toggle('ukaz',e[0].intersectionRatio<0.99)},{threshold:[0,0.99,1]}).observe(volat);
+  }
+  // after a jump, focus lands on the section, not back on the bar
+  lista.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){
+    var t=document.querySelector(a.getAttribute('href'));
+    setTimeout(function(){t.focus({preventScroll:true})},0);
+  })});
+})();
+</script>
+</body>
+</html>
