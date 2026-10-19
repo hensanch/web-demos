@@ -1,0 +1,352 @@
+/* Apartmány Vesna – shared stylesheet. Colours sampled from the house (see DESIGN.md). */
+@font-face{font-family:'Castoro Titling';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/castoro-titling-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Castoro Titling';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/castoro-titling-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/alegreya-sans-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/alegreya-sans-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/alegreya-sans-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/alegreya-sans-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/alegreya-sans-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/alegreya-sans-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --omitka:#EBEBE6;      /* white plaster of the ground floor, lifted (s13.jpg, g07.jpg) */
+  --omitka-2:#F6F6F2;    /* lit plaster: cells of the house drawing, form fields */
+  --strecha:#2E3337;     /* anthracite standing-seam roof: ink, footer, menu, bar */
+  --obklad:#8A5530;      /* larch cladding / altán timber (s13.jpg #7D5331, g06.jpg #8C562D): booking only */
+  --seda:#5B5F61;        /* plaster in shade: secondary text */
+  --linka:#C5C6BF;       /* hairlines */
+  --mez:16px;
+  --sat:0px;
+  --font:'Alegreya Sans',system-ui,sans-serif;
+  --titul:'Castoro Titling',Georgia,serif;
+}
+@supports (-webkit-touch-callout:none){@media (hover:none) and (pointer:coarse){:root{--sat:62px}}}
+@media (min-width:700px){:root{--mez:40px}}
+@media (min-width:1100px){:root{--mez:64px}}
+/* from 760 px the header stays on screen, so anchors clear it instead of iOS's status bar */
+@media (min-width:760px){:root{--sat:0px}}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--omitka);color:var(--strecha);-webkit-text-size-adjust:100%;scroll-padding-top:0;scroll-padding-bottom:84px;-webkit-tap-highlight-color:transparent}
+@media (min-width:760px){html{scroll-padding-top:64px;scroll-padding-bottom:0}}
+@media (min-width:1100px){html{scroll-padding-top:80px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--omitka);font:400 17px/1.55 var(--font);font-feature-settings:"lnum" 1}
+@media (min-width:1100px){body{font-size:18px}}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:1px}
+button,input,select,textarea{font:inherit;color:inherit}
+a,button,input,select,textarea,summary{touch-action:manipulation}
+h1,h2,h3{text-wrap:balance;margin:0}
+h2{font:700 25px/1.2 var(--font);letter-spacing:-.005em;margin-bottom:8px}
+@media (min-width:1100px){h2{font-size:32px}}
+h3{font:700 19px/1.3 var(--font)}
+p{margin:0 0 .8em;text-wrap:pretty}
+figure{margin:0}
+.skryte{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.preskocit{position:absolute;left:8px;top:-60px;z-index:50;background:var(--strecha);color:var(--omitka);padding:10px 14px}
+.preskocit:focus{top:8px}
+
+/* focus: keyboard keeps rings, touch never shows one */
+:focus-visible{outline:3px solid var(--strecha);outline-offset:3px}
+html.dotyk :focus-visible{outline:0}
+[tabindex="-1"]:focus{outline:0}
+.tmave :focus-visible,.menu :focus-visible,.lista-dole :focus-visible{outline-color:var(--omitka)}
+
+.obal{max-width:1240px;margin:0 auto;padding:0 var(--mez)}
+.cil{scroll-margin-top:calc(-1 * var(--sat))}
+.uvodni{max-width:36em}
+.po-seznamu{margin-top:16px}
+.poznamka{color:var(--seda);font-size:16px}
+
+/* header: sticky everywhere; on phones it slides away going down and returns going up */
+.hlava{position:sticky;top:0;z-index:15;background:var(--omitka);display:flex;align-items:center;gap:8px;max-width:none;margin:0;padding:4px var(--mez);min-height:56px;transition:transform .22s ease}
+@media (max-width:759px){.hlava.skryt{transform:translateY(-100%)}}
+@media (min-width:1240px){.hlava{padding-left:calc((100vw - 1240px) / 2 + var(--mez));padding-right:calc((100vw - 1240px) / 2 + var(--mez))}}
+.znacka{font:400 22px/1 var(--titul);text-decoration:none;letter-spacing:.04em;padding:12px 0;margin-right:auto}
+.znacka span{font-size:.62em;letter-spacing:.12em;margin-left:.35em}
+.hlava.doma .znacka{visibility:hidden}
+.hlava.doma.ukaz .znacka{visibility:visible}
+.hlava-nav{display:none}
+.hlava .hlava-rez{display:none}
+.jazyky{display:flex}
+.jazyky button{min-width:44px;min-height:44px;border:0;background:none;font:500 15px/1 var(--font);letter-spacing:.04em;color:var(--seda);cursor:pointer;padding:0 6px}
+.jazyky button[aria-pressed="true"]{color:var(--strecha);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+.menu-tlacitko{min-height:44px;min-width:72px;margin-left:6px;border:1.5px solid var(--strecha);background:none;border-radius:2px;font:700 16px/1 var(--font);cursor:pointer;padding:0 14px;display:inline-flex;align-items:center;gap:10px}
+.menu-tlacitko i{display:block;width:16px;height:10px;border-top:2px solid;border-bottom:2px solid;position:relative}
+.menu-tlacitko i::after{content:"";position:absolute;left:0;right:0;top:2px;border-top:2px solid}
+@media (min-width:760px){.hlava .hlava-rez{display:inline-flex;min-height:44px;padding:0 18px;font-size:17px;margin-left:8px}}
+@media (min-width:1100px){
+  .hlava{min-height:72px}
+  .hlava-nav{display:flex;gap:2px;margin-right:8px}
+  .hlava-nav a{padding:12px 10px;text-decoration:none;font-weight:500}
+  .hlava-nav a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
+  .menu-tlacitko{display:none}
+}
+@media (hover:hover){
+  .hlava-nav a:hover,.jazyky button:hover{text-decoration:underline;text-underline-offset:8px}
+  .menu-tlacitko:hover{background:var(--strecha);color:var(--omitka)}
+}
+
+/* buttons: the timber colour has one job, booking */
+.rezervovat{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 30px;background:var(--obklad);color:#fff;font:700 19px/1 var(--font);text-decoration:none;border-radius:2px;letter-spacing:.01em}
+@media (hover:hover){.rezervovat:hover{background:#74461F}}
+.odkaz{font-weight:700;text-decoration:underline;text-underline-offset:.22em;display:inline-flex;align-items:center;min-height:44px}
+.akce{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.akce .cena{margin:0;line-height:1.25}
+.akce .cena b{display:block;font-size:19px}
+.akce .cena span{color:var(--seda);font-size:15px}
+.primo{font-size:15px;color:var(--seda);margin:10px 0 0;max-width:30em}
+
+/* home hero: the name sits in the sky of g07, above their own roof */
+.uvod-foto{position:relative;container-type:inline-size}
+.uvod-foto img{width:100%;aspect-ratio:1000/1067;object-fit:cover}
+.jmeno{position:absolute;left:4.6cqw;top:3.4cqw;display:flex;flex-direction:column-reverse;align-items:flex-start;color:var(--strecha);font-family:var(--titul);font-weight:400;line-height:1}
+.jmeno .j1{font-size:16cqw;letter-spacing:.03em;text-transform:uppercase}
+.jmeno .j2{font-size:3.9cqw;letter-spacing:.3em;margin-top:1.6cqw;text-transform:uppercase}
+.uvod-text{padding:18px var(--mez) 8px}
+.uvod-text .co{font-size:18px;line-height:1.4;margin:0 0 4px;max-width:34em}
+.hodnoceni{display:inline-flex;align-items:center;min-height:44px;font-weight:700;margin-bottom:8px}
+@media (min-width:760px){
+  .uvod{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:0 56px;align-items:center;max-width:1240px;margin:0 auto;padding:8px var(--mez) 0}
+  .uvod-foto img{max-height:calc(100vh - 110px);max-height:calc(100svh - 110px)}
+  .uvod-text{padding:0 0 4px}
+  .uvod-text .co{font-size:22px;margin-bottom:10px}
+}
+
+/* sections */
+.oddil{position:relative;padding:44px 0 34px}
+.oddil + .oddil::before{content:"";position:absolute;left:0;right:0;top:0;border-top:1px solid var(--linka)}
+.oddil.cil{padding-top:calc(44px + var(--sat))}
+.oddil.cil::before{top:var(--sat)}
+@media (min-width:1100px){.oddil{padding:88px 0 72px}.oddil.cil{padding-top:calc(88px + var(--sat))}}
+
+/* the house drawing: the apartment index */
+.dum{position:relative;width:100%;max-width:440px;aspect-ratio:380/472;margin:8px 0 0}
+.dum svg{position:absolute;inset:0;width:100%;height:100%}
+.dum ol{list-style:none;margin:0;padding:0}
+.dum li{position:absolute;left:calc(var(--x) / 380 * 100%);top:calc(var(--y) / 472 * 100%);width:calc(var(--w) / 380 * 100%);height:calc(var(--h) / 472 * 100%)}
+.okno{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:var(--omitka-2);border:2px solid var(--strecha);text-decoration:none;line-height:1;transition:background .15s,color .15s}
+.okno .c{font:400 22px/1 var(--titul)}
+.okno .m{font-size:12px;margin-top:5px;color:var(--seda);white-space:nowrap}
+.okno[aria-current="true"]{background:var(--strecha);color:var(--omitka)}
+.okno[aria-current="true"] .m{color:#D3D4CE}
+@media (hover:hover){.okno:hover{background:var(--strecha);color:var(--omitka)}.okno:hover .m{color:#D3D4CE}}
+.okno-dole{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:15px;font-weight:500;text-decoration:underline;text-underline-offset:.2em}
+.patra{position:absolute;inset:0;pointer-events:none;margin:0;padding:0;list-style:none}
+.patra li{position:absolute;left:calc(286 / 380 * 100%);top:calc(var(--y) / 472 * 100%);font-size:14px;line-height:1.15;color:var(--seda);width:calc(94 / 380 * 100%)}
+
+/* home: floors */
+.dum-oddil{display:grid;gap:24px}
+.pokoj-foto img,img.pokoj-foto{width:100%;aspect-ratio:16/9;object-fit:cover}
+@media (min-width:900px){.pokoj-foto img,img.pokoj-foto{aspect-ratio:3/2}}
+.pokoj-foto{margin-top:20px}
+.pokoj-foto figcaption{font-size:15px;color:var(--seda);margin-top:8px}
+@media (min-width:900px){.dum-oddil{grid-template-columns:minmax(0,520px) minmax(0,1fr);gap:72px;align-items:start}.dum-oddil > .dum{order:-1;max-width:520px}}
+
+/* the dark band: wellness, the roof colour, the diamond-slat wall of g04 edge to edge */
+.pas-tmavy{background:var(--strecha);color:var(--omitka)}
+.pas-foto{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 40%}
+@media (min-width:760px){.pas-foto{aspect-ratio:auto;height:min(560px,46vw);object-position:50% 45%}}
+.pas-obsah{display:grid;gap:26px;padding-top:32px;padding-bottom:44px}
+@media (min-width:900px){.pas-obsah{grid-template-columns:1.1fr 1fr 1.2fr;gap:56px;align-items:start;padding-top:48px;padding-bottom:64px}}
+.tmave .fakta li{border-color:rgba(235,235,230,.28)}
+.tmave .hlas{border-left-color:var(--omitka)}
+.tmave .hlas figcaption,.tmave .uvodni{color:#C9CBC6}
+.tmave .fakta{margin-top:0}
+
+/* quotes placed where they talk */
+.hlas{margin:20px 0 0;padding:0 0 0 18px;border-left:3px solid var(--strecha);max-width:34em}
+.hlas blockquote{margin:0}
+.hlas p{font-size:18px;line-height:1.5;margin:0 0 2px}
+.hlas figcaption{font-size:15px;color:var(--seda)}
+.hlas figcaption a{color:inherit;display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+.pas-obsah .hlas{margin-top:0}
+
+/* one wide photo with two columns under it */
+.foto-pas{width:100%;aspect-ratio:2/1;object-fit:cover}
+.dva-sloupce{display:grid;gap:30px;margin-top:26px}
+@media (min-width:900px){.dva-sloupce{grid-template-columns:1fr 1fr;gap:64px}}
+.dvojice-foto{margin-top:0}
+.dvojice-foto img{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:16px}
+.dvojice{display:grid;gap:34px}
+@media (min-width:900px){.dvojice{grid-template-columns:1fr 1fr;gap:64px;align-items:start}}
+.svatba-foto{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 40%}
+.za-fotkou{margin-top:18px}
+
+/* lists of facts */
+.fakta{list-style:none;margin:14px 0 0;padding:0}
+.fakta li{padding:9px 0;border-top:1px solid var(--linka);display:flex;justify-content:space-between;gap:16px}
+.fakta li:last-child{border-bottom:1px solid var(--linka)}
+.fakta b{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.seznam-lyze li{display:block;max-width:44em}
+.seznam-lyze b{white-space:normal}
+
+/* subpage heads */
+.hlavicka{padding-top:22px;padding-bottom:10px}
+.hlavicka h1,.byty-h1,.svatby-text h1,.h1-svetle{font:400 40px/1.05 var(--titul);letter-spacing:.01em;margin:0 0 14px}
+.hlavicka .uvodni{font-size:19px;line-height:1.45}
+@media (min-width:1100px){.hlavicka{padding-top:44px;padding-bottom:20px}.hlavicka h1,.byty-h1,.svatby-text h1,.h1-svetle{font-size:64px}.hlavicka .uvodni{font-size:22px}}
+
+/* apartments page: the house stands next to everything you read */
+.byty-hlava{padding-top:14px;padding-bottom:20px}
+@media (max-width:899px){.byty-hlava .byty-h1{font-size:36px;margin-bottom:8px}.byty-hlava .dum{max-width:340px}}
+.byty-hlava > .akce{margin-top:18px}
+.skoky{display:flex;gap:28px;margin:4px 0 0}
+.skoky a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+.prehled{margin-top:22px}
+.prehled thead th{font-size:15px;color:var(--seda);border-top:0;padding-bottom:6px}
+.prehled thead th:not(:first-child){text-align:right}
+.prehled th a{text-decoration:none;font-weight:500}
+.prehled td{font-weight:400}
+.prehled td:last-child{font-weight:700}
+.byty-hlava > .poznamka{margin-top:10px}
+.byty-hlava > .uvodni{margin-top:18px}
+.byty-hlava > h2{margin-top:40px}
+@media (min-width:900px){
+  .byty-hlava{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);column-gap:64px;padding-top:44px}
+  .byty-hlava > *{grid-column:2}
+  .byty-hlava > .dum{grid-column:1;grid-row:1 / span 40;position:sticky;top:96px;align-self:start;margin:0}
+}
+.byty{display:grid;gap:0}
+.byt{position:relative;padding:calc(22px + var(--sat)) 0 22px}
+.byt::before{content:"";position:absolute;left:0;right:0;top:var(--sat);border-top:1px solid var(--linka)}
+.byt:last-child{border-bottom:1px solid var(--linka)}
+.byt h3{font:400 26px/1.1 var(--titul);margin:0 0 6px}
+.byt .udaje{font-weight:700;margin:0 0 6px}
+.byt p:last-child{margin:0}
+.byt-foto{margin-top:16px;width:100%;aspect-ratio:3/2;object-fit:cover}
+.foto-pruh{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0 0}
+.foto-pruh img{width:100%;aspect-ratio:3/4;object-fit:cover}
+@media (min-width:900px){.foto-pruh{gap:16px}}
+.cena-nadpis{font:400 30px/1.15 var(--titul);margin-bottom:10px}
+@media (min-width:1100px){.cena-nadpis{font-size:42px}}
+.cenik-oddil{display:grid;gap:36px;margin-top:26px}
+@media (min-width:900px){.cenik-oddil{grid-template-columns:1fr 1fr;gap:40px 72px;align-items:start}}
+.cenik{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.cenik caption{text-align:left;font:700 21px/1.25 var(--font);padding:0 0 10px}
+.cenik th,.cenik td{text-align:left;font-weight:400;padding:9px 0;border-top:1px solid var(--linka);vertical-align:top}
+.cenik td{text-align:right;font-weight:700;white-space:nowrap;padding-left:16px}
+.cenik tr:last-child th,.cenik tr:last-child td{border-bottom:1px solid var(--linka)}
+.cenik small{display:block;color:var(--seda);font-size:15px}
+
+/* wellness page opens dark */
+.well-uvod{padding:calc(26px + var(--sat)) 0 44px}
+.well-uvod .uvodni{font-size:19px}
+.well-mrizka{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.well-mrizka img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.well-text{grid-column:1 / -1;margin-top:18px}
+@media (min-width:900px){.well-uvod{padding-top:48px;padding-bottom:72px}.well-mrizka{grid-template-columns:1fr 1fr 1.3fr;gap:24px;align-items:start}.well-text{grid-column:auto;margin:0 0 0 24px}}
+
+/* weddings opens on the photograph */
+.svatby-foto{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 40%}
+.svatby-text{padding:22px var(--mez) 40px}
+.svatby-text .rezervovat{margin-top:6px}
+.svatby-mame{margin-top:38px}
+@media (min-width:900px){
+  .svatby-uvod{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1fr);gap:64px;max-width:1240px;margin:0 auto;padding:24px var(--mez) 40px;align-items:start}
+  .svatby-foto{aspect-ratio:3/4;position:sticky;top:96px}
+  .svatby-text{padding:16px 0 0}
+}
+.team-foto{width:100%;aspect-ratio:3/2;object-fit:cover}
+
+/* weddings form */
+.poptavka{display:grid;gap:16px;max-width:640px;margin-top:20px}
+.pole{display:grid;gap:6px}
+.pole label{font-weight:700}
+.pole input,.pole select,.pole textarea{width:100%;min-height:50px;padding:12px 14px;background:var(--omitka-2);border:1.5px solid var(--strecha);border-radius:2px;font-size:17px}
+.pole textarea{min-height:120px;resize:vertical}
+.pole .chyba{color:#8B1E1E;font-size:15px;font-weight:500;min-height:0}
+.pole [aria-invalid="true"]{border-color:#8B1E1E;border-width:2px}
+.radek{display:grid;gap:16px}
+@media (min-width:640px){.radek{grid-template-columns:1fr 1fr}}
+.poptavka .vedomi{font-size:15px;color:var(--seda);margin:0}
+.tlacitko{justify-self:start;min-height:56px;padding:0 28px;border:0;border-radius:2px;background:var(--strecha);color:var(--omitka);font:700 18px/1 var(--font);cursor:pointer}
+@media (hover:hover){.tlacitko:hover{background:#1C2023}}
+.tlacitko-text{border:0;background:none;cursor:pointer;color:inherit;font:inherit;font-weight:700}
+.potvrzeni{margin-top:20px;padding:20px 22px;border:1.5px solid var(--strecha);background:var(--omitka-2);max-width:640px}
+.potvrzeni h3{margin-bottom:6px}
+
+/* gallery: controls on top, one stage, a contact strip grouped by place in the house */
+.hlavicka-galerie{padding-bottom:4px}
+.hlavicka-galerie h1{margin-bottom:4px}
+.jeviste{margin:0 calc(-1 * var(--mez));padding:var(--sat) 0 0}
+@media (min-width:700px){.jeviste{margin:0}}
+.ovladani{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:6px var(--mez) 10px}
+@media (min-width:700px){.ovladani{padding:6px 0 10px}}
+.ovladani .pocet{color:var(--seda);white-space:nowrap;font-variant-numeric:tabular-nums}
+.ram{background:var(--strecha);user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.ram img{width:100%;height:min(66vh,760px);object-fit:contain;background:var(--strecha)}
+@media (max-width:699px){.ram img{height:auto;aspect-ratio:5/4}}
+.jeviste .popis{margin:0;padding:10px var(--mez) 0;font-size:16px}
+@media (min-width:700px){.jeviste .popis{padding:10px 0 0}}
+.sipky{display:flex;gap:8px}
+.sipky button{min-width:52px;min-height:48px;border:1.5px solid var(--strecha);background:var(--omitka);cursor:pointer;font:700 15px/1 var(--font);padding:0 14px;border-radius:2px}
+@media (hover:hover){.sipky button:hover{background:var(--strecha);color:var(--omitka)}}
+.svazek{margin-top:26px}
+.svazek h2{font-size:19px;margin:0 0 10px}
+@media (min-width:1100px){.svazek h2{font-size:21px}}
+.nahledy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+@media (min-width:700px){.nahledy{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}}
+.nahledy button{display:block;width:100%;padding:0;border:0;background:none;cursor:pointer}
+.nahledy img{width:100%;aspect-ratio:4/3;object-fit:cover;opacity:.9}
+.nahledy button[aria-current="true"] img{opacity:1;outline:3px solid var(--strecha);outline-offset:2px}
+@media (hover:hover){.nahledy button:hover img{opacity:1}}
+
+/* okolí: the map first */
+.hlavicka-okoli{padding-bottom:0}
+.hlavicka-okoli + .oddil{padding-top:12px}
+.kontakt-oddil{display:grid;gap:26px}
+@media (min-width:900px){.kontakt-oddil{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:64px;align-items:start}}
+.telefony{list-style:none;margin:0 0 14px;padding:0}
+.telefony li{padding:4px 0}
+.telefony a{font:400 28px/1.1 var(--titul);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.telefony span{display:block;color:var(--seda);font-size:15px}
+.mapa{position:relative;aspect-ratio:4/3;background:var(--strecha);overflow:hidden}
+.mapa img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.mapa button{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);min-height:52px;padding:0 22px;border:0;background:var(--omitka);font:700 17px/1 var(--font);cursor:pointer;border-radius:2px}
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vzdalenosti{display:grid;gap:34px}
+@media (min-width:900px){.vzdalenosti{grid-template-columns:1fr 1fr;gap:40px 72px;align-items:start}}
+
+/* footer */
+.pata-webu{background:var(--strecha);color:var(--omitka);margin-top:48px;padding:36px 0 calc(96px + env(safe-area-inset-bottom));
+  background-image:repeating-linear-gradient(90deg,transparent 0 23px,rgba(255,255,255,.035) 23px 24px)}
+.pas-tmavy + .pata-webu,main > .pas-tmavy:last-child{margin-top:0}
+@media (min-width:760px){.pata-webu{padding-bottom:48px}}
+.pata-webu .znacka{font-size:30px;display:inline-block;margin-bottom:14px}
+.pata-mrizka{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;font-size:16px}
+.pata-mrizka nav{grid-column:1 / -1}
+.pata-mrizka nav ul{display:flex;flex-wrap:wrap;gap:0 18px}
+.pata-mrizka p{margin:0 0 10px}
+@media (min-width:900px){.pata-mrizka{grid-template-columns:1.2fr 1fr 1fr;gap:56px;font-size:17px}.pata-mrizka nav{grid-column:auto}.pata-mrizka nav ul{display:block}}
+.pata-webu ul{list-style:none;margin:0;padding:0}
+.pata-webu a{display:inline-flex;align-items:center;min-height:44px}
+.pata-webu .pravni{margin-top:18px;padding-top:14px;border-top:1px solid rgba(235,235,230,.25);font-size:14px;color:#C9CBC6}
+.pata-webu .pravni p{margin:0 0 4px}
+.pata-webu .pravni a{display:inline;min-height:0}
+
+/* the menu: a sheet that drops from the top, the colour of the roof */
+.menu{border:0;padding:0;margin:0;inset:0 0 auto 0;width:100%;max-width:none;max-height:92vh;max-height:92dvh;overflow:auto;background:var(--strecha);color:var(--omitka);
+  background-image:repeating-linear-gradient(90deg,transparent 0 23px,rgba(255,255,255,.035) 23px 24px);outline:none}
+.menu::backdrop{background:rgba(30,33,36,.55)}
+.menu-hlava{display:flex;align-items:center;justify-content:space-between;padding:4px var(--mez);min-height:56px}
+.menu-hlava .znacka{margin:0}
+.zavrit{min-height:44px;min-width:72px;border:1.5px solid var(--omitka);background:none;color:var(--omitka);font:700 16px/1 var(--font);border-radius:2px;cursor:pointer}
+.menu nav ul{list-style:none;margin:0;padding:8px var(--mez) 0}
+.menu nav a{display:block;padding:11px 0;font:400 25px/1.15 var(--titul);text-decoration:none;border-bottom:1px solid rgba(235,235,230,.18)}
+.menu nav a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.menu-spodek{padding:22px var(--mez) 28px;display:grid;gap:14px;justify-items:start}
+.menu-spodek .jazyky button{color:#C9CBC6}
+.menu-spodek .jazyky button[aria-pressed="true"]{color:var(--omitka)}
+.menu-spodek .tel{font-weight:700;display:inline-flex;align-items:center;min-height:44px}
+body.zamceno{position:fixed;left:0;right:0;overflow:hidden}
+
+/* bottom bar on phones */
+.lista-dole{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1.25fr;background:var(--strecha);padding-bottom:env(safe-area-inset-bottom);visibility:hidden;transform:translateY(100%);transition:transform .2s,visibility 0s .2s}
+.lista-dole.videt{visibility:visible;transform:none;transition:transform .2s}
+.lista-dole a{display:flex;align-items:center;justify-content:center;min-height:60px;text-decoration:none;font:700 18px/1 var(--font)}
+.lista-dole .tel{color:var(--omitka)}
+.lista-dole .rez{background:var(--obklad);color:#fff}
+@media (min-width:760px){.lista-dole{display:none}}
