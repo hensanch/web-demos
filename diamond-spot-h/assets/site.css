@@ -1,0 +1,359 @@
+/* DIAMOND SPOT, concept H: the gallery grid. One lattice of four modules (two on the phone). Text and images start ON the
+   module lines; running text uses one column (modules 2-3); air, not rules, separates sections. System in ../SPEC.md */
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/newsreader-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+2010-203A,U+20AC,U+2122,U+2212}
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/newsreader-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-017F,U+02C7,U+02D8-02DD}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/newsreader-italic-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+2010-203A,U+20AC,U+2122,U+2212}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/newsreader-italic-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-017F,U+02C7,U+02D8-02DD}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 500;font-display:swap;src:url(fonts/archivo-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+2010-203A,U+20AC,U+2122,U+2212}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 500;font-display:swap;src:url(fonts/archivo-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-017F,U+02C7,U+02D8-02DD}
+
+:root{
+  --paper:#fff;            /* the product photos' own ground: the page and the pieces are one surface */
+  --ink:#151311;
+  --text:#4a4540;          /* running text and the lead, 9.4:1 */
+  --mute:#6e685f;          /* labels and meta, 5.4:1 */
+  --line:#ddd7cd;          /* the hairline, warm like the shop's plaster: under the header and around the filter only */
+  --gold:#d5ac00;          /* their logo ring; on the page it has one job: the line under a link */
+  --fascia:#1b1719;        /* their shop fascia (front.webp): the footer */
+  --silver:#dcd9d4; --dim:#a9a39c;
+  --m:clamp(20px,3.34vw,56px);   /* page margin: 48 at 1440, 20 at 390 */
+  --g:24px;                      /* gutter: right-hand air of a text cell. Text and images both start ON the module line */
+  --gap:96px;                    /* between sections */
+  --row:64px;                    /* between shelves */
+  --serif:"Newsreader",Georgia,serif;
+  --sans:"Archivo",system-ui,sans-serif;
+  --t-meta:15px; --t-nav:16px; --t-body:17px; --t-lead:18px; --t-h2:26px; --t-h1:clamp(30px,2.7vw,40px); --t-name:19px;
+  --t-quote:clamp(23px,2.15vw,31px); --t-price:28px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font:400 var(--t-body)/1.55 var(--serif);font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-variant-numeric:lining-nums}
+h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0;padding:0}
+ul{list-style:none}
+h1,h2,h3{font-weight:400;color:var(--ink);letter-spacing:-.01em;line-height:1.15;text-wrap:balance}
+p{text-wrap:pretty}
+img,svg{display:block;max-width:100%}
+img{height:auto;color:transparent}
+[hidden]{display:none!important}
+button,select,input,textarea{font:inherit;color:inherit;letter-spacing:inherit}
+button{background:none;border:0;padding:0;cursor:pointer}
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.26em;text-decoration-color:var(--gold);transition:text-decoration-color .15s ease}
+a:hover{text-decoration-color:currentColor}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.wrap{max-width:1600px;margin-inline:auto;padding-inline:var(--m)}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:var(--m);top:8px;z-index:40;background:var(--paper);padding:8px 12px}
+.meta,.menu,.cap,.more,.ext,.btn,.facts dt,.spec dt,.fbar,.incl,.foot,figcaption,.book label,.q .by,.h-sub{
+  font-family:var(--sans);font-size:var(--t-meta);line-height:1.5;letter-spacing:.005em;font-variant-numeric:tabular-nums lining-nums}
+.mute{color:var(--mute)}
+.more,.ext{display:inline-flex;align-items:center;min-height:44px;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 30px;background:var(--ink);color:var(--paper);
+  font-weight:500;letter-spacing:.02em;text-decoration:none;transition:background .15s ease}
+.btn:hover{background:#3a3733}
+.btn:focus-visible{outline-offset:3px}
+.acts-l{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px;margin-top:28px}
+
+/* the brand mark: their wordmark traced to SVG, letters in ink (silver on the fascia), the ring in their gold */
+.mk{width:100%;height:auto;overflow:visible}
+.mk .ring{stroke:var(--gold)}
+.mk .stone{fill:#cfc8bb}
+
+/* header: logo on module 1 (home: the departments start there, the mark is the H1 right under it), the departments
+   from module 2, phone and Menu at the end of module 4. One hairline under it, the only one on most pages ----------- */
+.top{position:relative;z-index:20}
+.top-in{align-items:center;height:68px;border-bottom:1px solid var(--line);font-family:var(--sans);font-size:var(--t-nav);letter-spacing:.005em}
+.logo{grid-column:1;justify-self:start;display:flex;align-items:center;min-height:44px;width:196px;text-decoration:none}
+.top-nav{grid-column:2/4;display:flex;gap:30px}
+.top-home .top-nav{grid-column:1/4}
+.top-nav a,.tel{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;color:var(--ink);white-space:nowrap}
+.top-nav a:hover,.tel:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+.top-nav a[aria-current],.menu a[aria-current],.foot a[aria-current]{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.tools{grid-column:4;justify-self:end;display:flex;align-items:center;gap:26px}
+.menu-btn{min-height:44px;min-width:44px;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.26em;text-decoration-color:var(--gold)}
+.menu-btn:hover,.menu-btn[aria-expanded=true]{text-decoration-color:currentColor}
+.menu{position:absolute;left:var(--m);right:var(--m);top:68px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 40px -24px rgba(21,19,17,.18)}
+.menu:not([hidden]){animation:sheet .3s ease}
+@keyframes sheet{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mc{padding:28px var(--g) 40px 0}
+.mc p+p{margin-top:14px}
+.mc li a,.mc .fl a{display:flex;align-items:center;min-height:44px;width:max-content;max-width:100%;color:var(--ink);text-decoration:none}
+.mc li a{font-family:var(--serif);font-size:21px;letter-spacing:0}
+.mc li a:hover,.mc .fl a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+@media (max-width:1119px){.top-nav{display:none}}
+
+/* home hero: one spread on one top line. Modules 1-2: their mark, who they are, where; modules 3-4: their gold wall
+   with the brass name (wall-full.webp), 2:1 from the top so the whole word is inside ------------------------------- */
+.hero{padding-top:40px;align-items:start}
+.h-txt{grid-column:1/3;padding-right:calc(2*var(--g))}
+.mark{width:min(100%,560px);font-size:0}
+.h-lede{margin-top:34px;max-width:27em;font-size:20px;line-height:1.45;color:var(--ink)}
+.h-sub{margin-top:16px;color:var(--mute);max-width:40em}
+.h-wall{grid-column:3/5;aspect-ratio:2/1;overflow:hidden}
+.h-wall img{width:100%;height:100%;object-fit:cover;object-position:50% 0}
+
+/* the shelf (crow): words on module 1, three pieces on modules 2-4. The title's top meets the top of the pieces,
+   the way on sits right under the words; on the phone it follows the pieces --------------------------------------- */
+.crow{margin-top:var(--row);grid-template-rows:auto 1fr}
+.hero+.crow{margin-top:56px}
+.c-txt{grid-column:1;grid-row:1;padding:16% var(--g) 0 0}
+.c-txt h2{font-size:var(--t-h2);margin-bottom:12px}
+.c-txt p{max-width:24em}
+.c-all{grid-column:1;grid-row:2;align-self:start;justify-self:start;margin-top:6px}
+.c-txt a.in{padding-block:14px}   /* the inline link in a sentence: 44 px to tap without moving the line */
+.crow>.item{grid-row:1/3}
+.crow>.ph{display:none}
+
+/* one piece: the photo is placed by the piece's own measured box (data/bbox.json), so every piece reads at one size
+   (--t of the cell width) and sits on one optical line (46 % down); no border, no box, no words at rest on desktop */
+.item{min-width:0}
+.pc{position:relative;display:block;text-decoration:none;color:inherit}
+.pf{--t:.48;position:relative;display:block;aspect-ratio:336/296;overflow:hidden;background:var(--paper)}
+.grid-f .pf{--t:.44}
+.pf img{position:absolute;left:50%;top:46%;width:calc(var(--t)/var(--pm,.6)*100%);max-width:none;height:auto;
+  margin-left:calc(var(--t)/var(--pm,.6)*var(--cx,.5)*-100%);margin-top:calc(var(--t)/var(--pm,.6)*var(--cy,.5)*-100%);
+  opacity:0;transition:opacity .3s ease}
+.pf img.on{opacity:1}
+.js .pf{opacity:0;transition:opacity .5s ease}
+.js .pf.ld{opacity:1}
+.cap{display:flex;flex-direction:column;gap:0;padding:0 8px 18px 0;color:var(--mute)}
+.cap .name{font:italic 400 var(--t-name)/1.25 var(--serif);letter-spacing:0;color:var(--ink);min-width:0}
+.cap .price{white-space:nowrap}
+.pc:hover .name,.pc:focus-visible .name{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:var(--gold)}
+@media (hover:hover) and (pointer:fine){
+  /* desktop: name and price arrive centred in the white under the piece (.3 s) */
+  .cap{position:absolute;left:0;right:0;bottom:0;align-items:center;text-align:center;padding:0 12px 16px;opacity:0;transition:opacity .3s ease}
+  .cap .name{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pc:hover .cap,.pc:focus-visible .cap{opacity:1}
+}
+
+/* home features: words on modules 1-2 from the top, one image on modules 3-4 in its own proportion -------------- */
+.feat{margin-top:var(--gap);align-items:start}
+.f-txt{grid-column:1/3;padding-right:calc(2*var(--g));max-width:640px}
+.f-txt h2{font-size:var(--t-h2)}
+.f-txt h2+*{margin-top:18px}
+.f-txt p+p,.f-txt .q+p,.f-txt p+.q{margin-top:22px}
+.f-txt .facts{margin-top:28px}
+.f-txt .btn{margin-top:32px}
+.f-img{grid-column:3/5;overflow:hidden}
+.f-img img{width:100%;height:100%;object-fit:cover}
+.feat+.crow,.crow+.feat{margin-top:var(--gap)}
+
+.q p{font-size:var(--t-quote);line-height:1.3;color:var(--ink);max-width:19em}
+.q p:first-child{text-indent:-.4em}
+.q .by{margin-top:14px;color:var(--mute);max-width:none}
+.q.sm p:first-child{font-size:20px;line-height:1.45;text-indent:-.36em;max-width:30em}
+.facts{display:grid;grid-template-columns:minmax(6.5em,max-content) minmax(0,1fr);column-gap:24px;row-gap:8px;color:var(--ink)}
+.facts dt{color:var(--mute);padding-top:.15em}
+.facts dd{font-size:17px;line-height:1.45}
+.facts a{text-decoration-color:var(--gold)}
+
+/* inner pages: H1 on module 1, the lead on the text column (modules 2-3, the one column all running text uses) --- */
+.phead{padding-top:56px;padding-bottom:48px;align-items:first baseline}
+.phead h1{grid-column:1;font-size:var(--t-h1);line-height:1.1;padding-right:var(--g)}
+.phead .lead{grid-column:2/4;font-size:var(--t-lead);line-height:1.5;color:var(--text);max-width:34em;padding-right:var(--g)}
+
+/* story sections, one construction on every page: H2 on module 1, the words on the text column, one image either
+   on module 4 beside them or across the column under them ---------------------------------------------------- */
+.st{margin-top:var(--gap);align-items:start}
+.phead+.st{margin-top:24px}
+.st>h2{grid-column:1;font-size:var(--t-h2);padding-right:var(--g);align-self:first baseline}
+.st-body{grid-column:2/4;padding-right:var(--g);align-self:first baseline;min-width:0}
+.st-body>p,.st-body>ol,.st-body>.facts,.st-body>h3{max-width:34em}
+.st-body>*+*{margin-top:16px}
+.st-body>.q,.st-body>.acts-l,.st-body>figure,.st-body>.book{margin-top:32px}
+.st-body h3{font-size:21px;margin-top:32px}
+.st-body h3+p{margin-top:8px}
+.st-side{grid-column:4;padding-top:6px}
+.st-side img,.st-wide img{width:100%;height:auto}
+.st-wide{margin-top:32px}
+figcaption{margin-top:10px;color:var(--mute)}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2em 1fr;padding:3px 0}
+.steps li::before{content:counter(s);font-family:var(--sans);font-size:var(--t-meta);color:var(--mute);padding-top:.2em}
+.list404 li a{display:inline-flex;align-items:center;min-height:44px;font-size:21px;color:var(--ink);text-decoration:none}
+.list404 li a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+.list404{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--g);max-width:none!important}
+
+/* listing: one filter band between two hairlines, every part on the band's first line, then the pieces 4 across -- */
+.fbar{align-items:start;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink)}
+.state{grid-column:1;display:flex;flex-wrap:wrap;align-items:center;gap:0 18px;min-height:56px;padding-block:6px;padding-right:var(--g)}
+.count{color:var(--mute)}
+.reset,.ftoggle{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.26em;text-decoration-color:var(--gold)}
+.ftray{grid-column:2/4;display:flex;flex-wrap:wrap;gap:0 36px;padding-block:6px;padding-right:var(--g)}
+.tg{display:flex;align-items:center;gap:14px}
+.tl{color:var(--mute)}
+.tb{display:flex;flex-wrap:wrap;gap:0 14px}
+.tb button{min-height:44px;min-width:44px;padding-inline:2px;text-align:left;color:var(--ink);text-underline-offset:.32em}
+.tb button:hover{text-decoration:underline;text-decoration-color:var(--line)}
+.tb button[aria-pressed=true]{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.treset{display:none!important}
+.sort{grid-column:4;justify-self:end;display:flex;align-items:center;gap:10px;padding-block:6px}
+.sort select{-webkit-appearance:none;appearance:none;height:44px;border:0;border-radius:0;padding:0 18px 0 2px;font-size:var(--t-meta);color:var(--ink);cursor:pointer;
+  background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='5'%3E%3Cpath d='M.5.5l4 4 4-4' fill='none' stroke='%23151311'/%3E%3C/svg%3E") no-repeat right 3px center}
+.ftoggle{display:none}
+.grid-f{padding-top:16px;transition:opacity .25s ease}
+.grid-f.fading{opacity:0;transition-duration:.15s}
+.empty{padding:32px 0;color:var(--ink)}
+
+/* forms: they send nothing (the fieldset stays disabled without JS) ------------------------------------------ */
+.book fieldset{display:grid;gap:18px;border:0;margin:0;padding:0;min-width:0;max-width:600px}
+.book label{display:grid;gap:2px;color:var(--mute)}
+.book input,.book select,.book textarea{-webkit-appearance:none;appearance:none;height:46px;margin:0;border:0;border-bottom:1px solid var(--line);border-radius:0;
+  background:transparent;padding:0;font:400 17px/1.4 var(--serif);color:var(--ink);width:100%;box-shadow:none;letter-spacing:0}
+.book textarea{height:auto;min-height:104px;padding:10px 0;resize:vertical;line-height:1.5}
+.book select{padding-right:18px;cursor:pointer;
+  background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='5'%3E%3Cpath d='M.5.5l4 4 4-4' fill='none' stroke='%23151311'/%3E%3C/svg%3E") no-repeat right 3px center}
+.book input::-webkit-date-and-time-value{text-align:left;margin:0}
+.book input::-webkit-datetime-edit{padding:0}
+.book input:focus,.book select:focus,.book textarea:focus{outline:none;box-shadow:inset 0 -2px 0 var(--ink)}
+.book .btn{justify-self:start;margin-top:8px}
+.book .hint{font-family:var(--serif);font-size:15px;line-height:1.45;color:var(--text);letter-spacing:0}
+.sent{color:var(--ink)}
+.book-wide fieldset{grid-template-columns:1fr 1fr;column-gap:32px;max-width:none}
+.book-wide .span{grid-column:1/-1}
+
+/* detail: one square on white over modules 1-2 (to the left edge from 1200 px), the words on modules 3-4 -------- */
+.pd-in{align-items:start}
+.media{grid-column:1/3;position:sticky;top:0}
+.stage{position:relative;aspect-ratio:1;background:var(--paper);overflow:hidden}
+.zoom{display:block;width:100%;height:100%;cursor:zoom-in}
+.zoom:focus-visible{outline-offset:-4px}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.stage img.g-worn{object-fit:cover}
+.js .stage img{opacity:0;transition:opacity .5s ease}
+.js .stage img.ld{opacity:1}
+.views{display:flex;gap:10px;padding:4px 0 8px}
+.vw{width:64px;height:68px;padding:0 0 4px;border-bottom:2px solid transparent;overflow:hidden;background:var(--paper)}
+.vw img{width:64px;height:64px;object-fit:cover}
+.vw[aria-pressed=true]{border-bottom-color:var(--gold)}
+.info{grid-column:3/5;padding:64px var(--g) 0 0;max-width:620px}
+.pd-name{font:italic 400 clamp(34px,3vw,44px)/1.1 var(--serif);letter-spacing:-.005em}
+.pd-desc{margin-top:16px;max-width:30em}
+.pd-price{margin-top:32px;margin-bottom:8px;font-family:var(--sans);font-size:var(--t-price);line-height:1.2;letter-spacing:-.01em;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
+.metals{display:flex;flex-wrap:wrap;align-items:center;gap:0 18px;margin-top:16px}
+.metals .tl{margin-right:4px}
+.mt{min-height:44px;min-width:44px;color:var(--ink);text-underline-offset:.32em}
+.mt:hover{text-decoration:underline;text-decoration-color:var(--line)}
+.mt[aria-pressed=true]{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 24px;margin-top:28px}
+.spec dt{color:var(--mute)}
+.spec dd{margin-top:2px;font-size:17px;line-height:1.4;color:var(--ink)}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px;margin-top:40px}
+.book-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.book-wrap.open{grid-template-rows:1fr}
+.book-in{overflow:hidden;min-height:0}
+.book-wrap .book{padding-top:24px;padding-bottom:4px}
+.incl{margin-top:32px;color:var(--mute)}
+.incl a{display:inline-flex;align-items:center;min-height:44px;color:var(--mute);text-decoration:none}
+.incl a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold)}
+.zoomd{width:100vw;height:100svh;max-width:none;max-height:none;margin:0;border:0;padding:0;background:var(--paper)}
+.zoomd[open]{display:flex;align-items:center;justify-content:center}
+.zoomd img{width:auto;height:auto;max-width:calc(100vw - 32px);max-height:calc(100svh - 96px);cursor:zoom-out}
+.zoomd form{position:absolute;top:12px;right:var(--m)}
+.zx{min-height:44px;min-width:44px;font-family:var(--sans);font-size:var(--t-meta);color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:.26em}
+.pd+.crow,.pd-in+.crow{margin-top:var(--gap)}
+@media (min-width:1200px){
+  /* the square runs to the left edge of the window, like a print bleed */
+  .media{margin-left:calc(-1*var(--m) - max(0px,(100vw - 1600px)/2))}
+  .views{padding-left:calc(var(--m) + max(0px,(100vw - 1600px)/2))}
+}
+
+/* footer: the shop's fascia, once, at the end of every page; the same four modules ------------------------------ */
+.foot{margin-top:var(--gap);background:var(--fascia);color:var(--silver)}
+.f-in{padding-top:48px;padding-bottom:56px}
+.f-in>*{padding-right:var(--g)}
+.foot .mk path[stroke="currentColor"]{stroke:var(--silver)}
+.foot .mk .stone{fill:#f4f2ee}
+.f-mark{display:flex;align-items:center;min-height:44px;width:180px;margin-bottom:16px;color:var(--silver)}
+.foot p{color:var(--dim)}
+.foot p+p{margin-top:12px}
+.foot a{color:var(--silver);text-decoration:none}
+.foot a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+.foot li a,.foot .fl a{display:inline-flex;align-items:center;min-height:44px}
+.foot .ext{min-height:44px;margin-top:6px;text-decoration:underline;text-decoration-color:var(--gold)}
+.foot :focus-visible{outline-color:var(--silver)}
+
+/* tablet: the same four modules, the words get modules 2-4 where two are too narrow ------------------------------ */
+@media (min-width:760px) and (max-width:1023px){
+  :root{--t-name:17px;--g:16px}
+  .phead .lead,.st-body{grid-column:2/5}
+  .st-side{grid-column:2/4;grid-row:2;padding-top:28px}
+  .f-txt{grid-column:1/-1}
+  .f-img{grid-column:1/-1;margin-top:28px}
+}
+
+/* phone: the same lattice at two modules ------------------------------------------------------------------- */
+@media (max-width:759px){
+  :root{--g:12px;--gap:64px;--row:48px;--t-meta:14px;--t-nav:15px;--t-body:16px;--t-lead:17px;--t-h2:22px;--t-name:17px;--t-price:24px}
+  .top-in{grid-template-columns:auto 1fr;height:56px}
+  .logo{width:150px}
+  .tools{grid-column:2}
+  .tel{display:none}
+  .menu{top:56px;left:0;right:0;height:calc(100svh - 56px);overflow:auto;padding-inline:var(--m)}
+  .menu-in{grid-template-columns:1fr}
+  .menu-in .mc:first-child{order:3}
+  .menu-in .mc:last-child{order:4}
+  .mc{padding-block:16px 8px}
+  .mc li a{font-size:20px}
+
+  .hero{padding-top:24px}
+  .hero,.crow,.feat,.st,.phead,.pd-in,.f-in,.grid-f{grid-template-columns:1fr 1fr}
+  .h-txt,.h-wall,.f-txt,.f-img{grid-column:1/-1;padding-right:0}
+  .h-lede{margin-top:22px;font-size:18px}
+  .h-sub{margin-top:12px}
+  .h-wall{margin-top:28px}
+  .hero+.crow{margin-top:40px}
+
+  .crow{grid-template-rows:none}
+  .c-txt{grid-column:1/-1;padding:0 0 10px}
+  .c-txt p{font-size:15px;line-height:1.5}
+  .crow>.item,.crow>.ph{display:block;grid-row:auto}
+  .crow.n3>.item:first-of-type{grid-column:1/-1}
+  .crow.n3>.item:first-of-type .pf{aspect-ratio:2/1.15}
+  .c-all{grid-column:1/-1;grid-row:auto;margin-top:0}
+  .pf{--t:.6;aspect-ratio:5/4}
+  .grid-f .pf{--t:.58}
+  .crow.n3>.item:first-of-type .pf{--t:.34}
+
+  .f-img{margin-top:24px}
+  .phead{padding-top:32px;padding-bottom:24px;row-gap:12px}
+  .phead h1,.phead .lead,.st>h2,.st-body,.st-side{grid-column:1/-1;padding-right:0}
+  .st>h2{margin-bottom:12px}
+  .st-side{padding-top:24px}
+  .list404{grid-template-columns:1fr}
+
+  .fbar{grid-template-columns:1fr auto;align-items:center}
+  .state{grid-column:1;min-height:52px;gap:0 16px;padding-block:0}
+  .ftoggle{display:inline-flex}
+  .state .reset{display:none!important}
+  .sort{grid-column:2;grid-row:1;padding-block:0}
+  .sort .tl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ftray{grid-column:1/-1;display:none;flex-direction:column;gap:4px;padding-block:4px 10px;border-top:1px solid var(--line)}
+  .ftray.open{display:flex;animation:sheet .3s ease}
+  .tg{flex-wrap:wrap;gap:0 14px}
+  .tg .tl{width:100%;padding-top:8px}
+  .ftray .treset:not([hidden]){display:inline-flex!important}
+
+  .book-wide fieldset{grid-template-columns:1fr}
+
+  .media{grid-column:1/-1;position:static;margin-inline:calc(-1*var(--m))}
+  .views{padding-left:var(--m)}
+  .info{grid-column:1/-1;padding:20px 0 0}
+  .spec{grid-template-columns:1fr 1fr}
+  .acts .btn{width:100%}
+
+  .f-in{row-gap:28px;padding-top:36px;padding-bottom:40px}
+  .f-brand,.f-contact{grid-column:1/-1}
+  .foot li a,.foot .fl a{min-height:44px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
