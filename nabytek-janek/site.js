@@ -24,7 +24,9 @@
     return { y: +p.year, mo: +p.month, d: +p.day, wd: wd, min: (+p.hour) * 60 + (+p.minute) };
   }
   function pracovni(y, mo, d, wd) { return wd >= 1 && wd <= 5 && !svatek(y, mo, d); }
-  // returns {open:bool, key:'open'|'later'|'closed'|'holiday', next: days ahead, nextWd}
+  // returns {open:bool, key:'open'|'later'|'closed'|'holiday', next: days ahead, nextWd, nextHoliday}
+  // r3: holiday hours are unconfirmed (owner question), so the look-ahead never skips a holiday:
+  // it names the next weekday and says when that day is a holiday (hours may differ).
   function provoz(now) {
     var t = praha(now);
     if (svatek(t.y, t.mo, t.d) && t.wd >= 1 && t.wd <= 5) return { open: false, key: 'holiday' };
@@ -32,21 +34,26 @@
       if (t.min >= 480 && t.min < 1020) return { open: true, key: 'open' };
       if (t.min < 480) return { open: false, key: 'later' };
     }
-    for (var i = 1; i < 15; i++) {
+    for (var i = 1; i < 4; i++) {
       var dt = new Date(Date.UTC(t.y, t.mo - 1, t.d + i)), wd = dt.getUTCDay();
-      if (pracovni(dt.getUTCFullYear(), dt.getUTCMonth() + 1, dt.getUTCDate(), wd)) return { open: false, key: 'closed', next: i, nextWd: wd };
+      if (wd >= 1 && wd <= 5) return { open: false, key: 'closed', next: i, nextWd: wd, nextHoliday: svatek(dt.getUTCFullYear(), dt.getUTCMonth() + 1, dt.getUTCDate()) };
     }
-    return { open: false, key: 'closed', next: 1, nextWd: 1 };
   }
   if (typeof module !== 'undefined') { module.exports = { provoz: provoz, svatek: svatek }; return; }
 
   var doc = document, html = doc.documentElement, en = html.lang === 'en';
   var S = en ? {
     open: 'Workshop open today until 17:00', later: 'Workshop opens today at 8:00', holiday: 'Public holiday today, hours may differ',
-    closed: function (s) { return 'Workshop closed, opens ' + (s.next === 1 ? 'tomorrow' : 'on ' + ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][s.nextWd]) + ' at 8:00'; }
+    closed: function (s) {
+      var d = s.next === 1 ? 'tomorrow' : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][s.nextWd];
+      return s.nextHoliday ? 'Workshop closed; ' + d + ' is a public holiday, hours may differ' : 'Workshop closed, opens ' + (s.next === 1 ? d : 'on ' + d) + ' at 8:00';
+    }
   } : {
     open: 'Dílna je otevřená, dnes do 17.00', later: 'Dílna dnes otevírá v 8.00', holiday: 'Dnes je svátek, otevírací doba může být jiná',
-    closed: function (s) { return 'Dílna je zavřená, otevírá ' + (s.next === 1 ? 'zítra' : ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'][s.nextWd]) + ' v 8.00'; }
+    closed: function (s) {
+      var d = s.next === 1 ? 'zítra' : ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'][s.nextWd];
+      return s.nextHoliday ? 'Dílna je zavřená, ' + d + ' je svátek a otevírací doba může být jiná' : 'Dílna je zavřená, otevírá ' + d + ' v 8.00';
+    }
   };
   function ukazStav() {
     var s = provoz(new Date()), txt = s.key === 'closed' ? S.closed(s) : S[s.key];
@@ -64,6 +71,12 @@
     if (t) { if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1'); t.scrollIntoView({ block: 'start' }); t.focus({ preventScroll: true }); }
   }
   window.addEventListener('hashchange', zamer);
+
+  // ---- r5: the language link keeps the anchor (both languages share every id)
+  function jazykKotva() {
+    doc.querySelectorAll('a[hreflang]').forEach(function (a) { a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash); });
+  }
+  jazykKotva(); window.addEventListener('hashchange', jazykKotva);
 
   // ---- menu sheet: pushes one history entry, back closes it, a link closes it first then navigates
   var dlg = doc.getElementById('nabidka'), opener = doc.querySelector('.branka'), pushed = false, potom = null;

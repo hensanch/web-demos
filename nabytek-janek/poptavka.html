@@ -28,7 +28,7 @@
 <div class="obal pop-mriz">
 <div class="pop-hlavni">
 <h1>Pošlete rozměry</h1><p class="uvodni">Napište, co potřebujete vyrobit, a přidejte rozměry nebo fotku místnosti. Ozvu se Vám.</p>
-<form class="formular" id="formular">
+<form class="formular" id="formular" method="post" action="#" onsubmit="return false">
   <fieldset><legend>Co potřebujete <span class="pov">(povinné)</span></legend><div class="volby"><label class="volba"><input type="radio" name="co" value="Kuchyň" required><span>Kuchyň</span></label><label class="volba"><input type="radio" name="co" value="Vestavěná skříň"><span>Vestavěná skříň</span></label><label class="volba"><input type="radio" name="co" value="Předsíň"><span>Předsíň</span></label><label class="volba"><input type="radio" name="co" value="Obývací pokoj"><span>Obývací pokoj</span></label><label class="volba"><input type="radio" name="co" value="Dětský pokoj"><span>Dětský pokoj</span></label><label class="volba"><input type="radio" name="co" value="Něco jiného"><span>Něco jiného</span></label></div></fieldset>
   <div class="pole"><label for="f-kde">Kde to bude (obec) <span class="pov">(nepovinné)</span></label><input id="f-kde" name="kde" type="text" autocomplete="address-level2" placeholder="např. Jablonec nad Nisou"></div>
   <div class="pole"><label for="f-rozmery">Rozměry <span class="pov">(nepovinné)</span></label><p class="napoveda" id="n-rozmery">Délka stěn, výška stropu, kde jsou okna a dveře. Stačí přibližně.</p><textarea id="f-rozmery" name="rozmery" rows="4" aria-describedby="n-rozmery"></textarea></div>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <title>Buchung – Penzion U&nbsp;muzea, Liberec</title>
 <meta name="description" content="Anfrage für Übernachtung oder Wellness: +420 721 640 462, Vítězná 713/24, Liberec.">
 <link rel="alternate" hreflang="cs" href="../rezervace.html"><link rel="alternate" hreflang="en" href="../en/rezervace.html"><link rel="alternate" hreflang="de" href="rezervace.html">
@@ -18,7 +19,7 @@
     <a class="znacka" href="./">Penzion U&nbsp;muzea</a>
     <nav class="hlavni" aria-label="Hauptmenü"><a href="pokoje.html">Zimmer</a><a href="apartmany.html">Apartments</a><a href="wellness.html">Wellness</a><a href="rezervace.html" aria-current="page">Buchung und Kontakt</a></nav>
     <nav class="jazyky" aria-label="Sprache"><a href="../rezervace.html" hreflang="cs" lang="cs">CS</a><a href="../en/rezervace.html" hreflang="en" lang="en">EN</a><a href="rezervace.html" hreflang="de" lang="de" aria-current="true">DE</a></nav>
-    <span class="tlacitko hlava-rez rez-slot" aria-hidden="true">Buchen</span>
+    <a class="tlacitko hlava-rez" href="#formular">Buchen</a>
     <button class="menu-tl" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
   </div>
 </header>
@@ -35,7 +36,7 @@
 <section class="den stranka-uvod rez-uvod">
   <div class="sirka">
     <h1>Buchung und Kontakt</h1>
-    <p class="uvodni">Schreiben Sie uns, wann Sie kommen und wie viele Sie sind, wir antworten mit dem Preis. Lieber telefonieren? <a class="tel-text" href="tel:+420721640462">+420&nbsp;721&nbsp;640&nbsp;462</a></p>
+    <p class="uvodni">Schicken Sie uns Termin und Personenzahl, wir bestätigen ihn Ihnen. Lieber telefonieren? <a class="tel-text" href="tel:+420721640462">+420&nbsp;721&nbsp;640&nbsp;462</a></p>
   </div>
 </section>
 <section class="den formular-sekce">
@@ -46,14 +47,18 @@
         <label><input type="radio" name="co" value="pobyt" checked> Übernachtung</label>
         <label><input type="radio" name="co" value="wellness"> Privates Wellness</label>
       </fieldset>
+      <div class="previo" data-pobyt>
+        <p class="previo-co">Hier kommt Ihr Buchungssystem Previo hin: freie Termine und sofortige Bestätigung.</p>
+        <p>Demo. Zimmer und Apartments buchen Sie hier über Previo wie heute. Für Wellness wählen Sie oben Privates Wellness und nutzen das Formular.</p>
+      </div>
+      <div data-wellness hidden>
       <div class="pole-dve">
-        <label class="pole"><span>Anreise</span><input type="date" name="od" required></label>
-        <label class="pole" data-pobyt><span>Abreise</span><input type="date" name="do"></label>
-        <label class="pole" data-wellness hidden><span>Dauer</span><select name="delka"><option>90 Minuten</option><option>120 Minuten</option><option>Ganze Nacht</option></select></label>
+        <label class="pole"><span>Datum</span><input type="date" name="od" required></label>
+        <label class="pole"><span>Dauer</span><select name="delka"><option>90 Minuten</option><option>120 Minuten</option><option>Ganze Nacht</option></select></label>
       </div>
       <div class="pole-dve">
-        <label class="pole"><span>Personen</span><select name="osoby"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
-        <label class="pole"><span>Zimmer, Apartment, Wellness</span><select name="pokoj"><option value="">Egal</option><option value="standard">Standardzimmer</option><option value="romanticky">Romantisches Zimmer</option><option value="wellness-pokoj">Wellnesszimmer</option><option value="zahradni">Gartenapartment</option><option value="samuel">Samuel</option><option value="amadeus">Amadeus</option><option value="mozart">Mozart</option><option value="deluxe">Wellness De luxe</option><option value="krb">Wellness mit Kamin</option><option value="suteren">Wellness im Souterrain</option></select></label>
+        <label class="pole"><span>Personen</span><select name="osoby"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+        <label class="pole"><span>Wellness</span><select name="pokoj"><option value="">Egal</option><option value="deluxe">Wellness De luxe</option><option value="krb">Wellness mit Kamin</option><option value="suteren">Wellness im Souterrain</option></select></label>
       </div>
       <label class="pole"><span>Name</span><input type="text" name="jmeno" autocomplete="name" required></label>
       <div class="pole-dve">
@@ -65,6 +70,7 @@
       <button class="tlacitko velke" type="submit">Anfrage senden</button>
       <p class="ukazka">Demo – es wird nichts gesendet.</p>
       <p class="hotovo" id="hotovo" role="status" tabindex="-1" hidden>Demo – es wurde nichts gesendet.</p>
+      </div>
     </form>
     <aside class="kontakt">
       <h2>Wo wir sind</h2>
@@ -86,7 +92,7 @@
 <section class="den" id="podminky" tabindex="-1">
   <div class="sirka">
     <h2>Aufenthaltsbedingungen</h2>
-    <ul class="podminky"><li>Anreise ab 13:00, Abreise bis 10:00. Am Anreisetag können Sie ab 8:00 parken und Ihr Gepäck bei uns lassen, am Abreisetag bis 19:00.</li><li>Kinder von 3 bis 11 Jahren erhalten 40&nbsp;% Rabatt, Kinder unter 3 ohne eigenes Bett sind frei. Ein Kinderbett leihen wir Ihnen.</li><li>Frühstück 180&nbsp;CZK, Kinder 90&nbsp;CZK.</li><li>Hund bis 10&nbsp;kg oder Katze 200&nbsp;CZK pro Nacht, Hund über 10&nbsp;kg 400&nbsp;CZK. Näpfe leihen wir.</li><li>Bei Storno oder Änderung weniger als 24 Stunden vor Anreise (bis 13:00) berechnen wir die erste Nacht.</li><li>Die städtische Kurtaxe für Erwachsene kommt hinzu. Im ganzen Haus wird nicht geraucht.</li><li>Inklusive WLAN, Parkplatz auf dem Gelände mit Kamera, Kaffee und Tee. Für längere Aufenthalte und mehrere Zimmer machen wir Ihnen einen eigenen Preis.</li></ul>
+    <ul class="podminky"><li>Anreise ab 13:00, Abreise bis 10:00. Am Anreisetag können Sie ab 8:00 parken und Ihr Gepäck bei uns lassen, am Abreisetag bis 19:00.</li><li>Kinder von 3 bis 11 Jahren erhalten 40&nbsp;% Rabatt, Kinder unter 3 ohne eigenes Bett sind frei. Ein Kinderbett leihen wir Ihnen.</li><li>Frühstück 180&nbsp;CZK, Kinder 90&nbsp;CZK.</li><li>Hund bis 10&nbsp;kg oder Katze 200&nbsp;CZK pro Nacht, Hund über 10&nbsp;kg 400&nbsp;CZK. Näpfe leihen wir.</li><li>Bei Storno oder Änderung weniger als 24 Stunden vor Anreise (bis 13:00) berechnen wir die erste Nacht.</li><li>Die städtische Kurtaxe für Erwachsene kommt hinzu. In den Zimmern und im Wellness wird nicht geraucht.</li><li>Inklusive WLAN, Parkplatz auf dem Gelände mit Kamera, Kaffee und Tee. Für längere Aufenthalte und mehrere Zimmer machen wir Ihnen einen eigenen Preis.</li></ul>
   </div>
 </section>
 </main>

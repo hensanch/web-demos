@@ -49,7 +49,9 @@ html.dotyk :focus-visible{outline:0}
 .menu-tl{font:600 16px var(--sans);min-height:44px;padding:0 14px;border:1px solid var(--tram);background:transparent;color:var(--tram);border-radius:2px;cursor:pointer}
 .noc-stranka .menu-tl{border-color:var(--zar);color:var(--zar)}
 .hlava .hlava-rez{display:none}
-@media (max-width:959px){.domu .hlava .znacka{visibility:hidden}}
+/* home on phones: the h1 is the name, so the header wordmark appears only once the h1 has scrolled away (web.js) */
+@media (max-width:959px){.domu:not(.znacka-vidim) .hlava .znacka{visibility:hidden}}
+@media (max-width:339px){.sirka{padding:0 14px}.hlava-radek{gap:2px}.menu-tl{padding:0 10px}}
 
 /* buttons */
 .tlacitko{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;background:var(--napis);color:#FFF6E6;font:600 17px/1 var(--sans);text-decoration:none;border:0;border-radius:2px;cursor:pointer}
@@ -76,6 +78,7 @@ html.dotyk :focus-visible{outline:0}
 .par figcaption{font-size:15px;line-height:1.3;margin-top:6px}
 .par b{white-space:nowrap}
 .uvod-akce{margin-top:12px}
+.akce-ceny{display:none}
 .hodnoceni{display:inline-block;padding-block:12px;margin-block:-4px -12px;font-size:16px;text-underline-offset:4px}
 @media (min-width:960px){
   .uvod{padding:36px 0 56px}
@@ -87,17 +90,26 @@ html.dotyk :focus-visible{outline:0}
   .par figcaption{font-size:17px}
   .co{margin-bottom:0;font-size:20px;max-width:none}
 }
+/* 1200+: the right column is the booking block, the height of the photo pair: both prices, the button, the number, the rating */
 @media (min-width:1200px){
-  .uvod-mrizka{grid-template-areas:"text text" "par akce"}
-  .uvod-akce{margin:0 0 40px}
-  .uvod-akce .akce-radek{flex-direction:column;align-items:flex-start;gap:14px}
-  .uvod-akce .hodnoceni{margin-top:14px}
+  .uvod-mrizka{grid-template-areas:"text text" "par akce";column-gap:24px}
+  .par figcaption{display:none}
+  .uvod-akce{align-self:stretch;margin:24px 0 0;padding:18px 18px 16px;background:var(--pata);border-radius:2px;display:flex;flex-direction:column}
+  .akce-ceny{display:block;list-style:none;margin:0;padding:0;font-size:16px;line-height:1.3}
+  .akce-ceny li+li{margin-top:14px}
+  .akce-ceny b{display:block;font:400 23px/1.2 var(--slab);color:var(--tram);white-space:nowrap}
+  .uvod-akce .akce-radek{flex-direction:column;align-items:stretch;gap:12px;margin-top:auto}
+  .uvod-akce .tlacitko{padding:0 12px}
+  .uvod-akce .tel-text{align-self:flex-start}
+  .uvod-akce .hodnoceni{margin-top:6px;font-size:15px;line-height:1.35}
 }
 
 /* day sections */
 .den{padding:48px 0}
 .vila .dve{display:grid;gap:40px;margin-top:28px}
-@media (min-width:960px){.vila .dve{grid-template-columns:1fr 1fr;gap:48px}.den{padding:72px 0}}
+@media (min-width:960px){.vila .dve{grid-template-columns:1fr 1fr;gap:48px}.den{padding:72px 0}
+  /* the section review sits right of the intro, so neither column ends in a lone quote */
+  .vila-hlava{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;grid-template-rows:auto 1fr}.vila-hlava>.hlas{grid-column:2;grid-row:1/3;align-self:end;margin:0 0 14px}}
 .vila article img{width:100%}
 .cenik{width:100%;border-collapse:collapse;margin:8px 0 12px;font-variant-numeric:tabular-nums}
 .cenik caption{text-align:left;font-size:15px;padding-bottom:6px;color:var(--tram)}
@@ -132,6 +144,13 @@ html.dotyk :focus-visible{outline:0}
 .d-hodiny span:first-child{transform:none}.d-hodiny span:last-child{transform:translateX(-100%)}
 .delka figcaption{font-size:15px;margin-top:14px;color:#e6d3ad}
 
+/* desktop: intro and the review on the left, the duration bars on the right, the three suites under both */
+@media (min-width:960px){
+  .wellness-mrizka{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;grid-template-areas:"h d" "u d" "q d" "t t" "o o";grid-template-rows:auto auto 1fr auto auto}
+  .wellness-mrizka>h2{grid-area:h}.wellness-mrizka>.uvodni{grid-area:u}.wellness-mrizka>.hlas{grid-area:q;align-self:start}
+  .wellness-mrizka>.delka{grid-area:d;align-self:center;margin:0}
+  .wellness-mrizka>.tri{grid-area:t;margin-top:40px}.wellness-mrizka>.odkazy{grid-area:o}
+}
 .tri{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:22px}
 .tri li{display:grid;grid-template-columns:42% 1fr;column-gap:14px;align-items:start}
 .tri img{width:100%;aspect-ratio:1;object-fit:cover;grid-row:span 2}
@@ -143,7 +162,9 @@ html.dotyk :focus-visible{outline:0}
 .rano-mrizka figure{margin:20px 0 0}
 .rano-mrizka figcaption{font-size:16px;margin-top:8px}
 .rano-mrizka img{width:100%;aspect-ratio:3/2;object-fit:cover}
-@media (min-width:960px){.rano-mrizka{display:grid;grid-template-columns:1fr 1fr;column-gap:48px}.rano-mrizka h2{grid-column:1/-1}.rano-mrizka .hlas{grid-column:1/-1}}
+@media (min-width:960px){.rano-mrizka{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;align-items:start}.rano-mrizka h2{grid-column:1/-1}
+  /* the review goes under both photos so neither column ends in a hole */
+  .rano-sloupec{display:contents}.rano-snidane{grid-column:1;grid-row:2}.rano-zahrada{grid-column:2;grid-row:2}.rano-mrizka .hlas{grid-column:1/-1;grid-row:3}}
 
 /* the parquet of the house (s120, Mozart floor: planks #CB9C64 / #E4C289, seams #BB864F) laid as two courses of planks with staggered joints, the edge of the closing strip */
 .poptat{background:var(--pata);position:relative;padding-top:64px}
@@ -166,7 +187,7 @@ html.dotyk :focus-visible{outline:0}
 .noc .jednotka{border-top-color:#5a3a1c}
 .jednotka:first-child{border-top:0}
 .j-foto img{width:100%}
-.j-druha{margin-top:22px;max-width:460px}
+.j-druha{max-width:460px}
 .apt{display:block}
 .apt h2{margin-bottom:14px}
 .apt-fota{display:grid;gap:8px;margin-bottom:18px}
@@ -176,19 +197,34 @@ html.dotyk :focus-visible{outline:0}
 .j-druha img{width:100%}
 .j-text h2{font-size:clamp(28px,6vw,38px);margin-bottom:10px}
 @media (min-width:960px){
-  .jednotka{grid-template-columns:556px 1fr;gap:48px;align-items:start;padding:44px 0}
+  /* second photo (wellness) sits under the first at the same width, the text spans both rows */
+  .jednotka{grid-template-columns:556px 1fr;grid-template-rows:auto 1fr;grid-template-areas:"f t" "d t";gap:12px 48px;align-items:start;padding:44px 0}
+  .j-foto{grid-area:f}.j-text{grid-area:t}.j-druha{grid-area:d;max-width:none}
+  /* suterén: a short text, so the two photos sit side by side and the text runs under them */
+  .jednotka.vedle{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;grid-template-areas:"f d" "t t";gap:20px 12px}
+  .vedle .j-text p{max-width:62ch}
+  /* photo edges line up with the unit text column below (Pokoje) or the second apartment photo (Apartmány) */
+  .uvod-dva{display:grid;grid-template-columns:minmax(0,1fr) 536px;gap:48px;align-items:center}
+  .uvod-dva.apt-uvod{grid-template-columns:minmax(0,1fr) 564px;column-gap:12px}.apt-uvod>div{padding-right:36px}.uvod-dva.apt-uvod h1{font-size:44px}
+  .uvod-dva h1{font-size:48px;-webkit-hyphens:manual;hyphens:manual}
   .stranka-uvod{padding:56px 0 16px}
 }
+.uvod-foto{margin:0}
+@media (max-width:959px){.uvod-foto{display:none}}
+.uvod-foto img{width:100%}
+.nw{white-space:nowrap}
 .podminky{margin:8px 0 0;padding-left:20px;max-width:70ch}
 .podminky li{margin-bottom:10px}
 .darek{max-width:62ch;margin-top:20px}
 .siroky{max-width:760px}
 .noc-tab{margin-bottom:28px}
-.mozaika{margin:8px 0 0;display:grid;gap:6px;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,150px);grid-template-areas:"a b" "a c" "e d" "f d"}
+/* wellness price tables: the same three columns in every table so the eye can run down them */
+@media (min-width:600px){.noc-tab.siroky:not(.dva-sloupce){table-layout:fixed}.noc-tab.siroky thead td{width:34%}.noc-tab.siroky thead th{width:22%}}
+.mozaika{margin:8px 0 0;display:grid;gap:6px;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,150px);grid-template-areas:"a c" "a d" "f d"}
 .mozaika img{width:100%;height:100%;object-fit:cover}
-.m-a{grid-area:a}.m-b{grid-area:b}.m-c{grid-area:c}.m-d{grid-area:d}.m-e{grid-area:e}.m-f{grid-area:f}
+.m-a{grid-area:a}.m-c{grid-area:c}.m-d{grid-area:d}.m-f{grid-area:f}
 .mozaika figcaption{grid-column:1/-1;font-size:15px;margin-top:8px;color:#e6d3ad;max-width:70ch}
-@media (min-width:960px){.mozaika{gap:12px;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,240px);grid-template-areas:"a b c d" "a e f d"}}
+@media (min-width:960px){.mozaika{gap:12px;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,240px);grid-template-areas:"a c d" "a f d"}}
 .tri-sloupce{display:grid;gap:40px}
 @media (min-width:960px){.tri-sloupce{grid-template-columns:repeat(3,1fr);gap:48px}}
 .tri-sloupce h2{font-size:28px}
@@ -212,11 +248,18 @@ html.dotyk :focus-visible{outline:0}
 .pole input,.pole select,.pole textarea{width:100%;font:400 18px var(--sans);color:var(--inkoust);background:#FBF4E2;border:1px solid #9a7a5c;border-radius:2px;padding:0 12px;height:48px;-webkit-appearance:none;appearance:none}
 .pole textarea{height:auto;padding:10px 12px;resize:vertical}
 .pole select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%235B3420' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
-.pole input[type=date]{display:block;min-width:0}
+.pole input[type=date]{display:block;min-width:0;line-height:46px;text-align:left}
+.pole input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
+.pole input[type=date]::-webkit-datetime-edit{padding:0;color:var(--inkoust)}
 .pole-dve{display:grid;gap:0 14px}
 @media (min-width:600px){.pole-dve{grid-template-columns:1fr 1fr}}
 .souhlas,.ukazka{font-size:15px}
 .ukazka{margin-top:10px}
+/* where the Previo engine goes (stay mode); its real iframe is tall, so the slot is too on desktop */
+.previo{margin:4px 0 0;padding:22px 20px;border:2px dashed var(--tram);border-radius:2px;background:#FBF4E2}
+.previo p:last-child{margin:0;font-size:16px}
+.previo-co{font:400 22px/1.25 var(--slab);color:var(--tram)}
+@media (min-width:960px){.previo{min-height:600px;padding:32px}}
 .hotovo{margin-top:16px;padding:14px 16px;background:var(--pata);border-left:3px solid var(--tram);font-weight:600}
 .kontakt h2{font-size:30px}
 .kontakt h2+p{margin-top:0}
@@ -269,9 +312,10 @@ html.dotyk :focus-visible{outline:0}
   .noc-stranka .hlavni a{color:var(--omitka)}
   .hlavni a[aria-current]{text-decoration:underline;text-underline-offset:6px}
   .menu-tl,.lista{display:none}
-  .hlava .hlava-rez{display:inline-flex;margin-left:12px;transition:opacity .2s}
-  .hlava .hlava-rez.schovat,.hlava .rez-slot{opacity:0;visibility:hidden}
+  .hlava .hlava-rez{display:inline-flex;margin-left:12px}
   .znacka{font-size:22px;max-width:none;white-space:nowrap}
 }
 @media (max-width:420px){.noc-tab{font-size:16px}.noc-tab td{padding-left:8px}}
+@media (max-width:359px){.cenik.siroky{font-size:15px}.cenik.siroky td{padding-left:6px}.cenik.siroky thead th{font-size:13px}}
+@media (max-width:339px){.cenik.siroky{font-size:14px}.cenik.siroky td{padding-left:4px}}
 .apt-cenik td{white-space:normal}

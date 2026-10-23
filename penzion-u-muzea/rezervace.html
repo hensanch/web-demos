@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <title>Rezervace – Penzion U&nbsp;muzea, Liberec</title>
 <meta name="description" content="Poptávka ubytování a privátního wellness, telefon 721 640 462, Vítězná 713/24, Liberec.">
 <link rel="alternate" hreflang="cs" href="rezervace.html"><link rel="alternate" hreflang="en" href="en/rezervace.html"><link rel="alternate" hreflang="de" href="de/rezervace.html">
@@ -18,7 +19,7 @@
     <a class="znacka" href="./">Penzion U&nbsp;muzea</a>
     <nav class="hlavni" aria-label="Hlavní"><a href="pokoje.html">Pokoje</a><a href="apartmany.html">Apartmány</a><a href="wellness.html">Wellness</a><a href="rezervace.html" aria-current="page">Rezervace a&nbsp;kontakt</a></nav>
     <nav class="jazyky" aria-label="Jazyk"><a href="rezervace.html" hreflang="cs" lang="cs" aria-current="true">CS</a><a href="en/rezervace.html" hreflang="en" lang="en">EN</a><a href="de/rezervace.html" hreflang="de" lang="de">DE</a></nav>
-    <span class="tlacitko hlava-rez rez-slot" aria-hidden="true">Rezervovat</span>
+    <a class="tlacitko hlava-rez" href="#formular">Rezervovat</a>
     <button class="menu-tl" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
   </div>
 </header>
@@ -35,7 +36,7 @@
 <section class="den stranka-uvod rez-uvod">
   <div class="sirka">
     <h1>Rezervace a&nbsp;kontakt</h1>
-    <p class="uvodni">Napište, kdy přijedete a&nbsp;kolik vás bude, a&nbsp;pošleme vám cenu. Raději telefonem? <a class="tel-text" href="tel:+420721640462">721&nbsp;640&nbsp;462</a></p>
+    <p class="uvodni">Pošlete nám termín a&nbsp;počet osob, potvrdíme vám ho. Raději telefonem? <a class="tel-text" href="tel:+420721640462">721&nbsp;640&nbsp;462</a></p>
   </div>
 </section>
 <section class="den formular-sekce">
@@ -46,14 +47,18 @@
         <label><input type="radio" name="co" value="pobyt" checked> Ubytování</label>
         <label><input type="radio" name="co" value="wellness"> Privátní wellness</label>
       </fieldset>
+      <div class="previo" data-pobyt>
+        <p class="previo-co">Zde bude váš rezervační systém Previo: volné termíny a&nbsp;potvrzení hned.</p>
+        <p>Ukázka. Pokoje a&nbsp;apartmány se tu rezervují přes Previo jako dnes. Wellness poptáte formulářem: nahoře zvolte Privátní wellness.</p>
+      </div>
+      <div data-wellness hidden>
       <div class="pole-dve">
-        <label class="pole"><span>Příjezd</span><input type="date" name="od" required></label>
-        <label class="pole" data-pobyt><span>Odjezd</span><input type="date" name="do"></label>
-        <label class="pole" data-wellness hidden><span>Délka</span><select name="delka"><option>90&nbsp;minut</option><option>120&nbsp;minut</option><option>Celá noc</option></select></label>
+        <label class="pole"><span>Datum</span><input type="date" name="od" required></label>
+        <label class="pole"><span>Délka</span><select name="delka"><option>90&nbsp;minut</option><option>120&nbsp;minut</option><option>Celá noc</option></select></label>
       </div>
       <div class="pole-dve">
-        <label class="pole"><span>Počet osob</span><select name="osoby"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
-        <label class="pole"><span>Pokoj, apartmán, wellness</span><select name="pokoj"><option value="">Je mi to jedno</option><option value="standard">Standardní pokoj</option><option value="romanticky">Romantický pokoj</option><option value="wellness-pokoj">Wellness pokoj</option><option value="zahradni">Zahradní apartmán</option><option value="samuel">Samuel</option><option value="amadeus">Amadeus</option><option value="mozart">Mozart</option><option value="deluxe">Wellness de luxe</option><option value="krb">Wellness s&nbsp;krbem</option><option value="suteren">Wellness v&nbsp;suterénu</option></select></label>
+        <label class="pole"><span>Počet osob</span><select name="osoby"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+        <label class="pole"><span>Wellness</span><select name="pokoj"><option value="">Je mi to jedno</option><option value="deluxe">Wellness de luxe</option><option value="krb">Wellness s&nbsp;krbem</option><option value="suteren">Wellness v&nbsp;suterénu</option></select></label>
       </div>
       <label class="pole"><span>Jméno</span><input type="text" name="jmeno" autocomplete="name" required></label>
       <div class="pole-dve">
@@ -65,6 +70,7 @@
       <button class="tlacitko velke" type="submit">Odeslat poptávku</button>
       <p class="ukazka">Ukázka – nic se neodešle.</p>
       <p class="hotovo" id="hotovo" role="status" tabindex="-1" hidden>Ukázka – nic se neodeslalo.</p>
+      </div>
     </form>
     <aside class="kontakt">
       <h2>Kde jsme</h2>
@@ -86,7 +92,7 @@
 <section class="den" id="podminky" tabindex="-1">
   <div class="sirka">
     <h2>Podmínky ubytování</h2>
-    <ul class="podminky"><li>Příjezd od 13:00, odjezd do 10:00. V&nbsp;den příjezdu můžete parkovat a&nbsp;nechat u&nbsp;nás zavazadla už od 8:00, v&nbsp;den odjezdu do 19:00.</li><li>Děti od 3 do 11&nbsp;let mají slevu 40&nbsp;%, děti do 3&nbsp;let bez vlastního lůžka jsou zdarma. Dětskou postýlku půjčíme.</li><li>Snídaně 180&nbsp;Kč, pro děti 90&nbsp;Kč.</li><li>Psa do 10&nbsp;kg nebo kočku vezměte s&nbsp;sebou za 200&nbsp;Kč na noc, psa nad 10&nbsp;kg za 400&nbsp;Kč. Misky půjčíme.</li><li>Zrušení nebo změna méně než 24 hodin před příjezdem do 13:00: účtujeme cenu první noci.</li><li>K&nbsp;ceně se připočítává poplatek z&nbsp;pobytu za dospělé. V&nbsp;celém penzionu se nekouří.</li><li>V&nbsp;ceně je Wi&#8209;Fi, parkování v&nbsp;areálu s&nbsp;kamerou, káva a&nbsp;čaj. Na delší pobyt a&nbsp;víc pokojů nabídneme individuální cenu.</li></ul>
+    <ul class="podminky"><li>Příjezd od 13:00, odjezd do 10:00. V&nbsp;den příjezdu můžete parkovat a&nbsp;nechat u&nbsp;nás zavazadla už od 8:00, v&nbsp;den odjezdu do 19:00.</li><li>Děti od 3 do 11&nbsp;let mají slevu 40&nbsp;%, děti do 3&nbsp;let bez vlastního lůžka jsou zdarma. Dětskou postýlku půjčíme.</li><li>Snídaně 180&nbsp;Kč, pro děti 90&nbsp;Kč.</li><li>Psa do 10&nbsp;kg nebo kočku vezměte s&nbsp;sebou za 200&nbsp;Kč na noc, psa nad 10&nbsp;kg za 400&nbsp;Kč. Misky půjčíme.</li><li>Zrušení nebo změna méně než 24 hodin před příjezdem do 13:00: účtujeme cenu první noci.</li><li>K&nbsp;ceně se připočítává poplatek z&nbsp;pobytu za dospělé. Na pokojích ani ve wellness se nekouří.</li><li>V&nbsp;ceně je <span class="nw">Wi-Fi</span>, parkování v&nbsp;areálu s&nbsp;kamerou, káva a&nbsp;čaj. Na delší pobyt a&nbsp;víc pokojů nabídneme individuální cenu.</li></ul>
   </div>
 </section>
 </main>

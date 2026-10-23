@@ -47,8 +47,11 @@ h1.napis{font-size:clamp(28px,8.4vw,92px);margin:4px 0 16px}
 .jazyk{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;font-weight:600;font-size:15px;color:var(--pismo);text-decoration:none}
 /* the wicket door in the gate is the menu */
 .branka{font:600 15px/1 "Libre Franklin",Arial,sans-serif;color:var(--svetlo);background:transparent;cursor:pointer;
-  border:2px solid var(--hlinik);border-radius:1px;min-width:62px;height:48px;padding:0 22px 0 12px;position:relative}
-.branka::after{content:"";position:absolute;right:7px;top:50%;width:3px;height:9px;margin-top:-4px;background:var(--hlinik)}
+  border:2px solid var(--hlinik);border-radius:1px;min-width:62px;height:48px;padding:0 38px 0 12px;position:relative}
+/* r6: a lever handle (round rose, lever pointing left), set 12 px clear of the word */
+.branka::before,.branka::after{content:"";position:absolute;top:50%;background:var(--hlinik)}
+.branka::before{right:9px;width:8px;height:8px;margin-top:-4px;border-radius:50%}
+.branka::after{right:13px;width:13px;height:3px;margin-top:-1.5px;border-radius:1.5px}
 
 .ram{border:3px solid var(--hlinik);background:var(--vrata)}
 .ram img{width:100%;aspect-ratio:4/3;object-fit:cover}
@@ -56,6 +59,7 @@ h1.napis{font-size:clamp(28px,8.4vw,92px);margin:4px 0 16px}
 .hero-citat{display:none}
 .znamka a{display:inline-block;font-weight:600;color:var(--svetlo);padding-block:10px;margin-block:-10px}
 .co{margin-top:12px;color:#D5D7D9;font-size:17px;line-height:1.45}
+.nw{white-space:nowrap}
 .poslat{display:flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;margin-top:18px;
   background:var(--fasada);color:#fff;font:700 18px/1.1 "Libre Franklin",Arial,sans-serif;text-decoration:none;border:0;border-radius:2px;cursor:pointer}
 .vrata .poslat{width:100%}
@@ -68,7 +72,8 @@ h1.napis{font-size:clamp(28px,8.4vw,92px);margin:4px 0 16px}
 
 /* sections on the concrete */
 section{padding:56px 0 calc(8px)}
-section[id],article[id]{scroll-margin-top:calc(-1 * var(--sat))}
+section[id]{scroll-margin-top:calc(-1 * var(--sat))}
+article[id]{scroll-margin-top:16px}
 section[id]{padding-top:calc(56px + var(--sat))}
 .dal{margin-top:20px}
 .dal a{display:inline-block;font-weight:600;padding-block:12px;margin-block:-12px}
@@ -79,7 +84,6 @@ section[id]{padding-top:calc(56px + var(--sat))}
 .radek{display:grid;grid-template-columns:104px 1fr;gap:16px;align-items:center;padding:14px 0;text-decoration:none}
 .radek h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
 .radky li:last-child{border-bottom:1px solid rgba(138,100,70,.45)}
-.bez-fotky .radek{grid-template-columns:1fr;padding:18px 0}
 .radky img{width:104px;height:104px;object-fit:cover}
 .radky p{color:var(--sedy);font-size:16px;margin-top:2px}
 .ukazka{font-size:15px;font-weight:600;color:var(--vrata)}
@@ -87,7 +91,7 @@ section[id]{padding-top:calc(56px + var(--sat))}
 /* a project: photo + thumbs + description + sample chips */
 .projekt{display:grid;gap:16px}
 .uvodni p{margin-top:12px;max-width:60ch}
-.foto .hlavni{width:100%;background:#D6D7D2}
+.foto .hlavni{width:100%;background:#D6D7D2;aspect-ratio:var(--pomer);object-fit:cover}
 .foto.na-vysku .hlavni{max-width:520px}
 .nahledy{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .nahled{padding:0;border:2px solid transparent;background:none;cursor:pointer;width:68px;height:52px;border-radius:1px}
@@ -129,7 +133,8 @@ section[id]{padding-top:calc(56px + var(--sat))}
 .dilna-mriz p+p{margin-top:10px}
 .dilna-mriz a{display:inline-block;font-weight:600;padding-block:12px;margin-block:-12px}
 .dvere{margin:0;display:flex;gap:14px;align-items:flex-end}
-.dvere img{width:134px;height:auto;border:3px solid var(--hlinik)}
+/* r5: the 269 px file is 89 CSS px at DPR 3 (sharp on phones); 134 px at >= 900 px, where DPR 2 needs 268 */
+.dvere img{width:90px;height:auto;border:3px solid var(--hlinik)}
 .dvere figcaption{font-size:15px;color:var(--sedy);max-width:22ch}
 .mapa{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin-top:24px}
 .mapa-btn{font:600 16px/1 "Libre Franklin",Arial,sans-serif;min-height:48px;padding:0 18px;background:var(--bila);color:var(--vrata);
@@ -229,7 +234,8 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{border-color:var
 
 @media (min-width:600px){
   .radky{display:grid;grid-template-columns:1fr 1fr;column-gap:32px}
-  .radky .bez-fotky{grid-column:1/-1}
+  /* r6: the left cell of the last row gets the bottom rule too */
+  .radky li:nth-child(odd):nth-last-child(2){border-bottom:1px solid rgba(138,100,70,.45)}
 }
 
 @media (min-width:900px){
@@ -239,7 +245,8 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{border-color:var
   h1{font-size:56px}
   html{scroll-padding-bottom:0}
   section[id]{padding-top:calc(88px + var(--sat))}
-  section[id],article[id]{scroll-margin-top:calc(64px - var(--sat))}
+  section[id]{scroll-margin-top:calc(64px - var(--sat))}
+  article[id]{scroll-margin-top:64px}
   /* the door inside the concrete opening */
   html{background:var(--omitka)}
   body{padding-top:28px}
@@ -291,11 +298,18 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{border-color:var
   .realizace .rada .projekt{display:block;margin-top:0;padding-top:0;border-top:0}
   .rada .popis{margin-top:16px}
   .rada .nahled{width:72px;height:56px}
+  /* r5: a project without thumbnails keeps the strip's slot (8 + 56 px), so headings in a row line up */
+  .rada .foto:not(:has(.nahledy))::after{content:"";display:block;height:64px}
+  .rada .foto:not(.na-vysku) .hlavni{aspect-ratio:16/9}
   .sloupec p{font-size:18px}
   .spolu{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start}
+  /* r6: the last band must be tall enough for #dilna / #rozmery to scroll up to 64 px (strip 60 + 4):
+     band + footer margin 56 + footer 287 >= 100vh - 64, plus 7 px slack. ponytail: footer height hard-coded, re-measure if the footer changes */
+  .spolu{min-height:calc(100vh - 400px)}
   .spolu .rozmery p{max-width:36ch}
   .dilna-mriz{grid-template-columns:1fr auto;align-items:start;gap:32px}
   .spolu .dvere{flex-direction:column;align-items:flex-start;gap:10px}
+  .dvere img{width:134px}
 
   .spodek{padding-bottom:48px}
   .spodek .obal{display:grid;grid-template-columns:1fr 1fr;gap:8px 48px}

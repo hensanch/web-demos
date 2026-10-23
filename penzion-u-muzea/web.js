@@ -35,16 +35,21 @@
     window.addEventListener('popstate', closeMenu);
   }
 
-  // Phone bar and the header button appear once the page's main button has scrolled away
-  var main = document.querySelector('[data-hlavni]'), bar = document.getElementById('lista'), head = document.querySelector('a.hlava-rez');
+  // Phone bar appears once the page's main button has scrolled away
+  var main = document.querySelector('[data-hlavni]'), bar = document.getElementById('lista');
   function show(on) {
     if (bar) { bar.classList.toggle('vidim', on); bar.setAttribute('aria-hidden', on ? 'false' : 'true'); bar.querySelectorAll('a').forEach(function (a) { a.tabIndex = on ? 0 : -1; }); }
-    if (head) head.classList.toggle('schovat', !on);
   }
   if (main && 'IntersectionObserver' in window) {
     show(false);
     new IntersectionObserver(function (en) { show(!en[0].isIntersecting && en[0].boundingClientRect.top < 0); }).observe(main);
   } else show(true);
+
+  // Home on phones: the header wordmark shows once the h1 (the name) has gone under the header
+  var h1 = html.classList.contains('domu') && document.querySelector('.uvod h1');
+  if (h1 && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { html.classList.toggle('znacka-vidim', !en[0].isIntersecting && en[0].boundingClientRect.top < 100); }, { rootMargin: '-56px 0px 0px 0px' }).observe(h1);
+  } else html.classList.add('znacka-vidim');
 
   // Map loads only on request
   var mt = document.querySelector('.mapa-tl');
@@ -54,7 +59,7 @@
     mt.parentNode.insertBefore(f, mt.parentNode.firstChild); mt.remove();
   });
 
-  // Demo enquiry form: nothing is sent anywhere
+  // Booking: a stay shows where Previo goes; wellness is the demo enquiry form, nothing is sent anywhere
   var form = document.getElementById('formular');
   if (form) {
     var q = new URLSearchParams(location.search);
@@ -64,17 +69,20 @@
       form.querySelectorAll('[data-pobyt]').forEach(function (el) { el.hidden = w; });
     }
     if (q.get('co') === 'wellness') form.querySelector('input[value=wellness]').checked = true;
-    if (q.get('pokoj')) { form.pokoj.value = q.get('pokoj'); if (/^(deluxe|krb|suteren)$/.test(q.get('pokoj'))) form.querySelector('input[value=wellness]').checked = true; }
+    if (/^(deluxe|krb|suteren)$/.test(q.get('pokoj'))) { form.pokoj.value = q.get('pokoj'); form.querySelector('input[value=wellness]').checked = true; }
     mode();
-    form.addEventListener('change', function (e) {
-      // picking a wellness suite switches to wellness, picking a room or apartment back to a stay
-      if (e.target.name === 'pokoj' && e.target.value) form.querySelector('input[value=' + (/^(deluxe|krb|suteren)$/.test(e.target.value) ? 'wellness' : 'pobyt') + ']').checked = true;
-      if (e.target.name === 'co' || e.target.name === 'pokoj') mode();
-    });
+    // No past dates (local date, not UTC)
+    var d = new Date();
+    form.od.min = new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    form.addEventListener('change', function (e) { if (e.target.name === 'co') mode(); });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      // required fields, e-mail format and past dates; hidden fields (the other mode) are skipped
+      var bad = [].filter.call(form.elements, function (f) { return f.willValidate && f.offsetParent !== null && !f.checkValidity(); })[0];
+      if (bad) { bad.reportValidity(); bad.focus(); return; }
       var done = document.getElementById('hotovo');
       done.hidden = false;
+      form.querySelector('.ukazka').hidden = true;
       done.scrollIntoView({ block: 'center' });
       done.focus({ preventScroll: true });
     });
