@@ -1,0 +1,318 @@
+/* Nábytek Janek. Colours from the workshop: the black sectional door, its grey painted name,
+   the concrete round the opening, the red render (one button only); oak and white from his rooms. */
+@font-face{font-family:"Libre Franklin";font-style:normal;font-weight:400 800;font-display:swap;
+  src:url(fonts/libre-franklin-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Libre Franklin";font-style:normal;font-weight:400 800;font-display:swap;
+  src:url(fonts/libre-franklin-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --vrata:#34383E; --pismo:#B9BCC0; --svetlo:#ECEDEA; --omitka:#E4E5E0; --bila:#F7F7F4;
+  --dub:#8A6446; --fasada:#A34A3A; --fasada-tma:#8C3D2F; --sedy:#565B61; --hlinik:#8F959B;
+  --okraj:16px; --sat:0px;
+}
+@supports (-webkit-touch-callout:none){ @media (hover:none) and (pointer:coarse){ :root{--sat:62px} } }
+
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--vrata);-webkit-text-size-adjust:100%;scroll-padding-top:0;scroll-padding-bottom:84px}
+body{margin:0;background:var(--omitka);color:var(--vrata);font:400 17px/1.55 "Libre Franklin",Arial,sans-serif;
+  -webkit-tap-highlight-color:transparent;overflow-wrap:anywhere}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:1px}
+a,button,input,select,textarea,label{touch-action:manipulation}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:30px;font-weight:700;letter-spacing:-.01em}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+:focus-visible{outline:3px solid var(--vrata);outline-offset:2px}
+.vrata :focus-visible,.spodek :focus-visible,.pruh :focus-visible,.nabidka :focus-visible{outline-color:var(--svetlo)}
+html.dotyk :focus-visible{outline:0}
+[tabindex="-1"]:focus{outline:0}
+.preskocit{position:absolute;left:-999px;top:8px;z-index:30;background:var(--bila);padding:12px 16px}
+.preskocit:focus{left:8px}
+
+.obal{max-width:1240px;margin:0 auto;padding:0 var(--okraj)}
+
+/* the door: ribbed sectional panels */
+.profil{background-color:var(--vrata);
+  background-image:repeating-linear-gradient(180deg,transparent 0 17px,rgba(255,255,255,.045) 17px 18px,rgba(0,0,0,.16) 18px 19px)}
+.vrata{color:var(--svetlo);padding:0 var(--okraj) 28px}
+.napis{display:block;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--pismo);text-decoration:none;line-height:1}
+h1.napis{font-size:clamp(28px,8.4vw,92px);margin:4px 0 16px}
+.horni{display:flex;align-items:center;gap:6px;min-height:60px}
+.horni .napis{font-size:19px;margin-right:auto;padding:14px 0}
+.uvod .horni{justify-content:flex-end}
+.hlavni-nav{display:none}
+.jazyk{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;font-weight:600;font-size:15px;color:var(--pismo);text-decoration:none}
+/* the wicket door in the gate is the menu */
+.branka{font:600 15px/1 "Libre Franklin",Arial,sans-serif;color:var(--svetlo);background:transparent;cursor:pointer;
+  border:2px solid var(--hlinik);border-radius:1px;min-width:62px;height:48px;padding:0 22px 0 12px;position:relative}
+.branka::after{content:"";position:absolute;right:7px;top:50%;width:3px;height:9px;margin-top:-4px;background:var(--hlinik)}
+
+.ram{border:3px solid var(--hlinik);background:var(--vrata)}
+.ram img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.fakta{padding-top:16px}
+.hero-citat{display:none}
+.znamka a{display:inline-block;font-weight:600;color:var(--svetlo);padding-block:10px;margin-block:-10px}
+.co{margin-top:12px;color:#D5D7D9;font-size:17px;line-height:1.45}
+.poslat{display:flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;margin-top:18px;
+  background:var(--fasada);color:#fff;font:700 18px/1.1 "Libre Franklin",Arial,sans-serif;text-decoration:none;border:0;border-radius:2px;cursor:pointer}
+.vrata .poslat{width:100%}
+.provoz{margin-top:14px;font-size:15px;color:#D5D7D9}
+.provoz::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;background:var(--hlinik);vertical-align:1px}
+.provoz.otevreno::before{background:#7FB069}
+.provoz.tmavy{color:var(--vrata);font-weight:600}
+.tel-radek{font-size:15px;color:#D5D7D9}
+.tel-radek a{display:inline-block;color:var(--svetlo);font-weight:600;padding-block:12px;margin-block:-12px}
+
+/* sections on the concrete */
+section{padding:56px 0 calc(8px)}
+section[id],article[id]{scroll-margin-top:calc(-1 * var(--sat))}
+section[id]{padding-top:calc(56px + var(--sat))}
+.dal{margin-top:20px}
+.dal a{display:inline-block;font-weight:600;padding-block:12px;margin-block:-12px}
+
+/* Co vyrábím: photo rows */
+.radky{list-style:none;margin:24px 0 0;padding:0}
+.radky li{border-top:1px solid rgba(138,100,70,.45)}
+.radek{display:grid;grid-template-columns:104px 1fr;gap:16px;align-items:center;padding:14px 0;text-decoration:none}
+.radek h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+.radky li:last-child{border-bottom:1px solid rgba(138,100,70,.45)}
+.bez-fotky .radek{grid-template-columns:1fr;padding:18px 0}
+.radky img{width:104px;height:104px;object-fit:cover}
+.radky p{color:var(--sedy);font-size:16px;margin-top:2px}
+.ukazka{font-size:15px;font-weight:600;color:var(--vrata)}
+
+/* a project: photo + thumbs + description + sample chips */
+.projekt{display:grid;gap:16px}
+.uvodni p{margin-top:12px;max-width:60ch}
+.foto .hlavni{width:100%;background:#D6D7D2}
+.foto.na-vysku .hlavni{max-width:520px}
+.nahledy{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.nahled{padding:0;border:2px solid transparent;background:none;cursor:pointer;width:68px;height:52px;border-radius:1px}
+.nahled img{width:100%;height:100%;object-fit:cover}
+.nahled[aria-pressed="true"]{border-color:var(--vrata)}
+.popis h3+p{margin-top:6px;color:var(--sedy)}
+/* the sample set: chips cut from his own photos, punched and threaded on one oak rod */
+.vzornik{list-style:none;margin:34px 0 0;padding:0;position:relative}
+.vzornik::before{content:"";position:absolute;left:12.5px;top:-20px;width:16px;height:16px;border-radius:50%;background:var(--dub)}
+.vzornik li{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:start;padding-bottom:12px;position:relative}
+.vzornik li::before{content:"";position:absolute;left:20.5px;top:0;bottom:0;width:5px;margin-left:-2.5px;background:var(--dub);border-radius:2px}
+.vzornik li:first-child::before{top:-8px}
+.vzornik li:last-child::before{bottom:auto;height:22px}
+.vzornik li:only-child::before{top:-8px;height:30px}
+.vzornik li::after{content:"";position:absolute;left:11px;top:11.5px;width:19px;height:19px;border:2px solid var(--hlinik);border-radius:50%;box-sizing:border-box}
+.vzornik img{position:relative;width:150px;aspect-ratio:3/2;object-fit:cover;border-radius:3px;
+  -webkit-mask:radial-gradient(circle at 20.5px 21px,transparent 7.5px,#000 8px);mask:radial-gradient(circle at 20.5px 21px,transparent 7.5px,#000 8px)}
+.vzornik p{font-size:15px;line-height:1.4}
+.kovani{margin:14px 0 0;padding:0 0 0 18px;font-size:15px;color:var(--sedy)}
+.kovani li+li{margin-top:4px}
+
+/* reviews: one running column, names run in */
+.ohlasy{background:var(--bila);padding-bottom:56px}
+.ohlasy-hlava p{margin-top:10px;color:var(--sedy)}
+.sloupec{margin-top:24px;max-width:68ch}
+.ohlasy-hlava .bocni{margin-top:24px}
+.ohlasy-hlava .bocni p{color:var(--vrata)}
+.sloupec p{font-size:17px;line-height:1.6}
+.sloupec p+p{margin-top:16px}
+.sloupec b{font-weight:700;margin-right:.3em}
+.preklad{font-size:14px!important;color:var(--sedy)}
+
+.rozmery p{margin-top:12px;max-width:60ch}
+.rozmery .poslat{display:inline-flex;margin-top:20px}
+.rozmery a[href^="tel"],.rozmery a[href^="mailto"]{display:inline-block;font-weight:600;padding-block:12px;margin-block:-12px}
+
+.spolu>section{padding-left:0;padding-right:0}
+.dilna-mriz{display:grid;gap:20px;margin-top:20px}
+.dilna-mriz p+p{margin-top:10px}
+.dilna-mriz a{display:inline-block;font-weight:600;padding-block:12px;margin-block:-12px}
+.dvere{margin:0;display:flex;gap:14px;align-items:flex-end}
+.dvere img{width:134px;height:auto;border:3px solid var(--hlinik)}
+.dvere figcaption{font-size:15px;color:var(--sedy);max-width:22ch}
+.mapa{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin-top:24px}
+.mapa-btn{font:600 16px/1 "Libre Franklin",Arial,sans-serif;min-height:48px;padding:0 18px;background:var(--bila);color:var(--vrata);
+  border:2px solid var(--vrata);border-radius:2px;cursor:pointer}
+.mapa a{display:inline-block;font-weight:600;padding-block:12px}
+.mapa iframe{display:block;width:100%;aspect-ratio:16/10;border:3px solid var(--hlinik);flex-basis:100%}
+
+/* footer: the door again */
+.spodek{color:#D5D7D9;padding:40px 0 calc(110px + env(safe-area-inset-bottom));margin-top:56px;font-size:15px}
+.spodek .napis{font-size:22px;margin-bottom:16px}
+.spodek p+p,.spodek nav+p{margin-top:16px}
+.spodek a{color:var(--svetlo)}
+.spodek p a{display:inline-block;padding-block:12px;margin-block:-12px}
+.spodek-nav{display:flex;flex-wrap:wrap;gap:0 2px;margin:16px 0 0 -8px}
+.spodek-nav a{display:inline-flex;align-items:center;min-height:44px;padding-inline:8px}
+.pravni{color:var(--pismo);font-size:14px}
+
+/* the strip: phone bottom, desktop top */
+.pruh{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;gap:12px;
+  padding:8px var(--okraj) calc(8px + env(safe-area-inset-bottom));background:var(--vrata);
+  box-shadow:0 -1px 0 rgba(255,255,255,.08);visibility:hidden;transform:translateY(100%);transition:transform .2s,visibility .2s}
+.pruh.ukazat{visibility:visible;transform:none}
+.pruh-jmeno,.pruh-nav{display:none}
+.pruh-tel{color:var(--pismo);font-weight:600;font-size:17px;text-decoration:none;display:inline-flex;align-items:center;min-height:48px;margin-right:auto}
+.pruh .poslat{margin:0;min-height:48px;padding:0 18px;font-size:17px}
+
+/* menu sheet */
+.nabidka{border:0;padding:16px var(--okraj) calc(24px + env(safe-area-inset-bottom));margin:auto 0 0;max-width:none;width:100%;max-height:88vh;
+  background:var(--vrata);color:var(--svetlo);outline:none}
+.nabidka::backdrop{background:rgba(20,22,25,.55)}
+.nabidka-hlava{display:flex;align-items:center;justify-content:space-between}
+.nabidka-hlava .napis{font-size:17px}
+.zavrit-menu{font:600 15px/1 "Libre Franklin",Arial,sans-serif;color:var(--svetlo);background:none;border:2px solid var(--hlinik);height:48px;padding:0 14px;cursor:pointer}
+.nabidka ul{list-style:none;margin:12px 0 0;padding:0}
+.nabidka li a{display:flex;align-items:center;min-height:52px;font-size:22px;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.1)}
+.nabidka li a[aria-current]{color:var(--pismo)}
+.nabidka .poslat{margin-top:20px}
+.nabidka p{margin-top:16px}
+.nabidka p a{display:inline-block;padding-block:10px;font-weight:600}
+html.zamceno{overflow:hidden}
+
+/* sub pages */
+.kratka{padding-bottom:4px}
+.titulek{padding-top:36px}
+h1{font-size:40px;font-weight:800;letter-spacing:-.015em}
+.titulek p{margin-top:12px;max-width:60ch}
+.skoky{display:flex;flex-wrap:wrap;gap:8px}
+.skoky a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:2px solid var(--vrata);border-radius:2px;font-weight:600;text-decoration:none}
+.realizace .projekt{margin-top:32px;padding-top:24px;border-top:1px solid rgba(138,100,70,.45)}
+.realizace h2+.projekt{border-top:0;padding-top:0}
+.kratke{margin-top:48px}
+
+/* form */
+.pop-mriz{display:grid;gap:40px;padding-top:32px}
+.pop-hlavni .uvodni{margin-top:12px;max-width:56ch}
+.formular{margin-top:24px;display:grid;gap:22px;max-width:640px}
+fieldset{border:0;margin:0;padding:0}
+legend,.pole label{font-weight:700;font-size:16px;padding:0;margin-bottom:8px}
+.pole label{display:block}
+.pov{font-weight:400;color:var(--sedy);font-size:14px}
+.napoveda{font-size:14px;color:var(--sedy);margin:-4px 0 8px}
+.volby{display:flex;flex-wrap:wrap;gap:8px}
+.volba{position:relative}
+.volba input{position:absolute;opacity:0;width:1px;height:1px}
+.volba span{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;background:var(--bila);border:2px solid #B7B9B4;border-radius:2px;cursor:pointer;font-size:16px}
+.volba input:checked+span{border-color:var(--vrata);background:var(--vrata);color:var(--svetlo)}
+.volba input:focus-visible+span{outline:3px solid var(--vrata);outline-offset:2px}
+html.dotyk .volba input:focus-visible+span{outline:0}
+input[type=text],input[type=tel],input[type=email],textarea,select{width:100%;font:400 17px/1.4 "Libre Franklin",Arial,sans-serif;color:var(--vrata);
+  background:var(--bila);border:2px solid #B7B9B4;border-radius:2px;padding:11px 12px;min-height:48px}
+select{-webkit-appearance:none;appearance:none;height:48px;padding-right:40px;
+  background:var(--bila) url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='14'%20height='9'%3E%3Cpath%20d='M1%201l6%206%206-6'%20fill='none'%20stroke='%2334383E'%20stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center}
+input[type=file]{font:400 15px/1.4 "Libre Franklin",Arial,sans-serif;min-height:48px;width:100%}
+input[type=file]::file-selector-button{font:600 15px/1 "Libre Franklin",Arial,sans-serif;min-height:44px;padding:0 14px;margin-right:12px;background:var(--bila);border:2px solid var(--vrata);border-radius:2px;color:var(--vrata);cursor:pointer}
+input:focus-visible,textarea:focus-visible,select:focus-visible{border-color:var(--vrata)}
+.formular .poslat{margin-top:0;width:100%}
+.souhlas{font-size:14px;color:var(--sedy)}
+.hotovo{background:var(--vrata);color:var(--svetlo);padding:18px}
+.hotovo p+p{margin-top:6px}
+.pop-bok dl{margin:16px 0 0}
+.pop-bok dt{font-size:14px;color:var(--sedy);margin-top:14px}
+.pop-bok dd{margin:2px 0 0;font-weight:600}
+.pop-bok dd a{display:inline-block;padding-block:12px;margin-block:-12px}
+.pop-bok .provoz{margin-top:18px}
+.pop-foto{display:none}
+
+@media (hover:hover){
+  .radek:hover h3{text-decoration-thickness:2px}
+  .poslat:hover{background:var(--fasada-tma)}
+  a:hover{text-decoration-thickness:2px}
+  .branka:hover,.zavrit-menu:hover{border-color:var(--svetlo)}
+  .nahled:hover{border-color:var(--hlinik)}
+  .mapa-btn:hover,.skoky a:hover{background:var(--vrata);color:var(--svetlo)}
+  .volba span:hover{border-color:var(--vrata)}
+}
+@media (prefers-reduced-motion:reduce){ .pruh{transition:none} }
+
+@media (min-width:600px){
+  .radky{display:grid;grid-template-columns:1fr 1fr;column-gap:32px}
+  .radky .bez-fotky{grid-column:1/-1}
+}
+
+@media (min-width:900px){
+  :root{--okraj:48px}
+  body{font-size:18px}
+  h2{font-size:42px}
+  h1{font-size:56px}
+  html{scroll-padding-bottom:0}
+  section[id]{padding-top:calc(88px + var(--sat))}
+  section[id],article[id]{scroll-margin-top:calc(64px - var(--sat))}
+  /* the door inside the concrete opening */
+  html{background:var(--omitka)}
+  body{padding-top:28px}
+  .vrata{max-width:1240px;margin:0 auto;padding:0 40px 40px}
+  .vrata.kratka{padding-bottom:8px}
+  body.podstrana{padding-top:20px}
+  .horni{min-height:76px;gap:4px}
+  .uvod .horni{justify-content:flex-end}
+  .hlavni-nav{display:flex;gap:4px}
+  .hlavni-nav a,.jazyk{display:inline-flex;align-items:center;min-height:48px;padding:0 12px;color:var(--pismo);font-weight:600;font-size:16px;text-decoration:none}
+  .hlavni-nav a[aria-current]{color:var(--svetlo);text-decoration:underline}
+  .branka{display:none}
+  h1.napis{font-size:clamp(56px,6.3vw,92px);margin:8px 0 32px}
+  .vstup{display:grid;grid-template-columns:2fr 3fr;gap:40px;align-items:stretch}
+  .vstup .ram{order:2;align-self:start}
+  .ram img{aspect-ratio:16/9}
+  .fakta{padding:6px 0 4px;display:flex;flex-direction:column;align-items:flex-start}
+  .znamka a{font-size:19px}
+  .vrata .poslat{width:auto;display:inline-flex}
+  .co{font-size:20px;max-width:30ch;margin:16px 0 28px}
+  .vrata .poslat{margin-top:auto}
+  .radek{grid-template-columns:190px 1fr;gap:24px;padding:16px 0}
+  .radky img{width:190px;height:190px}
+  .radky h3{font-size:22px}
+  .projekt{grid-template-columns:7fr 5fr;gap:40px;align-items:start}
+  /* the sample set on desktop: chips hang side by side on one oak rod, overlapping, labels under them */
+  .vzornik{display:flex;align-items:flex-start;margin-top:8px;padding:0 22px;width:fit-content;max-width:100%}
+  .vzornik::before{left:0;right:0;top:15px;width:auto;height:6px;border-radius:3px;z-index:0}
+  .vzornik li{display:block;flex:0 1 200px;min-width:0;max-width:200px;padding:0;z-index:1}
+  .vzornik li+li{margin-left:-22px}
+  .vzornik li::before{display:none}
+  .vzornik li::after{left:11px;top:8.5px}
+  .vzornik img{width:100%;box-shadow:0 2px 6px rgba(52,56,62,.28);
+    -webkit-mask:radial-gradient(circle at 20.5px 18px,transparent 7.5px,#000 8px);mask:radial-gradient(circle at 20.5px 18px,transparent 7.5px,#000 8px)}
+  .vzornik li+li p{padding-left:30px}
+  .vzornik p{margin-top:10px;padding-right:26px}
+  .vzornik+.kovani{margin-top:20px}
+  .projekt>.uvodni{grid-column:1/-1}
+  .projekt>.dal{grid-column:1/-1;margin-top:0}
+  .projekt:has(.na-vysku){grid-template-columns:5fr 7fr}
+  .nahled{width:96px;height:72px}
+  .ohlasy .obal{display:grid;grid-template-columns:4fr 8fr;gap:48px}
+  .ohlasy .sloupec{margin-top:6px}
+  .ohlasy{padding-bottom:88px}
+  .ohlasy-hlava .bocni{margin-top:36px;padding-left:16px;border-left:3px solid var(--dub)}
+  .ohlasy-hlava .bocni p{font-size:17px}
+  /* r2: a run of portrait projects shares one row, each project stacked photo over text */
+  .rada{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:start;margin-top:32px;padding-top:24px;border-top:1px solid rgba(138,100,70,.45)}
+  .realizace .rada .projekt{display:block;margin-top:0;padding-top:0;border-top:0}
+  .rada .popis{margin-top:16px}
+  .rada .nahled{width:72px;height:56px}
+  .sloupec p{font-size:18px}
+  .spolu{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start}
+  .spolu .rozmery p{max-width:36ch}
+  .dilna-mriz{grid-template-columns:1fr auto;align-items:start;gap:32px}
+  .spolu .dvere{flex-direction:column;align-items:flex-start;gap:10px}
+
+  .spodek{padding-bottom:48px}
+  .spodek .obal{display:grid;grid-template-columns:1fr 1fr;gap:8px 48px}
+  .spodek .napis{grid-column:1/-1}
+  .pruh{top:0;bottom:auto;transform:translateY(-100%);padding:0 max(48px,calc((100vw - 1240px)/2 + 48px));height:60px;box-shadow:0 1px 0 rgba(0,0,0,.2)}
+  .pruh-jmeno{display:inline-flex;align-items:center;min-height:48px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--pismo);text-decoration:none;font-size:16px;margin-right:auto}
+  .pruh-nav{display:flex}
+  .pruh-nav a{display:inline-flex;align-items:center;min-height:48px;padding:0 12px;color:var(--pismo);font-weight:600;font-size:16px;text-decoration:none}
+  .pruh-tel{margin-right:0;font-size:16px;padding:0 12px}
+  .pop-mriz{grid-template-columns:7fr 5fr;gap:64px;padding-top:48px}
+  .pop-foto{display:block;margin-top:28px;width:100%;max-width:440px}
+  .titulek{padding-top:48px}
+}
+@media (min-width:1300px){
+  .hero-citat{display:block;margin:0 0 28px;max-width:34em;padding-left:16px;border-left:3px solid var(--dub);color:#D5D7D9;font-size:17px;line-height:1.5}
+  .hero-citat blockquote{margin:0}
+  .hero-citat figcaption{margin-top:6px;font-size:15px;color:var(--pismo);font-weight:600}
+  .vrata .co{margin-bottom:24px}
+  .jen-uzke{display:none}
+}

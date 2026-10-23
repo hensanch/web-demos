@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="cs" class="den-stranka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rezervace – Penzion U&nbsp;muzea, Liberec</title>
+<meta name="description" content="Poptávka ubytování a privátního wellness, telefon 721 640 462, Vítězná 713/24, Liberec.">
+<link rel="alternate" hreflang="cs" href="rezervace.html"><link rel="alternate" hreflang="en" href="en/rezervace.html"><link rel="alternate" hreflang="de" href="de/rezervace.html">
+<link rel="preload" href="fonts/coustard-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/brygada-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styl.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='4'%20fill='%238F312A'/%3E%3Ctext%20x='16'%20y='23'%20font-size='18'%20font-family='Georgia'%20font-weight='700'%20text-anchor='middle'%20fill='%23F1E1BC'%3EM%3C/text%3E%3C/svg%3E">
+
+</head>
+<body>
+<header class="hlava">
+  <div class="sirka hlava-radek">
+    <a class="znacka" href="./">Penzion U&nbsp;muzea</a>
+    <nav class="hlavni" aria-label="Hlavní"><a href="pokoje.html">Pokoje</a><a href="apartmany.html">Apartmány</a><a href="wellness.html">Wellness</a><a href="rezervace.html" aria-current="page">Rezervace a&nbsp;kontakt</a></nav>
+    <nav class="jazyky" aria-label="Jazyk"><a href="rezervace.html" hreflang="cs" lang="cs" aria-current="true">CS</a><a href="en/rezervace.html" hreflang="en" lang="en">EN</a><a href="de/rezervace.html" hreflang="de" lang="de">DE</a></nav>
+    <span class="tlacitko hlava-rez rez-slot" aria-hidden="true">Rezervovat</span>
+    <button class="menu-tl" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
+  </div>
+</header>
+<dialog class="menu" id="menu" aria-label="Menu" tabindex="-1">
+  <div class="menu-vnitrek">
+    <div class="menu-hlava"><span>Penzion U&nbsp;muzea</span><button class="menu-zavrit" type="button">Zavřít</button></div>
+    <nav aria-label="Stránky"><a href="./">Domů</a><a href="pokoje.html">Pokoje</a><a href="apartmany.html">Apartmány</a><a href="wellness.html">Wellness</a><a href="rezervace.html" aria-current="page">Rezervace a&nbsp;kontakt</a></nav>
+    <p class="menu-tel"><a href="tel:+420721640462">721&nbsp;640&nbsp;462</a></p>
+    <nav class="jazyky" aria-label="Jazyk"><a href="rezervace.html" hreflang="cs" lang="cs" aria-current="true">CS</a><a href="en/rezervace.html" hreflang="en" lang="en">EN</a><a href="de/rezervace.html" hreflang="de" lang="de">DE</a></nav>
+  </div>
+</dialog>
+<main id="obsah">
+
+<section class="den stranka-uvod rez-uvod">
+  <div class="sirka">
+    <h1>Rezervace a&nbsp;kontakt</h1>
+    <p class="uvodni">Napište, kdy přijedete a&nbsp;kolik vás bude, a&nbsp;pošleme vám cenu. Raději telefonem? <a class="tel-text" href="tel:+420721640462">721&nbsp;640&nbsp;462</a></p>
+  </div>
+</section>
+<section class="den formular-sekce">
+  <div class="sirka rez-mrizka">
+    <form class="formular" id="formular" novalidate>
+      <fieldset class="volba">
+        <legend>Co chcete</legend>
+        <label><input type="radio" name="co" value="pobyt" checked> Ubytování</label>
+        <label><input type="radio" name="co" value="wellness"> Privátní wellness</label>
+      </fieldset>
+      <div class="pole-dve">
+        <label class="pole"><span>Příjezd</span><input type="date" name="od" required></label>
+        <label class="pole" data-pobyt><span>Odjezd</span><input type="date" name="do"></label>
+        <label class="pole" data-wellness hidden><span>Délka</span><select name="delka"><option>90&nbsp;minut</option><option>120&nbsp;minut</option><option>Celá noc</option></select></label>
+      </div>
+      <div class="pole-dve">
+        <label class="pole"><span>Počet osob</span><select name="osoby"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+        <label class="pole"><span>Pokoj, apartmán, wellness</span><select name="pokoj"><option value="">Je mi to jedno</option><option value="standard">Standardní pokoj</option><option value="romanticky">Romantický pokoj</option><option value="wellness-pokoj">Wellness pokoj</option><option value="zahradni">Zahradní apartmán</option><option value="samuel">Samuel</option><option value="amadeus">Amadeus</option><option value="mozart">Mozart</option><option value="deluxe">Wellness de luxe</option><option value="krb">Wellness s&nbsp;krbem</option><option value="suteren">Wellness v&nbsp;suterénu</option></select></label>
+      </div>
+      <label class="pole"><span>Jméno</span><input type="text" name="jmeno" autocomplete="name" required></label>
+      <div class="pole-dve">
+        <label class="pole"><span>E-mail</span><input type="email" name="email" autocomplete="email" required></label>
+        <label class="pole"><span>Telefon</span><input type="tel" name="tel" autocomplete="tel"></label>
+      </div>
+      <label class="pole"><span>Zpráva</span><textarea name="zprava" rows="3"></textarea></label>
+      <p class="souhlas">Berete na vědomí, že vaše údaje použijeme jen k&nbsp;odpovědi na tuto poptávku.</p>
+      <button class="tlacitko velke" type="submit">Odeslat poptávku</button>
+      <p class="ukazka">Ukázka – nic se neodešle.</p>
+      <p class="hotovo" id="hotovo" role="status" tabindex="-1" hidden>Ukázka – nic se neodeslalo.</p>
+    </form>
+    <aside class="kontakt">
+      <h2>Kde jsme</h2>
+      <p>Penzion U&nbsp;muzea<br>Vítězná 713/24<br>460 01 Liberec</p>
+      <p><a class="tel-text" href="tel:+420721640462">721&nbsp;640&nbsp;462</a><br><a class="tel-text" href="mailto:info@penzionumuzea.cz">info@penzionumuzea.cz</a></p>
+      <p>Parkoviště je v&nbsp;areálu, hlídané kamerou. Zastávku tramvaje vidíte od penzionu.</p>
+      <div class="mapa" id="mapa"><button class="mapa-tl" type="button" data-src="https://www.google.com/maps?q=V%C3%ADt%C4%9Bzn%C3%A1%20713%2F24%2C%20Liberec&z=16&output=embed">Ukázat mapu</button><a href="https://www.google.com/maps/place/Penzion+U+muzea/data=!4m10!3m9!1s0x470936a7632e3c71:0x418b3fe9e9659ab8!5m2!4m1!1i2!8m2!3d50.7756441!4d15.0672431!16s%2Fg%2F1pycfq8s3!19sChIJcTwuY6c2CUcRuJpl6ek_i0E">Trasa v&nbsp;Google Mapách</a></div>
+      <h2>Kousek od nás</h2>
+      <table class="cenik okoli">
+        <tr><th scope="row">Severočeské muzeum</th><td>200&nbsp;m</td></tr>
+        <tr><th scope="row">Oblastní galerie</th><td>210&nbsp;m</td></tr>
+        <tr><th scope="row">Technické muzeum</th><td>210&nbsp;m</td></tr>
+        <tr><th scope="row">Radnice</th><td>1&nbsp;km</td></tr>
+      </table>
+      <blockquote class="hlas"><p>„V&nbsp;pěším dosahu ZOO, Botanické zahrady, Muzea, Galerie, Technického muzea. Klidné místo a&nbsp;zahrada fajn.“</p><p class="kdo">Lukas, Google</p></blockquote>
+    </aside>
+  </div>
+</section>
+<section class="den" id="podminky" tabindex="-1">
+  <div class="sirka">
+    <h2>Podmínky ubytování</h2>
+    <ul class="podminky"><li>Příjezd od 13:00, odjezd do 10:00. V&nbsp;den příjezdu můžete parkovat a&nbsp;nechat u&nbsp;nás zavazadla už od 8:00, v&nbsp;den odjezdu do 19:00.</li><li>Děti od 3 do 11&nbsp;let mají slevu 40&nbsp;%, děti do 3&nbsp;let bez vlastního lůžka jsou zdarma. Dětskou postýlku půjčíme.</li><li>Snídaně 180&nbsp;Kč, pro děti 90&nbsp;Kč.</li><li>Psa do 10&nbsp;kg nebo kočku vezměte s&nbsp;sebou za 200&nbsp;Kč na noc, psa nad 10&nbsp;kg za 400&nbsp;Kč. Misky půjčíme.</li><li>Zrušení nebo změna méně než 24 hodin před příjezdem do 13:00: účtujeme cenu první noci.</li><li>K&nbsp;ceně se připočítává poplatek z&nbsp;pobytu za dospělé. V&nbsp;celém penzionu se nekouří.</li><li>V&nbsp;ceně je Wi&#8209;Fi, parkování v&nbsp;areálu s&nbsp;kamerou, káva a&nbsp;čaj. Na delší pobyt a&nbsp;víc pokojů nabídneme individuální cenu.</li></ul>
+  </div>
+</section>
+</main>
+<footer class="pata">
+  <div class="sirka pata-mrizka">
+    <div>
+      <p class="pata-jmeno">Penzion U&nbsp;muzea</p>
+      <p>Vítězná 713/24<br>460 01 Liberec</p>
+      <p><a href="tel:+420721640462">721&nbsp;640&nbsp;462</a><br><a href="mailto:info@penzionumuzea.cz">info@penzionumuzea.cz</a></p>
+    </div>
+    <nav aria-label="Stránky"><a href="./">Domů</a><a href="pokoje.html">Pokoje</a><a href="apartmany.html">Apartmány</a><a href="wellness.html">Wellness</a><a href="rezervace.html">Rezervace a&nbsp;kontakt</a></nav>
+  </div>
+  <div class="sirka pravni">
+    <p>Provozovatel: Wellness Penzion U&nbsp;Muzea s.r.o., IČO 08336601, Vítězná 713/24, 460 01 Liberec. Zapsáno u&nbsp;Krajského soudu v&nbsp;Ústí nad Labem, oddíl C, vložka 43907.</p>
+    <p>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce (<a href="https://coi.gov.cz/informace-o-adr/">coi.gov.cz</a>).</p>
+  </div>
+</footer>
+
+<script src="web.js" defer></script>
+</body>
+</html>

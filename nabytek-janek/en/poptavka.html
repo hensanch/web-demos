@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enquiry for made-to-measure furniture | Nábytek Janek</title>
+<meta name="description" content="Send the measurements and a photo of the room and what you need made, and I will get back to you.">
+<meta name="robots" content="noindex">
+<link rel="alternate" hreflang="cs" href="../poptavka.html">
+<link rel="alternate" hreflang="en" href="poptavka.html">
+<link rel="preload" href="../fonts/libre-franklin-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/libre-franklin-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='3'%20fill='%2334383E'/%3E%3Cpath%20d='M4%2011h24M4%2016h24M4%2021h24M4%2026h24'%20stroke='%23565B61'/%3E%3Crect%20x='12'%20y='12'%20width='8'%20height='16'%20fill='none'%20stroke='%23B9BCC0'%20stroke-width='1.5'/%3E%3Cpath%20d='M6%207h20'%20stroke='%23B9BCC0'%20stroke-width='3'/%3E%3C/svg%3E">
+</head>
+<body class="podstrana">
+<a class="preskocit" href="#obsah">Skip to content</a>
+<header class="vrata profil kratka">
+<div class="horni">
+  <a class="napis" href="index.html" aria-label="Nábytek Janek, home">Nábytek Janek</a>
+  <nav class="hlavni-nav" aria-label="Main"><a href="realizace.html">Projects</a><a href="poptavka.html" aria-current="page">Enquiry</a><a href="index.html#dilna">Workshop</a></nav>
+  <a class="jazyk" href="../poptavka.html" hreflang="cs" lang="cs" aria-label="Čeština">CZ</a>
+  <button type="button" class="branka" aria-haspopup="dialog" aria-controls="nabidka">Menu</button>
+</div>
+
+</header>
+<main id="obsah">
+<div class="obal pop-mriz">
+<div class="pop-hlavni">
+<h1>Send measurements</h1><p class="uvodni">Tell me what you need made and add the room measurements or a photo. I will get back to you.</p>
+<form class="formular" id="formular">
+  <fieldset><legend>What do you need <span class="pov">(required)</span></legend><div class="volby"><label class="volba"><input type="radio" name="co" value="Kitchen" required><span>Kitchen</span></label><label class="volba"><input type="radio" name="co" value="Built-in wardrobe"><span>Built-in wardrobe</span></label><label class="volba"><input type="radio" name="co" value="Hallway"><span>Hallway</span></label><label class="volba"><input type="radio" name="co" value="Living room"><span>Living room</span></label><label class="volba"><input type="radio" name="co" value="Children&#x27;s room"><span>Children&#x27;s room</span></label><label class="volba"><input type="radio" name="co" value="Something else"><span>Something else</span></label></div></fieldset>
+  <div class="pole"><label for="f-kde">Where will it go (town) <span class="pov">(optional)</span></label><input id="f-kde" name="kde" type="text" autocomplete="address-level2" placeholder="e.g. Jablonec nad Nisou"></div>
+  <div class="pole"><label for="f-rozmery">Measurements <span class="pov">(optional)</span></label><p class="napoveda" id="n-rozmery">Wall lengths, ceiling height, where the windows and doors are. Rough figures are fine.</p><textarea id="f-rozmery" name="rozmery" rows="4" aria-describedby="n-rozmery"></textarea></div>
+  <div class="pole"><label for="f-foto">Photos or a floor plan <span class="pov">(optional)</span></label><p class="napoveda" id="n-foto">You can add more than one file.</p><input id="f-foto" name="foto" type="file" accept="image/*,.pdf" multiple aria-describedby="n-foto"></div>
+  <div class="pole"><label for="f-predstava">What you have in mind <span class="pov">(optional)</span></label><p class="napoveda" id="n-pred">Colours, finishes, what it must include (e.g. a dishwasher, an oven at eye level).</p><textarea id="f-predstava" name="predstava" rows="3" aria-describedby="n-pred"></textarea></div>
+  <div class="pole"><label for="f-kdy">When do you need it <span class="pov">(optional)</span></label><select id="f-kdy" name="kdy"><option>As soon as possible</option><option>Within three months</option><option>Later</option><option>Just looking for now</option></select></div>
+  <div class="pole"><label for="f-jmeno">Name <span class="pov">(required)</span></label><input id="f-jmeno" name="jmeno" type="text" autocomplete="name" required></div>
+  <div class="pole"><label for="f-tel">Phone <span class="pov">(required)</span></label><input id="f-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required></div>
+  <div class="pole"><label for="f-mail">E-mail <span class="pov">(optional)</span></label><input id="f-mail" name="email" type="email" autocomplete="email"></div>
+  <p class="ukazka">Demo: this form does not send anything.</p>
+  <button type="submit" class="poslat">Send measurements</button>
+  <p class="souhlas">By sending you acknowledge that I will use your details only to reply to your enquiry.</p>
+  <div class="hotovo" id="hotovo" tabindex="-1" hidden><p><b>Demo – nothing was sent.</b></p><p>On the finished site the enquiry and photos would arrive at the workshop by e-mail.</p></div>
+</form>
+</div>
+<aside class="pop-bok">
+  <h2>Or directly</h2>
+  <dl>
+    <dt>Phone</dt><dd><a href="tel:+420724520991">+420 724 520 991</a></dd>
+    <dt>E-mail</dt><dd><a href="mailto:nabytekjanek@seznam.cz">nabytekjanek@seznam.cz</a></dd>
+    <dt>Address</dt><dd>Na Samotě, 466 05 Jablonec nad Nisou 5, Czech Republic</dd>
+  </dl>
+  <p class="provoz tmavy" data-provoz aria-live="off">Open Monday to Friday 8:00–17:00, closed at weekends.</p>
+  <img class="pop-foto" src="../img/poptavka.jpg" width="1134" height="1512" alt="White L-shaped kitchen with an oak splashback, lights under the wall units and a herringbone floor" loading="lazy" decoding="async">
+</aside>
+</div>
+</main>
+<footer class="spodek profil">
+  <div class="obal">
+    <p class="napis">Nábytek Janek</p>
+    <p><a href="tel:+420724520991">+420 724 520 991</a><br><a href="mailto:nabytekjanek@seznam.cz">nabytekjanek@seznam.cz</a><br>Na Samotě, 466 05 Jablonec nad Nisou 5, Czech Republic</p>
+    <nav class="spodek-nav" aria-label="Pages"><a href="index.html">Home</a><a href="realizace.html">Projects</a><a href="poptavka.html">Enquiry</a><a href="index.html#dilna">Workshop</a><a href="https://www.facebook.com/nabytekjanek" rel="noopener">Facebook</a></nav>
+    <!-- Operator: to be added once confirmed (name, registered address, company ID). -->
+    <p class="pravni">Consumer disputes may be resolved out of court by the Czech Trade Inspection Authority, <a href="https://coi.gov.cz/informace-o-adr/" rel="noopener">coi.gov.cz/informace-o-adr</a></p>
+  </div>
+</footer>
+<dialog class="nabidka" id="nabidka" aria-label="Menu" tabindex="-1">
+  <div class="nabidka-hlava"><span class="napis">Nábytek Janek</span><button type="button" class="zavrit-menu">Close</button></div>
+  <ul><li><a href="index.html">Home</a></li><li><a href="realizace.html">Projects</a></li><li><a href="poptavka.html" aria-current="page">Enquiry</a></li><li><a href="index.html#dilna">Workshop</a></li></ul>
+  <a class="poslat" href="poptavka.html">Send measurements</a>
+  <p class="nabidka-tel"><a href="tel:+420724520991">+420 724 520 991</a><br><a href="mailto:nabytekjanek@seznam.cz">nabytekjanek@seznam.cz</a></p>
+  <p><a class="jazyk-text" href="../poptavka.html" hreflang="cs" lang="cs">Čeština</a></p>
+</dialog>
+<script src="../site.js" defer></script>
+</body>
+</html>
