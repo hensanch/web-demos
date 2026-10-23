@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="cs" data-scene="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Klenotnictví Praha 1 – Staré Město | Diamond Spot</title>
+<meta name="description" content="Klenotnictví Diamond Spot v Masné 15, Praha 1. Zásnubní prsteny od 10 180 Kč, snubní prsteny, šperky Daniely Komatović a perly. Út–So 11–19.">
+<!-- Žádné cookies, žádné skripty třetích stran: písmo Jost je uložené u stránky, mapa ani analytika se nenačítají. -->
+<link rel="preload" href="fonts/jost-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-normal-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/zed-900.jpg" as="image" media="(max-width: 899px)">
+<link rel="preload" href="img/zed-1600.jpg" as="image" media="(min-width: 900px)">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"JewelryStore","name":"Diamond Spot","telephone":"+420 778 880 111","email":"info@diamondspot.cz",
+"address":{"@type":"PostalAddress","streetAddress":"Masná 699/15","postalCode":"110 00","addressLocality":"Praha 1","addressCountry":"CZ"}}
+</script>
+<style>
+@font-face{font-family:Jost;font-style:normal;font-weight:300 600;font-display:swap;src:url(fonts/jost-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Jost;font-style:normal;font-weight:300 600;font-display:swap;src:url(fonts/jost-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Jost;font-style:italic;font-weight:300 400;font-display:swap;src:url(fonts/jost-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Jost;font-style:italic;font-weight:300 400;font-display:swap;src:url(fonts/jost-italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/* Barvy z obchodu v Masné 15 (photos-best/01a, 02, 01b) */
+:root{
+  --paper:#fff;            /* bílé polštářky v podnosech, osvětlené niky */
+  --ink:#1c1b18;           /* černé rámy podnosů, štít */
+  --grey:#5f5d57;
+  --mute:#74716a;
+  --line:#e4e2dc;
+  --plaster:#d7bd5c;       /* hořčicově zlatá omítka zadní stěny (palette.py, 3/3 fotek) */
+  --plaster-ink:#3b3520;
+  --tray:#14120f;
+  --concrete:#2f302c;      /* betonová stěna vlevo */
+  --silver:#e6e5df;
+  --silver-mute:#aeada5;
+  --hh:56px;
+  --pad:clamp(20px, 4vw, 56px);
+  --gap:clamp(16px, 2.2vw, 32px);
+  --t-meta:clamp(14px, calc(13.4px + .17vw), 16px);
+  --t-body:clamp(16px, calc(15.4px + .2vw), 18px);
+  --t-h3:clamp(19px, calc(17.6px + .4vw), 24px);
+  --t-h2:clamp(30px, calc(25px + 1.3vw), 46px);
+  --t-h1:clamp(48px, calc(34px + 3.6vw), 92px);
+  --t-q:clamp(21px, calc(17.5px + 1vw), 32px);
+  --ease:cubic-bezier(.2,.65,.2,1);
+  --tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.011 .018' numOctaves='5' seed='9' stitchTiles='stitch'/%3E%3CfeDiffuseLighting lighting-color='%23fff' surfaceScale='3.2'%3E%3CfeDistantLight azimuth='235' elevation='38'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+@media (min-width:900px){:root{--hh:72px}}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--paper);-webkit-text-size-adjust:100%;scroll-padding-top:var(--hh)}
+@media (max-width:899px){html{scroll-padding-bottom:84px}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--t-body)/1.55 Jost,system-ui,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;font-kerning:normal}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em}
+button,select,input,textarea{font:inherit;color:inherit}
+a,button,select,input,textarea,label{touch-action:manipulation}
+h1,h2,h3,h4,p,figure,blockquote,ul,ol,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+h1,h2,h3{font-weight:300;text-wrap:balance;line-height:1.1}
+p{text-wrap:pretty}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+[data-scene] .on-dark :focus-visible,.on-dark :focus-visible{outline-color:var(--silver)}
+html.dotyk :focus-visible{outline:0}
+[tabindex="-1"]:focus{outline:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1600px;margin:0 auto;padding-inline:var(--pad)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+
+/* ---------- hlavička ---------- */
+.head{position:fixed;inset:0 0 auto;z-index:20;height:var(--hh);background:var(--hbg,var(--paper));color:var(--hfg,var(--ink));transition:background-color .5s ease,color .5s ease}
+html[data-scene="plaster"]{--hbg:var(--plaster)}
+html[data-scene="concrete"]{--hbg:var(--concrete);--hfg:var(--silver)}
+.head .wrap{height:100%;display:flex;align-items:center;gap:clamp(12px,2vw,36px)}
+.logo{display:block;flex:none;margin-right:auto;line-height:0}
+.logo img{height:clamp(30px,2.6vw,36px);width:auto}
+.logo .lt,.logo .pl{display:none}
+html[data-scene="plaster"] .logo .dk{display:none}
+html[data-scene="plaster"] .logo .pl{display:block}
+html[data-scene="concrete"] .logo .dk{display:none}
+html[data-scene="concrete"] .logo .lt{display:block}
+.nav{display:none;gap:clamp(18px,2.2vw,36px);font-size:var(--t-meta);font-weight:500}
+.nav a{text-decoration:none;padding:12px 0}
+.head-tel{display:none;font-size:var(--t-meta);text-decoration:none;font-weight:500}
+.eshop{font-size:var(--t-meta);font-weight:500;padding:12px 0;white-space:nowrap}
+.menu-btn{border:0;background:none;padding:0 0 0 4px;min-height:44px;min-width:44px;font-size:var(--t-meta);font-weight:500;cursor:pointer}
+@media (min-width:900px){.nav{display:flex}.head-tel{display:block}.menu-btn{display:none}}
+@media (hover:hover){.nav a:hover,.head-tel:hover{text-decoration:underline}.eshop:hover{text-decoration:none}}
+
+/* ---------- vstup (hero) ---------- */
+main{display:block}
+.vstup{position:relative;background:var(--paper)}
+.vstup-pin{position:relative;padding-top:var(--hh)}
+.vstup-ground{position:absolute;inset:0;background:var(--plaster);opacity:0;pointer-events:none}
+.vstup-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+.vstup-slot{grid-column:1/-1;margin-inline:calc(-1*var(--pad));aspect-ratio:3/2;max-height:46svh;width:calc(100% + 2*var(--pad))}
+.vstup-foto{position:relative;width:100%;height:100%;margin:0;overflow:hidden;background:var(--plaster)}
+.vstup-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 8%}
+.vstup-text{grid-column:1/-1;padding:24px 0 36px}
+h1{font-size:var(--t-h1);font-weight:300;letter-spacing:-.012em;line-height:.98}
+.lead{margin-top:14px;max-width:27em;color:var(--grey)}
+.fakta{margin-top:16px;font-size:var(--t-meta);color:var(--grey);display:grid;gap:2px}
+.fakta strong{font-weight:500;color:var(--ink)}
+.akce{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border:0;border-radius:2px;background:var(--ink);color:var(--paper);font-weight:500;font-size:var(--t-body);letter-spacing:.01em;text-decoration:none;cursor:pointer;transition:background-color .3s ease}
+@media (hover:hover){.btn:hover{background:#3a3833}}
+.tel{font-size:var(--t-meta);color:var(--grey)}
+.tel a{color:var(--ink);font-weight:500}
+@media (min-width:900px){
+  .vstup-pin{min-height:100svh;display:flex;flex-direction:column}
+  .vstup-grid{flex:1;padding-block:24px 48px}
+  .vstup-slot{grid-column:6/-1;grid-row:1;margin:0;width:auto;max-height:none;aspect-ratio:auto;min-height:520px}
+  .vstup-text{grid-column:1/6;grid-row:1;align-self:end;padding:0 0 4px}
+  .lead{margin-top:24px;font-size:clamp(17px,1.25vw,20px)}
+  .fakta{margin-top:24px}
+  .akce{margin-top:32px}
+}
+/* kino režim: zapne ho JS, jen bez prefers-reduced-motion */
+html.cine .vstup{height:calc(100svh + 85svh)}
+html.cine .vstup-pin{position:sticky;top:0;height:100svh;min-height:0;overflow:hidden}
+html.cine .vstup-foto{position:absolute;z-index:1;will-change:top,left,width,height}
+html.cine .vstup-text{will-change:opacity,transform;position:relative;z-index:2}
+
+/* ---------- omítka (textura stěny) ---------- */
+.omitka{position:relative;background:var(--plaster);color:var(--ink)}
+.omitka::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;mix-blend-mode:multiply;
+  background-image:var(--tex);background-size:520px 520px}
+.vstup-ground::before{content:"";position:absolute;inset:0;opacity:.2;mix-blend-mode:multiply;background-image:var(--tex);background-size:520px 520px}
+
+/* ---------- cesta k zásnubnímu prstenu ---------- */
+.cesta{padding:clamp(60px,8vw,120px) 0 clamp(72px,9vw,144px)}
+.cesta > .wrap{position:relative}
+.cesta-uvod{display:grid;gap:14px;max-width:34em}
+.cesta-uvod h2{font-size:var(--t-h2)}
+.cesta-uvod p{color:var(--plaster-ink)}
+.cesta-uvod{margin-bottom:clamp(28px,4vw,60px)}
+.scena{position:sticky;top:var(--hh);z-index:3;background:var(--plaster);padding:10px 0 0;margin-inline:calc(-1*var(--pad));padding-inline:var(--pad)}
+.scena::after{content:"";position:absolute;left:0;right:0;top:100%;height:28px;background:linear-gradient(var(--plaster),rgba(215,189,92,0))}
+.rejstrik{position:relative;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin:0 -10px 8px}
+.rejstrik::-webkit-scrollbar{display:none}
+.rejstrik button{flex:none;border:0;background:none;padding:0 10px;min-height:44px;font-size:var(--t-meta);font-weight:500;color:var(--plaster-ink);cursor:pointer;transition:color .3s ease}
+.rejstrik button[aria-current="step"]{color:var(--ink)}
+.rejstrik i{position:absolute;left:0;bottom:6px;height:2px;width:40px;background:var(--ink);transform-origin:0 0;transition:transform .5s var(--ease),width .5s var(--ease)}
+.podnos{position:relative;height:clamp(236px,40svh,400px);background:var(--paper);border:8px solid var(--tray);border-radius:3px;overflow:hidden;box-shadow:0 26px 44px -28px rgba(70,52,0,.55)}
+.panel{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s linear .5s}
+.panel.on{opacity:1;visibility:visible;transition:opacity .5s ease,visibility 0s}
+.panel .cover{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform .9s var(--ease)}
+.panel.on .cover{transform:none}
+/* výběr: polštářky jako v podnosech na stěně */
+.polstare{height:100%;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:4px;background:#e7e4dc}
+.polstar{background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 4px 8px;min-height:0;opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .6s var(--ease)}
+.panel.on .polstar{opacity:1;transform:none;transition-delay:calc(var(--i)*70ms + 120ms)}
+.polstar img{width:auto;height:auto;max-height:calc(100% - 38px);aspect-ratio:1;object-fit:contain;min-height:0}
+.polstar b{font-weight:500;font-size:14px;line-height:1.2}
+.polstar span{font-size:13px;color:var(--mute);line-height:1.25;text-align:center}
+/* návrh: citát */
+.citat-panel{height:100%;display:grid;grid-template-columns:1fr}
+.citat-panel img{display:none}
+.citat-panel blockquote{align-self:center;padding:clamp(18px,4vw,56px)}
+@media (min-width:900px){.citat-panel{grid-template-columns:5fr 6fr}.citat-panel img{display:block;width:100%;height:100%;object-fit:cover;object-position:40% 30%}}
+.citat-panel blockquote{font-size:clamp(17px,calc(14px + 1vw),28px);font-style:italic;font-weight:300;line-height:1.35}
+.citat-panel cite{display:block;margin-top:14px;font-style:normal;font-size:var(--t-meta);color:var(--mute)}
+/* kámen: certifikát */
+.stitek{position:absolute;right:12px;top:12px;background:rgba(255,255,255,.94);padding:10px 14px;font-size:13px;line-height:1.45;color:var(--grey);max-width:15.5em}
+.stitek b{display:block;color:var(--ink);font-weight:500;font-size:14px}
+/* kov: přepínač */
+.kov{height:100%;display:grid;grid-template-rows:1fr auto;justify-items:center;padding:6px 12px 14px}
+.kov-foto{position:relative;width:100%;height:100%;min-height:0}
+.kov-foto img{position:absolute;inset:0;margin:auto;height:100%;width:auto;max-width:100%;object-fit:contain;opacity:0;transition:opacity .3s ease}
+.kov-foto img.on{opacity:1}
+.kovy{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.kovy button{min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:22px;background:var(--paper);font-size:14px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:border-color .3s ease}
+.kovy button::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--m)}
+.kovy button[aria-pressed="true"]{border-color:var(--ink)}
+.kov-cena{margin-top:8px;font-size:14px;color:var(--grey);text-align:center}
+.kov-cena b{color:var(--ink);font-weight:500}
+@media (hover:hover){.kovy button:hover{border-color:var(--mute)}}
+
+.kapitoly{position:relative;z-index:1}
+.kapitola{min-height:50svh;padding:36px 0 24px;display:flex;flex-direction:column;justify-content:flex-start}
+.kapitola h3{font-size:var(--t-h3);font-weight:500}
+.kapitola p{margin-top:10px;color:var(--plaster-ink);max-width:31em}
+.kapitola .cena{margin-top:14px;font-size:var(--t-meta);color:var(--ink);font-weight:500}
+.kapitola blockquote{margin-top:16px;max-width:30em;font-style:italic;font-weight:300;font-size:clamp(17px,calc(15.5px + .35vw),20px);line-height:1.45}
+.kapitola blockquote cite{display:block;margin-top:8px;font-style:normal;font-size:var(--t-meta);color:var(--plaster-ink);font-weight:500}
+.kapitola .dal{margin-top:20px;font-weight:500;font-size:var(--t-meta)}
+.kapitola:last-child{min-height:48svh}
+@media (min-width:900px){
+  .cesta-body{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
+  .cesta-uvod{grid-column:1/6;grid-row:1;margin:0;padding-top:52px}
+  .scena{grid-column:6/-1;grid-row:1/3;margin:0;padding:0;top:calc(var(--hh) + 28px);background:none}
+  .scena::after{display:none}
+  .podnos{height:calc(100svh - var(--hh) - 140px);min-height:440px;max-height:760px;border-width:10px}
+  .kapitoly{grid-column:1/6;grid-row:2}
+  .kapitola{min-height:64svh;justify-content:center;padding:0}
+  .kapitola:first-child{min-height:56svh}
+  .kapitola:last-child{min-height:64svh}
+  .polstare{gap:6px}
+  .polstar{padding:10px 10px 18px}
+  .polstar img{max-height:calc(100% - 52px)}
+  .polstar b{font-size:16px}
+  .polstar span{font-size:14px}
+  .stitek{right:20px;top:20px;padding:14px 18px;font-size:14px}
+  .kov{padding:24px 24px 28px}
+}
+
+/* ---------- Daniela ---------- */
+.sekce{padding-block:clamp(84px,10vw,160px)}
+.sekce h2{font-size:var(--t-h2)}
+.daniela-a{row-gap:28px}
+.daniela-a .txt{grid-column:1/-1;display:grid;gap:16px;align-content:start}
+.daniela-a .txt p{color:var(--grey);max-width:30em}
+.daniela-a figure{grid-column:1/-1;margin-inline:calc(-1*var(--pad))}
+.daniela-a figcaption{padding:10px var(--pad) 0;font-size:var(--t-meta);color:var(--mute)}
+.rozhovor{margin-top:clamp(60px,8vw,120px);row-gap:22px}
+.rozhovor .eva{grid-column:1/-1;font-size:var(--t-meta);color:var(--grey);max-width:28em}
+.rozhovor .eva q{font-style:italic}
+.rozhovor .eva cite{display:block;margin-top:6px;font-style:normal;color:var(--mute)}
+.rozhovor blockquote{grid-column:1/-1;font-size:var(--t-q);font-weight:300;line-height:1.3;max-width:24em}
+.rozhovor blockquote cite{display:block;margin-top:16px;font-size:var(--t-meta);font-style:normal;font-weight:500;color:var(--ink)}
+.rozhovor blockquote cite span{font-weight:400;color:var(--mute)}
+q{quotes:"„" "“"}
+.kolekce{margin-top:clamp(72px,9vw,140px)}
+.kolekce h3{font-size:var(--t-h3);font-weight:500}
+.kolekce > p{margin-top:8px;color:var(--grey);max-width:32em}
+.kolekce ul{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px var(--gap)}
+.kolekce li img{width:100%;aspect-ratio:1}
+.kolekce li h4{margin-top:6px;font-size:var(--t-body);font-weight:500;line-height:1.3}
+.kolekce li p{margin-top:2px;font-size:var(--t-meta);color:var(--grey);line-height:1.4}
+.kolekce li .od{margin-top:6px;font-size:var(--t-meta);color:var(--ink)}
+@media (min-width:600px){.kolekce ul{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:900px){
+  .daniela-a .txt{grid-column:1/6}
+  .daniela-a figure{grid-column:6/-1;margin:0}
+  .daniela-a figcaption{padding:12px 0 0}
+  .rozhovor .eva{grid-column:1/5;padding-top:12px}
+  .rozhovor blockquote{grid-column:6/-1}
+  .kolekce{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+  .kolekce h3,.kolekce > p{grid-column:1/6}
+  .kolekce ul{grid-column:1/-1}
+}
+@media (min-width:1200px){.kolekce ul{grid-template-columns:repeat(6,minmax(0,1fr))}}
+
+/* ---------- perly a dárky ---------- */
+.darky{padding-top:0}
+.darky-hl{display:grid;gap:12px}
+.darky-hl p{color:var(--grey);max-width:30em}
+.darky ul{margin-top:clamp(28px,4vw,56px);display:grid;gap:56px var(--gap)}
+.darky li img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.darky li h3{margin-top:16px;font-size:var(--t-h3);font-weight:500}
+.darky li p{margin-top:8px;color:var(--grey);max-width:30em}
+.darky li .od{margin-top:10px;font-size:var(--t-meta);font-weight:500;color:var(--ink)}
+.darky li blockquote{margin-top:14px;font-style:italic;font-weight:300;font-size:var(--t-body);line-height:1.45;max-width:28em}
+.darky li blockquote cite{display:block;margin-top:6px;font-style:normal;font-size:var(--t-meta);color:var(--mute)}
+@media (min-width:900px){
+  .darky-hl{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+  .darky-hl h2{grid-column:1/6}
+  .darky-hl p{grid-column:6/12;padding-top:10px}
+  .darky ul{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .darky li:first-child{grid-column:auto}
+}
+
+/* ---------- návštěva ---------- */
+.navsteva{background:var(--concrete);color:var(--silver)}
+.navsteva .grid{row-gap:28px}
+.nav-txt{grid-column:1/-1;display:grid;gap:18px;align-content:start}
+.nav-txt p{color:var(--silver-mute);max-width:30em}
+.adresa{font-style:normal;font-size:var(--t-body);color:var(--silver)}
+.hodiny{display:grid;grid-template-columns:auto 1fr;gap:4px 24px;font-size:var(--t-meta);color:var(--silver-mute);max-width:24em}
+.hodiny dt{color:var(--silver)}
+.stav{font-size:var(--t-meta);font-weight:500;color:var(--silver)}
+.kontakty{display:grid;gap:4px;font-size:var(--t-body)}
+.kontakty a{color:var(--silver);font-weight:500;padding:6px 0;display:inline-block}
+.nav-foto{grid-column:1/-1;margin-inline:calc(-1*var(--pad))}
+.nav-foto img{width:100%;aspect-ratio:1;object-fit:cover}
+.formular{grid-column:1/-1;margin-top:clamp(36px,6vw,96px)}
+.formular h3{font-size:var(--t-h3);font-weight:500;color:var(--silver)}
+.formular > p{margin-top:8px;color:var(--silver-mute);max-width:30em}
+form{margin-top:24px;display:grid;gap:18px;max-width:640px}
+.pole{display:grid;gap:6px}
+.pole label{font-size:var(--t-meta);color:var(--silver-mute)}
+.pole input,.pole select,.pole textarea{width:100%;min-height:50px;border:0;border-bottom:1px solid #6d6e68;background:transparent;color:var(--silver);padding:10px 0;border-radius:0;font-size:var(--t-body);transition:border-color .3s ease}
+.pole select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--silver-mute) 50%),linear-gradient(135deg,var(--silver-mute) 50%,transparent 50%);background-position:calc(100% - 12px) 22px,calc(100% - 7px) 22px;background-size:5px 5px;background-repeat:no-repeat}
+.pole select option{color:#000}
+.pole textarea{min-height:90px;resize:vertical}
+.pole input:focus,.pole select:focus,.pole textarea:focus{outline:0;border-bottom-color:var(--silver)}
+.dvojice{display:grid;gap:18px}
+@media (min-width:600px){.dvojice{grid-template-columns:1fr 1fr}}
+.btn-zlata{background:var(--plaster);color:var(--ink);justify-self:start}
+@media (hover:hover){.btn-zlata:hover{background:#e3cc74}}
+.pozn{font-size:var(--t-meta);color:var(--silver-mute);max-width:36em}
+.vysledek{font-size:var(--t-meta);color:var(--silver);font-weight:500;min-height:1.5em}
+.navsteva :focus-visible{outline-color:var(--silver)}
+@media (min-width:900px){
+  .nav-txt{grid-column:1/6}
+  .nav-foto{grid-column:6/-1;margin:0}
+  .nav-foto img{aspect-ratio:16/11}
+  .formular{grid-column:6/-1;margin-top:clamp(48px,6vw,96px)}
+}
+
+/* ---------- patička ---------- */
+.pata{background:var(--tray);color:var(--silver-mute);font-size:var(--t-meta);padding-block:56px calc(56px + env(safe-area-inset-bottom))}
+.pata .grid{row-gap:22px}
+.pata img{height:34px;width:auto}
+.pata .a{grid-column:1/-1}
+.pata .b{grid-column:1/-1;display:grid;gap:10px;max-width:46em}
+@media (min-width:900px){.pata .a{grid-column:1/6}.pata .b{grid-column:6/-1}}
+@media (max-width:899px){.pata{padding-bottom:calc(120px + env(safe-area-inset-bottom))}}
+
+/* ---------- spodní lišta (telefon) ---------- */
+.lista{position:fixed;left:0;right:0;bottom:0;z-index:15;display:flex;gap:8px;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:var(--tray);transform:translateY(110%);visibility:hidden;transition:transform .3s ease,visibility 0s linear .3s}
+.lista.on{transform:none;visibility:visible;transition:transform .3s ease,visibility 0s}
+.lista a{flex:1;min-height:50px;display:flex;align-items:center;justify-content:center;border-radius:2px;font-weight:500;text-decoration:none;font-size:16px}
+.lista .z{flex:0 0 38%;color:var(--silver);border:1px solid #57564f}
+.lista .d{background:var(--plaster);color:var(--ink)}
+@media (min-width:900px){.lista{display:none}}
+
+/* ---------- menu (telefon) ---------- */
+.menu{position:fixed;inset:0;width:100%;max-width:none;height:100%;max-height:none;margin:0;padding:0;border:0;background:rgba(20,18,15,.45);color:var(--ink)}
+.menu::backdrop{background:transparent}
+.menu-list{background:var(--plaster);padding:calc(var(--hh) + 8px) var(--pad) 28px;display:grid;gap:2px;transform:translateY(-12px);opacity:0;transition:transform .3s ease,opacity .3s ease}
+.menu[open] .menu-list{transform:none;opacity:1}
+.menu-list a{font-size:28px;font-weight:300;text-decoration:none;padding:8px 0;display:block}
+.menu-list .m-tel{margin-top:16px;font-size:var(--t-body);font-weight:500}
+.menu-close{position:absolute;top:0;right:var(--pad);height:var(--hh);border:0;background:none;font-size:var(--t-meta);font-weight:500;min-width:44px;cursor:pointer;color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:0s!important;transition-delay:0s!important;scroll-behavior:auto!important}
+  .panel .cover{transform:none}
+  .polstar{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="sr" href="#obsah">Přeskočit na obsah</a>
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="#uvod" aria-label="Diamond Spot, klenotnictví, na začátek stránky">
+      <img class="dk" src="img/logo-tmave.png" width="367" height="74" alt="">
+      <img class="lt" src="img/logo-stribrne.png" width="367" height="74" alt="">
+      <img class="pl" src="img/logo-inkoust.png" width="367" height="74" alt="">
+    </a>
+    <nav class="nav" aria-label="Hlavní">
+      <a href="#zasnubni">Zásnubní prsten</a>
+      <a href="#daniela">Kolekce</a>
+      <a href="#perly">Perly a&nbsp;dárky</a>
+      <a href="#navsteva">Návštěva</a>
+    </nav>
+    <a class="head-tel num" href="tel:+420778880111">778 880 111</a>
+    <a class="eshop" href="https://diamondspot.eu/cz">do e-shopu</a>
+    <button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
+  </div>
+</header>
+
+<dialog class="menu" id="menu" aria-label="Menu" tabindex="-1">
+  <nav class="menu-list" aria-label="Menu">
+    <a href="#zasnubni">Zásnubní prsten</a>
+    <a href="#daniela">Kolekce</a>
+    <a href="#perly">Perly a&nbsp;dárky</a>
+    <a href="#navsteva">Návštěva</a>
+    <a class="m-tel num" href="tel:+420778880111">Zavolat 778 880 111</a>
+  </nav>
+  <button class="menu-close" type="button">Zavřít</button>
+</dialog>
+
+<main id="obsah">
+<section class="vstup" id="uvod" tabindex="-1" aria-label="Úvod">
+  <div class="vstup-pin">
+    <div class="vstup-ground" aria-hidden="true"></div>
+    <div class="wrap vstup-grid">
+      <div class="vstup-slot">
+        <figure class="vstup-foto">
+          <img src="img/zed-900.jpg" srcset="img/zed-900.jpg 900w, img/zed-1600.jpg 1600w" sizes="(min-width:900px) 60vw, 100vw" width="1600" height="1600" alt="Zlatá stěna obchodu s nápisem Diamond Spot a podnosy se snubními prsteny" fetchpriority="high">
+        </figure>
+      </div>
+      <div class="vstup-text">
+        <h1>Diamond Spot</h1>
+        <p class="lead">Klenotnictví v&nbsp;Masné&nbsp;15 na Starém Městě. Zásnubní a&nbsp;snubní prsteny, šperky Daniely Komatović a&nbsp;perly.</p>
+        <p class="fakta"><span>Hodnocení <strong class="num">5,0</strong> ze <span class="num">172</span> recenzí na Googlu</span><span class="js-stav"><strong>Úterý až sobota 11–19&nbsp;h</strong></span></p>
+        <div class="akce">
+          <a class="btn js-hero-cta" href="#formular">Domluvit návštěvu</a>
+          <span class="tel">nebo zavolejte <a class="num" href="tel:+420778880111">778 880 111</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cesta omitka" id="zasnubni" tabindex="-1" aria-labelledby="cesta-h">
+  <div class="wrap">
+    <div class="cesta-body">
+      <div class="cesta-uvod">
+        <h2 id="cesta-h">Zásnubní prsten</h2>
+        <p>Od výběru po zkoušku na ruce. V&nbsp;obchodě máme přes 300 modelů, od <span class="num">10&nbsp;180&nbsp;Kč</span> do <span class="num">525&nbsp;000&nbsp;Kč</span>.</p>
+      </div>
+      <div class="scena">
+        <div class="rejstrik" role="group" aria-label="Kroky výběru">
+          <button type="button" data-k="0" aria-current="step">Výběr</button>
+          <button type="button" data-k="1">Návrh</button>
+          <button type="button" data-k="2">Kámen</button>
+          <button type="button" data-k="3">Kov</button>
+          <button type="button" data-k="4">Velikost</button>
+          <button type="button" data-k="5">Snubní</button>
+          <i aria-hidden="true"></i>
+        </div>
+        <div class="podnos">
+          <div class="panel on" data-p="0">
+            <ul class="polstare" aria-label="Šest zásnubních prstenů z e-shopu">
+              <li class="polstar" style="--i:0"><img src="img/r-10180.jpg" width="560" height="560" alt="Prsten z bílého zlata s diamantem 0,03 ct"><b class="num">10&nbsp;180&nbsp;Kč</b><span>diamant 0,03&nbsp;ct</span></li>
+              <li class="polstar" style="--i:1"><img src="img/r-26960.jpg" width="560" height="560" alt="Zatočený prsten ze žlutého zlata s diamantem 0,19 ct" loading="lazy"><b class="num">26&nbsp;960&nbsp;Kč</b><span>diamant 0,19&nbsp;ct</span></li>
+              <li class="polstar" style="--i:2"><img src="img/r-45200.jpg" width="560" height="560" alt="Prsten Diana se smaragdem a diamanty" loading="lazy"><b class="num">45&nbsp;200&nbsp;Kč</b><span>smaragd 0,39&nbsp;ct</span></li>
+              <li class="polstar" style="--i:3"><img src="img/r-59500.jpg" width="560" height="560" alt="Prsten z bílého zlata s briliantem 0,46 ct" loading="lazy"><b class="num">59&nbsp;500&nbsp;Kč</b><span>briliant 0,46&nbsp;ct</span></li>
+              <li class="polstar" style="--i:4"><img src="img/r-154000.jpg" width="560" height="560" alt="Prsten Diana se safírem 2,39 ct a diamanty" loading="lazy"><b class="num">154&nbsp;000&nbsp;Kč</b><span>safír 2,39&nbsp;ct</span></li>
+              <li class="polstar" style="--i:5"><img src="img/r-525000.jpg" width="560" height="560" alt="Prsten Diana se smaragdem 2,15 ct a diamanty" loading="lazy"><b class="num">525&nbsp;000&nbsp;Kč</b><span>smaragd 2,15&nbsp;ct</span></li>
+            </ul>
+          </div>
+          <div class="panel" data-p="1" aria-hidden="true">
+            <div class="citat-panel">
+              <img src="img/navrh.jpg" width="960" height="1080" alt="Zásnubní prsten ze žlutého zlata se solitérem na stojánku" loading="lazy">
+              <blockquote><q>Poslal jsem své návrhy, rozpočet a&nbsp;přání, a&nbsp;tým je obratem proměnil ve vizualizaci. Po mém schválení trvala výroba přibližně pět týdnů, a&nbsp;výsledek předčil má očekávání.</q><cite>Marek, recenze na Googlu</cite></blockquote>
+            </div>
+          </div>
+          <div class="panel" data-p="2" aria-hidden="true">
+            <img class="cover" src="img/certifikat.jpg" width="1400" height="788" alt="Stůl s certifikátem pravosti, posuvným měřítkem, váhou a prstenem v krabičce" loading="lazy" style="object-position:40% 60%">
+            <p class="stitek"><b>Certifikát pravosti</b>přírodní diamant, kulatý briliant 0,46&nbsp;ct, čistota SI1, barva G, zlato Au&nbsp;585/1000</p>
+          </div>
+          <div class="panel" data-p="3" aria-hidden="true">
+            <div class="kov">
+              <div class="kov-foto">
+                <img src="img/kov-bile.jpg" width="900" height="900" alt="Prsten s briliantem 0,46 ct v bílém zlatě" loading="lazy" data-m="bile">
+                <img class="on" src="img/kov-zlute.jpg" width="900" height="900" alt="Prsten s briliantem 0,46 ct ve žlutém zlatě" loading="lazy" data-m="zlute">
+                <img src="img/kov-ruzove.jpg" width="900" height="900" alt="Prsten s briliantem 0,46 ct v růžovém zlatě" loading="lazy" data-m="ruzove">
+              </div>
+              <div>
+                <div class="kovy" role="group" aria-label="Barva zlata">
+                  <button type="button" data-m="bile" aria-pressed="false" style="--m:#dcdcd8">Bílé</button>
+                  <button type="button" data-m="zlute" aria-pressed="true" style="--m:#e2b84a">Žluté</button>
+                  <button type="button" data-m="ruzove" aria-pressed="false" style="--m:#e3a27f">Růžové</button>
+                </div>
+                <p class="kov-cena" aria-live="polite">Prsten s&nbsp;briliantem 0,46&nbsp;ct, <span class="js-kov">žluté zlato</span>, <b class="num">59&nbsp;500&nbsp;Kč</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel" data-p="4" aria-hidden="true">
+            <img class="cover" src="img/velikost.jpg" width="1000" height="1000" alt="Prsten s diamantem a lemem drobných diamantů na ruce" loading="lazy" style="object-position:50% 45%">
+          </div>
+          <div class="panel" data-p="5" aria-hidden="true">
+            <img class="cover" src="img/snubni.jpg" width="1000" height="1000" alt="Zásnubní prsten se solitérem a snubní prsten s diamanty na jedné ruce" loading="lazy" style="object-position:50% 50%">
+          </div>
+        </div>
+      </div>
+
+      <div class="kapitoly">
+        <article class="kapitola" data-k="0">
+          <h3>Výběr</h3>
+          <p>Diamanty, safíry, rubíny i&nbsp;smaragdy, vždy ve zlatě. Polovina prstenů v&nbsp;našem e-shopu stojí méně než <span class="num">41&nbsp;500&nbsp;Kč</span>. Tady je šest z&nbsp;nich, od nejlevnějšího po nejdražší.</p>
+        </article>
+        <article class="kapitola" data-k="1">
+          <h3>Návrh</h3>
+          <p>Když ten pravý v&nbsp;katalogu není, navrhneme prsten podle vás. Stačí představa a&nbsp;rozpočet, ukážeme vám vizualizaci a&nbsp;vyrobíme ho.</p>
+        </article>
+        <article class="kapitola" data-k="2">
+          <h3>Kámen</h3>
+          <p>Jen přírodní kameny, nikdy plněné laserem. Diamanty vybírá náš gemolog na burzách v&nbsp;Izraeli a&nbsp;Belgii, barevné kameny vozíme z&nbsp;Barmy, Kolumbie, Zambie, Srí Lanky, Thajska a&nbsp;Madagaskaru.</p>
+          <p>Kvalitu kamenů potvrzují certifikáty GIA, HRD, IGI, TGL, GRS nebo YUDC.</p>
+        </article>
+        <article class="kapitola" data-k="3">
+          <h3>Kov</h3>
+          <p>Prsteny jsou ze 14karátového zlata Au&nbsp;585, výjimečné kusy z&nbsp;18karátového Au&nbsp;750. Bílé, žluté, růžové i&nbsp;černé.</p>
+          <p>Tenhle prsten s&nbsp;briliantem 0,46&nbsp;ct je ve třech barvách za stejnou cenu.</p>
+        </article>
+        <article class="kapitola" data-k="4">
+          <h3>Velikost</h3>
+          <p>Neznáte velikost prstu? Poradíme si i&nbsp;bez ní.</p>
+          <blockquote><q>Společně jsme prošli spoustu fotek a&nbsp;videí mé přítelkyně, abychom co nejlépe odhadli velikost, a&nbsp;trefili jsme se skoro přesně! Navíc mi řekli, že finální úprava velikosti po našem příjezdu zpět do Česka bude zdarma.</q><cite>Filip, Google</cite></blockquote>
+        </article>
+        <article class="kapitola" data-k="5">
+          <h3>Snubní</h3>
+          <p>Po zásnubách přijdou snubní prsteny. Máme přes 600 modelů a&nbsp;všechny si u&nbsp;nás můžete vyzkoušet. Pár v&nbsp;e-shopu stojí od <span class="num">19&nbsp;599&nbsp;Kč</span> do <span class="num">75&nbsp;656&nbsp;Kč</span>.</p>
+          <a class="dal" href="#formular" data-chci="snubni">Domluvit zkoušku snubních prstenů</a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sekce" id="daniela" tabindex="-1" aria-labelledby="daniela-h">
+  <div class="wrap">
+    <div class="grid daniela-a">
+      <div class="txt">
+        <h2 id="daniela-h">Daniela Komatović</h2>
+        <p>Za Diamond Spot stojí manželé: gemolog, který vybírá kameny, a&nbsp;designérka Daniela Komatović, která šperky navrhuje.</p>
+        <p>Za kolekci Eye to the Soul dostala v&nbsp;roce 2017 zlaté ocenění A’&nbsp;Design Award v&nbsp;Miláně. Prsten z&nbsp;ní se dá proměnit v&nbsp;přívěsek.</p>
+      </div>
+      <figure>
+        <img src="img/ocenen.jpg" width="1500" height="844" alt="Ruka v bílé rukavici drží prsten Eye to the Soul, vedle leží trofej A’ Design Award" loading="lazy">
+        <figcaption>Prsten-přívěsek Eye to the Soul a&nbsp;trofej z&nbsp;Milána</figcaption>
+      </figure>
+    </div>
+    <div class="grid rozhovor">
+      <p class="eva"><q>Krásné, jedinečné šperky od Daniely Komatović. Líbí se mi její osobité a&nbsp;stylizované vyjádření, zachycení myšlenky v&nbsp;drobném předmětu.</q><cite>Eva, Google</cite></p>
+      <blockquote><q>Vždy mě potěší, když někdo rozpozná, že šperky, které navrhuji, nejsou pouhým módním doplňkem, ale že jsou to malá, leč hodnotná a&nbsp;rafinovaná umělecká díla.</q><cite>Daniela <span>v&nbsp;odpovědi Evě</span></cite></blockquote>
+    </div>
+    <div class="kolekce">
+      <h3>Šest kolekcí</h3>
+      <p>Každá má svůj tvar. Ceny jsou nejnižší v&nbsp;kolekci podle našeho e-shopu.</p>
+      <ul>
+        <li><img src="img/c-cosmos.jpg" width="560" height="560" alt="Prsten Leo ze žlutého zlata" loading="lazy"><h4>Cosmos</h4><p>Vesmír ve zlatě: prsten Leo, náhrdelník Vela.</p><p class="od num">od 24&nbsp;630&nbsp;Kč</p></li>
+        <li><img src="img/c-vertex.jpg" width="560" height="560" alt="Hranatý prsten Cube z černého zlata s citrínem" loading="lazy"><h4>Vertex</h4><p>Svět, kde přestal existovat kruh.</p><p class="od num">od 19&nbsp;650&nbsp;Kč</p></li>
+        <li><img src="img/c-eye.jpg" width="560" height="560" alt="Prsten Amulet Eye s modrými safíry" loading="lazy"><h4>Eye to the Soul</h4><p>Prsten, který se promění v&nbsp;přívěsek.</p><p class="od num">od 55&nbsp;400&nbsp;Kč</p></li>
+        <li><img src="img/c-liberty.jpg" width="560" height="560" alt="Prsten Mucha s fialovým safírem" loading="lazy"><h4>Liberty</h4><p>Podle linií Alfonse Muchy.</p><p class="od num">od 72&nbsp;000&nbsp;Kč</p></li>
+        <li><img src="img/c-queens.jpg" width="560" height="560" alt="Prsten Eakatarina s perlou a smaragdem" loading="lazy"><h4>Queens</h4><p>Perlové prsteny pro velké ženy.</p><p class="od num">od 42&nbsp;080&nbsp;Kč</p></li>
+        <li><img src="img/c-spot.jpg" width="560" height="560" alt="Prsten Diamond Spot ze žlutého zlata ve tvaru kapky" loading="lazy"><h4>Diamond Spot</h4><p>Navržená pro tohle klenotnictví.</p><p class="od num">od 21&nbsp;950&nbsp;Kč</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sekce darky" id="perly" tabindex="-1" aria-labelledby="perly-h">
+  <div class="wrap">
+    <div class="darky-hl">
+      <h2 id="perly-h">Perly a&nbsp;dárky</h2>
+      <p>Když nejde o&nbsp;prsten. Perly vozíme z&nbsp;Francouzské Polynésie a&nbsp;čínské provincie Suzhou.</p>
+    </div>
+    <ul>
+      <li>
+        <img src="img/perly.jpg" width="800" height="800" alt="Náhrdelník z bílých perel na krku" loading="lazy" style="object-position:50% 70%">
+        <h3>Perly</h3>
+        <p>Tahitské, zlaté South Sea, bílé Akoya a&nbsp;sladkovodní. Náhrdelníky v&nbsp;kvalitě AAA a&nbsp;AAA+.</p>
+        <p class="od num">od 6&nbsp;250&nbsp;Kč</p>
+        <blockquote><q>Výběr perel je opravdu široký – od nádherných sladkovodních až po elegantní tahitské perly.</q><cite>Natalie, Google</cite></blockquote>
+      </li>
+      <li>
+        <img src="img/kamen-darek.jpg" width="800" height="800" alt="Certifikovaný kámen v dárkové krabičce se zlatou výstelkou a taškou Diamond Spot" loading="lazy" style="object-position:50% 62%">
+        <h3>Kámen jako dárek</h3>
+        <p>Certifikovaný diamant, safír, rubín nebo smaragd v&nbsp;dárkovém balení s&nbsp;hologramem. K&nbsp;němu poukaz na 10&nbsp;% ze šperku s&nbsp;tímto kamenem.</p>
+        <p class="od num">3&nbsp;300–32&nbsp;000&nbsp;Kč</p>
+      </li>
+      <li>
+        <img src="img/poukaz.jpg" width="800" height="800" alt="Dárkový poukaz Diamond Spot s černou obálkou a bílými růžemi" loading="lazy" style="object-position:60% 60%">
+        <h3>Dárkový poukaz</h3>
+        <p>Na šperk podle vlastního výběru, v&nbsp;černé obálce.</p>
+        <p class="od num">1&nbsp;000–30&nbsp;000&nbsp;Kč</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sekce navsteva on-dark" id="navsteva" tabindex="-1" aria-labelledby="navsteva-h">
+  <div class="wrap grid">
+    <div class="nav-txt">
+      <h2 id="navsteva-h">Masná 15</h2>
+      <p>Na půl cesty mezi Staroměstským náměstím a&nbsp;Náměstím Republiky, ve funkcionalistickém domě architektů Otty a&nbsp;Karla Kohnů. Jsme tu od konce roku 2017.</p>
+      <address class="adresa">Masná 699/15<br>110&nbsp;00 Praha&nbsp;1</address>
+      <dl class="hodiny">
+        <dt>Úterý–sobota</dt><dd class="num">11:00–19:00</dd>
+        <dt>Neděle, pondělí</dt><dd>zavřeno</dd>
+      </dl>
+      <p class="stav js-stav2" aria-live="polite"></p>
+      <div class="kontakty">
+        <a class="num" href="tel:+420778880111">778 880 111</a>
+        <a href="mailto:info@diamondspot.cz">info@diamondspot.cz</a>
+      </div>
+    </div>
+    <figure class="nav-foto">
+      <img src="img/masna15.jpg" width="1100" height="1101" alt="Výloha klenotnictví Diamond Spot v Masné ulici s domovním číslem 15" loading="lazy" style="object-position:50% 40%">
+    </figure>
+    <div class="formular" id="formular" tabindex="-1">
+      <h3>Domluvit návštěvu</h3>
+      <p>Napište, s&nbsp;čím vám máme pomoct, a&nbsp;ozveme se vám.</p>
+      <form novalidate>
+        <div class="dvojice">
+          <div class="pole"><label for="f-jmeno">Jméno</label><input id="f-jmeno" name="jmeno" autocomplete="name" required></div>
+          <div class="pole"><label for="f-kontakt">Telefon nebo e-mail</label><input id="f-kontakt" name="kontakt" autocomplete="tel" required></div>
+        </div>
+        <div class="dvojice">
+          <div class="pole"><label for="f-co">S&nbsp;čím pomoct</label>
+            <select id="f-co" name="co">
+              <option value="zasnubni">Zásnubní prsten</option>
+              <option value="snubni">Snubní prsteny</option>
+              <option value="navrh">Prsten na míru</option>
+              <option value="perly">Perly</option>
+              <option value="jine">Něco jiného</option>
+            </select></div>
+          <div class="pole"><label for="f-den">Kdy se vám hodí</label>
+            <select id="f-den" name="den">
+              <option>Úterý</option><option>Středa</option><option>Čtvrtek</option><option>Pátek</option><option>Sobota</option>
+            </select></div>
+        </div>
+        <div class="pole"><label for="f-pozn">Poznámka (nepovinné)</label><textarea id="f-pozn" name="pozn" rows="3"></textarea></div>
+        <button class="btn btn-zlata" type="submit">Domluvit návštěvu</button>
+        <p class="vysledek" role="status"></p>
+        <p class="pozn">Ukázka – nic se neodeslalo. Odesláním berete na vědomí, že údaje použijeme jen k&nbsp;domluvě návštěvy.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pata on-dark">
+  <div class="wrap grid">
+    <div class="a"><img src="img/logo-stribrne.png" width="367" height="74" alt="Diamond Spot, klenotnictví" loading="lazy"></div>
+    <div class="b">
+      <p>Diamond Spot, Masná 699/15, 110&nbsp;00 Praha&nbsp;1. Telefon 778&nbsp;880&nbsp;111.</p>
+      <p>Provozovatel: YUDC s.r.o., Lindleyova 2689/3, 160&nbsp;00 Praha&nbsp;6, IČ 03793532, spisová značka C&nbsp;237129 vedená u&nbsp;Městského soudu v&nbsp;Praze.</p>
+      <p>Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, https://coi.gov.cz/informace-o-adr/</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="lista" aria-label="Rychlé akce">
+  <a class="z" href="tel:+420778880111">Zavolat</a>
+  <a class="d" href="#formular">Domluvit návštěvu</a>
+</nav>
+
+<script>
+(function(){
+  var d=document, H=d.documentElement;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var desk=matchMedia('(min-width: 900px)');
+
+  /* dotyk vs. klávesnice: kroužek fokusu jen pro klávesnici */
+  addEventListener('pointerdown',function(){H.classList.add('dotyk')},true);
+  addEventListener('keydown',function(e){if(/^(Tab|Arrow|Enter| )/.test(e.key))H.classList.remove('dotyk')},true);
+
+  /* otevřeno / zavřeno podle pražského času */
+  function stav(){
+    var p={};new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Prague',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+    var dny=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],den=dny.indexOf(p.weekday),m=+p.hour*60+ +p.minute;
+    var otv=function(x){return x>=2&&x<=6};
+    if(otv(den)&&m>=660&&m<1140)return'Teď otevřeno, zavíráme v 19:00';
+    if(otv(den)&&m<660)return'Dnes otevíráme v 11:00';
+    var n=(den+1)%7,k=1;while(!otv(n)){n=(n+1)%7;k++}
+    var jm=['v neděli','v pondělí','v úterý','ve středu','ve čtvrtek','v pátek','v sobotu'];
+    return'Zavřeno, otevíráme '+(k===1?'zítra':jm[n])+' v 11:00';
+  }
+  try{var s=stav();d.querySelector('.js-stav').innerHTML='<strong>'+s+'</strong>';d.querySelector('.js-stav2').textContent=s}catch(e){}
+
+  /* ---- vstup: fotka stěny se otevře do omítky ---- */
+  var pin=d.querySelector('.vstup-pin'),sec=d.querySelector('.vstup'),slot=d.querySelector('.vstup-slot'),
+      fig=d.querySelector('.vstup-foto'),txt=d.querySelector('.vstup-text'),gnd=d.querySelector('.vstup-ground');
+  var cine=!reduce&&'IntersectionObserver' in window;
+  var A=null;
+  function measure(){
+    if(!cine)return;
+    H.classList.add('cine');
+    fig.style.cssText='';
+    var pr=pin.getBoundingClientRect(),sr=slot.getBoundingClientRect();
+    var hh=parseFloat(getComputedStyle(H).getPropertyValue('--hh'))||56;
+    var W=pr.width,Hh=pr.height,size;
+    if(desk.matches){size=Math.min(Hh-hh-48,W*.62);}else{size=Math.min(W,Hh-hh);}
+    A={x0:sr.left-pr.left,y0:sr.top-pr.top,w0:sr.width,h0:sr.height,
+       x1:(W-size)/2,y1:hh+(Hh-hh-size)/2,w1:size,h1:size,track:sec.offsetHeight-Hh};
+  }
+  function sm(a,b,v){v=Math.min(1,Math.max(0,(v-a)/(b-a)));return v*v*(3-2*v)}
+  function hero(){
+    if(!A)return 0;
+    var y=-sec.getBoundingClientRect().top,p=Math.min(1,Math.max(0,y/A.track));
+    var e=sm(0,.6,p),L=function(a,b){return a+(b-a)*e};
+    fig.style.left=L(A.x0,A.x1)+'px';fig.style.top=L(A.y0,A.y1)+'px';fig.style.width=L(A.w0,A.w1)+'px';fig.style.height=L(A.h0,A.h1)+'px';
+    fig.style.opacity=1-sm(.66,.97,p);
+    var t=sm(0,.3,p);txt.style.opacity=1-t;txt.style.transform='translateY('+(-28*t)+'px)';
+    gnd.style.opacity=sm(.04,.28,p);
+    return p;
+  }
+
+  /* ---- cesta: šest kroků, jeden podnos ---- */
+  var kap=[].slice.call(d.querySelectorAll('.kapitola')),pan=[].slice.call(d.querySelectorAll('.panel')),
+      tl=[].slice.call(d.querySelectorAll('.rejstrik button')),bar=d.querySelector('.rejstrik i'),rej=d.querySelector('.rejstrik'),
+      podnos=d.querySelector('.podnos'),cur=-1;
+  function aktivni(i){
+    if(i===cur)return;cur=i;
+    pan.forEach(function(p,j){var on=j===i;p.classList.toggle('on',on);if(on)p.removeAttribute('aria-hidden');else p.setAttribute('aria-hidden','true')});
+    tl.forEach(function(b,j){if(j===i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});
+    var b=tl[i];bar.style.width=(b.offsetWidth-20)+'px';bar.style.transform='translateX('+(b.offsetLeft+10)+'px)';
+    if(!desk.matches){var sl=b.offsetLeft-(rej.clientWidth-b.offsetWidth)/2;rej.scrollTo({left:sl,behavior:reduce?'auto':'smooth'})}
+  }
+  var scn=d.querySelector('.scena');
+  function linie(){ /* čtecí linka podle podnosu v přilepené poloze */
+    var top=parseFloat(getComputedStyle(scn).top)||0,t=top+podnos.offsetTop,b=t+podnos.offsetHeight;
+    return desk.matches?(t+b)/2:b+(innerHeight-b)*.5}
+  function stred(el){var c=el.firstElementChild,l=el.lastElementChild,a=c.getBoundingClientRect().top,b=l.getBoundingClientRect().bottom;return (a+b)/2}
+  function cesta(){
+    var ln=linie(),i=0,best=1e9;
+    for(var j=0;j<kap.length;j++){var dd=Math.abs(stred(kap[j])-ln);if(dd<best){best=dd;i=j}}
+    aktivni(i);
+  }
+  tl.forEach(function(b,j){b.addEventListener('click',function(){
+    var top=stred(kap[j])+scrollY-linie();
+    scrollTo({top:top,behavior:reduce?'auto':'smooth'});
+  })});
+
+  /* kov */
+  var kovy=d.querySelectorAll('.kovy button'),kimg=d.querySelectorAll('.kov-foto img'),kt=d.querySelector('.js-kov');
+  var jmena={bile:'bílé zlato',zlute:'žluté zlato',ruzove:'růžové zlato'};
+  kovy.forEach(function(b){b.addEventListener('click',function(){
+    var m=b.dataset.m;kovy.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    kimg.forEach(function(im){im.classList.toggle('on',im.dataset.m===m)});kt.textContent=jmena[m];
+  })});
+
+  /* scéna pod hlavičkou: bílá, omítka, beton */
+  var sc=[{el:d.querySelector('#zasnubni'),s:'plaster'},{el:d.querySelector('#daniela'),s:'paper'},{el:d.querySelector('#perly'),s:'paper'},{el:d.querySelector('#navsteva'),s:'concrete'},{el:d.querySelector('.pata'),s:'concrete'}];
+  function scena(p){
+    var hh=parseFloat(getComputedStyle(H).getPropertyValue('--hh'))||56,s=p>.35?'plaster':'paper';
+    sc.forEach(function(x){var r=x.el.getBoundingClientRect();if(r.top<=hh&&r.bottom>hh)s=x.s});
+    if(H.dataset.scene!==s)H.dataset.scene=s;
+  }
+
+  var tick=false;
+  function frame(){tick=false;var p=hero();cesta();scena(p)}
+  function req(){if(!tick){tick=true;requestAnimationFrame(frame)}}
+  addEventListener('scroll',req,{passive:true});
+  addEventListener('resize',function(){measure();cur=-1;req()});
+  measure();frame();
+  if(d.fonts&&d.fonts.ready)d.fonts.ready.then(function(){cur=-1;measure();frame()});
+
+  /* spodní lišta: ukáže se, až zmizí tlačítko v úvodu; schová se u formuláře */
+  var lista=d.querySelector('.lista'),cta=d.querySelector('.js-hero-cta'),form=d.querySelector('#formular');
+  if('IntersectionObserver' in window){
+    var vis={cta:true,form:false,cesta:false},cst=d.querySelector('.kapitoly');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){vis[e.target===cta?'cta':e.target===form?'form':'cesta']=e.isIntersecting});lista.classList.toggle('on',!vis.cta&&!vis.form&&!vis.cesta)});
+    io.observe(cta);io.observe(form);io.observe(cst);
+  }
+
+  /* skoky na kotvy: fokus na cíl, předvyplnění formuláře */
+  d.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');if(!a)return;
+    var id=a.getAttribute('href').slice(1),t=d.getElementById(id);if(!t)return;
+    if(a.dataset.chci)d.getElementById('f-co').value=a.dataset.chci;
+    if(menu.open)zavri(true);
+    e.preventDefault();
+    var y=t.getBoundingClientRect().top+scrollY-(id==='uvod'?t.getBoundingClientRect().top+scrollY:parseFloat(getComputedStyle(H).getPropertyValue('--hh')));
+    scrollTo({top:y,behavior:reduce?'auto':'smooth'});
+    history.replaceState(null,'','#'+id);
+    if(id==='formular'&&e.detail===0){setTimeout(function(){d.getElementById('f-jmeno').focus({preventScroll:true})},reduce?0:600)}
+    else t.focus({preventScroll:true});
+  });
+
+  /* menu */
+  var menu=d.getElementById('menu'),mb=d.querySelector('.menu-btn'),y0=0;
+  function zavri(fromLink){
+    if(!menu.open)return;menu.close();d.body.style.cssText='';
+    if(!fromLink)scrollTo({top:y0,left:0,behavior:'instant'});
+    history.scrollRestoration='auto';
+    if(history.state&&history.state.menu&&!fromLink)history.back();
+    mb.setAttribute('aria-expanded','false');
+  }
+  mb.addEventListener('click',function(e){
+    y0=scrollY;history.scrollRestoration='manual';history.pushState({menu:1},'');
+    menu.showModal();mb.setAttribute('aria-expanded','true');
+    if(e.detail===0)menu.querySelector('a').focus();else menu.focus();
+  });
+  menu.querySelector('.menu-close').addEventListener('click',function(){zavri()});
+  menu.addEventListener('click',function(e){if(e.target===menu)zavri()});
+  menu.addEventListener('cancel',function(e){e.preventDefault();zavri()});
+  addEventListener('popstate',function(){if(menu.open){menu.close();history.scrollRestoration='auto';mb.setAttribute('aria-expanded','false')}});
+
+  /* formulář: ukázka, nic neodesílá */
+  var f=d.querySelector('form');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var j=d.getElementById('f-jmeno'),k=d.getElementById('f-kontakt'),out=f.querySelector('.vysledek');
+    if(!j.value.trim()){out.textContent='Doplňte prosím jméno.';j.focus();return}
+    if(!k.value.trim()){out.textContent='Doplňte prosím telefon nebo e-mail.';k.focus();return}
+    out.textContent='Ukázka – nic se neodeslalo. Na hotovém webu by vám obchod zavolal zpět.';
+  });
+})();
+</script>
+</body>
+</html>
