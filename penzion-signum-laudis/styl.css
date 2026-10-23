@@ -124,7 +124,7 @@ figcaption{font-size:15px;color:var(--sediva);margin-top:10px}
 @media (hover:hover){.patro:hover .patro-jmeno{text-decoration:underline;text-underline-offset:6px}}
 .vik{display:block;text-decoration:none;margin:8px 0 8px}
 .vik img{width:100%;aspect-ratio:3/2;object-fit:cover;margin-bottom:14px}
-.vik .patro-jmeno{display:block;font-size:clamp(40px,10vw,56px)}
+.vik .patro-jmeno{display:block;font-size:clamp(30px,6.4vw,40px)} /* stays under the section h2 (30–48 px) */
 .vik .patro-popis{display:block;font-size:17px;color:var(--obklad);margin:8px 0 6px;max-width:34em}
 .vik .patro-cena{display:block;font-size:16px}
 @media (hover:hover){.vik:hover .patro-jmeno{text-decoration:underline;text-underline-offset:6px}}
@@ -132,6 +132,7 @@ figcaption{font-size:15px;color:var(--sediva);margin-top:10px}
 @media (min-width:960px){
   .byty-mrizka{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}
   .byty-mrizka .patra{margin-top:8px}
+  .byty-mrizka .patro{grid-template-columns:232px 1fr}.byty-mrizka .patro img{width:232px;height:155px}
 }
 
 /* home: amenities */
@@ -237,7 +238,7 @@ th:first-child{text-align:left}
 .detaily{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
 .detaily img{width:100%;aspect-ratio:3/2;object-fit:cover}
 .vila-venku{margin:4px 0 0}.vila-venku img{width:100%}
-.vila-konec{padding:8px 0 48px}
+.vila-konec{padding-top:8px;padding-bottom:48px}
 @media (min-width:960px){.viktorie-mrizka{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:center}.viktorie-mrizka .citat{margin-top:8px}.detaily{grid-template-columns:repeat(4,1fr);gap:16px}}
 
 /* services page */
@@ -250,7 +251,7 @@ th:first-child{text-align:left}
 .zahrada-mrizka{display:grid;gap:0}
 .strecha-mrizka{display:grid;gap:24px}
 @media (min-width:760px){.dvojice{grid-template-columns:1fr 1fr;gap:20px}}
-@media (min-width:960px){.strecha-mrizka{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px}.strecha-mrizka .leto-zima{grid-template-columns:1fr 1fr}
+@media (min-width:960px){.strecha-mrizka{grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:56px;row-gap:0}.strecha-mrizka>div:first-child{display:contents}.strecha-mrizka h2{grid-column:1/-1}.strecha-mrizka .citat{align-self:start;margin-top:0}.strecha-mrizka .leto-zima{grid-column:1/-1;grid-template-columns:1fr 1fr;margin-top:24px} /* heading, text | Felix, then kuželky + curling 2-up at full width (each ~556 px, 1024 px files) */
   .zahrada-mrizka{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:center}.zahrada-mrizka .siroka-fotka{margin:0}}
 
 /* gallery */
@@ -271,6 +272,7 @@ th:first-child{text-align:left}
   /* spanning tiles take the height of the 4:3 tiles beside them, so rows never drift */
   .g-mrizka li:first-child .snimek,.g-mrizka li:last-child:nth-child(4n) .snimek{position:absolute;inset:0}
   .g-mrizka li:first-child img,.g-mrizka li:last-child:nth-child(4n) img{height:100%;aspect-ratio:auto}
+  .g-mrizka li:last-child:nth-child(4n) img[src*="viktorie-lavice"]{object-position:50% 72%} /* the 2.7:1 closing strip: bench, lace and both armchairs */
 }
 .prohlidka{width:100%;max-width:none;height:100dvh;max-height:none;margin:0;border:0;padding:0;background:#1a1411;color:var(--fasada)}
 .prohlidka[open]{display:flex;flex-direction:column}

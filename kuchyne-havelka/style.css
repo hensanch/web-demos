@@ -74,7 +74,7 @@ html.dotyk :focus-visible{outline:0}
 /* hero */
 .uvod{padding-bottom:56px}
 .uvod .foto{margin:0 calc(-1*var(--okraj))}
-.uvod .foto img{width:100%;aspect-ratio:390/236;object-fit:cover;object-position:40% 55%}
+.uvod .foto img{width:100%;aspect-ratio:390/284;object-fit:cover;object-position:40% 55%}
 .uvod h1{font-size:40px;margin-top:18px}
 .uvod .co{margin-top:8px;font-size:15px;line-height:1.5;color:var(--seda);max-width:34em}
 .dukaz{margin-top:14px;font-size:14px;line-height:1.45}
@@ -127,7 +127,7 @@ html.dotyk :focus-visible{outline:0}
 
 @media (min-width:980px){
   .dvur .ram{grid-template-columns:1fr 1fr;gap:40px 48px}
-  .dvur .text{grid-column:1/-1;grid-row:1;position:static;display:grid;grid-template-columns:1fr 1fr;gap:0 48px;align-items:start}
+  .dvur .text{grid-column:1/-1;grid-row:1;position:static;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;gap:0 48px;align-items:start}
   .dvur .fakta{grid-column:2;grid-row:1/3;margin-top:0}
   .dvur .f1{grid-column:1;grid-row:2}.dvur .f2{grid-column:2;grid-row:2}
 }
@@ -157,8 +157,11 @@ html.dotyk :focus-visible{outline:0}
 .stitek b{display:block;font-size:13px;font-weight:600;letter-spacing:.01em}
 @media (max-width:759px){
   .stitek{top:auto;bottom:6px;padding:2px 6px;line-height:1.2}
-  .stitek span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* never cut a word: a short phone caption where the long one does not fit a half tile, wrapping as the fallback */
+  .stitek span{display:block}
+  .stitek .dl{display:none}
 }
+@media (min-width:760px){.stitek .kr{display:none}}
 @container (max-height:110px){.stitek span{display:none}}
 .odrezek{grid-area:var(--m);display:flex;align-items:flex-end;padding:10px;font-weight:600;font-size:14px;line-height:1.3;text-decoration:none;color:var(--tabule);
   background:repeating-linear-gradient(-45deg,var(--korpus) 0 7px,var(--lamino) 7px 11px)}
@@ -183,6 +186,10 @@ html.dotyk :focus-visible{outline:0}
   .stitek{left:10px;top:10px;font-size:12px;padding:4px 9px 5px}
   .stitek b{font-size:15px}
   .odrezek{padding:16px;font-size:15px}
+  /* wardrobe board offcut: quote and link side by side, centred, so the strip reads as content, not a hole */
+  .odrezek.s-textem{flex-direction:row;align-items:center;justify-content:space-between;gap:24px;padding:24px 32px}
+  .odrezek.s-textem blockquote{font-size:18px;line-height:1.5;padding:14px 18px;max-width:40em}
+  .odrezek.s-textem>a{flex:none;padding:0 16px;font-size:16px}
 }
 
 /* process */
@@ -221,7 +228,8 @@ html.dotyk :focus-visible{outline:0}
 .mapa button{min-height:48px;padding:0 20px;border:1px solid var(--tabule);background:var(--lamino);font-weight:500;cursor:pointer}
 @media (min-width:760px){
   .navsteva .ram{display:grid;grid-template-columns:6fr 6fr;gap:0 56px;align-items:start}
-  .navsteva .budova{margin:0;grid-column:2;grid-row:1/4}
+  .navsteva .vpravo{grid-column:2;grid-row:1/3}
+  .navsteva .budova{margin:0}
   .navsteva .mapa{grid-column:1;grid-row:2;margin-top:32px}
 }
 
@@ -251,8 +259,8 @@ html.dotyk :focus-visible{outline:0}
 .prohlizec .horni,.prohlizec .dolni{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px var(--okraj)}
 .prohlizec .nazev{font-weight:600}
 .prohlizec .pocet{color:#BFC7CF;font-size:14px;font-variant-numeric:tabular-nums}
-.prohlizec .jeviste{display:grid;place-items:center;min-height:0;padding:0 var(--okraj);touch-action:pan-y}
-.prohlizec .jeviste img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.prohlizec .jeviste{position:relative;min-height:0;touch-action:pan-y}
+.prohlizec .jeviste img{position:absolute;inset:0;margin:auto;width:auto;height:auto;max-width:calc(100% - 2*var(--okraj));max-height:100%;object-fit:contain}
 .prohlizec button{min-height:44px;min-width:44px;padding:0 16px;background:none;border:1px solid rgba(255,255,255,.6);color:#fff;cursor:pointer}
 .prohlizec .dolni{padding-bottom:calc(12px + env(safe-area-inset-bottom))}
 
@@ -288,10 +296,11 @@ html.dotyk :focus-visible{outline:0}
 .vyroba .fotky{display:grid;gap:12px;margin-top:28px;min-width:0}
 .vyroba .fotky img{width:100%}
 .nw{white-space:nowrap}
-@media (min-width:760px){.vyroba .ram{display:grid;grid-template-columns:6fr 6fr;gap:0 56px;align-items:start}.vyroba .fotky{margin-top:0}}
+@media (min-width:760px){.vyroba .ram{display:grid;grid-template-columns:7fr 4fr;gap:0 48px;align-items:start}.vyroba .fotky{margin-top:0}}
 .roky{list-style:none;margin:24px 0 0;padding:0;max-width:40em}
 .roky li{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--linka)}
 .roky b{font-weight:600;font-variant-numeric:tabular-nums}
+@media (min-width:980px){.roky{max-width:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;gap:0 56px}}
 
 /* poptavka */
 .poptavka-foto{margin:0 calc(-1*var(--okraj))}
@@ -320,8 +329,20 @@ fieldset.pole{border:0;margin:0;padding:0}
 .kontakty{display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:28px;margin-top:40px}
 .kontakty h2{font-size:22px;margin-bottom:8px}
 .kontakty a{display:inline-flex;min-height:44px;align-items:center}
+.kontakty p + p{margin-top:8px}
 @media (min-width:980px){.poptavka-telo{display:grid;grid-template-columns:7fr 5fr;gap:0 64px}.kontakty{margin-top:28px}}
 .pata.uzka{padding-top:28px}
 .pata.uzka .pravni{margin-top:0;padding-top:0;border-top:0}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* photo round: kitchen seller card (s45, their O nás page) */
+.osoba{display:flex;align-items:center;gap:14px}
+.osoba img{width:80px;height:80px;object-fit:cover;flex:none}
+/* photo round: Poptávka photo beside the heading on desktop, so the 1360 px file is not stretched to 1240 px */
+@media (min-width:980px){
+  .pq-hlava{display:grid;grid-template-columns:7fr 5fr;grid-template-rows:1fr auto;gap:0 64px;align-items:end;padding-top:32px}
+  .pq-hlava .uvodni{align-self:start}
+  .pq-hlava .poptavka-foto{grid-column:2;grid-row:1/3;margin:0!important}
+  .pq-hlava .poptavka-foto img{aspect-ratio:1360/700}
+}

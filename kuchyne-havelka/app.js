@@ -42,7 +42,7 @@
       b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
     });
     /* keep the language when moving between pages */
-    document.querySelectorAll('a[href$=".html"]').forEach(function (a) {
+    document.querySelectorAll('a[href*=".html"]:not([href^="http"])').forEach(function (a) {
       var h = a.getAttribute('href').split('?')[0];
       a.setAttribute('href', lang === 'en' ? h + '?lang=en' : h);
     });
@@ -52,6 +52,8 @@
     b.addEventListener('click', function () {
       lang = b.getAttribute('data-lang');
       try { localStorage.setItem('kh-lang', lang); } catch (e) {}
+      /* the URL follows the chosen language, so a reload keeps it */
+      try { history.replaceState(history.state, '', location.pathname + (lang === 'en' ? '?lang=en' : '') + location.hash); } catch (e) {}
       applyLang();
     });
   });

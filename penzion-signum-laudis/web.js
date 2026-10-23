@@ -129,14 +129,23 @@
     var show = function (n) {
       i = (n + shots.length) % shots.length;
       var im = shots[i].querySelector('img');
-      big.hidden = false; big.src = shots[i].dataset.velky; big.alt = im.alt; cap.textContent = shots[i].dataset.popis || ''; // short caption, the alt text stays for screen readers
+      // srcset sized to the box the photo will fill (capped at the largest file, never shown above 1:1 CSS px), so retina screens get the 2400 files where they exist
+      var ws = im.srcset.split(',').map(function (c) { return parseInt(c.trim().split(' ')[1], 10) || 0; }), ar = im.getAttribute('width') / im.getAttribute('height');
+      big.sizes = Math.round(Math.min(window.innerWidth - 24, (window.innerHeight - 150) * ar, Math.max.apply(null, ws))) + 'px';
+      big.srcset = im.srcset; big.hidden = false; big.src = shots[i].dataset.velky; big.alt = im.alt; cap.textContent = shots[i].dataset.popis || ''; // short caption, the alt text stays for screen readers
       cnt.textContent = (i + 1) + ' / ' + shots.length;
     };
-    shots.forEach(function (s, n) { s.addEventListener('click', function () { back = s; show(n); dlg.showModal(); }); });
+    // a history entry per open photo, like the menu: Back (and the iOS edge swipe) closes the photo, not the gallery page
+    var popping = false;
+    shots.forEach(function (s, n) { s.addEventListener('click', function () { back = s; show(n); history.pushState({ foto: 1 }, ''); dlg.showModal(); }); });
+    window.addEventListener('popstate', function () { if (dlg.open) { popping = true; dlg.close(); popping = false; } });
     dlg.querySelector('.pr-zpet').addEventListener('click', function () { show(i - 1); });
     dlg.querySelector('.pr-dal').addEventListener('click', function () { show(i + 1); });
     dlg.querySelector('.pr-zavrit').addEventListener('click', function () { dlg.close(); });
-    dlg.addEventListener('close', function () { if (back) back.focus({ preventScroll: true }); });
+    dlg.addEventListener('close', function () {
+      if (!popping && history.state && history.state.foto) history.back(); // closed by button or Esc: drop our entry
+      if (back) back.focus({ preventScroll: true });
+    });
     dlg.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1); });
     var x0 = null;
     dlg.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
