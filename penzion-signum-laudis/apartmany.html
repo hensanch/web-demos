@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title data-i18n="title.apartmany">Apartmány a ceník | Penzion Signum Laudis, Velké Hamry</title>
+<meta name="description" content="Čtyři apartmány s kuchyní ve vile z roku 1921: Viktorie, Radmila, Liběna a Stella. Celý ceník.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%232E221C'/%3E%3Ctext%20x='16'%20y='23'%20font-family='sans-serif'%20font-size='18'%20text-anchor='middle'%20fill='%23EBD5CC'%3ESL%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/saira-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="styl.css">
+
+</head>
+<!-- No cookies, no third-party request on load: fonts are self-hosted, the map loads only on a tap. Demo: noindex until handover. -->
+<body class="str-apartmany">
+<a class="preskocit" href="#obsah" data-i18n="skip">Přeskočit na obsah</a>
+<header class="hlava">
+  <a class="znacka" href="index.html" aria-label="Penzion Signum Laudis">SIGNUM LAUDIS</a>
+  <nav class="hlava-nav" aria-label="Hlavní" data-i18n-attr="aria-label:aria.hlavni"><a href="index.html" data-i18n="nav.domu">Domů</a><a href="apartmany.html" aria-current="page" data-i18n="nav.apartmany">Apartmány a ceník</a><a href="vila.html" data-i18n="nav.vila">Vila</a><a href="sluzby.html" data-i18n="nav.sluzby">Služby</a><a href="galerie.html" data-i18n="nav.galerie">Fotografie</a><a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a></nav>
+  <div class="jazyky" role="group" aria-label="Jazyk / Language / Sprache"><button type="button" data-lang="cs" aria-pressed="true">CS</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+  <a class="tlacitko tlacitko-maly hlava-cta" href="kontakt.html#poptavka" data-i18n="cta.poptat">Poptat termín</a>
+  <button type="button" class="menu-otevrit" aria-haspopup="dialog" aria-controls="menu" data-i18n="menu">Menu</button>
+</header>
+<dialog id="menu" class="menu" aria-label="Menu" tabindex="-1">
+  <div class="menu-vnitrek">
+    <div class="menu-horni"><div class="jazyky" role="group" aria-label="Jazyk / Language / Sprache"><button type="button" data-lang="cs" aria-pressed="true">CS</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div><button type="button" class="menu-zavrit" data-i18n="zavrit">Zavřít</button></div>
+    <nav aria-label="Menu"><a href="index.html" data-i18n="nav.domu">Domů</a><a href="apartmany.html" aria-current="page" data-i18n="nav.apartmany">Apartmány a ceník</a><a href="vila.html" data-i18n="nav.vila">Vila</a><a href="sluzby.html" data-i18n="nav.sluzby">Služby</a><a href="galerie.html" data-i18n="nav.galerie">Fotografie</a><a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a></nav>
+    <p class="menu-tel"><a href="tel:+420603812708" data-i18n="tel">603&nbsp;812&nbsp;708</a></p>
+  </div>
+</dialog>
+<main id="obsah" tabindex="-1">
+
+<div class="stranka-hlava sirka">
+  <h1 data-i18n="ap.h1">Apartmány a ceník</h1>
+  <p class="pod-nadpisem" data-i18n="ap.uvod">Každý apartmán má vlastní kuchyň. Radmila a Liběna mají dvě ložnice, Stella tři, Viktorie bezmála 170 m². Ceny jsou za apartmán a noc.</p>
+  <p class="skoky"><a href="#viktorie">Viktorie</a> <a href="#radmila">Radmila</a> <a href="#libena">Liběna</a> <a href="#stella">Stella</a></p>
+</div>
+
+<section class="cenik" id="cenik" tabindex="-1" aria-labelledby="cenik-h">
+  <div class="sirka cenik-mrizka">
+    <div>
+      <h2 data-i18n="c.h2" id="cenik-h">Ceník</h2>
+      <!-- 2024 price list (their site), still matching Google's booking box on 23. 10. 2026. Owner to confirm 2026/27 + winter. -->
+      <div class="tabulka-obal">
+        <table>
+          <thead><tr><th scope="col" data-i18n="c.hoste">Hosté</th><th scope="col">Radmila, Liběna</th><th scope="col">Stella</th><th scope="col">Viktorie</th></tr></thead>
+          <tbody><tr><th scope="row">1</th><td>756</td><td>882</td><td>1&nbsp;008</td></tr><tr><th scope="row">2</th><td>1&nbsp;310</td><td>1&nbsp;525</td><td>1&nbsp;827</td></tr><tr><th scope="row">3</th><td>1&nbsp;827</td><td>2&nbsp;066</td><td>2&nbsp;501</td></tr><tr><th scope="row">4</th><td>2&nbsp;297</td><td>2&nbsp;552</td><td>3&nbsp;043</td></tr><tr><th scope="row">5</th><td>–</td><td>3&nbsp;082</td><td>3&nbsp;557</td></tr><tr><th scope="row">6</th><td>–</td><td>3&nbsp;455</td><td>4&nbsp;055</td></tr><tr class="pristylka"><th scope="row" data-i18n="c.pristylka">Přistýlka</th><td>420</td><td>420</td><td>420</td></tr></tbody>
+        </table>
+      </div>
+      <p class="male" data-i18n="c.pozn">Ceny jsou v Kč za apartmán a noc. V ceně je týdenní výměna povlečení, pravidelný úklid, obecní poplatek a všechny služby penzionu. Ceník platí od 1. 4. do 15. 12. Zimní ceny na dotaz. Přistýlku dáme do každého apartmánu.</p>
+    </div>
+    <div class="vybaveni">
+      <h2 data-i18n="vy.h2">V každém apartmánu</h2>
+      <ul>
+        <li data-i18n="vy.kuchyn">Kuchyň: lednice, elektrická deska se čtyřmi plotýnkami, mikrovlnka, rychlovarná konvice, remoska, nádobí</li><li data-i18n="vy.wifi">Wi-Fi, televize a DVD přehrávač, filmy k zapůjčení</li><li data-i18n="vy.povleceni">Povlečení a ručníky</li><li data-i18n="vy.pujcime">Půjčíme fén, kávovar na espresso a toustovač</li><li data-i18n="vy.deti">Pro malé děti přebalovací podložka, dětská židlička a postýlka</li>
+      </ul>
+      <p class="male" data-i18n="vy.pes">Domácího mazlíčka můžete vzít po domluvě. Areál je oplocený, venčit se chodí mimo něj.</p>
+      <blockquote class="citat" data-i18n="c.citat">„Všechny apartmány jsou nadstandardně prostorné ve srovnání se zkušenostmi z jiných penzionů.“ <span class="host">Marie</span></blockquote>
+    </div>
+  </div>
+</section>
+
+<article class="byt" id="viktorie" tabindex="-1" aria-labelledby="viktorie-h">
+  <div class="sirka byt-mrizka">
+    <div class="byt-fotky"><img class="byt-hlavni" src="img/viktorie-klavir-800.jpg" srcset="img/viktorie-klavir-400.jpg 400w, img/viktorie-klavir-800.jpg 800w, img/viktorie-klavir-1600.jpg 1497w" sizes="(min-width: 960px) 700px, 100vw" width="800" height="533" alt="Hala Viktorie: klavír, dřevěná kolébka a prosklené dveře" data-i18n-attr="alt:alt.viktorie-klavir" loading="lazy" decoding="async"><div class="byt-male"><img src="img/viktorie-loznice-800.jpg" srcset="img/viktorie-loznice-400.jpg 400w, img/viktorie-loznice-800.jpg 800w, img/viktorie-loznice-1600.jpg 1497w" sizes="(min-width: 960px) 320px, 50vw" width="800" height="533" alt="Ložnice Viktorie s dobovou postelí, mosazným lustrem a vysokým oknem" data-i18n-attr="alt:alt.viktorie-loznice" loading="lazy" decoding="async"><img src="img/viktorie-jidelna-800.jpg" srcset="img/viktorie-jidelna-400.jpg 400w, img/viktorie-jidelna-800.jpg 800w, img/viktorie-jidelna-1600.jpg 1497w" sizes="(min-width: 960px) 320px, 50vw" width="800" height="533" alt="Jídelna Viktorie s kulatým stolem a vitrínou" data-i18n-attr="alt:alt.viktorie-jidelna" loading="lazy" decoding="async"></div></div>
+    <div class="byt-text">
+      <h2 id="viktorie-h">Viktorie</h2>
+      <p data-i18n="ap.viktorie">Bezmála 170 m² v prvním podlaží. Původní parkety, štukové stropy, dřevěné obložení a dobový nábytek. V hale stojí klavír, v jídelně pianino. Dvě koupelny, jedna se sprchou a jedna s vanou, a dva záchody. Lodžie s posezením a vlastní vchod do zahrady. Na stěně visí Vosátkovy plány domu.</p>
+      <p class="cena-pro-dva"><span data-i18n="a.prodva">pro dva</span> <b>1&nbsp;827</b> <span data-i18n="a.zanoc">Kč za noc</span></p>
+      <p class="akce"><a class="tlacitko" href="kontakt.html?apartman=viktorie#poptavka" data-cta data-i18n="cta.poptat">Poptat termín</a> <a class="tel" href="tel:+420603812708" data-i18n="tel">603&nbsp;812&nbsp;708</a></p>
+    </div>
+  </div>
+</article>
+<article class="byt" id="radmila" tabindex="-1" aria-labelledby="radmila-h">
+  <div class="sirka byt-mrizka">
+    <div class="byt-fotky"><img class="byt-hlavni" src="img/radmila-800.jpg" srcset="img/radmila-400.jpg 400w, img/radmila-800.jpg 800w, img/radmila-1600.jpg 1350w" sizes="(min-width: 960px) 700px, 100vw" width="800" height="533" alt="Jídelna apartmánu Radmila se stolem pod okny" data-i18n-attr="alt:alt.radmila" loading="lazy" decoding="async"><div class="byt-male na-vysku"><img class="svisla" src="img/radmila-vyhled-800.jpg" srcset="img/radmila-vyhled-400.jpg 400w, img/radmila-vyhled-800.jpg 600w" sizes="(min-width: 960px) 200px, 31vw" width="600" height="900" alt="Výhled z Radmily přes střechy na kostel a kopce" data-i18n-attr="alt:alt.radmila-vyhled" loading="lazy" decoding="async"><img src="img/radmila-zahrada-800.jpg" srcset="img/radmila-zahrada-400.jpg 400w, img/radmila-zahrada-800.jpg 800w, img/radmila-zahrada-1600.jpg 1350w" sizes="(min-width: 960px) 440px, 69vw" width="800" height="533" alt="Výhled z Radmily střešním oknem do zahrad a zeleně" data-i18n-attr="alt:alt.radmila-zahrada" loading="lazy" decoding="async"></div></div>
+    <div class="byt-text">
+      <h2 id="radmila-h">Radmila</h2>
+      <p data-i18n="ap.radmila">Ve 3. podlaží. Kuchyň s jídelnou a dvě ložnice, v jedné manželská postel, ve druhé dvě samostatná lůžka. Světlý apartmán s výhledem do zahrady a na kostelík na náměstí. Koupelna a dva záchody.</p>
+      <p class="cena-pro-dva"><span data-i18n="a.prodva">pro dva</span> <b>1&nbsp;310</b> <span data-i18n="a.zanoc">Kč za noc</span></p>
+      <p class="akce"><a class="tlacitko" href="kontakt.html?apartman=radmila#poptavka" data-cta data-i18n="cta.poptat">Poptat termín</a> <a class="tel" href="tel:+420603812708" data-i18n="tel">603&nbsp;812&nbsp;708</a></p>
+    </div>
+  </div>
+</article>
+<article class="byt" id="libena" tabindex="-1" aria-labelledby="libena-h">
+  <div class="sirka byt-mrizka">
+    <div class="byt-fotky"><img class="byt-hlavni" src="img/libena-800.jpg" srcset="img/libena-400.jpg 400w, img/libena-800.jpg 800w, img/libena-1600.jpg 1350w" sizes="(min-width: 960px) 700px, 100vw" width="800" height="533" alt="Ložnice apartmánu Liběna s toaletním stolkem a oválným zrcadlem" data-i18n-attr="alt:alt.libena" loading="lazy" decoding="async"><div class="byt-male na-vysku vpravo"><img src="img/libena-loznice-800.jpg" srcset="img/libena-loznice-400.jpg 400w, img/libena-loznice-800.jpg 800w, img/libena-loznice-1600.jpg 1350w" sizes="(min-width: 960px) 440px, 69vw" width="800" height="533" alt="Ložnice Liběny se dvěma dřevěnými postelemi pod okny" data-i18n-attr="alt:alt.libena-loznice" loading="lazy" decoding="async"><img class="svisla" src="img/libena-okno-800.jpg" srcset="img/libena-okno-400.jpg 400w, img/libena-okno-800.jpg 600w" sizes="(min-width: 960px) 200px, 31vw" width="600" height="900" alt="Okno s kyticí ve váze, za ním střechy a kostelní věž" data-i18n-attr="alt:alt.libena-okno" loading="lazy" decoding="async"></div></div>
+    <div class="byt-text">
+      <h2 id="libena-h">Liběna</h2>
+      <p data-i18n="ap.libena">Ve 3. podlaží. Kuchyň s jídelnou a dvě ložnice, v jedné manželská postel, ve druhé dvě samostatná lůžka. Okna do zahrady.</p>
+      <p class="cena-pro-dva"><span data-i18n="a.prodva">pro dva</span> <b>1&nbsp;310</b> <span data-i18n="a.zanoc">Kč za noc</span></p>
+      <p class="akce"><a class="tlacitko" href="kontakt.html?apartman=libena#poptavka" data-cta data-i18n="cta.poptat">Poptat termín</a> <a class="tel" href="tel:+420603812708" data-i18n="tel">603&nbsp;812&nbsp;708</a></p>
+    </div>
+  </div>
+</article>
+<article class="byt" id="stella" tabindex="-1" aria-labelledby="stella-h">
+  <div class="sirka byt-mrizka">
+    <div class="byt-fotky"><img class="byt-hlavni" src="img/stella-800.jpg" srcset="img/stella-400.jpg 400w, img/stella-800.jpg 800w, img/stella-1600.jpg 1498w" sizes="(min-width: 960px) 700px, 100vw" width="800" height="534" alt="Podkroví apartmánu Stella s trámem a střešním oknem" data-i18n-attr="alt:alt.stella" loading="lazy" decoding="async"><div class="byt-male"><img src="img/stella-vyhled-800.jpg" srcset="img/stella-vyhled-400.jpg 400w, img/stella-vyhled-800.jpg 800w, img/stella-vyhled-1600.jpg 1498w" sizes="(min-width: 960px) 640px, 100vw" width="800" height="534" alt="Výhled ze Stelly na zalesněné kopce a vodní elektrárnu v údolí" data-i18n-attr="alt:alt.stella-vyhled" loading="lazy" decoding="async"></div></div>
+    <div class="byt-text">
+      <h2 id="stella-h">Stella</h2>
+      <p data-i18n="ap.stella">Nejvyšší, čtvrté podlaží, pod šikmou střechou se střešními okny. Tři ložnice: manželská postel s jedním lůžkem, dvě samostatná lůžka a jedno lůžko. Kuchyň s jídelnou, velká předsíň, koupelna a dva záchody. Z oken je vidět i vodní elektrárna z přelomu 19. a 20. století.</p>
+      <p class="cena-pro-dva"><span data-i18n="a.prodva">pro dva</span> <b>1&nbsp;525</b> <span data-i18n="a.zanoc">Kč za noc</span></p>
+      <p class="akce"><a class="tlacitko" href="kontakt.html?apartman=stella#poptavka" data-cta data-i18n="cta.poptat">Poptat termín</a> <a class="tel" href="tel:+420603812708" data-i18n="tel">603&nbsp;812&nbsp;708</a></p>
+    </div>
+  </div>
+</article>
+
+</main>
+<footer class="pata-domu">
+  <div class="sirka pata-mrizka">
+    <div>
+      <p class="pata-jmeno">SIGNUM LAUDIS</p>
+      <p>Velké Hamry 429<br>468 45 Velké Hamry</p>
+      <p><a href="tel:+420603812708" data-i18n="tel">603&nbsp;812&nbsp;708</a><br><a href="mailto:penzionsignumlaudis@gmail.com">penzionsignumlaudis@gmail.com</a></p>
+    </div>
+    <nav class="pata-nav" aria-label="Stránky" data-i18n-attr="aria-label:aria.stranky"><a href="index.html" data-i18n="nav.domu">Domů</a><a href="apartmany.html" data-i18n="nav.apartmany">Apartmány a ceník</a><a href="vila.html" data-i18n="nav.vila">Vila</a><a href="sluzby.html" data-i18n="nav.sluzby">Služby</a><a href="galerie.html" data-i18n="nav.galerie">Fotografie</a><a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a></nav>
+  </div>
+  <div class="sirka pata-pravni">
+    <!-- DEMO: operator line (jméno/název, sídlo, IČO, §435 OZ) goes here once the owner confirms it (NOTES.md, question 3). -->
+    <p data-i18n="pata.adr">Případné spory lze řešit mimosoudně u České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">coi.gov.cz</a></p>
+  </div>
+</footer>
+<div class="spodni-lista" aria-hidden="true" hidden>
+  <a class="lista-tel" href="tel:+420603812708" tabindex="-1"><span data-i18n="cta.zavolat">Zavolat</span> <span data-i18n="tel">603&nbsp;812&nbsp;708</span></a>
+  <a class="tlacitko lista-cta" href="kontakt.html#poptavka" tabindex="-1" data-i18n="cta.poptat">Poptat termín</a>
+</div>
+<script src="i18n.js"></script>
+<script src="web.js"></script>
+</body>
+</html>

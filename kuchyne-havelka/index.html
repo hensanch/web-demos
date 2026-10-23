@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex">
 <!-- Demo: noindex until handover. No cookies, no third-party request on load (fonts self-hosted, map loads on tap). -->
 <link rel="preload" href="fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23263240%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22sans-serif%22 font-size=%2213%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EKH%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Crect%20width=%2232%22%20height=%2232%22%20fill=%22%23263240%22/%3E%3Ctext%20x=%2216%22%20y=%2221%22%20font-family=%22sans-serif%22%20font-size=%2213%22%20font-weight=%22700%22%20fill=%22white%22%20text-anchor=%22middle%22%3EKH%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FurnitureStore","name":"Kuchyně Havelka","legalName":"IKH CZ s.r.o.","url":"https://www.kuchynehavelka.cz/","image":"https://www.kuchynehavelka.cz/img/budova.jpg","telephone":"+420775323439","email":"info@kuchynehavelka.cz","address":{"@type":"PostalAddress","streetAddress":"Studánecká 591","addressLocality":"Stráž nad Nisou","postalCode":"463 03","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.7985761,"longitude":15.0314642},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"09:30","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"09:30","closes":"14:30"}]}
@@ -24,7 +24,7 @@
       <a href="poptavka.html" data-i18n="n.kontakt">Kontakt</a>
     </nav>
     <div class="jazyk" role="group" aria-label="Jazyk / Language"><button type="button" data-lang="cs" aria-pressed="true" lang="cs">CZ</button><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
-    <a class="poptat" href="poptavka.html" data-i18n="b.poptat">Poptat kuchyň</a>
+    <a class="poptat" href="poptavka.html" data-skryvat data-i18n="b.poptat">Poptat kuchyň</a>
     <button class="menu-tl" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
   </div>
 </header>
@@ -53,9 +53,9 @@
       </figure>
       <div class="text">
         <h1 id="nadpis">Kuchyně Havelka</h1>
-        <p class="co" data-i18n="h.co">Kuchyně a&nbsp;vestavěné skříně na&nbsp;míru. Navrhujeme je ve&nbsp;studiu ve&nbsp;Stráži nad Nisou u&nbsp;Liberce a&nbsp;vyrábíme ve&nbsp;vlastní dílně hned vedle.</p>
-        <p class="dukaz"><q lang="cs" data-i18n="q.zuz5">Kuchyň je vymazlená.</q> <span data-i18n="h.zuzka">Zuzka na&nbsp;Googlu</span><br>
-          <a href="https://www.google.com/maps/place/Kuchyn%C4%9B+Havelka/data=!4m7!3m6!1s0x4709312dc956aba7:0x51295ba0de89a44c!8m2!3d50.7985761!4d15.0314642!16s%2Fg%2F1q62dm0cg!19sChIJp6tWyS0xCUcRTKSJ3qBbKVE" data-i18n="h.hodnoceni">4,9 z&nbsp;5 v&nbsp;52 recenzích na&nbsp;Googlu</a></p>
+        <p class="co" data-i18n="h.co">Kuchyně a&nbsp;vestavěné skříně na&nbsp;míru ze&nbsp;Stráže nad Nisou u&nbsp;Liberce. Navrhujeme je ve&nbsp;studiu a&nbsp;vyrábíme ve&nbsp;vlastní dílně.</p>
+        <p class="dukaz"><q lang="cs" data-i18n="q.zuz5">Kuchyň je vymazlená…</q> <span data-i18n="h.zuzka">Zuzka na&nbsp;Googlu</span><br>
+          <a href="https://www.google.com/maps/place/Kuchyn%C4%9B+Havelka/data=!4m7!3m6!1s0x4709312dc956aba7:0x51295ba0de89a44c!8m2!3d50.7985761!4d15.0314642!16s%2Fg%2F1q62dm0cg!19sChIJp6tWyS0xCUcRTKSJ3qBbKVE" data-i18n="h.hodnoceni">Hodnocení 4,9 z&nbsp;5 (52 recenzí na&nbsp;Googlu)</a></p>
         <div class="akce"><a class="poptat" href="poptavka.html" data-hlavni data-i18n="b.poptat">Poptat kuchyň</a></div>
         <p class="stav-radek"><span class="stav" data-stav>Studio: Po–Čt 9.30–17.00, Pá 9.30–14.30</span> <a href="tel:+420775323439" aria-label="Zavolat 775 323 439" data-i18n-aria-label="a.tel">775&nbsp;323&nbsp;439</a></p>
       </div>
@@ -65,22 +65,22 @@
   <section class="oddil dvur" aria-labelledby="dvur">
     <div class="ram">
       <div class="text">
-        <h2 id="dvur" data-i18n="d.h">Studio a&nbsp;dílna na&nbsp;jednom dvoře</h2>
-        <p class="uvodni" data-i18n="d.p">Nejsme jen prodejna. Kuchyně, kterou si u&nbsp;nás navrhnete, vyrobíme ve&nbsp;vlastní dílně ve&nbsp;stejném areálu. Truhlařinu tu děláme od&nbsp;roku 1991.</p>
+        <h2 id="dvur" data-i18n="d.h">Studio a&nbsp;dílna ve&nbsp;stejném areálu</h2>
+        <p class="uvodni" data-i18n="d.p">Kuchyni, kterou si u&nbsp;nás navrhnete, vyrobíme ve&nbsp;vlastní dílně. Firma začala v&nbsp;roce 1991, dílnu postavila v&nbsp;roce 1993.</p>
         <ul class="fakta">
           <li data-i18n="d.f1">Díly řežeme a&nbsp;vrtáme na&nbsp;CNC strojích HOMAG podle dat z&nbsp;výkresu vaší kuchyně.</li>
           <li data-i18n="d.f2">Korpusy lepíme a&nbsp;lisujeme, bez viditelných spojů.</li>
           <li data-i18n="d.f3">Kování je Blum, takže výsuvy, zdvihy i&nbsp;dvířka chodí hladce.</li>
-          <li data-i18n="d.f4">Montují naši vlastní montéři, spotřebiče i&nbsp;zapojí.</li>
+          <li data-i18n="d.f4">Kuchyni smontují naši vlastní montéři a&nbsp;zapojí i&nbsp;spotřebiče.</li>
         </ul>
       </div>
       <figure class="f1">
-        <img src="img/studio.jpg" width="1400" height="656" loading="lazy" alt="Kuchyňské studio: vystavené kuchyně v&nbsp;dubovém dekoru a&nbsp;bílý stůl s&nbsp;oranžovými židlemi" data-i18n-alt="alt.studio">
-        <figcaption data-i18n="d.c1">Ve&nbsp;studiu jsou vystavené kuchyně se&nbsp;zapojenými spotřebiči.</figcaption>
+        <img src="img/konzultace-pas.jpg" width="1600" height="592" loading="lazy" alt="Prodejkyně ve studiu vysvětluje zákaznici ovládání vestavěné trouby" data-i18n-alt="alt.pas">
+        <figcaption data-i18n="d.c1">Konzultace ve&nbsp;studiu u&nbsp;vystavené trouby.</figcaption>
       </figure>
       <figure class="f2">
         <img src="img/dilna.jpg" width="1400" height="656" loading="lazy" alt="Truhlář v&nbsp;dílně zakládá bílou desku do CNC centra HOMAG" data-i18n-alt="alt.dilna">
-        <figcaption data-i18n="d.c2">Dílna stojí ve&nbsp;stejném areálu jako studio.</figcaption>
+        <figcaption data-i18n="d.c2">CNC centrum HOMAG v&nbsp;naší dílně.</figcaption>
       </figure>
     </div>
   </section>
@@ -88,18 +88,18 @@
   <section class="oddil" aria-labelledby="real">
     <div class="ram">
       <h2 id="real" data-i18n="r.h">Realizace</h2>
-      <p class="uvodni" data-i18n="r.p">V&nbsp;dílně dostane každý díl štítek s&nbsp;údaji z&nbsp;nářezového plánu. Stejně tak má svůj kód každá naše zakázka.</p>
+      <p class="uvodni" data-i18n="r.p">Kuchyně z&nbsp;naší dílny. Vyberte zakázku a&nbsp;uvidíte všechny její fotky.</p>
       <div class="deska">
         <div class="kota kota-x" aria-hidden="true"><span><span class="t">2&nbsp;070</span><span class="m">2&nbsp;800</span></span></div>
         <div class="kota kota-y" aria-hidden="true"><span><span class="t">2&nbsp;800</span><span class="m">2&nbsp;070</span></span></div>
-        <div class="plocha">
-          <button class="dil" type="button" data-p="kh-07" style="--m:1/1/6/11;--d:1/1/7/9"><img src="img/p/kh-07-dil.jpg" width="760" height="447" loading="lazy" alt="" ><span class="stitek"><b>KH-07</b><span data-i18n="s.kuch6">Kuchyň, 6 fotek</span></span><span class="sr" data-i18n="sr.kh07">Otevřít zakázku KH-07, bílá lesklá kuchyň s&nbsp;ostrůvkem</span></button>
-          <button class="dil" type="button" data-p="kh-01" style="--m:6/1/10/7;--d:1/9/4/15"><img src="img/p/kh-01-dil.jpg" width="760" height="447" loading="lazy" alt=""><span class="stitek"><b>KH-01</b><span data-i18n="s.kuch3">Kuchyň, 3 fotky</span></span><span class="sr" data-i18n="sr.kh01">Otevřít zakázku KH-01, bílá kuchyň s&nbsp;dubovou nikou</span></button>
-          <button class="dil" type="button" data-p="bed" style="--m:6/7/10/11;--d:4/9/7/15"><img src="img/p/bed-dil.jpg" width="760" height="506" loading="lazy" alt=""><span class="stitek"><b>Bedřichov</b><span data-i18n="s.kuch4">Kuchyň, 4 fotky</span></span><span class="sr" data-i18n="sr.bed">Otevřít kuchyň v&nbsp;Bedřichově pod dřevěnými trámy</span></button>
-          <button class="dil" type="button" data-p="kh-02" style="--m:10/1/13/6;--d:7/1/11/6"><img src="img/p/kh-02-dil.jpg" width="760" height="447" loading="lazy" alt=""><span class="stitek"><b>KH-02</b><span data-i18n="s.kuch5">Kuchyň, 5 fotek</span></span><span class="sr" data-i18n="sr.kh02">Otevřít zakázku KH-02, dubový dekor a&nbsp;otevřené zásuvky</span></button>
-          <button class="dil" type="button" data-p="kh-04" style="--m:10/6/13/11;--d:7/6/11/10"><img src="img/p/kh-04-dil.jpg" width="760" height="447" loading="lazy" alt=""><span class="stitek"><b>KH-04</b><span data-i18n="s.kuch5">Kuchyň, 5 fotek</span></span><span class="sr" data-i18n="sr.kh04">Otevřít zakázku KH-04, bílá kuchyň u&nbsp;schodiště</span></button>
-          <button class="dil" type="button" data-p="kh-05" style="--m:13/1/15/7;--d:7/10/11/13"><img src="img/p/kh-05-dil.jpg" width="760" height="447" loading="lazy" alt=""><span class="stitek"><b>KH-05</b><span data-i18n="s.kuch4">Kuchyň, 4 fotky</span></span><span class="sr" data-i18n="sr.kh05">Otevřít zakázku KH-05, bílá kuchyň s&nbsp;jídelním stolem</span></button>
-          <a class="odrezek" href="realizace.html" style="--m:13/7/15/11;--d:7/13/11/15"><span data-i18n="r.vse">Všech 10&nbsp;zakázek</span></a>
+        <div class="plocha domaci">
+          <button class="dil" type="button" data-p="kh-07" style="--m:1/1/5/11;--d:1/1/7/9"><img src="img/p/kh-07-dil.jpg" srcset="img/p/kh-07-dil.jpg 760w, img/p/kh-07-1.jpg 1400w" sizes="(min-width:760px) 50vw, 100vw" width="760" height="447" loading="lazy" alt="" ><span class="stitek"><b>KH-07</b><span data-i18n="l.kh07">Bílý lesk, mramorový ostrůvek</span></span><span class="sr" data-i18n="sr.kh07">Otevřít zakázku KH-07, bílá lesklá kuchyň s&nbsp;ostrůvkem</span></button>
+          <button class="dil" type="button" data-p="kh-01" style="--m:5/1/9/6;--d:1/9/4/15"><img src="img/p/kh-01-dil.jpg" srcset="img/p/kh-01-dil.jpg 760w, img/p/kh-01-1.jpg 1400w" sizes="50vw" width="760" height="447" loading="lazy" alt=""><span class="stitek"><b>KH-01</b><span data-i18n="l.kh01">Ostrůvek a&nbsp;dubová nika</span></span><span class="sr" data-i18n="sr.kh01">Otevřít zakázku KH-01, bílá kuchyň s&nbsp;dubovou nikou</span></button>
+          <button class="dil" type="button" data-p="bed" style="--m:5/6/9/11;--d:4/9/7/15"><img src="img/p/bed-dil.jpg" srcset="img/p/bed-dil.jpg 760w, img/p/bed-1.jpg 1400w" sizes="50vw" width="760" height="506" loading="lazy" alt=""><span class="stitek"><b>Bedřichov</b><span data-i18n="l.bed">Pod dřevěnými trámy</span></span><span class="sr" data-i18n="sr.bed">Otevřít kuchyň v&nbsp;Bedřichově pod dřevěnými trámy</span></button>
+          <button class="dil" type="button" data-p="kh-02" style="--m:9/1/13/6;--d:7/1/11/6"><img src="img/p/kh-02-dil.jpg" srcset="img/p/kh-02-dil.jpg 760w, img/p/kh-02-1.jpg 1400w" sizes="50vw" width="760" height="447" loading="lazy" alt=""><span class="stitek"><b>KH-02</b><span data-i18n="l.kh02">Dubový dekor, rohový výsuv</span></span><span class="sr" data-i18n="sr.kh02">Otevřít zakázku KH-02, dubový dekor a&nbsp;otevřené zásuvky</span></button>
+          <button class="dil" type="button" data-p="kh-04" style="--m:9/6/13/11;--d:7/6/11/10"><img src="img/p/kh-04-dil.jpg" srcset="img/p/kh-04-dil.jpg 760w, img/p/kh-04-1.jpg 1400w" sizes="50vw" width="760" height="447" loading="lazy" alt=""><span class="stitek"><b>KH-04</b><span data-i18n="l.kh04">Šedá zástěna u&nbsp;schodiště</span></span><span class="sr" data-i18n="sr.kh04">Otevřít zakázku KH-04, bílá kuchyň u&nbsp;schodiště</span></button>
+          <button class="dil" type="button" data-p="kh-05" style="--m:13/1/17/6;--d:7/10/11/13"><img src="img/p/kh-05-dil.jpg" srcset="img/p/kh-05-dil.jpg 760w, img/p/kh-05-1.jpg 1400w" sizes="50vw" width="760" height="447" loading="lazy" alt=""><span class="stitek"><b>KH-05</b><span data-i18n="l.kh05">Jídelní stůl, tmavá deska</span></span><span class="sr" data-i18n="sr.kh05">Otevřít zakázku KH-05, bílá kuchyň s&nbsp;jídelním stolem</span></button>
+          <a class="odrezek" href="realizace.html" style="--m:13/6/17/11;--d:7/13/11/15"><span data-i18n="r.vse">Všech 10&nbsp;zakázek</span></a>
         </div>
       </div>
     </div>
@@ -109,19 +109,17 @@
     <div class="ram">
       <h2 id="jak" data-i18n="j.h">Jak to u&nbsp;nás probíhá</h2>
       <ol class="kroky">
-        <li class="krok"><h3 data-i18n="j.1">Prohlídka studia</h3><p data-i18n="j.1p">Vystavené kuchyně si vyzkoušíte, včetně zapojených spotřebičů.</p></li>
+        <li class="krok"><h3 data-i18n="j.1">Prohlídka studia</h3><p data-i18n="j.1p">Ve&nbsp;studiu si vyzkoušíte vystavené kuchyně i&nbsp;se&nbsp;zapojenými spotřebiči.</p></li>
         <li class="krok"><h3 data-i18n="j.2">Konzultace</h3><p data-i18n="j.2p">Projdeme vaši představu, vzorníky materiálů, kování a&nbsp;detaily.</p>
           <blockquote><p lang="cs" data-i18n="q.dana1">„Jednání bylo velice příjemné a&nbsp;paní Čalounová doporučila a&nbsp;následně vyřešila vše (materiály, barvy, spotřebiče a&nbsp;ostatní detaily) k&nbsp;naší spokojenosti.“</p><cite data-i18n="c.dana">Dana, recenze na&nbsp;Googlu</cite></blockquote></li>
-        <li class="krok"><h3 data-i18n="j.3">Zaměření a&nbsp;3D návrh</h3><p data-i18n="j.3p">Přijedeme k&nbsp;vám zaměřit. Výkresy a&nbsp;3D vizualizaci pošleme e-mailem nebo je spolu projdeme na&nbsp;schůzce.</p>
-          <blockquote><p lang="cs" data-i18n="q.katH">„Dlouho dopředu jsme věděli termín realizace. Projektantka skříně přišla s&nbsp;mnoha nápady a&nbsp;dokázala skříň navrhnout do&nbsp;posledního detailu.“</p><cite data-i18n="c.katH">Kateřina H., recenze na&nbsp;Googlu</cite></blockquote></li>
-        <li class="krok"><h3 data-i18n="j.4">Cenová nabídka</h3><p data-i18n="j.4p">Dostanete nabídku i&nbsp;s&nbsp;variantami, na&nbsp;kterých jsme se domluvili. Po&nbsp;podpisu jde zakázka do&nbsp;výroby.</p></li>
-        <li class="krok"><h3 data-i18n="j.5">Výroba v&nbsp;naší dílně</h3><p data-i18n="j.5p">Technik připraví data pro CNC stroje HOMAG a&nbsp;dílna kuchyni vyrobí i&nbsp;s&nbsp;příslušenstvím.</p>
-          <blockquote><p lang="cs" data-i18n="q.katT">„Když v&nbsp;čase předvánočním nastala obava, že sklo do&nbsp;linky nebude dodáno včas před svátky, paní Čalounová neváhala, zkontaktovala partnerskou firmu a&nbsp;‚uprosila‘ je pro dodržení termínu konečné montáže.“</p><cite data-i18n="c.katT">Kateřina T., recenze na&nbsp;Googlu</cite></blockquote></li>
+        <li class="krok"><h3 data-i18n="j.3">Zaměření a&nbsp;3D návrh</h3><p data-i18n="j.3p">Přijedeme k&nbsp;vám zaměřit. Výkresy a&nbsp;3D vizualizaci pošleme <span class="nw">e-mailem</span> nebo je spolu projdeme na&nbsp;schůzce.</p>
+          <blockquote><p lang="cs" data-i18n="q.katH">„Projektantka skříně přišla s&nbsp;mnoha nápady a&nbsp;dokázala skříň navrhnout do&nbsp;posledního detailu.“</p><cite data-i18n="c.katH">Kateřina H., recenze na&nbsp;Googlu</cite></blockquote></li>
+        <li class="krok"><h3 data-i18n="j.4">Cenová nabídka</h3><p data-i18n="j.4p">Když výkresy odsouhlasíte, připravíme cenovou nabídku, případně ve&nbsp;variantách. Podepsaná nabídka jde spolu s&nbsp;výkresy do&nbsp;výroby.</p></li>
+        <li class="krok"><h3 data-i18n="j.5">Výroba v&nbsp;naší dílně</h3><p data-i18n="j.5p">Technik připraví data pro CNC stroje HOMAG a&nbsp;dílna kuchyni vyrobí i&nbsp;s&nbsp;příslušenstvím.</p></li>
         <li class="krok"><h3 data-i18n="j.6">Dodávka a&nbsp;montáž</h3><p data-i18n="j.6p">V&nbsp;domluvený termín přijedou naši montéři a&nbsp;kuchyň smontují.</p>
-          <blockquote><p lang="cs" data-i18n="q.zuz4">„Mile nás překvapil i&nbsp;fakt, že během realizace rozestavěného bytu bylo po&nbsp;každém dni uklizeno a&nbsp;čisto.“</p><cite data-i18n="c.zuz">Zuzka, recenze na&nbsp;Googlu</cite></blockquote></li>
-        <li class="krok"><h3 data-i18n="j.7">Spotřebiče</h3><p data-i18n="j.7p">Spotřebiče objednáme, namontujeme, zapojíme a&nbsp;ukážeme vám, jak se ovládají.</p></li>
+          <blockquote><p lang="cs" data-i18n="q.katT">„Když v&nbsp;čase předvánočním nastala obava, že sklo do&nbsp;linky nebude dodáno včas před svátky, paní Čalounová neváhala, zkontaktovala partnerskou firmu a&nbsp;‚uprosila‘ je pro dodržení termínu konečné montáže.“</p><cite data-i18n="c.katT">Kateřina T., recenze na&nbsp;Googlu</cite></blockquote></li>
       </ol>
-      <p class="dal"><a class="tichy" href="postup.html" data-i18n="j.dal">Každý krok podrobně, dílna a&nbsp;historie firmy</a></p>
+      <p class="dal"><a class="tichy" href="postup.html" data-i18n="j.dal">Všech 7&nbsp;kroků podrobně, dílna a&nbsp;historie firmy</a></p>
     </div>
   </section>
 
@@ -129,7 +127,7 @@
     <div class="ram">
       <div>
         <h2 id="navsteva" data-i18n="v.h">Přijďte se podívat do&nbsp;studia</h2>
-        <p class="uvodni" data-i18n="v.p">Žlutý dům se&nbsp;štítem Studio kuchyní. Parkujete přímo před prodejnou, vstup je bez schodů.</p>
+        <p class="uvodni" data-i18n="v.p">Žlutý dům s&nbsp;nápisem Studio kuchyní. Parkujete přímo před prodejnou, vstup je bez schodů.</p>
         <dl>
           <div><dt data-i18n="v.adr">Adresa</dt><dd>Studánecká 591, 463&nbsp;03 Stráž nad Nisou</dd></div>
           <div><dt data-i18n="v.hod">Otevřeno</dt><dd><span data-i18n="v.hod1">Pondělí až čtvrtek <span class="nw">9.30–17.00</span>, pátek <span class="nw">9.30–14.30</span>. Jindy po&nbsp;telefonické domluvě.</span><br><span class="stav" data-stav></span></dd></div>
@@ -137,7 +135,7 @@
         </dl>
       </div>
       <figure class="budova" style="margin-bottom:0"><img src="img/budova.jpg" width="1360" height="700" loading="lazy" alt="Žlutá budova studia s&nbsp;cedulí Studio kuchyní a&nbsp;logem KH" data-i18n-alt="alt.budova"></figure>
-      <div class="mapa"><button type="button" data-i18n="v.mapa">Ukázat mapu</button></div>
+      <div class="mapa"><button type="button" data-i18n="v.mapa">Ukázat mapu</button><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Kuchyn%C4%9B+Havelka%2C+Stud%C3%A1neck%C3%A1+591%2C+Str%C3%A1%C5%BE+nad+Nisou" data-i18n="pq.trasa">Trasa v&nbsp;Google Mapách</a></div>
     </div>
   </section>
 </main>
@@ -151,7 +149,7 @@
     </div>
     <div class="pravni">
       <p data-i18n="f.prov">Provozovatel: IKH CZ s.r.o., Studánecká 591, 463&nbsp;03 Stráž nad Nisou, IČ 28665805, DIČ CZ28665805. Společnost je vedená u&nbsp;rejstříkového soudu v&nbsp;Ústí nad Labem, oddíl C&nbsp;32806.</p>
-      <p data-i18n="f.adr">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">https://coi.gov.cz/informace-o-adr/</a></p>
+      <p data-i18n="f.adr">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce (<a href="https://coi.gov.cz/informace-o-adr/">coi.gov.cz</a>).</p>
     </div>
   </div>
 </footer>
@@ -160,7 +158,8 @@
 
 <dialog id="prohlizec" class="prohlizec" aria-label="Fotky zakázky" data-i18n-aria-label="a.prohl">
   <div class="horni"><span class="nazev"></span><button type="button" class="zavrit" data-i18n="b.zavrit">Zavřít</button></div>
-  <div class="jeviste"><img src="img/p/kh-07-1.jpg" alt="" width="1400" height="824"></div>
+  <div class="jeviste"><img alt="" width="1400" height="824"></div>
+  <p class="popis" aria-hidden="true"></p>
   <div class="dolni"><button type="button" class="predchozi" data-i18n="b.pred">Předchozí</button><span class="pocet"></span><button type="button" class="dalsi" data-i18n="b.dalsi">Další</button></div>
 </dialog>
 

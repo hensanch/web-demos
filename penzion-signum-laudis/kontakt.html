@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title data-i18n="title.kontakt">Poptávka a kontakt | Penzion Signum Laudis, Velké Hamry</title>
+<meta name="description" content="Poptávka termínu, telefon 603 812 708, Velké Hamry 429.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%232E221C'/%3E%3Ctext%20x='16'%20y='23'%20font-family='sans-serif'%20font-size='18'%20text-anchor='middle'%20fill='%23EBD5CC'%3ESL%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/saira-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="styl.css">
+
+</head>
+<!-- No cookies, no third-party request on load: fonts are self-hosted, the map loads only on a tap. Demo: noindex until handover. -->
+<body class="str-kontakt">
+<a class="preskocit" href="#obsah" data-i18n="skip">Přeskočit na obsah</a>
+<header class="hlava">
+  <a class="znacka" href="index.html" aria-label="Penzion Signum Laudis">SIGNUM LAUDIS</a>
+  <nav class="hlava-nav" aria-label="Hlavní" data-i18n-attr="aria-label:aria.hlavni"><a href="index.html" data-i18n="nav.domu">Domů</a><a href="apartmany.html" data-i18n="nav.apartmany">Apartmány a ceník</a><a href="vila.html" data-i18n="nav.vila">Vila</a><a href="sluzby.html" data-i18n="nav.sluzby">Služby</a><a href="galerie.html" data-i18n="nav.galerie">Fotografie</a><a href="kontakt.html" aria-current="page" data-i18n="nav.kontakt">Kontakt</a></nav>
+  <div class="jazyky" role="group" aria-label="Jazyk / Language / Sprache"><button type="button" data-lang="cs" aria-pressed="true">CS</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+  <a class="tlacitko tlacitko-maly hlava-cta" href="kontakt.html#poptavka" data-i18n="cta.poptat">Poptat termín</a>
+  <button type="button" class="menu-otevrit" aria-haspopup="dialog" aria-controls="menu" data-i18n="menu">Menu</button>
+</header>
+<dialog id="menu" class="menu" aria-label="Menu" tabindex="-1">
+  <div class="menu-vnitrek">
+    <div class="menu-horni"><div class="jazyky" role="group" aria-label="Jazyk / Language / Sprache"><button type="button" data-lang="cs" aria-pressed="true">CS</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div><button type="button" class="menu-zavrit" data-i18n="zavrit">Zavřít</button></div>
+    <nav aria-label="Menu"><a href="index.html" data-i18n="nav.domu">Domů</a><a href="apartmany.html" data-i18n="nav.apartmany">Apartmány a ceník</a><a href="vila.html" data-i18n="nav.vila">Vila</a><a href="sluzby.html" data-i18n="nav.sluzby">Služby</a><a href="galerie.html" data-i18n="nav.galerie">Fotografie</a><a href="kontakt.html" aria-current="page" data-i18n="nav.kontakt">Kontakt</a></nav>
+    <p class="menu-tel"><a href="tel:+420603812708" data-i18n="tel">603&nbsp;812&nbsp;708</a></p>
+  </div>
+</dialog>
+<main id="obsah" tabindex="-1">
+
+<div class="stranka-hlava sirka">
+  <h1 data-i18n="k.h1">Poptávka a kontakt</h1>
+  <p class="pod-nadpisem" data-i18n="k.uvod">Napište termín a počet hostů. Ozveme se, který apartmán je volný a za kolik. Nebo zavolejte: <a class="tel-text" href="tel:+420603812708">603&nbsp;812&nbsp;708</a></p>
+</div>
+<div class="sirka kontakt-mrizka">
+  <!-- DEMO FORM: no action, no method, nothing is sent anywhere. Wire to the owner's e-mail at handover (NOTES.md). -->
+  <form class="formular" id="poptavka" tabindex="-1" novalidate>
+    <div class="pole"><label for="f-apartman" data-i18n="f.apartman">Apartmán</label><select id="f-apartman" name="apartman"><option value="" data-i18n="f.nevim">Ještě nevím</option><option value="viktorie">Viktorie</option><option value="radmila">Radmila</option><option value="libena">Liběna</option><option value="stella">Stella</option><option value="vice" data-i18n="f.vice">Více apartmánů</option></select></div>
+    <div class="pole-dvojice">
+      <div class="pole"><label for="f-prijezd" data-i18n="f.prijezd">Příjezd</label><input id="f-prijezd" name="prijezd" type="date" required></div>
+      <div class="pole"><label for="f-odjezd" data-i18n="f.odjezd">Odjezd</label><input id="f-odjezd" name="odjezd" type="date" required></div>
+    </div>
+    <div class="pole pole-uzke"><label for="f-hoste" data-i18n="f.hoste">Počet hostů</label><input id="f-hoste" name="hoste" type="number" inputmode="numeric" min="1" max="22" value="2" required></div>
+    <div class="pole"><label for="f-jmeno" data-i18n="f.jmeno">Jméno</label><input id="f-jmeno" name="jmeno" autocomplete="name" required></div>
+    <div class="pole"><label for="f-kontakt" data-i18n="f.kontakt">E-mail nebo telefon</label><input id="f-kontakt" name="kontakt" autocomplete="email" required></div>
+    <div class="pole"><label for="f-zprava" data-i18n="f.zprava">Zpráva (nepovinné)</label><textarea id="f-zprava" name="zprava" rows="3"></textarea></div>
+    <p class="chyba" id="f-chyba" role="alert"></p>
+    <p class="male" data-i18n="f.souhlas">Odesláním berete na vědomí, že údaje použijeme jen k odpovědi na poptávku.</p>
+    <button type="submit" class="tlacitko" data-cta data-i18n="f.odeslat">Odeslat poptávku</button>
+    <p class="ukazka" data-i18n="f.ukazka">Ukázka: formulář nic neodesílá.</p>
+    <p class="hotovo" id="f-hotovo" role="status" hidden data-i18n="f.hotovo">Ukázka – nic se neodeslalo. Na hotovém webu přijde poptávka e&#8209;mailem do penzionu.</p>
+  </form>
+  <div class="kontakt-udaje">
+    <dl>
+      <dt data-i18n="k.tel">Telefon</dt><dd class="velky-tel"><a href="tel:+420603812708" data-i18n="tel">603&nbsp;812&nbsp;708</a></dd>
+      <dt data-i18n="k.email">E-mail</dt><dd><a href="mailto:penzionsignumlaudis@gmail.com">penzionsignumlaudis@gmail.com</a></dd>
+      <dt data-i18n="k.adresa">Adresa</dt><dd>Velké Hamry 429<br>468&nbsp;45 Velké Hamry<br><span class="gps">50°42′51,7″&nbsp;N, 15°18′53,2″&nbsp;E</span></dd>
+    </dl>
+    <p class="male" data-i18n="k.kde">Velké Hamry tvoří souměstí s Tanvaldem, Smržovkou, Desnou a Plavy.</p>
+    <p class="male" data-i18n="k.lang">Odpovíme česky, anglicky a trochu německy.</p>
+    <div class="mapa" id="mapa">
+      <img src="img/vila-zima-800.jpg" srcset="img/vila-zima-800.jpg 800w, img/vila-zima-1600.jpg 1600w" sizes="(min-width: 960px) 460px, 100vw" width="800" height="450" alt="Vila v zimě, sníh na zahradě a modré nebe" data-i18n-attr="alt:alt.zima" loading="lazy" decoding="async">
+      <button type="button" class="tlacitko-svetle mapa-nacist" data-i18n="k.mapa">Zobrazit mapu</button>
+    </div>
+    <p><a class="odkaz-dal" href="https://www.google.com/maps/place/Penzion+Signum+Laudis/data=!4m10!3m9!1s0x470ec909fd2796d3:0x4e8eaba3863081d8!5m2!4m1!1i2!8m2!3d50.7143706!4d15.3147979!16s%2Fg%2F1hd_6lkk5!19sChIJ05Yn_QnJDkcR2IEwhqOrjk4" data-i18n="k.mapy">Otevřít v Mapách Google</a></p>
+  </div>
+</div>
+
+</main>
+<footer class="pata-domu">
+  <div class="sirka pata-mrizka">
+    <div>
+      <p class="pata-jmeno">SIGNUM LAUDIS</p>
+      <p>Velké Hamry 429<br>468 45 Velké Hamry</p>
+      <p><a href="tel:+420603812708" data-i18n="tel">603&nbsp;812&nbsp;708</a><br><a href="mailto:penzionsignumlaudis@gmail.com">penzionsignumlaudis@gmail.com</a></p>
+    </div>
+    <nav class="pata-nav" aria-label="Stránky" data-i18n-attr="aria-label:aria.stranky"><a href="index.html" data-i18n="nav.domu">Domů</a><a href="apartmany.html" data-i18n="nav.apartmany">Apartmány a ceník</a><a href="vila.html" data-i18n="nav.vila">Vila</a><a href="sluzby.html" data-i18n="nav.sluzby">Služby</a><a href="galerie.html" data-i18n="nav.galerie">Fotografie</a><a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a></nav>
+  </div>
+  <div class="sirka pata-pravni">
+    <!-- DEMO: operator line (jméno/název, sídlo, IČO, §435 OZ) goes here once the owner confirms it (NOTES.md, question 3). -->
+    <p data-i18n="pata.adr">Případné spory lze řešit mimosoudně u České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">coi.gov.cz</a></p>
+  </div>
+</footer>
+<div class="spodni-lista" aria-hidden="true" hidden>
+  <a class="lista-tel" href="tel:+420603812708" tabindex="-1"><span data-i18n="cta.zavolat">Zavolat</span> <span data-i18n="tel">603&nbsp;812&nbsp;708</span></a>
+  <a class="tlacitko lista-cta" href="kontakt.html#poptavka" tabindex="-1" data-i18n="cta.poptat">Poptat termín</a>
+</div>
+<script src="i18n.js"></script>
+<script src="web.js"></script>
+</body>
+</html>

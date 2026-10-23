@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex">
 <!-- Demo: noindex until handover. No cookies, no third-party request on load (fonts self-hosted, map loads on tap). -->
 <link rel="preload" href="fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23263240%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22sans-serif%22 font-size=%2213%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EKH%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Crect%20width=%2232%22%20height=%2232%22%20fill=%22%23263240%22/%3E%3Ctext%20x=%2216%22%20y=%2221%22%20font-family=%22sans-serif%22%20font-size=%2213%22%20font-weight=%22700%22%20fill=%22white%22%20text-anchor=%22middle%22%3EKH%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="podstranka" data-title="t.poptavka">
@@ -21,7 +21,6 @@
       <a href="poptavka.html" aria-current="page" data-i18n="n.kontakt">Kontakt</a>
     </nav>
     <div class="jazyk" role="group" aria-label="Jazyk / Language"><button type="button" data-lang="cs" aria-pressed="true" lang="cs">CZ</button><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
-    <a class="poptat" href="poptavka.html" data-i18n="b.poptat">Poptat kuchyň</a>
     <button class="menu-tl" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
   </div>
 </header>
@@ -41,7 +40,7 @@
 
 <main>
   <div class="hlavicka" style="padding-top:0"><div class="ram">
-    <figure class="poptavka-foto" style="margin-block:0 24px"><img src="img/konzultace-pas.jpg" width="1600" height="592" alt="Prodejkyně ve studiu vysvětluje zákaznici ovládání vestavěné trouby" data-i18n-alt="alt.pas" fetchpriority="high"></figure>
+    <figure class="poptavka-foto" style="margin-block:0 24px"><img src="img/budova.jpg" width="1360" height="700" alt="Žlutá budova studia s&nbsp;cedulí Studio kuchyní a&nbsp;logem KH" data-i18n-alt="alt.budova" fetchpriority="high"></figure>
     <h1 data-i18n="pq.h">Poptávka</h1>
     <p class="uvodni" data-i18n="pq.p">Napište, co plánujete. Ozveme se a&nbsp;domluvíme schůzku ve&nbsp;studiu nebo zaměření u&nbsp;vás. Nebo rovnou zavolejte na&nbsp;<a href="tel:+420775323439">775&nbsp;323&nbsp;439</a>.</p>
   </div></div>
@@ -88,26 +87,20 @@
           <p data-i18n="v.hod1">Pondělí až čtvrtek <span class="nw">9.30–17.00</span>, pátek <span class="nw">9.30–14.30</span>. Jindy po&nbsp;telefonické domluvě.</p>
           <p class="stav" data-stav></p>
           <p data-i18n="pq.park">Parkování přímo před prodejnou.</p></div>
-        <div><h2 data-i18n="v.tel">Telefon</h2>
+        <div><h2 data-i18n="pq.kont">Telefon a&nbsp;e-mail</h2>
           <p><a href="tel:+420775323439">+420&nbsp;775&nbsp;323&nbsp;439</a><br><a href="tel:+420482323439">+420&nbsp;482&nbsp;323&nbsp;439</a><br><a href="mailto:info@kuchynehavelka.cz">info@kuchynehavelka.cz</a></p></div>
-        <div class="mapa"><button type="button" data-i18n="v.mapa">Ukázat mapu</button></div>
-        <p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Kuchyn%C4%9B+Havelka%2C+Stud%C3%A1neck%C3%A1+591%2C+Str%C3%A1%C5%BE+nad+Nisou" data-i18n="pq.trasa">Trasa v&nbsp;Google Mapách</a></p>
+        <div class="mapa"><button type="button" data-i18n="v.mapa">Ukázat mapu</button><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Kuchyn%C4%9B+Havelka%2C+Stud%C3%A1neck%C3%A1+591%2C+Str%C3%A1%C5%BE+nad+Nisou" data-i18n="pq.trasa">Trasa v&nbsp;Google Mapách</a></div>
       </div>
     </div>
   </section>
 </main>
 
 
-<footer class="pata">
+<footer class="pata uzka">
   <div class="ram">
-    <div class="sloupce">
-      <div><strong>Kuchyně Havelka</strong><p>Studánecká 591<br>463&nbsp;03 Stráž nad Nisou</p></div>
-      <div><strong data-i18n="f.kontakt">Kontakt</strong><ul><li><a href="tel:+420775323439">+420&nbsp;775&nbsp;323&nbsp;439</a></li><li><a href="tel:+420482323439">+420&nbsp;482&nbsp;323&nbsp;439</a></li><li><a href="mailto:info@kuchynehavelka.cz">info@kuchynehavelka.cz</a></li></ul></div>
-      <div><strong data-i18n="f.str">Stránky</strong><ul><li><a href="realizace.html" data-i18n="n.real">Realizace</a></li><li><a href="postup.html" data-i18n="n.postup">Jak pracujeme</a></li><li><a href="poptavka.html" data-i18n="n.poptavka">Poptávka a&nbsp;kontakt</a></li></ul></div>
-    </div>
     <div class="pravni">
       <p data-i18n="f.prov">Provozovatel: IKH CZ s.r.o., Studánecká 591, 463&nbsp;03 Stráž nad Nisou, IČ 28665805, DIČ CZ28665805. Společnost je vedená u&nbsp;rejstříkového soudu v&nbsp;Ústí nad Labem, oddíl C&nbsp;32806.</p>
-      <p data-i18n="f.adr">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">https://coi.gov.cz/informace-o-adr/</a></p>
+      <p data-i18n="f.adr">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce (<a href="https://coi.gov.cz/informace-o-adr/">coi.gov.cz</a>).</p>
     </div>
   </div>
 </footer>

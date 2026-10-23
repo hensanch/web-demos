@@ -61,26 +61,47 @@
   var HOURS = { 1: [570, 1020], 2: [570, 1020], 3: [570, 1020], 4: [570, 1020], 5: [570, 870] };
   function pragueNow() {
     var p = {};
-    new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Prague', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+    new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Prague', weekday: 'short', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
       .formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
     var d = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 0 }[p.weekday];
-    return { d: d, m: +p.hour * 60 + +p.minute };
+    return { d: d, m: +p.hour * 60 + +p.minute, t0: Date.UTC(+p.year, +p.month - 1, +p.day), svatek: svatek(+p.year, +p.month, +p.day) };
+  }
+  /* Czech public holidays: Google marks these days "Otevírací doba se může lišit" (owner question) */
+  function svatek(y, mo, da) {
+    var md = mo + '.' + da;
+    if (/^(1\.1|5\.1|5\.8|7\.5|7\.6|9\.28|10\.28|11\.17|12\.24|12\.25|12\.26)$/.test(md)) return true;
+    // Easter Sunday (anonymous Gregorian algorithm); Good Friday = -2 days, Easter Monday = +1 day
+    var a = y % 19, b = Math.floor(y / 100), c = y % 100, f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3);
+    var h = (19 * a + b - Math.floor(b / 4) - g + 15) % 30, l = (32 + 2 * (b % 4) + 2 * Math.floor(c / 4) - h - c % 4) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451), em = Math.floor((h + l - 7 * m + 114) / 31), ed = (h + l - 7 * m + 114) % 31 + 1;
+    var t0 = Date.UTC(y, em - 1, ed), t = Date.UTC(y, mo - 1, da), day = 864e5;
+    return t === t0 - 2 * day || t === t0 + day;
   }
   function hm(m) { return Math.floor(m / 60) + '.' + String(m % 60).padStart(2, '0'); }
   var DAY_CS = ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'];
   var DAY_EN = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   function stav() {
     var n = pragueNow(), h = HOURS[n.d], s;
-    if (h && n.m >= h[0] && n.m < h[1]) {
+    if (n.svatek) {
+      s = t('Dnes je svátek, otevírací doba může být jiná', 'Today is a public holiday, opening hours may differ');
+    } else if (h && n.m >= h[0] && n.m < h[1]) {
       s = t('Studio je teď otevřené do ' + hm(h[1]), 'The studio is open now until ' + hm(h[1]).replace('.', ':'));
     } else if (h && n.m < h[0]) {
       s = t('Studio dnes otevírá v ' + hm(h[0]), 'The studio opens today at ' + hm(h[0]).replace('.', ':'));
     } else {
-      var d = n.d, i = 0;
+      /* next weekday; if it is a public holiday, say so instead of promising 9.30 (holiday hours: owner question 8) */
+      var d = n.d, i = 0, x;
       do { d = (d + 1) % 7; i++; } while (!HOURS[d]);
-      s = i === 1
-        ? t('Studio je zavřené, zítra od 9.30', 'The studio is closed, open tomorrow from 9:30')
-        : t('Studio je zavřené, otevíráme ' + DAY_CS[d] + ' v 9.30', 'The studio is closed, open on ' + DAY_EN[d] + ' at 9:30');
+      x = new Date(n.t0 + i * 864e5);
+      if (svatek(x.getUTCFullYear(), x.getUTCMonth() + 1, x.getUTCDate())) {
+        s = i === 1
+          ? t('Studio je zavřené, zítra je svátek', 'The studio is closed; tomorrow is a public holiday')
+          : t('Studio je zavřené, ' + DAY_CS[d] + ' je svátek', 'The studio is closed; ' + DAY_EN[d] + ' is a public holiday');
+      } else {
+        s = i === 1
+          ? t('Studio je zavřené, zítra od 9.30', 'The studio is closed, open tomorrow from 9:30')
+          : t('Studio je zavřené, otevíráme ' + DAY_CS[d] + ' v 9.30', 'The studio is closed, open on ' + DAY_EN[d] + ' at 9:30');
+      }
     }
     document.querySelectorAll('[data-stav]').forEach(function (el) { el.textContent = s; });
     var today = document.querySelector('[data-den="' + n.d + '"]');
@@ -117,6 +138,8 @@
     new IntersectionObserver(function (en) {
       var e = en[0];
       lista.classList.toggle('ukaz', !e.isIntersecting && e.boundingClientRect.top < 0);
+      /* one dominant button: the header copy shows only once the hero button is off screen */
+      html.classList.toggle('ukaz-poptat', !e.isIntersecting);
     }).observe(hlavni);
   } else if (lista && !document.querySelector('form.formular')) {
     var onScroll = function () { lista.classList.toggle('ukaz', window.scrollY > 320); };
@@ -125,16 +148,16 @@
 
   /* ---------- the cutting plan → project viewer ---------- */
   var P = {
-    'kh-07': [6, 'Kuchyň', 'Kitchen', 'Bílá lesklá kuchyň s mramorovým ostrůvkem a dubovým stolem', 'White gloss kitchen with a marble island and an oak table'],
-    'kh-06': [4, 'Kuchyň', 'Kitchen', 'Bílá kuchyň s ostrůvkem obloženým kamennými pásky', 'White kitchen with an island clad in stone strips'],
-    'kh-05': [4, 'Kuchyň', 'Kitchen', 'Bílá kuchyň s jídelním stolem a tmavou pracovní deskou', 'White kitchen with a dining table and a dark worktop'],
+    'kh-07': [6, 'Kuchyň', 'Kitchen', 'Bílá lesklá kuchyň s mramorovým ostrůvkem a dubovým stolem', 'White gloss kitchen with a marble island and an oak table'],
+    'kh-06': [4, 'Kuchyň', 'Kitchen', 'Bílá kuchyň s ostrůvkem obloženým kamennými pásky', 'White kitchen with an island clad in stone strips'],
+    'kh-05': [4, 'Kuchyň', 'Kitchen', 'Bílá kuchyň s jídelním stolem a tmavou pracovní deskou', 'White kitchen with a dining table and a dark worktop'],
     'kh-04': [5, 'Kuchyň', 'Kitchen', 'Bílá kuchyň se šedou zástěnou vedle dřevěného schodiště', 'White kitchen with a grey splashback next to a timber staircase'],
-    'kh-03': [2, 'Kuchyň', 'Kitchen', 'Kuchyň v dubovém dekoru s bílými skříňkami', 'Oak-décor kitchen with white cabinets'],
-    'kh-02': [5, 'Kuchyň', 'Kitchen', 'Kuchyň v dubovém dekoru s vytaženými zásuvkami a rohovým výsuvem', 'Oak-décor kitchen with drawers and a corner pull-out open'],
-    'kh-01': [3, 'Kuchyň', 'Kitchen', 'Bílá kuchyň s ostrůvkem a dubovou nikou u schodiště', 'White kitchen with an island and an oak niche by the stairs'],
-    'bed': [4, 'Kuchyň, Bedřichov', 'Kitchen, Bedřichov', 'Bílá kuchyň pod dřevěnými trámy s ostrůvkem a policí na knihy', 'White kitchen under timber beams, with an island and a bookshelf'],
-    'vs-01': [1, 'Vestavěná skříň', 'Built-in wardrobe', 'Bílá vestavěná skříň s posuvnými dveřmi, jedno pole otevřené', 'White built-in wardrobe with sliding doors, one bay open'],
-    'zv-01': [2, 'Nábytek na míru', 'Made-to-measure furniture', 'Bílé schodovité police a skříňky na míru', 'White stepped shelving and cupboards made to measure']
+    'kh-03': [2, 'Kuchyň', 'Kitchen', 'Kuchyň v dubovém dekoru s bílými skříňkami', 'Oak-décor kitchen with white cabinets'],
+    'kh-02': [5, 'Kuchyň', 'Kitchen', 'Kuchyň v dubovém dekoru s vytaženými zásuvkami a rohovým výsuvem', 'Oak-décor kitchen with drawers and a corner pull-out open'],
+    'kh-01': [3, 'Kuchyň', 'Kitchen', 'Bílá kuchyň s ostrůvkem a dubovou nikou u schodiště', 'White kitchen with an island and an oak niche by the stairs'],
+    'bed': [4, 'Kuchyň, Bedřichov', 'Kitchen, Bedřichov', 'Bílá kuchyň pod dřevěnými trámy s ostrůvkem a policí na knihy', 'White kitchen under timber beams, with an island and a bookshelf'],
+    'vs-01': [1, 'Vestavěná skříň', 'Built-in wardrobe', 'Bílá vestavěná skříň s posuvnými dveřmi, jedno pole otevřené', 'White built-in wardrobe with sliding doors, one bay open'],
+    'zv-01': [2, 'Nábytek na míru', 'Made-to-measure furniture', 'Bílé schodovité police a skříňky na míru', 'White stepped shelving and cupboards made to measure']
   };
   var view = document.getElementById('prohlizec');
   if (view && view.showModal) {
@@ -146,6 +169,8 @@
       img.alt = t(p[3], p[4]) + ' (' + idx + '/' + p[0] + ')';
       view.querySelector('.nazev').textContent = code(cur) + ', ' + t(p[1], p[2]).split(',')[0].toLowerCase();
       view.querySelector('.pocet').textContent = idx + ' / ' + p[0];
+      var popis = view.querySelector('.popis');
+      if (popis) popis.textContent = t(p[3], p[4]);
       view.querySelectorAll('.dalsi,.predchozi').forEach(function (b) { b.disabled = p[0] < 2; });
     }
     function step(d) { var n = P[cur][0]; idx = ((idx - 1 + d + n) % n) + 1; show(); }
@@ -183,7 +208,7 @@
       f.src = 'https://www.google.com/maps?q=Kuchyn%C4%9B+Havelka,+Studáneck%C3%A1+591,+463+03+Str%C3%A1%C5%BE+nad+Nisou&z=15&output=embed';
       f.title = t('Mapa: Kuchyně Havelka, Studánecká 591, Stráž nad Nisou', 'Map: Kuchyně Havelka, Studánecká 591, Stráž nad Nisou');
       f.loading = 'lazy'; f.setAttribute('tabindex', '0');
-      b.parentNode.appendChild(f); b.remove(); f.focus();
+      b.parentNode.insertBefore(f, b); b.remove(); f.focus();
     });
   });
 
