@@ -1,0 +1,252 @@
+/* DIAMOND SPOT E2: the tray catalogue. System in ../SPEC.md */
+@font-face{font-family:"Newsreader";src:url(fonts/newsreader-latin.woff2) format("woff2");font-weight:200 800;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Newsreader";src:url(fonts/newsreader-latin-ext.woff2) format("woff2");font-weight:200 800;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Hanken Grotesk";src:url(fonts/hanken-latin.woff2) format("woff2");font-weight:100 900;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Hanken Grotesk";src:url(fonts/hanken-latin-ext.woff2) format("woff2");font-weight:100 900;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --paper:#fff; --tray:#f5f4f2; --ink:#1b1719; --grey:#625d59; --hair:#dedad5; --silver:#dcdad6; --dim:#a9a39e;
+  --serif:"Newsreader",Georgia,serif; --sans:"Hanken Grotesk",system-ui,sans-serif;
+  --m:20px; --g:16px; --row:40px; --sec:88px; --head:60px;
+  --h1:32px; --h2:26px; --name:16px; --body:15px; --small:14px; --cols:2;
+}
+@media (min-width:720px){:root{--m:32px; --g:24px; --row:56px; --sec:112px; --head:68px; --h1:38px; --h2:29px; --name:17px; --body:16px; --small:15px; --cols:3}}
+@media (min-width:1100px){:root{--m:48px; --g:32px; --row:72px; --sec:136px; --head:72px; --h1:44px; --h2:32px; --name:19px; --cols:4}}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:var(--head)}
+body{margin:0;background:var(--paper);color:var(--grey);font:400 var(--body)/1.55 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,figure{margin:0;padding:0}
+ul{list-style:none}
+a{color:var(--ink);text-decoration-thickness:1px;text-underline-offset:.22em}
+button,select,input{font:inherit;color:inherit}
+button{background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+h1,h2,.name,.hero-name{font-family:var(--serif);font-weight:400;color:var(--ink);font-optical-sizing:auto}
+h1,.hero-name{font-size:var(--h1);line-height:1.08;letter-spacing:-.01em}
+h2{font-size:var(--h2);line-height:1.12;letter-spacing:-.005em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.price,.pd-price{color:var(--ink);font-weight:400;font-variant-numeric:tabular-nums lining-nums}
+.pd-price{font-weight:600}
+/* contact links: each its own 44 px row */
+.fl a{display:flex;align-items:center;min-height:44px;width:max-content}
+
+/* header: the dark fascia of Masná 15 with the silver logo (research/photos-best/01b-storefront-masna-15-crop.jpg) */
+.top{position:sticky;top:0;z-index:20;background:var(--ink)}
+.top-in{height:var(--head);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 var(--m);max-width:1696px;margin:0 auto}
+.logo{display:flex;align-items:center;min-height:44px;line-height:0}
+.logo img{width:154px}
+.nav,.contact{display:none}
+.menu-btn{min-height:44px;min-width:44px;font-weight:600;color:var(--silver)}
+.menu{position:fixed;inset:var(--head) 0 0;overflow:auto;overscroll-behavior:contain;padding:16px var(--m) 28px;background:var(--paper)}
+.menu nav{display:grid}
+.menu nav a{font-family:var(--serif);font-size:24px;line-height:1.2;color:var(--ink);text-decoration:none;padding:10px 0}
+.menu p{margin-top:16px;display:grid}
+.menu p a{display:flex;align-items:center;min-height:44px;width:max-content}
+.menu p span{display:flex;align-items:center;min-height:44px}
+.menu:not([hidden]){animation:drop .3s ease}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@media (min-width:1100px){
+  .menu-btn,.menu{display:none!important}
+  .nav{display:flex;gap:30px}
+  .contact{display:flex;gap:24px}
+  .nav a,.contact a{font-size:15px;color:var(--silver);text-decoration:none;padding:12px 0}
+  .nav a:hover,.contact a:hover{text-decoration:underline}
+  .nav a[aria-current]{font-weight:600;text-decoration:underline}
+}
+
+/* the one module: the piece on white + two or three lines. Their studio photos are shot on pure white, so the piece
+   floats with its own air (round 4: the grey tray squares read as a store template) */
+.grid{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:var(--g);row-gap:var(--row);padding:0 var(--m);max-width:1696px;margin:0 auto}
+.item a{display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit}
+.tile{position:relative;aspect-ratio:1;background:var(--paper);overflow:hidden}
+.ts,.tp{position:absolute;inset:0;display:block}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .3s ease}
+.tile img.on{opacity:1}
+.tile img.worn{object-fit:cover;transition-duration:.45s}
+.dots{display:none}
+@media (hover:hover) and (pointer:fine){.item a:hover .tile.has-worn img.worn{opacity:1}}
+/* touch has no hover: the same two photos become a sideways pair inside the tile (the page itself never snaps) */
+@media (hover:none){
+  .has-worn .ts{display:flex;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .has-worn .ts::-webkit-scrollbar{display:none}
+  .has-worn .tp,.has-worn img.worn{position:relative;flex:0 0 100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always}
+  .has-worn img.worn{opacity:1}
+  .dots{display:flex;gap:6px;position:absolute;left:50%;bottom:8px;transform:translateX(-50%);pointer-events:none}
+  .dots i{width:6px;height:6px;border-radius:50%;background:var(--ink);opacity:.22;transition:opacity .2s ease}
+  .tile:not([data-i="1"]) .dots i:first-child,.tile[data-i="1"] .dots i:last-child{opacity:.8}
+}
+.name{font-size:var(--name);line-height:1.25;margin-top:14px}
+.item .name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.item .line{font-size:var(--small);line-height:1.4;margin-top:2px}
+.item .price{font-size:var(--small);line-height:1.4;margin-top:auto;padding-top:6px}
+@media (max-width:719px){.item .line{display:none}}
+.item a:hover .name{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+
+/* sections */
+.sec{padding-top:var(--sec)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:0 var(--m);max-width:1696px;margin:0 auto 20px}
+.all{flex:none;display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+.chip{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
+.chip-w{background:#dcdcdc}.chip-y{background:#d4ac52}.chip-p{background:#d9a084}
+
+/* hero on the fascia band: the name as the headline, then the same ring twice at the same size (tray | hand),
+   then its name, line, price and link on one line, each on a column line of the spine */
+.hero-band{background:var(--ink);padding:16px 0 24px}
+.hero{max-width:1696px;margin:0 auto;padding:0 var(--m);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:8px}
+.hero-h1{grid-column:1/-1;color:var(--paper);margin-bottom:16px}
+.hero-tray,.hero-worn{position:relative;display:block;aspect-ratio:1;overflow:hidden}
+.hero-tray{background:var(--tray)}
+.hero-tray img{position:absolute;left:50%;top:46%;width:122%;max-width:none;transform:translate(-50%,-50%);mix-blend-mode:multiply}
+.hero-worn img{width:100%;height:100%;object-fit:cover}
+.hero-cap{grid-column:1/-1;padding-top:14px}
+.hero-cap .hero-name{font-size:var(--h2);line-height:1.12;color:var(--paper)}
+.hero-cap .line{margin-top:4px;color:var(--dim)}
+.hero-cap .price{margin-top:2px;color:var(--silver)}
+.more{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--silver)}
+/* home: the first collection starts close under the band so its first row reaches into the first screen */
+.hero-band+.sec{padding-top:calc(var(--sec) * .42)}
+@media (min-width:720px){
+  .hero-band{padding:20px 0 28px}
+  .hero{column-gap:var(--g);--hh:clamp(300px,calc(100svh - 480px),560px)}
+  .hero-h1{margin-bottom:20px}
+  .hero-tray,.hero-worn{aspect-ratio:auto;height:var(--hh)}
+  .hero-tray img{width:auto;height:124%}  /* the studio frame has wide white margins; this sizes the ring like the one on the hand */
+  .hero-cap{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 32px;padding-top:16px}
+  .hero-cap .line,.hero-cap .price{margin:0}
+}
+@media (min-width:1100px){
+  .hero-cap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--g)}
+}
+
+/* collection page */
+.coll-head{padding:calc(var(--sec) * .5) var(--m) 0;max-width:1696px;margin:0 auto}
+.coll-head p{margin-top:12px;max-width:48em}
+.filters{display:flex;flex-direction:column;max-width:1696px;margin:32px auto 0}
+.tray{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:var(--g);margin:0 var(--m);padding:14px 0 10px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.tg{display:flex;flex-direction:column;min-width:0}
+.tg:last-of-type{grid-column:3/-1}
+.tl{font-size:14px;line-height:1.4;color:var(--grey)}
+.tg .tb{margin-left:-12px}
+.ftoggle,.treset{display:none!important}
+.tb{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tb button{min-height:44px;padding:0 12px;font-size:15px;color:var(--ink);border-radius:2px;transition:background .15s ease}
+.tb button:hover{background:var(--tray)}
+.tb button[aria-pressed="true"]{background:var(--tray);font-weight:600}
+.sort{margin-left:auto;display:flex;align-items:center;gap:8px}
+.sort select{-webkit-appearance:none;appearance:none;height:44px;border:0;border-radius:0;padding:0 20px 0 2px;font-size:15px;color:var(--ink);cursor:pointer;
+  background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%231b1719' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat right 4px center}
+.state{display:flex;flex-wrap:wrap;align-items:center;gap:0 20px;min-height:44px;padding:8px var(--m) 16px;font-size:var(--small)}
+.state .reset,.empty .reset{min-height:44px;color:var(--ink);text-decoration:underline;text-underline-offset:.22em}
+.empty{padding:24px var(--m);max-width:1696px;margin:0 auto}
+.grid-f{transition:opacity .25s ease}
+.grid-f.fading{opacity:0;transition-duration:.15s}
+.item[hidden]{display:none}
+.coll-end{padding:var(--sec) var(--m) 0;max-width:1696px;margin:0 auto}
+.coll-end p+p{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px 28px}
+.coll-end a{display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+@media (max-width:719px){
+  .filters{margin-top:16px}
+  .coll-head p{display:none}
+  .state{order:-1;padding-bottom:8px}
+  .state .ftoggle{display:inline-flex!important;align-items:center;min-height:44px;font-weight:600;color:var(--ink);font-size:15px}
+  .sort .tl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .tray{display:none;margin:0 0 16px;padding:4px 0;border:0;background:var(--tray)}
+  .tb button:hover{background:rgba(255,255,255,.6)}
+  .tb button[aria-pressed="true"]{background:var(--paper);box-shadow:0 0 0 1px var(--hair)}
+  .tg .tb{margin-left:0}
+  .tb button{padding:0 14px}
+  .tg .tl{padding-left:14px}
+  .tray.open{display:block;animation:drop .3s ease}
+  .tg{border-right:0;border-bottom:1px solid var(--hair);padding:10px var(--m) 12px calc(var(--m) - 14px)}
+  .tg:last-child{border-bottom:0}
+  .state .reset{display:none}
+  .tray .treset:not([hidden]){display:inline-flex!important;align-items:center;min-height:44px;margin:4px var(--m) 0;color:var(--ink);text-decoration:underline;text-underline-offset:.22em}
+}
+
+/* visit */
+.visit{display:grid;gap:28px;padding:var(--sec) var(--m) 0;max-width:1696px;margin:0 auto}
+.visit figure{margin:0 calc(var(--m) * -1)}
+.visit figure img{width:100%;aspect-ratio:1;object-fit:cover}
+@media (min-width:1100px){.visit figure img{aspect-ratio:4/3;object-position:50% 30%}}
+.visit-txt p{margin-top:12px}
+.visit-txt .fl{margin-top:4px}
+@media (min-width:720px){
+  .visit{grid-template-columns:1fr 1fr;column-gap:var(--g);align-items:start}
+  .visit figure{margin:0}
+}
+@media (min-width:1100px){.visit .book{grid-template-columns:1fr 1fr;column-gap:var(--g)}.visit .book .btn,.visit .book .sent{grid-column:1/-1}}
+
+/* forms */
+.book{display:grid;gap:18px;margin-top:32px}
+.book label{display:grid;gap:4px;font-size:var(--small)}
+.book input,.book select{-webkit-appearance:none;appearance:none;height:48px;margin:0;border:0;border-bottom:1px solid var(--hair);border-radius:0;background:transparent;padding:0;padding-inline:0;font-size:16px;color:var(--ink);width:100%;box-shadow:none}
+.book select{padding-right:20px;cursor:pointer;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%231b1719' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat right 4px center}
+.book input::-webkit-date-and-time-value{text-align:left;margin:0}
+.book input::-webkit-datetime-edit{padding:0}
+.book input:focus,.book select:focus{outline:none;box-shadow:inset 0 -2px 0 var(--ink)}
+.btn{justify-self:start;display:inline-flex;align-items:center;min-height:50px;padding:0 28px;background:var(--ink);color:var(--paper);font-weight:600;font-size:15px;border-radius:2px;transition:background .15s ease}
+.btn:hover{background:#3a3236}
+.sent{color:var(--ink)}
+
+/* product detail */
+.pd-in{display:grid;gap:28px;padding:16px var(--m) 0;max-width:1696px;margin:0 auto}
+/* phone: the photos are one full-width square each, side by side; a swipe goes from the tray shot to the hand,
+   "1 / 2" says there is a second one. Name and price stay in the first screen. Only this strip snaps. */
+.gwrap{position:relative}
+.gallery{display:flex;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none}
+.gallery::-webkit-scrollbar{display:none}
+.gallery figure[hidden]{display:none}
+.gallery figure{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;background:var(--paper);aspect-ratio:1;overflow:hidden}
+.gallery .g-pi img{width:100%;height:100%;object-fit:contain}
+.gnum{position:absolute;right:10px;bottom:8px;padding:2px 8px;border-radius:2px;background:rgba(255,255,255,.85);color:var(--ink);font-size:var(--small);font-variant-numeric:tabular-nums}
+.gallery .g-worn img{width:100%;height:100%;object-fit:cover}
+.zoom{display:block;width:100%;height:100%;cursor:zoom-in}
+.zoomd{width:100vw;height:100svh;max-width:none;max-height:none;margin:0;border:0;padding:0;background:var(--paper)}
+.zoomd[open]{display:flex;align-items:center;justify-content:center}
+.zoomd img{width:auto;height:auto;max-width:calc(100vw - 32px);max-height:calc(100svh - 96px);cursor:zoom-out}
+.zoomd form{position:absolute;top:12px;right:var(--m)}
+.zx{min-height:44px;min-width:44px;font-weight:600;color:var(--ink)}
+.crumb{display:inline-flex;align-items:center;min-height:44px;color:var(--grey);font-size:var(--small)}
+.info h1{margin-top:2px}
+.pd-price{font-size:22px;margin-top:12px}
+.spec{margin:24px 0 0;display:grid}
+.spec[hidden]{display:none}
+.spec div{display:grid;grid-template-columns:120px minmax(0,1fr);column-gap:16px;padding:9px 0;border-top:1px solid var(--hair)}
+.spec div:last-child{border-bottom:1px solid var(--hair)}
+.spec dt{font-size:var(--small);color:var(--grey)}
+.spec dd{margin:0;color:var(--ink)}
+.metals{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.mt{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--hair);border-radius:2px;color:var(--ink);font-size:15px}
+.mt[aria-pressed="true"]{border-color:var(--ink);font-weight:600}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:28px}
+@media (max-width:719px){.acts .btn{width:100%;justify-content:center}}
+.eshop,.try{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.22em}
+.added{margin-top:12px;color:var(--ink)}
+.added .eshop{margin-top:2px}
+.book-wrap .book{margin-top:20px}
+.book-wrap:not([hidden]){animation:drop .3s ease}
+.notes{margin-top:32px;padding-top:0;display:grid;gap:8px;font-size:var(--small)}
+.sec-same .sec-head{margin-bottom:28px}
+@media (min-width:720px){
+  .pd-in{grid-template-columns:7fr 5fr;column-gap:clamp(24px,4vw,72px);padding-top:24px;align-items:start}
+  .gallery{display:grid;grid-template-columns:1fr;gap:12px;overflow:visible}
+  .gnum{display:none}
+  .info{position:sticky;top:calc(var(--head) + 24px)}
+}
+@media (min-width:1100px){.pd-in{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--g)}.gwrap{grid-column:1/3}.info{grid-column:3/5}}
+
+/* footer */
+.foot{margin-top:var(--sec);background:var(--tray)}
+.foot-in{display:grid;grid-template-columns:minmax(0,1fr);gap:18px var(--g);padding:40px var(--m) 48px;max-width:1696px;margin:0 auto;font-size:var(--small);line-height:1.6}
+.foot a{color:var(--ink)}
+.foot .fl span{display:block}
+@media (min-width:720px){.foot-in{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.foot-in{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
