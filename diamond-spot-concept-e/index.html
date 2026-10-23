@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIAMOND SPOT klenotnictví, Masná 15, Praha</title>
+<meta name="description" content="Klenotnictví v Masné ulici v Praze 1. Zásnubní a snubní prsteny, certifikované kameny a autorské šperky Daniely Komatović.">
+<link rel="preload" href="assets/fonts/ysabeau-office-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Ysabeau Office";src:url(assets/fonts/ysabeau-office-latin.woff2) format("woff2");font-weight:100 1000;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Ysabeau Office";src:url(assets/fonts/ysabeau-office-latin-ext.woff2) format("woff2");font-weight:100 1000;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --paper:#fff; --ink:#1b1719; --grey:#5c5853; --mute:#75716c; --hair:#e4e1dd;
+  --m:20px; --g:12px; --gap:112px; --rowgap:40px;
+  --h2:26px; --body:16px; --name:15px; --small:14px; --lead:17px;
+  --ease:ease;
+}
+@media (min-width:700px){:root{--m:40px; --g:20px; --gap:176px; --rowgap:56px; --h2:30px; --body:17px; --name:16px}}
+@media (min-width:1100px){:root{--m:56px; --g:24px; --gap:176px; --rowgap:64px; --h2:32px; --lead:20px}}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--grey);font:400 var(--body)/1.55 "Ysabeau Office",system-ui,sans-serif;font-feature-settings:"kern";-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,figure{margin:0;padding:0}
+ul{list-style:none}
+a{color:var(--ink);text-underline-offset:.2em;text-decoration-thickness:1px}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+h2{font-size:var(--h2);font-weight:600;line-height:1.15;color:var(--ink);letter-spacing:-.005em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* one grid for the whole page; the spine is where column 3 starts on desktop */
+.wrap{display:grid;grid-template-columns:repeat(2,1fr);column-gap:var(--g);padding:0 var(--m);max-width:1712px;margin:0 auto}
+.spine{grid-column:1/-1}
+@media (min-width:700px){.wrap{grid-template-columns:repeat(3,1fr)} .spine{grid-column:2/-1}}
+@media (min-width:1100px){.wrap{grid-template-columns:repeat(5,1fr)} .spine{grid-column:3/-1}}
+
+/* header: the logo, once */
+.top{padding-top:22px}
+.top h1{line-height:0;grid-column:1/-1}
+.top img{width:132px}
+@media (min-width:1100px){.top{padding-top:32px}.top img{width:148px}}
+
+/* hero */
+.hero{margin-top:24px;row-gap:24px}
+.hero figure{grid-column:1/-1;margin:0 calc(var(--m) * -1)}
+.hero p{max-width:26em;font-size:var(--lead);line-height:1.5;color:var(--ink)}
+@media (min-width:700px){
+  .hero{margin-top:48px}
+  .hero figure{grid-column:1/2;margin:0 0 0 calc(var(--m) * -1)}
+  .hero p{align-self:end}
+}
+@media (min-width:1100px){.hero{margin-top:40px}.hero figure{grid-column:1/3}}
+
+/* catalogue */
+.cat{margin-top:var(--gap)}
+.cat-head p{margin-top:16px;max-width:32em}
+.filters{display:flex;flex-wrap:wrap;gap:8px 40px;margin-top:40px}
+.fgroup{border:0;margin:0;padding:0;min-width:0}
+.fgroup legend{padding:0;font-size:var(--small);color:var(--mute);margin-bottom:2px}
+.fgroup div{display:flex;flex-wrap:wrap;column-gap:18px}
+.fbtn{min-height:44px;font-size:var(--name);color:var(--grey);text-decoration:underline transparent 1px;text-underline-offset:.3em;transition:color .15s var(--ease),text-decoration-color .15s var(--ease)}
+.fbtn:hover{color:var(--ink)}
+.fbtn[aria-pressed="true"]{color:var(--ink);font-weight:600;text-decoration-color:var(--ink)}
+.state{display:flex;align-items:center;gap:20px;margin-top:8px;font-size:var(--small);color:var(--mute);min-height:44px}
+.state button{min-height:44px;color:var(--ink);text-decoration:underline 1px;text-underline-offset:.2em}
+.state button[hidden]{display:none}
+
+.grid{margin-top:16px;row-gap:var(--rowgap);transition:opacity .25s var(--ease)}
+.grid.fading{opacity:0;transition-duration:.15s}
+.piece[hidden],.note[hidden]{display:none}
+.plate{position:relative;aspect-ratio:1;overflow:hidden;background:var(--paper)}
+.plate img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .3s var(--ease)}
+.plate img.on{opacity:1}
+.plate img.worn{object-fit:cover;transition-duration:.5s}
+.can-worn.show-worn .plate img.worn{opacity:1}
+@media (hover:hover) and (pointer:fine){.can-worn .plate:hover img.worn{opacity:1}}
+.piece h3{margin-top:14px;font-size:var(--name);font-weight:600;line-height:1.3;color:var(--ink)}
+.detail{font-size:var(--small);line-height:1.45;color:var(--mute);margin-top:2px}
+.price{font-size:var(--name);line-height:1.3;color:var(--ink);margin-top:6px;font-variant-numeric:tabular-nums lining-nums}
+.tools{display:flex;align-items:center;flex-wrap:wrap;margin-top:2px;margin-left:-14px}
+.mbtn{width:40px;height:44px;display:grid;place-items:center}
+.mbtn span{width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.mbtn[aria-pressed="true"] span{outline:1px solid var(--ink);outline-offset:3px}
+.mbtn[data-m="w"]{--c:#d9dadb}.mbtn[data-m="y"]{--c:#d4aa4e}.mbtn[data-m="p"]{--c:#d79c80}.mbtn[data-m="k"]{--c:#2b2a2d}
+.wbtn{min-height:44px;margin-left:14px;font-size:var(--small);color:var(--grey);text-decoration:underline 1px;text-underline-offset:.25em;text-decoration-color:var(--hair)}
+.wbtn:hover,.wbtn[aria-pressed="true"]{color:var(--ink);text-decoration-color:var(--ink)}
+.piece:not(.can-worn) .wbtn{display:none}
+
+.note{font-size:var(--small);line-height:1.5;color:var(--grey);align-self:center;grid-column:1/-1;max-width:30em;padding:8px 0}
+.note h3{font-size:var(--name);font-weight:600;color:var(--ink);margin-bottom:6px}
+.note p+p{margin-top:10px}
+.note .who{color:var(--mute)}
+@media (min-width:700px){.note{grid-column:auto;padding:0 8px 40px 0}}
+@media (min-width:1100px){
+  .note{padding:0 8px 60px 0}
+  .note.n1{grid-row:1;grid-column:5}
+  .note.n2{grid-row:2;grid-column:3}
+  .note.n3{grid-row:3;grid-column:1}
+}
+.eshop{margin-top:56px}
+.eshop a{display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+
+/* fitting */
+.fit{margin-top:var(--gap);row-gap:40px}
+.fit figure{grid-column:1/-1;margin:0 calc(var(--m) * -1)}
+@media (min-width:700px){.fit figure{grid-column:1/2;margin-right:0}}
+@media (min-width:1100px){.fit figure{grid-column:1/3}}
+.fit figure img{width:100%;aspect-ratio:1;object-fit:cover}
+.fit .spine>p{margin-top:16px;max-width:30em}
+.facts{margin-top:24px;font-size:var(--body)}
+.facts a{display:inline-block;padding:10px 0;font-weight:600}
+form{margin-top:40px;max-width:420px;display:grid;gap:20px}
+label{display:grid;gap:2px;font-size:var(--small);color:var(--mute)}
+input{font:inherit;font-size:var(--body);color:var(--ink);border:0;border-bottom:1px solid var(--hair);border-radius:0;background:transparent;height:44px;padding:0;width:100%}
+input:focus{outline:none;border-bottom-color:var(--ink)}
+.send{justify-self:start;margin-top:12px;min-height:48px;padding:0 28px;border:1px solid var(--ink);color:var(--ink);font-weight:600;transition:background .15s var(--ease),color .15s var(--ease)}
+.send:hover{background:var(--ink);color:var(--paper)}
+.sent{font-size:var(--small);color:var(--ink)}
+
+footer.wrap{margin-top:calc(var(--gap) * .64);padding-bottom:64px;font-size:var(--small);color:var(--mute);line-height:1.6}
+footer a{color:var(--mute)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top wrap">
+  <h1 class="mark"><img src="assets/img/logo.webp" width="305" height="70" alt="DIAMOND SPOT klenotnictví"></h1>
+</header>
+
+<main>
+<section class="hero wrap" aria-label="Úvod">
+  <figure><img src="assets/img/hero.webp" width="1150" height="1150" alt="Ruka se zásnubním prstenem s diamantem na bílé halence" fetchpriority="high"></figure>
+  <p class="spine">Klenotnictví v Masné ulici, na půl cesty mezi Staroměstským náměstím a náměstím Republiky. Zásnubní a snubní prsteny, certifikované kameny a autorské šperky Daniely Komatović.</p>
+</section>
+
+<section class="cat" id="prsteny" aria-labelledby="cat-h">
+  <div class="wrap">
+    <div class="cat-head spine">
+      <h2 id="cat-h">Prsteny</h2>
+      <p>Výběr dvanácti kusů. V obchodě vybíráte z více než 300 zásnubních a 600 snubních modelů.</p>
+      <div class="filters">
+        <fieldset class="fgroup"><legend>Druh</legend><div>
+          <button class="fbtn" data-f="type" data-v="zasnubni" aria-pressed="false">Zásnubní</button>
+          <button class="fbtn" data-f="type" data-v="snubni" aria-pressed="false">Snubní</button>
+          <button class="fbtn" data-f="type" data-v="autorske" aria-pressed="false">Autorské</button>
+        </div></fieldset>
+        <fieldset class="fgroup"><legend>Zlato</legend><div>
+          <button class="fbtn" data-f="metal" data-v="w" aria-pressed="false">Bílé</button>
+          <button class="fbtn" data-f="metal" data-v="y" aria-pressed="false">Žluté</button>
+          <button class="fbtn" data-f="metal" data-v="p" aria-pressed="false">Růžové</button>
+          <button class="fbtn" data-f="metal" data-v="k" aria-pressed="false">Černé</button>
+        </div></fieldset>
+        <fieldset class="fgroup"><legend>Cena v Kč</legend><div>
+          <button class="fbtn" data-f="price" data-v="0-50000" aria-pressed="false">do 50 000</button>
+          <button class="fbtn" data-f="price" data-v="50000-100000" aria-pressed="false">50–100 000</button>
+          <button class="fbtn" data-f="price" data-v="100000-9999999" aria-pressed="false">nad 100 000</button>
+        </div></fieldset>
+      </div>
+      <p class="state"><span id="count" aria-live="polite"></span><button id="reset" hidden>Zrušit výběr</button></p>
+    </div>
+  </div>
+
+  <ul class="grid wrap" id="grid">
+    <li class="piece" data-type="zasnubni">
+      <div class="plate">
+        <img class="on" data-m="w" src="assets/img/solo-w.webp" width="1150" height="1150" alt="Solitér s briliantem, bílé zlato" loading="lazy">
+        <img data-m="y" src="assets/img/solo-y.webp" width="1150" height="1150" alt="" loading="lazy">
+        <img data-m="p" src="assets/img/solo-p.webp" width="1150" height="1150" alt="" loading="lazy">
+      </div>
+      <h3>Solitér</h3>
+      <p class="detail">Bílé zlato, briliant 0,46 ct</p>
+      <p class="price">59 500 Kč</p>
+      <div class="tools">
+        <button class="mbtn" data-m="w" data-p="59500" data-d="Bílé zlato, briliant 0,46 ct" aria-pressed="true" aria-label="Bílé zlato"><span></span></button>
+        <button class="mbtn" data-m="y" data-p="59500" data-d="Žluté zlato, briliant 0,46 ct" aria-pressed="false" aria-label="Žluté zlato"><span></span></button>
+        <button class="mbtn" data-m="p" data-p="59500" data-d="Růžové zlato, briliant 0,46 ct" aria-pressed="false" aria-label="Růžové zlato"><span></span></button>
+      </div>
+    </li>
+    <li class="piece can-worn" data-type="zasnubni" data-worn="w">
+      <div class="plate">
+        <img class="on" data-m="w" src="assets/img/twist-w.webp" width="1150" height="1150" alt="Zatočený solitér, bílé zlato" loading="lazy">
+        <img data-m="y" src="assets/img/twist-y.webp" width="1150" height="1150" alt="" loading="lazy">
+        <img data-m="p" src="assets/img/twist-p.webp" width="1150" height="1150" alt="" loading="lazy">
+        <img class="worn" src="assets/img/twist-worn.webp" width="1150" height="1150" alt="Zatočený solitér na ruce" loading="lazy">
+      </div>
+      <h3>Zatočený solitér</h3>
+      <p class="detail">Bílé zlato, diamant 0,19 ct</p>
+      <p class="price">26 960 Kč</p>
+      <div class="tools">
+        <button class="mbtn" data-m="w" data-p="26960" data-d="Bílé zlato, diamant 0,19 ct" aria-pressed="true" aria-label="Bílé zlato"><span></span></button>
+        <button class="mbtn" data-m="y" data-p="26960" data-d="Žluté zlato, diamant 0,19 ct" aria-pressed="false" aria-label="Žluté zlato"><span></span></button>
+        <button class="mbtn" data-m="p" data-p="26960" data-d="Růžové zlato, diamant 0,19 ct" aria-pressed="false" aria-label="Růžové zlato"><span></span></button>
+        <button class="wbtn" aria-pressed="false">na ruce</button>
+      </div>
+    </li>
+    <li class="piece" data-type="zasnubni" data-metals="w" data-p="250000">
+      <div class="plate"><img class="on" src="assets/img/halo-w.webp" width="1150" height="1150" alt="Prsten halo s diamanty, bílé zlato" loading="lazy"></div>
+      <h3>Halo</h3>
+      <p class="detail">Bílé zlato, diamanty 1,14 ct</p>
+      <p class="price">250 000 Kč</p>
+    </li>
+    <li class="piece" data-type="zasnubni" data-metals="y" data-p="132000">
+      <div class="plate"><img class="on" src="assets/img/emerald-y.webp" width="1150" height="1150" alt="Prsten s diamantem v brusu emerald, žluté zlato" loading="lazy"></div>
+      <h3>Brus emerald</h3>
+      <p class="detail">Žluté zlato, diamant 0,91 ct</p>
+      <p class="price">132 000 Kč</p>
+    </li>
+
+    <li class="note n1">
+      <h3>Kámen</h3>
+      <p>Jen přírodní kameny, inkluze se nevyplňují laserem. Diamanty vybírá náš gemolog na burzách v Izraeli a Belgii, s certifikáty GIA, HRD, IGI nebo YUDC.</p>
+    </li>
+
+    <li class="piece" data-type="zasnubni">
+      <div class="plate">
+        <img class="on" data-m="w" src="assets/img/bezel-w.webp" width="1150" height="1150" alt="Prsten bezel s diamantem, bílé zlato" loading="lazy">
+        <img data-m="y" src="assets/img/bezel-y.webp" width="1150" height="1150" alt="" loading="lazy">
+        <img data-m="p" src="assets/img/bezel-p.webp" width="1150" height="1150" alt="" loading="lazy">
+      </div>
+      <h3>Bezel</h3>
+      <p class="detail">Bílé zlato, diamant 0,20 ct</p>
+      <p class="price">37 070 Kč</p>
+      <div class="tools">
+        <button class="mbtn" data-m="w" data-p="37070" data-d="Bílé zlato, diamant 0,20 ct" aria-pressed="true" aria-label="Bílé zlato"><span></span></button>
+        <button class="mbtn" data-m="y" data-p="37070" data-d="Žluté zlato, diamant 0,20 ct" aria-pressed="false" aria-label="Žluté zlato"><span></span></button>
+        <button class="mbtn" data-m="p" data-p="37070" data-d="Růžové zlato, diamant 0,20 ct" aria-pressed="false" aria-label="Růžové zlato"><span></span></button>
+      </div>
+    </li>
+    <li class="piece" data-type="snubni" data-metals="w" data-p="41164">
+      <div class="plate"><img class="on" src="assets/img/eternity.webp" width="1150" height="1150" alt="Snubní prsteny eternity s diamanty, bílé zlato" loading="lazy"></div>
+      <h3>Eternity</h3>
+      <p class="detail">Pár, bílé zlato, diamanty</p>
+      <p class="price">41 164 Kč</p>
+    </li>
+
+    <li class="note n2">
+      <h3>Velikost</h3>
+      <p>„Společně jsme prošli spoustu fotek a videí mé přítelkyně, abychom co nejlépe odhadli velikost, a trefili jsme se skoro přesně!“</p>
+      <p class="who">Filip, recenze na Googlu</p>
+    </li>
+
+    <li class="piece" data-type="snubni" data-metals="y w" data-p="55592">
+      <div class="plate"><img class="on" src="assets/img/duo.webp" width="1150" height="1150" alt="Dvoubarevné snubní prsteny, žluté a bílé zlato" loading="lazy"></div>
+      <h3>Dvoubarevné</h3>
+      <p class="detail">Pár, žluté a bílé zlato</p>
+      <p class="price">55 592 Kč</p>
+    </li>
+    <li class="piece" data-type="snubni" data-metals="w y p" data-p="75656">
+      <div class="plate"><img class="on" src="assets/img/trio.webp" width="1150" height="1150" alt="Trojbarevné snubní prsteny" loading="lazy"></div>
+      <h3>Trojbarevné</h3>
+      <p class="detail">Pár, bílé, žluté a růžové zlato</p>
+      <p class="price">75 656 Kč</p>
+    </li>
+
+    <li class="note n3">
+      <h3>Daniela Komatović</h3>
+      <p>Autorské kolekce Diamond Spot navrhuje sama. Za Eye to the Soul získala v roce 2017 zlato na A’ Design Award v Miláně.</p>
+      <p>„Líbí se mi její osobité a stylizované vyjádření, zachycení myšlenky v drobném předmětu.“ <span class="who">Eva, recenze na Googlu</span></p>
+    </li>
+
+    <li class="piece" data-type="autorske">
+      <div class="plate">
+        <img data-m="w" src="assets/img/leo-w.webp" width="990" height="990" alt="" loading="lazy">
+        <img class="on" data-m="y" src="assets/img/leo-y.webp" width="990" height="990" alt="Prsten Leo z kolekce Cosmos, žluté zlato" loading="lazy">
+        <img data-m="p" src="assets/img/leo-p.webp" width="990" height="990" alt="" loading="lazy">
+      </div>
+      <h3>Leo</h3>
+      <p class="detail">Cosmos, žluté zlato, diamanty</p>
+      <p class="price">68 700 Kč</p>
+      <div class="tools">
+        <button class="mbtn" data-m="w" data-p="66300" data-d="Cosmos, bílé zlato, černý diamant" aria-pressed="false" aria-label="Bílé zlato"><span></span></button>
+        <button class="mbtn" data-m="y" data-p="68700" data-d="Cosmos, žluté zlato, diamanty" aria-pressed="true" aria-label="Žluté zlato"><span></span></button>
+        <button class="mbtn" data-m="p" data-p="68700" data-d="Cosmos, růžové zlato, diamanty" aria-pressed="false" aria-label="Růžové zlato"><span></span></button>
+      </div>
+    </li>
+    <li class="piece can-worn" data-type="autorske" data-metals="k y" data-p="160000">
+      <div class="plate">
+        <img class="on" src="assets/img/cube.webp" width="990" height="990" alt="Prsten Cube z kolekce Vertex, černé a žluté zlato s citrínem" loading="lazy">
+        <img class="worn" src="assets/img/cube-worn.webp" width="1299" height="1299" alt="Prsten Cube na ruce" loading="lazy">
+      </div>
+      <h3>Cube</h3>
+      <p class="detail">Vertex, černé a žluté zlato, citrín</p>
+      <p class="price">160 000 Kč</p>
+      <div class="tools"><button class="wbtn" aria-pressed="false">na ruce</button></div>
+    </li>
+    <li class="piece can-worn" data-type="autorske" data-worn="y">
+      <div class="plate">
+        <img class="on" data-m="y" src="assets/img/eak-y.webp" width="990" height="990" alt="Prsten Eakatarina z kolekce Queens, žluté zlato, tahitská perla" loading="lazy">
+        <img data-m="p" src="assets/img/eak-p.webp" width="990" height="990" alt="" loading="lazy">
+        <img data-m="w" src="assets/img/eak-w.webp" width="990" height="990" alt="" loading="lazy">
+        <img data-m="k" src="assets/img/eak-k.webp" width="990" height="990" alt="" loading="lazy">
+        <img class="worn" src="assets/img/eak-worn.webp" width="1150" height="1150" alt="Prsten Eakatarina na ruce" loading="lazy">
+      </div>
+      <h3>Eakatarina</h3>
+      <p class="detail">Queens, žluté zlato, tahitská perla</p>
+      <p class="price">105 230 Kč</p>
+      <div class="tools">
+        <button class="mbtn" data-m="y" data-p="105230" data-d="Queens, žluté zlato, tahitská perla" aria-pressed="true" aria-label="Žluté zlato"><span></span></button>
+        <button class="mbtn" data-m="p" data-p="131140" data-d="Queens, růžové zlato, tahitská perla" aria-pressed="false" aria-label="Růžové zlato"><span></span></button>
+        <button class="mbtn" data-m="w" data-p="103290" data-d="Queens, bílé zlato, perla a smaragd" aria-pressed="false" aria-label="Bílé zlato"><span></span></button>
+        <button class="mbtn" data-m="k" data-p="106920" data-d="Queens, černé zlato, perla a smaragd" aria-pressed="false" aria-label="Černé zlato"><span></span></button>
+        <button class="wbtn" aria-pressed="false">na ruce</button>
+      </div>
+    </li>
+    <li class="piece can-worn" data-type="autorske" data-metals="k" data-p="110900">
+      <div class="plate">
+        <img class="on" src="assets/img/eye.webp" width="990" height="990" alt="Prsten-přívěšek z kolekce Eye to the Soul, černé zlato s diamanty" loading="lazy">
+        <img class="worn" src="assets/img/eye-worn.webp" width="1150" height="1150" alt="Tentýž šperk nošený jako přívěšek" loading="lazy">
+      </div>
+      <h3>Prsten-přívěšek</h3>
+      <p class="detail">Eye to the Soul, černé zlato, diamanty</p>
+      <p class="price">110 900 Kč</p>
+      <div class="tools"><button class="wbtn" aria-pressed="false">jako přívěšek</button></div>
+    </li>
+  </ul>
+
+  <div class="wrap"><p class="eshop spine"><a href="https://diamondspot.eu/cz">Pokračovat do e-shopu</a></p></div>
+</section>
+
+<section class="fit wrap" id="zkouska" aria-labelledby="fit-h">
+  <figure><img src="assets/img/room.webp" width="1200" height="1172" alt="Stěna se snubními prsteny v obchodě v Masné 15" loading="lazy"></figure>
+  <div class="spine">
+    <h2 id="fit-h">Zkouška v Masné 15</h2>
+    <p>Všechny snubní modely si můžete vyzkoušet na místě. Napište nám, který den přijdete.</p>
+    <p class="facts">Masná 699/15, Praha 1<br>Úterý až sobota 11–19, neděle a pondělí zavřeno<br><a href="tel:+420778880111">+420 778 880 111</a></p>
+    <form id="fitform" novalidate>
+      <label>Jméno<input name="jmeno" autocomplete="name" required></label>
+      <label>Telefon nebo e-mail<input name="kontakt" autocomplete="tel" required></label>
+      <label>Den návštěvy<input name="den" type="date"></label>
+      <button class="send" type="submit">Domluvit zkoušku</button>
+      <p class="sent" id="sent" role="status" hidden>Tohle je ukázka webu, formulář nic neodesílá.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p class="spine">DIAMOND SPOT klenotnictví, Masná 699/15, 110 00 Praha 1<br><a href="mailto:info@diamondspot.cz">info@diamondspot.cz</a><br>Provozovatel YUDC s.r.o., IČ 03793532</p>
+</footer>
+
+<script>
+(function(){
+  var grid=document.getElementById('grid'), pieces=[].slice.call(grid.querySelectorAll('.piece')),
+      notes=[].slice.call(grid.querySelectorAll('.note')), countEl=document.getElementById('count'),
+      reset=document.getElementById('reset'), f={type:null,metal:null,price:null};
+  var kc=function(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'};
+
+  function variants(li){
+    var b=[].slice.call(li.querySelectorAll('.mbtn'));
+    if(b.length) return b.map(function(x){return {m:x.dataset.m,p:+x.dataset.p,btn:x}});
+    return (li.dataset.metals||'').split(' ').map(function(m){return {m:m,p:+li.dataset.p}});
+  }
+  function setVariant(li,m){
+    li.querySelectorAll('.mbtn').forEach(function(b){
+      var on=b.dataset.m===m; b.setAttribute('aria-pressed',on);
+      if(on){li.querySelector('.detail').textContent=b.dataset.d; li.querySelector('.price').textContent=kc(b.dataset.p);}
+    });
+    li.querySelectorAll('.plate img[data-m]').forEach(function(i){i.classList.toggle('on',i.dataset.m===m)});
+    if(li.dataset.worn){
+      var ok=li.dataset.worn===m; li.classList.toggle('can-worn',ok);
+      if(!ok){li.classList.remove('show-worn'); var w=li.querySelector('.wbtn'); if(w) w.setAttribute('aria-pressed','false');}
+    }
+  }
+  function current(li){var b=li.querySelector('.mbtn[aria-pressed="true"]'); return b?b.dataset.m:null}
+
+  function apply(){
+    var range=f.price?f.price.split('-').map(Number):null, shown=0;
+    pieces.forEach(function(li){
+      var vs=variants(li), cur=current(li);
+      if(cur) vs.sort(function(a,b){return (b.m===cur)-(a.m===cur)});
+      var hit=vs.filter(function(v){
+        return (!f.metal||v.m===f.metal)&&(!range||(v.p>=range[0]&&v.p<range[1]));
+      })[0];
+      var ok=hit&&(!f.type||li.dataset.type===f.type);
+      li.hidden=!ok; if(ok){shown++; if(hit.btn&&hit.m!==cur) setVariant(li,hit.m);}
+    });
+    var any=f.type||f.metal||f.price;
+    notes.forEach(function(n){n.hidden=!!any});
+    countEl.textContent=any?(shown?'Zobrazeno '+shown+' z 12':'Žádný z dvanácti prstenů tomu neodpovídá.'):'';
+    reset.hidden=!any;
+  }
+  function refresh(){
+    var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(still){apply();return}
+    grid.classList.add('fading');
+    setTimeout(function(){apply(); grid.classList.remove('fading')},150);
+  }
+
+  pieces.forEach(function(li){var m=current(li); if(m) li.dataset.def=m});
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k=b.dataset.f, v=b.dataset.v, on=f[k]!==v;
+      f[k]=on?v:null;
+      document.querySelectorAll('.fbtn[data-f="'+k+'"]').forEach(function(x){x.setAttribute('aria-pressed',on&&x===b)});
+      refresh();
+    });
+  });
+  reset.addEventListener('click',function(){
+    f={type:null,metal:null,price:null};
+    document.querySelectorAll('.fbtn').forEach(function(x){x.setAttribute('aria-pressed','false')});
+    pieces.forEach(function(li){if(li.dataset.def) setVariant(li,li.dataset.def)});
+    refresh(); countEl.focus&&reset.blur();
+  });
+  grid.addEventListener('click',function(e){
+    var m=e.target.closest('.mbtn'), w=e.target.closest('.wbtn');
+    if(m){setVariant(m.closest('.piece'),m.dataset.m); if(f.metal||f.price) apply();}
+    if(w){var li=w.closest('.piece'), on=!li.classList.contains('show-worn'); li.classList.toggle('show-worn',on); w.setAttribute('aria-pressed',on);}
+  });
+  document.getElementById('fitform').addEventListener('submit',function(e){
+    e.preventDefault(); document.getElementById('sent').hidden=false;
+  });
+})();
+</script>
+</body>
+</html>

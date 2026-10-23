@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIAMOND SPOT, klenotnictví v Masné 15, Praha</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Zásnubní a snubní prsteny z přírodních diamantů a autorské šperky Daniely Komatović. Klenotnictví v Masné 15, Praha 1.">
+<link rel="preload" href="assets/zasnubni.webp" as="image">
+<style>
+@font-face{font-family:"Brygada 1918";src:url(assets/brygada-latin.woff2) format("woff2");font-weight:400 700;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Brygada 1918";src:url(assets/brygada-latin-ext.woff2) format("woff2");font-weight:400 700;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C4,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --ground:#F4F4F2; --ink:#1F1E1C; --body:#55534F; --muted:#6A6864; --hair:#C9C7C2;
+  --label:300px; --gap:64px; --photo:560px; --between:200px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--body);font:400 17px/1.6 "Brygada 1918",Georgia,serif;
+  font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.22em;
+  text-decoration-color:rgba(31,30,28,.35);transition:text-decoration-color .15s ease}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:1px solid var(--ink);outline-offset:4px}
+h1,h2,h3,p{margin:0}
+
+/* the spine: every row uses the same four tracks */
+.row{display:grid;grid-template-columns:minmax(20px,1fr) var(--label) var(--gap) var(--photo) minmax(20px,1fr)}
+.row>.l{grid-column:2}
+.row>.r{grid-column:4}
+.row>.wide{grid-column:2/5}
+
+header.row{padding-top:40px;align-items:center}
+header h1{line-height:0}
+header h1 img{width:154px}
+header nav{display:flex;justify-content:flex-end;gap:28px;font-size:15px}
+header nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration-color:transparent}
+header nav a:hover{text-decoration-color:var(--ink)}
+
+main{padding-top:96px}
+.case{align-items:end;margin-bottom:var(--between)}
+.case>.l,.case>.r{grid-row:1}
+.case img{width:var(--photo);aspect-ratio:1;object-fit:cover;background:#D9D9D6}
+.case .l{padding-bottom:4px}
+h2{color:var(--ink);font-size:32px;font-weight:600;line-height:1.15;letter-spacing:-.005em}
+.case h2+p{margin-top:16px}
+.price{margin-top:24px;color:var(--muted)}
+.price b{color:var(--ink);font-weight:600}
+.try{display:inline-block;margin-top:12px;font-size:15px;padding:10px 0}
+blockquote{margin:20px 0 0;font-size:15px;line-height:1.55;color:var(--body)}
+blockquote .cite{margin-top:6px;color:var(--muted)}
+.facts{margin-top:24px;font-size:15px;line-height:1.75;color:var(--ink)}
+.facts span{display:block}
+
+/* booking */
+#zkouska{align-items:start;scroll-margin-top:48px}
+#zkouska .l p{margin-top:16px}
+form{display:grid;gap:28px}
+label{display:block;font-size:15px;color:var(--muted)}
+input,select{display:block;width:100%;margin-top:6px;padding:8px 0 10px;border:0;border-bottom:1px solid var(--hair);border-radius:0;
+  background:transparent;color:var(--ink);font:400 18px/1.4 "Brygada 1918",Georgia,serif;-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(-45deg,transparent 50%,var(--ink) 50%);
+  background-position:calc(100% - 9px) 55%,calc(100% - 4px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:24px}
+input:focus,select:focus{outline:0;border-bottom-color:var(--ink)}
+input[aria-invalid=true]{border-bottom-color:#8C2F23}
+.err{display:block;min-height:0;margin-top:6px;font-size:14px;color:#8C2F23}
+.err:empty{display:none}
+button{justify-self:start;min-height:48px;padding:0 28px;border:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);
+  font:400 16px/1 "Brygada 1918",Georgia,serif;cursor:pointer;transition:background-color .15s ease,color .15s ease}
+button:hover{background:var(--ink);color:var(--ground)}
+.done{color:var(--ink);font-size:17px}
+.done small{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
+
+body>footer{padding:var(--between) 0 48px;font-size:14px;color:var(--muted)}
+
+/* the case lights up, once */
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .case.first img{animation:light .8s ease-out both}
+  .case.first .l{animation:label .6s .25s ease-out both}
+  @keyframes light{from{filter:brightness(.84)}to{filter:none}}
+  @keyframes label{from{opacity:0}to{opacity:1}}
+}
+
+@media (max-width:1100px){:root{--label:260px;--gap:48px;--photo:min(520px,calc(100vw - 368px))}}
+@media (max-width:899px){
+  :root{--between:112px}
+  body{font-size:16.5px}
+  .row{grid-template-columns:minmax(20px,1fr) minmax(0,560px) minmax(20px,1fr)}
+  .row>.l,.row>.r,.row>.wide{grid-column:2}
+  header.row{padding-top:20px}
+  header.row>.l,header.row>.r{grid-row:1}
+  header.row>.l{justify-self:start}
+  header.row>.r{justify-self:end;gap:16px;font-size:14px}
+  header h1 img{width:112px}
+  main{padding-top:28px}
+  .case{align-items:start}
+  .case .r{grid-row:1}
+  .case .l{grid-row:2;margin-top:24px;padding-bottom:0}
+  .case img{width:100%}
+  h2{font-size:27px}
+  #zkouska .r{margin-top:32px}
+  button{width:100%}
+}
+@media (max-width:379px){header h1 img{width:100px}}
+@media (max-width:339px){header nav a.shop{display:none}}
+</style>
+</head>
+<body>
+
+<header class="row">
+  <h1 class="l"><img src="assets/logo.png" width="308" height="74" alt="DIAMOND SPOT, klenotnictví"></h1>
+  <nav class="r" aria-label="Hlavní">
+    <a href="#zkouska">Domluvit zkoušku</a>
+    <a class="shop" href="https://diamondspot.eu/cz" rel="noopener">Do e-shopu</a>
+  </nav>
+</header>
+
+<main>
+  <section class="row case first" aria-labelledby="h-zasnubni">
+    <img class="r" src="assets/zasnubni.webp" width="1150" height="1150" fetchpriority="high"
+      alt="Zásnubní prsten s kulatým diamantem a diamantovým lemem na ruce">
+    <div class="l">
+      <h2 id="h-zasnubni">Zásnubní prsteny</h2>
+      <p>Přírodní diamanty, které náš gemolog vybírá na burzách v Izraeli a&nbsp;Belgii.</p>
+      <p class="price">od <b>10&nbsp;180&nbsp;Kč</b></p>
+      <a class="try" href="#zkouska" data-piece="Zásnubní prsten">Vyzkoušet v&nbsp;Masné&nbsp;15</a>
+    </div>
+  </section>
+
+  <section class="row case" aria-labelledby="h-snubni">
+    <img class="r" src="assets/snubni.webp" width="1150" height="1150" loading="lazy"
+      alt="Zásnubní prsten se solitérem a snubní prsten s diamanty na ruce">
+    <div class="l">
+      <h2 id="h-snubni">Snubní prsteny</h2>
+      <p>Ze 14 i&nbsp;18karátového zlata, klasické i&nbsp;designové. Všechny modely si u&nbsp;nás můžete vyzkoušet.</p>
+      <p class="price">od <b>19&nbsp;599&nbsp;Kč</b> za pár</p>
+      <a class="try" href="#zkouska" data-piece="Snubní prsteny">Vyzkoušet v&nbsp;Masné&nbsp;15</a>
+    </div>
+  </section>
+
+  <section class="row case" aria-labelledby="h-etts">
+    <img class="r" src="assets/eye-to-the-soul.webp" width="1150" height="1150" loading="lazy"
+      alt="Prsten z kolekce Eye to the Soul z černého a žlutého zlata na ruce">
+    <div class="l">
+      <h2 id="h-etts">Eye to the Soul</h2>
+      <p>Prsten, který se promění v&nbsp;přívěsek. Za tuto kolekci získala Daniela Komatović v&nbsp;roce 2017 zlaté ocenění A’&nbsp;Design Award v&nbsp;Miláně.</p>
+      <p class="price">od <b>55&nbsp;400&nbsp;Kč</b></p>
+      <a class="try" href="#zkouska" data-piece="Eye to the Soul">Vyzkoušet v&nbsp;Masné&nbsp;15</a>
+    </div>
+  </section>
+
+  <section class="row case" aria-labelledby="h-liberty">
+    <img class="r" src="assets/liberty.webp" width="1150" height="1150" loading="lazy"
+      alt="Prsten z kolekce Liberty s oválným kamenem na ruce">
+    <div class="l">
+      <h2 id="h-liberty">Liberty</h2>
+      <p>Linie podle secesních děl Alfonse Muchy. Každý šperk z&nbsp;kolekce je originál.</p>
+      <blockquote>
+        <p>„Krásné, jedinečné šperky od Daniely Komatović. Líbí se mi její osobité a&nbsp;stylizované vyjádření, zachycení myšlenky v&nbsp;drobném předmětu.“</p>
+        <p class="cite">Eva, recenze na Googlu</p>
+      </blockquote>
+      <p class="price">od <b>72&nbsp;000&nbsp;Kč</b></p>
+      <a class="try" href="#zkouska" data-piece="Liberty">Vyzkoušet v&nbsp;Masné&nbsp;15</a>
+    </div>
+  </section>
+
+  <section class="row case" aria-labelledby="h-masna">
+    <img class="r" src="assets/masna-15.webp" width="1150" height="1150" loading="lazy"
+      alt="Zlatá stěna klenotnictví s nápisem Diamond Spot a řadami podnosů se snubními prsteny">
+    <div class="l">
+      <h2 id="h-masna">Masná 15</h2>
+      <p>Klenotnictví ve funkcionalistickém domě Otty a&nbsp;Karla Kohnů, na půl cesty mezi Staroměstským náměstím a&nbsp;náměstím Republiky. Vedou ho manželé, gemolog a&nbsp;designérka Daniela Komatović.</p>
+      <p class="facts">
+        <span>Masná 699/15, Praha 1</span>
+        <span>Úterý až sobota 11–19</span>
+        <span>+420 778 880 111</span>
+        <span>info@diamondspot.cz</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="row" id="zkouska" aria-labelledby="h-zkouska">
+    <div class="l">
+      <h2 id="h-zkouska">Domluvit zkoušku</h2>
+      <p>Napište, co chcete vyzkoušet a&nbsp;kdy se&nbsp;vám&nbsp;hodí.</p>
+    </div>
+    <div class="r">
+      <form id="f" novalidate>
+        <div>
+          <label for="f-name">Jméno</label>
+          <input id="f-name" name="jmeno" autocomplete="name" required aria-describedby="e-name">
+          <span class="err" id="e-name"></span>
+        </div>
+        <div>
+          <label for="f-contact">Telefon nebo e-mail</label>
+          <input id="f-contact" name="kontakt" autocomplete="email" required aria-describedby="e-contact">
+          <span class="err" id="e-contact"></span>
+        </div>
+        <div>
+          <label for="f-piece">Co chcete vyzkoušet</label>
+          <select id="f-piece" name="sperk">
+            <option>Zásnubní prsten</option>
+            <option>Snubní prsteny</option>
+            <option>Eye to the Soul</option>
+            <option>Liberty</option>
+            <option>Něco jiného</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-when">Kdy se vám hodí</label>
+          <input id="f-when" name="kdy" placeholder="třeba sobota odpoledne">
+        </div>
+        <div id="f-end"><button type="submit">Odeslat žádost o&nbsp;zkoušku</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="row">
+  <p class="wide">YUDC s.r.o., Lindleyova 2689/3, Praha 6, IČ 03793532</p>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('f'), sel = document.getElementById('f-piece'), nm = document.getElementById('f-name');
+  document.querySelectorAll('a.try').forEach(function (a) {
+    a.addEventListener('click', function () {
+      sel.value = a.dataset.piece;
+      // focus after the scroll starts; preventScroll keeps the smooth scroll in charge
+      setTimeout(function () { nm.focus({ preventScroll: true }); }, 50);
+    });
+  });
+  function check(el, msg) {
+    var bad = !el.value.trim();
+    el.setAttribute('aria-invalid', bad);
+    document.getElementById(el.getAttribute('aria-describedby')).textContent = bad ? msg : '';
+    return !bad;
+  }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = check(nm, 'Napište, jak vám máme říkat.') & check(document.getElementById('f-contact'), 'Napište telefon nebo e-mail, ať se vám můžeme ozvat.');
+    if (!ok) { f.querySelector('[aria-invalid=true]').focus(); return; }
+    var when = document.getElementById('f-when').value.trim();
+    var end = document.getElementById('f-end');
+    end.innerHTML = '<p class="done" role="status" tabindex="-1"></p>';
+    var p = end.firstChild;
+    p.textContent = 'Žádost o zkoušku je připravená: ' + sel.value + (when ? ', ' + when : '') + '.';
+    var s = document.createElement('small'); s.textContent = 'Toto je ukázka webu, nic se neodeslalo.'; p.appendChild(s);
+    p.focus();
+  });
+})();
+</script>
+</body>
+</html>
