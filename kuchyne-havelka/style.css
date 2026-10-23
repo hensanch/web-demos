@@ -1,0 +1,289 @@
+/* Kuchyně Havelka – fonts self-hosted, no third-party request on load */
+@font-face{font-family:Sora;font-style:normal;font-weight:300 700;font-display:swap;src:url(fonts/sora-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Sora;font-style:normal;font-weight:300 700;font-display:swap;src:url(fonts/sora-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --lamino:#F3F4F2;   /* white laminate fronts (s05, s07) */
+  --korpus:#DFE3E4;   /* white fronts in shade */
+  --tabule:#263240;   /* the STUDIO KUCHYNÍ board (s40) */
+  --dub:#9C7A52;      /* oak décor: kerfs, edges, dimension lines */
+  --fasada:#DDB866;   /* their yellow plaster, visit block only */
+  --znacka:#D42C00;   /* their web orange-red: the enquiry button only */
+  --seda:#4E5966;     /* secondary text on lamino */
+  --linka:#C9CFD2;
+  --ram:1240px;
+  --okraj:16px;
+}
+@media (min-width:760px){:root{--okraj:40px}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--lamino);-webkit-text-size-adjust:100%;scroll-padding-bottom:84px}
+body{margin:0;background:var(--lamino);color:var(--tabule);font:400 16px/1.6 Sora,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
+h1,h2,h3{font-weight:600;line-height:1.12;letter-spacing:-.012em;margin:0;text-wrap:balance}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+a,button,input,select,textarea,label,summary{touch-action:manipulation}
+:focus-visible{outline:3px solid var(--znacka);outline-offset:3px}
+.tabule :focus-visible,.pata :focus-visible,.nabidka :focus-visible,.prohlizec :focus-visible{outline-color:#FFB49A}
+html.dotyk :focus-visible{outline:0}
+[tabindex="-1"]:focus{outline:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ram{max-width:calc(var(--ram) + 2*var(--okraj));margin:0 auto;padding:0 var(--okraj)}
+
+/* header */
+.hlava{position:sticky;top:0;z-index:20;background:var(--lamino);border-bottom:1px solid var(--linka)}
+.hlava .ram{display:flex;align-items:center;gap:12px;min-height:56px}
+.znak{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:15px;min-height:44px}
+.znak i{display:grid;place-items:center;width:36px;height:36px;background:var(--tabule);color:#fff;font-style:normal;font-weight:600;font-size:15px;letter-spacing:.02em}
+.znak .nazev{display:none}
+.podstranka .znak .nazev{display:inline}
+.odkazy{display:none}
+.jazyk{display:flex;margin-left:auto}
+.jazyk button{background:none;border:0;min-width:44px;min-height:44px;font-size:14px;font-weight:500;color:var(--seda);cursor:pointer}
+.jazyk button[aria-pressed="true"]{color:var(--tabule);text-decoration:underline;text-underline-offset:5px}
+.menu-tl{border:1px solid var(--tabule);background:none;min-height:44px;padding:0 16px;font-size:15px;font-weight:500;cursor:pointer}
+@media (min-width:980px){
+  .znak .nazev{display:inline}
+  .odkazy{display:flex;gap:4px;margin-left:24px}
+  .odkazy a{display:flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-size:15px}
+  .odkazy a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
+  .menu-tl{display:none}
+  .hlava .poptat{display:inline-flex;min-height:44px;padding:0 20px;font-size:15px}
+}
+.hlava .poptat{display:none}
+@media (min-width:980px){.hlava .poptat{display:inline-flex}}
+
+/* the one accent */
+.poptat{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;background:var(--znacka);color:#fff;border:0;font-weight:600;font-size:17px;text-decoration:none;cursor:pointer}
+.tichy{display:inline-flex;align-items:center;min-height:44px;font-weight:500}
+
+/* menu sheet */
+.nabidka{margin:0;inset:0 0 auto 0;width:100%;max-width:none;max-height:100dvh;border:0;padding:0;background:var(--tabule);color:#fff;outline:0}
+.nabidka::backdrop{background:rgba(20,26,34,.5)}
+.nabidka .ram{padding-top:8px;padding-bottom:28px}
+.nabidka .horni{display:flex;justify-content:space-between;align-items:center;min-height:56px}
+.nabidka ul{list-style:none;margin:8px 0 20px;padding:0}
+.nabidka li a{display:flex;align-items:center;min-height:56px;font-size:24px;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.14)}
+.nabidka .zavrit{background:none;border:1px solid #fff;color:#fff;min-height:44px;padding:0 16px;cursor:pointer}
+.nabidka .tel{font-size:18px;font-weight:500}
+
+/* hero */
+.uvod{padding-bottom:56px}
+.uvod .foto{margin:0 calc(-1*var(--okraj))}
+.uvod .foto img{width:100%;aspect-ratio:390/236;object-fit:cover;object-position:40% 55%}
+.uvod h1{font-size:40px;margin-top:18px}
+.uvod .co{margin-top:8px;font-size:15px;line-height:1.5;color:var(--seda);max-width:34em}
+.dukaz{margin-top:14px;font-size:14px;line-height:1.45}
+.dukaz q{font-weight:600;quotes:"„" "“"}
+.dukaz q:lang(en){quotes:"“" "”"}
+.dukaz a{display:inline-flex;min-height:28px;align-items:center}
+.akce{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px}
+.stav-radek{display:flex;flex-wrap:wrap;gap:0 16px;margin-top:6px;font-size:14px}
+.stav-radek a{display:inline-flex;min-height:44px;align-items:center;font-weight:500}
+.stav{display:inline-flex;align-items:center;min-height:44px;color:var(--seda)}
+@media (min-width:760px){
+  .uvod{padding-top:40px;padding-bottom:24px}
+  .uvod .ram{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:center}
+  .uvod .foto{margin:0;order:0}
+  .uvod .foto img{aspect-ratio:1496/880;object-position:50% 50%}
+  .uvod h1{font-size:clamp(44px,5.4vw,76px);margin-top:0}
+  .uvod .co{font-size:17px;margin-top:16px}
+  .dukaz{font-size:15px;margin-top:24px}
+  .akce{margin-top:28px}
+}
+
+/* sections */
+.oddil{padding:64px 0}
+@media (min-width:760px){.oddil{padding:104px 0}}
+.oddil h2{font-size:28px}
+@media (min-width:760px){.oddil h2{font-size:40px}}
+.oddil .uvodni{margin-top:12px;max-width:36em;color:var(--seda)}
+.oddil + .oddil{border-top:1px solid var(--linka)}
+
+/* studio + workshop */
+.dvur .fakta{margin:24px 0 0;padding:0;list-style:none;max-width:38em}
+.dvur .fakta li{padding:12px 0;border-top:1px solid var(--linka)}
+.dvur .fakta li:last-child{border-bottom:1px solid var(--linka)}
+.dvur figure{margin:32px 0 0}
+.dvur figcaption{margin-top:8px;font-size:14px;color:var(--seda)}
+@media (min-width:760px){
+  .dvur .ram{display:grid;grid-template-columns:5fr 7fr;gap:24px 48px}
+  .dvur .text{grid-row:1/3}
+  .dvur figure{margin:0}
+  .dvur .f2{grid-column:2}
+}
+
+/* the cutting plan */
+.deska{position:relative;margin-top:32px;padding:22px 0 0 22px}
+.kota{position:absolute;color:var(--dub);font-size:12px;font-weight:500;letter-spacing:.02em}
+.kota-x{top:0;left:22px;right:0;height:14px;border-left:1px solid var(--dub);border-right:1px solid var(--dub)}
+.kota-x::before{content:"";position:absolute;left:0;right:0;top:7px;border-top:1px solid var(--dub)}
+.kota-x span{position:relative;display:block;width:max-content;margin:-2px auto 0;padding:0 8px;background:var(--lamino);line-height:16px}
+.kota-y{left:0;top:22px;bottom:0;width:14px;border-top:1px solid var(--dub);border-bottom:1px solid var(--dub)}
+.kota-y::before{content:"";position:absolute;top:0;bottom:0;left:7px;border-left:1px solid var(--dub)}
+.kota-y span{position:absolute;top:50%;left:7px;transform:translate(-50%,-50%) rotate(-90deg);padding:0 8px;background:var(--lamino);line-height:16px;white-space:nowrap}
+.kota .m{display:none}
+.plocha{display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(14,1fr);gap:3px;aspect-ratio:2070/2800;background:var(--dub);border:3px solid var(--dub)}
+.dil{grid-area:var(--m);position:relative;padding:0;border:0;background:var(--korpus);overflow:hidden;cursor:pointer;min-height:44px}
+.dil img{width:100%;height:100%;object-fit:cover}
+.stitek{position:absolute;left:6px;top:6px;background:#fff;color:var(--tabule);padding:3px 7px 4px;font-size:11px;line-height:1.3;text-align:left;box-shadow:0 0 0 1px rgba(38,50,64,.12)}
+.stitek b{display:block;font-size:13px;font-weight:600;letter-spacing:.01em}
+.odrezek{grid-area:var(--m);display:flex;align-items:flex-end;padding:10px;font-weight:600;font-size:14px;line-height:1.3;text-decoration:none;color:var(--tabule);
+  background:repeating-linear-gradient(-45deg,var(--korpus) 0 7px,var(--lamino) 7px 11px)}
+.odrezek span{background:var(--lamino);padding:4px 6px;text-decoration:underline;text-underline-offset:3px}
+.odrezek.s-textem{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:8px}
+.odrezek blockquote{margin:0;background:var(--lamino);padding:8px 10px;font-weight:400;font-size:14px;max-width:34em}
+.odrezek cite{display:block;font-style:normal;font-size:13px;color:var(--seda);margin-top:4px}
+.odrezek>a{display:inline-flex;align-items:center;min-height:44px;background:var(--lamino);padding:0 10px;text-underline-offset:3px}
+@media (hover:hover){
+  .dil:hover .stitek{background:var(--tabule);color:#fff}
+  .odrezek:hover span,.odrezek>a:hover{text-decoration-thickness:2px}
+  .poptat:hover{background:#B52500}
+  .odkazy a:hover,.tichy:hover{text-decoration:underline}
+  .menu-tl:hover{background:var(--tabule);color:#fff}
+}
+@media (min-width:760px){
+  .deska{padding:26px 0 0 26px}
+  .kota-x{left:26px}.kota-y{top:26px}
+  .kota .m{display:inline}.kota .t{display:none}
+  .plocha{grid-template-columns:repeat(14,1fr);grid-template-rows:repeat(10,1fr);aspect-ratio:2800/2070}
+  .dil,.odrezek{grid-area:var(--d)}
+  .stitek{left:10px;top:10px;font-size:12px;padding:4px 9px 5px}
+  .stitek b{font-size:15px}
+  .odrezek{padding:16px;font-size:15px}
+}
+
+/* process */
+.kroky{list-style:none;margin:32px 0 0;padding:0;counter-reset:k}
+.krok{counter-increment:k;display:grid;grid-template-columns:40px 1fr;gap:0 12px;padding:18px 0;border-top:1px solid var(--linka)}
+.krok::before{content:counter(k);font-weight:600;font-size:20px;line-height:1.3;color:var(--dub)}
+.krok h3{font-size:18px;line-height:1.35}
+.krok p{grid-column:2;margin-top:4px;color:var(--seda)}
+.krok blockquote{grid-column:2;margin:14px 0 0;padding:0 0 0 14px;border-left:3px solid var(--fasada)}
+.krok blockquote p{color:var(--tabule);margin:0}
+.krok cite{display:block;margin-top:6px;font-style:normal;font-size:14px;color:var(--seda)}
+.krok cite small{font-size:13px}
+@media (min-width:760px){
+  .kroky .krok{grid-template-columns:56px 5fr 6fr;gap:0 40px}
+  .krok::before{font-size:24px}
+  .krok h3{font-size:20px}
+  .krok p{grid-column:2}
+  .kroky .krok{grid-template-rows:auto 1fr}
+  .krok p{align-self:start}
+  .krok blockquote{grid-column:3;grid-row:1/3;margin:0;align-self:start}
+}
+.dal{margin-top:28px}
+
+/* visit block: their façade */
+.navsteva{background:var(--fasada);color:var(--tabule)}
+.navsteva .uvodni,.navsteva .stav{color:#3D3A2E}
+.navsteva .budova{margin:28px calc(-1*var(--okraj)) 0}
+.navsteva .mapa{background:var(--lamino)}
+.navsteva .budova img{width:100%;aspect-ratio:1360/700;object-fit:cover}
+.navsteva dl{margin:24px 0 0;display:grid;gap:14px}
+.navsteva dt{font-size:14px;color:#4A4535}
+.navsteva dd{margin:2px 0 0;font-weight:500}
+.navsteva dd a{display:inline-flex;min-height:44px;align-items:center}
+.mapa{margin-top:24px;background:var(--korpus);aspect-ratio:16/9;display:grid;place-items:center;position:relative}
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mapa button{min-height:48px;padding:0 20px;border:1px solid var(--tabule);background:var(--lamino);font-weight:500;cursor:pointer}
+@media (min-width:760px){
+  .navsteva .ram{display:grid;grid-template-columns:6fr 6fr;gap:0 56px;align-items:start}
+  .navsteva .budova{margin:0;grid-column:2;grid-row:1/4}
+  .navsteva .mapa{grid-column:1;grid-row:2;aspect-ratio:2/1;margin-top:32px}
+}
+
+/* footer */
+.pata{background:var(--tabule);color:#E6EAEE;padding:48px 0 120px;font-size:14px}
+.pata a{color:#fff}
+.pata .sloupce{display:grid;gap:24px}
+.pata strong{display:block;color:#fff;font-size:16px;margin-bottom:6px}
+.pata .pravni{margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);color:#BFC7CF;font-size:13px}
+.pata .pravni p+p{margin-top:6px}
+.pata li a,.pata p a{display:inline-flex;min-height:44px;align-items:center}
+.pata ul{list-style:none;margin:0;padding:0}
+@media (min-width:760px){.pata{padding-bottom:48px}.pata .sloupce{grid-template-columns:repeat(3,1fr)}}
+
+/* phone bar */
+.lista{position:fixed;left:0;right:0;bottom:0;z-index:15;display:flex;align-items:stretch;background:var(--lamino);border-top:1px solid var(--linka);padding:8px var(--okraj) calc(8px + env(safe-area-inset-bottom));gap:12px;visibility:hidden;transform:translateY(100%);transition:transform .2s ease,visibility 0s .2s}
+.lista.ukaz{visibility:visible;transform:none;transition:transform .2s ease}
+.lista .tichy{flex:1;font-size:16px}
+.lista .poptat{min-height:48px;padding:0 22px;font-size:16px}
+@media (min-width:760px){.lista{display:none}}
+
+/* project viewer */
+.prohlizec{margin:0;inset:0;width:100%;height:100%;max-width:none;max-height:none;border:0;padding:0;background:#151B22;color:#fff;outline:0}
+.prohlizec[open]{display:grid;grid-template-rows:auto 1fr auto}
+.prohlizec .horni,.prohlizec .dolni{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px var(--okraj)}
+.prohlizec .nazev{font-weight:600}
+.prohlizec .pocet{color:#BFC7CF;font-size:14px;font-variant-numeric:tabular-nums}
+.prohlizec .jeviste{display:grid;place-items:center;min-height:0;padding:0 var(--okraj);touch-action:pan-y}
+.prohlizec .jeviste img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.prohlizec button{min-height:44px;min-width:44px;padding:0 16px;background:none;border:1px solid rgba(255,255,255,.6);color:#fff;cursor:pointer}
+.prohlizec .dolni{padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+
+/* pages */
+.hlavicka{padding:40px 0 8px}
+.hlavicka h1{font-size:36px}
+.hlavicka .uvodni{margin-top:12px;max-width:36em;color:var(--seda)}
+@media (min-width:760px){.hlavicka{padding:72px 0 16px}.hlavicka h1{font-size:60px}.hlavicka .uvodni{font-size:18px}}
+
+/* realizace */
+.citat{margin:32px 0 0;max-width:40em;padding-left:16px;border-left:3px solid var(--fasada)}
+.citat p{font-size:17px}
+.citat cite{display:block;margin-top:8px;font-style:normal;font-size:14px;color:var(--seda)}
+
+/* postup */
+.postup{list-style:none;margin:32px 0 0;padding:0;counter-reset:k}
+.postup>li{counter-increment:k;padding:28px 0;border-top:1px solid var(--linka);display:grid;gap:12px;align-content:start}
+.postup h2{font-size:22px}
+.postup h2::before{content:counter(k) ". ";color:var(--dub)}
+.postup img{width:100%;aspect-ratio:652/475;object-fit:cover}
+.postup p{max-width:36em}
+.postup blockquote{margin:6px 0 0;padding-left:14px;border-left:3px solid var(--fasada);max-width:36em}
+.postup cite{display:block;margin-top:6px;font-style:normal;font-size:14px;color:var(--seda)}
+@media (min-width:760px){
+  .postup>li{grid-template-columns:4fr 7fr;gap:10px 48px;align-items:start}
+  .postup img{grid-row:1/5}
+  .postup h2{font-size:26px}
+}
+.vyroba ol{margin:24px 0 0;padding-left:1.4em;max-width:38em}
+.vyroba ol li{padding:6px 0}
+.vyroba ol li::marker{color:var(--dub);font-weight:600}
+.vyroba .fotky{display:grid;gap:12px;margin-top:28px;min-width:0}
+.vyroba .fotky img{width:100%}
+.nw{white-space:nowrap}
+@media (min-width:760px){.vyroba .ram{display:grid;grid-template-columns:6fr 6fr;gap:0 56px;align-items:start}.vyroba .fotky{margin-top:0}}
+.roky{list-style:none;margin:24px 0 0;padding:0;max-width:40em}
+.roky li{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--linka)}
+.roky b{font-weight:600;font-variant-numeric:tabular-nums}
+
+/* poptavka */
+.poptavka-foto{margin:0 calc(-1*var(--okraj))}
+.poptavka-foto img{width:100%;aspect-ratio:1600/592;object-fit:cover;object-position:30% 50%}
+@media (max-width:759px){.poptavka-foto img{aspect-ratio:390/200}}
+@media (min-width:760px){.poptavka-foto{margin:0}}
+.formular{margin-top:28px;display:grid;gap:18px;max-width:640px}
+.pole label,.pole legend{display:block;font-weight:500;margin-bottom:6px}
+.pole small{font-weight:400;color:var(--seda)}
+.pole input:not([type=radio]):not([type=checkbox]),.pole select,.pole textarea{width:100%;min-height:48px;padding:10px 12px;background:#fff;border:1px solid #8D97A1;border-radius:0;font-size:16px}
+.pole textarea{min-height:120px;resize:vertical}
+.pole input[type=file]{padding:10px;background:var(--lamino)}
+fieldset.pole{border:0;margin:0;padding:0}
+.volby{display:flex;flex-wrap:wrap;gap:8px}
+.volby label{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid #8D97A1;background:#fff;font-weight:400;margin:0;cursor:pointer}
+.volby input{accent-color:var(--tabule);width:18px;height:18px;margin:0}
+.dva{display:grid;gap:18px}
+@media (min-width:760px){.dva{grid-template-columns:1fr 1fr}}
+.ukazka{border:1px dashed var(--seda);padding:10px 12px;font-size:14px;color:var(--seda)}
+.vysledek{border:2px solid var(--tabule);background:#fff;padding:16px;font-weight:500}
+.vysledek[hidden]{display:none}
+.vedomi{font-size:13px;color:var(--seda)}
+.kontakty{display:grid;gap:28px;margin-top:8px}
+.kontakty h2{font-size:22px;margin-bottom:8px}
+.kontakty a{display:inline-flex;min-height:44px;align-items:center}
+@media (min-width:980px){.poptavka-telo{display:grid;grid-template-columns:7fr 5fr;gap:0 64px}.kontakty{margin-top:28px}}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poptávka a&nbsp;kontakt | Kuchyně Havelka, Stráž nad Nisou</title>
+<meta name="description" content="Poptejte kuchyň nebo skříň na míru. Studio Kuchyně Havelka, Studánecká 591, Stráž nad Nisou. Po–Čt 9.30–17.00, Pá 9.30–14.30." data-i18n-content="meta.poptavka">
+<meta name="robots" content="noindex">
+<!-- Demo: noindex until handover. No cookies, no third-party request on load (fonts self-hosted, map loads on tap). -->
+<link rel="preload" href="fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23263240%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22sans-serif%22 font-size=%2213%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EKH%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="podstranka" data-title="t.poptavka">
+<header class="hlava">
+  <div class="ram">
+    <a class="znak" href="index.html" aria-label="Kuchyně Havelka, úvod" data-i18n-aria-label="a.home"><i aria-hidden="true">KH</i><span class="nazev" aria-hidden="true">Kuchyně Havelka</span></a>
+    <nav class="odkazy" aria-label="Stránky" data-i18n-aria-label="a.nav">
+      <a href="realizace.html" data-i18n="n.real">Realizace</a>
+      <a href="postup.html" data-i18n="n.postup">Jak pracujeme</a>
+      <a href="poptavka.html" aria-current="page" data-i18n="n.kontakt">Kontakt</a>
+    </nav>
+    <div class="jazyk" role="group" aria-label="Jazyk / Language"><button type="button" data-lang="cs" aria-pressed="true" lang="cs">CZ</button><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
+    <a class="poptat" href="poptavka.html" data-i18n="b.poptat">Poptat kuchyň</a>
+    <button class="menu-tl" type="button" aria-haspopup="dialog" aria-controls="menu">Menu</button>
+  </div>
+</header>
+
+<dialog id="menu" class="nabidka" aria-label="Menu" tabindex="-1">
+  <div class="ram">
+    <div class="horni"><span class="znak"><i aria-hidden="true">KH</i></span><button type="button" class="zavrit" data-i18n="b.zavrit">Zavřít</button></div>
+    <ul>
+      <li><a href="index.html" data-i18n="n.uvod">Úvod</a></li>
+      <li><a href="realizace.html" data-i18n="n.real">Realizace</a></li>
+      <li><a href="postup.html" data-i18n="n.postup">Jak pracujeme</a></li>
+      <li><a href="poptavka.html" data-i18n="n.poptavka">Poptávka a&nbsp;kontakt</a></li>
+    </ul>
+    <a class="tel" href="tel:+420775323439">775&nbsp;323&nbsp;439</a>
+  </div>
+</dialog>
+
+<main>
+  <div class="hlavicka" style="padding-top:0"><div class="ram">
+    <figure class="poptavka-foto" style="margin-block:0 24px"><img src="img/konzultace-pas.jpg" width="1600" height="592" alt="Prodejkyně ve studiu vysvětluje zákaznici ovládání vestavěné trouby" data-i18n-alt="alt.pas" fetchpriority="high"></figure>
+    <h1 data-i18n="pq.h">Poptávka</h1>
+    <p class="uvodni" data-i18n="pq.p">Napište, co plánujete. Ozveme se a&nbsp;domluvíme schůzku ve&nbsp;studiu nebo zaměření u&nbsp;vás. Nebo rovnou zavolejte na&nbsp;<a href="tel:+420775323439">775&nbsp;323&nbsp;439</a>.</p>
+  </div></div>
+
+  <section class="oddil" aria-labelledby="formular-h" style="padding-top:8px">
+    <div class="ram poptavka-telo">
+      <form class="formular" id="formular" novalidate aria-labelledby="formular-h">
+        <!-- DEMO FORM: no action, nothing is sent anywhere. At handover wire it to the studio inbox (NOTES.md, owner question 7). -->
+        <h2 id="formular-h" class="sr" data-i18n="pq.fh">Formulář poptávky</h2>
+        <fieldset class="pole">
+          <legend data-i18n="pq.co">Co plánujete</legend>
+          <div class="volby">
+            <label><input type="radio" name="co" value="kuchyn" checked> <span data-i18n="pq.co1">Kuchyň</span></label>
+            <label><input type="radio" name="co" value="skrin"> <span data-i18n="pq.co2">Vestavěnou skříň</span></label>
+            <label><input type="radio" name="co" value="jine"> <span data-i18n="pq.co3">Jiný nábytek na&nbsp;míru</span></label>
+          </div>
+        </fieldset>
+        <div class="dva">
+          <div class="pole"><label for="jmeno" data-i18n="pq.jm">Jméno a&nbsp;příjmení</label><input id="jmeno" name="jmeno" autocomplete="name" required></div>
+          <div class="pole"><label for="telefon" data-i18n="pq.tel">Telefon</label><input id="telefon" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required></div>
+        </div>
+        <div class="dva">
+          <div class="pole"><label for="email">E-mail <small data-i18n="pq.nep">(nepovinné)</small></label><input id="email" name="email" type="email" autocomplete="email"></div>
+          <div class="pole"><label for="obec" data-i18n="pq.obec">Kde to bude (obec)</label><input id="obec" name="obec" autocomplete="address-level2"></div>
+        </div>
+        <div class="pole"><label for="kdy" data-i18n="pq.kdy">Kdy to potřebujete</label>
+          <select id="kdy" name="kdy">
+            <option data-i18n="pq.k1">Ještě nevím, zatím se rozhoduji</option>
+            <option data-i18n="pq.k2">Do&nbsp;3 měsíců</option>
+            <option data-i18n="pq.k3">Do&nbsp;půl roku</option>
+            <option data-i18n="pq.k4">Později</option>
+          </select></div>
+        <div class="pole"><label for="zprava" data-i18n="pq.zpr">Co si představujete</label><textarea id="zprava" name="zprava" data-i18n-placeholder="pq.zprph" placeholder="Rozměry místnosti, barvy, spotřebiče…"></textarea></div>
+        <div class="pole"><label for="plan"><span data-i18n="pq.plan">Půdorys nebo fotka místnosti</span> <small data-i18n="pq.nep">(nepovinné)</small></label><input id="plan" name="plan" type="file" accept="image/*,.pdf"></div>
+        <p class="ukazka" data-i18n="pq.ukazka">Ukázka: tento formulář zatím nic neodesílá.</p>
+        <div><button class="poptat" type="submit" data-i18n="pq.odeslat">Odeslat poptávku</button></div>
+        <p class="vysledek" role="status" tabindex="-1" hidden></p>
+        <p class="vedomi" data-i18n="pq.gdpr">Odesláním berete na&nbsp;vědomí, že údaje použijeme jen k&nbsp;odpovědi na&nbsp;vaši poptávku.</p>
+      </form>
+
+      <div class="kontakty">
+        <div><h2 data-i18n="pq.studio">Studio</h2>
+          <p>Studánecká 591<br>463&nbsp;03 Stráž nad Nisou</p>
+          <p data-i18n="v.hod1">Pondělí až čtvrtek <span class="nw">9.30–17.00</span>, pátek <span class="nw">9.30–14.30</span>. Jindy po&nbsp;telefonické domluvě.</p>
+          <p class="stav" data-stav></p>
+          <p data-i18n="pq.park">Parkování přímo před prodejnou.</p></div>
+        <div><h2 data-i18n="v.tel">Telefon</h2>
+          <p><a href="tel:+420775323439">+420&nbsp;775&nbsp;323&nbsp;439</a><br><a href="tel:+420482323439">+420&nbsp;482&nbsp;323&nbsp;439</a><br><a href="mailto:info@kuchynehavelka.cz">info@kuchynehavelka.cz</a></p></div>
+        <div class="mapa"><button type="button" data-i18n="v.mapa">Ukázat mapu</button></div>
+        <p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Kuchyn%C4%9B+Havelka%2C+Stud%C3%A1neck%C3%A1+591%2C+Str%C3%A1%C5%BE+nad+Nisou" data-i18n="pq.trasa">Trasa v&nbsp;Google Mapách</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<footer class="pata">
+  <div class="ram">
+    <div class="sloupce">
+      <div><strong>Kuchyně Havelka</strong><p>Studánecká 591<br>463&nbsp;03 Stráž nad Nisou</p></div>
+      <div><strong data-i18n="f.kontakt">Kontakt</strong><ul><li><a href="tel:+420775323439">+420&nbsp;775&nbsp;323&nbsp;439</a></li><li><a href="tel:+420482323439">+420&nbsp;482&nbsp;323&nbsp;439</a></li><li><a href="mailto:info@kuchynehavelka.cz">info@kuchynehavelka.cz</a></li></ul></div>
+      <div><strong data-i18n="f.str">Stránky</strong><ul><li><a href="realizace.html" data-i18n="n.real">Realizace</a></li><li><a href="postup.html" data-i18n="n.postup">Jak pracujeme</a></li><li><a href="poptavka.html" data-i18n="n.poptavka">Poptávka a&nbsp;kontakt</a></li></ul></div>
+    </div>
+    <div class="pravni">
+      <p data-i18n="f.prov">Provozovatel: IKH CZ s.r.o., Studánecká 591, 463&nbsp;03 Stráž nad Nisou, IČ 28665805, DIČ CZ28665805. Společnost je vedená u&nbsp;rejstříkového soudu v&nbsp;Ústí nad Labem, oddíl C&nbsp;32806.</p>
+      <p data-i18n="f.adr">Případné spory lze řešit mimosoudně u&nbsp;České obchodní inspekce, <a href="https://coi.gov.cz/informace-o-adr/">https://coi.gov.cz/informace-o-adr/</a></p>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
